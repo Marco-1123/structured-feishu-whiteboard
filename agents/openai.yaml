@@ -1,0 +1,4 @@
+interface:
+  display_name: "Structured Feishu Whiteboard"
+  short_description: "Turn materials into structured Feishu whiteboards"
+  default_prompt: "Use $structured-feishu-whiteboard to turn this material into a clear, editable Feishu whiteboard."
