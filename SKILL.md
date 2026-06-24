@@ -1,10 +1,10 @@
 ---
 name: structured-feishu-whiteboard
 description: >
-  结构化飞书画板：把用户提供的材料、报告、方案、网页信息、飞书文档内容、会议整理或自由文本，
-  提炼成清晰的信息结构，并生成可编辑、排版美观的飞书 / Lark 画板。适用于用户要求“做成飞书画板”、
-  “美化成画板”、“把内容结构化展示”、“像 PPT/咨询报告一样呈现”、“做成信息图/汇报图/战略图/路线图/对比矩阵/流程图”。
-  默认新建飞书文档，写入可编辑白板，并返回文档链接和渲染预览图。
+  Use when the user wants to turn materials, reports, plans, webpages, Feishu docs,
+  meeting notes, or free text into a structured, editable Feishu/Lark whiteboard,
+  including requests for whiteboard beautification, consulting-style diagrams,
+  infographics, roadmaps, matrices, workflows, or visual summaries.
 ---
 
 # Structured Feishu Whiteboard

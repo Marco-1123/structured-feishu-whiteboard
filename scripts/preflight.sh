@@ -35,7 +35,7 @@ if command -v npx >/dev/null 2>&1; then
 fi
 
 if command -v lark-cli >/dev/null 2>&1; then
-  if lark-cli auth whoami --as user >/dev/null 2>&1; then
+  if lark-cli auth status >/dev/null 2>&1 && lark-cli auth list >/dev/null 2>&1; then
     echo "ok: lark-cli user auth"
   else
     echo "warning: lark-cli user auth not confirmed; run lark-cli auth login if whiteboard write fails"

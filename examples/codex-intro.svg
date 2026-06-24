@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1120" viewBox="0 0 1680 1120">
+  <defs>
+    <marker id="arrow-blue" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M0 0 L10 4 L0 8 z" fill="#2563EB"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1680" height="1120" fill="#F7FAFC"/>
+
+  <rect x="72" y="60" width="1536" height="150" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+  <rect x="72" y="60" width="12" height="150" rx="6" fill="#2563EB"/>
+  <text x="112" y="122" font-size="48" fill="#172033" font-weight="700">
+    Codex：从代码执行到产品交付的协作 Agent
+  </text>
+  <text x="112" y="174" font-size="28" fill="#5C6B82">
+    <tspan x="112" dy="0">它把理解需求、修改代码、验证结果和沉淀流程连接起来，让复杂软件任务从“对话”推进到“可交付”。</tspan>
+  </text>
+
+  <rect x="72" y="242" width="1536" height="166" rx="14" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+  <text x="112" y="294" font-size="20" fill="#2563EB" font-weight="700">核心结论</text>
+  <text x="112" y="336" font-size="34" fill="#172033" font-weight="700">
+    <tspan x="112" dy="0">Codex 的价值不是“替你写几行代码”，而是把工程任务组织成</tspan>
+    <tspan x="112" dy="42">可审查、可验证、可复用的工作流。</tspan>
+  </text>
+
+  <rect x="72" y="456" width="360" height="320" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+  <rect x="104" y="492" width="48" height="48" rx="10" fill="#2563EB"/>
+  <text x="121" y="524" font-size="24" fill="#FFFFFF" font-weight="700">1</text>
+  <text x="104" y="586" font-size="28" fill="#172033" font-weight="700">理解上下文</text>
+  <text x="104" y="634" font-size="21" fill="#5C6B82">
+    <tspan x="104" dy="0">读取仓库结构、历史改动、</tspan>
+    <tspan x="104" dy="32">依赖和用户目标，先判断</tspan>
+    <tspan x="104" dy="32">问题边界再动手。</tspan>
+  </text>
+  <rect x="104" y="714" width="144" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+  <text x="124" y="739" font-size="17" fill="#2563EB" font-weight="700">上下文优先</text>
+
+  <rect x="460" y="456" width="360" height="320" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+  <rect x="492" y="492" width="48" height="48" rx="10" fill="#2563EB"/>
+  <text x="509" y="524" font-size="24" fill="#FFFFFF" font-weight="700">2</text>
+  <text x="492" y="586" font-size="28" fill="#172033" font-weight="700">执行工程动作</text>
+  <text x="492" y="634" font-size="21" fill="#5C6B82">
+    <tspan x="492" dy="0">能直接编辑文件、运行命令、</tspan>
+    <tspan x="492" dy="32">处理依赖和调试问题，减少</tspan>
+    <tspan x="492" dy="32">人工在工具间切换。</tspan>
+  </text>
+  <rect x="492" y="714" width="144" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+  <text x="512" y="739" font-size="17" fill="#2563EB" font-weight="700">本地可执行</text>
+
+  <rect x="848" y="456" width="360" height="320" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+  <rect x="880" y="492" width="48" height="48" rx="10" fill="#2563EB"/>
+  <text x="897" y="524" font-size="24" fill="#FFFFFF" font-weight="700">3</text>
+  <text x="880" y="586" font-size="28" fill="#172033" font-weight="700">验证与回溯</text>
+  <text x="880" y="634" font-size="21" fill="#5C6B82">
+    <tspan x="880" dy="0">通过测试、预览、日志和差异</tspan>
+    <tspan x="880" dy="32">检查确认结果，失败时回到</tspan>
+    <tspan x="880" dy="32">证据继续排查。</tspan>
+  </text>
+  <rect x="880" y="714" width="144" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+  <text x="900" y="739" font-size="17" fill="#2563EB" font-weight="700">证据闭环</text>
+
+  <rect x="1236" y="456" width="372" height="320" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+  <rect x="1268" y="492" width="48" height="48" rx="10" fill="#0F766E"/>
+  <text x="1285" y="524" font-size="24" fill="#FFFFFF" font-weight="700">4</text>
+  <text x="1268" y="586" font-size="28" fill="#172033" font-weight="700">沉淀为能力</text>
+  <text x="1268" y="634" font-size="21" fill="#5C6B82">
+    <tspan x="1268" dy="0">把稳定流程做成 Skill、脚本</tspan>
+    <tspan x="1268" dy="32">或项目约定，让下一次任务</tspan>
+    <tspan x="1268" dy="32">更快进入正确路径。</tspan>
+  </text>
+  <rect x="1268" y="714" width="144" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+  <text x="1288" y="739" font-size="17" fill="#0F766E" font-weight="700">流程复用</text>
+
+  <line x1="432" y1="622" x2="460" y2="622" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="820" y1="622" x2="848" y2="622" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="1208" y1="622" x2="1236" y2="622" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+  <rect x="72" y="820" width="1536" height="202" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+  <text x="112" y="872" font-size="28" fill="#172033" font-weight="700">典型使用路径</text>
+  <text x="112" y="918" font-size="21" fill="#5C6B82">
+    <tspan x="112" dy="0">1. 说清目标和约束</tspan>
+    <tspan x="448" dy="0">2. 让 Codex 阅读并规划</tspan>
+    <tspan x="810" dy="0">3. 执行修改和验证</tspan>
+    <tspan x="1152" dy="0">4. 形成结果、提交或复用</tspan>
+  </text>
+  <line x1="324" y1="944" x2="420" y2="944" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="690" y1="944" x2="778" y2="944" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <line x1="1040" y1="944" x2="1128" y2="944" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow-blue)"/>
+  <text x="112" y="982" font-size="19" fill="#5C6B82">
+    <tspan x="112" dy="0">适合代码修改、产品原型、调试排查、文档生成、自动化脚本和可复用 Skill 的建设。</tspan>
+  </text>
+
+  <rect x="72" y="1050" width="1536" height="22" rx="11" fill="#EEF4FA"/>
+  <rect x="72" y="1050" width="430" height="22" rx="11" fill="#2563EB"/>
+  <text x="72" y="1100" font-size="18" fill="#5C6B82">版式：结论先行 ｜ 风格：专业蓝白 ｜ 信息压缩：4 个关键能力 + 1 条使用路径</text>
+</svg>
