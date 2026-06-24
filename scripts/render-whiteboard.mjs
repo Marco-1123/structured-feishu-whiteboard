@@ -134,6 +134,34 @@ function renderFooter(brief, c, y, width) {
 ${text(112, y + 68, 27, c.ink, splitByLength(brief.footer, 42, 2), "700", 38)}`;
 }
 
+function renderModuleCard(x, y, w, h, c, module, options) {
+  const {
+    titleSize,
+    bodySize,
+    titleToBody,
+    bodyGap,
+    controlsGap,
+    labelWidth,
+    labelFill,
+  } = options;
+  const bodyLines = module.body.filter((line) => String(line).trim().length > 0);
+  const titleHeight = titleSize + 6;
+  const bodyHeight = bodyLines.length > 0 ? bodySize + (bodyLines.length - 1) * bodyGap : 0;
+  const controlsHeight = module.metric ? 46 + 16 + 36 : module.tag ? 36 : 0;
+  const contentHeight = titleHeight + titleToBody + bodyHeight + controlsGap + controlsHeight;
+  const top = Math.round(y + (h - contentHeight) / 2);
+  const titleY = top + titleSize;
+  const bodyY = titleY + titleToBody + bodySize;
+  const controlsY = bodyY + (bodyLines.length - 1) * bodyGap + controlsGap;
+  const metricPart = module.metric ? metric(x + 36, controlsY, 210, c, module.metric) : "";
+  const labelY = module.metric ? controlsY + 62 : controlsY;
+  return `${card(x, y, w, h, c)}
+${text(x + 36, titleY, titleSize, c.ink, [module.title], "700")}
+${text(x + 36, bodyY, bodySize, c.secondary, bodyLines, "400", bodyGap)}
+${metricPart}
+${label(x + 36, labelY, labelWidth, c, module.tag, labelFill)}`;
+}
+
 function renderConclusionFirst(brief, c) {
   const width = 1680;
   const moduleCount = brief.modules.length;
@@ -141,21 +169,25 @@ function renderConclusionFirst(brief, c) {
   const cardX = 72;
   const cardY = 460;
   const hasMetric = brief.modules.some((module) => module.metric);
-  const cardH = hasMetric ? 354 : 318;
+  const cardH = hasMetric ? 374 : 334;
   const cardW = Math.floor((width - 144 - gap * (moduleCount - 1)) / moduleCount);
   const modules = brief.modules.map((module, index) => {
     const x = cardX + index * (cardW + gap);
-    return `${card(x, cardY, cardW, cardH, c)}
-${text(x + 36, cardY + 72, 28, c.ink, [module.title], "700")}
-${text(x + 36, cardY + 128, 21, c.secondary, module.body, "400", 32)}
-${metric(x + 36, cardY + cardH - 118, 210, c, module.metric)}
-${label(x + 36, cardY + cardH - 62, 146, c, module.tag, index === moduleCount - 1 ? c.success : c.accent)}`;
+    return renderModuleCard(x, cardY, cardW, cardH, c, module, {
+      titleSize: 28,
+      bodySize: 21,
+      titleToBody: 38,
+      bodyGap: 32,
+      controlsGap: 38,
+      labelWidth: 146,
+      labelFill: index === moduleCount - 1 ? c.success : c.accent,
+    });
   }).join("\n");
-  return wrap(width, 1080, c, `
+  return wrap(width, 1100, c, `
 ${renderHeader(brief, c, width)}
 ${renderSummary(brief, c, 250, width)}
 ${modules}
-${renderFooter(brief, c, 840, width)}
+${renderFooter(brief, c, 870, width)}
 `);
 }
 
@@ -165,21 +197,25 @@ function renderProblemBreakdown(brief, c) {
   const gap = 28;
   const cardY = 438;
   const hasMetric = brief.modules.some((module) => module.metric);
-  const cardH = hasMetric ? 368 : 328;
+  const cardH = hasMetric ? 386 : 344;
   const cardW = Math.floor((width - 144 - gap * (moduleCount - 1)) / moduleCount);
   const modules = brief.modules.map((module, index) => {
     const x = 72 + index * (cardW + gap);
-    return `${card(x, cardY, cardW, cardH, c)}
-${text(x + 36, cardY + 78, 30, c.ink, [module.title], "700")}
-${text(x + 36, cardY + 138, 21, c.secondary, module.body, "400", 32)}
-${metric(x + 36, cardY + cardH - 118, 210, c, module.metric)}
-${label(x + 36, cardY + cardH - 62, 156, c, module.tag, c.success)}`;
+    return renderModuleCard(x, cardY, cardW, cardH, c, module, {
+      titleSize: 30,
+      bodySize: 21,
+      titleToBody: 40,
+      bodyGap: 32,
+      controlsGap: 40,
+      labelWidth: 156,
+      labelFill: c.success,
+    });
   }).join("\n");
-  return wrap(width, 1020, c, `
+  return wrap(width, 1040, c, `
 ${renderHeader(brief, c, width)}
 ${renderSummary(brief, c, 246, width)}
 ${modules}
-${renderFooter(brief, c, 824, width)}
+${renderFooter(brief, c, 844, width)}
 `);
 }
 
