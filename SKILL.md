@@ -21,9 +21,10 @@ description: >
 4. **长文处理**：中等内容、长文或复杂材料必须读取 [`references/long-form-workflow.md`](references/long-form-workflow.md)，先做信息架构草稿和总览画板决策；不要直接把全文塞进 SVG。
 5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从 5 个版式中选择一个主结构；不要自由发明复杂版式。
 6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从 3 套内置风格中选择一个；如果用户指定风格偏好，优先匹配。
-7. **生成 SVG**：读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md)，只使用飞书画板可编辑的 SVG 元素。
-8. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
-9. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
+7. **稳定渲染**：如果版式是结论先行或问题拆解，读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再用 `scripts/render-whiteboard.mjs` 生成 SVG；不要自由手写整张 SVG。
+8. **生成 SVG**：脚本暂不支持的版式，读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md)，只使用飞书画板可编辑的 SVG 元素。
+9. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
+10. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
 
 ## 默认输出
 
@@ -52,6 +53,7 @@ bash scripts/preflight.sh
 - 信息太多时，先压缩成 1 个主结论 + 3 到 6 个关键模块；不要把原文完整搬上画板。
 - 长文默认先做一张总览画板；不要自动拆多张，除非用户明确要求系列画板、完整展开或细节呈现。
 - 如果单图超过容量预算，不要靠缩小字号硬塞；按修复顺序压缩、换行、扩容或拆图。
+- 结论先行和问题拆解优先使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
 
 ## 交付标准
 

@@ -1,0 +1,54 @@
+# Deterministic Rendering
+
+当其他 Agent 使用本 skill 时，优先让 Agent 产出结构化 brief，再用脚本生成 SVG。不要让 Agent 自由手写整张 SVG，除非脚本暂不支持该版式。
+
+## 适用场景
+
+优先使用确定性渲染器：
+
+- 需要稳定复现专业蓝白等固定风格。
+- 长文或复杂材料容易出框、堆叠或拥挤。
+- 其他 Agent 产出与预期风格差异大。
+- 用户要求“按这个 skill 的标准版式生成”。
+
+## 工作流
+
+1. 按 `report-workflow.md` 和 `content-budget.md` 压缩内容。
+2. 生成符合 `schemas/whiteboard-brief.schema.json` 的 JSON brief。
+3. 运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
+4. 运行 `scripts/validate-brief.mjs brief.json`。
+5. 按 `quality-checklist.md` 渲染、检查、写入飞书。
+
+## Brief 约束
+
+- `layout` 只能是脚本支持的版式。
+- `modules` 只能有 3 到 5 个。
+- 每个模块正文最多 3 条短句。
+- 标题、正文和标签必须先压缩到 schema 限制内。
+- 不能把原文段落、长 URL、脚注或来源路径写入 brief。
+
+## 当前支持
+
+- `conclusion-first`
+- `problem-breakdown`
+
+其他版式仍按 `layout-library.md` 手写 SVG；稳定后再逐步脚本化。
+
+## 输出原则
+
+脚本负责：
+
+- 画布尺寸。
+- 卡片坐标。
+- 字号、行距、留白。
+- 箭头位置。
+- 颜色 token。
+- SVG 转义。
+
+Agent 负责：
+
+- 理解材料。
+- 压缩信息。
+- 选择版式和风格。
+- 填写 brief。
+- 执行渲染和检查。

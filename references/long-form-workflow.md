@@ -57,9 +57,10 @@
 1. 读取 `content-budget.md` 判断容量。
 2. 读取 `layout-library.md` 选择主版式。
 3. 读取 `style-library.md` 选择风格。
-4. 先写总览 SVG。
-5. 渲染检查，若超载按 `overflow-repair.md` 修复。
-6. 需要多图时，再逐张生成细节画板。
+4. 如果版式是结论先行或问题拆解，读取 `deterministic-rendering.md`，先写 brief，再由脚本生成 SVG。
+5. 脚本暂不支持的版式，再手写总览 SVG。
+6. 渲染检查，若超载按 `overflow-repair.md` 修复。
+7. 需要多图时，再逐张生成细节画板。
 
 ## 6. 长文默认输出
 
