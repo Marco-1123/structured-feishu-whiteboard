@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="960" viewBox="0 0 1680 960">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#38BDF8"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1680" height="960" fill="#101828"/>
+
+<text x="72" y="112" font-size="52" fill="#F8FAFC" font-weight="700"><tspan x="72" dy="0">结构化飞书画板生成链路</tspan></text>
+<text x="72" y="162" font-size="24" fill="#B7C2D5" font-weight="400"><tspan x="72" dy="0">把原始材料转成可编辑画板，需要理解、设计、转换和检查四类能力协同。</tspan></text>
+<rect x="72" y="300" width="250" height="280" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<rect x="104" y="338" width="46" height="46" rx="10" fill="#38BDF8"/>
+<text x="119" y="369" font-size="23" fill="#101828" font-weight="700"><tspan x="119" dy="0">1</tspan></text>
+<text x="104" y="438" font-size="28" fill="#F8FAFC" font-weight="700"><tspan x="104" dy="0">用户输入</tspan></text>
+<text x="104" y="492" font-size="20" fill="#B7C2D5" font-weight="400"><tspan x="104" dy="0">需求、文档、上下文</tspan></text>
+<line x1="322" y1="440" x2="384" y2="440" stroke="#38BDF8" stroke-width="4" marker-end="url(#arrow)"/>\n<rect x="384" y="300" width="250" height="280" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<rect x="416" y="338" width="46" height="46" rx="10" fill="#38BDF8"/>
+<text x="431" y="369" font-size="23" fill="#101828" font-weight="700"><tspan x="431" dy="0">2</tspan></text>
+<text x="416" y="438" font-size="28" fill="#F8FAFC" font-weight="700"><tspan x="416" dy="0">结构识别</tspan></text>
+<text x="416" y="492" font-size="20" fill="#B7C2D5" font-weight="400"><tspan x="416" dy="0">主题、角色、约束</tspan></text>
+<line x1="634" y1="440" x2="696" y2="440" stroke="#38BDF8" stroke-width="4" marker-end="url(#arrow)"/>\n<rect x="696" y="300" width="250" height="280" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<rect x="728" y="338" width="46" height="46" rx="10" fill="#38BDF8"/>
+<text x="743" y="369" font-size="23" fill="#101828" font-weight="700"><tspan x="743" dy="0">3</tspan></text>
+<text x="728" y="438" font-size="28" fill="#F8FAFC" font-weight="700"><tspan x="728" dy="0">策略生成</tspan></text>
+<text x="728" y="492" font-size="20" fill="#B7C2D5" font-weight="400"><tspan x="728" dy="0">版式、风格、信息取舍</tspan></text>
+<line x1="946" y1="440" x2="1008" y2="440" stroke="#38BDF8" stroke-width="4" marker-end="url(#arrow)"/>\n<rect x="1008" y="300" width="250" height="280" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<rect x="1040" y="338" width="46" height="46" rx="10" fill="#38BDF8"/>
+<text x="1055" y="369" font-size="23" fill="#101828" font-weight="700"><tspan x="1055" dy="0">4</tspan></text>
+<text x="1040" y="438" font-size="28" fill="#F8FAFC" font-weight="700"><tspan x="1040" dy="0">白板写入</tspan></text>
+<text x="1040" y="492" font-size="20" fill="#B7C2D5" font-weight="400"><tspan x="1040" dy="0">SVG 转可编辑节点</tspan></text>
+<line x1="1258" y1="440" x2="1320" y2="440" stroke="#38BDF8" stroke-width="4" marker-end="url(#arrow)"/>\n<rect x="1320" y="300" width="250" height="280" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<rect x="1352" y="338" width="46" height="46" rx="10" fill="#A3E635"/>
+<text x="1367" y="369" font-size="23" fill="#101828" font-weight="700"><tspan x="1367" dy="0">5</tspan></text>
+<text x="1352" y="438" font-size="28" fill="#F8FAFC" font-weight="700"><tspan x="1352" dy="0">质量回看</tspan></text>
+<text x="1352" y="492" font-size="20" fill="#B7C2D5" font-weight="400"><tspan x="1352" dy="0">预览、溢出、重叠</tspan></text>
+
+<rect x="72" y="690" width="1536" height="112" rx="18" fill="#22314A" stroke="#33445F" stroke-width="2"/>
+<text x="112" y="754" font-size="27" fill="#F8FAFC" font-weight="700"><tspan x="112" dy="0">关键控制点：每一步都要保留可编辑性，最终以飞书预览图验证真实效果。</tspan></text>
+
+</svg>

@@ -1,0 +1,32 @@
+[
+  {
+    "file": "01-conclusion-blue.svg",
+    "layout": "结论先行",
+    "style": "专业蓝白",
+    "expected": "材料有明确推荐判断，自动选择结论先行；默认选择专业蓝白。"
+  },
+  {
+    "file": "02-problem-dark.svg",
+    "layout": "问题拆解",
+    "style": "深色强调",
+    "expected": "材料围绕问题、原因、影响和治理动作，自动选择问题拆解；战略诊断感适合深色强调。"
+  },
+  {
+    "file": "03-matrix-warm.svg",
+    "layout": "对比矩阵",
+    "style": "暖灰编辑",
+    "expected": "材料有多个方案和评价维度，自动选择对比矩阵；研究总结感适合暖灰编辑。"
+  },
+  {
+    "file": "04-roadmap-blue.svg",
+    "layout": "路线图/阶段规划",
+    "style": "专业蓝白",
+    "expected": "材料按阶段推进，自动选择路线图；执行计划适合专业蓝白。"
+  },
+  {
+    "file": "05-flow-dark.svg",
+    "layout": "流程/价值链",
+    "style": "深色强调",
+    "expected": "材料描述输入、处理、输出链路，自动选择流程/价值链；系统链路适合深色强调。"
+  }
+]

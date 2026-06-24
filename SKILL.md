@@ -16,12 +16,14 @@ description: >
 使用本 skill 时，按这个顺序工作：
 
 1. **获取内容**：用户可能粘贴文本、给飞书文档、给网页、给本地文件，或要求你自行检索。读取动作可使用对应工具或其他 skill；本 skill 从“已获得的内容”开始负责结构化表达。
-2. **理解材料**：读取 [`references/report-workflow.md`](references/report-workflow.md)，提炼主题、结论、证据、对象、冲突、时间线和行动项。
-3. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从 5 个版式中选择一个主结构；不要自由发明复杂版式。
-4. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从 3 套内置风格中选择一个；如果用户指定风格偏好，优先匹配。
-5. **生成 SVG**：读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md)，只使用飞书画板可编辑的 SVG 元素。
-6. **检查质量**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)，渲染、查看、修正文字溢出、重叠、裁切和信息噪音。
-7. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
+2. **判断体量**：读取 [`references/content-budget.md`](references/content-budget.md)，判断材料是短内容、中等内容、长文/报告还是复杂材料。
+3. **理解材料**：读取 [`references/report-workflow.md`](references/report-workflow.md)，提炼主题、结论、证据、对象、冲突、时间线和行动项。
+4. **长文处理**：中等内容、长文或复杂材料必须读取 [`references/long-form-workflow.md`](references/long-form-workflow.md)，先做信息架构草稿和总览画板决策；不要直接把全文塞进 SVG。
+5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从 5 个版式中选择一个主结构；不要自由发明复杂版式。
+6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从 3 套内置风格中选择一个；如果用户指定风格偏好，优先匹配。
+7. **生成 SVG**：读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md)，只使用飞书画板可编辑的 SVG 元素。
+8. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
+9. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
 
 ## 默认输出
 
@@ -48,7 +50,8 @@ bash scripts/preflight.sh
 - 用户给的是计划、路线、阶段安排：优先用 **路线图/阶段规划**。
 - 用户给的是机制、业务链路、系统过程：优先用 **流程/价值链**。
 - 信息太多时，先压缩成 1 个主结论 + 3 到 6 个关键模块；不要把原文完整搬上画板。
-- 如果一个画板承载不下，先做一张总览画板；不要自动拆多张，除非用户明确要求系列画板。
+- 长文默认先做一张总览画板；不要自动拆多张，除非用户明确要求系列画板、完整展开或细节呈现。
+- 如果单图超过容量预算，不要靠缩小字号硬塞；按修复顺序压缩、换行、扩容或拆图。
 
 ## 交付标准
 
@@ -58,6 +61,8 @@ bash scripts/preflight.sh
 - 用户看完后应该记住哪 3 到 5 件事？
 - 版式为什么适合这份材料？
 - 哪些信息被删减、合并或降级？
+- 当前内容是否超过单画板容量？
+- 如果是长文，为什么选择总览画板或多画板？
 
 生成后必须确认：
 
@@ -65,3 +70,4 @@ bash scripts/preflight.sh
 - 所有正文是 `<text>` / `<tspan>`，不是路径或图片。
 - 结构元素使用 rect、circle、ellipse、line、polyline 等可编辑形状。
 - 画板没有无意义装饰、元信息页眉、来源说明或过程说明。
+- 没有乱码、异常符号、长 URL 或未清理的原文残片进入画板。

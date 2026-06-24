@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#38BDF8"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1600" height="1000" fill="#101828"/>
+
+<text x="72" y="110" font-size="52" fill="#F8FAFC" font-weight="700"><tspan x="72" dy="0">增长项目转化下滑诊断</tspan></text>
+<text x="72" y="158" font-size="24" fill="#B7C2D5" font-weight="400"><tspan x="72" dy="0">问题不是单个页面表现差，而是目标、数据和反馈机制没有形成闭环。</tspan></text>
+<rect x="72" y="220" width="1456" height="152" rx="18" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<text x="116" y="282" font-size="22" fill="#38BDF8" font-weight="700"><tspan x="116" dy="0">核心问题</tspan></text>
+<text x="116" y="330" font-size="34" fill="#F8FAFC" font-weight="700"><tspan x="116" dy="0">增长团队在执行很快，但学习速度慢于问题变化速度。</tspan></text>
+
+<rect x="72" y="430" width="456" height="320" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<text x="108" y="504" font-size="30" fill="#F8FAFC" font-weight="700"><tspan x="108" dy="0">目标漂移</tspan></text>
+<text x="108" y="564" font-size="22" fill="#B7C2D5" font-weight="400"><tspan x="108" dy="0">需求入口过多，</tspan><tspan x="108" dy="32">优先级反复变化。</tspan></text>
+
+  <rect x="108" y="688" width="160" height="34" rx="8" fill="#22314A" stroke="#33445F" stroke-width="1.5"/>
+  <text x="126" y="712" font-size="17" fill="#A3E635" font-weight="700"><tspan x="126" dy="0">治理：统一入口</tspan></text>\n<rect x="572" y="430" width="456" height="320" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<text x="608" y="504" font-size="30" fill="#F8FAFC" font-weight="700"><tspan x="608" dy="0">数据割裂</tspan></text>
+<text x="608" y="564" font-size="22" fill="#B7C2D5" font-weight="400"><tspan x="608" dy="0">漏斗、客服、销售</tspan><tspan x="608" dy="32">口径彼此不一致。</tspan></text>
+
+  <rect x="608" y="688" width="160" height="34" rx="8" fill="#22314A" stroke="#33445F" stroke-width="1.5"/>
+  <text x="626" y="712" font-size="17" fill="#A3E635" font-weight="700"><tspan x="626" dy="0">治理：指标字典</tspan></text>\n<rect x="1072" y="430" width="456" height="320" rx="14" fill="#182236" stroke="#33445F" stroke-width="2"/>
+<text x="1108" y="504" font-size="30" fill="#F8FAFC" font-weight="700"><tspan x="1108" dy="0">反馈滞后</tspan></text>
+<text x="1108" y="564" font-size="22" fill="#B7C2D5" font-weight="400"><tspan x="1108" dy="0">上线后两周才发现</tspan><tspan x="1108" dy="32">转化异常。</tspan></text>
+
+  <rect x="1108" y="688" width="160" height="34" rx="8" fill="#22314A" stroke="#33445F" stroke-width="1.5"/>
+  <text x="1126" y="712" font-size="17" fill="#A3E635" font-weight="700"><tspan x="1126" dy="0">治理：日监控</tspan></text>
+
+<rect x="72" y="810" width="1456" height="108" rx="18" fill="#22314A" stroke="#33445F" stroke-width="2"/>
+<text x="112" y="872" font-size="27" fill="#F8FAFC" font-weight="700"><tspan x="112" dy="0">判断：先补齐问题闭环，再扩大投放预算。</tspan></text>
+
+</svg>

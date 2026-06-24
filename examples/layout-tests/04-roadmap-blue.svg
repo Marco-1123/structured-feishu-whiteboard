@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="980" viewBox="0 0 1680 980">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#2563EB"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1680" height="980" fill="#F7FAFC"/>
+
+<text x="72" y="112" font-size="52" fill="#172033" font-weight="700"><tspan x="72" dy="0">AI 助手功能 12 周推进路线图</tspan></text>
+<text x="72" y="162" font-size="24" fill="#5C6B82" font-weight="400"><tspan x="72" dy="0">从需求对齐到试点上线，先验证核心价值，再扩大投入。</tspan></text>
+<line x1="170" y1="440" x2="1490" y2="440" stroke="#D8E2EF" stroke-width="8"/>
+<line x1="396" y1="440" x2="468" y2="440" stroke="#2563EB" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="90" y="260" width="300" height="360" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="122" y="300" width="92" height="36" rx="8" fill="#DBEAFE" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="140" y="325" font-size="17" fill="#2563EB" font-weight="700"><tspan x="140" dy="0">0-2 周</tspan></text>
+<text x="122" y="386" font-size="29" fill="#172033" font-weight="700"><tspan x="122" dy="0">需求对齐</tspan></text>
+<text x="122" y="450" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="122" dy="0">确定指标</tspan><tspan x="122" dy="30">定义用户画像</tspan></text>\n<line x1="786" y1="440" x2="858" y2="440" stroke="#2563EB" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="480" y="260" width="300" height="360" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="512" y="300" width="92" height="36" rx="8" fill="#DBEAFE" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="530" y="325" font-size="17" fill="#2563EB" font-weight="700"><tspan x="530" dy="0">3-6 周</tspan></text>
+<text x="512" y="386" font-size="29" fill="#172033" font-weight="700"><tspan x="512" dy="0">原型验证</tspan></text>
+<text x="512" y="450" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="512" dy="0">完成核心流程</tspan><tspan x="512" dy="30">访谈 10 个用户</tspan></text>\n<line x1="1176" y1="440" x2="1248" y2="440" stroke="#2563EB" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="870" y="260" width="300" height="360" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="902" y="300" width="92" height="36" rx="8" fill="#DBEAFE" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="920" y="325" font-size="17" fill="#2563EB" font-weight="700"><tspan x="920" dy="0">7-10 周</tspan></text>
+<text x="902" y="386" font-size="29" fill="#172033" font-weight="700"><tspan x="902" dy="0">小流量试点</tspan></text>
+<text x="902" y="450" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="902" dy="0">接入真实数据</tspan><tspan x="902" dy="30">监控转化漏斗</tspan></text>\n
+<rect x="1260" y="260" width="300" height="360" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="1292" y="300" width="92" height="36" rx="8" fill="#DBEAFE" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1310" y="325" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1310" dy="0">11-12 周</tspan></text>
+<text x="1292" y="386" font-size="29" fill="#172033" font-weight="700"><tspan x="1292" dy="0">复盘上线</tspan></text>
+<text x="1292" y="450" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="1292" dy="0">沉淀 SOP</tspan><tspan x="1292" dy="30">决定是否扩量</tspan></text>
+<rect x="72" y="720" width="1536" height="112" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="112" y="784" font-size="27" fill="#172033" font-weight="700"><tspan x="112" dy="0">成功标准：试点用户周活超过 45%，关键任务完成时间降低 30%。</tspan></text>
+
+</svg>
