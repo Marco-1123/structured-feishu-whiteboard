@@ -107,6 +107,12 @@ function label(x, y, w, c, content, fill = c.accent) {
 ${text(x + 18, y + 25, 17, fill, [content], "700", 24)}`;
 }
 
+function metric(x, y, w, c, content) {
+  if (!content) return "";
+  return `<rect x="${x}" y="${y}" width="${w}" height="46" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
+}
+
 function renderHeader(brief, c, width) {
   const subtitle = brief.subtitle ? text(112, 176, 26, c.secondary, [brief.subtitle]) : "";
   return `${card(72, 60, width - 144, 150, c)}
@@ -141,6 +147,7 @@ function renderConclusionFirst(brief, c) {
     return `${card(x, cardY, cardW, cardH, c)}
 ${text(x + 36, cardY + 72, 28, c.ink, [module.title], "700")}
 ${text(x + 36, cardY + 128, 21, c.secondary, module.body, "400", 32)}
+${metric(x + 36, cardY + cardH - 128, 190, c, module.metric)}
 ${label(x + 36, cardY + cardH - 72, 146, c, module.tag, index === moduleCount - 1 ? c.success : c.accent)}`;
   }).join("\n");
   return wrap(width, 1080, c, `
@@ -163,6 +170,7 @@ function renderProblemBreakdown(brief, c) {
     return `${card(x, cardY, cardW, cardH, c)}
 ${text(x + 36, cardY + 78, 30, c.ink, [module.title], "700")}
 ${text(x + 36, cardY + 138, 21, c.secondary, module.body, "400", 32)}
+${metric(x + 36, cardY + cardH - 130, 190, c, module.metric)}
 ${label(x + 36, cardY + cardH - 74, 156, c, module.tag, c.success)}`;
   }).join("\n");
   return wrap(width, 1020, c, `

@@ -15,6 +15,27 @@ for brief in examples/briefs/*.json; do
   npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -f svg --check >/dev/null
 done
 
+tmp_bad_brief="$(mktemp)"
+cat > "$tmp_bad_brief" <<'JSON'
+{
+  "layout": "conclusion-first",
+  "style": "professional-blue",
+  "title": "占位指标测试",
+  "summary": "这份 brief 应该因为包含 xx% 被拒绝。",
+  "modules": [
+    {"title": "模块一", "body": ["短句"], "tag": "标签", "metric": "xx%"},
+    {"title": "模块二", "body": ["短句"], "tag": "标签"},
+    {"title": "模块三", "body": ["短句"], "tag": "标签"}
+  ]
+}
+JSON
+if node scripts/validate-brief.mjs "$tmp_bad_brief" >/dev/null 2>&1; then
+  echo "placeholder metric validation failed" >&2
+  rm -f "$tmp_bad_brief"
+  exit 1
+fi
+rm -f "$tmp_bad_brief"
+
 for svg in examples/layout-tests/*.svg; do
   png="${svg%.svg}.png"
   npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null
