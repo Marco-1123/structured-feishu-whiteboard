@@ -62,7 +62,7 @@
           "metric": {
             "type": "string",
             "maxLength": 18,
-            "description": "Optional single concrete result metric. Do not use placeholders such as xx%, TBD, --, or 0风险."
+            "description": "Optional single concrete result metric or draft metric such as 覆盖率提升至 xx%. Avoid standalone placeholders without business meaning."
           }
         }
       }

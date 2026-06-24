@@ -15,7 +15,7 @@ const limits = {
   footer: 80,
 };
 
-const placeholderMetricPattern = /(x{2,}|X{2,}|TBD|待定|--|0风险|万\s*case|目标达成)/i;
+const forbiddenStandaloneMetricPattern = /^\s*(TBD|--)\s*$/i;
 
 function fail(message) {
   console.error(`invalid brief: ${message}`);
@@ -32,7 +32,7 @@ function assertString(value, field, max, required = false) {
   if (value.length > max) fail(`${field} exceeds ${max} characters`);
   if (/[\u0000-\u001F\u007F]/.test(value)) fail(`${field} contains control characters`);
   if (/https?:\/\//i.test(value)) fail(`${field} contains a URL; summarize it instead`);
-  if (placeholderMetricPattern.test(value)) fail(`${field} contains a placeholder metric; use concrete numbers or remove it`);
+  if (forbiddenStandaloneMetricPattern.test(value)) fail(`${field} contains a standalone placeholder; add business meaning or remove it`);
 }
 
 const input = process.argv[2];
