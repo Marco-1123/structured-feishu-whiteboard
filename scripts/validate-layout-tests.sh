@@ -32,6 +32,27 @@ JSON
 node scripts/validate-brief.mjs "$tmp_draft_brief" >/dev/null
 rm -f "$tmp_draft_brief"
 
+tmp_duplicate_metric_brief="$(mktemp)"
+cat > "$tmp_duplicate_metric_brief" <<'JSON'
+{
+  "layout": "conclusion-first",
+  "style": "professional-blue",
+  "title": "重复指标测试",
+  "summary": "这份 brief 应该拒绝重复指标。",
+  "modules": [
+    {"title": "模块一", "body": ["短句"], "tag": "标签", "metric": "覆盖率目标 xx%"},
+    {"title": "模块二", "body": ["短句"], "tag": "标签", "metric": "覆盖率目标 xx%"},
+    {"title": "模块三", "body": ["短句"], "tag": "标签"}
+  ]
+}
+JSON
+if node scripts/validate-brief.mjs "$tmp_duplicate_metric_brief" >/dev/null 2>&1; then
+  echo "duplicate metric validation failed" >&2
+  rm -f "$tmp_duplicate_metric_brief"
+  exit 1
+fi
+rm -f "$tmp_duplicate_metric_brief"
+
 for svg in examples/layout-tests/*.svg; do
   png="${svg%.svg}.png"
   npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null

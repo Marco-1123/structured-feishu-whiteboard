@@ -56,10 +56,16 @@ assertString(brief.footer, "footer", limits.footer);
 if (!Array.isArray(brief.modules)) fail("modules must be an array");
 if (brief.modules.length < 3 || brief.modules.length > 5) fail("modules must contain 3 to 5 items");
 
+const seenMetrics = new Set();
 brief.modules.forEach((module, index) => {
   assertString(module.title, `modules[${index}].title`, limits.moduleTitle, true);
   assertString(module.tag, `modules[${index}].tag`, limits.tag);
   assertString(module.metric, `modules[${index}].metric`, limits.metric);
+  if (module.metric) {
+    const metricKey = module.metric.replace(/\s+/g, "").toLowerCase();
+    if (seenMetrics.has(metricKey)) fail(`modules[${index}].metric duplicates another metric`);
+    seenMetrics.add(metricKey);
+  }
   if (!Array.isArray(module.body)) fail(`modules[${index}].body must be an array`);
   if (module.body.length < 1 || module.body.length > 3) fail(`modules[${index}].body must contain 1 to 3 lines`);
   module.body.forEach((line, lineIndex) => {
