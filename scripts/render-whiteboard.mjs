@@ -140,15 +140,16 @@ function renderConclusionFirst(brief, c) {
   const gap = 28;
   const cardX = 72;
   const cardY = 460;
-  const cardH = 318;
+  const hasMetric = brief.modules.some((module) => module.metric);
+  const cardH = hasMetric ? 354 : 318;
   const cardW = Math.floor((width - 144 - gap * (moduleCount - 1)) / moduleCount);
   const modules = brief.modules.map((module, index) => {
     const x = cardX + index * (cardW + gap);
     return `${card(x, cardY, cardW, cardH, c)}
 ${text(x + 36, cardY + 72, 28, c.ink, [module.title], "700")}
 ${text(x + 36, cardY + 128, 21, c.secondary, module.body, "400", 32)}
-${metric(x + 36, cardY + cardH - 128, 190, c, module.metric)}
-${label(x + 36, cardY + cardH - 72, 146, c, module.tag, index === moduleCount - 1 ? c.success : c.accent)}`;
+${metric(x + 36, cardY + cardH - 118, 210, c, module.metric)}
+${label(x + 36, cardY + cardH - 62, 146, c, module.tag, index === moduleCount - 1 ? c.success : c.accent)}`;
   }).join("\n");
   return wrap(width, 1080, c, `
 ${renderHeader(brief, c, width)}
@@ -163,15 +164,16 @@ function renderProblemBreakdown(brief, c) {
   const moduleCount = brief.modules.length;
   const gap = 28;
   const cardY = 438;
-  const cardH = 328;
+  const hasMetric = brief.modules.some((module) => module.metric);
+  const cardH = hasMetric ? 368 : 328;
   const cardW = Math.floor((width - 144 - gap * (moduleCount - 1)) / moduleCount);
   const modules = brief.modules.map((module, index) => {
     const x = 72 + index * (cardW + gap);
     return `${card(x, cardY, cardW, cardH, c)}
 ${text(x + 36, cardY + 78, 30, c.ink, [module.title], "700")}
 ${text(x + 36, cardY + 138, 21, c.secondary, module.body, "400", 32)}
-${metric(x + 36, cardY + cardH - 130, 190, c, module.metric)}
-${label(x + 36, cardY + cardH - 74, 156, c, module.tag, c.success)}`;
+${metric(x + 36, cardY + cardH - 118, 210, c, module.metric)}
+${label(x + 36, cardY + cardH - 62, 156, c, module.tag, c.success)}`;
   }).join("\n");
   return wrap(width, 1020, c, `
 ${renderHeader(brief, c, width)}

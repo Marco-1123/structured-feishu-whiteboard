@@ -17,20 +17,20 @@
 <text x="108" y="532" font-size="28" fill="#172033" font-weight="700"><tspan x="108" dy="0">市场机会</tspan></text>
 <text x="108" y="588" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="108" dy="0">中小团队需要低成本合规工具</tspan><tspan x="108" dy="32">高频合同审查具备试用入口</tspan></text>
 
-<rect x="108" y="706" width="146" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="126" y="731" font-size="17" fill="#2563EB" font-weight="700"><tspan x="126" dy="0">需求明确</tspan></text>
+<rect x="108" y="716" width="146" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="126" y="741" font-size="17" fill="#2563EB" font-weight="700"><tspan x="126" dy="0">需求明确</tspan></text>
 <rect x="593" y="460" width="493" height="318" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="629" y="532" font-size="28" fill="#172033" font-weight="700"><tspan x="629" dy="0">产品切口</tspan></text>
 <text x="629" y="588" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="629" dy="0">先做合同审查与风险提示</tspan><tspan x="629" dy="32">避免一开始覆盖全流程</tspan></text>
 
-<rect x="629" y="706" width="146" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="647" y="731" font-size="17" fill="#2563EB" font-weight="700"><tspan x="647" dy="0">聚焦高频</tspan></text>
+<rect x="629" y="716" width="146" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="647" y="741" font-size="17" fill="#2563EB" font-weight="700"><tspan x="647" dy="0">聚焦高频</tspan></text>
 <rect x="1114" y="460" width="493" height="318" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="1150" y="532" font-size="28" fill="#172033" font-weight="700"><tspan x="1150" dy="0">商业路径</tspan></text>
 <text x="1150" y="588" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="1150" dy="0">从免费试用进入团队版订阅</tspan><tspan x="1150" dy="32">用准确性建立付费信任</tspan></text>
 
-<rect x="1150" y="706" width="146" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="1168" y="731" font-size="17" fill="#0F766E" font-weight="700"><tspan x="1168" dy="0">轻量转化</tspan></text>
+<rect x="1150" y="716" width="146" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1168" y="741" font-size="17" fill="#0F766E" font-weight="700"><tspan x="1168" dy="0">轻量转化</tspan></text>
 <rect x="72" y="840" width="1536" height="118" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="112" y="908" font-size="27" fill="#172033" font-weight="700"><tspan x="112" dy="0">下一步：用 20 份真实合同验证风险标签准确性和用户信任门槛。</tspan></text>
 

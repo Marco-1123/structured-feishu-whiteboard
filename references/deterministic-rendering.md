@@ -15,8 +15,8 @@
 
 1. 按 `report-workflow.md` 和 `content-budget.md` 压缩内容。
 2. 生成符合 `schemas/whiteboard-brief.schema.json` 的 JSON brief。
-3. 运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
-4. 运行 `scripts/validate-brief.mjs brief.json`。
+3. 运行 `scripts/validate-brief.mjs brief.json`。
+4. 运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
 5. 按 `quality-checklist.md` 渲染、检查、写入飞书。
 
 ## Brief 约束
@@ -26,6 +26,7 @@
 - 每个模块正文最多 3 条短句。
 - 每个模块最多 1 个标签，不支持多个指标框。
 - 每个模块最多 1 个 `metric`。当前确定性渲染器只支持卡片内指标，不支持额外底部指标区，避免重复呈现。
+- 多个模块使用同类指标时，填写 `metricKey`；同一张画板中 `metricKey` 不能重复。
 - 不支持在卡片内写读法说明；读图说明优先放在回复中。
 - 标题、正文和标签必须先压缩到 schema 限制内。
 - 不能把原文段落、长 URL、脚注或来源路径写入 brief。

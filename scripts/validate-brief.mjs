@@ -12,10 +12,21 @@ const limits = {
   moduleLine: 24,
   tag: 8,
   metric: 18,
+  metricKey: 16,
   footer: 80,
 };
 
 const forbiddenStandaloneMetricPattern = /^\s*(TBD|--)\s*$/i;
+const standaloneDraftMetricPattern = /^\s*(x{2,}%|xx|待补|待定)\s*$/i;
+
+const metricKeyPatterns = [
+  ["coverage", /覆盖率|覆盖|渗透率|覆盖面/],
+  ["efficiency", /提效|效率|耗时|时长|人力|自动化/],
+  ["risk", /风险|漏出|合规|缺陷|事故/],
+  ["cost", /成本|CPO|ROI|费用|降幅/iu],
+  ["case", /case|案例|工单|单量|数量/iu],
+  ["quality", /质量|准确率|召回率|满意度|通过率/],
+];
 
 function fail(message) {
   console.error(`invalid brief: ${message}`);
@@ -33,6 +44,19 @@ function assertString(value, field, max, required = false) {
   if (/[\u0000-\u001F\u007F]/.test(value)) fail(`${field} contains control characters`);
   if (/https?:\/\//i.test(value)) fail(`${field} contains a URL; summarize it instead`);
   if (forbiddenStandaloneMetricPattern.test(value)) fail(`${field} contains a standalone placeholder; add business meaning or remove it`);
+}
+
+function normalizeMetricKey(module, index) {
+  if (!module.metric) return null;
+  assertString(module.metricKey, `modules[${index}].metricKey`, limits.metricKey);
+  if (module.metricKey) {
+    if (!/^[a-z][a-z0-9-]*$/i.test(module.metricKey)) fail(`modules[${index}].metricKey must use letters, numbers, or hyphen`);
+    return module.metricKey.toLowerCase();
+  }
+  if (standaloneDraftMetricPattern.test(module.metric)) fail(`modules[${index}].metric is only a placeholder; add metric name or business meaning`);
+  const compact = module.metric.replace(/\s+/g, "");
+  const matched = metricKeyPatterns.find(([, pattern]) => pattern.test(compact));
+  return matched ? matched[0] : compact.toLowerCase();
 }
 
 const input = process.argv[2];
@@ -61,8 +85,8 @@ brief.modules.forEach((module, index) => {
   assertString(module.title, `modules[${index}].title`, limits.moduleTitle, true);
   assertString(module.tag, `modules[${index}].tag`, limits.tag);
   assertString(module.metric, `modules[${index}].metric`, limits.metric);
-  if (module.metric) {
-    const metricKey = module.metric.replace(/\s+/g, "").toLowerCase();
+  const metricKey = normalizeMetricKey(module, index);
+  if (metricKey) {
     if (seenMetrics.has(metricKey)) fail(`modules[${index}].metric duplicates another metric`);
     seenMetrics.add(metricKey);
   }
