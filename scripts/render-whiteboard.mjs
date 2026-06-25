@@ -177,6 +177,74 @@ ${metric(x + 36, y + metricY, 210, c, module.metric)}
 ${label(x + 36, y + labelY, labelWidth, c, module.tag, labelFill)}`;
 }
 
+function renderMiniCard(x, y, w, h, c, item) {
+  return `${card(x, y, w, h, c)}
+${text(x + 28, y + 48, 24, c.ink, [item.title], "700")}
+${text(x + 28, y + 90, 19, c.secondary, item.body, "400", 29)}`;
+}
+
+function renderPillList(x, y, items, c, fill = c.muted, textFill = c.accent) {
+  return items.map((item, index) => {
+    const row = Math.floor(index / 2);
+    const col = index % 2;
+    const px = x + col * 360;
+    const py = y + row * 52;
+    return `<rect x="${px}" y="${py}" width="320" height="38" rx="8" fill="${fill}" stroke="${c.border}" stroke-width="1.5"/>
+${text(px + 18, py + 26, 18, textFill, [item], "700")}`;
+  }).join("\n");
+}
+
+function sectionHeight(section) {
+  const itemRows = Math.ceil((section.items?.length || 0) / 2);
+  const metricRows = Math.ceil((section.metrics?.length || 0) / 2);
+  const riskRows = Math.ceil((section.risks?.length || 0) / 2);
+  const actionRows = Math.ceil((section.actions?.length || 0) / 2);
+  const contentH = itemRows * 166 + Math.max(0, itemRows - 1) * 20
+    + metricRows * 52 + riskRows * 52 + actionRows * 52;
+  return Math.max(270, 128 + contentH + 48);
+}
+
+function renderLargeSection(section, y, c, width) {
+  const x = 72;
+  const w = width - 144;
+  const h = sectionHeight(section);
+  let cursor = y + 88;
+  const summary = section.summary ? text(x + 40, y + 86, 22, c.secondary, [section.summary]) : "";
+  let body = `<line x1="${x}" y1="${y}" x2="${x + w}" y2="${y}" stroke="${c.border}" stroke-width="2"/>
+${text(x + 40, y + 48, 30, c.ink, [section.title], "700")}
+${summary}`;
+
+  if (section.items?.length) {
+    const cardW = Math.floor((w - 104) / 2);
+    cursor += section.summary ? 34 : 0;
+    section.items.forEach((item, index) => {
+      const row = Math.floor(index / 2);
+      const col = index % 2;
+      body += `\n${renderMiniCard(x + 40 + col * (cardW + 24), cursor + row * 186, cardW, 166, c, item)}`;
+    });
+    cursor += Math.ceil(section.items.length / 2) * 186 + 4;
+  }
+
+  if (section.metrics?.length) {
+    body += `\n${text(x + 40, cursor + 28, 20, c.accent, ["关键指标"], "700")}`;
+    body += `\n${renderPillList(x + 40, cursor + 48, section.metrics, c, c.muted, c.accent)}`;
+    cursor += Math.ceil(section.metrics.length / 2) * 52 + 76;
+  }
+
+  if (section.risks?.length) {
+    body += `\n${text(x + 40, cursor + 28, 20, c.success, ["风险与待确认"], "700")}`;
+    body += `\n${renderPillList(x + 40, cursor + 48, section.risks, c, c.muted, c.success)}`;
+    cursor += Math.ceil(section.risks.length / 2) * 52 + 76;
+  }
+
+  if (section.actions?.length) {
+    body += `\n${text(x + 40, cursor + 28, 20, c.accent, ["下一步行动"], "700")}`;
+    body += `\n${renderPillList(x + 40, cursor + 48, section.actions, c, c.muted, c.accent)}`;
+  }
+
+  return { svg: body, height: h };
+}
+
 function renderConclusionFirst(brief, c) {
   const width = 1680;
   const moduleCount = brief.modules.length;
@@ -206,6 +274,48 @@ ${renderSummary(brief, c, 250, width)}
 ${modules}
 ${renderFooter(brief, c, 870, width)}
 `);
+}
+
+function renderLargeCanvas(brief, c) {
+  const width = 1680;
+  const overview = brief.sections.find((section) => section.type === "overview") || brief.sections[0];
+  const overviewModules = brief.modules || overview.items?.slice(0, 5) || [];
+  const overviewBrief = { ...brief, modules: overviewModules, footer: "" };
+  const moduleCount = overviewBrief.modules.length;
+  const gap = 28;
+  const cardX = 72;
+  const cardY = 460;
+  const hasMetric = overviewBrief.modules.some((module) => module.metric);
+  const cardH = hasMetric ? 374 : 334;
+  const cardW = Math.floor((width - 144 - gap * (moduleCount - 1)) / moduleCount);
+  const modules = overviewBrief.modules.map((module, index) => {
+    const x = cardX + index * (cardW + gap);
+    return renderModuleCard(x, cardY, cardW, cardH, c, module, {
+      titleSize: 28,
+      bodySize: 21,
+      titleY: 76,
+      bodyY: 132,
+      bodyGap: 32,
+      metricY: cardH - 158,
+      labelY: cardH - 96,
+      labelWidth: 146,
+      labelFill: index === moduleCount - 1 ? c.success : c.accent,
+    });
+  }).join("\n");
+
+  let y = 900;
+  let body = `
+${renderHeader(overviewBrief, c, width)}
+${renderSummary(overviewBrief, c, 250, width)}
+${modules}`;
+
+  brief.sections.filter((section) => section.type !== "overview").forEach((section) => {
+    const rendered = renderLargeSection(section, y, c, width);
+    body += `\n${rendered.svg}`;
+    y += rendered.height + 72;
+  });
+
+  return wrap(width, y + 48, c, body);
 }
 
 function renderProblemBreakdown(brief, c) {
@@ -241,6 +351,7 @@ ${renderFooter(brief, c, 844, width)}
 function render(brief) {
   const c = styles[brief.style];
   if (!c) throw new Error(`unsupported style: ${brief.style}`);
+  if (brief.layout === "large-canvas") return renderLargeCanvas(brief, c);
   if (brief.layout === "conclusion-first") return renderConclusionFirst(brief, c);
   if (brief.layout === "problem-breakdown") return renderProblemBreakdown(brief, c);
   throw new Error(`unsupported layout: ${brief.layout}`);

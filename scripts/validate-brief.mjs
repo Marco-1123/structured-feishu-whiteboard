@@ -1,7 +1,8 @@
 import fs from "node:fs";
 
-const supportedLayouts = new Set(["conclusion-first", "problem-breakdown"]);
+const supportedLayouts = new Set(["conclusion-first", "problem-breakdown", "large-canvas"]);
 const supportedStyles = new Set(["professional-blue", "dark-emphasis", "warm-editorial"]);
+const supportedSectionTypes = new Set(["overview", "background", "modules", "roadmap", "metrics-evidence", "risks", "actions"]);
 
 const limits = {
   title: 32,
@@ -13,6 +14,10 @@ const limits = {
   tag: 8,
   metric: 18,
   metricKey: 16,
+  sectionTitle: 18,
+  sectionSummary: 70,
+  sectionMetric: 20,
+  sectionLine: 28,
   footer: 80,
 };
 
@@ -59,6 +64,83 @@ function normalizeMetricKey(module, index) {
   return matched ? matched[0] : compact.toLowerCase();
 }
 
+function assertStringArray(value, field, maxItems, maxLength) {
+  if (value === undefined || value === null) return 0;
+  if (!Array.isArray(value)) fail(`${field} must be an array`);
+  if (value.length > maxItems) fail(`${field} must contain at most ${maxItems} items`);
+  value.forEach((item, index) => assertString(item, `${field}[${index}]`, maxLength, true));
+  return value.length;
+}
+
+function validateModules(brief) {
+  if (!Array.isArray(brief.modules)) fail("modules must be an array");
+  if (brief.modules.length < 3 || brief.modules.length > 5) fail("modules must contain 3 to 5 items");
+
+  const seenMetrics = new Set();
+  brief.modules.forEach((module, index) => {
+    assertString(module.title, `modules[${index}].title`, limits.moduleTitle, true);
+    assertString(module.tag, `modules[${index}].tag`, limits.tag);
+    assertString(module.metric, `modules[${index}].metric`, limits.metric);
+    const metricKey = normalizeMetricKey(module, index);
+    if (metricKey) {
+      if (seenMetrics.has(metricKey)) fail(`modules[${index}].metric duplicates another metric`);
+      seenMetrics.add(metricKey);
+    }
+    if (!Array.isArray(module.body)) fail(`modules[${index}].body must be an array`);
+    if (module.body.length < 1 || module.body.length > 3) fail(`modules[${index}].body must contain 1 to 3 lines`);
+    module.body.forEach((line, lineIndex) => {
+      assertString(line, `modules[${index}].body[${lineIndex}]`, limits.moduleLine, true);
+    });
+  });
+}
+
+function validateLargeCanvas(brief) {
+  if (!Array.isArray(brief.sections)) fail("sections must be an array");
+  if (brief.sections.length < 3 || brief.sections.length > 7) fail("sections must contain 3 to 7 items");
+  const sectionTypes = new Set();
+  let hasEvidence = false;
+  let hasRisk = false;
+  let hasAction = false;
+  let hasMetric = false;
+
+  brief.sections.forEach((section, index) => {
+    if (!supportedSectionTypes.has(section.type)) fail(`sections[${index}].type is unsupported`);
+    sectionTypes.add(section.type);
+    assertString(section.title, `sections[${index}].title`, limits.sectionTitle, true);
+    assertString(section.summary, `sections[${index}].summary`, limits.sectionSummary);
+
+    if (section.items !== undefined) {
+      if (!Array.isArray(section.items)) fail(`sections[${index}].items must be an array`);
+      if (section.items.length > 4) fail(`sections[${index}].items must contain at most 4 items`);
+      if (section.type === "overview" && section.items.length < 3) fail("overview section must contain at least 3 items");
+      section.items.forEach((item, itemIndex) => {
+        assertString(item.title, `sections[${index}].items[${itemIndex}].title`, limits.moduleTitle, true);
+        if (!Array.isArray(item.body)) fail(`sections[${index}].items[${itemIndex}].body must be an array`);
+        if (item.body.length < 1 || item.body.length > 3) fail(`sections[${index}].items[${itemIndex}].body must contain 1 to 3 lines`);
+        item.body.forEach((line, lineIndex) => {
+          assertString(line, `sections[${index}].items[${itemIndex}].body[${lineIndex}]`, limits.moduleLine, true);
+        });
+      });
+    }
+
+    const metricCount = assertStringArray(section.metrics, `sections[${index}].metrics`, 4, limits.sectionMetric);
+    const riskCount = assertStringArray(section.risks, `sections[${index}].risks`, 4, limits.sectionLine);
+    const actionCount = assertStringArray(section.actions, `sections[${index}].actions`, 4, limits.sectionLine);
+    hasMetric ||= metricCount > 0;
+    hasRisk ||= riskCount > 0 || section.type === "risks";
+    hasAction ||= actionCount > 0 || section.type === "actions";
+    hasEvidence ||= section.type === "metrics-evidence";
+  });
+
+  if (!sectionTypes.has("overview")) fail("large-canvas requires an overview section");
+  const overview = brief.sections.find((section) => section.type === "overview");
+  if (!overview.items || overview.items.length < 3) fail("large-canvas overview section requires 3 to 4 items");
+  if (!hasEvidence) fail("large-canvas requires a metrics-evidence section for important evidence");
+  if (!hasRisk) fail("large-canvas requires risk coverage");
+  if (!hasAction) fail("large-canvas requires action coverage");
+  if (!hasMetric) fail("large-canvas requires metric coverage");
+}
+
 const input = process.argv[2];
 if (!input) fail("usage: node scripts/validate-brief.mjs <brief.json>");
 
@@ -77,24 +159,7 @@ assertString(brief.summary, "summary", limits.summary, true);
 assertString(brief.summaryLabel, "summaryLabel", limits.summaryLabel);
 assertString(brief.footer, "footer", limits.footer);
 
-if (!Array.isArray(brief.modules)) fail("modules must be an array");
-if (brief.modules.length < 3 || brief.modules.length > 5) fail("modules must contain 3 to 5 items");
-
-const seenMetrics = new Set();
-brief.modules.forEach((module, index) => {
-  assertString(module.title, `modules[${index}].title`, limits.moduleTitle, true);
-  assertString(module.tag, `modules[${index}].tag`, limits.tag);
-  assertString(module.metric, `modules[${index}].metric`, limits.metric);
-  const metricKey = normalizeMetricKey(module, index);
-  if (metricKey) {
-    if (seenMetrics.has(metricKey)) fail(`modules[${index}].metric duplicates another metric`);
-    seenMetrics.add(metricKey);
-  }
-  if (!Array.isArray(module.body)) fail(`modules[${index}].body must be an array`);
-  if (module.body.length < 1 || module.body.length > 3) fail(`modules[${index}].body must contain 1 to 3 lines`);
-  module.body.forEach((line, lineIndex) => {
-    assertString(line, `modules[${index}].body[${lineIndex}]`, limits.moduleLine, true);
-  });
-});
+if (brief.layout === "large-canvas") validateLargeCanvas(brief);
+else validateModules(brief);
 
 console.log("ok: brief is valid");
