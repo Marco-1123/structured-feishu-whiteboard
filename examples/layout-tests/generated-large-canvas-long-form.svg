@@ -1,140 +1,109 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="5136" height="3036" viewBox="0 0 5136 3036">
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1820" viewBox="0 0 2400 1820">
 <defs>
   <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
     <path d="M0 0 L10 4 L0 8 z" fill="#2563EB"/>
   </marker>
 </defs>
-<rect x="0" y="0" width="5136" height="3036" fill="#F7FAFC"/>
-<rect x="80" y="80" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="80" y="80" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="114" y="114" font-size="17" fill="#2563EB" font-weight="700"><tspan x="114" dy="0">01 / 总览</tspan></text>
-<rect x="144" y="144" width="10" height="126" rx="5" fill="#2563EB"/>
-<text x="182" y="195" font-size="42" fill="#172033" font-weight="700"><tspan x="182" dy="0">H2智能化经营推进框架</tspan></text>
-<text x="182" y="242" font-size="23" fill="#5C6B82" font-weight="400"><tspan x="182" dy="0">以分屏画框保留主线、证据、风险和行动。</tspan></text>
-<rect x="144" y="312" width="1472" height="132" rx="12" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
-<text x="178" y="356" font-size="19" fill="#2563EB" font-weight="700"><tspan x="178" dy="0">核心结论</tspan></text>
-<text x="178" y="398" font-size="30" fill="#172033" font-weight="700"><tspan x="178" dy="0">H2 不应堆项目清单，而要用统一目标、专项治理、指标闭环和复</tspan><tspan x="178" dy="40">用机制形成半年度推进框架。</tspan></text>
-<rect x="144" y="498" width="722" height="150" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="172" y="546" font-size="24" fill="#172033" font-weight="700"><tspan x="172" dy="0">统一目标</tspan></text>
-<text x="172" y="588" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="172" dy="0">对齐覆盖降险提效三条主线</tspan><tspan x="172" dy="29">把项目从清单收束为框架</tspan><tspan x="172" dy="29">每个专项只保留一个主目标</tspan></text>
-<rect x="894" y="498" width="722" height="150" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="922" y="546" font-size="24" fill="#172033" font-weight="700"><tspan x="922" dy="0">专项治理</tspan></text>
-<text x="922" y="588" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="922" dy="0">优先处理高频高风险场景</tspan><tspan x="922" dy="29">明确负责人节奏和验收口径</tspan><tspan x="922" dy="29">避免多个团队各自推进</tspan></text>
-<rect x="144" y="672" width="722" height="150" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="172" y="720" font-size="24" fill="#172033" font-weight="700"><tspan x="172" dy="0">数据闭环</tspan></text>
-<text x="172" y="762" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="172" dy="0">建立统一指标字典和复盘模板</tspan><tspan x="172" dy="29">上线后持续追踪异常和反馈</tspan><tspan x="172" dy="29">让结果能横向比较</tspan></text>
-<rect x="894" y="672" width="722" height="150" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="922" y="720" font-size="24" fill="#172033" font-weight="700"><tspan x="922" dy="0">能力复用</tspan></text>
-<text x="922" y="762" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="922" dy="0">沉淀入口配置编排和评估能力</tspan><tspan x="922" dy="29">把单点工具升级为平台能力</tspan><tspan x="922" dy="29">让下一批专项更快复用</tspan></text>
-<rect x="1768" y="80" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="1768" y="80" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="1802" y="114" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1802" dy="0">02 / 问题与背景</tspan></text>
-<text x="1832" y="172" font-size="34" fill="#172033" font-weight="700"><tspan x="1832" dy="0">问题与背景</tspan></text>
-<text x="1832" y="212" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="1832" dy="0">当前不是缺少项目，而是缺少统一推进框架。</tspan></text>
-<line x1="1832" y1="234" x2="3304" y2="234" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="1832" y="256" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="1860" y="304" font-size="24" fill="#172033" font-weight="700"><tspan x="1860" dy="0">目标口径分散</tspan></text>
-<text x="1860" y="346" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="1860" dy="0">业务风控经营各看一套指标</tspan><tspan x="1860" dy="29">专项结果难以横向比较</tspan></text>
-<rect x="2582" y="256" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="2610" y="304" font-size="24" fill="#172033" font-weight="700"><tspan x="2610" dy="0">系统能力碎片</tspan></text>
-<text x="2610" y="346" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="2610" dy="0">入口配置评估分散在多处</tspan><tspan x="2610" dy="29">试点经验无法稳定复用</tspan></text>
-<rect x="1832" y="424" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="1860" y="472" font-size="24" fill="#172033" font-weight="700"><tspan x="1860" dy="0">协同成本偏高</tspan></text>
-<text x="1860" y="514" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="1860" dy="0">项目节奏依赖人工协调</tspan><tspan x="1860" dy="29">异常反馈进入闭环较慢</tspan></text>
-<rect x="3456" y="80" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="3456" y="80" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="3490" y="114" font-size="17" fill="#2563EB" font-weight="700"><tspan x="3490" dy="0">03 / 关键模块展开</tspan></text>
-<text x="3520" y="172" font-size="34" fill="#172033" font-weight="700"><tspan x="3520" dy="0">关键模块展开</tspan></text>
-<text x="3520" y="212" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="3520" dy="0">把核心主线拆成能执行、能验收、能复用的模块。</tspan></text>
-<line x1="3520" y1="234" x2="4992" y2="234" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="3520" y="256" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="3548" y="304" font-size="24" fill="#172033" font-weight="700"><tspan x="3548" dy="0">目标治理</tspan></text>
-<text x="3548" y="346" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="3548" dy="0">统一业务目标和指标口径</tspan><tspan x="3548" dy="29">建立专项准入和退出机制</tspan></text>
-<rect x="4270" y="256" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="4298" y="304" font-size="24" fill="#172033" font-weight="700"><tspan x="4298" dy="0">场景优先级</tspan></text>
-<text x="4298" y="346" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="4298" dy="0">优先高频高风险高价值场景</tspan><tspan x="4298" dy="29">每批只保留少量重点专项</tspan></text>
-<rect x="3520" y="424" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="3548" y="472" font-size="24" fill="#172033" font-weight="700"><tspan x="3548" dy="0">数据复盘</tspan></text>
-<text x="3548" y="514" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="3548" dy="0">上线后追踪异常反馈</tspan><tspan x="3548" dy="29">沉淀指标字典和复盘模板</tspan></text>
-<rect x="4270" y="424" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="4298" y="472" font-size="24" fill="#172033" font-weight="700"><tspan x="4298" dy="0">平台复用</tspan></text>
-<text x="4298" y="514" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="4298" dy="0">抽象入口配置编排评估能力</tspan><tspan x="4298" dy="29">降低下一批专项启动成本</tspan></text>
-<rect x="80" y="1068" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="80" y="1068" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="114" y="1102" font-size="17" fill="#2563EB" font-weight="700"><tspan x="114" dy="0">04 / 阶段路线</tspan></text>
-<text x="144" y="1160" font-size="34" fill="#172033" font-weight="700"><tspan x="144" dy="0">阶段路线</tspan></text>
-<text x="144" y="1200" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="144" dy="0">先对齐，再闭环，最后沉淀为可复用能力。</tspan></text>
-<line x1="144" y1="1222" x2="1616" y2="1222" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="144" y="1244" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="172" y="1292" font-size="24" fill="#172033" font-weight="700"><tspan x="172" dy="0">阶段一 对齐</tspan></text>
-<text x="172" y="1334" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="172" dy="0">两周内完成场景盘点</tspan><tspan x="172" dy="29">统一指标口径和负责人</tspan></text>
-<rect x="894" y="1244" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="922" y="1292" font-size="24" fill="#172033" font-weight="700"><tspan x="922" dy="0">阶段二 闭环</tspan></text>
-<text x="922" y="1334" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="922" dy="0">选择 3 个高价值专项</tspan><tspan x="922" dy="29">跑通上线复盘和异常升级</tspan></text>
-<rect x="144" y="1412" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="172" y="1460" font-size="24" fill="#172033" font-weight="700"><tspan x="172" dy="0">阶段三 复用</tspan></text>
-<text x="172" y="1502" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="172" dy="0">沉淀配置编排和评估能力</tspan><tspan x="172" dy="29">形成下一批专项模板</tspan></text>
-<text x="144" y="1616" font-size="19" fill="#2563EB" font-weight="700"><tspan x="144" dy="0">下一步行动</tspan></text>
-<rect x="144" y="1636" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="162" y="1663" font-size="18" fill="#2563EB" font-weight="700"><tspan x="162" dy="0">完成场景清单</tspan></text>
-<rect x="892" y="1636" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="910" y="1663" font-size="18" fill="#2563EB" font-weight="700"><tspan x="910" dy="0">明确验收口径</tspan></text>
-<rect x="144" y="1690" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="162" y="1717" font-size="18" fill="#2563EB" font-weight="700"><tspan x="162" dy="0">建立复盘节奏</tspan></text>
-<rect x="1768" y="1068" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="1768" y="1068" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="1802" y="1102" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1802" dy="0">05 / 指标与证据</tspan></text>
-<text x="1832" y="1160" font-size="34" fill="#172033" font-weight="700"><tspan x="1832" dy="0">指标与证据</tspan></text>
-<text x="1832" y="1200" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="1832" dy="0">半成品指标可以保留，但必须服务主线并有业务语义。</tspan></text>
-<line x1="1832" y1="1222" x2="3304" y2="1222" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="1832" y="1244" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="1860" y="1292" font-size="24" fill="#172033" font-weight="700"><tspan x="1860" dy="0">证据来源</tspan></text>
-<text x="1860" y="1334" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="1860" dy="0">一线反馈项目过多且口径分散</tspan><tspan x="1860" dy="29">高频场景具备可复用价值</tspan></text>
-<rect x="2582" y="1244" width="722" height="146" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<text x="2610" y="1292" font-size="24" fill="#172033" font-weight="700"><tspan x="2610" dy="0">验收方式</tspan></text>
-<text x="2610" y="1334" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="2610" dy="0">用统一指标比较专项结果</tspan><tspan x="2610" dy="29">用复盘模板沉淀经验</tspan></text>
-<text x="1832" y="1448" font-size="19" fill="#2563EB" font-weight="700"><tspan x="1832" dy="0">关键指标</tspan></text>
-<rect x="1832" y="1468" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="1850" y="1495" font-size="18" fill="#2563EB" font-weight="700"><tspan x="1850" dy="0">覆盖率目标 xx%</tspan></text>
-<rect x="2580" y="1468" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="2598" y="1495" font-size="18" fill="#2563EB" font-weight="700"><tspan x="2598" dy="0">提效目标 xx%</tspan></text>
-<rect x="1832" y="1522" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="1850" y="1549" font-size="18" fill="#2563EB" font-weight="700"><tspan x="1850" dy="0">风险漏出 0</tspan></text>
-<rect x="3456" y="1068" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="3456" y="1068" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="3490" y="1102" font-size="17" fill="#2563EB" font-weight="700"><tspan x="3490" dy="0">06 / 风险与待确认</tspan></text>
-<text x="3520" y="1160" font-size="34" fill="#172033" font-weight="700"><tspan x="3520" dy="0">风险与待确认</tspan></text>
-<text x="3520" y="1200" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="3520" dy="0">风险不进入总览也不能丢，需要在后续画框保留。</tspan></text>
-<line x1="3520" y1="1222" x2="4992" y2="1222" stroke="#D8E2EF" stroke-width="2"/>
-<text x="3520" y="1272" font-size="19" fill="#0F766E" font-weight="700"><tspan x="3520" dy="0">风险与待确认</tspan></text>
-<rect x="3520" y="1292" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="3538" y="1319" font-size="18" fill="#0F766E" font-weight="700"><tspan x="3538" dy="0">目标过多导致资源稀释</tspan></text>
-<rect x="4268" y="1292" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="4286" y="1319" font-size="18" fill="#0F766E" font-weight="700"><tspan x="4286" dy="0">指标口径不一致</tspan></text>
-<rect x="3520" y="1346" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="3538" y="1373" font-size="18" fill="#0F766E" font-weight="700"><tspan x="3538" dy="0">模型误判带来业务风险</tspan></text>
-<rect x="4268" y="1346" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="4286" y="1373" font-size="18" fill="#0F766E" font-weight="700"><tspan x="4286" dy="0">复盘机制缺失</tspan></text>
-<text x="3520" y="1456" font-size="19" fill="#2563EB" font-weight="700"><tspan x="3520" dy="0">下一步行动</tspan></text>
-<rect x="3520" y="1476" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="3538" y="1503" font-size="18" fill="#2563EB" font-weight="700"><tspan x="3538" dy="0">确认风险边界</tspan></text>
-<rect x="4268" y="1476" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="4286" y="1503" font-size="18" fill="#2563EB" font-weight="700"><tspan x="4286" dy="0">定义异常升级</tspan></text>
-<rect x="3520" y="1530" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="3538" y="1557" font-size="18" fill="#2563EB" font-weight="700"><tspan x="3538" dy="0">建立指标字典</tspan></text>
-<rect x="80" y="2056" width="1600" height="900" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
-<rect x="80" y="2056" width="10" height="900" rx="5" fill="#2563EB"/>
-<text x="114" y="2090" font-size="17" fill="#2563EB" font-weight="700"><tspan x="114" dy="0">07 / 下一步行动</tspan></text>
-<text x="144" y="2148" font-size="34" fill="#172033" font-weight="700"><tspan x="144" dy="0">下一步行动</tspan></text>
-<text x="144" y="2188" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="144" dy="0">近期动作必须可执行、可验收、可复盘。</tspan></text>
-<line x1="144" y1="2210" x2="1616" y2="2210" stroke="#D8E2EF" stroke-width="2"/>
-<text x="144" y="2260" font-size="19" fill="#2563EB" font-weight="700"><tspan x="144" dy="0">下一步行动</tspan></text>
-<rect x="144" y="2280" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="162" y="2307" font-size="18" fill="#2563EB" font-weight="700"><tspan x="162" dy="0">两周内完成场景盘点</tspan></text>
-<rect x="892" y="2280" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="910" y="2307" font-size="18" fill="#2563EB" font-weight="700"><tspan x="910" dy="0">选 3 个高价值专项</tspan></text>
-<rect x="144" y="2334" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="162" y="2361" font-size="18" fill="#2563EB" font-weight="700"><tspan x="162" dy="0">明确业务负责人</tspan></text>
-<rect x="892" y="2334" width="724" height="40" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="910" y="2361" font-size="18" fill="#2563EB" font-weight="700"><tspan x="910" dy="0">建立周度复盘机制</tspan></text>
+<rect x="0" y="0" width="2400" height="1820" fill="#F7FAFC"/>
+
+<text x="92" y="122" font-size="52" fill="#172033" font-weight="700"><tspan x="92" dy="0">H2智能化经营推进框架</tspan></text>
+<text x="92" y="164" font-size="24" fill="#5C6B82" font-weight="400"><tspan x="92" dy="0">以 onepage 大画布保留主线、证据、风险和行动。</tspan></text>
+<rect x="92" y="208" width="2216" height="142" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="92" y="208" width="12" height="142" rx="6" fill="#2563EB"/>
+<text x="130" y="252" font-size="21" fill="#2563EB" font-weight="700"><tspan x="130" dy="0">核心结论</tspan></text>
+<text x="130" y="304" font-size="31" fill="#172033" font-weight="700"><tspan x="130" dy="0">H2 不应堆项目清单，而要用统一目标、专项治理、指标闭环和复用机制形成半年度推进框架。</tspan></text>
+
+<text x="92" y="424" font-size="30" fill="#172033" font-weight="700"><tspan x="92" dy="0">四个核心举措</tspan></text>
+<rect x="92" y="470" width="1090" height="242" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="126" y="493" width="58" height="34" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="142" y="518" font-size="18" fill="#2563EB" font-weight="700"><tspan x="142" dy="0">01</tspan></text>
+<text x="210" y="576" font-size="28" fill="#172033" font-weight="700"><tspan x="210" dy="0">统一目标</tspan></text>
+<line x1="126" y1="564" x2="1148" y2="564" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="126" y="630" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="126" dy="0">对齐覆盖降险提效三条主线</tspan><tspan x="126" dy="31">把项目从清单收束为框架</tspan><tspan x="126" dy="31">每个专项只保留一个主目标</tspan></text>
+<rect x="1218" y="470" width="1090" height="242" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="1252" y="493" width="58" height="34" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1268" y="518" font-size="18" fill="#2563EB" font-weight="700"><tspan x="1268" dy="0">02</tspan></text>
+<text x="1336" y="576" font-size="28" fill="#172033" font-weight="700"><tspan x="1336" dy="0">专项治理</tspan></text>
+<line x1="1252" y1="564" x2="2274" y2="564" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1252" y="630" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="1252" dy="0">优先处理高频高风险场景</tspan><tspan x="1252" dy="31">明确负责人节奏和验收口径</tspan><tspan x="1252" dy="31">避免多个团队各自推进</tspan></text>
+<rect x="92" y="746" width="1090" height="242" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="126" y="769" width="58" height="34" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="142" y="794" font-size="18" fill="#2563EB" font-weight="700"><tspan x="142" dy="0">03</tspan></text>
+<text x="210" y="852" font-size="28" fill="#172033" font-weight="700"><tspan x="210" dy="0">数据闭环</tspan></text>
+<line x1="126" y1="840" x2="1148" y2="840" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="126" y="906" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="126" dy="0">建立统一指标字典和复盘模板</tspan><tspan x="126" dy="31">上线后持续追踪异常和反馈</tspan><tspan x="126" dy="31">让结果能横向比较</tspan></text>
+<rect x="1218" y="746" width="1090" height="242" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<rect x="1252" y="769" width="58" height="34" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1268" y="794" font-size="18" fill="#2563EB" font-weight="700"><tspan x="1268" dy="0">04</tspan></text>
+<text x="1336" y="852" font-size="28" fill="#172033" font-weight="700"><tspan x="1336" dy="0">能力复用</tspan></text>
+<line x1="1252" y1="840" x2="2274" y2="840" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1252" y="906" font-size="21" fill="#5C6B82" font-weight="400"><tspan x="1252" dy="0">沉淀入口配置编排和评估能力</tspan><tspan x="1252" dy="31">把单点工具升级为平台能力</tspan><tspan x="1252" dy="31">让下一批专项更快复用</tspan></text>
+
+<rect x="92" y="1058" width="725" height="390" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="126" y="1112" font-size="30" fill="#172033" font-weight="700"><tspan x="126" dy="0">阶段路线</tspan></text>
+<text x="126" y="1150" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="126" dy="0">先对齐，再闭环，最后沉淀为可复用能力。</tspan></text>
+<rect x="126" y="1184" width="209" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="146" y="1222" font-size="21" fill="#172033" font-weight="700"><tspan x="146" dy="0">阶段一 对齐</tspan></text>
+<text x="146" y="1254" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="146" dy="0">两周内完成场景盘点</tspan></text>
+<line x1="345" y1="1233" x2="367" y2="1233" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="366" y="1184" width="209" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="386" y="1222" font-size="21" fill="#172033" font-weight="700"><tspan x="386" dy="0">阶段二 闭环</tspan></text>
+<text x="386" y="1254" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="386" dy="0">选择 3 个高价值专项</tspan></text>
+<line x1="585" y1="1233" x2="607" y2="1233" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="606" y="1184" width="209" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="626" y="1222" font-size="21" fill="#172033" font-weight="700"><tspan x="626" dy="0">阶段三 复用</tspan></text>
+<text x="626" y="1254" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="626" dy="0">沉淀配置编排和评估能力</tspan></text>
+<text x="126" y="1370" font-size="18" fill="#2563EB" font-weight="700"><tspan x="126" dy="0">近期动作</tspan></text>
+<rect x="126" y="1394" width="319" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="142" y="1419" font-size="17" fill="#2563EB" font-weight="700"><tspan x="142" dy="0">完成场景清单</tspan></text>
+<rect x="463" y="1394" width="319" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="479" y="1419" font-size="17" fill="#2563EB" font-weight="700"><tspan x="479" dy="0">明确验收口径</tspan></text>
+<rect x="126" y="1442" width="319" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="142" y="1467" font-size="17" fill="#2563EB" font-weight="700"><tspan x="142" dy="0">建立复盘节奏</tspan></text>
+<rect x="854" y="1058" width="676" height="390" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="888" y="1112" font-size="30" fill="#172033" font-weight="700"><tspan x="888" dy="0">指标与证据</tspan></text>
+<text x="888" y="1150" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="888" dy="0">半成品指标可以保留，但必须服务主线并有业务语义。</tspan></text>
+<rect x="888" y="1182" width="295" height="42" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="904" y="1211" font-size="19" fill="#2563EB" font-weight="700"><tspan x="904" dy="0">覆盖率目标 xx%</tspan></text>
+<rect x="1201" y="1182" width="295" height="42" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1217" y="1211" font-size="19" fill="#2563EB" font-weight="700"><tspan x="1217" dy="0">提效目标 xx%</tspan></text>
+<rect x="888" y="1240" width="295" height="42" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="904" y="1269" font-size="19" fill="#2563EB" font-weight="700"><tspan x="904" dy="0">风险漏出 0</tspan></text>
+<text x="888" y="1312" font-size="19" fill="#172033" font-weight="700"><tspan x="888" dy="0">证据来源</tspan></text>
+<text x="888" y="1340" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="888" dy="0">一线反馈项目过多且口径分散</tspan></text>
+<text x="888" y="1370" font-size="19" fill="#172033" font-weight="700"><tspan x="888" dy="0">验收方式</tspan></text>
+<text x="888" y="1398" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="888" dy="0">用统一指标比较专项结果</tspan></text>
+<rect x="1568" y="1058" width="740" height="390" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="1602" y="1112" font-size="30" fill="#172033" font-weight="700"><tspan x="1602" dy="0">风险与行动</tspan></text>
+<text x="1602" y="1150" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="1602" dy="0">风险不进入总览也不能丢，需要在同页后续区域保留。</tspan></text>
+<text x="1602" y="1186" font-size="18" fill="#0F766E" font-weight="700"><tspan x="1602" dy="0">风险与待确认</tspan></text>
+<rect x="1602" y="1210" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1618" y="1235" font-size="17" fill="#0F766E" font-weight="700"><tspan x="1618" dy="0">目标过多导致资源稀释</tspan></text>
+<rect x="1947" y="1210" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1963" y="1235" font-size="17" fill="#0F766E" font-weight="700"><tspan x="1963" dy="0">指标口径不一致</tspan></text>
+<rect x="1602" y="1258" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1618" y="1283" font-size="17" fill="#0F766E" font-weight="700"><tspan x="1618" dy="0">模型误判带来业务风险</tspan></text>
+<rect x="1947" y="1258" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1963" y="1283" font-size="17" fill="#0F766E" font-weight="700"><tspan x="1963" dy="0">复盘机制缺失</tspan></text>
+<text x="1602" y="1324" font-size="18" fill="#2563EB" font-weight="700"><tspan x="1602" dy="0">下一步行动</tspan></text>
+<rect x="1602" y="1348" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1618" y="1373" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1618" dy="0">确认风险边界</tspan></text>
+<rect x="1947" y="1348" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1963" y="1373" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1963" dy="0">定义异常升级</tspan></text>
+<rect x="1602" y="1396" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1618" y="1421" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1618" dy="0">建立指标字典</tspan></text>
+<rect x="1947" y="1396" width="327" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1963" y="1421" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1963" dy="0">两周内完成场景盘点</tspan></text>
+<rect x="92" y="1498" width="2216" height="226" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="126" y="1552" font-size="30" fill="#172033" font-weight="700"><tspan x="126" dy="0">问题与背景</tspan></text>
+<text x="126" y="1590" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="126" dy="0">当前不是缺少项目，而是缺少统一推进框架。</tspan></text>
+<line x1="126" y1="1604" x2="126" y2="1674" stroke="#2563EB" stroke-width="6"/>
+<text x="148" y="1630" font-size="21" fill="#172033" font-weight="700"><tspan x="148" dy="0">目标口径分散</tspan></text>
+<text x="148" y="1662" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="148" dy="0">业务风控经营各看一套指标</tspan><tspan x="148" dy="26">专项结果难以横向比较</tspan></text>
+<line x1="880" y1="1604" x2="880" y2="1674" stroke="#2563EB" stroke-width="6"/>
+<text x="902" y="1630" font-size="21" fill="#172033" font-weight="700"><tspan x="902" dy="0">系统能力碎片</tspan></text>
+<text x="902" y="1662" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="902" dy="0">入口配置评估分散在多处</tspan><tspan x="902" dy="26">试点经验无法稳定复用</tspan></text>
+<line x1="1634" y1="1604" x2="1634" y2="1674" stroke="#2563EB" stroke-width="6"/>
+<text x="1656" y="1630" font-size="21" fill="#172033" font-weight="700"><tspan x="1656" dy="0">协同成本偏高</tspan></text>
+<text x="1656" y="1662" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1656" dy="0">项目节奏依赖人工协调</tspan><tspan x="1656" dy="26">异常反馈进入闭环较慢</tspan></text>
 </svg>

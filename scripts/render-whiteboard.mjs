@@ -194,96 +194,105 @@ ${text(px + 18, py + 26, 18, textFill, [item], "700")}`;
   }).join("\n");
 }
 
-function renderFrameShell(x, y, w, h, c, labelText) {
-  return `${card(x, y, w, h, c)}
-<rect x="${x}" y="${y}" width="10" height="${h}" rx="5" fill="${c.accent}"/>
-${text(x + 34, y + 34, 17, c.accent, [labelText], "700")}`;
+function sectionTitle(x, y, c, title, summary) {
+  return `${text(x, y, 30, c.ink, [title], "700")}
+${summary ? text(x, y + 38, 19, c.secondary, splitByLength(summary, 42, 1), "400") : ""}`;
 }
 
-function renderFramePillList(x, y, items, c, textFill = c.accent, pillW = 310) {
-  return (items || []).map((item, index) => {
+function renderLargeModuleCard(x, y, w, h, c, item, index) {
+  const bodyLines = (item.body || []).slice(0, 3);
+  const badge = String(index + 1).padStart(2, "0");
+  const [badgeY, titleY, bodyY] = centerTextGroup(y + 34, h - 68, [
+    { height: 36, baselineOffset: 26, gapBefore: 0 },
+    { height: 34, baselineOffset: 28, gapBefore: 20 },
+    { height: 84, baselineOffset: 24, gapBefore: 24 },
+  ]);
+  return `${card(x, y, w, h, c)}
+<rect x="${x + 34}" y="${badgeY - 25}" width="58" height="34" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 50, badgeY, 18, c.accent, [badge], "700")}
+${text(x + 118, titleY, 28, c.ink, [item.title], "700")}
+<line x1="${x + 34}" y1="${y + 94}" x2="${x + w - 34}" y2="${y + 94}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 34, bodyY, 21, c.secondary, bodyLines, "400", 31)}`;
+}
+
+function renderThinPills(x, y, w, items, c, fill = c.muted, textFill = c.accent) {
+  const pillGap = 18;
+  const pillW = Math.floor((w - pillGap) / 2);
+  return (items || []).slice(0, 4).map((item, index) => {
     const row = Math.floor(index / 2);
     const col = index % 2;
-    const px = x + col * (pillW + 24);
-    const py = y + row * 54;
-    return `<rect x="${px}" y="${py}" width="${pillW}" height="40" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
-${text(px + 18, py + 27, 18, textFill, [item], "700")}`;
+    const px = x + col * (pillW + pillGap);
+    const py = y + row * 48;
+    return `<rect x="${px}" y="${py}" width="${pillW}" height="36" rx="8" fill="${fill}" stroke="${c.border}" stroke-width="1.5"/>
+${text(px + 16, py + 25, 17, textFill, [item], "700")}`;
   }).join("\n");
 }
 
-function renderOverviewFrame(brief, overview, x, y, w, h, c, labelText) {
-  const modules = (brief.modules || overview.items || []).slice(0, 4);
-  const innerX = x + 64;
-  const innerW = w - 128;
-  const summaryLines = splitByLength(brief.summary, 30, 2);
-  const cardGap = 28;
-  const cardW = Math.floor((innerW - cardGap) / 2);
-  const cardH = 150;
-  let body = renderFrameShell(x, y, w, h, c, labelText);
-
-  body += `\n<rect x="${innerX}" y="${y + 64}" width="10" height="126" rx="5" fill="${c.accent}"/>
-${text(innerX + 38, y + 115, 42, c.ink, [brief.title], "700")}
-${brief.subtitle ? text(innerX + 38, y + 162, 23, c.secondary, [brief.subtitle]) : ""}
-<rect x="${innerX}" y="${y + 232}" width="${innerW}" height="132" rx="12" fill="${c.soft}" stroke="${c.accent}" stroke-width="2"/>
-${text(innerX + 34, y + 276, 19, c.accent, [brief.summaryLabel || "核心结论"], "700")}
-${text(innerX + 34, y + 318, 30, c.ink, summaryLines, "700", 40)}`;
-
-  modules.forEach((module, index) => {
-    const row = Math.floor(index / 2);
-    const col = index % 2;
-    const cx = innerX + col * (cardW + cardGap);
-    const cy = y + 418 + row * (cardH + 24);
-    body += `\n${renderMiniCard(cx, cy, cardW, cardH, c, module)}`;
+function renderRoadmapPanel(x, y, w, h, c, section) {
+  const items = (section?.items || []).slice(0, 3);
+  const stepW = Math.floor((w - 96) / 3);
+  let body = `${card(x, y, w, h, c)}
+${sectionTitle(x + 34, y + 54, c, section?.title || "阶段路线", section?.summary)}`;
+  items.forEach((item, index) => {
+    const sx = x + 34 + index * (stepW + 31);
+    const sy = y + 126;
+    body += `\n<rect x="${sx}" y="${sy}" width="${stepW}" height="98" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(sx + 20, sy + 38, 21, c.ink, [item.title], "700")}
+${text(sx + 20, sy + 70, 17, c.secondary, (item.body || []).slice(0, 1), "400")}`;
+    if (index < items.length - 1) {
+      const ax = sx + stepW + 10;
+      body += `\n<line x1="${ax}" y1="${sy + 49}" x2="${ax + 22}" y2="${sy + 49}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`;
+    }
   });
-
-  if (brief.footer) {
-    body += `\n<rect x="${innerX}" y="${y + 790}" width="${innerW}" height="58" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
-${text(innerX + 28, y + 827, 22, c.ink, splitByLength(brief.footer, 42, 1), "700")}`;
+  if (section?.actions?.length) {
+    body += `\n${text(x + 34, y + h - 78, 18, c.accent, ["近期动作"], "700")}
+${renderThinPills(x + 34, y + h - 54, w - 68, section.actions, c)}`;
   }
-
   return body;
 }
 
-function renderContentFrame(section, x, y, w, h, c, labelText) {
-  const innerX = x + 64;
-  const innerW = w - 128;
-  const cardGap = 28;
-  const cardW = Math.floor((innerW - cardGap) / 2);
-  const cardH = 146;
-  let cursor = y + 176;
-  let body = `${renderFrameShell(x, y, w, h, c, labelText)}
-${text(innerX, y + 92, 34, c.ink, [section.title], "700")}
-${section.summary ? text(innerX, y + 132, 21, c.secondary, splitByLength(section.summary, 42, 1), "400") : ""}
-<line x1="${innerX}" y1="${y + 154}" x2="${innerX + innerW}" y2="${y + 154}" stroke="${c.border}" stroke-width="2"/>`;
+function renderMetricsPanel(x, y, w, h, c, section) {
+  const metrics = (section?.metrics || []).slice(0, 4);
+  const items = (section?.items || []).slice(0, 2);
+  let body = `${card(x, y, w, h, c)}
+${sectionTitle(x + 34, y + 54, c, section?.title || "指标与证据", section?.summary)}`;
+  metrics.forEach((m, index) => {
+    const mx = x + 34 + (index % 2) * ((w - 86) / 2 + 18);
+    const my = y + 124 + Math.floor(index / 2) * 58;
+    const mw = Math.floor((w - 86) / 2);
+    body += `\n<rect x="${mx}" y="${my}" width="${mw}" height="42" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(mx + 16, my + 29, 19, c.accent, [m], "700")}`;
+  });
+  items.forEach((item, index) => {
+    const iy = y + 254 + index * 58;
+    body += `\n${text(x + 34, iy, 19, c.ink, [item.title], "700")}
+${text(x + 34, iy + 28, 17, c.secondary, (item.body || []).slice(0, 1), "400")}`;
+  });
+  return body;
+}
 
-  if (section.items?.length) {
-    section.items.slice(0, 4).forEach((item, index) => {
-      const row = Math.floor(index / 2);
-      const col = index % 2;
-      const cx = innerX + col * (cardW + cardGap);
-      const cy = cursor + row * (cardH + 22);
-      body += `\n${renderMiniCard(cx, cy, cardW, cardH, c, item)}`;
-    });
-    cursor += Math.ceil(Math.min(section.items.length, 4) / 2) * (cardH + 22) + 8;
-  }
+function renderRiskActionPanel(x, y, w, h, c, risksSection, actionsSection) {
+  const risks = (risksSection?.risks || []).slice(0, 4);
+  const actions = [...(risksSection?.actions || []), ...(actionsSection?.actions || [])].slice(0, 4);
+  return `${card(x, y, w, h, c)}
+${sectionTitle(x + 34, y + 54, c, "风险与行动", risksSection?.summary || actionsSection?.summary)}
+${text(x + 34, y + 128, 18, c.success, ["风险与待确认"], "700")}
+${renderThinPills(x + 34, y + 152, w - 68, risks, c, c.muted, c.success)}
+${text(x + 34, y + 266, 18, c.accent, ["下一步行动"], "700")}
+${renderThinPills(x + 34, y + 290, w - 68, actions, c, c.muted, c.accent)}`;
+}
 
-  if (section.metrics?.length) {
-    body += `\n${text(innerX, cursor + 28, 19, c.accent, ["关键指标"], "700")}`;
-    body += `\n${renderFramePillList(innerX, cursor + 48, section.metrics.slice(0, 4), c, c.accent, Math.floor((innerW - 24) / 2))}`;
-    cursor += Math.ceil(Math.min(section.metrics.length, 4) / 2) * 54 + 76;
-  }
-
-  if (section.risks?.length) {
-    body += `\n${text(innerX, cursor + 28, 19, c.success, ["风险与待确认"], "700")}`;
-    body += `\n${renderFramePillList(innerX, cursor + 48, section.risks.slice(0, 4), c, c.success, Math.floor((innerW - 24) / 2))}`;
-    cursor += Math.ceil(Math.min(section.risks.length, 4) / 2) * 54 + 76;
-  }
-
-  if (section.actions?.length) {
-    body += `\n${text(innerX, cursor + 28, 19, c.accent, ["下一步行动"], "700")}`;
-    body += `\n${renderFramePillList(innerX, cursor + 48, section.actions.slice(0, 4), c, c.accent, Math.floor((innerW - 24) / 2))}`;
-  }
-
+function renderBackgroundStrip(x, y, w, h, c, section) {
+  const items = (section?.items || []).slice(0, 3);
+  const colW = Math.floor((w - 92) / 3);
+  let body = `${card(x, y, w, h, c)}
+${sectionTitle(x + 34, y + 54, c, section?.title || "问题与背景", section?.summary)}`;
+  items.forEach((item, index) => {
+    const ix = x + 34 + index * (colW + 46);
+    body += `\n<line x1="${ix}" y1="${y + 106}" x2="${ix}" y2="${y + 176}" stroke="${c.accent}" stroke-width="6"/>
+${text(ix + 22, y + 132, 21, c.ink, [item.title], "700")}
+${text(ix + 22, y + 164, 17, c.secondary, (item.body || []).slice(0, 2), "400", 26)}`;
+  });
   return body;
 }
 
@@ -319,28 +328,41 @@ ${renderFooter(brief, c, 870, width)}
 }
 
 function renderLargeCanvas(brief, c) {
-  const frameW = 1600;
-  const frameH = 900;
-  const margin = 80;
-  const frameGap = 88;
+  const width = 2400;
+  const height = 1820;
+  const margin = 92;
+  const innerW = width - margin * 2;
   const overview = brief.sections.find((section) => section.type === "overview") || brief.sections[0];
-  const orderedSections = [
-    overview,
-    ...brief.sections.filter((section) => section !== overview),
-  ];
-  const columns = orderedSections.length > 4 ? 3 : 2;
-  const rows = Math.ceil(orderedSections.length / columns);
-  const width = margin * 2 + columns * frameW + (columns - 1) * frameGap;
-  const height = margin * 2 + rows * frameH + (rows - 1) * frameGap;
-  const body = orderedSections.map((section, index) => {
-    const row = Math.floor(index / columns);
-    const col = index % columns;
-    const x = margin + col * (frameW + frameGap);
-    const y = margin + row * (frameH + frameGap);
-    const labelText = `${String(index + 1).padStart(2, "0")} / ${section.type === "overview" ? "总览" : section.title}`;
-    if (section === overview) return renderOverviewFrame(brief, overview, x, y, frameW, frameH, c, labelText);
-    return renderContentFrame(section, x, y, frameW, frameH, c, labelText);
-  }).join("\n");
+  const background = brief.sections.find((section) => section.type === "background");
+  const modules = brief.sections.find((section) => section.type === "modules");
+  const roadmap = brief.sections.find((section) => section.type === "roadmap");
+  const metricsEvidence = brief.sections.find((section) => section.type === "metrics-evidence");
+  const risks = brief.sections.find((section) => section.type === "risks");
+  const actions = brief.sections.find((section) => section.type === "actions");
+  const coreItems = (overview.items?.length ? overview.items : modules?.items || []).slice(0, 4);
+  const cardGap = 36;
+  const cardW = Math.floor((innerW - cardGap) / 2);
+  const cardH = 242;
+  const summaryLines = splitByLength(brief.summary, 56, 2);
+  let body = `
+${text(margin, 122, 52, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(margin, 164, 24, c.secondary, [brief.subtitle]) : ""}
+<rect x="${margin}" y="208" width="${innerW}" height="142" rx="14" fill="${c.surface}" stroke="${c.border}" stroke-width="2"/>
+<rect x="${margin}" y="208" width="12" height="142" rx="6" fill="${c.accent}"/>
+${text(margin + 38, 252, 21, c.accent, [brief.summaryLabel || "核心结论"], "700")}
+${text(margin + 38, 304, 31, c.ink, summaryLines, "700", 40)}
+
+${text(margin, 424, 30, c.ink, ["四个核心举措"], "700")}
+${coreItems.map((item, index) => {
+    const row = Math.floor(index / 2);
+    const col = index % 2;
+    return renderLargeModuleCard(margin + col * (cardW + cardGap), 470 + row * (cardH + 34), cardW, cardH, c, item, index);
+  }).join("\n")}
+
+${renderRoadmapPanel(margin, 1058, 725, 390, c, roadmap)}
+${renderMetricsPanel(margin + 762, 1058, 676, 390, c, metricsEvidence)}
+${renderRiskActionPanel(margin + 1476, 1058, 740, 390, c, risks, actions)}
+${renderBackgroundStrip(margin, 1498, innerW, 226, c, background)}`;
 
   return wrap(width, height, c, body);
 }
