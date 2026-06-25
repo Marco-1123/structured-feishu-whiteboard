@@ -194,55 +194,97 @@ ${text(px + 18, py + 26, 18, textFill, [item], "700")}`;
   }).join("\n");
 }
 
-function sectionHeight(section) {
-  const itemRows = Math.ceil((section.items?.length || 0) / 2);
-  const metricRows = Math.ceil((section.metrics?.length || 0) / 2);
-  const riskRows = Math.ceil((section.risks?.length || 0) / 2);
-  const actionRows = Math.ceil((section.actions?.length || 0) / 2);
-  const contentH = itemRows * 166 + Math.max(0, itemRows - 1) * 20
-    + metricRows * 52 + riskRows * 52 + actionRows * 52;
-  return Math.max(270, 128 + contentH + 48);
+function renderFrameShell(x, y, w, h, c, labelText) {
+  return `${card(x, y, w, h, c)}
+<rect x="${x}" y="${y}" width="10" height="${h}" rx="5" fill="${c.accent}"/>
+${text(x + 34, y + 34, 17, c.accent, [labelText], "700")}`;
 }
 
-function renderLargeSection(section, y, c, width) {
-  const x = 72;
-  const w = width - 144;
-  const h = sectionHeight(section);
-  let cursor = y + 88;
-  const summary = section.summary ? text(x + 40, y + 86, 22, c.secondary, [section.summary]) : "";
-  let body = `<line x1="${x}" y1="${y}" x2="${x + w}" y2="${y}" stroke="${c.border}" stroke-width="2"/>
-${text(x + 40, y + 48, 30, c.ink, [section.title], "700")}
-${summary}`;
+function renderFramePillList(x, y, items, c, textFill = c.accent, pillW = 310) {
+  return (items || []).map((item, index) => {
+    const row = Math.floor(index / 2);
+    const col = index % 2;
+    const px = x + col * (pillW + 24);
+    const py = y + row * 54;
+    return `<rect x="${px}" y="${py}" width="${pillW}" height="40" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(px + 18, py + 27, 18, textFill, [item], "700")}`;
+  }).join("\n");
+}
+
+function renderOverviewFrame(brief, overview, x, y, w, h, c, labelText) {
+  const modules = (brief.modules || overview.items || []).slice(0, 4);
+  const innerX = x + 64;
+  const innerW = w - 128;
+  const summaryLines = splitByLength(brief.summary, 30, 2);
+  const cardGap = 28;
+  const cardW = Math.floor((innerW - cardGap) / 2);
+  const cardH = 150;
+  let body = renderFrameShell(x, y, w, h, c, labelText);
+
+  body += `\n<rect x="${innerX}" y="${y + 64}" width="10" height="126" rx="5" fill="${c.accent}"/>
+${text(innerX + 38, y + 115, 42, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(innerX + 38, y + 162, 23, c.secondary, [brief.subtitle]) : ""}
+<rect x="${innerX}" y="${y + 232}" width="${innerW}" height="132" rx="12" fill="${c.soft}" stroke="${c.accent}" stroke-width="2"/>
+${text(innerX + 34, y + 276, 19, c.accent, [brief.summaryLabel || "核心结论"], "700")}
+${text(innerX + 34, y + 318, 30, c.ink, summaryLines, "700", 40)}`;
+
+  modules.forEach((module, index) => {
+    const row = Math.floor(index / 2);
+    const col = index % 2;
+    const cx = innerX + col * (cardW + cardGap);
+    const cy = y + 418 + row * (cardH + 24);
+    body += `\n${renderMiniCard(cx, cy, cardW, cardH, c, module)}`;
+  });
+
+  if (brief.footer) {
+    body += `\n<rect x="${innerX}" y="${y + 790}" width="${innerW}" height="58" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(innerX + 28, y + 827, 22, c.ink, splitByLength(brief.footer, 42, 1), "700")}`;
+  }
+
+  return body;
+}
+
+function renderContentFrame(section, x, y, w, h, c, labelText) {
+  const innerX = x + 64;
+  const innerW = w - 128;
+  const cardGap = 28;
+  const cardW = Math.floor((innerW - cardGap) / 2);
+  const cardH = 146;
+  let cursor = y + 176;
+  let body = `${renderFrameShell(x, y, w, h, c, labelText)}
+${text(innerX, y + 92, 34, c.ink, [section.title], "700")}
+${section.summary ? text(innerX, y + 132, 21, c.secondary, splitByLength(section.summary, 42, 1), "400") : ""}
+<line x1="${innerX}" y1="${y + 154}" x2="${innerX + innerW}" y2="${y + 154}" stroke="${c.border}" stroke-width="2"/>`;
 
   if (section.items?.length) {
-    const cardW = Math.floor((w - 104) / 2);
-    cursor += section.summary ? 34 : 0;
-    section.items.forEach((item, index) => {
+    section.items.slice(0, 4).forEach((item, index) => {
       const row = Math.floor(index / 2);
       const col = index % 2;
-      body += `\n${renderMiniCard(x + 40 + col * (cardW + 24), cursor + row * 186, cardW, 166, c, item)}`;
+      const cx = innerX + col * (cardW + cardGap);
+      const cy = cursor + row * (cardH + 22);
+      body += `\n${renderMiniCard(cx, cy, cardW, cardH, c, item)}`;
     });
-    cursor += Math.ceil(section.items.length / 2) * 186 + 4;
+    cursor += Math.ceil(Math.min(section.items.length, 4) / 2) * (cardH + 22) + 8;
   }
 
   if (section.metrics?.length) {
-    body += `\n${text(x + 40, cursor + 28, 20, c.accent, ["关键指标"], "700")}`;
-    body += `\n${renderPillList(x + 40, cursor + 48, section.metrics, c, c.muted, c.accent)}`;
-    cursor += Math.ceil(section.metrics.length / 2) * 52 + 76;
+    body += `\n${text(innerX, cursor + 28, 19, c.accent, ["关键指标"], "700")}`;
+    body += `\n${renderFramePillList(innerX, cursor + 48, section.metrics.slice(0, 4), c, c.accent, Math.floor((innerW - 24) / 2))}`;
+    cursor += Math.ceil(Math.min(section.metrics.length, 4) / 2) * 54 + 76;
   }
 
   if (section.risks?.length) {
-    body += `\n${text(x + 40, cursor + 28, 20, c.success, ["风险与待确认"], "700")}`;
-    body += `\n${renderPillList(x + 40, cursor + 48, section.risks, c, c.muted, c.success)}`;
-    cursor += Math.ceil(section.risks.length / 2) * 52 + 76;
+    body += `\n${text(innerX, cursor + 28, 19, c.success, ["风险与待确认"], "700")}`;
+    body += `\n${renderFramePillList(innerX, cursor + 48, section.risks.slice(0, 4), c, c.success, Math.floor((innerW - 24) / 2))}`;
+    cursor += Math.ceil(Math.min(section.risks.length, 4) / 2) * 54 + 76;
   }
 
   if (section.actions?.length) {
-    body += `\n${text(x + 40, cursor + 28, 20, c.accent, ["下一步行动"], "700")}`;
-    body += `\n${renderPillList(x + 40, cursor + 48, section.actions, c, c.muted, c.accent)}`;
+    body += `\n${text(innerX, cursor + 28, 19, c.accent, ["下一步行动"], "700")}`;
+    body += `\n${renderFramePillList(innerX, cursor + 48, section.actions.slice(0, 4), c, c.accent, Math.floor((innerW - 24) / 2))}`;
   }
 
-  return { svg: body, height: h };
+  return body;
 }
 
 function renderConclusionFirst(brief, c) {
@@ -277,45 +319,30 @@ ${renderFooter(brief, c, 870, width)}
 }
 
 function renderLargeCanvas(brief, c) {
-  const width = 1680;
+  const frameW = 1600;
+  const frameH = 900;
+  const margin = 80;
+  const frameGap = 88;
   const overview = brief.sections.find((section) => section.type === "overview") || brief.sections[0];
-  const overviewModules = brief.modules || overview.items?.slice(0, 5) || [];
-  const overviewBrief = { ...brief, modules: overviewModules, footer: "" };
-  const moduleCount = overviewBrief.modules.length;
-  const gap = 28;
-  const cardX = 72;
-  const cardY = 460;
-  const hasMetric = overviewBrief.modules.some((module) => module.metric);
-  const cardH = hasMetric ? 374 : 334;
-  const cardW = Math.floor((width - 144 - gap * (moduleCount - 1)) / moduleCount);
-  const modules = overviewBrief.modules.map((module, index) => {
-    const x = cardX + index * (cardW + gap);
-    return renderModuleCard(x, cardY, cardW, cardH, c, module, {
-      titleSize: 28,
-      bodySize: 21,
-      titleY: 76,
-      bodyY: 132,
-      bodyGap: 32,
-      metricY: cardH - 158,
-      labelY: cardH - 96,
-      labelWidth: 146,
-      labelFill: index === moduleCount - 1 ? c.success : c.accent,
-    });
+  const orderedSections = [
+    overview,
+    ...brief.sections.filter((section) => section !== overview),
+  ];
+  const columns = orderedSections.length > 4 ? 3 : 2;
+  const rows = Math.ceil(orderedSections.length / columns);
+  const width = margin * 2 + columns * frameW + (columns - 1) * frameGap;
+  const height = margin * 2 + rows * frameH + (rows - 1) * frameGap;
+  const body = orderedSections.map((section, index) => {
+    const row = Math.floor(index / columns);
+    const col = index % columns;
+    const x = margin + col * (frameW + frameGap);
+    const y = margin + row * (frameH + frameGap);
+    const labelText = `${String(index + 1).padStart(2, "0")} / ${section.type === "overview" ? "总览" : section.title}`;
+    if (section === overview) return renderOverviewFrame(brief, overview, x, y, frameW, frameH, c, labelText);
+    return renderContentFrame(section, x, y, frameW, frameH, c, labelText);
   }).join("\n");
 
-  let y = 900;
-  let body = `
-${renderHeader(overviewBrief, c, width)}
-${renderSummary(overviewBrief, c, 250, width)}
-${modules}`;
-
-  brief.sections.filter((section) => section.type !== "overview").forEach((section) => {
-    const rendered = renderLargeSection(section, y, c, width);
-    body += `\n${rendered.svg}`;
-    y += rendered.height + 72;
-  });
-
-  return wrap(width, y + 48, c, body);
+  return wrap(width, height, c, body);
 }
 
 function renderProblemBreakdown(brief, c) {
