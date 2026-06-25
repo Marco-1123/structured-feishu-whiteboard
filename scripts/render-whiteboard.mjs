@@ -113,19 +113,43 @@ function metric(x, y, w, c, content) {
 ${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
 }
 
+function centerTextGroup(containerY, containerH, items) {
+  const totalH = items.reduce((sum, item, index) => sum + item.height + (index === 0 ? 0 : item.gapBefore), 0);
+  let cursor = Math.round(containerY + (containerH - totalH) / 2);
+  return items.map((item, index) => {
+    cursor += index === 0 ? 0 : item.gapBefore;
+    const y = cursor + item.baselineOffset;
+    cursor += item.height;
+    return y;
+  });
+}
+
 function renderHeader(brief, c, width) {
-  const subtitle = brief.subtitle ? text(112, 176, 26, c.secondary, [brief.subtitle]) : "";
-  return `${card(72, 60, width - 144, 150, c)}
-<rect x="72" y="60" width="12" height="150" rx="6" fill="${c.accent}"/>
-${text(112, 124, 50, c.ink, [brief.title], "700")}
+  const y = 60;
+  const h = 150;
+  const hasSubtitle = Boolean(brief.subtitle);
+  const [titleY, subtitleY] = centerTextGroup(y, h, [
+    { height: 58, baselineOffset: 46, gapBefore: 0 },
+    ...(hasSubtitle ? [{ height: 30, baselineOffset: 23, gapBefore: 18 }] : []),
+  ]);
+  const subtitle = hasSubtitle ? text(112, subtitleY, 26, c.secondary, [brief.subtitle]) : "";
+  return `${card(72, y, width - 144, h, c)}
+<rect x="72" y="${y}" width="12" height="${h}" rx="6" fill="${c.accent}"/>
+${text(112, titleY, 50, c.ink, [brief.title], "700")}
 ${subtitle}`;
 }
 
 function renderSummary(brief, c, y, width) {
+  const h = 170;
   const summaryLines = splitByLength(brief.summary, 34, 2);
-  return `<rect x="72" y="${y}" width="${width - 144}" height="170" rx="14" fill="${c.soft}" stroke="${c.accent}" stroke-width="2"/>
-${text(112, y + 54, 20, c.accent, [brief.summaryLabel || "核心结论"], "700")}
-${text(112, y + 102, 34, c.ink, summaryLines, "700", 44)}`;
+  const summaryHeight = summaryLines.length > 0 ? 40 + (summaryLines.length - 1) * 44 : 0;
+  const [labelY, summaryY] = centerTextGroup(y, h, [
+    { height: 24, baselineOffset: 19, gapBefore: 0 },
+    { height: summaryHeight, baselineOffset: 34, gapBefore: 20 },
+  ]);
+  return `<rect x="72" y="${y}" width="${width - 144}" height="${h}" rx="14" fill="${c.soft}" stroke="${c.accent}" stroke-width="2"/>
+${text(112, labelY, 20, c.accent, [brief.summaryLabel || "核心结论"], "700")}
+${text(112, summaryY, 34, c.ink, summaryLines, "700", 44)}`;
 }
 
 function renderFooter(brief, c, y, width) {
