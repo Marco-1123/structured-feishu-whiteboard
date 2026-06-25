@@ -1,6 +1,6 @@
 # Deterministic Rendering
 
-当其他 Agent 使用本 skill 时，优先让 Agent 产出结构化 brief，再用脚本生成 SVG。不要让 Agent 自由手写整张 SVG，除非脚本暂不支持该版式。
+当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成 SVG。不要让 Agent 自由手写整张 SVG。
 
 ## 适用场景
 
@@ -11,6 +11,7 @@
 - 其他 Agent 产出与预期风格差异大。
 - 用户要求“按这个 skill 的标准版式生成”。
 - 长文需要在同一个 onepage 大画布中保留总览、证据、风险、指标和行动。
+- 内容看起来像路线图、流程图或价值链，但当前渲染器还没有对应专用模板；此时应映射到 `large-canvas` 的 roadmap / modules 区域，而不是手写 SVG。
 
 ## 工作流
 
@@ -24,6 +25,7 @@
 ## Brief 约束
 
 - `layout` 只能是脚本支持的版式。
+- 当前生产输出只允许 `conclusion-first`、`problem-breakdown`、`large-canvas`。
 - 长文默认使用 `layout: "large-canvas"`；它表示统一 onepage 大画布，不是纵向长图或多页分屏。顶部总览不是完整输出。
 - `modules` 只能有 3 到 5 个。
 - 每个模块正文最多 3 条短句。
@@ -41,7 +43,7 @@
 - `problem-breakdown`
 - `large-canvas`
 
-其他版式仍按 `layout-library.md` 手写 SVG；稳定后再逐步脚本化。
+路线图、流程、价值链和矩阵目前只作为信息架构参考。生产交付时必须映射到上述三个脚本化版式之一；不要因为 `layout-library.md` 里描述了这些版式，就自由手写 SVG。
 
 ## 输出原则
 
@@ -61,3 +63,12 @@ Agent 负责：
 - 选择版式和风格。
 - 填写 brief。
 - 执行渲染和检查。
+
+## 不合格输出
+
+以下情况视为没有正确使用本 skill：
+
+- 没有生成 brief，直接手写 SVG。
+- 使用了 `layout-library.md` 里的路线图或流程描述，但没有通过渲染器。
+- 生成了未被 `scripts/check-svg-layout.mjs` 和 whiteboard check 覆盖的自由布局。
+- 复现了贴边、压线、无效大留白、箭头漂浮、文字出框等已经由渲染器解决的问题。

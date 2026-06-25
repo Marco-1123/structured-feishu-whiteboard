@@ -18,6 +18,7 @@ This is the navigation page for the structured Feishu whiteboard project wiki. I
 ## Cases
 
 - [Initial Wiki Setup](cases/initial-wiki-setup.md) — First application of the LLM Wiki pattern to this repository.
+- [Renderer Bypass Regression](cases/renderer-bypass-regression.md) — A recurring layout defect caused by an agent using outdated/manual SVG generation instead of the deterministic renderer.
 
 ## Maintenance Notes
 

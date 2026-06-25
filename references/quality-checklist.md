@@ -50,6 +50,8 @@
 
 ## SVG 质量
 
+- 生产交付 SVG 必须由 `scripts/render-whiteboard.mjs` 生成；除非用户明确接受实验性手写 SVG。
+- 如果内容被判断为路线图、流程或价值链，但没有专用脚本模板，必须映射到 `large-canvas`，不能自由手写整图。
 - 正文使用 `<text>` / `<tspan>`。
 - 主体结构使用 rect、circle、ellipse、line、polyline。
 - 没有 gradient、filter、pattern、clipPath、mask。

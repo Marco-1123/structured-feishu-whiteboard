@@ -10,3 +10,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Created project scope page: `wiki/topics/structured-feishu-whiteboard-knowledge-scope.md`.
 - Created setup case: `wiki/cases/initial-wiki-setup.md`.
 - Created schema and index files for future wiki maintenance.
+
+## [2026-06-26] query | Renderer Bypass Regression
+
+- Recorded a recurring layout failure caused by a stale installed Skill and manual SVG fallback.
+- Added case page: `wiki/cases/renderer-bypass-regression.md`.
+- Updated Skill rules to make deterministic rendering a production requirement instead of a preference.

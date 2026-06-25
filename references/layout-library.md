@@ -1,6 +1,6 @@
 # Layout Library
 
-只从下面 5 个版式中选择。可以根据内容数量调整列数、卡片宽度、间距和高度，但不要改变版式的核心表达逻辑。
+只从下面 5 个版式中选择信息架构。注意：当前生产交付必须走 `references/deterministic-rendering.md` 的脚本化渲染器。脚本暂不支持的版式只能作为结构参考，必须映射到 `conclusion-first`、`problem-breakdown` 或 `large-canvas`，不能自由手写 SVG。
 
 ## 1. 结论先行
 
