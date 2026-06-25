@@ -225,19 +225,22 @@ ${text(px + 16, py + 25, 17, textFill, [item], "700")}`;
 
 function renderRoadmapPanel(x, y, w, h, c, section) {
   const items = (section?.items || []).slice(0, 3);
-  const stepW = Math.floor((w - 96) / 3);
+  const sidePad = 34;
+  const stepGap = 68;
+  const stepW = Math.floor((w - sidePad * 2 - stepGap * 2) / 3);
   let body = `${card(x, y, w, h, c)}
 ${sectionTitle(x + 34, y + 54, c, section?.title || "阶段路线", section?.summary)}`;
   items.forEach((item, index) => {
-    const sx = x + 34 + index * (stepW + 31);
+    const sx = x + sidePad + index * (stepW + stepGap);
     const sy = y + 126;
-    const bodyLines = splitByLength((item.body || [])[0] || "", 9, 2);
+    const bodyLines = splitByLength((item.body || [])[0] || "", 7, 2);
     body += `\n<rect x="${sx}" y="${sy}" width="${stepW}" height="98" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(sx + 20, sy + 38, 21, c.ink, [item.title], "700")}
 ${text(sx + 20, sy + 70, 17, c.secondary, bodyLines, "400", 22)}`;
     if (index < items.length - 1) {
-      const ax = sx + stepW + 10;
-      body += `\n<line x1="${ax}" y1="${sy + 49}" x2="${ax + 22}" y2="${sy + 49}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`;
+      const ax1 = sx + stepW + 16;
+      const ax2 = sx + stepW + stepGap - 18;
+      body += `\n<line x1="${ax1}" y1="${sy + 49}" x2="${ax2}" y2="${sy + 49}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`;
     }
   });
   if (section?.actions?.length) {
@@ -326,7 +329,7 @@ ${renderFooter(brief, c, 870, width)}
 
 function renderLargeCanvas(brief, c) {
   const width = 2400;
-  const height = 1820;
+  const height = 1560;
   const margin = 92;
   const innerW = width - margin * 2;
   const overview = brief.sections.find((section) => section.type === "overview") || brief.sections[0];

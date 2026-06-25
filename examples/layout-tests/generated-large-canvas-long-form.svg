@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1820" viewBox="0 0 2400 1820">
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1560" viewBox="0 0 2400 1560">
 <defs>
   <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
     <path d="M0 0 L10 4 L0 8 z" fill="#2563EB"/>
   </marker>
 </defs>
-<rect x="0" y="0" width="2400" height="1820" fill="#F7FAFC"/>
+<rect x="0" y="0" width="2400" height="1560" fill="#F7FAFC"/>
 
 <text x="92" y="122" font-size="52" fill="#172033" font-weight="700"><tspan x="92" dy="0">H2智能化经营推进框架</tspan></text>
 <text x="92" y="164" font-size="24" fill="#5C6B82" font-weight="400"><tspan x="92" dy="0">以 onepage 大画布保留主线、证据、风险和行动。</tspan></text>
@@ -42,17 +42,17 @@
 <rect x="92" y="800" width="725" height="430" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="126" y="854" font-size="30" fill="#172033" font-weight="700"><tspan x="126" dy="0">阶段路线</tspan></text>
 <text x="126" y="892" font-size="19" fill="#5C6B82" font-weight="400"><tspan x="126" dy="0">先对齐，再闭环，最后沉淀为可复用能力。</tspan></text>
-<rect x="126" y="926" width="209" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<rect x="126" y="926" width="173" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
 <text x="146" y="964" font-size="21" fill="#172033" font-weight="700"><tspan x="146" dy="0">阶段一 对齐</tspan></text>
-<text x="146" y="996" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="146" dy="0">两周内完成场景盘点</tspan></text>
-<line x1="345" y1="975" x2="367" y2="975" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
-<rect x="366" y="926" width="209" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="386" y="964" font-size="21" fill="#172033" font-weight="700"><tspan x="386" dy="0">阶段二 闭环</tspan></text>
-<text x="386" y="996" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="386" dy="0">选择 3 个高价值</tspan><tspan x="386" dy="22">专项</tspan></text>
-<line x1="585" y1="975" x2="607" y2="975" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
-<rect x="606" y="926" width="209" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
-<text x="626" y="964" font-size="21" fill="#172033" font-weight="700"><tspan x="626" dy="0">阶段三 复用</tspan></text>
-<text x="626" y="996" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="626" dy="0">沉淀配置编排和评估</tspan><tspan x="626" dy="22">能力</tspan></text>
+<text x="146" y="996" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="146" dy="0">两周内完成场景</tspan><tspan x="146" dy="22">盘点</tspan></text>
+<line x1="315" y1="975" x2="349" y2="975" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="367" y="926" width="173" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="387" y="964" font-size="21" fill="#172033" font-weight="700"><tspan x="387" dy="0">阶段二 闭环</tspan></text>
+<text x="387" y="996" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="387" dy="0">选择 3 个高</tspan><tspan x="387" dy="22">价值专项</tspan></text>
+<line x1="556" y1="975" x2="590" y2="975" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="608" y="926" width="173" height="98" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="628" y="964" font-size="21" fill="#172033" font-weight="700"><tspan x="628" dy="0">阶段三 复用</tspan></text>
+<text x="628" y="996" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="628" dy="0">沉淀配置编排和</tspan><tspan x="628" dy="22">评估能力</tspan></text>
 <line x1="126" y1="1078" x2="783" y2="1078" stroke="#D8E2EF" stroke-width="1.5"/>
 <text x="126" y="1116" font-size="18" fill="#2563EB" font-weight="700"><tspan x="126" dy="0">近期动作</tspan></text>
 <rect x="126" y="1136" width="319" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
