@@ -136,30 +136,21 @@ ${text(112, y + 68, 27, c.ink, splitByLength(brief.footer, 42, 2), "700", 38)}`;
 
 function renderModuleCard(x, y, w, h, c, module, options) {
   const {
+    titleY,
+    bodyY,
+    bodyGap,
+    metricY,
+    labelY,
     titleSize,
     bodySize,
-    titleToBody,
-    bodyGap,
-    controlsGap,
     labelWidth,
     labelFill,
   } = options;
-  const bodyLines = module.body.filter((line) => String(line).trim().length > 0);
-  const titleHeight = titleSize + 6;
-  const bodyHeight = bodyLines.length > 0 ? bodySize + (bodyLines.length - 1) * bodyGap : 0;
-  const controlsHeight = module.metric ? 46 + 16 + 36 : module.tag ? 36 : 0;
-  const contentHeight = titleHeight + titleToBody + bodyHeight + controlsGap + controlsHeight;
-  const top = Math.round(y + (h - contentHeight) / 2);
-  const titleY = top + titleSize;
-  const bodyY = titleY + titleToBody + bodySize;
-  const controlsY = bodyY + (bodyLines.length - 1) * bodyGap + controlsGap;
-  const metricPart = module.metric ? metric(x + 36, controlsY, 210, c, module.metric) : "";
-  const labelY = module.metric ? controlsY + 62 : controlsY;
   return `${card(x, y, w, h, c)}
-${text(x + 36, titleY, titleSize, c.ink, [module.title], "700")}
-${text(x + 36, bodyY, bodySize, c.secondary, bodyLines, "400", bodyGap)}
-${metricPart}
-${label(x + 36, labelY, labelWidth, c, module.tag, labelFill)}`;
+${text(x + 36, y + titleY, titleSize, c.ink, [module.title], "700")}
+${text(x + 36, y + bodyY, bodySize, c.secondary, module.body, "400", bodyGap)}
+${metric(x + 36, y + metricY, 210, c, module.metric)}
+${label(x + 36, y + labelY, labelWidth, c, module.tag, labelFill)}`;
 }
 
 function renderConclusionFirst(brief, c) {
@@ -176,9 +167,11 @@ function renderConclusionFirst(brief, c) {
     return renderModuleCard(x, cardY, cardW, cardH, c, module, {
       titleSize: 28,
       bodySize: 21,
-      titleToBody: 38,
+      titleY: 76,
+      bodyY: 132,
       bodyGap: 32,
-      controlsGap: 38,
+      metricY: cardH - 158,
+      labelY: cardH - 96,
       labelWidth: 146,
       labelFill: index === moduleCount - 1 ? c.success : c.accent,
     });
@@ -204,9 +197,11 @@ function renderProblemBreakdown(brief, c) {
     return renderModuleCard(x, cardY, cardW, cardH, c, module, {
       titleSize: 30,
       bodySize: 21,
-      titleToBody: 40,
+      titleY: 78,
+      bodyY: 138,
       bodyGap: 32,
-      controlsGap: 40,
+      metricY: cardH - 158,
+      labelY: cardH - 96,
       labelWidth: 156,
       labelFill: c.success,
     });
