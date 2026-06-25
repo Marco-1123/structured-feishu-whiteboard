@@ -16,3 +16,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Recorded a recurring layout failure caused by a stale installed Skill and manual SVG fallback.
 - Added case page: `wiki/cases/renderer-bypass-regression.md`.
 - Updated Skill rules to make deterministic rendering a production requirement instead of a preference.
+
+## [2026-06-26] query | V3 Layout And Style System
+
+- Added V3 direction page: `wiki/topics/v3-layout-style-system.md`.
+- Recorded the principle that richer layouts must remain schema-backed and renderer-backed.
+- Captured the Feishu-inspired restrained style direction for V3.

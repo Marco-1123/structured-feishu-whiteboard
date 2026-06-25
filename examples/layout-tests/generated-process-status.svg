@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1080" viewBox="0 0 1880 1080">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#3370FF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1880" height="1080" fill="#F6F8FB"/>
+
+<rect x="72" y="60" width="1736" height="150" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
+<rect x="72" y="60" width="12" height="150" rx="6" fill="#3370FF"/>
+<text x="112" y="128" font-size="50" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">审批异常排查闭环</tspan></text>
+<text x="112" y="181" font-size="26" fill="#646A73" font-weight="400"><tspan x="112" dy="0">让异常从发现、定位、处理到复盘形成标准链路。</tspan></text>
+<rect x="72" y="246" width="1736" height="170" rx="14" fill="#E8F3FF" stroke="#3370FF" stroke-width="2"/>
+<text x="112" y="308" font-size="20" fill="#3370FF" font-weight="700"><tspan x="112" dy="0">流程目标</tspan></text>
+<text x="112" y="367" font-size="34" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">把分散排查动作收敛成一条可追踪链路，减少人工切换和重复沟通。</tspan></text>
+<rect x="72" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
+<rect x="72" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
+<text x="96" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="96" dy="0">触发</tspan></text>
+<text x="96" y="570" font-size="19" fill="#646A73" font-weight="400"><tspan x="96" dy="0">用户反馈审批卡住</tspan><tspan x="96" dy="29">系统记录异常入口</tspan></text>
+<line x1="96" y1="650" x2="464" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
+<text x="96" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="96" dy="0">输入: 审批实例</tspan></text>
+<text x="96" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="96" dy="0">输出: 异常工单</tspan></text>
+<line x1="494" y1="620" x2="503" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="512" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
+<rect x="512" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
+<text x="536" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="536" dy="0">定位</tspan></text>
+<text x="536" y="570" font-size="19" fill="#646A73" font-weight="400"><tspan x="536" dy="0">读取节点与权限状态</tspan><tspan x="536" dy="29">识别失败环节</tspan></text>
+<line x1="536" y1="650" x2="904" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
+<text x="536" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="536" dy="0">输入: 流程日志</tspan></text>
+<text x="536" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="536" dy="0">输出: 失败原因</tspan></text>
+<line x1="934" y1="620" x2="943" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="952" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
+<rect x="952" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
+<text x="976" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="976" dy="0">处理</tspan></text>
+<text x="976" y="570" font-size="19" fill="#646A73" font-weight="400"><tspan x="976" dy="0">补齐权限或重试节点</tspan><tspan x="976" dy="29">必要时进入人工审批</tspan></text>
+<line x1="976" y1="650" x2="1344" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
+<text x="976" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="976" dy="0">输入: 处置方案</tspan></text>
+<text x="976" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="976" dy="0">输出: 恢复结果</tspan></text>
+<line x1="1374" y1="620" x2="1383" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1392" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
+<rect x="1392" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
+<text x="1416" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="1416" dy="0">复盘</tspan></text>
+<text x="1416" y="570" font-size="19" fill="#646A73" font-weight="400"><tspan x="1416" dy="0">沉淀异常类型</tspan><tspan x="1416" dy="29">更新监控和提示文案</tspan></text>
+<line x1="1416" y1="650" x2="1784" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
+<text x="1416" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="1416" dy="0">输入: 案例记录</tspan></text>
+<text x="1416" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="1416" dy="0">输出: 规则优化</tspan></text>
+
+<rect x="72" y="870" width="1736" height="118" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
+<text x="112" y="938" font-size="27" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">判断标准：同类异常下次应能自动定位，并给出明确处置建议。</tspan></text>
+
+</svg>

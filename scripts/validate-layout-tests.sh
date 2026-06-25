@@ -11,9 +11,7 @@ for brief in examples/briefs/*.json; do
   png="${svg%.svg}.png"
   node scripts/validate-brief.mjs "$brief" >/dev/null
   node scripts/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
-  if [[ "$(basename "$brief")" == "large-canvas-long-form.json" ]]; then
-    node scripts/check-svg-layout.mjs "$svg" >/dev/null
-  fi
+  node scripts/check-svg-layout.mjs "$svg" >/dev/null
   npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null
   npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -f svg --check >/dev/null
 done

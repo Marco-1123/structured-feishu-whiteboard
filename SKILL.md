@@ -54,7 +54,7 @@ bash scripts/preflight.sh
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
-- 当前生产可交付版式只包括 `conclusion-first`、`problem-breakdown` 和 `large-canvas`。如果内容看起来像路线图或流程图，不要自由手写新布局；把信息映射到 `large-canvas`，或先扩展渲染器再交付。
+- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
 - 单张画板只表达一个主任务；如果同时出现主线、动作、指标和读图说明，优先拆成总览图和指标图。
 - 并列模块不要使用箭头；只有时间推进、流程依赖或价值链才使用箭头。
 - 指标和 `xx%` 等草稿占位按 `content-budget.md` 执行：必须有业务语义，同类指标只出现一次，卡片内指标和底部指标区二选一。

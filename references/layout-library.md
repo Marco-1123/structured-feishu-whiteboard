@@ -1,6 +1,6 @@
 # Layout Library
 
-只从下面 5 个版式中选择信息架构。注意：当前生产交付必须走 `references/deterministic-rendering.md` 的脚本化渲染器。脚本暂不支持的版式只能作为结构参考，必须映射到 `conclusion-first`、`problem-breakdown` 或 `large-canvas`，不能自由手写 SVG。
+只从下面 5 个版式中选择信息架构。注意：当前生产交付必须走 `references/deterministic-rendering.md` 的脚本化渲染器；不要自由手写 SVG。
 
 ## 1. 结论先行
 
@@ -72,6 +72,7 @@
 - 行：对象、方案、产品、阶段或角色。
 - 列：评价维度。
 - 右侧或底部：推荐结论。
+- 生产 layout：`comparison-matrix`。
 
 排版规则：
 
@@ -99,6 +100,7 @@
 - 横向阶段轴：3 到 5 个阶段。
 - 每个阶段：目标、关键动作、交付物或指标。
 - 末端：目标状态或成功标准。
+- 生产 layout：`roadmap`。
 
 排版规则：
 
@@ -126,6 +128,7 @@
 - 左到右主流程：4 到 7 个节点。
 - 每个节点：动作、责任方、输入输出或关键风险。
 - 上下辅助层：支撑能力、数据、约束或指标。
+- 生产 layout：`process-chain`。
 
 排版规则：
 

@@ -34,6 +34,40 @@ const styles = {
     soft: "#F7D9B4",
     success: "#6B7D3A",
   },
+  "feishu-neutral": {
+    canvas: "#F5F7FA",
+    surface: "#FFFFFF",
+    muted: "#F0F3F8",
+    ink: "#1F2329",
+    secondary: "#646A73",
+    border: "#DEE4ED",
+    accent: "#3370FF",
+    soft: "#EAF0FF",
+    success: "#2B8F77",
+  },
+  "feishu-status": {
+    canvas: "#F6F8FB",
+    surface: "#FFFFFF",
+    muted: "#EEF3F7",
+    ink: "#1F2329",
+    secondary: "#646A73",
+    border: "#DDE6EE",
+    accent: "#3370FF",
+    soft: "#E8F3FF",
+    success: "#2B8F77",
+    warning: "#C98100",
+  },
+  "feishu-decision-dark": {
+    canvas: "#F2F5FA",
+    surface: "#FFFFFF",
+    muted: "#E9EEF7",
+    ink: "#1F2329",
+    secondary: "#4E5969",
+    border: "#CBD5E1",
+    accent: "#1F3A5F",
+    soft: "#DCE8F6",
+    success: "#2B8F77",
+  },
 };
 
 function parseArgs(argv) {
@@ -395,12 +429,119 @@ ${renderFooter(brief, c, 844, width)}
 `);
 }
 
+function renderRoadmap(brief, c) {
+  const width = 1680;
+  const height = 1040;
+  const stages = brief.stages.slice(0, 5);
+  const gap = 28;
+  const x0 = 72;
+  const y = 438;
+  const cardW = Math.floor((width - 144 - gap * (stages.length - 1)) / stages.length);
+  const cardH = 342;
+  const cards = stages.map((stage, index) => {
+    const x = x0 + index * (cardW + gap);
+    const badge = String(index + 1).padStart(2, "0");
+    const arrow = index < stages.length - 1
+      ? `<line x1="${x + cardW + 8}" y1="${y + 170}" x2="${x + cardW + gap - 10}" y2="${y + 170}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`
+      : "";
+    return `${card(x, y, cardW, cardH, c)}
+<rect x="${x + 30}" y="${y + 34}" width="58" height="34" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 46, y + 58, 17, c.accent, [badge], "700")}
+${text(x + 30, y + 112, 27, c.ink, [stage.title], "700")}
+<line x1="${x + 30}" y1="${y + 142}" x2="${x + cardW - 30}" y2="${y + 142}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 30, y + 190, 20, c.secondary, stage.body.slice(0, 3), "400", 31)}
+${label(x + 30, y + cardH - 70, 132, c, stage.tag, index === stages.length - 1 ? c.success : c.accent)}
+${arrow}`;
+  }).join("\n");
+  return wrap(width, height, c, `
+${renderHeader(brief, c, width)}
+${renderSummary(brief, c, 246, width)}
+${cards}
+${renderFooter(brief, c, 852, width)}
+`);
+}
+
+function renderProcessChain(brief, c) {
+  const width = 1880;
+  const height = 1080;
+  const nodes = brief.nodes.slice(0, 7);
+  const gap = 24;
+  const x0 = 72;
+  const y = 452;
+  const nodeW = Math.floor((width - 144 - gap * (nodes.length - 1)) / nodes.length);
+  const nodeH = 350;
+  const blocks = nodes.map((node, index) => {
+    const x = x0 + index * (nodeW + gap);
+    const arrow = index < nodes.length - 1
+      ? `<line x1="${x + nodeW + 6}" y1="${y + 168}" x2="${x + nodeW + gap - 9}" y2="${y + 168}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`
+      : "";
+    const inputLine = node.input ? [`输入: ${node.input}`] : [];
+    const outputLine = node.output ? [`输出: ${node.output}`] : [];
+    return `${card(x, y, nodeW, nodeH, c)}
+<rect x="${x}" y="${y}" width="${nodeW}" height="68" rx="14" fill="${c.muted}" stroke="${c.border}" stroke-width="2"/>
+${text(x + 24, y + 44, 24, c.ink, [node.title], "700")}
+${text(x + 24, y + 118, 19, c.secondary, node.body.slice(0, 2), "400", 29)}
+<line x1="${x + 24}" y1="${y + 198}" x2="${x + nodeW - 24}" y2="${y + 198}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 24, y + 238, 16, c.accent, inputLine, "700")}
+${text(x + 24, y + 280, 16, c.success, outputLine, "700")}
+${arrow}`;
+  }).join("\n");
+  return wrap(width, height, c, `
+${renderHeader(brief, c, width)}
+${renderSummary(brief, c, 246, width)}
+${blocks}
+${renderFooter(brief, c, 870, width)}
+`);
+}
+
+function renderComparisonMatrix(brief, c) {
+  const width = 1680;
+  const height = 1080;
+  const columns = brief.matrix.columns;
+  const rows = brief.matrix.rows;
+  const x = 72;
+  const y = 430;
+  const tableW = width - 144;
+  const nameW = 248;
+  const colW = Math.floor((tableW - nameW) / columns.length);
+  const headerH = 72;
+  const rowH = 94;
+  const tableH = headerH + rows.length * rowH;
+  let body = `${card(x, y, tableW, tableH, c)}
+<rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" rx="14" fill="${c.muted}" stroke="${c.border}" stroke-width="2"/>
+${text(x + 28, y + 46, 22, c.ink, ["对象/维度"], "700")}`;
+  columns.forEach((column, index) => {
+    const cx = x + nameW + index * colW;
+    body += `\n${text(cx + 24, y + 46, 22, c.ink, [column], "700")}
+<line x1="${cx}" y1="${y}" x2="${cx}" y2="${y + tableH}" stroke="${c.border}" stroke-width="1.5"/>`;
+  });
+  rows.forEach((row, rowIndex) => {
+    const ry = y + headerH + rowIndex * rowH;
+    const fill = row.recommended ? c.soft : c.surface;
+    body += `\n<rect x="${x}" y="${ry}" width="${tableW}" height="${rowH}" fill="${fill}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 28, ry + 58, 22, row.recommended ? c.accent : c.ink, [row.name], "700")}`;
+    row.cells.forEach((cell, cellIndex) => {
+      const cx = x + nameW + cellIndex * colW;
+      body += `\n${text(cx + 24, ry + 58, 20, c.secondary, [cell], "400")}`;
+    });
+  });
+  return wrap(width, height, c, `
+${renderHeader(brief, c, width)}
+${renderSummary(brief, c, 238, width)}
+${body}
+${renderFooter(brief, c, 900, width)}
+`);
+}
+
 function render(brief) {
   const c = styles[brief.style];
   if (!c) throw new Error(`unsupported style: ${brief.style}`);
   if (brief.layout === "large-canvas") return renderLargeCanvas(brief, c);
   if (brief.layout === "conclusion-first") return renderConclusionFirst(brief, c);
   if (brief.layout === "problem-breakdown") return renderProblemBreakdown(brief, c);
+  if (brief.layout === "roadmap") return renderRoadmap(brief, c);
+  if (brief.layout === "process-chain") return renderProcessChain(brief, c);
+  if (brief.layout === "comparison-matrix") return renderComparisonMatrix(brief, c);
   throw new Error(`unsupported layout: ${brief.layout}`);
 }
 

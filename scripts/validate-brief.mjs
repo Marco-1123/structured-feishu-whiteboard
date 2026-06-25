@@ -1,7 +1,7 @@
 import fs from "node:fs";
 
-const supportedLayouts = new Set(["conclusion-first", "problem-breakdown", "large-canvas"]);
-const supportedStyles = new Set(["professional-blue", "dark-emphasis", "warm-editorial"]);
+const supportedLayouts = new Set(["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix"]);
+const supportedStyles = new Set(["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark"]);
 const supportedSectionTypes = new Set(["overview", "background", "modules", "roadmap", "metrics-evidence", "risks", "actions"]);
 
 const limits = {
@@ -19,6 +19,11 @@ const limits = {
   sectionMetric: 20,
   sectionLine: 28,
   footer: 80,
+  nodeTitle: 12,
+  nodeLine: 22,
+  nodeMeta: 14,
+  matrixColumn: 10,
+  matrixCell: 14,
 };
 
 const forbiddenStandaloneMetricPattern = /^\s*(TBD|--)\s*$/i;
@@ -141,6 +146,57 @@ function validateLargeCanvas(brief) {
   if (!hasMetric) fail("large-canvas requires metric coverage");
 }
 
+function validateStages(brief) {
+  if (!Array.isArray(brief.stages)) fail("stages must be an array");
+  if (brief.stages.length < 3 || brief.stages.length > 5) fail("stages must contain 3 to 5 items");
+  brief.stages.forEach((stage, index) => {
+    assertString(stage.title, `stages[${index}].title`, limits.moduleTitle, true);
+    assertString(stage.tag, `stages[${index}].tag`, limits.tag);
+    if (!Array.isArray(stage.body)) fail(`stages[${index}].body must be an array`);
+    if (stage.body.length < 1 || stage.body.length > 3) fail(`stages[${index}].body must contain 1 to 3 lines`);
+    stage.body.forEach((line, lineIndex) => {
+      assertString(line, `stages[${index}].body[${lineIndex}]`, limits.moduleLine, true);
+    });
+  });
+}
+
+function validateNodes(brief) {
+  if (!Array.isArray(brief.nodes)) fail("nodes must be an array");
+  if (brief.nodes.length < 4 || brief.nodes.length > 7) fail("nodes must contain 4 to 7 items");
+  brief.nodes.forEach((node, index) => {
+    assertString(node.title, `nodes[${index}].title`, limits.nodeTitle, true);
+    assertString(node.input, `nodes[${index}].input`, limits.nodeMeta);
+    assertString(node.output, `nodes[${index}].output`, limits.nodeMeta);
+    if (!Array.isArray(node.body)) fail(`nodes[${index}].body must be an array`);
+    if (node.body.length < 1 || node.body.length > 2) fail(`nodes[${index}].body must contain 1 to 2 lines`);
+    node.body.forEach((line, lineIndex) => {
+      assertString(line, `nodes[${index}].body[${lineIndex}]`, limits.nodeLine, true);
+    });
+  });
+}
+
+function validateMatrix(brief) {
+  if (!brief.matrix || typeof brief.matrix !== "object" || Array.isArray(brief.matrix)) fail("matrix must be an object");
+  const { columns, rows } = brief.matrix;
+  if (!Array.isArray(columns)) fail("matrix.columns must be an array");
+  if (columns.length < 3 || columns.length > 5) fail("matrix.columns must contain 3 to 5 items");
+  columns.forEach((column, index) => assertString(column, `matrix.columns[${index}]`, limits.matrixColumn, true));
+  if (!Array.isArray(rows)) fail("matrix.rows must be an array");
+  if (rows.length < 3 || rows.length > 6) fail("matrix.rows must contain 3 to 6 items");
+  let recommendedCount = 0;
+  rows.forEach((row, index) => {
+    assertString(row.name, `matrix.rows[${index}].name`, limits.moduleTitle, true);
+    if (row.recommended !== undefined && typeof row.recommended !== "boolean") fail(`matrix.rows[${index}].recommended must be a boolean`);
+    if (row.recommended) recommendedCount += 1;
+    if (!Array.isArray(row.cells)) fail(`matrix.rows[${index}].cells must be an array`);
+    if (row.cells.length !== columns.length) fail(`matrix.rows[${index}].cells must match matrix.columns length`);
+    row.cells.forEach((cell, cellIndex) => {
+      assertString(cell, `matrix.rows[${index}].cells[${cellIndex}]`, limits.matrixCell, true);
+    });
+  });
+  if (recommendedCount > 1) fail("matrix can mark at most one row as recommended");
+}
+
 const input = process.argv[2];
 if (!input) fail("usage: node scripts/validate-brief.mjs <brief.json>");
 
@@ -160,6 +216,9 @@ assertString(brief.summaryLabel, "summaryLabel", limits.summaryLabel);
 assertString(brief.footer, "footer", limits.footer);
 
 if (brief.layout === "large-canvas") validateLargeCanvas(brief);
+else if (brief.layout === "roadmap") validateStages(brief);
+else if (brief.layout === "process-chain") validateNodes(brief);
+else if (brief.layout === "comparison-matrix") validateMatrix(brief);
 else validateModules(brief);
 
 console.log("ok: brief is valid");

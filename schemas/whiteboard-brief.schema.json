@@ -7,11 +7,11 @@
   "properties": {
     "layout": {
       "type": "string",
-      "enum": ["conclusion-first", "problem-breakdown", "large-canvas"]
+      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix"]
     },
     "style": {
       "type": "string",
-      "enum": ["professional-blue", "dark-emphasis", "warm-editorial"]
+      "enum": ["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark"]
     },
     "title": {
       "type": "string",
@@ -151,6 +151,119 @@
         }
       }
     },
+    "stages": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "body"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "body": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 24
+            }
+          },
+          "tag": {
+            "type": "string",
+            "maxLength": 8
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "body"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12
+          },
+          "body": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 2,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 22
+            }
+          },
+          "input": {
+            "type": "string",
+            "maxLength": 14
+          },
+          "output": {
+            "type": "string",
+            "maxLength": 14
+          }
+        }
+      }
+    },
+    "matrix": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["columns", "rows"],
+      "properties": {
+        "columns": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          }
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "cells"],
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 14
+              },
+              "cells": {
+                "type": "array",
+                "minItems": 3,
+                "maxItems": 5,
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 14
+                }
+              },
+              "recommended": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    },
     "footer": {
       "type": "string",
       "maxLength": 80
@@ -169,7 +282,43 @@
         "required": ["sections"]
       },
       "else": {
-        "required": ["modules"]
+        "if": {
+          "properties": {
+            "layout": {
+              "const": "roadmap"
+            }
+          }
+        },
+        "then": {
+          "required": ["stages"]
+        },
+        "else": {
+          "if": {
+            "properties": {
+              "layout": {
+                "const": "process-chain"
+              }
+            }
+          },
+          "then": {
+            "required": ["nodes"]
+          },
+          "else": {
+            "if": {
+              "properties": {
+                "layout": {
+                  "const": "comparison-matrix"
+                }
+              }
+            },
+            "then": {
+              "required": ["matrix"]
+            },
+            "else": {
+              "required": ["modules"]
+            }
+          }
+        }
       }
     }
   ]

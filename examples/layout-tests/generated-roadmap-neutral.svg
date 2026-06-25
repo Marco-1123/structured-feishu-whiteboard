@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1040" viewBox="0 0 1680 1040">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#3370FF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1680" height="1040" fill="#F5F7FA"/>
+
+<rect x="72" y="60" width="1536" height="150" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
+<rect x="72" y="60" width="12" height="150" rx="6" fill="#3370FF"/>
+<text x="112" y="128" font-size="50" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">团队 Agent 能力升级路线</tspan></text>
+<text x="112" y="181" font-size="26" fill="#646A73" font-weight="400"><tspan x="112" dy="0">从个人效率工具，升级为可协作、可治理、可复用的团队能力。</tspan></text>
+<rect x="72" y="246" width="1536" height="170" rx="14" fill="#EAF0FF" stroke="#3370FF" stroke-width="2"/>
+<text x="112" y="308" font-size="20" fill="#3370FF" font-weight="700"><tspan x="112" dy="0">推进判断</tspan></text>
+<text x="112" y="367" font-size="34" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">先统一身份与上下文，再沉淀高频技能，最后补齐权限、审计和复盘机制。</tspan></text>
+<rect x="72" y="438" width="493" height="342" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
+<rect x="102" y="472" width="58" height="34" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="118" y="496" font-size="17" fill="#3370FF" font-weight="700"><tspan x="118" dy="0">01</tspan></text>
+<text x="102" y="550" font-size="27" fill="#1F2329" font-weight="700"><tspan x="102" dy="0">阶段一 对齐</tspan></text>
+<line x1="102" y1="580" x2="535" y2="580" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="102" y="628" font-size="20" fill="#646A73" font-weight="400"><tspan x="102" dy="0">定义团队成员身份边界</tspan><tspan x="102" dy="31">统一项目资料和权限口径</tspan><tspan x="102" dy="31">明确哪些记忆可共享</tspan></text>
+<rect x="102" y="710" width="132" height="36" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="120" y="735" font-size="17" fill="#3370FF" font-weight="700"><tspan x="120" dy="0">先定边界</tspan></text>
+<line x1="573" y1="608" x2="583" y2="608" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="593" y="438" width="493" height="342" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
+<rect x="623" y="472" width="58" height="34" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="639" y="496" font-size="17" fill="#3370FF" font-weight="700"><tspan x="639" dy="0">02</tspan></text>
+<text x="623" y="550" font-size="27" fill="#1F2329" font-weight="700"><tspan x="623" dy="0">阶段二 沉淀</tspan></text>
+<line x1="623" y1="580" x2="1056" y2="580" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="623" y="628" font-size="20" fill="#646A73" font-weight="400"><tspan x="623" dy="0">把高频动作做成 Skill</tspan><tspan x="623" dy="31">沉淀流程和验收标准</tspan><tspan x="623" dy="31">形成可复用工作模板</tspan></text>
+<rect x="623" y="710" width="132" height="36" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="641" y="735" font-size="17" fill="#3370FF" font-weight="700"><tspan x="641" dy="0">能力复用</tspan></text>
+<line x1="1094" y1="608" x2="1104" y2="608" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1114" y="438" width="493" height="342" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
+<rect x="1144" y="472" width="58" height="34" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="1160" y="496" font-size="17" fill="#3370FF" font-weight="700"><tspan x="1160" dy="0">03</tspan></text>
+<text x="1144" y="550" font-size="27" fill="#1F2329" font-weight="700"><tspan x="1144" dy="0">阶段三 治理</tspan></text>
+<line x1="1144" y1="580" x2="1577" y2="580" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="1144" y="628" font-size="20" fill="#646A73" font-weight="400"><tspan x="1144" dy="0">接入日志和审批机制</tspan><tspan x="1144" dy="31">补齐风险升级路径</tspan><tspan x="1144" dy="31">定期复盘 Agent 输出</tspan></text>
+<rect x="1144" y="710" width="132" height="36" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
+<text x="1162" y="735" font-size="17" fill="#2B8F77" font-weight="700"><tspan x="1162" dy="0">可追溯</tspan></text>
+
+<rect x="72" y="852" width="1536" height="118" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
+<text x="112" y="920" font-size="27" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">下一步：选 3 个高频协作场景，先做小范围试点和复盘。</tspan></text>
+
+</svg>

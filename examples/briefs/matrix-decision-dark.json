@@ -1,0 +1,31 @@
+{
+  "layout": "comparison-matrix",
+  "style": "feishu-decision-dark",
+  "title": "知识库承载方案选择",
+  "subtitle": "在长期维护、Agent 可读性和协作成本之间做取舍。",
+  "summaryLabel": "推荐结论",
+  "summary": "项目级 LLM Wiki 最适合作为 Skill 的长期知识层，飞书文档适合展示和协作评审。",
+  "matrix": {
+    "columns": ["沉淀能力", "Agent 可读", "协作成本", "适用场景"],
+    "rows": [
+      {
+        "name": "LLM Wiki",
+        "cells": ["强", "强", "中", "项目知识"],
+        "recommended": true
+      },
+      {
+        "name": "飞书文档",
+        "cells": ["中", "弱", "低", "人工评审"]
+      },
+      {
+        "name": "聊天记录",
+        "cells": ["弱", "弱", "低", "临时回看"]
+      },
+      {
+        "name": "代码注释",
+        "cells": ["中", "强", "中", "实现约束"]
+      }
+    ]
+  },
+  "footer": "结论：稳定原则进入 Wiki，执行规则进入 Skill，展示材料进入飞书文档。"
+}

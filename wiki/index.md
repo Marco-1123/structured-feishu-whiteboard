@@ -14,6 +14,7 @@ This is the navigation page for the structured Feishu whiteboard project wiki. I
 
 - [LLM Wiki Pattern](topics/llm-wiki-pattern.md) — Core principles: raw sources, compiled wiki, schema, index, log, ingest, query, and lint.
 - [Structured Feishu Whiteboard Knowledge Scope](topics/structured-feishu-whiteboard-knowledge-scope.md) — What this project wiki should remember and how it supports the Skill.
+- [V3 Layout And Style System](topics/v3-layout-style-system.md) — V3 direction for richer script-rendered layouts and Feishu-inspired restrained styles.
 
 ## Cases
 

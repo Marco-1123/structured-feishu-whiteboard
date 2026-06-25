@@ -11,7 +11,7 @@
 - 其他 Agent 产出与预期风格差异大。
 - 用户要求“按这个 skill 的标准版式生成”。
 - 长文需要在同一个 onepage 大画布中保留总览、证据、风险、指标和行动。
-- 内容看起来像路线图、流程图或价值链，但当前渲染器还没有对应专用模板；此时应映射到 `large-canvas` 的 roadmap / modules 区域，而不是手写 SVG。
+- 内容看起来像路线图、流程图、价值链或对比矩阵时，必须使用对应脚本化模板；不能手写 SVG。
 
 ## 工作流
 
@@ -25,7 +25,7 @@
 ## Brief 约束
 
 - `layout` 只能是脚本支持的版式。
-- 当前生产输出只允许 `conclusion-first`、`problem-breakdown`、`large-canvas`。
+- 当前生产输出只允许 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`。
 - 长文默认使用 `layout: "large-canvas"`；它表示统一 onepage 大画布，不是纵向长图或多页分屏。顶部总览不是完整输出。
 - `modules` 只能有 3 到 5 个。
 - 每个模块正文最多 3 条短句。
@@ -42,8 +42,11 @@
 - `conclusion-first`
 - `problem-breakdown`
 - `large-canvas`
+- `roadmap`
+- `process-chain`
+- `comparison-matrix`
 
-路线图、流程、价值链和矩阵目前只作为信息架构参考。生产交付时必须映射到上述三个脚本化版式之一；不要因为 `layout-library.md` 里描述了这些版式，就自由手写 SVG。
+路线图、流程、价值链和矩阵现在都有脚本化模板。生产交付时必须使用这些模板，不要因为 `layout-library.md` 里描述了这些版式，就自由手写 SVG。
 
 ## 输出原则
 
@@ -69,6 +72,6 @@ Agent 负责：
 以下情况视为没有正确使用本 skill：
 
 - 没有生成 brief，直接手写 SVG。
-- 使用了 `layout-library.md` 里的路线图或流程描述，但没有通过渲染器。
+- 使用了 `layout-library.md` 里的路线图、流程或矩阵描述，但没有通过渲染器。
 - 生成了未被 `scripts/check-svg-layout.mjs` 和 whiteboard check 覆盖的自由布局。
 - 复现了贴边、压线、无效大留白、箭头漂浮、文字出框等已经由渲染器解决的问题。
