@@ -18,7 +18,8 @@
 2. 生成符合 `schemas/whiteboard-brief.schema.json` 的 JSON brief。
 3. 运行 `scripts/validate-brief.mjs brief.json`。
 4. 运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
-5. 按 `quality-checklist.md` 渲染、检查、写入飞书。
+5. 对 `large-canvas` 运行 `scripts/check-svg-layout.mjs diagram.svg`，补充检查父容器越界。
+6. 按 `quality-checklist.md` 渲染、检查、写入飞书。
 
 ## Brief 约束
 

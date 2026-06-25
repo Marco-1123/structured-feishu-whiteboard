@@ -236,17 +236,18 @@ ${sectionTitle(x + 34, y + 54, c, section?.title || "阶段路线", section?.sum
   items.forEach((item, index) => {
     const sx = x + 34 + index * (stepW + 31);
     const sy = y + 126;
+    const bodyLines = splitByLength((item.body || [])[0] || "", 9, 2);
     body += `\n<rect x="${sx}" y="${sy}" width="${stepW}" height="98" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(sx + 20, sy + 38, 21, c.ink, [item.title], "700")}
-${text(sx + 20, sy + 70, 17, c.secondary, (item.body || []).slice(0, 1), "400")}`;
+${text(sx + 20, sy + 70, 17, c.secondary, bodyLines, "400", 22)}`;
     if (index < items.length - 1) {
       const ax = sx + stepW + 10;
       body += `\n<line x1="${ax}" y1="${sy + 49}" x2="${ax + 22}" y2="${sy + 49}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`;
     }
   });
   if (section?.actions?.length) {
-    body += `\n${text(x + 34, y + h - 78, 18, c.accent, ["近期动作"], "700")}
-${renderThinPills(x + 34, y + h - 54, w - 68, section.actions, c)}`;
+    body += `\n${text(x + 34, y + 300, 18, c.accent, ["近期动作"], "700")}
+${renderThinPills(x + 34, y + 318, w - 68, section.actions, c)}`;
   }
   return body;
 }
@@ -359,10 +360,10 @@ ${coreItems.map((item, index) => {
     return renderLargeModuleCard(margin + col * (cardW + cardGap), 470 + row * (cardH + 34), cardW, cardH, c, item, index);
   }).join("\n")}
 
-${renderRoadmapPanel(margin, 1058, 725, 390, c, roadmap)}
-${renderMetricsPanel(margin + 762, 1058, 676, 390, c, metricsEvidence)}
-${renderRiskActionPanel(margin + 1476, 1058, 740, 390, c, risks, actions)}
-${renderBackgroundStrip(margin, 1498, innerW, 226, c, background)}`;
+${renderRoadmapPanel(margin, 1058, 725, 430, c, roadmap)}
+${renderMetricsPanel(margin + 762, 1058, 676, 430, c, metricsEvidence)}
+${renderRiskActionPanel(margin + 1476, 1058, 740, 430, c, risks, actions)}
+${renderBackgroundStrip(margin, 1538, innerW, 226, c, background)}`;
 
   return wrap(width, height, c, body);
 }

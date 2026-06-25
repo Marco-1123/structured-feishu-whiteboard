@@ -65,6 +65,7 @@
 ```bash
 npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.svg -o diagram.png -f svg
 npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.svg -f svg --check
+node scripts/check-svg-layout.mjs diagram.svg
 grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradient|<radialGradient|<clipPath|<mask' diagram.svg
 ```
 
@@ -80,6 +81,7 @@ grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradien
 - 是否出现乱码、控制字符、未转义符号或原文格式残片。
 - 是否存在“看似没溢出但整体过密”的拥挤问题。
 - 是否存在容器过密、边框过多导致的“框套框”观感。
+- 子元素是否越过父容器边界；白板工具可能不会稳定发现这类问题，必须用本地布局检查和人工预览同时确认。
 
 发现局部问题时，直接小范围修改 SVG：移动、加宽、换行、增高、删减文字。不要为了一个局部问题重写整张图。
 
