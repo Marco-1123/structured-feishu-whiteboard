@@ -202,17 +202,12 @@ ${summary ? text(x, y + 38, 19, c.secondary, splitByLength(summary, 42, 1), "400
 function renderLargeModuleCard(x, y, w, h, c, item, index) {
   const bodyLines = (item.body || []).slice(0, 3);
   const badge = String(index + 1).padStart(2, "0");
-  const [badgeY, titleY, bodyY] = centerTextGroup(y + 34, h - 68, [
-    { height: 36, baselineOffset: 26, gapBefore: 0 },
-    { height: 34, baselineOffset: 28, gapBefore: 20 },
-    { height: 84, baselineOffset: 24, gapBefore: 24 },
-  ]);
   return `${card(x, y, w, h, c)}
-<rect x="${x + 34}" y="${badgeY - 25}" width="58" height="34" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
-${text(x + 50, badgeY, 18, c.accent, [badge], "700")}
-${text(x + 118, titleY, 28, c.ink, [item.title], "700")}
-<line x1="${x + 34}" y1="${y + 94}" x2="${x + w - 34}" y2="${y + 94}" stroke="${c.border}" stroke-width="1.5"/>
-${text(x + 34, bodyY, 21, c.secondary, bodyLines, "400", 31)}`;
+<rect x="${x + 28}" y="${y + 44}" width="58" height="34" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 44, y + 69, 18, c.accent, [badge], "700")}
+${text(x + 104, y + 71, 27, c.ink, [item.title], "700")}
+<line x1="${x + 28}" y1="${y + 112}" x2="${x + w - 28}" y2="${y + 112}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 28, y + 158, 20, c.secondary, bodyLines, "400", 30)}`;
 }
 
 function renderThinPills(x, y, w, items, c, fill = c.muted, textFill = c.accent) {
@@ -246,8 +241,9 @@ ${text(sx + 20, sy + 70, 17, c.secondary, bodyLines, "400", 22)}`;
     }
   });
   if (section?.actions?.length) {
-    body += `\n${text(x + 34, y + 300, 18, c.accent, ["近期动作"], "700")}
-${renderThinPills(x + 34, y + 318, w - 68, section.actions, c)}`;
+    body += `\n<line x1="${x + 34}" y1="${y + 278}" x2="${x + w - 34}" y2="${y + 278}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 34, y + 316, 18, c.accent, ["近期动作"], "700")}
+${renderThinPills(x + 34, y + 336, w - 68, section.actions, c)}`;
   }
   return body;
 }
@@ -341,9 +337,9 @@ function renderLargeCanvas(brief, c) {
   const risks = brief.sections.find((section) => section.type === "risks");
   const actions = brief.sections.find((section) => section.type === "actions");
   const coreItems = (overview.items?.length ? overview.items : modules?.items || []).slice(0, 4);
-  const cardGap = 36;
-  const cardW = Math.floor((innerW - cardGap) / 2);
-  const cardH = 242;
+  const cardGap = 28;
+  const cardW = Math.floor((innerW - cardGap * 3) / 4);
+  const cardH = 250;
   const summaryLines = splitByLength(brief.summary, 56, 2);
   let body = `
 ${text(margin, 122, 52, c.ink, [brief.title], "700")}
@@ -355,15 +351,13 @@ ${text(margin + 38, 304, 31, c.ink, summaryLines, "700", 40)}
 
 ${text(margin, 424, 30, c.ink, ["四个核心举措"], "700")}
 ${coreItems.map((item, index) => {
-    const row = Math.floor(index / 2);
-    const col = index % 2;
-    return renderLargeModuleCard(margin + col * (cardW + cardGap), 470 + row * (cardH + 34), cardW, cardH, c, item, index);
+    return renderLargeModuleCard(margin + index * (cardW + cardGap), 470, cardW, cardH, c, item, index);
   }).join("\n")}
 
-${renderRoadmapPanel(margin, 1058, 725, 430, c, roadmap)}
-${renderMetricsPanel(margin + 762, 1058, 676, 430, c, metricsEvidence)}
-${renderRiskActionPanel(margin + 1476, 1058, 740, 430, c, risks, actions)}
-${renderBackgroundStrip(margin, 1538, innerW, 226, c, background)}`;
+${renderRoadmapPanel(margin, 800, 725, 430, c, roadmap)}
+${renderMetricsPanel(margin + 762, 800, 676, 430, c, metricsEvidence)}
+${renderRiskActionPanel(margin + 1476, 800, 740, 430, c, risks, actions)}
+${renderBackgroundStrip(margin, 1280, innerW, 226, c, background)}`;
 
   return wrap(width, height, c, body);
 }
