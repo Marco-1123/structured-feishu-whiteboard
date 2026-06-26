@@ -21,7 +21,7 @@
 <text x="102" y="628" font-size="20" fill="#646A73" font-weight="400"><tspan x="102" dy="0">定义团队成员身份边界</tspan><tspan x="102" dy="31">统一项目资料和权限口径</tspan><tspan x="102" dy="31">明确哪些记忆可共享</tspan></text>
 <rect x="102" y="710" width="132" height="36" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
 <text x="120" y="735" font-size="17" fill="#3370FF" font-weight="700"><tspan x="120" dy="0">先定边界</tspan></text>
-<line x1="573" y1="608" x2="583" y2="608" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="561" y1="608" x2="597" y2="608" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
 <rect x="593" y="438" width="493" height="342" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
 <rect x="623" y="472" width="58" height="34" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
 <text x="639" y="496" font-size="17" fill="#3370FF" font-weight="700"><tspan x="639" dy="0">02</tspan></text>
@@ -30,7 +30,7 @@
 <text x="623" y="628" font-size="20" fill="#646A73" font-weight="400"><tspan x="623" dy="0">把高频动作做成 Skill</tspan><tspan x="623" dy="31">沉淀流程和验收标准</tspan><tspan x="623" dy="31">形成可复用工作模板</tspan></text>
 <rect x="623" y="710" width="132" height="36" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
 <text x="641" y="735" font-size="17" fill="#3370FF" font-weight="700"><tspan x="641" dy="0">能力复用</tspan></text>
-<line x1="1094" y1="608" x2="1104" y2="608" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1082" y1="608" x2="1118" y2="608" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
 <rect x="1114" y="438" width="493" height="342" rx="14" fill="#FFFFFF" stroke="#DEE4ED" stroke-width="2"/>
 <rect x="1144" y="472" width="58" height="34" rx="8" fill="#F0F3F8" stroke="#DEE4ED" stroke-width="1.5"/>
 <text x="1160" y="496" font-size="17" fill="#3370FF" font-weight="700"><tspan x="1160" dy="0">03</tspan></text>

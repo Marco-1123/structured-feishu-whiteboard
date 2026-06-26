@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1000" viewBox="0 0 1680 1000">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#007AFF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1680" height="1000" fill="#F5F5F7"/>
+
+<text x="120" y="118" font-size="56" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">知识体系落地路线</tspan></text>
+<text x="122" y="162" font-size="24" fill="#6E6E73" font-weight="400"><tspan x="122" dy="0">从经验收集，到规则沉淀，再到稳定复用。</tspan></text>
+<line x1="120" y1="218" x2="1560" y2="218" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="120" y="248" width="1440" height="158" rx="28" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="152" y="300" font-size="18" fill="#007AFF" font-weight="700"><tspan x="152" dy="0">推进判断</tspan></text>
+<text x="152" y="348" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">先把共识写成 Wiki，再把可执行规则进入</tspan><tspan x="152" dy="38">Skill，最后用样例和预览验证可复现。</tspan></text>
+<rect x="120" y="456" width="448" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="150" y="490" width="58" height="34" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="165" y="514" font-size="17" fill="#007AFF" font-weight="700"><tspan x="165" dy="0">01</tspan></text>
+<text x="150" y="562" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="150" dy="0">阶段一 收敛</tspan></text>
+<line x1="150" y1="592" x2="538" y2="592" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="150" y="630" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="150" dy="0">整理高频问题和成功样例</tspan><tspan x="150" dy="25">区分经验、规则和展示材料</tspan><tspan x="150" dy="25">保留真实评审反馈</tspan></text>
+<rect x="150" y="702" width="132" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="168" y="727" font-size="17" fill="#007AFF" font-weight="700"><tspan x="168" dy="0">先归类</tspan></text>
+<line x1="566" y1="604" x2="618" y2="604" stroke="#007AFF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="616" y="456" width="448" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="646" y="490" width="58" height="34" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="661" y="514" font-size="17" fill="#007AFF" font-weight="700"><tspan x="661" dy="0">02</tspan></text>
+<text x="646" y="562" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="646" dy="0">阶段二 固化</tspan></text>
+<line x1="646" y1="592" x2="1034" y2="592" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="646" y="630" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="646" dy="0">把稳定原则进入 Wiki</tspan><tspan x="646" dy="25">把执行约束进入 Skill</tspan><tspan x="646" dy="25">把样例纳入回归测试</tspan></text>
+<rect x="646" y="702" width="132" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="664" y="727" font-size="17" fill="#007AFF" font-weight="700"><tspan x="664" dy="0">规则化</tspan></text>
+<line x1="1062" y1="604" x2="1114" y2="604" stroke="#007AFF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="1112" y="456" width="448" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="1142" y="490" width="58" height="34" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="1157" y="514" font-size="17" fill="#007AFF" font-weight="700"><tspan x="1157" dy="0">03</tspan></text>
+<text x="1142" y="562" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="1142" dy="0">阶段三 复用</tspan></text>
+<line x1="1142" y1="592" x2="1530" y2="592" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1142" y="630" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="1142" dy="0">其他 Agent 按同一流程生成</tspan><tspan x="1142" dy="25">每次更新后做视觉回归</tspan><tspan x="1142" dy="25">持续淘汰不稳定风格</tspan></text>
+<rect x="1142" y="702" width="132" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="1160" y="727" font-size="17" fill="#248A3D" font-weight="700"><tspan x="1160" dy="0">可复现</tspan></text>
+
+<rect x="120" y="816" width="1440" height="118" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="152" y="866" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">下一步：先用 Apple Studio 和 Linear Command</tspan><tspan x="152" dy="34">覆盖核心版式，再决定是否进入发布版。</tspan></text>
+
+</svg>

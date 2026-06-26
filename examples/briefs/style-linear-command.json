@@ -1,0 +1,31 @@
+{
+  "layout": "comparison-matrix",
+  "style": "linear-command",
+  "title": "团队知识承载方式选择",
+  "subtitle": "在沉淀能力、可读性和协作成本之间取舍。",
+  "summaryLabel": "Command",
+  "summary": "项目级 LLM Wiki 最适合作为长期知识层，执行规则进入 Skill，展示材料进入飞书文档。",
+  "matrix": {
+    "columns": ["沉淀能力", "Agent 可读", "协作成本", "适用场景"],
+    "rows": [
+      {
+        "name": "LLM Wiki",
+        "recommended": true,
+        "cells": ["强", "强", "中", "项目知识"]
+      },
+      {
+        "name": "飞书文档",
+        "cells": ["中", "弱", "低", "人工评审"]
+      },
+      {
+        "name": "聊天记录",
+        "cells": ["弱", "弱", "低", "临时回看"]
+      },
+      {
+        "name": "代码注释",
+        "cells": ["中", "强", "中", "实现约束"]
+      }
+    ]
+  },
+  "footer": "结论：稳定原则进入 Wiki，执行规则进入 Skill，展示材料进入飞书文档。"
+}

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1080" viewBox="0 0 1880 1080">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#5E6AD2"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1880" height="1080" fill="#F7F8FA"/>
+
+<rect x="72" y="60" width="1736" height="150" rx="18" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="72" y="60" width="16" height="150" rx="8" fill="#111827"/>
+<text x="112" y="128" font-size="50" fill="#111827" font-weight="700"><tspan x="112" dy="0">Agent 输出质量闭环</tspan></text>
+<text x="112" y="181" font-size="26" fill="#5F6B7A" font-weight="400"><tspan x="112" dy="0">把一次性生成变成可检查、可回归、可持续改进的链路。</tspan></text>
+<rect x="72" y="246" width="1736" height="170" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="72" y="246" width="12" height="170" rx="6" fill="#111827"/>
+<text x="112" y="286" font-size="19" fill="#5E6AD2" font-weight="700"><tspan x="112" dy="0">流程目标</tspan></text>
+<text x="112" y="345" font-size="32" fill="#111827" font-weight="700"><tspan x="112" dy="0">用 brief、renderer、check</tspan><tspan x="112" dy="42">和飞书预览四层约束，把不稳定输出挡在发布前。</tspan></text>
+<rect x="72" y="452" width="416" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="72" y="452" width="416" height="68" rx="14" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="2"/>
+<text x="96" y="496" font-size="24" fill="#111827" font-weight="700"><tspan x="96" dy="0">Brief</tspan></text>
+<text x="96" y="570" font-size="19" fill="#5F6B7A" font-weight="400"><tspan x="96" dy="0">结构化内容和容量边界</tspan><tspan x="96" dy="29">明确版式与风格选择</tspan></text>
+<line x1="96" y1="650" x2="464" y2="650" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="96" y="690" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="96" dy="0">输入: 材料</tspan></text>
+<text x="96" y="732" font-size="16" fill="#16A085" font-weight="700"><tspan x="96" dy="0">输出: JSON</tspan></text>
+<line x1="484" y1="620" x2="516" y2="620" stroke="#5E6AD2" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="512" y="452" width="416" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="512" y="452" width="416" height="68" rx="14" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="2"/>
+<text x="536" y="496" font-size="24" fill="#111827" font-weight="700"><tspan x="536" dy="0">Render</tspan></text>
+<text x="536" y="570" font-size="19" fill="#5F6B7A" font-weight="400"><tspan x="536" dy="0">走确定性脚本</tspan><tspan x="536" dy="29">避免自由手写 SVG</tspan></text>
+<line x1="536" y1="650" x2="904" y2="650" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="536" y="690" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="536" dy="0">输入: JSON</tspan></text>
+<text x="536" y="732" font-size="16" fill="#16A085" font-weight="700"><tspan x="536" dy="0">输出: SVG</tspan></text>
+<line x1="924" y1="620" x2="956" y2="620" stroke="#5E6AD2" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="952" y="452" width="416" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="952" y="452" width="416" height="68" rx="14" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="2"/>
+<text x="976" y="496" font-size="24" fill="#111827" font-weight="700"><tspan x="976" dy="0">Check</tspan></text>
+<text x="976" y="570" font-size="19" fill="#5F6B7A" font-weight="400"><tspan x="976" dy="0">检查溢出重叠裁切</tspan><tspan x="976" dy="29">扫描禁用 SVG 特性</tspan></text>
+<line x1="976" y1="650" x2="1344" y2="650" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="976" y="690" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="976" dy="0">输入: SVG</tspan></text>
+<text x="976" y="732" font-size="16" fill="#16A085" font-weight="700"><tspan x="976" dy="0">输出: 报告</tspan></text>
+<line x1="1364" y1="620" x2="1396" y2="620" stroke="#5E6AD2" stroke-width="4" marker-end="url(#arrow)"/>
+<rect x="1392" y="452" width="416" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="1392" y="452" width="416" height="68" rx="14" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="2"/>
+<text x="1416" y="496" font-size="24" fill="#111827" font-weight="700"><tspan x="1416" dy="0">Review</tspan></text>
+<text x="1416" y="570" font-size="19" fill="#5F6B7A" font-weight="400"><tspan x="1416" dy="0">导出飞书预览</tspan><tspan x="1416" dy="29">人工判断留白和细节</tspan></text>
+<line x1="1416" y1="650" x2="1784" y2="650" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="1416" y="690" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1416" dy="0">输入: 预览</tspan></text>
+<text x="1416" y="732" font-size="16" fill="#16A085" font-weight="700"><tspan x="1416" dy="0">输出: 发布样例</tspan></text>
+
+<rect x="72" y="870" width="1736" height="112" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="72" y="870" width="12" height="112" rx="6" fill="#111827"/>
+<text x="112" y="936" font-size="25" fill="#111827" font-weight="700"><tspan x="112" dy="0">判断标准：工具检查过线，人工视觉也不能出现贴边、错位和无效留白。</tspan></text>
+
+</svg>

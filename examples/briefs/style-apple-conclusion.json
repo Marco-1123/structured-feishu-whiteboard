@@ -1,0 +1,26 @@
+{
+  "layout": "conclusion-first",
+  "style": "apple-studio",
+  "title": "团队知识承载方式选择",
+  "subtitle": "在沉淀能力、可读性和协作成本之间取舍。",
+  "summaryLabel": "核心判断",
+  "summary": "项目级 LLM Wiki 适合作为长期知识层，执行规则进入 Skill，展示材料进入飞书文档。",
+  "modules": [
+    {
+      "title": "长期记忆",
+      "body": ["Wiki 记录稳定原则和历史判断", "避免关键经验散落在对话里"],
+      "tag": "可沉淀"
+    },
+    {
+      "title": "执行规则",
+      "body": ["Skill 承载稳定流程和验收标准", "让其他 Agent 也能复现产出"],
+      "tag": "可复用"
+    },
+    {
+      "title": "展示协作",
+      "body": ["飞书文档承载最终展示材料", "方便人工评审和团队共享"],
+      "tag": "可协作"
+    }
+  ],
+  "footer": "下一步：把稳定原则写入 Wiki，把强约束写入 Skill，把样例沉淀为回归测试。"
+}

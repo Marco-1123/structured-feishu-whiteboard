@@ -35,6 +35,8 @@ V3 adds three restrained Feishu-oriented styles:
 
 These styles should feel like work surfaces, not posters.
 
+V3.1 extends this direction with style-specific grammar experiments. The current production candidates are documented in `wiki/topics/v31-style-differentiation-research.md`.
+
 ## Guardrail
 
 Richer visual output must still be deterministic.
@@ -52,3 +54,4 @@ Agents should not use the existence of more layouts as permission to compose arb
 
 - `wiki/cases/renderer-bypass-regression.md`
 - `wiki/topics/structured-feishu-whiteboard-knowledge-scope.md`
+- `wiki/topics/v31-style-differentiation-research.md`

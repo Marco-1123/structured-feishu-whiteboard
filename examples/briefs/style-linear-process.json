@@ -1,0 +1,35 @@
+{
+  "layout": "process-chain",
+  "style": "linear-command",
+  "title": "Agent 输出质量闭环",
+  "subtitle": "把一次性生成变成可检查、可回归、可持续改进的链路。",
+  "summaryLabel": "流程目标",
+  "summary": "用 brief、renderer、check 和飞书预览四层约束，把不稳定输出挡在发布前。",
+  "nodes": [
+    {
+      "title": "Brief",
+      "body": ["结构化内容和容量边界", "明确版式与风格选择"],
+      "input": "材料",
+      "output": "JSON"
+    },
+    {
+      "title": "Render",
+      "body": ["走确定性脚本", "避免自由手写 SVG"],
+      "input": "JSON",
+      "output": "SVG"
+    },
+    {
+      "title": "Check",
+      "body": ["检查溢出重叠裁切", "扫描禁用 SVG 特性"],
+      "input": "SVG",
+      "output": "报告"
+    },
+    {
+      "title": "Review",
+      "body": ["导出飞书预览", "人工判断留白和细节"],
+      "input": "预览",
+      "output": "发布样例"
+    }
+  ],
+  "footer": "判断标准：工具检查过线，人工视觉也不能出现贴边、错位和无效留白。"
+}

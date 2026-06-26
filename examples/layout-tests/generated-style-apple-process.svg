@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1880" height="1000" viewBox="0 0 1880 1000">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#007AFF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1880" height="1000" fill="#F5F5F7"/>
+
+<text x="120" y="118" font-size="56" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">画板生成稳定链路</tspan></text>
+<text x="122" y="162" font-size="24" fill="#6E6E73" font-weight="400"><tspan x="122" dy="0">从材料理解到飞书预览，减少自由手写 SVG 带来的波动。</tspan></text>
+<line x1="120" y1="218" x2="1760" y2="218" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="120" y="248" width="1640" height="158" rx="28" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="152" y="300" font-size="18" fill="#007AFF" font-weight="700"><tspan x="152" dy="0">流程目标</tspan></text>
+<text x="152" y="348" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">先生成结构化 brief，再用确定性渲染器出图，最后通过预览和检查确认可读性。</tspan></text>
+<rect x="120" y="450" width="378" height="310" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="120" y="450" width="378" height="70" rx="24" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="148" y="496" font-size="25" fill="#1D1D1F" font-weight="700"><tspan x="148" dy="0">理解</tspan></text>
+<text x="148" y="570" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="148" dy="0">提炼主题、结论和证据</tspan><tspan x="148" dy="28">判断体量和信息主线</tspan></text>
+<line x1="148" y1="642" x2="470" y2="642" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="148" y="682" font-size="16" fill="#007AFF" font-weight="700"><tspan x="148" dy="0">输入：原始材料</tspan></text>
+<text x="148" y="720" font-size="16" fill="#248A3D" font-weight="700"><tspan x="148" dy="0">输出：结构草稿</tspan></text>
+<line x1="496" y1="604" x2="542" y2="604" stroke="#007AFF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="540" y="450" width="378" height="310" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="540" y="450" width="378" height="70" rx="24" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="568" y="496" font-size="25" fill="#1D1D1F" font-weight="700"><tspan x="568" dy="0">编排</tspan></text>
+<text x="568" y="570" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="568" dy="0">选择版式和风格</tspan><tspan x="568" dy="28">控制容量和信息密度</tspan></text>
+<line x1="568" y1="642" x2="890" y2="642" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="568" y="682" font-size="16" fill="#007AFF" font-weight="700"><tspan x="568" dy="0">输入：结构草稿</tspan></text>
+<text x="568" y="720" font-size="16" fill="#248A3D" font-weight="700"><tspan x="568" dy="0">输出：JSON brief</tspan></text>
+<line x1="916" y1="604" x2="962" y2="604" stroke="#007AFF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="960" y="450" width="378" height="310" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="960" y="450" width="378" height="70" rx="24" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="988" y="496" font-size="25" fill="#1D1D1F" font-weight="700"><tspan x="988" dy="0">渲染</tspan></text>
+<text x="988" y="570" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="988" dy="0">脚本生成 SVG</tspan><tspan x="988" dy="28">统一字号、留白和边距</tspan></text>
+<line x1="988" y1="642" x2="1310" y2="642" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="988" y="682" font-size="16" fill="#007AFF" font-weight="700"><tspan x="988" dy="0">输入：JSON brief</tspan></text>
+<text x="988" y="720" font-size="16" fill="#248A3D" font-weight="700"><tspan x="988" dy="0">输出：可编辑画板</tspan></text>
+<line x1="1336" y1="604" x2="1382" y2="604" stroke="#007AFF" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="1380" y="450" width="378" height="310" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="1380" y="450" width="378" height="70" rx="24" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1408" y="496" font-size="25" fill="#1D1D1F" font-weight="700"><tspan x="1408" dy="0">验证</tspan></text>
+<text x="1408" y="570" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="1408" dy="0">检查溢出、重叠和裁切</tspan><tspan x="1408" dy="28">导出预览做人工复核</tspan></text>
+<line x1="1408" y1="642" x2="1730" y2="642" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1408" y="682" font-size="16" fill="#007AFF" font-weight="700"><tspan x="1408" dy="0">输入：SVG</tspan></text>
+<text x="1408" y="720" font-size="16" fill="#248A3D" font-weight="700"><tspan x="1408" dy="0">输出：飞书文档</tspan></text>
+
+<rect x="120" y="816" width="1640" height="118" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="152" y="866" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">判断标准：同样输入交给不同 Agent，也应得到结构和视觉都稳定的画板。</tspan></text>
+
+</svg>

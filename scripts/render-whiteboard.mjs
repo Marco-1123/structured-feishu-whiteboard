@@ -68,6 +68,58 @@ const styles = {
     soft: "#DCE8F6",
     success: "#2B8F77",
   },
+  "apple-studio": {
+    grammar: "apple",
+    canvas: "#F5F5F7",
+    surface: "#FFFFFF",
+    muted: "#F2F2F7",
+    ink: "#1D1D1F",
+    secondary: "#6E6E73",
+    border: "#D2D2D7",
+    accent: "#007AFF",
+    soft: "#E8F2FF",
+    success: "#248A3D",
+  },
+  "fluent-workbench": {
+    grammar: "fluent",
+    canvas: "#F5F5F5",
+    surface: "#FFFFFF",
+    muted: "#F3F2F1",
+    ink: "#242424",
+    secondary: "#616161",
+    border: "#D1D1D1",
+    accent: "#0F6CBD",
+    soft: "#E5F1FB",
+    success: "#107C10",
+    warning: "#C19C00",
+  },
+  "carbon-data": {
+    grammar: "carbon",
+    canvas: "#F4F4F4",
+    surface: "#FFFFFF",
+    muted: "#E0E0E0",
+    ink: "#161616",
+    secondary: "#525252",
+    border: "#C6C6C6",
+    accent: "#0F62FE",
+    soft: "#D0E2FF",
+    success: "#198038",
+  },
+  "linear-command": {
+    grammar: "linear",
+    canvas: "#F7F8FA",
+    surface: "#FFFFFF",
+    muted: "#F1F3F6",
+    ink: "#111827",
+    secondary: "#5F6B7A",
+    border: "#D8DEE8",
+    accent: "#5E6AD2",
+    soft: "#ECEEFE",
+    success: "#16A085",
+    dark: "#111827",
+    darkMuted: "#1F2937",
+    darkText: "#F9FAFB",
+  },
 };
 
 function parseArgs(argv) {
@@ -99,8 +151,18 @@ function splitByLength(value, maxChars, maxLines) {
       lines.push(rest);
       rest = "";
     } else {
-      lines.push(rest.slice(0, maxChars));
-      rest = rest.slice(maxChars);
+      const slice = rest.slice(0, maxChars + 1);
+      let cut = -1;
+      for (const pattern of [/\s(?!.*\s)/, /[，。；、,.]([^，。；、,.]*)$/]) {
+        const match = slice.match(pattern);
+        if (match?.index && match.index >= Math.floor(maxChars * 0.55)) {
+          cut = pattern.source.startsWith("\\s") ? match.index : match.index + 1;
+          break;
+        }
+      }
+      if (cut <= 0) cut = maxChars;
+      lines.push(rest.slice(0, cut).trim());
+      rest = rest.slice(cut).trim();
     }
   }
   return lines;
@@ -132,17 +194,47 @@ ${body}
 }
 
 function card(x, y, w, h, c) {
+  if (c.grammar === "apple") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="24" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>`;
+  }
+  if (c.grammar === "linear") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>`;
+  }
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="${c.surface}" stroke="${c.border}" stroke-width="2"/>`;
+}
+
+function rect(x, y, w, h, c, options = {}) {
+  const rx = options.rx ?? 14;
+  const fill = options.fill ?? c.surface;
+  const stroke = options.stroke ?? c.border;
+  const sw = options.sw ?? 2;
+  return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`;
 }
 
 function label(x, y, w, c, content, fill = c.accent) {
   if (!content) return "";
+  if (c.grammar === "apple") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="36" rx="18" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 18, y + 25, 17, fill, [content], "700", 24)}`;
+  }
+  if (c.grammar === "linear") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="36" rx="8" fill="${c.soft}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 18, y + 25, 17, fill, [content], "700", 24)}`;
+  }
   return `<rect x="${x}" y="${y}" width="${w}" height="36" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(x + 18, y + 25, 17, fill, [content], "700", 24)}`;
 }
 
 function metric(x, y, w, c, content) {
   if (!content) return "";
+  if (c.grammar === "apple") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="46" rx="14" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
+  }
+  if (c.grammar === "linear") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="46" rx="8" fill="${c.soft}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
+  }
   return `<rect x="${x}" y="${y}" width="${w}" height="46" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
 }
@@ -167,6 +259,17 @@ function renderHeader(brief, c, width) {
     ...(hasSubtitle ? [{ height: 30, baselineOffset: 23, gapBefore: 18 }] : []),
   ]);
   const subtitle = hasSubtitle ? text(112, subtitleY, 26, c.secondary, [brief.subtitle]) : "";
+  if (c.grammar === "apple") {
+    return `${text(96, titleY + 2, 54, c.ink, [brief.title], "700")}
+${hasSubtitle ? text(98, subtitleY + 2, 25, c.secondary, [brief.subtitle]) : ""}
+<line x1="96" y1="${y + h + 18}" x2="${width - 96}" y2="${y + h + 18}" stroke="${c.border}" stroke-width="1.5"/>`;
+  }
+  if (c.grammar === "linear") {
+    return `<rect x="72" y="${y}" width="${width - 144}" height="${h}" rx="18" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+<rect x="72" y="${y}" width="16" height="${h}" rx="8" fill="${c.dark || c.ink}"/>
+${text(112, titleY, 50, c.ink, [brief.title], "700")}
+${subtitle}`;
+  }
   return `${card(72, y, width - 144, h, c)}
 <rect x="72" y="${y}" width="12" height="${h}" rx="6" fill="${c.accent}"/>
 ${text(112, titleY, 50, c.ink, [brief.title], "700")}
@@ -181,6 +284,17 @@ function renderSummary(brief, c, y, width) {
     { height: 24, baselineOffset: 19, gapBefore: 0 },
     { height: summaryHeight, baselineOffset: 34, gapBefore: 20 },
   ]);
+  if (c.grammar === "apple") {
+    return `<rect x="96" y="${y}" width="${width - 192}" height="${h}" rx="26" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+${text(128, labelY, 19, c.accent, [brief.summaryLabel || "核心结论"], "700")}
+${text(128, summaryY, 32, c.ink, summaryLines, "700", 42)}`;
+  }
+  if (c.grammar === "linear") {
+    return `<rect x="72" y="${y}" width="${width - 144}" height="${h}" rx="16" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+<rect x="72" y="${y}" width="12" height="${h}" rx="6" fill="${c.dark || c.ink}"/>
+${text(112, labelY, 19, c.accent, [brief.summaryLabel || "核心结论"], "700")}
+${text(112, summaryY, 32, c.ink, summaryLines, "700", 42)}`;
+  }
   return `<rect x="72" y="${y}" width="${width - 144}" height="${h}" rx="14" fill="${c.soft}" stroke="${c.accent}" stroke-width="2"/>
 ${text(112, labelY, 20, c.accent, [brief.summaryLabel || "核心结论"], "700")}
 ${text(112, summaryY, 34, c.ink, summaryLines, "700", 44)}`;
@@ -188,6 +302,15 @@ ${text(112, summaryY, 34, c.ink, summaryLines, "700", 44)}`;
 
 function renderFooter(brief, c, y, width) {
   if (!brief.footer) return "";
+  if (c.grammar === "apple") {
+    return `${rect(96, y, width - 192, 112, c, { rx: 24, fill: c.surface, stroke: c.border, sw: 1.5 })}
+${text(128, y + 66, 25, c.ink, splitByLength(brief.footer, 42, 2), "700", 36)}`;
+  }
+  if (c.grammar === "linear") {
+    return `${rect(72, y, width - 144, 112, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
+<rect x="72" y="${y}" width="12" height="112" rx="6" fill="${c.dark || c.ink}"/>
+${text(112, y + 66, 25, c.ink, splitByLength(brief.footer, 46, 2), "700", 36)}`;
+  }
   return `${card(72, y, width - 144, 118, c)}
 ${text(112, y + 68, 27, c.ink, splitByLength(brief.footer, 42, 2), "700", 38)}`;
 }
@@ -209,6 +332,127 @@ ${text(x + 36, y + titleY, titleSize, c.ink, [module.title], "700")}
 ${text(x + 36, y + bodyY, bodySize, c.secondary, module.body, "400", bodyGap)}
 ${metric(x + 36, y + metricY, 210, c, module.metric)}
 ${label(x + 36, y + labelY, labelWidth, c, module.tag, labelFill)}`;
+}
+
+function renderAppleTitleBlock(brief, width) {
+  return `${text(120, 118, 56, styles["apple-studio"].ink, [brief.title], "700")}
+${brief.subtitle ? text(122, 162, 24, styles["apple-studio"].secondary, [brief.subtitle]) : ""}
+<line x1="120" y1="218" x2="${width - 120}" y2="218" stroke="${styles["apple-studio"].border}" stroke-width="1.5"/>`;
+}
+
+function renderAppleStatement(brief, width, y = 248) {
+  const c = styles["apple-studio"];
+  return `<rect x="120" y="${y}" width="${width - 240}" height="158" rx="28" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+${text(152, y + 52, 18, c.accent, [brief.summaryLabel || "核心结论"], "700")}
+${text(152, y + 100, 30, c.ink, splitByLength(brief.summary, 38, 2), "700", 38)}`;
+}
+
+function renderAppleFooter(brief, width, y) {
+  if (!brief.footer) return "";
+  const c = styles["apple-studio"];
+  return `<rect x="120" y="${y}" width="${width - 240}" height="118" rx="24" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+${text(152, y + 50, 24, c.ink, splitByLength(brief.footer, 44, 2), "700", 34)}`;
+}
+
+function renderAppleConclusionFirst(brief) {
+  const c = styles["apple-studio"];
+  const width = 1680;
+  const height = 1000;
+  const modules = brief.modules.slice(0, 5);
+  const gap = modules.length > 3 ? 26 : 34;
+  const x0 = 120;
+  const y = 456;
+  const cardW = Math.floor((width - 240 - gap * (modules.length - 1)) / modules.length);
+  const cardH = 296;
+  const cards = modules.map((module, index) => {
+    const x = x0 + index * (cardW + gap);
+    const bodyLines = module.body.slice(0, 3);
+    const pillY = y + cardH - 62;
+    const metricBlock = module.metric
+      ? metric(x + 30, pillY - 56, Math.min(220, cardW - 60), c, module.metric)
+      : "";
+    return `${card(x, y, cardW, cardH, c)}
+${text(x + 30, y + 62, 27, c.ink, [module.title], "700")}
+<line x1="${x + 30}" y1="${y + 92}" x2="${x + cardW - 30}" y2="${y + 92}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 30, y + 142, 20, c.secondary, bodyLines, "400", 30)}
+${metricBlock}
+${label(x + 30, pillY, Math.min(150, cardW - 60), c, module.tag, index === modules.length - 1 ? c.success : c.accent)}`;
+  }).join("\n");
+  return wrap(width, height, c, `
+${renderAppleTitleBlock(brief, width)}
+${renderAppleStatement(brief, width)}
+${cards}
+${renderAppleFooter(brief, width, 816)}
+`);
+}
+
+function renderAppleRoadmap(brief) {
+  const c = styles["apple-studio"];
+  const width = 1680;
+  const height = 1000;
+  const stages = brief.stages.slice(0, 5);
+  const gap = stages.length > 3 ? 34 : 48;
+  const x0 = 120;
+  const y = 456;
+  const cardW = Math.floor((width - 240 - gap * (stages.length - 1)) / stages.length);
+  const cardH = 296;
+  const cards = stages.map((stage, index) => {
+    const x = x0 + index * (cardW + gap);
+    const nextX = x0 + (index + 1) * (cardW + gap);
+    const badge = String(index + 1).padStart(2, "0");
+    const arrow = index < stages.length - 1
+      ? `<line x1="${x + cardW - 2}" y1="${y + 148}" x2="${nextX + 2}" y2="${y + 148}" stroke="${c.accent}" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>`
+      : "";
+    return `${card(x, y, cardW, cardH, c)}
+<rect x="${x + 30}" y="${y + 34}" width="58" height="34" rx="12" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 45, y + 58, 17, c.accent, [badge], "700")}
+${text(x + 30, y + 106, 26, c.ink, [stage.title], "700")}
+<line x1="${x + 30}" y1="${y + 136}" x2="${x + cardW - 30}" y2="${y + 136}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 30, y + 174, 19, c.secondary, stage.body.slice(0, 3), "400", 25)}
+${label(x + 30, y + cardH - 50, 132, c, stage.tag, index === stages.length - 1 ? c.success : c.accent)}
+${arrow}`;
+  }).join("\n");
+  return wrap(width, height, c, `
+${renderAppleTitleBlock(brief, width)}
+${renderAppleStatement(brief, width)}
+${cards}
+${renderAppleFooter(brief, width, 816)}
+`);
+}
+
+function renderAppleProcessChain(brief) {
+  const c = styles["apple-studio"];
+  const width = 1880;
+  const height = 1000;
+  const nodes = brief.nodes.slice(0, 6);
+  const gap = nodes.length > 4 ? 30 : 42;
+  const x0 = 120;
+  const y = 450;
+  const nodeW = Math.floor((width - 240 - gap * (nodes.length - 1)) / nodes.length);
+  const nodeH = 310;
+  const blocks = nodes.map((node, index) => {
+    const x = x0 + index * (nodeW + gap);
+    const nextX = x0 + (index + 1) * (nodeW + gap);
+    const arrow = index < nodes.length - 1
+      ? `<line x1="${x + nodeW - 2}" y1="${y + 154}" x2="${nextX + 2}" y2="${y + 154}" stroke="${c.accent}" stroke-width="3.5" stroke-linecap="round" marker-end="url(#arrow)"/>`
+      : "";
+    const inputLine = node.input ? [`输入：${node.input}`] : [];
+    const outputLine = node.output ? [`输出：${node.output}`] : [];
+    return `${card(x, y, nodeW, nodeH, c)}
+<rect x="${x}" y="${y}" width="${nodeW}" height="70" rx="24" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 28, y + 46, 25, c.ink, [node.title], "700")}
+${text(x + 28, y + 120, 19, c.secondary, node.body.slice(0, 2), "400", 28)}
+<line x1="${x + 28}" y1="${y + 192}" x2="${x + nodeW - 28}" y2="${y + 192}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 28, y + 232, 16, c.accent, inputLine, "700")}
+${text(x + 28, y + 270, 16, c.success, outputLine, "700")}
+${arrow}`;
+  }).join("\n");
+  return wrap(width, height, c, `
+${renderAppleTitleBlock(brief, width)}
+${renderAppleStatement(brief, width)}
+${blocks}
+${renderAppleFooter(brief, width, 816)}
+`);
 }
 
 function renderMiniCard(x, y, w, h, c, item) {
@@ -331,6 +575,7 @@ ${text(ix + 22, y + 164, 17, c.secondary, (item.body || []).slice(0, 2), "400", 
 }
 
 function renderConclusionFirst(brief, c) {
+  if (c.grammar === "apple") return renderAppleConclusionFirst(brief);
   const width = 1680;
   const moduleCount = brief.modules.length;
   const gap = 28;
@@ -430,6 +675,7 @@ ${renderFooter(brief, c, 844, width)}
 }
 
 function renderRoadmap(brief, c) {
+  if (c.grammar === "apple") return renderAppleRoadmap(brief);
   const width = 1680;
   const height = 1040;
   const stages = brief.stages.slice(0, 5);
@@ -442,7 +688,7 @@ function renderRoadmap(brief, c) {
     const x = x0 + index * (cardW + gap);
     const badge = String(index + 1).padStart(2, "0");
     const arrow = index < stages.length - 1
-      ? `<line x1="${x + cardW + 8}" y1="${y + 170}" x2="${x + cardW + gap - 10}" y2="${y + 170}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`
+      ? `<line x1="${x + cardW - 4}" y1="${y + 170}" x2="${x + cardW + gap + 4}" y2="${y + 170}" stroke="${c.accent}" stroke-width="${c.grammar === "linear" ? 4 : 3}" marker-end="url(#arrow)"/>`
       : "";
     return `${card(x, y, cardW, cardH, c)}
 <rect x="${x + 30}" y="${y + 34}" width="58" height="34" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
@@ -462,6 +708,7 @@ ${renderFooter(brief, c, 852, width)}
 }
 
 function renderProcessChain(brief, c) {
+  if (c.grammar === "apple") return renderAppleProcessChain(brief);
   const width = 1880;
   const height = 1080;
   const nodes = brief.nodes.slice(0, 7);
@@ -473,7 +720,7 @@ function renderProcessChain(brief, c) {
   const blocks = nodes.map((node, index) => {
     const x = x0 + index * (nodeW + gap);
     const arrow = index < nodes.length - 1
-      ? `<line x1="${x + nodeW + 6}" y1="${y + 168}" x2="${x + nodeW + gap - 9}" y2="${y + 168}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>`
+      ? `<line x1="${x + nodeW - 4}" y1="${y + 168}" x2="${x + nodeW + gap + 4}" y2="${y + 168}" stroke="${c.accent}" stroke-width="${c.grammar === "linear" ? 4 : 3}" marker-end="url(#arrow)"/>`
       : "";
     const inputLine = node.input ? [`输入: ${node.input}`] : [];
     const outputLine = node.output ? [`输出: ${node.output}`] : [];
@@ -495,6 +742,11 @@ ${renderFooter(brief, c, 870, width)}
 }
 
 function renderComparisonMatrix(brief, c) {
+  if (c.grammar === "apple") return renderComparisonMatrixApple(brief, c);
+  if (c.grammar === "fluent") return renderComparisonMatrixFluent(brief, c);
+  if (c.grammar === "carbon") return renderComparisonMatrixCarbon(brief, c);
+  if (c.grammar === "linear") return renderComparisonMatrixLinear(brief, c);
+
   const width = 1680;
   const height = 1080;
   const columns = brief.matrix.columns;
@@ -531,6 +783,189 @@ ${renderSummary(brief, c, 238, width)}
 ${body}
 ${renderFooter(brief, c, 900, width)}
 `);
+}
+
+function renderComparisonMatrixApple(brief, c) {
+  const width = 1680;
+  const height = 1080;
+  const columns = brief.matrix.columns;
+  const rows = brief.matrix.rows;
+  const x = 120;
+  const y = 442;
+  const tableW = width - 240;
+  const nameW = 260;
+  const colW = Math.floor((tableW - nameW) / columns.length);
+  const headerH = 74;
+  const rowH = 94;
+  const tableBottomPad = 30;
+  const tableH = headerH + rows.length * rowH + tableBottomPad;
+  const footerY = y + tableH + 34;
+  let body = `
+${text(120, 126, 58, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(122, 174, 24, c.secondary, [brief.subtitle]) : ""}
+<rect x="120" y="232" width="${tableW}" height="188" rx="28" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+${text(148, 286, 18, c.accent, [brief.summaryLabel || "推荐"], "700")}
+${text(148, 326, 28, c.ink, splitByLength(brief.summary, 24, 3), "700", 35)}
+${rect(x, y, tableW, tableH, c, { rx: 24, fill: c.surface, stroke: c.border, sw: 1.5 })}
+<rect x="${x + 18}" y="${y + 18}" width="${tableW - 36}" height="${headerH - 18}" rx="18" fill="${c.muted}" stroke="${c.muted}" stroke-width="1"/>
+${text(x + 34, y + 54, 20, c.secondary, ["对象"], "700")}`;
+  columns.forEach((column, index) => {
+    const cx = x + nameW + index * colW;
+    body += `\n${text(cx + 22, y + 54, 20, c.secondary, [column], "700")}`;
+  });
+  rows.forEach((row, rowIndex) => {
+    const ry = y + headerH + rowIndex * rowH;
+    const fill = row.recommended ? c.soft : c.surface;
+    body += `\n<rect x="${x + 18}" y="${ry + 10}" width="${tableW - 36}" height="${rowH - 14}" rx="18" fill="${fill}" stroke="${row.recommended ? c.accent : c.border}" stroke-width="${row.recommended ? 2 : 1}"/>
+${text(x + 36, ry + 60, 21, row.recommended ? c.accent : c.ink, [row.name], "700")}`;
+    row.cells.forEach((cell, cellIndex) => {
+      const cx = x + nameW + cellIndex * colW;
+      body += `\n${text(cx + 22, ry + 60, 19, c.secondary, [cell], "400")}`;
+    });
+  });
+  body += `\n<rect x="120" y="${footerY}" width="${tableW}" height="106" rx="22" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+${text(150, footerY + 42, 22, c.ink, splitByLength(brief.footer || "", 22, 2), "700", 31)}`;
+  return wrap(width, height, c, body);
+}
+
+function renderComparisonMatrixFluent(brief, c) {
+  const width = 1680;
+  const height = 1080;
+  const columns = brief.matrix.columns;
+  const rows = brief.matrix.rows;
+  const x = 92;
+  const y = 420;
+  const tableW = width - 184;
+  const nameW = 250;
+  const colW = Math.floor((tableW - nameW) / columns.length);
+  const headerH = 70;
+  const rowH = 88;
+  const tableH = headerH + rows.length * rowH;
+  let body = `
+<rect x="0" y="0" width="${width}" height="128" fill="${c.muted}" stroke="${c.border}" stroke-width="0"/>
+<rect x="92" y="36" width="8" height="56" rx="4" fill="${c.accent}"/>
+${text(120, 78, 44, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(120, 112, 21, c.secondary, [brief.subtitle]) : ""}
+<rect x="${width - 320}" y="42" width="228" height="44" rx="8" fill="${c.soft}" stroke="${c.border}" stroke-width="1.5"/>
+${text(width - 294, 71, 18, c.accent, [brief.summaryLabel || "Decision"], "700")}
+${rect(92, 168, tableW, 160, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1.5 })}
+${text(124, 222, 20, c.accent, ["推荐结论"], "700")}
+${text(124, 278, 34, c.ink, splitByLength(brief.summary, 44, 2), "700", 42)}
+${rect(x, y, tableW, tableH, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1.5 })}
+<rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
+${text(x + 28, y + 45, 21, c.ink, ["对象/维度"], "700")}`;
+  columns.forEach((column, index) => {
+    const cx = x + nameW + index * colW;
+    body += `\n<line x1="${cx}" y1="${y}" x2="${cx}" y2="${y + tableH}" stroke="${c.border}" stroke-width="1.5"/>
+${text(cx + 24, y + 45, 21, c.ink, [column], "700")}`;
+  });
+  rows.forEach((row, rowIndex) => {
+    const ry = y + headerH + rowIndex * rowH;
+    const fill = row.recommended ? c.soft : (rowIndex % 2 === 0 ? c.surface : "#FAFAFA");
+    body += `\n<rect x="${x}" y="${ry}" width="${tableW}" height="${rowH}" fill="${fill}" stroke="${c.border}" stroke-width="1"/>
+${row.recommended ? `<rect x="${x}" y="${ry}" width="8" height="${rowH}" fill="${c.accent}"/>` : ""}
+${text(x + 28, ry + 55, 21, row.recommended ? c.accent : c.ink, [row.name], "700")}`;
+    row.cells.forEach((cell, cellIndex) => {
+      const cx = x + nameW + cellIndex * colW;
+      body += `\n${text(cx + 24, ry + 55, 19, c.secondary, [cell], "400")}`;
+    });
+  });
+  body += `\n${rect(92, 912, tableW, 86, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1.5 })}
+${text(124, 965, 25, c.ink, splitByLength(brief.footer || "", 52, 1), "700")}`;
+  return wrap(width, height, c, body);
+}
+
+function renderComparisonMatrixCarbon(brief, c) {
+  const width = 1680;
+  const height = 1080;
+  const columns = brief.matrix.columns;
+  const rows = brief.matrix.rows;
+  const x = 88;
+  const y = 392;
+  const tableW = width - 176;
+  const nameW = 248;
+  const colW = Math.floor((tableW - nameW) / columns.length);
+  const headerH = 64;
+  const rowH = 86;
+  const tableH = headerH + rows.length * rowH;
+  let body = `
+<rect x="0" y="0" width="${width}" height="${height}" fill="${c.canvas}"/>
+<rect x="88" y="68" width="${tableW}" height="2" fill="${c.ink}"/>
+${text(88, 128, 48, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(88, 164, 22, c.secondary, [brief.subtitle]) : ""}
+<rect x="88" y="214" width="${tableW}" height="116" fill="${c.surface}" stroke="${c.border}" stroke-width="1"/>
+<rect x="88" y="214" width="12" height="116" fill="${c.accent}"/>
+${text(124, 252, 18, c.accent, [brief.summaryLabel || "结论"], "700")}
+${text(124, 296, 30, c.ink, splitByLength(brief.summary, 48, 2), "700", 38)}
+<rect x="${x}" y="${y}" width="${tableW}" height="${tableH}" fill="${c.surface}" stroke="${c.border}" stroke-width="1"/>
+<rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" fill="${c.muted}" stroke="${c.ink}" stroke-width="1.5"/>
+<rect x="${x}" y="${y}" width="${tableW}" height="6" fill="${c.ink}"/>
+${text(x + 24, y + 41, 19, c.ink, ["对象/维度"], "700")}`;
+  columns.forEach((column, index) => {
+    const cx = x + nameW + index * colW;
+    body += `\n<line x1="${cx}" y1="${y}" x2="${cx}" y2="${y + tableH}" stroke="${c.border}" stroke-width="1"/>
+${text(cx + 20, y + 41, 19, c.ink, [column], "700")}`;
+  });
+  rows.forEach((row, rowIndex) => {
+    const ry = y + headerH + rowIndex * rowH;
+    const fill = row.recommended ? c.soft : (rowIndex % 2 === 0 ? "#FFFFFF" : "#F4F4F4");
+    body += `\n<rect x="${x}" y="${ry}" width="${tableW}" height="${rowH}" fill="${fill}" stroke="${c.border}" stroke-width="1"/>
+${row.recommended ? `<rect x="${x}" y="${ry}" width="10" height="${rowH}" fill="${c.accent}"/>` : ""}
+${text(x + 24, ry + 54, 21, row.recommended ? c.accent : c.ink, [row.name], "700")}`;
+    row.cells.forEach((cell, cellIndex) => {
+      const cx = x + nameW + cellIndex * colW;
+      body += `\n${text(cx + 20, ry + 54, 19, c.secondary, [cell], "400")}`;
+    });
+  });
+  body += `\n<rect x="88" y="906" width="${tableW}" height="92" fill="${c.surface}" stroke="${c.border}" stroke-width="1"/>
+<rect x="88" y="906" width="12" height="92" fill="${c.ink}"/>
+${text(124, 963, 25, c.ink, splitByLength(brief.footer || "", 52, 1), "700")}`;
+  return wrap(width, height, c, body);
+}
+
+function renderComparisonMatrixLinear(brief, c) {
+  const width = 1680;
+  const height = 1080;
+  const columns = brief.matrix.columns;
+  const rows = brief.matrix.rows;
+  const x = 104;
+  const y = 430;
+  const tableW = width - 208;
+  const nameW = 250;
+  const colW = Math.floor((tableW - nameW) / columns.length);
+  const headerH = 68;
+  const rowH = 90;
+  const tableH = headerH + rows.length * rowH;
+  let body = `
+<rect x="72" y="56" width="${width - 144}" height="228" rx="22" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+<rect x="72" y="56" width="18" height="228" rx="9" fill="${c.dark}"/>
+${text(122, 174, 50, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(124, 218, 22, c.secondary, [brief.subtitle]) : ""}
+<line x1="122" y1="98" x2="250" y2="98" stroke="${c.accent}" stroke-width="4"/>
+<rect x="104" y="316" width="${tableW}" height="86" rx="16" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+${text(132, 369, 28, c.ink, splitByLength(brief.summary, 58, 1), "700")}
+${rect(x, y, tableW, tableH, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
+<rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" rx="16" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 26, y + 43, 20, c.secondary, ["对象/维度"], "700")}`;
+  columns.forEach((column, index) => {
+    const cx = x + nameW + index * colW;
+    body += `\n${text(cx + 24, y + 43, 20, c.secondary, [column], "700")}`;
+  });
+  rows.forEach((row, rowIndex) => {
+    const ry = y + headerH + rowIndex * rowH;
+    const fill = row.recommended ? c.soft : c.surface;
+    body += `\n<line x1="${x + 24}" y1="${ry}" x2="${x + tableW - 24}" y2="${ry}" stroke="${c.border}" stroke-width="1"/>
+${row.recommended ? `<rect x="${x + 18}" y="${ry + 18}" width="${tableW - 36}" height="${rowH - 28}" rx="13" fill="${fill}" stroke="${c.accent}" stroke-width="1.5"/>` : ""}
+${text(x + 30, ry + 56, 21, row.recommended ? c.accent : c.ink, [row.name], "700")}`;
+    row.cells.forEach((cell, cellIndex) => {
+      const cx = x + nameW + cellIndex * colW;
+      body += `\n${text(cx + 24, ry + 56, 19, c.secondary, [cell], "400")}`;
+    });
+  });
+  body += `\n<rect x="104" y="924" width="${tableW}" height="74" rx="16" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
+<rect x="104" y="924" width="12" height="74" rx="6" fill="${c.dark}"/>
+${text(134, 970, 23, c.ink, splitByLength(brief.footer || "", 60, 1), "700")}`;
+  return wrap(width, height, c, body);
 }
 
 function render(brief) {

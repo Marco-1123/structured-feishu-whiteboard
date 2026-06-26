@@ -1,0 +1,35 @@
+{
+  "layout": "process-chain",
+  "style": "apple-studio",
+  "title": "画板生成稳定链路",
+  "subtitle": "从材料理解到飞书预览，减少自由手写 SVG 带来的波动。",
+  "summaryLabel": "流程目标",
+  "summary": "先生成结构化 brief，再用确定性渲染器出图，最后通过预览和检查确认可读性。",
+  "nodes": [
+    {
+      "title": "理解",
+      "body": ["提炼主题、结论和证据", "判断体量和信息主线"],
+      "input": "原始材料",
+      "output": "结构草稿"
+    },
+    {
+      "title": "编排",
+      "body": ["选择版式和风格", "控制容量和信息密度"],
+      "input": "结构草稿",
+      "output": "JSON brief"
+    },
+    {
+      "title": "渲染",
+      "body": ["脚本生成 SVG", "统一字号、留白和边距"],
+      "input": "JSON brief",
+      "output": "可编辑画板"
+    },
+    {
+      "title": "验证",
+      "body": ["检查溢出、重叠和裁切", "导出预览做人工复核"],
+      "input": "SVG",
+      "output": "飞书文档"
+    }
+  ],
+  "footer": "判断标准：同样输入交给不同 Agent，也应得到结构和视觉都稳定的画板。"
+}

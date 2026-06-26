@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1080" viewBox="0 0 1680 1080">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#007AFF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1680" height="1080" fill="#F5F5F7"/>
+
+<text x="120" y="126" font-size="58" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">团队知识承载方式选择</tspan></text>
+<text x="122" y="174" font-size="24" fill="#6E6E73" font-weight="400"><tspan x="122" dy="0">在沉淀能力、可读性和协作成本之间取舍。</tspan></text>
+<rect x="120" y="232" width="1440" height="188" rx="28" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="148" y="286" font-size="18" fill="#007AFF" font-weight="700"><tspan x="148" dy="0">推荐</tspan></text>
+<text x="148" y="326" font-size="28" fill="#1D1D1F" font-weight="700"><tspan x="148" dy="0">项目级 LLM Wiki 最适合作为长期知识层，</tspan><tspan x="148" dy="35">执行规则进入 Skill，展示材料进入飞书文档。</tspan></text>
+<rect x="120" y="442" width="1440" height="480" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="138" y="460" width="1404" height="56" rx="18" fill="#F2F2F7" stroke="#F2F2F7" stroke-width="1"/>
+<text x="154" y="496" font-size="20" fill="#6E6E73" font-weight="700"><tspan x="154" dy="0">对象</tspan></text>
+<text x="402" y="496" font-size="20" fill="#6E6E73" font-weight="700"><tspan x="402" dy="0">沉淀能力</tspan></text>
+<text x="697" y="496" font-size="20" fill="#6E6E73" font-weight="700"><tspan x="697" dy="0">Agent 可读</tspan></text>
+<text x="992" y="496" font-size="20" fill="#6E6E73" font-weight="700"><tspan x="992" dy="0">协作成本</tspan></text>
+<text x="1287" y="496" font-size="20" fill="#6E6E73" font-weight="700"><tspan x="1287" dy="0">适用场景</tspan></text>
+<rect x="138" y="526" width="1404" height="80" rx="18" fill="#E8F2FF" stroke="#007AFF" stroke-width="2"/>
+<text x="156" y="576" font-size="21" fill="#007AFF" font-weight="700"><tspan x="156" dy="0">LLM Wiki</tspan></text>
+<text x="402" y="576" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="402" dy="0">强</tspan></text>
+<text x="697" y="576" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="697" dy="0">强</tspan></text>
+<text x="992" y="576" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="992" dy="0">中</tspan></text>
+<text x="1287" y="576" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="1287" dy="0">项目知识</tspan></text>
+<rect x="138" y="620" width="1404" height="80" rx="18" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1"/>
+<text x="156" y="670" font-size="21" fill="#1D1D1F" font-weight="700"><tspan x="156" dy="0">飞书文档</tspan></text>
+<text x="402" y="670" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="402" dy="0">中</tspan></text>
+<text x="697" y="670" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="697" dy="0">弱</tspan></text>
+<text x="992" y="670" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="992" dy="0">低</tspan></text>
+<text x="1287" y="670" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="1287" dy="0">人工评审</tspan></text>
+<rect x="138" y="714" width="1404" height="80" rx="18" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1"/>
+<text x="156" y="764" font-size="21" fill="#1D1D1F" font-weight="700"><tspan x="156" dy="0">聊天记录</tspan></text>
+<text x="402" y="764" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="402" dy="0">弱</tspan></text>
+<text x="697" y="764" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="697" dy="0">弱</tspan></text>
+<text x="992" y="764" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="992" dy="0">低</tspan></text>
+<text x="1287" y="764" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="1287" dy="0">临时回看</tspan></text>
+<rect x="138" y="808" width="1404" height="80" rx="18" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1"/>
+<text x="156" y="858" font-size="21" fill="#1D1D1F" font-weight="700"><tspan x="156" dy="0">代码注释</tspan></text>
+<text x="402" y="858" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="402" dy="0">中</tspan></text>
+<text x="697" y="858" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="697" dy="0">强</tspan></text>
+<text x="992" y="858" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="992" dy="0">中</tspan></text>
+<text x="1287" y="858" font-size="19" fill="#6E6E73" font-weight="400"><tspan x="1287" dy="0">实现约束</tspan></text>
+<rect x="120" y="956" width="1440" height="106" rx="22" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="150" y="998" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="150" dy="0">结论：稳定原则进入 Wiki，执行规则进入</tspan><tspan x="150" dy="31">Skill，展示材料进入飞书文档。</tspan></text>
+</svg>

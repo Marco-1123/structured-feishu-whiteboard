@@ -20,7 +20,7 @@
 <line x1="96" y1="650" x2="464" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
 <text x="96" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="96" dy="0">输入: 审批实例</tspan></text>
 <text x="96" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="96" dy="0">输出: 异常工单</tspan></text>
-<line x1="494" y1="620" x2="503" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="484" y1="620" x2="516" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
 <rect x="512" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
 <rect x="512" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
 <text x="536" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="536" dy="0">定位</tspan></text>
@@ -28,7 +28,7 @@
 <line x1="536" y1="650" x2="904" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
 <text x="536" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="536" dy="0">输入: 流程日志</tspan></text>
 <text x="536" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="536" dy="0">输出: 失败原因</tspan></text>
-<line x1="934" y1="620" x2="943" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="924" y1="620" x2="956" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
 <rect x="952" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
 <rect x="952" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
 <text x="976" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="976" dy="0">处理</tspan></text>
@@ -36,7 +36,7 @@
 <line x1="976" y1="650" x2="1344" y2="650" stroke="#DDE6EE" stroke-width="1.5"/>
 <text x="976" y="690" font-size="16" fill="#3370FF" font-weight="700"><tspan x="976" dy="0">输入: 处置方案</tspan></text>
 <text x="976" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="976" dy="0">输出: 恢复结果</tspan></text>
-<line x1="1374" y1="620" x2="1383" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="1364" y1="620" x2="1396" y2="620" stroke="#3370FF" stroke-width="3" marker-end="url(#arrow)"/>
 <rect x="1392" y="452" width="416" height="350" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
 <rect x="1392" y="452" width="416" height="68" rx="14" fill="#EEF3F7" stroke="#DDE6EE" stroke-width="2"/>
 <text x="1416" y="496" font-size="24" fill="#1F2329" font-weight="700"><tspan x="1416" dy="0">复盘</tspan></text>

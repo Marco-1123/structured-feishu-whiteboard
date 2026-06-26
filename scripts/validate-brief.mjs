@@ -1,7 +1,16 @@
 import fs from "node:fs";
 
 const supportedLayouts = new Set(["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix"]);
-const supportedStyles = new Set(["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark"]);
+const supportedStyles = new Set([
+  "professional-blue",
+  "dark-emphasis",
+  "warm-editorial",
+  "feishu-neutral",
+  "feishu-status",
+  "feishu-decision-dark",
+  "apple-studio",
+  "linear-command",
+]);
 const supportedSectionTypes = new Set(["overview", "background", "modules", "roadmap", "metrics-evidence", "risks", "actions"]);
 
 const limits = {

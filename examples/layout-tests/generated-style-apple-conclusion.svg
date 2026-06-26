@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1680" height="1000" viewBox="0 0 1680 1000">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#007AFF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1680" height="1000" fill="#F5F5F7"/>
+
+<text x="120" y="118" font-size="56" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">团队知识承载方式选择</tspan></text>
+<text x="122" y="162" font-size="24" fill="#6E6E73" font-weight="400"><tspan x="122" dy="0">在沉淀能力、可读性和协作成本之间取舍。</tspan></text>
+<line x1="120" y1="218" x2="1560" y2="218" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="120" y="248" width="1440" height="158" rx="28" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="152" y="300" font-size="18" fill="#007AFF" font-weight="700"><tspan x="152" dy="0">核心判断</tspan></text>
+<text x="152" y="348" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">项目级 LLM Wiki 适合作为长期知识层，执行规则进入</tspan><tspan x="152" dy="38">Skill，展示材料进入飞书文档。</tspan></text>
+<rect x="120" y="456" width="457" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="150" y="518" font-size="27" fill="#1D1D1F" font-weight="700"><tspan x="150" dy="0">长期记忆</tspan></text>
+<line x1="150" y1="548" x2="547" y2="548" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="150" y="598" font-size="20" fill="#6E6E73" font-weight="400"><tspan x="150" dy="0">Wiki 记录稳定原则和历史判断</tspan><tspan x="150" dy="30">避免关键经验散落在对话里</tspan></text>
+
+<rect x="150" y="690" width="150" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="168" y="715" font-size="17" fill="#007AFF" font-weight="700"><tspan x="168" dy="0">可沉淀</tspan></text>
+<rect x="611" y="456" width="457" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="641" y="518" font-size="27" fill="#1D1D1F" font-weight="700"><tspan x="641" dy="0">执行规则</tspan></text>
+<line x1="641" y1="548" x2="1038" y2="548" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="641" y="598" font-size="20" fill="#6E6E73" font-weight="400"><tspan x="641" dy="0">Skill 承载稳定流程和验收标准</tspan><tspan x="641" dy="30">让其他 Agent 也能复现产出</tspan></text>
+
+<rect x="641" y="690" width="150" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="659" y="715" font-size="17" fill="#007AFF" font-weight="700"><tspan x="659" dy="0">可复用</tspan></text>
+<rect x="1102" y="456" width="457" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1132" y="518" font-size="27" fill="#1D1D1F" font-weight="700"><tspan x="1132" dy="0">展示协作</tspan></text>
+<line x1="1132" y1="548" x2="1529" y2="548" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1132" y="598" font-size="20" fill="#6E6E73" font-weight="400"><tspan x="1132" dy="0">飞书文档承载最终展示材料</tspan><tspan x="1132" dy="30">方便人工评审和团队共享</tspan></text>
+
+<rect x="1132" y="690" width="150" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="1150" y="715" font-size="17" fill="#248A3D" font-weight="700"><tspan x="1150" dy="0">可协作</tspan></text>
+<rect x="120" y="816" width="1440" height="118" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="152" y="866" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">下一步：把稳定原则写入 Wiki，把强约束写入 Skill，把样例沉淀为回归测试。</tspan></text>
+
+</svg>
