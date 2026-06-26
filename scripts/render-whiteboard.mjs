@@ -302,17 +302,27 @@ ${text(112, summaryY, 34, c.ink, summaryLines, "700", 44)}`;
 
 function renderFooter(brief, c, y, width) {
   if (!brief.footer) return "";
+  const footerLines = splitByLength(brief.footer, c.grammar === "linear" ? 46 : 42, 2);
+  const footerTextH = 25 + (footerLines.length - 1) * 36;
+  const [footerTextY] = centerTextGroup(y, 112, [
+    { height: footerTextH, baselineOffset: 25, gapBefore: 0 },
+  ]);
   if (c.grammar === "apple") {
     return `${rect(96, y, width - 192, 112, c, { rx: 24, fill: c.surface, stroke: c.border, sw: 1.5 })}
-${text(128, y + 66, 25, c.ink, splitByLength(brief.footer, 42, 2), "700", 36)}`;
+${text(128, footerTextY, 25, c.ink, footerLines, "700", 36)}`;
   }
   if (c.grammar === "linear") {
     return `${rect(72, y, width - 144, 112, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
 <rect x="72" y="${y}" width="12" height="112" rx="6" fill="${c.dark || c.ink}"/>
-${text(112, y + 66, 25, c.ink, splitByLength(brief.footer, 46, 2), "700", 36)}`;
+${text(112, footerTextY, 25, c.ink, footerLines, "700", 36)}`;
   }
+  const defaultLines = splitByLength(brief.footer, 42, 2);
+  const defaultTextH = 27 + (defaultLines.length - 1) * 38;
+  const [defaultTextY] = centerTextGroup(y, 118, [
+    { height: defaultTextH, baselineOffset: 27, gapBefore: 0 },
+  ]);
   return `${card(72, y, width - 144, 118, c)}
-${text(112, y + 68, 27, c.ink, splitByLength(brief.footer, 42, 2), "700", 38)}`;
+${text(112, defaultTextY, 27, c.ink, defaultLines, "700", 38)}`;
 }
 
 function renderModuleCard(x, y, w, h, c, module, options) {

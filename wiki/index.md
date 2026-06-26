@@ -16,6 +16,7 @@ This is the navigation page for the structured Feishu whiteboard project wiki. I
 - [Structured Feishu Whiteboard Knowledge Scope](topics/structured-feishu-whiteboard-knowledge-scope.md) — What this project wiki should remember and how it supports the Skill.
 - [V3 Layout And Style System](topics/v3-layout-style-system.md) — V3 direction for richer script-rendered layouts and Feishu-inspired restrained styles.
 - [V3.1 Style Differentiation Research](topics/v31-style-differentiation-research.md) — Diagnosis of weak V3 style differences and the decision to keep Apple Studio and Linear Command as production candidates with renderer-backed layout checks.
+- [V3.2 Controlled Expressiveness](topics/v32-controlled-expressiveness.md) — Controlled DSL expression primitives for timeline, funnel, and pyramid layouts without returning to freehand whiteboard generation.
 
 ## Cases
 

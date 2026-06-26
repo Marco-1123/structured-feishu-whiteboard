@@ -1,0 +1,397 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1680,
+      "height": 1040,
+      "fillColor": "#F7F8FA",
+      "borderColor": "#F7F8FA",
+      "borderWidth": 0,
+      "borderRadius": 0
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 72,
+      "width": 1504,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "长文材料处理漏斗",
+          "bold": true,
+          "fontSize": 44
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 128,
+      "width": 1500,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "把输入从原文逐步收敛为可表达的信息结构。",
+          "bold": false,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 92,
+      "y": 184,
+      "width": 680,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "漏斗适合表达筛选、收敛和转化，不应再被硬压成几个并列方块。",
+          "bold": false,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 1050,
+      "y": 164,
+      "width": 430,
+      "height": 96,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "text",
+      "x": 1082,
+      "y": 194,
+      "width": 366,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "适合表达筛选、收敛、转化与优先级判断",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "trapezoid",
+      "x": 210,
+      "y": 320,
+      "width": 720,
+      "topWidth": 528,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "text": [
+        {
+          "content": "原始材料 100%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "rect",
+      "x": 1010,
+      "y": 326,
+      "width": 420,
+      "height": 84,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 1036,
+      "y": 348,
+      "width": 368,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "长文、会议纪要、方案、网页",
+          "bold": false,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 958,
+          "y": 368
+        },
+        "to": {
+          "x": 1010,
+          "y": 368
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "trapezoid",
+      "x": 306,
+      "y": 424,
+      "width": 528,
+      "topWidth": 408,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "text": [
+        {
+          "content": "信息清理 60%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "rect",
+      "x": 1010,
+      "y": 430,
+      "width": 420,
+      "height": 84,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 1036,
+      "y": 452,
+      "width": 368,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "去掉重复、铺垫、格式残片",
+          "bold": false,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 862,
+          "y": 472
+        },
+        "to": {
+          "x": 1010,
+          "y": 472
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "trapezoid",
+      "x": 366,
+      "y": 528,
+      "width": 408,
+      "topWidth": 312,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "text": [
+        {
+          "content": "结构提炼 35%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "rect",
+      "x": 1010,
+      "y": 534,
+      "width": 420,
+      "height": 84,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 1036,
+      "y": 556,
+      "width": 368,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "保留结论、证据、风险和行动",
+          "bold": false,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 802,
+          "y": 576
+        },
+        "to": {
+          "x": 1010,
+          "y": 576
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "trapezoid",
+      "x": 414,
+      "y": 632,
+      "width": 312,
+      "topWidth": 283,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "text": [
+        {
+          "content": "画板表达 15%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "rect",
+      "x": 1010,
+      "y": 638,
+      "width": 420,
+      "height": 84,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 1036,
+      "y": 660,
+      "width": 368,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "进入最合适的图形场景",
+          "bold": false,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 754,
+          "y": 680
+        },
+        "to": {
+          "x": 1010,
+          "y": 680
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 880,
+      "width": 1504,
+      "height": 92,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 880,
+      "width": 12,
+      "height": 92,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 122,
+      "y": 907,
+      "width": 1436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "适用：转化、筛选、优先级收敛、漏斗式判断。",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    }
+  ]
+}

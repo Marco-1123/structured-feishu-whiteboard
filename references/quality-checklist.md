@@ -48,10 +48,15 @@
 - 箭头是否连接了明确对象；不能压住文字，也不能漂浮在两段文字之间造成读向歧义。
 - 长文是否通过同页区域扩展增加容量，而不是生成难读的单个长竖图或切成多个页面。
 
-## SVG 质量
+## 画板产物质量
 
-- 生产交付 SVG 必须由 `scripts/render-whiteboard.mjs` 生成；除非用户明确接受实验性手写 SVG。
-- 如果内容被判断为路线图、流程、价值链或对比矩阵，必须使用对应脚本化模板，不能自由手写整图。
+- 生产交付必须由 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs` 生成；除非用户明确接受实验性手写 SVG。
+- 如果内容被判断为路线图、流程、价值链、对比矩阵、时间线、漏斗或金字塔，必须使用对应脚本化模板，不能自由手写整图。
+- SVG 产物正文使用 `<text>` / `<tspan>`。
+- DSL 产物必须由白板节点组成，不能退化为整张截图。
+
+## SVG 兼容质量
+
 - 正文使用 `<text>` / `<tspan>`。
 - 主体结构使用 rect、circle、ellipse、line、polyline。
 - 没有 gradient、filter、pattern、clipPath、mask。
@@ -71,6 +76,13 @@ node scripts/check-svg-layout.mjs diagram.svg
 grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradient|<radialGradient|<clipPath|<mask' diagram.svg
 ```
 
+如果是 V3.2 DSL 试点产物，运行：
+
+```bash
+npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.json -o diagram.png
+npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.json --check
+```
+
 必须人工查看渲染图，重点检查：
 
 - 文字是否溢出卡片。
@@ -85,7 +97,7 @@ grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradien
 - 是否存在容器过密、边框过多导致的“框套框”观感。
 - 子元素是否越过父容器边界；白板工具可能不会稳定发现这类问题，必须用本地布局检查和人工预览同时确认。
 
-发现局部问题时，直接小范围修改 SVG：移动、加宽、换行、增高、删减文字。不要为了一个局部问题重写整张图。
+发现局部问题时，直接小范围修改 brief 或对应渲染器：移动、加宽、换行、增高、删减低价值文字。不要为了一个局部问题自由重写整张图。
 
 如果局部修改仍需要降低到字号底线以下，按 `overflow-repair.md` 拆图。
 

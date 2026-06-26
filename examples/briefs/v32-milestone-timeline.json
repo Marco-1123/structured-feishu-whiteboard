@@ -1,0 +1,31 @@
+{
+  "layout": "milestone-timeline",
+  "renderTarget": "dsl",
+  "style": "linear-command",
+  "title": "V3.2 表达力升级路径",
+  "subtitle": "从卡片模板扩展到可控多场景表达。",
+  "summary": "V3.2 先用少量高频场景验证 DSL 试点，证明复杂表达也可以稳定、克制、可复现。",
+  "timeline": [
+    {
+      "date": "V3.0",
+      "title": "版式启动",
+      "body": "路线、流程、矩阵进入脚本化模板。"
+    },
+    {
+      "date": "V3.1",
+      "title": "风格稳定",
+      "body": "蓝白、Apple、Linear 成为主推风格。"
+    },
+    {
+      "date": "V3.2",
+      "title": "表达扩展",
+      "body": "三类图形场景进入可控试点。"
+    },
+    {
+      "date": "V4.0",
+      "title": "引擎产品化",
+      "body": "沉淀多渲染目标、统一检查和发布链路。"
+    }
+  ],
+  "footer": "原则：不是自由发散，而是在可控边界内增加表达形式。"
+}

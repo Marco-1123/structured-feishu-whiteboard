@@ -1,0 +1,321 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1680,
+      "height": 1040,
+      "fillColor": "#F7F8FA",
+      "borderColor": "#F7F8FA",
+      "borderWidth": 0,
+      "borderRadius": 0
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 72,
+      "width": 1504,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "可控表达力分层",
+          "bold": true,
+          "fontSize": 44
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 128,
+      "width": 1500,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "先稳定，再丰富，最后产品化。",
+          "bold": false,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 92,
+      "y": 184,
+      "width": 900,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "金字塔适合表达层级、优先级和能力支撑关系，比并列卡片更能体现上下承接。",
+          "bold": false,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "trapezoid",
+      "x": 509,
+      "y": 302,
+      "width": 362,
+      "topWidth": 220,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5
+    },
+    {
+      "type": "text",
+      "x": 543,
+      "y": 326,
+      "width": 294,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "表达丰富",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 549,
+      "y": 360,
+      "width": 282,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "多场景版式",
+          "bold": false,
+          "fontSize": 17
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "trapezoid",
+      "x": 438,
+      "y": 406,
+      "width": 504,
+      "topWidth": 362,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5
+    },
+    {
+      "type": "text",
+      "x": 472,
+      "y": 430,
+      "width": 436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "稳定渲染",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 478,
+      "y": 464,
+      "width": 424,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "脚本生成与检查",
+          "bold": false,
+          "fontSize": 17
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "trapezoid",
+      "x": 367,
+      "y": 510,
+      "width": 646,
+      "topWidth": 504,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5
+    },
+    {
+      "type": "text",
+      "x": 401,
+      "y": 534,
+      "width": 578,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "结构理解",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 407,
+      "y": 568,
+      "width": 566,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "先识别信息关系",
+          "bold": false,
+          "fontSize": 17
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "trapezoid",
+      "x": 296,
+      "y": 614,
+      "width": 788,
+      "topWidth": 646,
+      "height": 96,
+      "vFlip": false,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5
+    },
+    {
+      "type": "text",
+      "x": 330,
+      "y": 638,
+      "width": 720,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "可控边界",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 336,
+      "y": 672,
+      "width": 708,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "不自由手写，不高发散",
+          "bold": false,
+          "fontSize": 17
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 1110,
+      "y": 320,
+      "width": 390,
+      "height": 328,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 18
+    },
+    {
+      "type": "text",
+      "x": 1142,
+      "y": 356,
+      "width": 326,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "为什么不用普通卡片",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1142,
+      "y": 414,
+      "width": 326,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "层级关系不是并列关系。金字塔把“上层目标”和“底层支撑”放在同一个视觉系统里，读者更容易理解承接关系。",
+          "bold": false,
+          "fontSize": 19
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 880,
+      "width": 1504,
+      "height": 92,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 880,
+      "width": 12,
+      "height": 92,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 122,
+      "y": 907,
+      "width": 1436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "适用：层级结构、能力模型、优先级、战略支撑关系。",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    }
+  ]
+}

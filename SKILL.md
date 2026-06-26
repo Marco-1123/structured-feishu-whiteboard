@@ -9,7 +9,7 @@ description: >
 
 # Structured Feishu Whiteboard
 
-把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再生成可编辑 SVG 白板。
+把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。常规报告模板使用 SVG 渲染；V3.2 起，时间线、漏斗和金字塔等复杂表达可以使用受控 DSL 渲染。
 
 ## 快速判断
 
@@ -19,10 +19,10 @@ description: >
 2. **判断体量**：读取 [`references/content-budget.md`](references/content-budget.md)，判断材料是短内容、中等内容、长文/报告还是复杂材料。
 3. **理解材料**：读取 [`references/report-workflow.md`](references/report-workflow.md)，提炼主题、结论、证据、对象、冲突、时间线和行动项。
 4. **长文处理**：中等内容、长文或复杂材料必须读取 [`references/long-form-workflow.md`](references/long-form-workflow.md)；长文还要读取 [`references/large-canvas-workflow.md`](references/large-canvas-workflow.md)，先做信息保全清单和 onepage 区域草稿；不要直接把全文塞进 SVG。
-5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从 5 个版式中选择一个主结构；不要自由发明复杂版式。
+5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从生产版式和 V3.2 受控表达场景中选择一个主结构；不要自由发明复杂版式。
 6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从生产可选风格中选择一个；如果用户指定风格偏好，优先匹配。Apple Studio 和 Linear Command 属于 V3.1 生产候选风格，但新增或改动后的样例必须经过飞书侧预览复核。
-7. **稳定渲染**：默认必须读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再用 `scripts/render-whiteboard.mjs` 生成 SVG；不要自由手写整张 SVG。
-8. **生成 SVG**：只有用户明确要求“实验性手写 SVG”或当前仓库缺少渲染器脚本时，才允许读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md) 手写；否则手写 SVG 视为不合格输出。
+7. **稳定渲染**：默认必须读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再根据 `renderTarget` 使用 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs`；不要自由手写整张 SVG 或 DSL。
+8. **生成画板产物**：只有用户明确要求“实验性手写 SVG”或当前仓库缺少渲染器脚本时，才允许读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md) 手写；否则手写 SVG/DSL 视为不合格输出。
 9. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
 10. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
 
@@ -50,11 +50,14 @@ bash scripts/preflight.sh
 - 用户给的是方案、报告、研究、网页长文：优先用 **结论先行**、**问题拆解** 或 **对比矩阵**。
 - 用户给的是计划、路线、阶段安排：概念上可参考 **路线图/阶段规划**，但当前交付仍必须映射到确定性渲染器；优先使用 `large-canvas` 的 roadmap 区域承载。
 - 用户给的是机制、业务链路、系统过程：概念上可参考 **流程/价值链**，但当前交付仍必须映射到确定性渲染器；优先使用 `large-canvas` 的模块区和 roadmap 区域承载。
+- 用户给的是版本迭代、事件推进、里程碑复盘：优先使用 `milestone-timeline`，并设置 `renderTarget: "dsl"`。
+- 用户给的是筛选、转化、收敛、优先级漏斗：优先使用 `funnel`，并设置 `renderTarget: "dsl"`。
+- 用户给的是层级、优先级、能力基座、战略承接：优先使用 `pyramid`，并设置 `renderTarget: "dsl"`。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
-- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
+- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 试点版式包括 `milestone-timeline`、`funnel` 和 `pyramid`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
 - 单张画板只表达一个主任务；如果同时出现主线、动作、指标和读图说明，优先拆成总览图和指标图。
 - 并列模块不要使用箭头；只有时间推进、流程依赖或价值链才使用箭头。
 - 指标和 `xx%` 等草稿占位按 `content-budget.md` 执行：必须有业务语义，同类指标只出现一次，卡片内指标和底部指标区二选一。
@@ -76,8 +79,8 @@ bash scripts/preflight.sh
 
 生成后必须确认：
 
-- SVG 渲染没有明显文字溢出、重叠或裁切。
-- SVG 是由 `scripts/render-whiteboard.mjs` 生成的，除非用户明确接受实验性手写 SVG。
+- 渲染产物没有明显文字溢出、重叠或裁切。
+- 产物是由 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs` 生成的，除非用户明确接受实验性手写 SVG。
 - 所有正文是 `<text>` / `<tspan>`，不是路径或图片。
 - 结构元素使用 rect、circle、ellipse、line、polyline 等可编辑形状。
 - 画板没有无意义装饰、元信息页眉、来源说明或过程说明。

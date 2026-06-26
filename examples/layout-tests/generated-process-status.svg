@@ -46,6 +46,6 @@
 <text x="1416" y="732" font-size="16" fill="#2B8F77" font-weight="700"><tspan x="1416" dy="0">输出: 规则优化</tspan></text>
 
 <rect x="72" y="870" width="1736" height="118" rx="14" fill="#FFFFFF" stroke="#DDE6EE" stroke-width="2"/>
-<text x="112" y="938" font-size="27" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">判断标准：同类异常下次应能自动定位，并给出明确处置建议。</tspan></text>
+<text x="112" y="943" font-size="27" fill="#1F2329" font-weight="700"><tspan x="112" dy="0">判断标准：同类异常下次应能自动定位，并给出明确处置建议。</tspan></text>
 
 </svg>

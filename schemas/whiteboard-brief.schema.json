@@ -7,7 +7,12 @@
   "properties": {
     "layout": {
       "type": "string",
-      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix"]
+      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid"]
+    },
+    "renderTarget": {
+      "type": "string",
+      "enum": ["svg", "dsl"],
+      "description": "Optional renderer target. SVG remains the default for report templates; DSL is used for V3.2 controlled expressive scenes."
     },
     "style": {
       "type": "string",
@@ -264,6 +269,80 @@
         }
       }
     },
+    "timeline": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["date", "title", "body"],
+        "properties": {
+          "date": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "body": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32
+          }
+        }
+      }
+    },
+    "funnelStages": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 30
+          }
+        }
+      }
+    },
+    "layers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title"],
+        "properties": {
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 28
+          }
+        }
+      }
+    },
     "footer": {
       "type": "string",
       "maxLength": 80
@@ -315,7 +394,43 @@
               "required": ["matrix"]
             },
             "else": {
-              "required": ["modules"]
+              "if": {
+                "properties": {
+                  "layout": {
+                    "const": "milestone-timeline"
+                  }
+                }
+              },
+              "then": {
+                "required": ["timeline"]
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "layout": {
+                      "const": "funnel"
+                    }
+                  }
+                },
+                "then": {
+                  "required": ["funnelStages"]
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "layout": {
+                        "const": "pyramid"
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": ["layers"]
+                  },
+                  "else": {
+                    "required": ["modules"]
+                  }
+                }
+              }
             }
           }
         }

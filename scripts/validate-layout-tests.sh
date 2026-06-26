@@ -7,13 +7,22 @@ cd "$root"
 node scripts/generate-layout-test-fixtures.mjs >/dev/null
 
 for brief in examples/briefs/*.json; do
-  svg="examples/layout-tests/generated-$(basename "${brief%.json}").svg"
-  png="${svg%.svg}.png"
+  target="$(node -e 'const fs=require("fs"); const b=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); console.log(b.renderTarget || "svg")' "$brief")"
   node scripts/validate-brief.mjs "$brief" >/dev/null
-  node scripts/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
-  node scripts/check-svg-layout.mjs "$svg" >/dev/null
-  npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null
-  npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -f svg --check >/dev/null
+  if [ "$target" = "dsl" ]; then
+    dsl="examples/layout-tests/generated-$(basename "${brief%.json}").json"
+    png="${dsl%.json}.png"
+    node scripts/render-whiteboard-dsl.mjs --input "$brief" --output "$dsl" >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$dsl" -o "$png" >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$dsl" --check >/dev/null
+  else
+    svg="examples/layout-tests/generated-$(basename "${brief%.json}").svg"
+    png="${svg%.svg}.png"
+    node scripts/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
+    node scripts/check-svg-layout.mjs "$svg" >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -f svg --check >/dev/null
+  fi
 done
 
 tmp_draft_brief="$(mktemp)"

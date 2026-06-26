@@ -1,6 +1,17 @@
 import fs from "node:fs";
 
-const supportedLayouts = new Set(["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix"]);
+const supportedLayouts = new Set([
+  "conclusion-first",
+  "problem-breakdown",
+  "large-canvas",
+  "roadmap",
+  "process-chain",
+  "comparison-matrix",
+  "milestone-timeline",
+  "funnel",
+  "pyramid",
+]);
+const supportedRenderTargets = new Set(["svg", "dsl"]);
 const supportedStyles = new Set([
   "professional-blue",
   "dark-emphasis",
@@ -33,6 +44,14 @@ const limits = {
   nodeMeta: 14,
   matrixColumn: 10,
   matrixCell: 14,
+  timelineDate: 10,
+  timelineTitle: 14,
+  timelineBody: 32,
+  funnelLabel: 14,
+  funnelValue: 10,
+  funnelNote: 30,
+  layerTitle: 14,
+  layerBody: 28,
 };
 
 const forbiddenStandaloneMetricPattern = /^\s*(TBD|--)\s*$/i;
@@ -206,6 +225,35 @@ function validateMatrix(brief) {
   if (recommendedCount > 1) fail("matrix can mark at most one row as recommended");
 }
 
+function validateTimeline(brief) {
+  if (!Array.isArray(brief.timeline)) fail("timeline must be an array");
+  if (brief.timeline.length < 3 || brief.timeline.length > 6) fail("timeline must contain 3 to 6 items");
+  brief.timeline.forEach((item, index) => {
+    assertString(item.date, `timeline[${index}].date`, limits.timelineDate, true);
+    assertString(item.title, `timeline[${index}].title`, limits.timelineTitle, true);
+    assertString(item.body, `timeline[${index}].body`, limits.timelineBody, true);
+  });
+}
+
+function validateFunnel(brief) {
+  if (!Array.isArray(brief.funnelStages)) fail("funnelStages must be an array");
+  if (brief.funnelStages.length < 3 || brief.funnelStages.length > 6) fail("funnelStages must contain 3 to 6 items");
+  brief.funnelStages.forEach((stage, index) => {
+    assertString(stage.label, `funnelStages[${index}].label`, limits.funnelLabel, true);
+    assertString(stage.value, `funnelStages[${index}].value`, limits.funnelValue, true);
+    assertString(stage.note, `funnelStages[${index}].note`, limits.funnelNote);
+  });
+}
+
+function validatePyramid(brief) {
+  if (!Array.isArray(brief.layers)) fail("layers must be an array");
+  if (brief.layers.length < 3 || brief.layers.length > 6) fail("layers must contain 3 to 6 items");
+  brief.layers.forEach((layer, index) => {
+    assertString(layer.title, `layers[${index}].title`, limits.layerTitle, true);
+    assertString(layer.body, `layers[${index}].body`, limits.layerBody);
+  });
+}
+
 const input = process.argv[2];
 if (!input) fail("usage: node scripts/validate-brief.mjs <brief.json>");
 
@@ -218,6 +266,7 @@ try {
 
 if (!supportedLayouts.has(brief.layout)) fail(`unsupported layout: ${brief.layout}`);
 if (!supportedStyles.has(brief.style)) fail(`unsupported style: ${brief.style}`);
+if (brief.renderTarget !== undefined && !supportedRenderTargets.has(brief.renderTarget)) fail("renderTarget must be svg or dsl");
 assertString(brief.title, "title", limits.title, true);
 assertString(brief.subtitle, "subtitle", limits.subtitle);
 assertString(brief.summary, "summary", limits.summary, true);
@@ -228,6 +277,9 @@ if (brief.layout === "large-canvas") validateLargeCanvas(brief);
 else if (brief.layout === "roadmap") validateStages(brief);
 else if (brief.layout === "process-chain") validateNodes(brief);
 else if (brief.layout === "comparison-matrix") validateMatrix(brief);
+else if (brief.layout === "milestone-timeline") validateTimeline(brief);
+else if (brief.layout === "funnel") validateFunnel(brief);
+else if (brief.layout === "pyramid") validatePyramid(brief);
 else validateModules(brief);
 
 console.log("ok: brief is valid");

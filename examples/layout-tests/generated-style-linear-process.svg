@@ -48,6 +48,6 @@
 
 <rect x="72" y="870" width="1736" height="112" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="72" y="870" width="12" height="112" rx="6" fill="#111827"/>
-<text x="112" y="936" font-size="25" fill="#111827" font-weight="700"><tspan x="112" dy="0">判断标准：工具检查过线，人工视觉也不能出现贴边、错位和无效留白。</tspan></text>
+<text x="112" y="939" font-size="25" fill="#111827" font-weight="700"><tspan x="112" dy="0">判断标准：工具检查过线，人工视觉也不能出现贴边、错位和无效留白。</tspan></text>
 
 </svg>

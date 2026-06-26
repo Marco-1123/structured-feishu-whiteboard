@@ -44,3 +44,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 
 - Consolidated the current V3.1 state in topic pages: style-specific renderer grammar is now durable project knowledge, not just experiment context.
 - Recorded the acceptance rule that Apple Studio and Linear Command samples require both local checks and Feishu-side preview review before being treated as stable production examples.
+
+## [2026-06-26] update | V3.2 controlled expressiveness
+
+- Added the V3.2 direction page: `wiki/topics/v32-controlled-expressiveness.md`.
+- Recorded the product decision that richer expression should come from schema-backed primitives, not freehand whiteboard generation.
+- Captured the first DSL pilot set: `milestone-timeline`, `funnel`, and `pyramid`.

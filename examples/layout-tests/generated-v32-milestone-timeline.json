@@ -1,0 +1,470 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1680,
+      "height": 980,
+      "fillColor": "#F7F8FA",
+      "borderColor": "#F7F8FA",
+      "borderWidth": 0,
+      "borderRadius": 0
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 72,
+      "width": 1504,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "V3.2 表达力升级路径",
+          "bold": true,
+          "fontSize": 44
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 128,
+      "width": 1500,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "从卡片模板扩展到可控多场景表达。",
+          "bold": false,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 190,
+      "width": 1504,
+      "height": 118,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 190,
+      "width": 12,
+      "height": 118,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 222,
+      "width": 1432,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "V3.2 先用少量高频场景验证 DSL 试点，证明复杂表达也可以稳定、克制、可复现。",
+          "bold": true,
+          "fontSize": 26
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 160,
+          "y": 470
+        },
+        "to": {
+          "x": 1520,
+          "y": 470
+        },
+        "lineShape": "straight",
+        "lineWidth": 4,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "arrow"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 286,
+      "y": 426,
+      "width": 88,
+      "height": 44,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 10,
+      "text": [
+        {
+          "content": "V3.0",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 330,
+          "y": 478
+        },
+        "to": {
+          "x": 330,
+          "y": 540
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 185,
+      "y": 540,
+      "width": 290,
+      "height": 154,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "text",
+      "x": 215,
+      "y": 568,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "版式启动",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 214,
+      "y": 616,
+      "width": 232,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "路线、流程、矩阵进入脚本化模板。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 626,
+      "y": 426,
+      "width": 88,
+      "height": 44,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 10,
+      "text": [
+        {
+          "content": "V3.1",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 670,
+          "y": 462
+        },
+        "to": {
+          "x": 670,
+          "y": 494
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 525,
+      "y": 340,
+      "width": 290,
+      "height": 154,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "text",
+      "x": 555,
+      "y": 368,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "风格稳定",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 554,
+      "y": 416,
+      "width": 232,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "蓝白、Apple、\nLinear 成为主推风格。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 966,
+      "y": 426,
+      "width": 88,
+      "height": 44,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 10,
+      "text": [
+        {
+          "content": "V3.2",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 1010,
+          "y": 478
+        },
+        "to": {
+          "x": 1010,
+          "y": 540
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 865,
+      "y": 540,
+      "width": 290,
+      "height": 154,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "text",
+      "x": 895,
+      "y": 568,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "表达扩展",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 894,
+      "y": 616,
+      "width": 232,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "三类图形场景进入可控试点。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 1306,
+      "y": 426,
+      "width": 88,
+      "height": 44,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 10,
+      "text": [
+        {
+          "content": "V4.0",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 1350,
+          "y": 462
+        },
+        "to": {
+          "x": 1350,
+          "y": 494
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "none"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 1205,
+      "y": 340,
+      "width": 290,
+      "height": 154,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "text",
+      "x": 1235,
+      "y": 368,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "引擎产品化",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 1234,
+      "y": 416,
+      "width": 232,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "沉淀多渲染目标、统一检查和发布\n链路。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 830,
+      "width": 1504,
+      "height": 92,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 830,
+      "width": 12,
+      "height": 92,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 122,
+      "y": 857,
+      "width": 1436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "原则：不是自由发散，而是在可控边界内增加表达形式。",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    }
+  ]
+}
