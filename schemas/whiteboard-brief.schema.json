@@ -7,7 +7,7 @@
   "properties": {
     "layout": {
       "type": "string",
-      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid"]
+      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid", "metric-dashboard"]
     },
     "renderTarget": {
       "type": "string",
@@ -343,6 +343,66 @@
         }
       }
     },
+    "metricCards": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12
+          },
+          "delta": {
+            "type": "string",
+            "maxLength": 18
+          },
+          "status": {
+            "type": "string",
+            "enum": ["good", "neutral", "risk"]
+          }
+        }
+      }
+    },
+    "progressBars": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 24
+          }
+        }
+      }
+    },
+    "insight": {
+      "type": "string",
+      "maxLength": 90
+    },
     "footer": {
       "type": "string",
       "maxLength": 80
@@ -427,7 +487,19 @@
                     "required": ["layers"]
                   },
                   "else": {
-                    "required": ["modules"]
+                    "if": {
+                      "properties": {
+                        "layout": {
+                          "const": "metric-dashboard"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": ["metricCards", "progressBars"]
+                    },
+                    "else": {
+                      "required": ["modules"]
+                    }
                   }
                 }
               }

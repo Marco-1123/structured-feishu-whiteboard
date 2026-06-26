@@ -31,7 +31,7 @@
     {
       "type": "text",
       "x": 90,
-      "y": 128,
+      "y": 142,
       "width": 1500,
       "height": "fit-content",
       "text": [
@@ -47,8 +47,8 @@
     {
       "type": "text",
       "x": 92,
-      "y": 184,
-      "width": 680,
+      "y": 204,
+      "width": 760,
       "height": "fit-content",
       "text": [
         {
@@ -59,33 +59,6 @@
       ],
       "textColor": "#5F6B7A",
       "textAlign": "left"
-    },
-    {
-      "type": "rect",
-      "x": 1050,
-      "y": 164,
-      "width": 430,
-      "height": 96,
-      "fillColor": "#FFFFFF",
-      "borderColor": "#D8DEE8",
-      "borderWidth": 1.5,
-      "borderRadius": 16
-    },
-    {
-      "type": "text",
-      "x": 1082,
-      "y": 194,
-      "width": 366,
-      "height": "fit-content",
-      "text": [
-        {
-          "content": "适合表达筛选、收敛、转化与优先级判断",
-          "bold": true,
-          "fontSize": 22
-        }
-      ],
-      "textColor": "#111827",
-      "textAlign": "center"
     },
     {
       "type": "trapezoid",

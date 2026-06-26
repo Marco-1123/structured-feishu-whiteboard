@@ -21,11 +21,12 @@ The chosen direction is to add a small set of schema-backed expression primitive
 
 ## First Batch
 
-V3.2 introduces three pilot layouts:
+V3.2 introduces four pilot layouts:
 
 - `milestone-timeline`: for version iteration, event progress, and milestone recap.
 - `funnel`: for filtering, conversion, narrowing, and prioritization.
 - `pyramid`: for hierarchy, priority, capability base, and strategy-to-execution support.
+- `metric-dashboard`: for metric cards, progress bars, status review, and lightweight data analysis.
 
 These layouts use `renderTarget: "dsl"` and `scripts/render-whiteboard-dsl.mjs`.
 
@@ -47,6 +48,7 @@ The new primitives should improve information form, not decoration.
 - Timeline expresses sequence better than cards.
 - Funnel expresses narrowing better than process cards.
 - Pyramid expresses hierarchy better than parallel modules.
+- Metric dashboard expresses status, progress, and risk better than prose summaries.
 
 The visual style remains restrained and work-oriented. V3.2 should not introduce high-saturation palettes, poster composition, or uncontrolled illustration.
 
@@ -61,3 +63,14 @@ V4 should be considered only after the DSL primitives prove stable enough in rea
 - `wiki/topics/v3-layout-style-system.md`
 - `wiki/topics/v31-style-differentiation-research.md`
 - `wiki/cases/renderer-bypass-regression.md`
+
+## Feishu Preview Lessons
+
+Feishu-side preview can reveal issues that local checks miss. V3.2 review surfaced:
+
+- title and subtitle spacing must be visibly separated, not just non-overlapping,
+- timeline cards should not be placed where the final arrowhead visually competes with the last card,
+- explanatory cards should not float in unused top-right space unless they are part of the content structure,
+- progress bars should avoid foreground/background overlap if the whiteboard checker treats that as node overlap.
+
+These are quality rules for future DSL primitives, not one-off sample fixes.

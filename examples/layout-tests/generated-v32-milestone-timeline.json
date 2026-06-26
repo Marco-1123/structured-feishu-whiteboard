@@ -31,7 +31,7 @@
     {
       "type": "text",
       "x": 90,
-      "y": 128,
+      "y": 142,
       "width": 1500,
       "height": "fit-content",
       "text": [
@@ -86,12 +86,12 @@
       "type": "connector",
       "connector": {
         "from": {
-          "x": 160,
-          "y": 470
+          "x": 180,
+          "y": 468
         },
         "to": {
-          "x": 1520,
-          "y": 470
+          "x": 1470,
+          "y": 468
         },
         "lineShape": "straight",
         "lineWidth": 4,
@@ -102,8 +102,8 @@
     },
     {
       "type": "rect",
-      "x": 286,
-      "y": 426,
+      "x": 297.25,
+      "y": 424,
       "width": 88,
       "height": 44,
       "fillColor": "#ECEEFE",
@@ -125,12 +125,12 @@
       "type": "connector",
       "connector": {
         "from": {
-          "x": 330,
-          "y": 478
+          "x": 341.25,
+          "y": 476
         },
         "to": {
-          "x": 330,
-          "y": 540
+          "x": 341.25,
+          "y": 545
         },
         "lineShape": "straight",
         "lineWidth": 2,
@@ -141,9 +141,9 @@
     },
     {
       "type": "rect",
-      "x": 185,
-      "y": 540,
-      "width": 290,
+      "x": 201.25,
+      "y": 545,
+      "width": 280,
       "height": 154,
       "fillColor": "#FFFFFF",
       "borderColor": "#D8DEE8",
@@ -152,15 +152,15 @@
     },
     {
       "type": "text",
-      "x": 215,
-      "y": 568,
-      "width": 230,
+      "x": 225.25,
+      "y": 575,
+      "width": 232,
       "height": "fit-content",
       "text": [
         {
           "content": "版式启动",
           "bold": true,
-          "fontSize": 24
+          "fontSize": 23
         }
       ],
       "textColor": "#111827",
@@ -168,8 +168,8 @@
     },
     {
       "type": "text",
-      "x": 214,
-      "y": 616,
+      "x": 225.25,
+      "y": 623,
       "width": 232,
       "height": "fit-content",
       "text": [
@@ -184,8 +184,8 @@
     },
     {
       "type": "rect",
-      "x": 626,
-      "y": 426,
+      "x": 619.75,
+      "y": 424,
       "width": 88,
       "height": 44,
       "fillColor": "#ECEEFE",
@@ -207,12 +207,12 @@
       "type": "connector",
       "connector": {
         "from": {
-          "x": 670,
-          "y": 462
+          "x": 663.75,
+          "y": 476
         },
         "to": {
-          "x": 670,
-          "y": 494
+          "x": 663.75,
+          "y": 545
         },
         "lineShape": "straight",
         "lineWidth": 2,
@@ -223,9 +223,9 @@
     },
     {
       "type": "rect",
-      "x": 525,
-      "y": 340,
-      "width": 290,
+      "x": 523.75,
+      "y": 545,
+      "width": 280,
       "height": 154,
       "fillColor": "#FFFFFF",
       "borderColor": "#D8DEE8",
@@ -234,15 +234,15 @@
     },
     {
       "type": "text",
-      "x": 555,
-      "y": 368,
-      "width": 230,
+      "x": 547.75,
+      "y": 575,
+      "width": 232,
       "height": "fit-content",
       "text": [
         {
           "content": "风格稳定",
           "bold": true,
-          "fontSize": 24
+          "fontSize": 23
         }
       ],
       "textColor": "#111827",
@@ -250,13 +250,13 @@
     },
     {
       "type": "text",
-      "x": 554,
-      "y": 416,
+      "x": 547.75,
+      "y": 623,
       "width": 232,
       "height": "fit-content",
       "text": [
         {
-          "content": "蓝白、Apple、\nLinear 成为主推风格。",
+          "content": "蓝白、Apple、Linear 成为\n主推风格。",
           "bold": false,
           "fontSize": 18
         }
@@ -266,8 +266,8 @@
     },
     {
       "type": "rect",
-      "x": 966,
-      "y": 426,
+      "x": 942.25,
+      "y": 424,
       "width": 88,
       "height": 44,
       "fillColor": "#ECEEFE",
@@ -289,12 +289,12 @@
       "type": "connector",
       "connector": {
         "from": {
-          "x": 1010,
-          "y": 478
+          "x": 986.25,
+          "y": 476
         },
         "to": {
-          "x": 1010,
-          "y": 540
+          "x": 986.25,
+          "y": 545
         },
         "lineShape": "straight",
         "lineWidth": 2,
@@ -305,9 +305,9 @@
     },
     {
       "type": "rect",
-      "x": 865,
-      "y": 540,
-      "width": 290,
+      "x": 846.25,
+      "y": 545,
+      "width": 280,
       "height": 154,
       "fillColor": "#FFFFFF",
       "borderColor": "#D8DEE8",
@@ -316,15 +316,15 @@
     },
     {
       "type": "text",
-      "x": 895,
-      "y": 568,
-      "width": 230,
+      "x": 870.25,
+      "y": 575,
+      "width": 232,
       "height": "fit-content",
       "text": [
         {
           "content": "表达扩展",
           "bold": true,
-          "fontSize": 24
+          "fontSize": 23
         }
       ],
       "textColor": "#111827",
@@ -332,8 +332,8 @@
     },
     {
       "type": "text",
-      "x": 894,
-      "y": 616,
+      "x": 870.25,
+      "y": 623,
       "width": 232,
       "height": "fit-content",
       "text": [
@@ -348,8 +348,8 @@
     },
     {
       "type": "rect",
-      "x": 1306,
-      "y": 426,
+      "x": 1264.75,
+      "y": 424,
       "width": 88,
       "height": 44,
       "fillColor": "#ECEEFE",
@@ -371,12 +371,12 @@
       "type": "connector",
       "connector": {
         "from": {
-          "x": 1350,
-          "y": 462
+          "x": 1308.75,
+          "y": 476
         },
         "to": {
-          "x": 1350,
-          "y": 494
+          "x": 1308.75,
+          "y": 545
         },
         "lineShape": "straight",
         "lineWidth": 2,
@@ -387,9 +387,9 @@
     },
     {
       "type": "rect",
-      "x": 1205,
-      "y": 340,
-      "width": 290,
+      "x": 1168.75,
+      "y": 545,
+      "width": 280,
       "height": 154,
       "fillColor": "#FFFFFF",
       "borderColor": "#D8DEE8",
@@ -398,15 +398,15 @@
     },
     {
       "type": "text",
-      "x": 1235,
-      "y": 368,
-      "width": 230,
+      "x": 1192.75,
+      "y": 575,
+      "width": 232,
       "height": "fit-content",
       "text": [
         {
           "content": "引擎产品化",
           "bold": true,
-          "fontSize": 24
+          "fontSize": 23
         }
       ],
       "textColor": "#111827",
@@ -414,13 +414,13 @@
     },
     {
       "type": "text",
-      "x": 1234,
-      "y": 416,
+      "x": 1192.75,
+      "y": 623,
       "width": 232,
       "height": "fit-content",
       "text": [
         {
-          "content": "沉淀多渲染目标、统一检查和发布\n链路。",
+          "content": "沉淀多渲染目标、统一检查和发布链路。",
           "bold": false,
           "fontSize": 18
         }

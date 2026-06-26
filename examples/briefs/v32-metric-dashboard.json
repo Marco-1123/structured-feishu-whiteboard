@@ -1,0 +1,50 @@
+{
+  "layout": "metric-dashboard",
+  "renderTarget": "dsl",
+  "style": "linear-command",
+  "title": "V3.2 稳定性指标看板",
+  "subtitle": "用指标卡和进度条补充数据分析表达。",
+  "summary": "当材料包含覆盖率、完成度、风险数和效率变化时，优先用数据看板而不是普通卡片堆叠。",
+  "metricCards": [
+    {
+      "label": "样例覆盖",
+      "value": "12 张",
+      "delta": "新增 4 类表达",
+      "status": "good"
+    },
+    {
+      "label": "回归通过",
+      "value": "100%",
+      "delta": "本地检查通过",
+      "status": "good"
+    },
+    {
+      "label": "飞书复核",
+      "value": "3 类",
+      "delta": "预览已确认",
+      "status": "neutral"
+    },
+    {
+      "label": "风险项",
+      "value": "1 个",
+      "delta": "深色文字已修",
+      "status": "risk"
+    }
+  ],
+  "progressBars": [
+    {
+      "label": "版式覆盖",
+      "value": "70%"
+    },
+    {
+      "label": "风格稳定",
+      "value": "85%"
+    },
+    {
+      "label": "飞书验证",
+      "value": "60%"
+    }
+  ],
+  "insight": "指标看板适合把结果、进度和风险放在同一张图里，帮助读者先看状态，再定位差距。",
+  "footer": "适用：指标复盘、项目状态、目标完成度、风险跟踪。"
+}

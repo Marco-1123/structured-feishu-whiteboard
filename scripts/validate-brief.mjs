@@ -10,6 +10,7 @@ const supportedLayouts = new Set([
   "milestone-timeline",
   "funnel",
   "pyramid",
+  "metric-dashboard",
 ]);
 const supportedRenderTargets = new Set(["svg", "dsl"]);
 const supportedStyles = new Set([
@@ -52,6 +53,13 @@ const limits = {
   funnelNote: 30,
   layerTitle: 14,
   layerBody: 28,
+  metricCardLabel: 14,
+  metricCardValue: 12,
+  metricCardDelta: 18,
+  progressLabel: 14,
+  progressValue: 10,
+  progressNote: 24,
+  insight: 90,
 };
 
 const forbiddenStandaloneMetricPattern = /^\s*(TBD|--)\s*$/i;
@@ -254,6 +262,25 @@ function validatePyramid(brief) {
   });
 }
 
+function validateMetricDashboard(brief) {
+  if (!Array.isArray(brief.metricCards)) fail("metricCards must be an array");
+  if (brief.metricCards.length < 3 || brief.metricCards.length > 5) fail("metricCards must contain 3 to 5 items");
+  brief.metricCards.forEach((metric, index) => {
+    assertString(metric.label, `metricCards[${index}].label`, limits.metricCardLabel, true);
+    assertString(metric.value, `metricCards[${index}].value`, limits.metricCardValue, true);
+    assertString(metric.delta, `metricCards[${index}].delta`, limits.metricCardDelta);
+    if (metric.status !== undefined && !["good", "neutral", "risk"].includes(metric.status)) fail(`metricCards[${index}].status is unsupported`);
+  });
+  if (!Array.isArray(brief.progressBars)) fail("progressBars must be an array");
+  if (brief.progressBars.length < 2 || brief.progressBars.length > 4) fail("progressBars must contain 2 to 4 items");
+  brief.progressBars.forEach((bar, index) => {
+    assertString(bar.label, `progressBars[${index}].label`, limits.progressLabel, true);
+    assertString(bar.value, `progressBars[${index}].value`, limits.progressValue, true);
+    assertString(bar.note, `progressBars[${index}].note`, limits.progressNote);
+  });
+  assertString(brief.insight, "insight", limits.insight);
+}
+
 const input = process.argv[2];
 if (!input) fail("usage: node scripts/validate-brief.mjs <brief.json>");
 
@@ -280,6 +307,7 @@ else if (brief.layout === "comparison-matrix") validateMatrix(brief);
 else if (brief.layout === "milestone-timeline") validateTimeline(brief);
 else if (brief.layout === "funnel") validateFunnel(brief);
 else if (brief.layout === "pyramid") validatePyramid(brief);
+else if (brief.layout === "metric-dashboard") validateMetricDashboard(brief);
 else validateModules(brief);
 
 console.log("ok: brief is valid");

@@ -218,7 +218,7 @@ function base(width, height, c, nodes) {
 function renderTitle(brief, c, width) {
   return [
     textNode({ x: 88, y: 72, width: width - 176, text: brief.title, size: 44, color: c.ink, bold: true }),
-    ...(brief.subtitle ? [textNode({ x: 90, y: 128, width: width - 180, text: brief.subtitle, size: 22, color: c.secondary })] : []),
+    ...(brief.subtitle ? [textNode({ x: 90, y: 142, width: width - 180, text: brief.subtitle, size: 22, color: c.secondary })] : []),
   ];
 }
 
@@ -243,18 +243,19 @@ function renderMilestoneTimeline(brief, c) {
     textNode({ x: 124, y: 222, width: width - 248, text: splitText(brief.summary, 54, 2).join("\n"), size: 26, color: c.ink, bold: true })
   );
 
-  const axisY = 470;
-  nodes.push(connector({ x: 160, y: axisY }, { x: width - 160, y: axisY }, c, 4, "arrow"));
-  const slot = (width - 320) / items.length;
+  const axisY = 468;
+  nodes.push(connector({ x: 180, y: axisY }, { x: width - 210, y: axisY }, c, 4, "arrow"));
+  const slot = (width - 390) / items.length;
+  const cardW = Math.min(280, slot - 28);
   items.forEach((item, index) => {
-    const cx = 160 + slot * index + slot / 2;
-    const cardY = index % 2 === 0 ? 540 : 340;
+    const cx = 180 + slot * index + slot / 2;
+    const cardY = 545;
     nodes.push(
       rectNode({ x: cx - 44, y: axisY - 44, width: 88, height: 44, fillColor: c.soft, borderColor: c.border, borderRadius: 10, text: item.date, textColor: c.accent, fontSize: 18, bold: true }),
-      connector({ x: cx, y: axisY + (index % 2 === 0 ? 8 : -8) }, { x: cx, y: cardY + (index % 2 === 0 ? 0 : 154) }, c, 2, "none"),
-      rectNode({ x: cx - 145, y: cardY, width: 290, height: 154, fillColor: c.surface, borderColor: c.border, borderRadius: 16 }),
-      textNode({ x: cx - 115, y: cardY + 28, width: 230, text: item.title, size: 24, color: c.ink, bold: true, align: "center" }),
-      textNode({ x: cx - 116, y: cardY + 76, width: 232, text: splitText(item.body, 15, 2).join("\n"), size: 18, color: c.secondary, align: "center" })
+      connector({ x: cx, y: axisY + 8 }, { x: cx, y: cardY }, c, 2, "none"),
+      rectNode({ x: cx - cardW / 2, y: cardY, width: cardW, height: 154, fillColor: c.surface, borderColor: c.border, borderRadius: 16 }),
+      textNode({ x: cx - cardW / 2 + 24, y: cardY + 30, width: cardW - 48, text: item.title, size: 23, color: c.ink, bold: true, align: "center" }),
+      textNode({ x: cx - cardW / 2 + 24, y: cardY + 78, width: cardW - 48, text: splitText(item.body, 18, 2).join("\n"), size: 18, color: c.secondary, align: "center" })
     );
   });
 
@@ -268,9 +269,7 @@ function renderFunnel(brief, c) {
   const stages = brief.funnelStages;
   const nodes = [...renderTitle(brief, c, width)];
   nodes.push(
-    textNode({ x: 92, y: 184, width: 680, text: splitText(brief.summary, 35, 2).join("\n"), size: 24, color: c.secondary }),
-    rectNode({ x: 1050, y: 164, width: 430, height: 96, fillColor: c.surface, borderColor: c.border, borderRadius: 16 }),
-    textNode({ x: 1082, y: 194, width: 366, text: "适合表达筛选、收敛、转化与优先级判断", size: 22, color: c.ink, bold: true, align: "center" })
+    textNode({ x: 92, y: 204, width: 760, text: splitText(brief.summary, 36, 2).join("\n"), size: 24, color: c.secondary })
   );
 
   const funnelX = 210;
@@ -310,6 +309,55 @@ function renderFunnel(brief, c) {
   });
 
   nodes.push(...renderFooter(brief, c, 880, width));
+  return base(width, height, c, nodes);
+}
+
+function renderMetricDashboard(brief, c) {
+  const width = 1680;
+  const height = 1040;
+  const metrics = brief.metricCards;
+  const bars = brief.progressBars || [];
+  const nodes = [...renderTitle(brief, c, width)];
+  nodes.push(textNode({ x: 92, y: 204, width: 900, text: splitText(brief.summary, 40, 2).join("\n"), size: 24, color: c.secondary }));
+
+  const cardY = 304;
+  const cardGap = 24;
+  const cardW = (width - 176 - cardGap * (metrics.length - 1)) / metrics.length;
+  metrics.forEach((metric, index) => {
+    const x = 88 + index * (cardW + cardGap);
+    const accent = metric.status === "risk" ? "#C2410C" : metric.status === "good" ? c.success : c.accent;
+    nodes.push(
+      rectNode({ x, y: cardY, width: cardW, height: 172, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
+      textNode({ x: x + 28, y: cardY + 28, width: cardW - 56, text: metric.label, size: 20, color: c.secondary }),
+      textNode({ x: x + 28, y: cardY + 72, width: cardW - 56, text: metric.value, size: 40, color: c.ink, bold: true }),
+      ...(metric.delta ? [textNode({ x: x + 28, y: cardY + 126, width: cardW - 56, text: metric.delta, size: 18, color: accent, bold: true })] : [])
+    );
+  });
+
+  nodes.push(
+    rectNode({ x: 88, y: 540, width: 690, height: 310, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
+    textNode({ x: 122, y: 576, width: 610, text: "进度条", size: 26, color: c.ink, bold: true }),
+    textNode({ x: 122, y: 620, width: 610, text: "适合表达目标完成度、覆盖率、迁移比例和风险收敛。", size: 18, color: c.secondary })
+  );
+  bars.slice(0, 4).forEach((bar, index) => {
+    const y = 675 + index * 48;
+    const pct = parsePercent(bar.value, 50);
+    const filledW = Math.max(18, Math.round(330 * pct / 100));
+    const remainingW = Math.max(0, 330 - filledW);
+    nodes.push(
+      textNode({ x: 122, y: y - 4, width: 180, text: bar.label, size: 18, color: c.ink, bold: true }),
+      rectNode({ x: 318, y, width: filledW, height: 18, fillColor: c.accent, borderColor: c.accent, borderRadius: 9 }),
+      ...(remainingW > 0 ? [rectNode({ x: 318 + filledW + 4, y, width: Math.max(0, remainingW - 4), height: 18, fillColor: c.muted, borderColor: c.muted, borderRadius: 9 })] : []),
+      textNode({ x: 668, y: y - 7, width: 70, text: bar.value, size: 18, color: c.secondary, align: "right" })
+    );
+  });
+
+  nodes.push(
+    rectNode({ x: 820, y: 540, width: 772, height: 310, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
+    textNode({ x: 854, y: 576, width: 690, text: "数据解读", size: 26, color: c.ink, bold: true }),
+    textNode({ x: 854, y: 630, width: 660, text: splitText(brief.insight || "先看核心指标，再看进度差距，最后定位需要行动的风险项。", 30, 3).join("\n"), size: 22, color: c.secondary })
+  );
+  nodes.push(...renderFooter(brief, c, 900, width));
   return base(width, height, c, nodes);
 }
 
@@ -360,6 +408,7 @@ function render(brief) {
   const c = styles[brief.style] || styles["professional-blue"];
   if (brief.layout === "milestone-timeline") return renderMilestoneTimeline(brief, c);
   if (brief.layout === "funnel") return renderFunnel(brief, c);
+  if (brief.layout === "metric-dashboard") return renderMetricDashboard(brief, c);
   if (brief.layout === "pyramid") return renderPyramid(brief, c);
   throw new Error(`unsupported DSL layout: ${brief.layout}`);
 }

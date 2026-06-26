@@ -9,7 +9,7 @@ description: >
 
 # Structured Feishu Whiteboard
 
-把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。常规报告模板使用 SVG 渲染；V3.2 起，时间线、漏斗和金字塔等复杂表达可以使用受控 DSL 渲染。
+把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。常规报告模板使用 SVG 渲染；V3.2 起，时间线、漏斗、金字塔和指标看板等复杂表达可以使用受控 DSL 渲染。
 
 ## 快速判断
 
@@ -53,11 +53,12 @@ bash scripts/preflight.sh
 - 用户给的是版本迭代、事件推进、里程碑复盘：优先使用 `milestone-timeline`，并设置 `renderTarget: "dsl"`。
 - 用户给的是筛选、转化、收敛、优先级漏斗：优先使用 `funnel`，并设置 `renderTarget: "dsl"`。
 - 用户给的是层级、优先级、能力基座、战略承接：优先使用 `pyramid`，并设置 `renderTarget: "dsl"`。
+- 用户给的是目标完成度、覆盖率、风险数、效率变化或状态复盘：优先使用 `metric-dashboard`，并设置 `renderTarget: "dsl"`。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
-- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 试点版式包括 `milestone-timeline`、`funnel` 和 `pyramid`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
+- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 试点版式包括 `milestone-timeline`、`funnel`、`pyramid` 和 `metric-dashboard`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
 - 单张画板只表达一个主任务；如果同时出现主线、动作、指标和读图说明，优先拆成总览图和指标图。
 - 并列模块不要使用箭头；只有时间推进、流程依赖或价值链才使用箭头。
 - 指标和 `xx%` 等草稿占位按 `content-budget.md` 执行：必须有业务语义，同类指标只出现一次，卡片内指标和底部指标区二选一。

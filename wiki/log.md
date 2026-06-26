@@ -50,3 +50,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Added the V3.2 direction page: `wiki/topics/v32-controlled-expressiveness.md`.
 - Recorded the product decision that richer expression should come from schema-backed primitives, not freehand whiteboard generation.
 - Captured the first DSL pilot set: `milestone-timeline`, `funnel`, and `pyramid`.
+
+## [2026-06-26] fix | V3.2 layout polish and metric dashboard
+
+- Fixed V3.2 DSL preview issues reported from Feishu-side review: title/subtitle spacing, timeline end-card crowding, and the floating funnel explanation card.
+- Added `metric-dashboard` as the fourth controlled DSL primitive for metric cards, progress bars, project status, and lightweight data analysis.
+- Updated schema, validator, renderer, documentation, and regression fixture coverage for the new metric dashboard layout.
