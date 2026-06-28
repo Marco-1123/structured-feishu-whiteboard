@@ -7,7 +7,7 @@
   "properties": {
     "layout": {
       "type": "string",
-      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid", "metric-dashboard"]
+      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid", "metric-dashboard", "progress-wall", "ranked-bars", "variance-bridge"]
     },
     "renderTarget": {
       "type": "string",
@@ -366,6 +366,10 @@
             "type": "string",
             "maxLength": 18
           },
+          "note": {
+            "type": "string",
+            "maxLength": 24
+          },
           "status": {
             "type": "string",
             "enum": ["good", "neutral", "risk"]
@@ -395,6 +399,66 @@
           "note": {
             "type": "string",
             "maxLength": 24
+          }
+        }
+      }
+    },
+    "rankedBars": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 10
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 30
+          },
+          "status": {
+            "type": "string",
+            "enum": ["good", "neutral", "risk"]
+          }
+        }
+      }
+    },
+    "bridgeSteps": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "value", "type"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 14
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 12
+          },
+          "type": {
+            "type": "string",
+            "enum": ["start", "increase", "decrease", "end"]
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 28
           }
         }
       }
@@ -498,7 +562,43 @@
                       "required": ["metricCards", "progressBars"]
                     },
                     "else": {
-                      "required": ["modules"]
+                      "if": {
+                        "properties": {
+                          "layout": {
+                            "const": "progress-wall"
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": ["progressBars"]
+                      },
+                      "else": {
+                        "if": {
+                          "properties": {
+                            "layout": {
+                              "const": "ranked-bars"
+                            }
+                          }
+                        },
+                        "then": {
+                          "required": ["rankedBars"]
+                        },
+                        "else": {
+                          "if": {
+                            "properties": {
+                              "layout": {
+                                "const": "variance-bridge"
+                              }
+                            }
+                          },
+                          "then": {
+                            "required": ["bridgeSteps"]
+                          },
+                          "else": {
+                            "required": ["modules"]
+                          }
+                        }
+                      }
                     }
                   }
                 }

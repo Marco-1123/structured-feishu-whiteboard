@@ -134,6 +134,18 @@ function parsePercent(value, fallback) {
   return Math.max(1, Math.min(100, Number(match[1])));
 }
 
+function parseSignedNumber(value, fallback) {
+  const match = String(value ?? "").replace(/,/g, "").match(/[+-]?\d+(?:\.\d+)?/);
+  if (!match) return fallback;
+  return Number(match[0]);
+}
+
+function statusColor(status, c) {
+  if (status === "risk") return "#C2410C";
+  if (status === "good") return c.success;
+  return c.accent;
+}
+
 function textNode({ x, y, width, text, size = 18, color, bold = false, align = "left" }) {
   return {
     type: "text",
@@ -325,12 +337,13 @@ function renderMetricDashboard(brief, c) {
   const cardW = (width - 176 - cardGap * (metrics.length - 1)) / metrics.length;
   metrics.forEach((metric, index) => {
     const x = 88 + index * (cardW + cardGap);
-    const accent = metric.status === "risk" ? "#C2410C" : metric.status === "good" ? c.success : c.accent;
+    const accent = statusColor(metric.status, c);
     nodes.push(
       rectNode({ x, y: cardY, width: cardW, height: 172, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
       textNode({ x: x + 28, y: cardY + 28, width: cardW - 56, text: metric.label, size: 20, color: c.secondary }),
       textNode({ x: x + 28, y: cardY + 72, width: cardW - 56, text: metric.value, size: 40, color: c.ink, bold: true }),
-      ...(metric.delta ? [textNode({ x: x + 28, y: cardY + 126, width: cardW - 56, text: metric.delta, size: 18, color: accent, bold: true })] : [])
+      ...(metric.delta ? [textNode({ x: x + 28, y: cardY + 120, width: cardW - 56, text: metric.delta, size: 18, color: accent, bold: true })] : []),
+      ...(metric.note ? [textNode({ x: x + 28, y: cardY + 146, width: cardW - 56, text: metric.note, size: 15, color: c.secondary })] : [])
     );
   });
 
@@ -348,7 +361,8 @@ function renderMetricDashboard(brief, c) {
       textNode({ x: 122, y: y - 4, width: 180, text: bar.label, size: 18, color: c.ink, bold: true }),
       rectNode({ x: 318, y, width: filledW, height: 18, fillColor: c.accent, borderColor: c.accent, borderRadius: 9 }),
       ...(remainingW > 0 ? [rectNode({ x: 318 + filledW + 4, y, width: Math.max(0, remainingW - 4), height: 18, fillColor: c.muted, borderColor: c.muted, borderRadius: 9 })] : []),
-      textNode({ x: 668, y: y - 7, width: 70, text: bar.value, size: 18, color: c.secondary, align: "right" })
+      textNode({ x: 668, y: y - 7, width: 70, text: bar.value, size: 18, color: c.secondary, align: "right" }),
+      ...(bar.note ? [textNode({ x: 122, y: y + 22, width: 560, text: bar.note, size: 15, color: c.secondary })] : [])
     );
   });
 
@@ -357,6 +371,140 @@ function renderMetricDashboard(brief, c) {
     textNode({ x: 854, y: 576, width: 690, text: "数据解读", size: 26, color: c.ink, bold: true }),
     textNode({ x: 854, y: 630, width: 660, text: splitText(brief.insight || "先看核心指标，再看进度差距，最后定位需要行动的风险项。", 30, 3).join("\n"), size: 22, color: c.secondary })
   );
+  nodes.push(...renderFooter(brief, c, 900, width));
+  return base(width, height, c, nodes);
+}
+
+function renderProgressWall(brief, c) {
+  const width = 1680;
+  const height = 1100;
+  const bars = brief.progressBars;
+  const nodes = [...renderTitle(brief, c, width)];
+  nodes.push(
+    rectNode({ x: 88, y: 200, width: width - 176, height: 116, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
+    rectNode({ x: 88, y: 200, width: 12, height: 116, fillColor: c.dark || c.accent, borderColor: c.dark || c.accent, borderRadius: 6 }),
+    textNode({ x: 124, y: 232, width: width - 248, text: splitText(brief.summary, 54, 2).join("\n"), size: 25, color: c.ink, bold: true })
+  );
+
+  const panelX = 88;
+  const panelY = 370;
+  const panelW = width - 176;
+  const rowH = 92;
+  nodes.push(
+    rectNode({ x: panelX, y: panelY, width: panelW, height: 500, fillColor: c.surface, borderColor: c.border, borderRadius: 20 }),
+    textNode({ x: panelX + 36, y: panelY + 30, width: 420, text: "目标完成度", size: 28, color: c.ink, bold: true }),
+    textNode({ x: panelX + 36, y: panelY + 75, width: 720, text: "用同一比例尺展示进展，避免把完成度写成普通文字。", size: 18, color: c.secondary })
+  );
+
+  bars.slice(0, 4).forEach((bar, index) => {
+    const y = panelY + 132 + index * rowH;
+    const pct = parsePercent(bar.value, 50);
+    const trackX = panelX + 330;
+    const trackY = y + 16;
+    const trackW = 790;
+    const fillW = Math.round(trackW * pct / 100);
+    const remainW = trackW - fillW;
+    nodes.push(
+      textNode({ x: panelX + 36, y, width: 220, text: bar.label, size: 23, color: c.ink, bold: true }),
+      ...(bar.note ? [textNode({ x: panelX + 36, y: y + 36, width: 230, text: splitText(bar.note, 14, 2).join("\n"), size: 16, color: c.secondary })] : []),
+      rectNode({ x: trackX, y: trackY, width: Math.max(18, fillW), height: 24, fillColor: c.accent, borderColor: c.accent, borderRadius: 12 }),
+      ...(remainW > 8 ? [rectNode({ x: trackX + fillW + 6, y: trackY, width: Math.max(0, remainW - 6), height: 24, fillColor: c.muted, borderColor: c.muted, borderRadius: 12 })] : []),
+      textNode({ x: trackX + trackW + 38, y: trackY - 8, width: 120, text: bar.value, size: 26, color: c.ink, bold: true }),
+      textNode({ x: trackX + trackW + 170, y: trackY - 2, width: 220, text: pct >= 70 ? "进展健康" : pct >= 45 ? "需要推进" : "需重点加速", size: 18, color: pct >= 70 ? c.success : pct >= 45 ? c.secondary : "#C2410C", bold: true })
+    );
+  });
+
+  nodes.push(...renderFooter(brief, c, 944, width));
+  return base(width, height, c, nodes);
+}
+
+function renderRankedBars(brief, c) {
+  const width = 1680;
+  const height = 1040;
+  const bars = [...brief.rankedBars];
+  const values = bars.map((bar, index) => parsePercent(bar.value, Math.max(10, 90 - index * 12)));
+  const maxValue = Math.max(...values, 1);
+  const nodes = [...renderTitle(brief, c, width)];
+  nodes.push(
+    rectNode({ x: 88, y: 200, width: width - 176, height: 116, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
+    rectNode({ x: 88, y: 200, width: 12, height: 116, fillColor: c.dark || c.accent, borderColor: c.dark || c.accent, borderRadius: 6 }),
+    textNode({ x: 124, y: 232, width: width - 248, text: splitText(brief.summary, 54, 2).join("\n"), size: 25, color: c.ink, bold: true })
+  );
+
+  const panelX = 88;
+  const panelY = 370;
+  const panelW = width - 176;
+  const rowH = 86;
+  nodes.push(
+    rectNode({ x: panelX, y: panelY, width: panelW, height: 500, fillColor: c.surface, borderColor: c.border, borderRadius: 20 }),
+    textNode({ x: panelX + 36, y: panelY + 30, width: 460, text: "贡献排序", size: 28, color: c.ink, bold: true }),
+    textNode({ x: panelX + 36, y: panelY + 75, width: 720, text: "按占比或贡献度排序，先看主因，再看解释。", size: 18, color: c.secondary })
+  );
+
+  bars.slice(0, 6).forEach((bar, index) => {
+    const y = panelY + 136 + index * rowH;
+    const value = values[index];
+    const barX = panelX + 300;
+    const barW = Math.round(800 * value / maxValue);
+    const remainW = 800 - barW;
+    const accent = statusColor(bar.status, c);
+    nodes.push(
+      rectNode({ x: panelX + 36, y: y + 2, width: 54, height: 34, fillColor: c.soft, borderColor: c.border, borderRadius: 8, text: String(index + 1).padStart(2, "0"), textColor: c.accent, fontSize: 16, bold: true }),
+      textNode({ x: panelX + 108, y, width: 160, text: bar.label, size: 22, color: c.ink, bold: true }),
+      rectNode({ x: barX, y: y + 8, width: Math.max(22, barW), height: 26, fillColor: accent, borderColor: accent, borderRadius: 13 }),
+      ...(remainW > 8 ? [rectNode({ x: barX + barW + 6, y: y + 8, width: Math.max(0, remainW - 6), height: 26, fillColor: c.muted, borderColor: c.muted, borderRadius: 13 })] : []),
+      textNode({ x: barX + 828, y: y + 1, width: 92, text: bar.value, size: 24, color: c.ink, bold: true }),
+      ...(bar.note ? [textNode({ x: barX + 946, y: y + 5, width: 250, text: splitText(bar.note, 18, 2).join("\n"), size: 16, color: c.secondary })] : [])
+    );
+  });
+
+  nodes.push(...renderFooter(brief, c, 900, width));
+  return base(width, height, c, nodes);
+}
+
+function renderVarianceBridge(brief, c) {
+  const width = 1680;
+  const height = 1040;
+  const steps = brief.bridgeSteps;
+  const nodes = [...renderTitle(brief, c, width)];
+  nodes.push(
+    rectNode({ x: 88, y: 200, width: width - 176, height: 116, fillColor: c.surface, borderColor: c.border, borderRadius: 18 }),
+    rectNode({ x: 88, y: 200, width: 12, height: 116, fillColor: c.dark || c.accent, borderColor: c.dark || c.accent, borderRadius: 6 }),
+    textNode({ x: 124, y: 232, width: width - 248, text: splitText(brief.summary, 54, 2).join("\n"), size: 25, color: c.ink, bold: true })
+  );
+
+  const panelX = 88;
+  const panelY = 370;
+  const panelW = width - 176;
+  const panelH = 500;
+  const centerY = panelY + 315;
+  const stepGap = 28;
+  const stepW = (panelW - 84 - stepGap * (steps.length - 1)) / steps.length;
+  nodes.push(
+    rectNode({ x: panelX, y: panelY, width: panelW, height: panelH, fillColor: c.surface, borderColor: c.border, borderRadius: 20 }),
+    textNode({ x: panelX + 36, y: panelY + 30, width: 460, text: "变化归因桥", size: 28, color: c.ink, bold: true }),
+    textNode({ x: panelX + 36, y: panelY + 75, width: 760, text: "起点、增减项和终点使用同一基线，解释数字变化来源。", size: 18, color: c.secondary }),
+    rectNode({ x: panelX + 42, y: centerY - 1, width: panelW - 84, height: 2, fillColor: c.border, borderColor: c.border, borderRadius: 1 })
+  );
+
+  steps.forEach((step, index) => {
+    const x = panelX + 42 + index * (stepW + stepGap);
+    const isDecrease = step.type === "decrease";
+    const isIncrease = step.type === "increase";
+    const isEndpoint = step.type === "start" || step.type === "end";
+    const cardH = isEndpoint ? 190 : 170;
+    const fillColor = isEndpoint ? c.soft : isIncrease ? "#E7F6EE" : isDecrease ? "#FFF1E6" : c.muted;
+    const borderColor = isEndpoint ? c.accent : isIncrease ? c.success : isDecrease ? "#F59E0B" : c.border;
+    const y = centerY - cardH / 2;
+    nodes.push(
+      ...(index < steps.length - 1 ? [connector({ x: x + stepW + 8, y: centerY }, { x: x + stepW + stepGap - 8, y: centerY }, c, 2, "arrow")] : []),
+      rectNode({ x, y, width: stepW, height: cardH, fillColor, borderColor, borderWidth: 1.7, borderRadius: 14 }),
+      textNode({ x: x + 18, y: y + (isEndpoint ? 36 : 30), width: stepW - 36, text: step.value, size: isEndpoint ? 34 : 30, color: c.ink, bold: true, align: "center" }),
+      textNode({ x: x + 18, y: y + (isEndpoint ? 88 : 80), width: stepW - 36, text: step.label, size: 20, color: c.ink, bold: true, align: "center" }),
+      ...(step.note ? [textNode({ x: x + 20, y: y + (isEndpoint ? 128 : 118), width: stepW - 40, text: splitText(step.note, 12, 1).join("\n"), size: 15, color: c.secondary, align: "center" })] : [])
+    );
+  });
+
   nodes.push(...renderFooter(brief, c, 900, width));
   return base(width, height, c, nodes);
 }
@@ -409,6 +557,9 @@ function render(brief) {
   if (brief.layout === "milestone-timeline") return renderMilestoneTimeline(brief, c);
   if (brief.layout === "funnel") return renderFunnel(brief, c);
   if (brief.layout === "metric-dashboard") return renderMetricDashboard(brief, c);
+  if (brief.layout === "progress-wall") return renderProgressWall(brief, c);
+  if (brief.layout === "ranked-bars") return renderRankedBars(brief, c);
+  if (brief.layout === "variance-bridge") return renderVarianceBridge(brief, c);
   if (brief.layout === "pyramid") return renderPyramid(brief, c);
   throw new Error(`unsupported DSL layout: ${brief.layout}`);
 }

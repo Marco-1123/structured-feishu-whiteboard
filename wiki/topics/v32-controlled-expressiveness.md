@@ -28,6 +28,25 @@ V3.2 introduces four pilot layouts:
 - `pyramid`: for hierarchy, priority, capability base, and strategy-to-execution support.
 - `metric-dashboard`: for metric cards, progress bars, status review, and lightweight data analysis.
 
+## Data Expression Expansion
+
+After reviewing the first batch, the user confirmed that V3.2 also needs more data-analysis expression, but only if it remains stable and deterministic.
+
+The second V3.2 batch adds:
+
+- `progress-wall`: for OKR/project completion and risk convergence, using aligned progress bars.
+- `ranked-bars`: for Top-N, contribution, issue distribution, and resource share.
+- `variance-bridge`: for start/end delta explanation, such as cost, headcount, revenue, or efficiency changes.
+
+`metric-dashboard` remains the general status-review layout. It should not swallow all data cases. Use `progress-wall` when the main story is completion, `ranked-bars` when the main story is relative importance, and `variance-bridge` when the main story is change attribution.
+
+Deferred candidates:
+
+- quadrant priority map,
+- trend small multiples.
+
+These have valid use cases, but they are not first priority because they need more stability work and more examples.
+
 These layouts use `renderTarget: "dsl"` and `scripts/render-whiteboard-dsl.mjs`.
 
 The existing report templates continue to use SVG and `scripts/render-whiteboard.mjs`.
@@ -72,5 +91,7 @@ Feishu-side preview can reveal issues that local checks miss. V3.2 review surfac
 - timeline cards should not be placed where the final arrowhead visually competes with the last card,
 - explanatory cards should not float in unused top-right space unless they are part of the content structure,
 - progress bars should avoid foreground/background overlap if the whiteboard checker treats that as node overlap.
+- variance bridge nodes should use one shared centerline; card height must not vary by value because that destabilizes arrows and text baselines.
+- values, labels, and notes in data layouts must stay inside their own cards; card-outside annotations easily become misaligned in Feishu previews.
 
 These are quality rules for future DSL primitives, not one-off sample fixes.

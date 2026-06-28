@@ -1,0 +1,545 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1680,
+      "height": 1040,
+      "fillColor": "#F7F8FA",
+      "borderColor": "#F7F8FA",
+      "borderWidth": 0,
+      "borderRadius": 0
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 72,
+      "width": 1504,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "人力变化归因桥",
+          "bold": true,
+          "fontSize": 44
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 142,
+      "width": 1500,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "用差异桥解释从现状到目标的变化来源。",
+          "bold": false,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 200,
+      "width": 1504,
+      "height": 116,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 18
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 200,
+      "width": 12,
+      "height": 116,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 232,
+      "width": 1432,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "当材料要解释数字为什么增加或减少时，用差异桥承载起点、增减项和终点。",
+          "bold": true,
+          "fontSize": 25
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 370,
+      "width": 1504,
+      "height": 500,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 20
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 400,
+      "width": 460,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "变化归因桥",
+          "bold": true,
+          "fontSize": 28
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 445,
+      "width": 760,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "起点、增减项和终点使用同一基线，解释数字变化来源。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 130,
+      "y": 684,
+      "width": 1420,
+      "height": 2,
+      "fillColor": "#D8DEE8",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 1
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 399.6,
+          "y": 685
+        },
+        "to": {
+          "x": 411.6,
+          "y": 685
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "arrow"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 130,
+      "y": 590,
+      "width": 261.6,
+      "height": 190,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.7,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 148,
+      "y": 626,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "1623人",
+          "bold": true,
+          "fontSize": 34
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 148,
+      "y": 678,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "当前规模",
+          "bold": true,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 150,
+      "y": 718,
+      "width": 221.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "现状基线",
+          "bold": false,
+          "fontSize": 15
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 689.2,
+          "y": 685
+        },
+        "to": {
+          "x": 701.2,
+          "y": 685
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "arrow"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 419.6,
+      "y": 600,
+      "width": 261.6,
+      "height": 170,
+      "fillColor": "#FFF1E6",
+      "borderColor": "#F59E0B",
+      "borderWidth": 1.7,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 437.6,
+      "y": 630,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "-387",
+          "bold": true,
+          "fontSize": 30
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 437.6,
+      "y": 680,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "业务归口",
+          "bold": true,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 439.6,
+      "y": 718,
+      "width": 221.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "统一入口管理",
+          "bold": false,
+          "fontSize": 15
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 978.8000000000001,
+          "y": 685
+        },
+        "to": {
+          "x": 990.8000000000001,
+          "y": 685
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "arrow"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 709.2,
+      "y": 600,
+      "width": 261.6,
+      "height": 170,
+      "fillColor": "#FFF1E6",
+      "borderColor": "#F59E0B",
+      "borderWidth": 1.7,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 727.2,
+      "y": 630,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "-94",
+          "bold": true,
+          "fontSize": 30
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 727.2,
+      "y": 680,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "模式迭代",
+          "bold": true,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 729.2,
+      "y": 718,
+      "width": 221.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "BPO 与自营优化",
+          "bold": false,
+          "fontSize": 15
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "connector",
+      "connector": {
+        "from": {
+          "x": 1268.4,
+          "y": 685
+        },
+        "to": {
+          "x": 1280.4,
+          "y": 685
+        },
+        "lineShape": "straight",
+        "lineWidth": 2,
+        "lineColor": "#D8DEE8",
+        "startArrow": "none",
+        "endArrow": "arrow"
+      }
+    },
+    {
+      "type": "rect",
+      "x": 998.8000000000001,
+      "y": 600,
+      "width": 261.6,
+      "height": 170,
+      "fillColor": "#E7F6EE",
+      "borderColor": "#16A085",
+      "borderWidth": 1.7,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 1016.8000000000001,
+      "y": 630,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "+31",
+          "bold": true,
+          "fontSize": 30
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 1016.8000000000001,
+      "y": 680,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "专项补充",
+          "bold": true,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 1018.8000000000001,
+      "y": 718,
+      "width": 221.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "新增高价值专项",
+          "bold": false,
+          "fontSize": 15
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 1288.4,
+      "y": 590,
+      "width": 261.6,
+      "height": 190,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.7,
+      "borderRadius": 14
+    },
+    {
+      "type": "text",
+      "x": 1306.4,
+      "y": 626,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "1173人",
+          "bold": true,
+          "fontSize": 34
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 1306.4,
+      "y": 678,
+      "width": 225.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "目标规模",
+          "bold": true,
+          "fontSize": 20
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "center"
+    },
+    {
+      "type": "text",
+      "x": 1308.4,
+      "y": 718,
+      "width": 221.60000000000002,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "H2 目标",
+          "bold": false,
+          "fontSize": 15
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "center"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 900,
+      "width": 1504,
+      "height": 92,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 900,
+      "width": 12,
+      "height": 92,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 122,
+      "y": 927,
+      "width": 1436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "适用：成本变化、人力优化、收入差异、效率提升归因。",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    }
+  ]
+}

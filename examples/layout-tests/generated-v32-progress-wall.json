@@ -1,0 +1,511 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1680,
+      "height": 1100,
+      "fillColor": "#F7F8FA",
+      "borderColor": "#F7F8FA",
+      "borderWidth": 0,
+      "borderRadius": 0
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 72,
+      "width": 1504,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "H2 目标推进墙",
+          "bold": true,
+          "fontSize": 44
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 142,
+      "width": 1500,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "用进度条表达目标完成度和风险收敛。",
+          "bold": false,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 200,
+      "width": 1504,
+      "height": 116,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 18
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 200,
+      "width": 12,
+      "height": 116,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 232,
+      "width": 1432,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "当材料围绕目标完成度、阶段进展和剩余风险时，优先用进度墙而不是普通并列卡片。",
+          "bold": true,
+          "fontSize": 25
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 370,
+      "width": 1504,
+      "height": 500,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 20
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 400,
+      "width": 420,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "目标完成度",
+          "bold": true,
+          "fontSize": 28
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 445,
+      "width": 720,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "用同一比例尺展示进展，避免把完成度写成普通文字。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 502,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "统一入口",
+          "bold": true,
+          "fontSize": 23
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 538,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "场景盘点已完成",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 418,
+      "y": 518,
+      "width": 616,
+      "height": 24,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "rect",
+      "x": 1040,
+      "y": 518,
+      "width": 168,
+      "height": 24,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "text",
+      "x": 1246,
+      "y": 510,
+      "width": 120,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "78%",
+          "bold": true,
+          "fontSize": 26
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1378,
+      "y": 516,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "进展健康",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#16A085",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 594,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "数据闭环",
+          "bold": true,
+          "fontSize": 23
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 630,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "指标口径待统一",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 418,
+      "y": 610,
+      "width": 435,
+      "height": 24,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "rect",
+      "x": 859,
+      "y": 610,
+      "width": 349,
+      "height": 24,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "text",
+      "x": 1246,
+      "y": 602,
+      "width": 120,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "55%",
+          "bold": true,
+          "fontSize": 26
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1378,
+      "y": 608,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "需要推进",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 686,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "能力复用",
+          "bold": true,
+          "fontSize": 23
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 722,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "沉淀模板和脚本",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 418,
+      "y": 702,
+      "width": 284,
+      "height": 24,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "rect",
+      "x": 708,
+      "y": 702,
+      "width": 500,
+      "height": 24,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "text",
+      "x": 1246,
+      "y": 694,
+      "width": 120,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "36%",
+          "bold": true,
+          "fontSize": 26
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1378,
+      "y": 700,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "需重点加速",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#C2410C",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 778,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "风险治理",
+          "bold": true,
+          "fontSize": 23
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 814,
+      "width": 230,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "风险边界已确认",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 418,
+      "y": 794,
+      "width": 490,
+      "height": 24,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "rect",
+      "x": 914,
+      "y": 794,
+      "width": 294,
+      "height": 24,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 12
+    },
+    {
+      "type": "text",
+      "x": 1246,
+      "y": 786,
+      "width": 120,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "62%",
+          "bold": true,
+          "fontSize": 26
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1378,
+      "y": 792,
+      "width": 220,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "需要推进",
+          "bold": true,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 944,
+      "width": 1504,
+      "height": 92,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 944,
+      "width": 12,
+      "height": 92,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 122,
+      "y": 971,
+      "width": 1436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "适用：OKR 复盘、项目进度、阶段推进、风险收敛。",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    }
+  ]
+}

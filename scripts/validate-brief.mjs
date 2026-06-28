@@ -11,6 +11,9 @@ const supportedLayouts = new Set([
   "funnel",
   "pyramid",
   "metric-dashboard",
+  "progress-wall",
+  "ranked-bars",
+  "variance-bridge",
 ]);
 const supportedRenderTargets = new Set(["svg", "dsl"]);
 const supportedStyles = new Set([
@@ -56,9 +59,16 @@ const limits = {
   metricCardLabel: 14,
   metricCardValue: 12,
   metricCardDelta: 18,
+  metricCardNote: 24,
   progressLabel: 14,
   progressValue: 10,
   progressNote: 24,
+  rankedLabel: 14,
+  rankedValue: 10,
+  rankedNote: 30,
+  bridgeLabel: 14,
+  bridgeValue: 12,
+  bridgeNote: 28,
   insight: 90,
 };
 
@@ -269,8 +279,14 @@ function validateMetricDashboard(brief) {
     assertString(metric.label, `metricCards[${index}].label`, limits.metricCardLabel, true);
     assertString(metric.value, `metricCards[${index}].value`, limits.metricCardValue, true);
     assertString(metric.delta, `metricCards[${index}].delta`, limits.metricCardDelta);
+    assertString(metric.note, `metricCards[${index}].note`, limits.metricCardNote);
     if (metric.status !== undefined && !["good", "neutral", "risk"].includes(metric.status)) fail(`metricCards[${index}].status is unsupported`);
   });
+  validateProgressBars(brief);
+  assertString(brief.insight, "insight", limits.insight);
+}
+
+function validateProgressBars(brief) {
   if (!Array.isArray(brief.progressBars)) fail("progressBars must be an array");
   if (brief.progressBars.length < 2 || brief.progressBars.length > 4) fail("progressBars must contain 2 to 4 items");
   brief.progressBars.forEach((bar, index) => {
@@ -278,6 +294,40 @@ function validateMetricDashboard(brief) {
     assertString(bar.value, `progressBars[${index}].value`, limits.progressValue, true);
     assertString(bar.note, `progressBars[${index}].note`, limits.progressNote);
   });
+}
+
+function validateProgressWall(brief) {
+  validateProgressBars(brief);
+  assertString(brief.insight, "insight", limits.insight);
+}
+
+function validateRankedBars(brief) {
+  if (!Array.isArray(brief.rankedBars)) fail("rankedBars must be an array");
+  if (brief.rankedBars.length < 3 || brief.rankedBars.length > 6) fail("rankedBars must contain 3 to 6 items");
+  brief.rankedBars.forEach((bar, index) => {
+    assertString(bar.label, `rankedBars[${index}].label`, limits.rankedLabel, true);
+    assertString(bar.value, `rankedBars[${index}].value`, limits.rankedValue, true);
+    assertString(bar.note, `rankedBars[${index}].note`, limits.rankedNote);
+    if (bar.status !== undefined && !["good", "neutral", "risk"].includes(bar.status)) fail(`rankedBars[${index}].status is unsupported`);
+  });
+  assertString(brief.insight, "insight", limits.insight);
+}
+
+function validateVarianceBridge(brief) {
+  if (!Array.isArray(brief.bridgeSteps)) fail("bridgeSteps must be an array");
+  if (brief.bridgeSteps.length < 4 || brief.bridgeSteps.length > 6) fail("bridgeSteps must contain 4 to 6 items");
+  let startCount = 0;
+  let endCount = 0;
+  brief.bridgeSteps.forEach((step, index) => {
+    assertString(step.label, `bridgeSteps[${index}].label`, limits.bridgeLabel, true);
+    assertString(step.value, `bridgeSteps[${index}].value`, limits.bridgeValue, true);
+    assertString(step.note, `bridgeSteps[${index}].note`, limits.bridgeNote);
+    if (!["start", "increase", "decrease", "end"].includes(step.type)) fail(`bridgeSteps[${index}].type is unsupported`);
+    if (step.type === "start") startCount += 1;
+    if (step.type === "end") endCount += 1;
+  });
+  if (startCount !== 1) fail("variance-bridge requires exactly one start step");
+  if (endCount !== 1) fail("variance-bridge requires exactly one end step");
   assertString(brief.insight, "insight", limits.insight);
 }
 
@@ -308,6 +358,9 @@ else if (brief.layout === "milestone-timeline") validateTimeline(brief);
 else if (brief.layout === "funnel") validateFunnel(brief);
 else if (brief.layout === "pyramid") validatePyramid(brief);
 else if (brief.layout === "metric-dashboard") validateMetricDashboard(brief);
+else if (brief.layout === "progress-wall") validateProgressWall(brief);
+else if (brief.layout === "ranked-bars") validateRankedBars(brief);
+else if (brief.layout === "variance-bridge") validateVarianceBridge(brief);
 else validateModules(brief);
 
 console.log("ok: brief is valid");

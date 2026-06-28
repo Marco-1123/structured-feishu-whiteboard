@@ -1,0 +1,520 @@
+{
+  "version": 2,
+  "nodes": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 1680,
+      "height": 1040,
+      "fillColor": "#F7F8FA",
+      "borderColor": "#F7F8FA",
+      "borderWidth": 0,
+      "borderRadius": 0
+    },
+    {
+      "type": "text",
+      "x": 88,
+      "y": 72,
+      "width": 1504,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "异常来源贡献分析",
+          "bold": true,
+          "fontSize": 44
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 90,
+      "y": 142,
+      "width": 1500,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "用排序条表达主次、占比和优先级。",
+          "bold": false,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 200,
+      "width": 1504,
+      "height": 116,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 18
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 200,
+      "width": 12,
+      "height": 116,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 232,
+      "width": 1432,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "当材料包含 Top-N、贡献度、问题分布或资源占比时，用排名贡献条让读者快速判断主因。",
+          "bold": true,
+          "fontSize": 25
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 370,
+      "width": 1504,
+      "height": 500,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 20
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 400,
+      "width": 460,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "贡献排序",
+          "bold": true,
+          "fontSize": 28
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 124,
+      "y": 445,
+      "width": 720,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "按占比或贡献度排序，先看主因，再看解释。",
+          "bold": false,
+          "fontSize": 18
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 124,
+      "y": 508,
+      "width": 54,
+      "height": 34,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 8,
+      "text": [
+        {
+          "content": "01",
+          "bold": true,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "text",
+      "x": 196,
+      "y": 506,
+      "width": 160,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "流程断点",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 388,
+      "y": 514,
+      "width": 800,
+      "height": 26,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "text",
+      "x": 1216,
+      "y": 507,
+      "width": 92,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "42%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1334,
+      "y": 511,
+      "width": 250,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "跨团队交接缺少闭环",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 124,
+      "y": 594,
+      "width": 54,
+      "height": 34,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 8,
+      "text": [
+        {
+          "content": "02",
+          "bold": true,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "text",
+      "x": 196,
+      "y": 592,
+      "width": 160,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "权限缺口",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 388,
+      "y": 600,
+      "width": 590,
+      "height": 26,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "rect",
+      "x": 984,
+      "y": 600,
+      "width": 204,
+      "height": 26,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "text",
+      "x": 1216,
+      "y": 593,
+      "width": 92,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "31%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1334,
+      "y": 597,
+      "width": 250,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "入口和数据权限分散",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 124,
+      "y": 680,
+      "width": 54,
+      "height": 34,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 8,
+      "text": [
+        {
+          "content": "03",
+          "bold": true,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "text",
+      "x": 196,
+      "y": 678,
+      "width": 160,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "口径不一",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 388,
+      "y": 686,
+      "width": 419,
+      "height": 26,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "rect",
+      "x": 813,
+      "y": 686,
+      "width": 375,
+      "height": 26,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "text",
+      "x": 1216,
+      "y": 679,
+      "width": 92,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "22%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1334,
+      "y": 683,
+      "width": 250,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "指标定义未统一",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 124,
+      "y": 766,
+      "width": 54,
+      "height": 34,
+      "fillColor": "#ECEEFE",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 8,
+      "text": [
+        {
+          "content": "04",
+          "bold": true,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5E6AD2",
+      "textAlign": "center",
+      "verticalAlign": "middle"
+    },
+    {
+      "type": "text",
+      "x": 196,
+      "y": 764,
+      "width": 160,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "手工补录",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 388,
+      "y": 772,
+      "width": 286,
+      "height": 26,
+      "fillColor": "#5E6AD2",
+      "borderColor": "#5E6AD2",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "rect",
+      "x": 680,
+      "y": 772,
+      "width": 508,
+      "height": 26,
+      "fillColor": "#F1F3F6",
+      "borderColor": "#F1F3F6",
+      "borderWidth": 1.5,
+      "borderRadius": 13
+    },
+    {
+      "type": "text",
+      "x": 1216,
+      "y": 765,
+      "width": 92,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "15%",
+          "bold": true,
+          "fontSize": 24
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    },
+    {
+      "type": "text",
+      "x": 1334,
+      "y": 769,
+      "width": 250,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "流程仍依赖人工同步",
+          "bold": false,
+          "fontSize": 16
+        }
+      ],
+      "textColor": "#5F6B7A",
+      "textAlign": "left"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 900,
+      "width": 1504,
+      "height": 92,
+      "fillColor": "#FFFFFF",
+      "borderColor": "#D8DEE8",
+      "borderWidth": 1.5,
+      "borderRadius": 16
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 900,
+      "width": 12,
+      "height": 92,
+      "fillColor": "#111827",
+      "borderColor": "#111827",
+      "borderWidth": 1.5,
+      "borderRadius": 6
+    },
+    {
+      "type": "text",
+      "x": 122,
+      "y": 927,
+      "width": 1436,
+      "height": "fit-content",
+      "text": [
+        {
+          "content": "适用：问题分布、资源占比、异常来源、业务贡献。",
+          "bold": true,
+          "fontSize": 22
+        }
+      ],
+      "textColor": "#111827",
+      "textAlign": "left"
+    }
+  ]
+}

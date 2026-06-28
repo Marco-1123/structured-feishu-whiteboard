@@ -1,0 +1,42 @@
+{
+  "layout": "variance-bridge",
+  "renderTarget": "dsl",
+  "style": "linear-command",
+  "title": "人力变化归因桥",
+  "subtitle": "用差异桥解释从现状到目标的变化来源。",
+  "summary": "当材料要解释数字为什么增加或减少时，用差异桥承载起点、增减项和终点。",
+  "bridgeSteps": [
+    {
+      "label": "当前规模",
+      "value": "1623人",
+      "type": "start",
+      "note": "现状基线"
+    },
+    {
+      "label": "业务归口",
+      "value": "-387",
+      "type": "decrease",
+      "note": "统一入口管理"
+    },
+    {
+      "label": "模式迭代",
+      "value": "-94",
+      "type": "decrease",
+      "note": "BPO 与自营优化"
+    },
+    {
+      "label": "专项补充",
+      "value": "+31",
+      "type": "increase",
+      "note": "新增高价值专项"
+    },
+    {
+      "label": "目标规模",
+      "value": "1173人",
+      "type": "end",
+      "note": "H2 目标"
+    }
+  ],
+  "insight": "差异桥适合解释变化来源，而不是只展示一个最终数字。",
+  "footer": "适用：成本变化、人力优化、收入差异、效率提升归因。"
+}

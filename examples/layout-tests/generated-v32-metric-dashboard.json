@@ -106,7 +106,7 @@
     {
       "type": "text",
       "x": 116,
-      "y": 430,
+      "y": 424,
       "width": 302,
       "height": "fit-content",
       "text": [
@@ -165,7 +165,7 @@
     {
       "type": "text",
       "x": 498,
-      "y": 430,
+      "y": 424,
       "width": 302,
       "height": "fit-content",
       "text": [
@@ -224,7 +224,7 @@
     {
       "type": "text",
       "x": 880,
-      "y": 430,
+      "y": 424,
       "width": 302,
       "height": "fit-content",
       "text": [
@@ -283,7 +283,7 @@
     {
       "type": "text",
       "x": 1262,
-      "y": 430,
+      "y": 424,
       "width": 302,
       "height": "fit-content",
       "text": [

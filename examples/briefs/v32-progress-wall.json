@@ -1,0 +1,32 @@
+{
+  "layout": "progress-wall",
+  "renderTarget": "dsl",
+  "style": "linear-command",
+  "title": "H2 目标推进墙",
+  "subtitle": "用进度条表达目标完成度和风险收敛。",
+  "summary": "当材料围绕目标完成度、阶段进展和剩余风险时，优先用进度墙而不是普通并列卡片。",
+  "progressBars": [
+    {
+      "label": "统一入口",
+      "value": "78%",
+      "note": "场景盘点已完成"
+    },
+    {
+      "label": "数据闭环",
+      "value": "55%",
+      "note": "指标口径待统一"
+    },
+    {
+      "label": "能力复用",
+      "value": "36%",
+      "note": "沉淀模板和脚本"
+    },
+    {
+      "label": "风险治理",
+      "value": "62%",
+      "note": "风险边界已确认"
+    }
+  ],
+  "insight": "先看完成度，再看差距来源，最后定位需要加速的目标。",
+  "footer": "适用：OKR 复盘、项目进度、阶段推进、风险收敛。"
+}
