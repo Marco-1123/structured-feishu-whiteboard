@@ -38,7 +38,7 @@ The second V3.2 batch adds:
 - `ranked-bars`: for Top-N, contribution, issue distribution, and resource share.
 - `variance-bridge`: for start/end delta explanation, such as cost, headcount, revenue, or efficiency changes.
 
-`metric-dashboard` remains the general status-review layout. It should not swallow all data cases. Use `progress-wall` when the main story is completion, `ranked-bars` when the main story is relative importance, and `variance-bridge` when the main story is change attribution.
+`metric-dashboard` remains the general status-review layout. It should not swallow all data cases. Use `progress-wall` when the main story is completion, `ranked-bars` when the main story is relative importance, and `variance-bridge` when the main story is change attribution. Variance bridges must encode relative magnitude through a separate bridge/bar layer; stable text cards alone are not enough.
 
 Deferred candidates:
 

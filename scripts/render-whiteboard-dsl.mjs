@@ -477,14 +477,26 @@ function renderVarianceBridge(brief, c) {
   const panelY = 370;
   const panelW = width - 176;
   const panelH = 500;
-  const centerY = panelY + 315;
   const stepGap = 28;
   const stepW = (panelW - 84 - stepGap * (steps.length - 1)) / steps.length;
+  const labelY = panelY + 130;
+  const labelH = 118;
+  const arrowY = labelY + labelH / 2;
+  const axisY = panelY + 400;
+  const maxBarH = 148;
+  const deltaValues = steps
+    .filter((step) => step.type === "increase" || step.type === "decrease")
+    .map((step) => Math.abs(parseSignedNumber(step.value, 0)));
+  const maxDelta = Math.max(...deltaValues, 1);
+  const unit = String(steps.find((step) => step.type === "start")?.value ?? "")
+    .replace(/[+\-\d,.]/g, "")
+    .trim();
+  let runningTotal = null;
   nodes.push(
     rectNode({ x: panelX, y: panelY, width: panelW, height: panelH, fillColor: c.surface, borderColor: c.border, borderRadius: 20 }),
     textNode({ x: panelX + 36, y: panelY + 30, width: 460, text: "变化归因桥", size: 28, color: c.ink, bold: true }),
-    textNode({ x: panelX + 36, y: panelY + 75, width: 760, text: "起点、增减项和终点使用同一基线，解释数字变化来源。", size: 18, color: c.secondary }),
-    rectNode({ x: panelX + 42, y: centerY - 1, width: panelW - 84, height: 2, fillColor: c.border, borderColor: c.border, borderRadius: 1 })
+    textNode({ x: panelX + 36, y: panelY + 75, width: 820, text: "起点、增减项和终点使用同一基线，幅度条表达变化大小。", size: 18, color: c.secondary }),
+    rectNode({ x: panelX + 42, y: axisY, width: panelW - 84, height: 2, fillColor: c.border, borderColor: c.border, borderRadius: 1 })
   );
 
   steps.forEach((step, index) => {
@@ -492,16 +504,26 @@ function renderVarianceBridge(brief, c) {
     const isDecrease = step.type === "decrease";
     const isIncrease = step.type === "increase";
     const isEndpoint = step.type === "start" || step.type === "end";
-    const cardH = isEndpoint ? 190 : 170;
     const fillColor = isEndpoint ? c.soft : isIncrease ? "#E7F6EE" : isDecrease ? "#FFF1E6" : c.muted;
     const borderColor = isEndpoint ? c.accent : isIncrease ? c.success : isDecrease ? "#F59E0B" : c.border;
-    const y = centerY - cardH / 2;
+    const barColor = isEndpoint ? c.accent : isIncrease ? c.success : isDecrease ? "#F59E0B" : c.accent;
+    const rawValue = parseSignedNumber(step.value, 0);
+    if (step.type === "start") runningTotal = rawValue;
+    else if (isIncrease || isDecrease) runningTotal = (runningTotal ?? 0) + rawValue;
+    else if (step.type === "end") runningTotal = rawValue;
+    const barH = isEndpoint ? maxBarH : Math.max(26, Math.round(maxBarH * Math.abs(rawValue) / maxDelta));
+    const barW = isEndpoint ? stepW * 0.56 : stepW * 0.42;
+    const barX = x + (stepW - barW) / 2;
+    const barY = axisY - barH;
+    const runningLabel = runningTotal === null ? "" : `${index === 0 ? "起点" : step.type === "end" ? "终点" : "累计"} ${Math.round(runningTotal)}${unit}`;
     nodes.push(
-      ...(index < steps.length - 1 ? [connector({ x: x + stepW + 8, y: centerY }, { x: x + stepW + stepGap - 8, y: centerY }, c, 2, "arrow")] : []),
-      rectNode({ x, y, width: stepW, height: cardH, fillColor, borderColor, borderWidth: 1.7, borderRadius: 14 }),
-      textNode({ x: x + 18, y: y + (isEndpoint ? 36 : 30), width: stepW - 36, text: step.value, size: isEndpoint ? 34 : 30, color: c.ink, bold: true, align: "center" }),
-      textNode({ x: x + 18, y: y + (isEndpoint ? 88 : 80), width: stepW - 36, text: step.label, size: 20, color: c.ink, bold: true, align: "center" }),
-      ...(step.note ? [textNode({ x: x + 20, y: y + (isEndpoint ? 128 : 118), width: stepW - 40, text: splitText(step.note, 12, 1).join("\n"), size: 15, color: c.secondary, align: "center" })] : [])
+      ...(index < steps.length - 1 ? [connector({ x: x + stepW + 8, y: arrowY }, { x: x + stepW + stepGap - 8, y: arrowY }, c, 2, "arrow")] : []),
+      rectNode({ x, y: labelY, width: stepW, height: labelH, fillColor, borderColor, borderWidth: 1.7, borderRadius: 14 }),
+      textNode({ x: x + 18, y: labelY + 18, width: stepW - 36, text: step.value, size: isEndpoint ? 32 : 30, color: c.ink, bold: true, align: "center" }),
+      textNode({ x: x + 18, y: labelY + 64, width: stepW - 36, text: step.label, size: 19, color: c.ink, bold: true, align: "center" }),
+      ...(step.note ? [textNode({ x: x + 20, y: labelY + 92, width: stepW - 40, text: splitText(step.note, 12, 1).join("\n"), size: 14, color: c.secondary, align: "center" })] : []),
+      rectNode({ x: barX, y: barY, width: barW, height: barH, fillColor: barColor, borderColor: barColor, borderWidth: 1.6, borderRadius: 12 }),
+      textNode({ x: x + 8, y: axisY + 22, width: stepW - 16, text: runningLabel, size: 15, color: c.secondary, align: "center" })
     );
   });
 

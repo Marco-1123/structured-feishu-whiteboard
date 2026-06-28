@@ -13,6 +13,9 @@ for brief in examples/briefs/*.json; do
     dsl="examples/layout-tests/generated-$(basename "${brief%.json}").json"
     png="${dsl%.json}.png"
     node scripts/render-whiteboard-dsl.mjs --input "$brief" --output "$dsl" >/dev/null
+    if [ "$(basename "$brief")" = "v32-variance-bridge.json" ]; then
+      node -e 'const fs=require("fs"); const p=process.argv[1]; const j=JSON.parse(fs.readFileSync(p,"utf8")); const bars=j.nodes.filter(n=>n.type==="rect" && ["#F59E0B","#16A085","#5E6AD2","#2563EB","#3370FF","#007AFF"].includes(n.fillColor) && n.height>=24 && n.height<=160); if (bars.length < 3 || new Set(bars.map(b=>Math.round(b.height))).size < 2) { console.error("variance bridge must encode relative magnitude with proportional bars"); process.exit(1); }' "$dsl"
+    fi
     npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$dsl" -o "$png" >/dev/null
     npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$dsl" --check >/dev/null
   else
