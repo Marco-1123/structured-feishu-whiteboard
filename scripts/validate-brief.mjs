@@ -14,6 +14,7 @@ const supportedLayouts = new Set([
   "progress-wall",
   "ranked-bars",
   "variance-bridge",
+  "expression-canvas",
 ]);
 const supportedRenderTargets = new Set(["svg", "dsl"]);
 const supportedStyles = new Set([
@@ -27,6 +28,19 @@ const supportedStyles = new Set([
   "linear-command",
 ]);
 const supportedSectionTypes = new Set(["overview", "background", "modules", "roadmap", "metrics-evidence", "risks", "actions"]);
+const supportedExpressionModes = new Set(["dashboard-onepage", "narrative-map", "modular-canvas"]);
+const supportedExpressionBlockTypes = new Set([
+  "statement",
+  "metric-card",
+  "progress-bar",
+  "ranked-bar",
+  "risk-list",
+  "action-list",
+  "evidence-list",
+  "narrative-chain",
+  "mini-roadmap",
+  "comparison-summary",
+]);
 
 const limits = {
   title: 32,
@@ -69,6 +83,13 @@ const limits = {
   bridgeLabel: 14,
   bridgeValue: 12,
   bridgeNote: 28,
+  expressionTitle: 18,
+  expressionLine: 30,
+  expressionValue: 12,
+  expressionLabel: 12,
+  expressionNote: 28,
+  expressionItemLabel: 16,
+  expressionItemNote: 24,
   insight: 90,
 };
 
@@ -331,6 +352,60 @@ function validateVarianceBridge(brief) {
   assertString(brief.insight, "insight", limits.insight);
 }
 
+function validateExpressionCanvas(brief) {
+  if (!supportedExpressionModes.has(brief.expressionMode)) fail("expressionMode is unsupported");
+  if (!Array.isArray(brief.expressionBlocks)) fail("expressionBlocks must be an array");
+  if (brief.expressionBlocks.length < 4 || brief.expressionBlocks.length > 9) fail("expressionBlocks must contain 4 to 9 blocks");
+
+  const counts = new Map();
+  brief.expressionBlocks.forEach((block, index) => {
+    if (!supportedExpressionBlockTypes.has(block.type)) fail(`expressionBlocks[${index}].type is unsupported`);
+    counts.set(block.type, (counts.get(block.type) || 0) + 1);
+    assertString(block.title, `expressionBlocks[${index}].title`, limits.expressionTitle, true);
+    assertString(block.value, `expressionBlocks[${index}].value`, limits.expressionValue);
+    assertString(block.label, `expressionBlocks[${index}].label`, limits.expressionLabel);
+    assertString(block.note, `expressionBlocks[${index}].note`, limits.expressionNote);
+    if (block.status !== undefined && !["good", "neutral", "risk"].includes(block.status)) fail(`expressionBlocks[${index}].status is unsupported`);
+
+    assertStringArray(block.body, `expressionBlocks[${index}].body`, block.type === "statement" ? 3 : 4, limits.expressionLine);
+
+    if (block.items !== undefined) {
+      if (!Array.isArray(block.items)) fail(`expressionBlocks[${index}].items must be an array`);
+      if (block.items.length > 5) fail(`expressionBlocks[${index}].items must contain at most 5 items`);
+      block.items.forEach((item, itemIndex) => {
+        assertString(item.label, `expressionBlocks[${index}].items[${itemIndex}].label`, limits.expressionItemLabel, true);
+        assertString(item.value, `expressionBlocks[${index}].items[${itemIndex}].value`, limits.expressionValue);
+        assertString(item.note, `expressionBlocks[${index}].items[${itemIndex}].note`, limits.expressionItemNote);
+        if (item.status !== undefined && !["good", "neutral", "risk"].includes(item.status)) fail(`expressionBlocks[${index}].items[${itemIndex}].status is unsupported`);
+      });
+    }
+
+    if (block.type === "metric-card" && !block.value) fail(`expressionBlocks[${index}].metric-card requires value`);
+    if (["progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary"].includes(block.type)) {
+      if (!block.items || block.items.length < 2) fail(`expressionBlocks[${index}].${block.type} requires at least 2 items`);
+    }
+  });
+
+  if ((counts.get("statement") || 0) !== 1) fail("expression-canvas requires exactly one statement block");
+  if (brief.expressionMode === "dashboard-onepage") {
+    if ((counts.get("metric-card") || 0) < 3) fail("dashboard-onepage requires at least 3 metric-card blocks");
+    if ((counts.get("progress-bar") || 0) < 1) fail("dashboard-onepage requires a progress-bar block");
+    if ((counts.get("risk-list") || 0) < 1) fail("dashboard-onepage requires a risk-list block");
+    if ((counts.get("action-list") || 0) < 1) fail("dashboard-onepage requires an action-list block");
+  }
+  if (brief.expressionMode === "narrative-map") {
+    if ((counts.get("narrative-chain") || 0) < 1) fail("narrative-map requires a narrative-chain block");
+    if ((counts.get("evidence-list") || 0) < 1) fail("narrative-map requires an evidence-list block");
+    if ((counts.get("action-list") || 0) < 1) fail("narrative-map requires an action-list block");
+  }
+  if (brief.expressionMode === "modular-canvas") {
+    const hasSignal = ["metric-card", "progress-bar", "ranked-bar", "evidence-list"].some((type) => (counts.get(type) || 0) > 0);
+    const hasClosure = ["risk-list", "action-list", "mini-roadmap"].some((type) => (counts.get(type) || 0) > 0);
+    if (!hasSignal) fail("modular-canvas requires at least one signal block");
+    if (!hasClosure) fail("modular-canvas requires at least one risk, action, or roadmap block");
+  }
+}
+
 const input = process.argv[2];
 if (!input) fail("usage: node scripts/validate-brief.mjs <brief.json>");
 
@@ -361,6 +436,7 @@ else if (brief.layout === "metric-dashboard") validateMetricDashboard(brief);
 else if (brief.layout === "progress-wall") validateProgressWall(brief);
 else if (brief.layout === "ranked-bars") validateRankedBars(brief);
 else if (brief.layout === "variance-bridge") validateVarianceBridge(brief);
+else if (brief.layout === "expression-canvas") validateExpressionCanvas(brief);
 else validateModules(brief);
 
 console.log("ok: brief is valid");

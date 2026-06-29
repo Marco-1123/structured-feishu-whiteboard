@@ -7,7 +7,7 @@
   "properties": {
     "layout": {
       "type": "string",
-      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid", "metric-dashboard", "progress-wall", "ranked-bars", "variance-bridge"]
+      "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid", "metric-dashboard", "progress-wall", "ranked-bars", "variance-bridge", "expression-canvas"]
     },
     "renderTarget": {
       "type": "string",
@@ -17,6 +17,10 @@
     "style": {
       "type": "string",
       "enum": ["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark", "apple-studio", "linear-command"]
+    },
+    "expressionMode": {
+      "type": "string",
+      "enum": ["dashboard-onepage", "narrative-map", "modular-canvas"]
     },
     "title": {
       "type": "string",
@@ -463,6 +467,80 @@
         }
       }
     },
+    "expressionBlocks": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 9,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "title"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["statement", "metric-card", "progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary"]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 18
+          },
+          "body": {
+            "type": "array",
+            "maxItems": 4,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 30
+            }
+          },
+          "value": {
+            "type": "string",
+            "maxLength": 12
+          },
+          "label": {
+            "type": "string",
+            "maxLength": 12
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 28
+          },
+          "status": {
+            "type": "string",
+            "enum": ["good", "neutral", "risk"]
+          },
+          "items": {
+            "type": "array",
+            "maxItems": 5,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label"],
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 16
+                },
+                "value": {
+                  "type": "string",
+                  "maxLength": 12
+                },
+                "note": {
+                  "type": "string",
+                  "maxLength": 24
+                },
+                "status": {
+                  "type": "string",
+                  "enum": ["good", "neutral", "risk"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "insight": {
       "type": "string",
       "maxLength": 90
@@ -477,125 +555,137 @@
       "if": {
         "properties": {
           "layout": {
-            "const": "large-canvas"
+            "const": "expression-canvas"
           }
         }
       },
       "then": {
-        "required": ["sections"]
+        "required": ["expressionMode", "expressionBlocks"]
       },
       "else": {
         "if": {
           "properties": {
             "layout": {
-              "const": "roadmap"
+              "const": "large-canvas"
             }
           }
         },
         "then": {
-          "required": ["stages"]
+          "required": ["sections"]
         },
         "else": {
           "if": {
             "properties": {
               "layout": {
-                "const": "process-chain"
+                "const": "roadmap"
               }
             }
           },
           "then": {
-            "required": ["nodes"]
+            "required": ["stages"]
           },
           "else": {
             "if": {
               "properties": {
                 "layout": {
-                  "const": "comparison-matrix"
+                  "const": "process-chain"
                 }
               }
             },
             "then": {
-              "required": ["matrix"]
+              "required": ["nodes"]
             },
             "else": {
               "if": {
                 "properties": {
                   "layout": {
-                    "const": "milestone-timeline"
+                    "const": "comparison-matrix"
                   }
                 }
               },
               "then": {
-                "required": ["timeline"]
+                "required": ["matrix"]
               },
               "else": {
                 "if": {
                   "properties": {
                     "layout": {
-                      "const": "funnel"
+                      "const": "milestone-timeline"
                     }
                   }
                 },
                 "then": {
-                  "required": ["funnelStages"]
+                  "required": ["timeline"]
                 },
                 "else": {
                   "if": {
                     "properties": {
                       "layout": {
-                        "const": "pyramid"
+                        "const": "funnel"
                       }
                     }
                   },
                   "then": {
-                    "required": ["layers"]
+                    "required": ["funnelStages"]
                   },
                   "else": {
                     "if": {
                       "properties": {
                         "layout": {
-                          "const": "metric-dashboard"
+                          "const": "pyramid"
                         }
                       }
                     },
                     "then": {
-                      "required": ["metricCards", "progressBars"]
+                      "required": ["layers"]
                     },
                     "else": {
                       "if": {
                         "properties": {
                           "layout": {
-                            "const": "progress-wall"
+                            "const": "metric-dashboard"
                           }
                         }
                       },
                       "then": {
-                        "required": ["progressBars"]
+                        "required": ["metricCards", "progressBars"]
                       },
                       "else": {
                         "if": {
                           "properties": {
                             "layout": {
-                              "const": "ranked-bars"
+                              "const": "progress-wall"
                             }
                           }
                         },
                         "then": {
-                          "required": ["rankedBars"]
+                          "required": ["progressBars"]
                         },
                         "else": {
                           "if": {
                             "properties": {
                               "layout": {
-                                "const": "variance-bridge"
+                                "const": "ranked-bars"
                               }
                             }
                           },
                           "then": {
-                            "required": ["bridgeSteps"]
+                            "required": ["rankedBars"]
                           },
                           "else": {
-                            "required": ["modules"]
+                            "if": {
+                              "properties": {
+                                "layout": {
+                                  "const": "variance-bridge"
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": ["bridgeSteps"]
+                            },
+                            "else": {
+                              "required": ["modules"]
+                            }
                           }
                         }
                       }

@@ -1,0 +1,83 @@
+{
+  "layout": "expression-canvas",
+  "style": "linear-command",
+  "title": "项目运营健康度总览",
+  "subtitle": "用指标、进展、风险和行动看清当前状态。",
+  "summaryLabel": "核心判断",
+  "summary": "当前项目整体可控，但增长、交付和风险闭环需要从单点响应升级为统一经营节奏。",
+  "expressionMode": "dashboard-onepage",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心判断",
+      "body": ["项目不是缺动作，而是缺少统一指标、风险分层和行动闭环。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "目标进度",
+      "value": "82%",
+      "label": "可控",
+      "note": "主目标推进正常",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "效率提升",
+      "value": "+18%",
+      "label": "改善",
+      "note": "自动化开始生效",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "关键风险",
+      "value": "3",
+      "label": "待处理",
+      "note": "集中在口径和复盘",
+      "status": "risk"
+    },
+    {
+      "type": "progress-bar",
+      "title": "推进进度",
+      "note": "按目标、能力和复盘三条线检查",
+      "items": [
+        {"label": "目标对齐", "value": "86%", "status": "good"},
+        {"label": "能力复用", "value": "72%", "status": "neutral"},
+        {"label": "风险闭环", "value": "58%", "status": "risk"}
+      ]
+    },
+    {
+      "type": "ranked-bar",
+      "title": "贡献来源",
+      "note": "看清提效主要来自哪里",
+      "items": [
+        {"label": "流程标准化", "value": "78%", "status": "good"},
+        {"label": "工具自动化", "value": "64%", "status": "good"},
+        {"label": "人工复核", "value": "36%", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "风险聚焦",
+      "note": "优先处理会拖慢闭环的问题",
+      "items": [
+        {"label": "指标口径不一", "status": "risk"},
+        {"label": "风险漏斗过宽", "status": "risk"},
+        {"label": "复盘动作分散", "status": "neutral"},
+        {"label": "责任边界模糊", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "两周内形成可复用节奏",
+      "items": [
+        {"label": "统一指标字典"},
+        {"label": "建立风险分层"},
+        {"label": "固定周复盘节奏"},
+        {"label": "沉淀复用模板"}
+      ]
+    }
+  ],
+  "footer": "适合经营复盘、项目状态同步和高频指标汇报。"
+}

@@ -1,6 +1,6 @@
 # Deterministic Rendering
 
-当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成受控画板产物。常规报告模板生成 SVG；V3.2 受控表达版式生成飞书白板 DSL。不要让 Agent 自由手写整张 SVG 或 DSL。
+当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成受控画板产物。常规报告模板生成 SVG；V3.2 受控表达版式生成飞书白板 DSL；V3.3 组合表达画布生成 SVG。不要让 Agent 自由手写整张 SVG 或 DSL。
 
 ## 适用场景
 
@@ -12,6 +12,7 @@
 - 用户要求“按这个 skill 的标准版式生成”。
 - 长文需要在同一个 onepage 大画布中保留总览、证据、风险、指标和行动。
 - 内容看起来像路线图、流程图、价值链、对比矩阵、时间线、漏斗或金字塔时，必须使用对应脚本化模板；不能手写 SVG 或 DSL。
+- 内容包含指标、进展、风险、证据和行动等多种关系，且单一模板会显得死板时，使用 `expression-canvas`，但仍必须走脚本化渲染器。
 
 ## 工作流
 
@@ -26,7 +27,7 @@
 ## Brief 约束
 
 - `layout` 只能是脚本支持的版式。
-- 当前 SVG 生产输出允许 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`。
+- 当前 SVG 生产输出允许 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`、`expression-canvas`。
 - V3.2 DSL 输出允许 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars`、`variance-bridge`。
 - 长文默认使用 `layout: "large-canvas"`；它表示统一 onepage 大画布，不是纵向长图或多页分屏。顶部总览不是完整输出。
 - `modules` 只能有 3 到 5 个。
@@ -54,6 +55,9 @@
 - `progress-wall`，`renderTarget: "dsl"`
 - `ranked-bars`，`renderTarget: "dsl"`
 - `variance-bridge`，`renderTarget: "dsl"`
+- `expression-canvas`
+
+`expression-canvas` 需要同时设置 `expressionMode` 和 `expressionBlocks`。具体规则见 `expression-grammar.md`。
 
 路线图、流程、价值链、矩阵、时间线、漏斗、金字塔和指标看板现在都有脚本化模板。交付时必须使用这些模板，不要因为 `layout-library.md` 里描述了这些版式，就自由手写 SVG 或 DSL。
 

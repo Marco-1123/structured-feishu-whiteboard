@@ -19,7 +19,7 @@ description: >
 2. **判断体量**：读取 [`references/content-budget.md`](references/content-budget.md)，判断材料是短内容、中等内容、长文/报告还是复杂材料。
 3. **理解材料**：读取 [`references/report-workflow.md`](references/report-workflow.md)，提炼主题、结论、证据、对象、冲突、时间线和行动项。
 4. **长文处理**：中等内容、长文或复杂材料必须读取 [`references/long-form-workflow.md`](references/long-form-workflow.md)；长文还要读取 [`references/large-canvas-workflow.md`](references/large-canvas-workflow.md)，先做信息保全清单和 onepage 区域草稿；不要直接把全文塞进 SVG。
-5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从生产版式和 V3.2 受控表达场景中选择一个主结构；不要自由发明复杂版式。
+5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从生产版式和 V3.2/V3.3 受控表达场景中选择一个主结构；不要自由发明复杂版式。复杂材料如果包含指标、进展、证据、风险和行动等多种关系，再读取 [`references/expression-grammar.md`](references/expression-grammar.md)，判断是否使用 `expression-canvas`。
 6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从生产可选风格中选择一个；如果用户指定风格偏好，优先匹配。Apple Studio 和 Linear Command 属于 V3.1 生产候选风格，但新增或改动后的样例必须经过飞书侧预览复核。
 7. **稳定渲染**：默认必须读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再根据 `renderTarget` 使用 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs`；不要自由手写整张 SVG 或 DSL。
 8. **生成画板产物**：只有用户明确要求“实验性手写 SVG”或当前仓库缺少渲染器脚本时，才允许读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md) 手写；否则手写 SVG/DSL 视为不合格输出。
@@ -57,11 +57,12 @@ bash scripts/preflight.sh
 - 用户给的是目标完成度、阶段进展、OKR 复盘或风险收敛：优先使用 `progress-wall`，并设置 `renderTarget: "dsl"`。
 - 用户给的是 Top-N、贡献度、问题分布、异常来源或资源占比：优先使用 `ranked-bars`，并设置 `renderTarget: "dsl"`。
 - 用户给的是数字变化、成本变化、人力优化、收入差异或效率提升归因：优先使用 `variance-bridge`，并设置 `renderTarget: "dsl"`。
+- 用户给的是复杂项目汇报、经营复盘、决策诊断或混合长文，且同时包含指标、进展、证据、风险和行动中的至少三类：优先评估 V3.3 `expression-canvas`。根据材料主导关系选择 `dashboard-onepage`、`narrative-map` 或 `modular-canvas`，并设置 `renderTarget: "svg"` 或省略 `renderTarget`。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
-- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
+- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。V3.3 受控组合表达版式为 `expression-canvas`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
 - 单张画板只表达一个主任务；如果同时出现主线、动作、指标和读图说明，优先拆成总览图和指标图。
 - 并列模块不要使用箭头；只有时间推进、流程依赖或价值链才使用箭头。
 - 指标和 `xx%` 等草稿占位按 `content-budget.md` 执行：必须有业务语义，同类指标只出现一次，卡片内指标和底部指标区二选一。
@@ -80,6 +81,7 @@ bash scripts/preflight.sh
 - 这张画板是否只承担一个主表达任务？
 - 指标是真实数字，还是带业务语义的草稿占位？
 - 指标是否重复出现，且是否使用统一网格对齐？
+- 如果使用 V3.3，为什么选择当前 `expressionMode`，以及每个 `expressionBlock` 承担什么信息关系？
 
 生成后必须确认：
 

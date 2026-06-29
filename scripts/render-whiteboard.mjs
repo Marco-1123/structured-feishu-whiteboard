@@ -283,6 +283,18 @@ ${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
 ${text(x + 18, y + 31, 20, c.accent, [content], "700", 28)}`;
 }
 
+function parsePercent(value, fallback = 68) {
+  const match = String(value ?? "").match(/(\d+(?:\.\d+)?)/);
+  if (!match) return fallback;
+  return Math.max(4, Math.min(100, Number(match[1])));
+}
+
+function statusTone(status, c) {
+  if (status === "risk") return "#C2410C";
+  if (status === "good") return c.success;
+  return c.accent;
+}
+
 function centerTextGroup(containerY, containerH, items) {
   const totalH = items.reduce((sum, item, index) => sum + item.height + (index === 0 ? 0 : item.gapBefore), 0);
   let cursor = Math.round(containerY + (containerH - totalH) / 2);
@@ -1024,9 +1036,201 @@ ${text(134, 970, 23, c.ink, splitByLength(brief.footer || "", 60, 1), "700")}`;
   return wrap(width, height, c, body);
 }
 
+function expressionBlocks(brief, type) {
+  return (brief.expressionBlocks || []).filter((block) => block.type === type);
+}
+
+function firstExpressionBlock(brief, type) {
+  return expressionBlocks(brief, type)[0];
+}
+
+function renderExpressionFrame(x, y, w, h, c, title, subtitle = "") {
+  return `${card(x, y, w, h, c)}
+${text(x + 28, y + 48, 24, c.ink, [title], "700")}
+${subtitle ? text(x + 28, y + 82, 17, c.secondary, splitByWidth(subtitle, w - 56, 17, 1)) : ""}`;
+}
+
+function renderExpressionStatement(x, y, w, h, c, block) {
+  const lines = splitByWidth((block.body || []).join(" "), w - 86, 28, 2);
+  return `${rect(x, y, w, h, c, { rx: c.grammar === "linear" ? 16 : 18, fill: c.surface, stroke: c.border, sw: 1.5 })}
+<rect x="${x}" y="${y}" width="12" height="${h}" rx="6" fill="${c.grammar === "linear" ? c.dark : c.accent}" stroke="${c.grammar === "linear" ? c.dark : c.accent}" stroke-width="1"/>
+${text(x + 38, y + 42, 18, c.accent, [block.title], "700")}
+${text(x + 38, y + 92, 30, c.ink, lines, "700", 39)}`;
+}
+
+function renderMetricTile(x, y, w, h, c, block) {
+  const tone = statusTone(block.status, c);
+  return `${rect(x, y, w, h, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
+${text(x + 24, y + 38, 18, c.secondary, [block.title], "700")}
+${text(x + 24, y + 90, 42, tone, [block.value], "700")}
+${block.note ? text(x + 24, y + 128, 17, c.secondary, splitByWidth(block.note, w - 48, 17, 2), "400", 24) : ""}
+${block.label ? label(x + 24, y + h - 54, 112, c, block.label, tone) : ""}`;
+}
+
+function renderProgressBlock(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 4);
+  const rowH = Math.floor((h - 110) / Math.max(1, items.length));
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  items.forEach((item, index) => {
+    const rowY = y + 98 + index * rowH;
+    const pct = parsePercent(item.value, 60);
+    const trackX = x + 170;
+    const trackW = w - 230;
+    body += `
+${text(x + 28, rowY + 25, 18, c.ink, [item.label], "700")}
+<rect x="${trackX}" y="${rowY + 10}" width="${trackW}" height="18" rx="9" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+<rect x="${trackX}" y="${rowY + 10}" width="${Math.round(trackW * pct / 100)}" height="18" rx="9" fill="${statusTone(item.status, c)}" stroke="${statusTone(item.status, c)}" stroke-width="1"/>
+${text(x + w - 50, rowY + 27, 17, c.secondary, [item.value], "700")}`;
+  });
+  return body;
+}
+
+function renderRankedBlock(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 5);
+  const rowH = Math.floor((h - 116) / Math.max(1, items.length));
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  items.forEach((item, index) => {
+    const rowY = y + 102 + index * rowH;
+    const pct = parsePercent(item.value, 54 + index * 8);
+    const barX = x + 210;
+    const barW = w - 280;
+    body += `
+${text(x + 28, rowY + 24, 17, c.ink, [item.label], "700")}
+<rect x="${barX}" y="${rowY + 8}" width="${barW}" height="18" rx="9" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+<rect x="${barX}" y="${rowY + 8}" width="${Math.round(barW * pct / 100)}" height="18" rx="9" fill="${statusTone(item.status, c)}" stroke="${statusTone(item.status, c)}" stroke-width="1"/>
+${text(x + w - 58, rowY + 25, 16, c.secondary, [item.value], "700")}`;
+  });
+  return body;
+}
+
+function renderListBlock(x, y, w, h, c, block, options = {}) {
+  const items = (block.items || []).slice(0, options.maxItems || 4);
+  const colCount = options.columns || 1;
+  const gap = 14;
+  const itemW = Math.floor((w - 56 - gap * (colCount - 1)) / colCount);
+  const rowCount = Math.ceil(items.length / colCount);
+  const rowGap = 12;
+  const requestedItemH = options.itemH || 44;
+  const availableH = Math.max(120, h - 122);
+  const itemH = Math.max(36, Math.min(requestedItemH, Math.floor((availableH - rowGap * Math.max(0, rowCount - 1)) / Math.max(1, rowCount))));
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  items.forEach((item, index) => {
+    const col = index % colCount;
+    const row = Math.floor(index / colCount);
+    const ix = x + 28 + col * (itemW + gap);
+    const iy = y + 100 + row * (itemH + rowGap);
+    const tone = statusTone(item.status, c);
+    body += `
+<rect x="${ix}" y="${iy}" width="${itemW}" height="${itemH}" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.2"/>
+<rect x="${ix}" y="${iy}" width="6" height="${itemH}" rx="3" fill="${tone}" stroke="${tone}" stroke-width="1"/>
+${text(ix + 18, iy + 29, 17, options.emphasis ? tone : c.ink, [item.label], "700")}
+${item.note && itemH >= 50 ? text(ix + 18, iy + 54, 14, c.secondary, splitByWidth(item.note, itemW - 36, 14, 1)) : ""}`;
+  });
+  return body;
+}
+
+function renderNarrativeChainBlock(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 4);
+  const gap = 34;
+  const nodeW = Math.floor((w - 56 - gap * (items.length - 1)) / items.length);
+  const nodeY = y + 104;
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  items.forEach((item, index) => {
+    const nx = x + 28 + index * (nodeW + gap);
+    body += `
+${rect(nx, nodeY, nodeW, h - 136, c, { rx: 14, fill: c.surface, stroke: c.border, sw: 1.5 })}
+${text(nx + 22, nodeY + 48, 23, c.ink, [item.label], "700")}
+${item.note ? text(nx + 22, nodeY + 92, 17, c.secondary, splitByWidth(item.note, nodeW - 44, 17, 3), "400", 24) : ""}
+${index < items.length - 1 ? `<line x1="${nx + nodeW + 4}" y1="${nodeY + 88}" x2="${nx + nodeW + gap - 8}" y2="${nodeY + 88}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>` : ""}`;
+  });
+  return body;
+}
+
+function renderExpressionTitle(brief, c, width) {
+  return `${text(92, 104, 50, c.ink, [brief.title], "700")}
+${brief.subtitle ? text(94, 146, 23, c.secondary, [brief.subtitle]) : ""}`;
+}
+
+function renderDashboardExpression(brief, c) {
+  const width = 2200;
+  const height = 1320;
+  const statement = firstExpressionBlock(brief, "statement");
+  const metrics = expressionBlocks(brief, "metric-card").slice(0, 4);
+  const progress = firstExpressionBlock(brief, "progress-bar");
+  const ranked = firstExpressionBlock(brief, "ranked-bar");
+  const risks = firstExpressionBlock(brief, "risk-list");
+  const actions = firstExpressionBlock(brief, "action-list");
+  const evidence = firstExpressionBlock(brief, "evidence-list");
+  const metricGap = 24;
+  const metricW = Math.floor((2016 - metricGap * (metrics.length - 1)) / metrics.length);
+  return wrap(width, height, c, `
+${renderExpressionTitle(brief, c, width)}
+${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
+${metrics.map((block, index) => renderMetricTile(92 + index * (metricW + metricGap), 412, metricW, 190, c, block)).join("\n")}
+${renderProgressBlock(92, 652, 640, 292, c, progress)}
+${ranked ? renderRankedBlock(772, 652, 640, 292, c, ranked) : renderListBlock(772, 652, 640, 292, c, evidence, { columns: 1, itemH: 48 })}
+${renderListBlock(1452, 652, 656, 292, c, risks, { columns: 2, itemH: 44, emphasis: true })}
+${renderListBlock(92, 990, 2016, 220, c, actions, { columns: 4, itemH: 54 })}
+${brief.footer ? text(92, 1264, 22, c.secondary, [brief.footer]) : ""}`);
+}
+
+function renderNarrativeExpression(brief, c) {
+  const width = 2200;
+  const height = 1320;
+  const statement = firstExpressionBlock(brief, "statement");
+  const chain = firstExpressionBlock(brief, "narrative-chain");
+  const evidence = firstExpressionBlock(brief, "evidence-list");
+  const risks = firstExpressionBlock(brief, "risk-list");
+  const actions = firstExpressionBlock(brief, "action-list");
+  return wrap(width, height, c, `
+${renderExpressionTitle(brief, c, width)}
+${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
+${renderNarrativeChainBlock(92, 416, 2016, 350, c, chain)}
+${renderListBlock(92, 830, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
+${risks ? renderListBlock(776, 830, 650, 300, c, risks, { columns: 1, itemH: 54, emphasis: true }) : ""}
+${renderListBlock(1460, 830, 648, 300, c, actions, { columns: 1, itemH: 54 })}
+${brief.footer ? text(92, 1216, 22, c.secondary, [brief.footer]) : ""}`);
+}
+
+function renderModularExpression(brief, c) {
+  const width = 2200;
+  const height = 1320;
+  const statement = firstExpressionBlock(brief, "statement");
+  const metrics = expressionBlocks(brief, "metric-card").slice(0, 3);
+  const progress = firstExpressionBlock(brief, "progress-bar");
+  const ranked = firstExpressionBlock(brief, "ranked-bar");
+  const evidence = firstExpressionBlock(brief, "evidence-list");
+  const risks = firstExpressionBlock(brief, "risk-list");
+  const actions = firstExpressionBlock(brief, "action-list");
+  const roadmap = firstExpressionBlock(brief, "mini-roadmap");
+  const metricAreaX = 1460;
+  const metricAreaW = 648;
+  const metricGap = 22;
+  const metricW = metrics.length > 0 ? Math.floor((metricAreaW - metricGap * (metrics.length - 1)) / metrics.length) : 0;
+  return wrap(width, height, c, `
+${renderExpressionTitle(brief, c, width)}
+${renderExpressionStatement(92, 206, 1320, 180, c, statement)}
+${metrics.map((block, index) => renderMetricTile(metricAreaX + index * (metricW + metricGap), 206, metricW, 180, c, block)).join("\n")}
+${renderNarrativeChainBlock(92, 446, 920, 330, c, roadmap || progress)}
+${progress ? renderProgressBlock(1052, 446, 540, 330, c, progress) : renderListBlock(1052, 446, 540, 330, c, evidence, { columns: 1, itemH: 54 })}
+${risks ? renderListBlock(1632, 446, 476, 330, c, risks, { columns: 1, itemH: 54, emphasis: true }) : ""}
+${ranked ? renderRankedBlock(92, 836, 650, 300, c, ranked) : renderListBlock(92, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
+${evidence ? renderListBlock(776, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 }) : ""}
+${actions ? renderListBlock(1460, 836, 648, 300, c, actions, { columns: 1, itemH: 54 }) : ""}
+${brief.footer ? text(92, 1216, 22, c.secondary, [brief.footer]) : ""}`);
+}
+
+function renderExpressionCanvas(brief, c) {
+  if (brief.expressionMode === "dashboard-onepage") return renderDashboardExpression(brief, c);
+  if (brief.expressionMode === "narrative-map") return renderNarrativeExpression(brief, c);
+  if (brief.expressionMode === "modular-canvas") return renderModularExpression(brief, c);
+  throw new Error(`unsupported expressionMode: ${brief.expressionMode}`);
+}
+
 function render(brief) {
   const c = styles[brief.style];
   if (!c) throw new Error(`unsupported style: ${brief.style}`);
+  if (brief.layout === "expression-canvas") return renderExpressionCanvas(brief, c);
   if (brief.layout === "large-canvas") return renderLargeCanvas(brief, c);
   if (brief.layout === "conclusion-first") return renderConclusionFirst(brief, c);
   if (brief.layout === "problem-breakdown") return renderProblemBreakdown(brief, c);

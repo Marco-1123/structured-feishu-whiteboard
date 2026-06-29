@@ -1,0 +1,94 @@
+{
+  "layout": "expression-canvas",
+  "style": "apple-studio",
+  "title": "复杂材料模块化一览",
+  "subtitle": "按信息关系自动组合，而不是把所有内容压成并列卡片。",
+  "summaryLabel": "核心判断",
+  "summary": "复杂材料需要先拆出判断、指标、路径、证据和风险，再组合成一张可读 onepage。",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "主结论",
+      "body": ["价值不是更多模板，而是表达关系。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "表达丰富度",
+      "value": "+3类",
+      "label": "提升",
+      "note": "指标、叙事、模块",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "稳定边界",
+      "value": "9块",
+      "label": "上限",
+      "note": "超过即回退筛选",
+      "status": "neutral"
+    },
+    {
+      "type": "mini-roadmap",
+      "title": "升级路径",
+      "note": "先可控，再丰富",
+      "items": [
+        {"label": "识别关系", "note": "判断材料类型"},
+        {"label": "选择模式", "note": "A/B/C 三选一"},
+        {"label": "组合模块", "note": "生成一张 onepage"}
+      ]
+    },
+    {
+      "type": "progress-bar",
+      "title": "能力成熟度",
+      "note": "当前先覆盖高频场景",
+      "items": [
+        {"label": "结构理解", "value": "86%", "status": "good"},
+        {"label": "表达多样性", "value": "64%", "status": "neutral"},
+        {"label": "产品交互", "value": "28%", "status": "risk"}
+      ]
+    },
+    {
+      "type": "ranked-bar",
+      "title": "表达优先级",
+      "note": "先补最常见的信息关系",
+      "items": [
+        {"label": "指标状态", "value": "88%", "status": "good"},
+        {"label": "路径行动", "value": "74%", "status": "good"},
+        {"label": "风险证据", "value": "66%", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "为什么需要",
+      "note": "解决用几次就疲劳的问题",
+      "items": [
+        {"label": "固定卡片太单一"},
+        {"label": "长文关系更复杂"},
+        {"label": "数据表达需要增强"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "控制风险",
+      "note": "灵活度不能变成发散",
+      "items": [
+        {"label": "模块过多", "status": "risk"},
+        {"label": "关系误判", "status": "risk"},
+        {"label": "信息堆叠", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "近期动作",
+      "note": "先用样例回归验证",
+      "items": [
+        {"label": "补充三类样例"},
+        {"label": "跑布局检查"},
+        {"label": "飞书侧预览"},
+        {"label": "再决定是否推广"}
+      ]
+    }
+  ],
+  "footer": "适合复杂长文、混合汇报和需要更强一览图表达的材料。"
+}

@@ -1,0 +1,59 @@
+{
+  "layout": "expression-canvas",
+  "style": "professional-blue",
+  "title": "从问题到行动的论证地图",
+  "subtitle": "把判断、原因、证据和行动放在同一条叙事线上。",
+  "summaryLabel": "核心判断",
+  "summary": "当前不是缺少任务，而是缺少能把问题、证据和行动串起来的闭环机制。",
+  "expressionMode": "narrative-map",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "主判断",
+      "body": ["不是增加执行项，而是形成可追踪闭环。"]
+    },
+    {
+      "type": "narrative-chain",
+      "title": "论证路径",
+      "note": "从现象到落地动作",
+      "items": [
+        {"label": "问题", "note": "目标分散，复盘结果无法横向比较。"},
+        {"label": "归因", "note": "指标口径、责任边界和工具入口不统一。"},
+        {"label": "证据", "note": "同类问题重复出现，行动依赖个人经验。"},
+        {"label": "行动", "note": "建立统一口径、风险分层和复盘模板。"}
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "关键证据",
+      "note": "只保留能支撑判断的信息",
+      "items": [
+        {"label": "问题重复出现", "note": "复盘缺少横向对比"},
+        {"label": "路径无法复用", "note": "依赖人工经验"},
+        {"label": "指标难以对齐", "note": "团队各自解释"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "主要风险",
+      "note": "不处理会继续放大协作成本",
+      "items": [
+        {"label": "行动变成清单", "status": "risk"},
+        {"label": "责任继续漂移", "status": "risk"},
+        {"label": "复盘不能沉淀", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "推荐动作",
+      "note": "先统一，再自动化",
+      "items": [
+        {"label": "定义核心指标"},
+        {"label": "明确风险边界"},
+        {"label": "建立复盘模板"},
+        {"label": "把动作写入流程"}
+      ]
+    }
+  ],
+  "footer": "适合诊断、观点表达、决策说明和咨询式汇报。"
+}
