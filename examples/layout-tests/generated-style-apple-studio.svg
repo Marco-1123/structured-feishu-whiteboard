@@ -10,7 +10,7 @@
 <text x="122" y="174" font-size="24" fill="#6E6E73" font-weight="400"><tspan x="122" dy="0">在沉淀能力、可读性和协作成本之间取舍。</tspan></text>
 <rect x="120" y="232" width="1440" height="188" rx="28" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="148" y="286" font-size="18" fill="#007AFF" font-weight="700"><tspan x="148" dy="0">推荐</tspan></text>
-<text x="148" y="326" font-size="28" fill="#1D1D1F" font-weight="700"><tspan x="148" dy="0">项目级 LLM Wiki 最适合作为长期知识层，</tspan><tspan x="148" dy="35">执行规则进入 Skill，展示材料进入飞书文档。</tspan></text>
+<text x="148" y="326" font-size="28" fill="#1D1D1F" font-weight="700"><tspan x="148" dy="0">项目级 LLM Wiki 最适合作为长期知识层，执行规则进入 Skill，展示材料进入飞书文档。</tspan></text>
 <rect x="120" y="442" width="1440" height="480" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <rect x="138" y="460" width="1404" height="56" rx="18" fill="#F2F2F7" stroke="#F2F2F7" stroke-width="1"/>
 <text x="154" y="496" font-size="20" fill="#6E6E73" font-weight="700"><tspan x="154" dy="0">对象</tspan></text>

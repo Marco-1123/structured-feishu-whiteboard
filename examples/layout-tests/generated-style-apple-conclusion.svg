@@ -11,7 +11,7 @@
 <line x1="120" y1="218" x2="1560" y2="218" stroke="#D2D2D7" stroke-width="1.5"/>
 <rect x="120" y="248" width="1440" height="158" rx="28" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="152" y="300" font-size="18" fill="#007AFF" font-weight="700"><tspan x="152" dy="0">核心判断</tspan></text>
-<text x="152" y="348" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">项目级 LLM Wiki 适合作为长期知识层，执行规则进入</tspan><tspan x="152" dy="38">Skill，展示材料进入飞书文档。</tspan></text>
+<text x="152" y="348" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="152" dy="0">项目级 LLM Wiki 适合作为长期知识层，执行规则进入 Skill，展示材料进入飞书文档。</tspan></text>
 <rect x="120" y="456" width="457" height="296" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="150" y="518" font-size="27" fill="#1D1D1F" font-weight="700"><tspan x="150" dy="0">长期记忆</tspan></text>
 <line x1="150" y1="548" x2="547" y2="548" stroke="#D2D2D7" stroke-width="1.5"/>

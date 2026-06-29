@@ -12,8 +12,8 @@
 <text x="112" y="181" font-size="26" fill="#5F6B7A" font-weight="400"><tspan x="112" dy="0">把一次性生成变成可检查、可回归、可持续改进的链路。</tspan></text>
 <rect x="72" y="246" width="1736" height="170" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="72" y="246" width="12" height="170" rx="6" fill="#111827"/>
-<text x="112" y="286" font-size="19" fill="#5E6AD2" font-weight="700"><tspan x="112" dy="0">流程目标</tspan></text>
-<text x="112" y="345" font-size="32" fill="#111827" font-weight="700"><tspan x="112" dy="0">用 brief、renderer、check</tspan><tspan x="112" dy="42">和飞书预览四层约束，把不稳定输出挡在发布前。</tspan></text>
+<text x="112" y="308" font-size="19" fill="#5E6AD2" font-weight="700"><tspan x="112" dy="0">流程目标</tspan></text>
+<text x="112" y="367" font-size="32" fill="#111827" font-weight="700"><tspan x="112" dy="0">用 brief、renderer、check 和飞书预览四层约束，把不稳定输出挡在发布前。</tspan></text>
 <rect x="72" y="452" width="416" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="72" y="452" width="416" height="68" rx="14" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="2"/>
 <text x="96" y="496" font-size="24" fill="#111827" font-weight="700"><tspan x="96" dy="0">Brief</tspan></text>

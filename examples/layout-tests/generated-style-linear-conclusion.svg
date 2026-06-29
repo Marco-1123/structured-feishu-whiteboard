@@ -12,8 +12,8 @@
 <text x="112" y="181" font-size="26" fill="#5F6B7A" font-weight="400"><tspan x="112" dy="0">把个人效率工具升级为可协作、可治理、可复用的团队能力。</tspan></text>
 <rect x="72" y="250" width="1536" height="170" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="72" y="250" width="12" height="170" rx="6" fill="#111827"/>
-<text x="112" y="290" font-size="19" fill="#5E6AD2" font-weight="700"><tspan x="112" dy="0">系统判断</tspan></text>
-<text x="112" y="349" font-size="32" fill="#111827" font-weight="700"><tspan x="112" dy="0">先统一身份和上下文，再沉淀高频 Skill，最后补齐权限、</tspan><tspan x="112" dy="42">审计和复盘机制。</tspan></text>
+<text x="112" y="312" font-size="19" fill="#5E6AD2" font-weight="700"><tspan x="112" dy="0">系统判断</tspan></text>
+<text x="112" y="371" font-size="32" fill="#111827" font-weight="700"><tspan x="112" dy="0">先统一身份和上下文，再沉淀高频 Skill，最后补齐权限、审计和复盘机制。</tspan></text>
 <rect x="72" y="460" width="493" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="108" y="536" font-size="28" fill="#111827" font-weight="700"><tspan x="108" dy="0">身份边界</tspan></text>
 <text x="108" y="592" font-size="21" fill="#5F6B7A" font-weight="400"><tspan x="108" dy="0">区分个人、团队、项目和 Bot 身份</tspan><tspan x="108" dy="32">明确资料权限和共享范围</tspan></text>

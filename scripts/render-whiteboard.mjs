@@ -168,6 +168,50 @@ function splitByLength(value, maxChars, maxLines) {
   return lines;
 }
 
+function estimateTextWidth(value, fontSize) {
+  let width = 0;
+  for (const char of String(value ?? "")) {
+    if (/[\u4E00-\u9FFF]/.test(char)) width += fontSize * 0.92;
+    else if (/[，。；、！？“”《》（）]/.test(char)) width += fontSize * 0.58;
+    else if (/\s/.test(char)) width += fontSize * 0.34;
+    else width += fontSize * 0.56;
+  }
+  return width;
+}
+
+function splitByWidth(value, maxWidth, fontSize, maxLines) {
+  const clean = String(value ?? "").trim();
+  if (!clean) return [];
+  const lines = [];
+  let rest = clean;
+  while (rest.length > 0 && lines.length < maxLines) {
+    if (estimateTextWidth(rest, fontSize) <= maxWidth) {
+      lines.push(rest);
+      rest = "";
+      break;
+    }
+    let best = -1;
+    for (let i = 1; i <= rest.length; i += 1) {
+      if (estimateTextWidth(rest.slice(0, i), fontSize) > maxWidth) break;
+      best = i;
+    }
+    if (best <= 0) best = Math.max(1, Math.floor(maxWidth / fontSize));
+    const slice = rest.slice(0, best + 1);
+    let cut = -1;
+    for (const pattern of [/\s(?!.*\s)/, /[，。；、,.]([^，。；、,.]*)$/]) {
+      const match = slice.match(pattern);
+      if (match?.index && match.index >= Math.floor(best * 0.55)) {
+        cut = pattern.source.startsWith("\\s") ? match.index : match.index + 1;
+        break;
+      }
+    }
+    if (cut <= 0) cut = best;
+    lines.push(rest.slice(0, cut).trim());
+    rest = rest.slice(cut).trim();
+  }
+  return lines;
+}
+
 function text(x, y, size, fill, lines, weight = "400", gap = Math.round(size * 1.45)) {
   const body = lines
     .filter((line) => String(line).trim().length > 0)
@@ -278,7 +322,9 @@ ${subtitle}`;
 
 function renderSummary(brief, c, y, width) {
   const h = 170;
-  const summaryLines = splitByLength(brief.summary, 34, 2);
+  const summarySize = c.grammar === "apple" ? 32 : c.grammar === "linear" ? 32 : 34;
+  const summaryMaxWidth = c.grammar === "apple" ? width - 256 : width - 184;
+  const summaryLines = splitByWidth(brief.summary, summaryMaxWidth, summarySize, 2);
   const summaryHeight = summaryLines.length > 0 ? 40 + (summaryLines.length - 1) * 44 : 0;
   const [labelY, summaryY] = centerTextGroup(y, h, [
     { height: 24, baselineOffset: 19, gapBefore: 0 },
@@ -354,7 +400,7 @@ function renderAppleStatement(brief, width, y = 248) {
   const c = styles["apple-studio"];
   return `<rect x="120" y="${y}" width="${width - 240}" height="158" rx="28" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(152, y + 52, 18, c.accent, [brief.summaryLabel || "核心结论"], "700")}
-${text(152, y + 100, 30, c.ink, splitByLength(brief.summary, 38, 2), "700", 38)}`;
+${text(152, y + 100, 30, c.ink, splitByWidth(brief.summary, width - 304, 30, 2), "700", 38)}`;
 }
 
 function renderAppleFooter(brief, width, y) {
@@ -632,7 +678,7 @@ function renderLargeCanvas(brief, c) {
   const cardGap = 28;
   const cardW = Math.floor((innerW - cardGap * 3) / 4);
   const cardH = 250;
-  const summaryLines = splitByLength(brief.summary, 56, 2);
+  const summaryLines = splitByWidth(brief.summary, innerW - 76, 31, 2);
   let body = `
 ${text(margin, 122, 52, c.ink, [brief.title], "700")}
 ${brief.subtitle ? text(margin, 164, 24, c.secondary, [brief.subtitle]) : ""}
@@ -815,7 +861,7 @@ ${text(120, 126, 58, c.ink, [brief.title], "700")}
 ${brief.subtitle ? text(122, 174, 24, c.secondary, [brief.subtitle]) : ""}
 <rect x="120" y="232" width="${tableW}" height="188" rx="28" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(148, 286, 18, c.accent, [brief.summaryLabel || "推荐"], "700")}
-${text(148, 326, 28, c.ink, splitByLength(brief.summary, 24, 3), "700", 35)}
+${text(148, 326, 28, c.ink, splitByWidth(brief.summary, tableW - 56, 28, 3), "700", 35)}
 ${rect(x, y, tableW, tableH, c, { rx: 24, fill: c.surface, stroke: c.border, sw: 1.5 })}
 <rect x="${x + 18}" y="${y + 18}" width="${tableW - 36}" height="${headerH - 18}" rx="18" fill="${c.muted}" stroke="${c.muted}" stroke-width="1"/>
 ${text(x + 34, y + 54, 20, c.secondary, ["对象"], "700")}`;
@@ -860,7 +906,7 @@ ${brief.subtitle ? text(120, 112, 21, c.secondary, [brief.subtitle]) : ""}
 ${text(width - 294, 71, 18, c.accent, [brief.summaryLabel || "Decision"], "700")}
 ${rect(92, 168, tableW, 160, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1.5 })}
 ${text(124, 222, 20, c.accent, ["推荐结论"], "700")}
-${text(124, 278, 34, c.ink, splitByLength(brief.summary, 44, 2), "700", 42)}
+${text(124, 278, 34, c.ink, splitByWidth(brief.summary, tableW - 64, 34, 2), "700", 42)}
 ${rect(x, y, tableW, tableH, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1.5 })}
 <rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.5"/>
 ${text(x + 28, y + 45, 21, c.ink, ["对象/维度"], "700")}`;
@@ -906,7 +952,7 @@ ${brief.subtitle ? text(88, 164, 22, c.secondary, [brief.subtitle]) : ""}
 <rect x="88" y="214" width="${tableW}" height="116" fill="${c.surface}" stroke="${c.border}" stroke-width="1"/>
 <rect x="88" y="214" width="12" height="116" fill="${c.accent}"/>
 ${text(124, 252, 18, c.accent, [brief.summaryLabel || "结论"], "700")}
-${text(124, 296, 30, c.ink, splitByLength(brief.summary, 48, 2), "700", 38)}
+${text(124, 296, 30, c.ink, splitByWidth(brief.summary, tableW - 72, 30, 2), "700", 38)}
 <rect x="${x}" y="${y}" width="${tableW}" height="${tableH}" fill="${c.surface}" stroke="${c.border}" stroke-width="1"/>
 <rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" fill="${c.muted}" stroke="${c.ink}" stroke-width="1.5"/>
 <rect x="${x}" y="${y}" width="${tableW}" height="6" fill="${c.ink}"/>
@@ -953,7 +999,7 @@ ${text(122, 174, 50, c.ink, [brief.title], "700")}
 ${brief.subtitle ? text(124, 218, 22, c.secondary, [brief.subtitle]) : ""}
 <line x1="122" y1="98" x2="250" y2="98" stroke="${c.accent}" stroke-width="4"/>
 <rect x="104" y="316" width="${tableW}" height="86" rx="16" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>
-${text(132, 369, 28, c.ink, splitByLength(brief.summary, 58, 1), "700")}
+${text(132, 369, 28, c.ink, splitByWidth(brief.summary, tableW - 56, 28, 1), "700")}
 ${rect(x, y, tableW, tableH, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
 <rect x="${x}" y="${y}" width="${tableW}" height="${headerH}" rx="16" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
 ${text(x + 26, y + 43, 20, c.secondary, ["对象/维度"], "700")}`;
