@@ -1,6 +1,6 @@
 # Deterministic Rendering
 
-当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成受控画板产物。常规报告模板生成 SVG；V3.2 试点表达生成飞书白板 DSL。不要让 Agent 自由手写整张 SVG 或 DSL。
+当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成受控画板产物。常规报告模板生成 SVG；V3.2 受控表达版式生成飞书白板 DSL。不要让 Agent 自由手写整张 SVG 或 DSL。
 
 ## 适用场景
 
@@ -27,7 +27,7 @@
 
 - `layout` 只能是脚本支持的版式。
 - 当前 SVG 生产输出允许 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`。
-- V3.2 DSL 试点输出允许 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`。
+- V3.2 DSL 输出允许 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars`、`variance-bridge`。
 - 长文默认使用 `layout: "large-canvas"`；它表示统一 onepage 大画布，不是纵向长图或多页分屏。顶部总览不是完整输出。
 - `modules` 只能有 3 到 5 个。
 - 每个模块正文最多 3 条短句。
@@ -51,6 +51,9 @@
 - `funnel`，`renderTarget: "dsl"`
 - `pyramid`，`renderTarget: "dsl"`
 - `metric-dashboard`，`renderTarget: "dsl"`
+- `progress-wall`，`renderTarget: "dsl"`
+- `ranked-bars`，`renderTarget: "dsl"`
+- `variance-bridge`，`renderTarget: "dsl"`
 
 路线图、流程、价值链、矩阵、时间线、漏斗、金字塔和指标看板现在都有脚本化模板。交付时必须使用这些模板，不要因为 `layout-library.md` 里描述了这些版式，就自由手写 SVG 或 DSL。
 

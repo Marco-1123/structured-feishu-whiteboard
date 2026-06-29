@@ -76,7 +76,7 @@ node scripts/check-svg-layout.mjs diagram.svg
 grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradient|<radialGradient|<clipPath|<mask' diagram.svg
 ```
 
-如果是 V3.2 DSL 试点产物，运行：
+如果是 V3.2 DSL 产物，运行：
 
 ```bash
 npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.json -o diagram.png

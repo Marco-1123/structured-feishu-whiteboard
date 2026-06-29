@@ -19,24 +19,21 @@ The chosen direction is to add a small set of schema-backed expression primitive
 - generated preview,
 - whiteboard check.
 
-## First Batch
+## Production Layouts
 
-V3.2 introduces four pilot layouts:
+V3.2 productionizes seven controlled expression layouts:
 
 - `milestone-timeline`: for version iteration, event progress, and milestone recap.
 - `funnel`: for filtering, conversion, narrowing, and prioritization.
 - `pyramid`: for hierarchy, priority, capability base, and strategy-to-execution support.
 - `metric-dashboard`: for metric cards, progress bars, status review, and lightweight data analysis.
-
-## Data Expression Expansion
-
-After reviewing the first batch, the user confirmed that V3.2 also needs more data-analysis expression, but only if it remains stable and deterministic.
-
-The second V3.2 batch adds:
-
 - `progress-wall`: for OKR/project completion and risk convergence, using aligned progress bars.
 - `ranked-bars`: for Top-N, contribution, issue distribution, and resource share.
 - `variance-bridge`: for start/end delta explanation, such as cost, headcount, revenue, or efficiency changes.
+
+## Data Expression Expansion
+
+After reviewing the first batch, the user confirmed that V3.2 also needs more data-analysis expression, but only if it remains stable and deterministic. This led to `progress-wall`, `ranked-bars`, and `variance-bridge` becoming part of the stable V3.2 set.
 
 `metric-dashboard` remains the general status-review layout. It should not swallow all data cases. Use `progress-wall` when the main story is completion, `ranked-bars` when the main story is relative importance, and `variance-bridge` when the main story is change attribution. Variance bridges must encode relative magnitude through a separate bridge/bar layer; stable text cards alone are not enough.
 
@@ -73,7 +70,7 @@ The visual style remains restrained and work-oriented. V3.2 should not introduce
 
 ## Relationship To V4
 
-V3.2 is the pilot for multi-rendering.
+V3.2 is the first production release for controlled multi-rendering.
 
 V4 should be considered only after the DSL primitives prove stable enough in real Feishu documents. V4 can then productize multi-rendering as an engine-level capability instead of a few layout-specific scripts.
 

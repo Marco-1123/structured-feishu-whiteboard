@@ -56,3 +56,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Fixed V3.2 DSL preview issues reported from Feishu-side review: title/subtitle spacing, timeline end-card crowding, and the floating funnel explanation card.
 - Added `metric-dashboard` as the fourth controlled DSL primitive for metric cards, progress bars, project status, and lightweight data analysis.
 - Updated schema, validator, renderer, documentation, and regression fixture coverage for the new metric dashboard layout.
+
+## [2026-06-30] release | V3.2 stable
+
+- Promoted V3.2 controlled expressiveness from branch work to the stable `main` release.
+- Treated the DSL expression set as production supported: timeline, funnel, pyramid, metric dashboard, progress wall, ranked bars, and variance bridge.
+- Kept the core release rule: richer visual expression must remain schema-backed, renderer-backed, fixture-backed, and checked before Feishu delivery.

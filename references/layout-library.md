@@ -155,7 +155,7 @@
 - 顶部：主题和主结论。
 - 中部：3 到 6 个时间点或版本节点。
 - 底部：下一步判断或收口结论。
-- 试点 layout：`milestone-timeline`，必须使用 `renderTarget: "dsl"`。
+- layout：`milestone-timeline`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 
@@ -181,7 +181,7 @@
 - 左侧或中部：3 到 6 个漏斗阶段。
 - 每阶段：阶段名、数量/比例/占位指标、短说明。
 - 右侧：每阶段的解释或判断。
-- 试点 layout：`funnel`，必须使用 `renderTarget: "dsl"`。
+- layout：`funnel`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 
@@ -205,7 +205,7 @@
 
 - 中部：3 到 6 层金字塔。
 - 右侧或底部：解释为什么这是层级关系。
-- 试点 layout：`pyramid`，必须使用 `renderTarget: "dsl"`。
+- layout：`pyramid`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 
@@ -231,7 +231,7 @@
 - 中部：3 到 5 个指标卡。
 - 下部：2 到 4 条进度条。
 - 右侧或下方：数据解读。
-- 试点 layout：`metric-dashboard`，必须使用 `renderTarget: "dsl"`。
+- layout：`metric-dashboard`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 
@@ -257,7 +257,7 @@
 - 顶部：主题和一句进度判断。
 - 中部：2 到 4 条横向进度条。
 - 每条进度：目标名、当前比例、状态判断和短说明。
-- 试点 layout：`progress-wall`，必须使用 `renderTarget: "dsl"`。
+- layout：`progress-wall`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 
@@ -283,7 +283,7 @@
 - 顶部：主题和一句排序判断。
 - 中部：3 到 6 条横向排名条。
 - 每条：序号、对象名、占比/数值、短解释。
-- 试点 layout：`ranked-bars`，必须使用 `renderTarget: "dsl"`。
+- layout：`ranked-bars`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 
@@ -309,7 +309,7 @@
 - 顶部：主题和一句变化判断。
 - 中部：1 个起点、2 到 4 个增减项、1 个终点。
 - 每步：标签、数值、方向类型和短说明。
-- 试点 layout：`variance-bridge`，必须使用 `renderTarget: "dsl"`。
+- layout：`variance-bridge`，必须使用 `renderTarget: "dsl"`。
 
 排版规则：
 

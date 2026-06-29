@@ -37,7 +37,7 @@ These styles should feel like work surfaces, not posters.
 
 V3.1 extends this direction with style-specific grammar experiments. The current production candidates are documented in `wiki/topics/v31-style-differentiation-research.md`.
 
-V3.2 extends the same direction from style grammar into controlled expression grammar. The current pilot primitives are documented in `wiki/topics/v32-controlled-expressiveness.md`.
+V3.2 extends the same direction from style grammar into controlled expression grammar. The current production primitives are documented in `wiki/topics/v32-controlled-expressiveness.md`.
 
 ## Guardrail
 
