@@ -11,9 +11,8 @@ const styles = {
     accent: "#2563EB",
     soft: "#DBEAFE",
     success: "#0F766E",
-    exprGood: "#34796D",
-    exprNeutral: "#365F9D",
-    exprRisk: "#9A5A3F",
+    exprSeries: "#2563EB",
+    exprRisk: "#8A5A44",
     exprTrack: "#E6EDF5",
   },
   "dark-emphasis": {
@@ -26,9 +25,8 @@ const styles = {
     accent: "#38BDF8",
     soft: "#22314A",
     success: "#A3E635",
-    exprGood: "#8FBF66",
-    exprNeutral: "#75A8D8",
-    exprRisk: "#D08A56",
+    exprSeries: "#38BDF8",
+    exprRisk: "#C98B60",
     exprTrack: "#2B3A55",
   },
   "warm-editorial": {
@@ -41,9 +39,8 @@ const styles = {
     accent: "#B45309",
     soft: "#F7D9B4",
     success: "#6B7D3A",
-    exprGood: "#687A4A",
-    exprNeutral: "#8C6848",
-    exprRisk: "#9A5E41",
+    exprSeries: "#9A6A43",
+    exprRisk: "#8A5B43",
     exprTrack: "#E3D8CA",
   },
   "feishu-neutral": {
@@ -56,9 +53,8 @@ const styles = {
     accent: "#3370FF",
     soft: "#EAF0FF",
     success: "#2B8F77",
-    exprGood: "#2B7A67",
-    exprNeutral: "#2F62B3",
-    exprRisk: "#9B5D36",
+    exprSeries: "#3370FF",
+    exprRisk: "#8A5A44",
     exprTrack: "#E7ECF3",
   },
   "feishu-status": {
@@ -72,9 +68,8 @@ const styles = {
     soft: "#E8F3FF",
     success: "#2B8F77",
     warning: "#C98100",
-    exprGood: "#2B7A67",
-    exprNeutral: "#2F62B3",
-    exprRisk: "#9B5D36",
+    exprSeries: "#3370FF",
+    exprRisk: "#8A5A44",
     exprTrack: "#E7ECF3",
   },
   "feishu-decision-dark": {
@@ -87,9 +82,8 @@ const styles = {
     accent: "#1F3A5F",
     soft: "#DCE8F6",
     success: "#2B8F77",
-    exprGood: "#2B7A67",
-    exprNeutral: "#385A7D",
-    exprRisk: "#8F5B42",
+    exprSeries: "#385A7D",
+    exprRisk: "#7A5B4B",
     exprTrack: "#E3E9F1",
   },
   "apple-studio": {
@@ -103,9 +97,8 @@ const styles = {
     accent: "#007AFF",
     soft: "#E8F2FF",
     success: "#248A3D",
-    exprGood: "#3F7668",
-    exprNeutral: "#2F6FB2",
-    exprRisk: "#8A6254",
+    exprSeries: "#007AFF",
+    exprRisk: "#7D6258",
     exprTrack: "#E7E7EC",
     exprValue: "#1D1D1F",
   },
@@ -121,9 +114,8 @@ const styles = {
     soft: "#E5F1FB",
     success: "#107C10",
     warning: "#C19C00",
-    exprGood: "#2F755F",
-    exprNeutral: "#2E6C9F",
-    exprRisk: "#8E613B",
+    exprSeries: "#0F6CBD",
+    exprRisk: "#7A6041",
     exprTrack: "#E6E6E6",
   },
   "carbon-data": {
@@ -137,9 +129,8 @@ const styles = {
     accent: "#0F62FE",
     soft: "#D0E2FF",
     success: "#198038",
-    exprGood: "#2A6F5E",
-    exprNeutral: "#335C9C",
-    exprRisk: "#8A5B3F",
+    exprSeries: "#0F62FE",
+    exprRisk: "#7A5A46",
     exprTrack: "#E8E8E8",
   },
   "linear-command": {
@@ -156,9 +147,8 @@ const styles = {
     dark: "#111827",
     darkMuted: "#1F2937",
     darkText: "#F9FAFB",
-    exprGood: "#3B7A6A",
-    exprNeutral: "#5E6AD2",
-    exprRisk: "#946247",
+    exprSeries: "#5E6AD2",
+    exprRisk: "#7C6254",
     exprTrack: "#E7EAF0",
     exprValue: "#111827",
   },
@@ -333,12 +323,15 @@ function parsePercent(value, fallback = 68) {
 
 function statusTone(status, c) {
   if (status === "risk") return c.exprRisk || "#9A5A3F";
-  if (status === "good") return c.exprGood || c.success;
-  return c.exprNeutral || c.accent;
+  return c.exprSeries || c.accent;
 }
 
 function statusTrack(c) {
   return c.exprTrack || c.muted;
+}
+
+function seriesTone(c) {
+  return c.exprSeries || c.accent;
 }
 
 function centerTextGroup(containerY, containerH, items) {
@@ -1123,10 +1116,11 @@ function renderProgressBlock(x, y, w, h, c, block) {
     const pct = parsePercent(item.value, 60);
     const trackX = x + 170;
     const trackW = w - 230;
+    const barTone = seriesTone(c);
     body += `
 ${text(x + 28, rowY + 25, 18, c.ink, [item.label], "700")}
 <rect x="${trackX}" y="${rowY + 10}" width="${trackW}" height="18" rx="9" fill="${statusTrack(c)}" stroke="${c.border}" stroke-width="1"/>
-<rect x="${trackX}" y="${rowY + 10}" width="${Math.round(trackW * pct / 100)}" height="18" rx="9" fill="${statusTone(item.status, c)}" stroke="${statusTone(item.status, c)}" stroke-width="1"/>
+<rect x="${trackX}" y="${rowY + 10}" width="${Math.round(trackW * pct / 100)}" height="18" rx="9" fill="${barTone}" stroke="${barTone}" stroke-width="1"/>
 ${text(x + w - 50, rowY + 27, 17, c.secondary, [item.value], "700")}`;
   });
   return body;
@@ -1141,10 +1135,11 @@ function renderRankedBlock(x, y, w, h, c, block) {
     const pct = parsePercent(item.value, 54 + index * 8);
     const barX = x + 210;
     const barW = w - 280;
+    const barTone = seriesTone(c);
     body += `
 ${text(x + 28, rowY + 24, 17, c.ink, [item.label], "700")}
 <rect x="${barX}" y="${rowY + 8}" width="${barW}" height="18" rx="9" fill="${statusTrack(c)}" stroke="${c.border}" stroke-width="1"/>
-<rect x="${barX}" y="${rowY + 8}" width="${Math.round(barW * pct / 100)}" height="18" rx="9" fill="${statusTone(item.status, c)}" stroke="${statusTone(item.status, c)}" stroke-width="1"/>
+<rect x="${barX}" y="${rowY + 8}" width="${Math.round(barW * pct / 100)}" height="18" rx="9" fill="${barTone}" stroke="${barTone}" stroke-width="1"/>
 ${text(x + w - 58, rowY + 25, 16, c.secondary, [item.value], "700")}`;
   });
   return body;
