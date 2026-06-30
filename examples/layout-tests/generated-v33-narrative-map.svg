@@ -58,8 +58,8 @@
 <text x="822" y="1022" font-size="17" fill="#8A5A44" font-weight="700"><tspan x="822" dy="0">责任继续漂移</tspan></text>
 
 <rect x="804" y="1056" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="804" y="1056" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
-<text x="822" y="1085" font-size="17" fill="#2563EB" font-weight="700"><tspan x="822" dy="0">复盘不能沉淀</tspan></text>
+<rect x="804" y="1056" width="6" height="51" rx="3" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="822" y="1085" font-size="17" fill="#8A5A44" font-weight="700"><tspan x="822" dy="0">复盘不能沉淀</tspan></text>
 
 <rect x="1460" y="830" width="648" height="300" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="1488" y="878" font-size="24" fill="#172033" font-weight="700"><tspan x="1488" dy="0">推荐动作</tspan></text>

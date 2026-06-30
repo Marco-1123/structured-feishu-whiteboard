@@ -66,8 +66,8 @@
 <text x="1678" y="641" font-size="17" fill="#7D6258" font-weight="700"><tspan x="1678" dy="0">关系误判</tspan></text>
 
 <rect x="1660" y="678" width="420" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1660" y="678" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1678" y="707" font-size="17" fill="#007AFF" font-weight="700"><tspan x="1678" dy="0">信息堆叠</tspan></text>
+<rect x="1660" y="678" width="6" height="54" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
+<text x="1678" y="707" font-size="17" fill="#7D6258" font-weight="700"><tspan x="1678" dy="0">信息堆叠</tspan></text>
 
 <rect x="92" y="836" width="650" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="120" y="884" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">表达优先级</tspan></text>

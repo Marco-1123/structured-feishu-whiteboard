@@ -1161,7 +1161,7 @@ function renderListBlock(x, y, w, h, c, block, options = {}) {
     const row = Math.floor(index / colCount);
     const ix = x + 28 + col * (itemW + gap);
     const iy = y + 100 + row * (itemH + rowGap);
-    const tone = statusTone(item.status, c);
+    const tone = options.tone || statusTone(item.status, c);
     body += `
 <rect x="${ix}" y="${iy}" width="${itemW}" height="${itemH}" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.2"/>
 <rect x="${ix}" y="${iy}" width="6" height="${itemH}" rx="3" fill="${tone}" stroke="${tone}" stroke-width="1"/>
@@ -1211,7 +1211,7 @@ ${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
 ${metrics.map((block, index) => renderMetricTile(92 + index * (metricW + metricGap), 412, metricW, 190, c, block)).join("\n")}
 ${renderProgressBlock(92, 652, 640, 292, c, progress)}
 ${ranked ? renderRankedBlock(772, 652, 640, 292, c, ranked) : renderListBlock(772, 652, 640, 292, c, evidence, { columns: 1, itemH: 48 })}
-${renderListBlock(1452, 652, 656, 292, c, risks, { columns: 2, itemH: 44, emphasis: true })}
+${renderListBlock(1452, 652, 656, 292, c, risks, { columns: 2, itemH: 44, emphasis: true, tone: c.exprRisk })}
 ${renderListBlock(92, 990, 2016, 220, c, actions, { columns: 4, itemH: 54 })}
 ${brief.footer ? text(92, 1264, 22, c.secondary, [brief.footer]) : ""}`);
 }
@@ -1229,7 +1229,7 @@ ${renderExpressionTitle(brief, c, width)}
 ${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
 ${renderNarrativeChainBlock(92, 416, 2016, 350, c, chain)}
 ${renderListBlock(92, 830, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
-${risks ? renderListBlock(776, 830, 650, 300, c, risks, { columns: 1, itemH: 54, emphasis: true }) : ""}
+${risks ? renderListBlock(776, 830, 650, 300, c, risks, { columns: 1, itemH: 54, emphasis: true, tone: c.exprRisk }) : ""}
 ${renderListBlock(1460, 830, 648, 300, c, actions, { columns: 1, itemH: 54 })}
 ${brief.footer ? text(92, 1216, 22, c.secondary, [brief.footer]) : ""}`);
 }
@@ -1255,7 +1255,7 @@ ${renderExpressionStatement(92, 206, 1320, 180, c, statement)}
 ${metrics.map((block, index) => renderMetricTile(metricAreaX + index * (metricW + metricGap), 206, metricW, 180, c, block)).join("\n")}
 ${renderNarrativeChainBlock(92, 446, 920, 330, c, roadmap || progress)}
 ${progress ? renderProgressBlock(1052, 446, 540, 330, c, progress) : renderListBlock(1052, 446, 540, 330, c, evidence, { columns: 1, itemH: 54 })}
-${risks ? renderListBlock(1632, 446, 476, 330, c, risks, { columns: 1, itemH: 54, emphasis: true }) : ""}
+${risks ? renderListBlock(1632, 446, 476, 330, c, risks, { columns: 1, itemH: 54, emphasis: true, tone: c.exprRisk }) : ""}
 ${ranked ? renderRankedBlock(92, 836, 650, 300, c, ranked) : renderListBlock(92, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
 ${evidence ? renderListBlock(776, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 }) : ""}
 ${actions ? renderListBlock(1460, 836, 648, 300, c, actions, { columns: 1, itemH: 54 }) : ""}
