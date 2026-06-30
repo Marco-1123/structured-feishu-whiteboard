@@ -62,3 +62,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Promoted V3.2 controlled expressiveness from branch work to the stable `main` release.
 - Treated the DSL expression set as production supported: timeline, funnel, pyramid, metric dashboard, progress wall, ranked bars, and variance bridge.
 - Kept the core release rule: richer visual expression must remain schema-backed, renderer-backed, fixture-backed, and checked before Feishu delivery.
+
+## [2026-06-30] query | Future product roadmap
+
+- Added roadmap page: `wiki/topics/future-product-roadmap.md`.
+- Recorded the near-term sequence: V3.4 controlled data-expression components, V3.5 restrained style expansion, V4 multi-renderer stabilization.
+- Adjusted V5 away from a standalone web generation product. V5 is now an introduction and promotion website for the Skill, while the core workflow remains Skill + Agent workbench.
