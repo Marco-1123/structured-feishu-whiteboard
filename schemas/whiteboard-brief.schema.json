@@ -478,7 +478,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["statement", "metric-card", "progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary"]
+            "enum": ["statement", "metric-card", "progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2"]
           },
           "title": {
             "type": "string",

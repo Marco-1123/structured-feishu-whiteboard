@@ -68,3 +68,9 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Added roadmap page: `wiki/topics/future-product-roadmap.md`.
 - Recorded the near-term sequence: V3.4 controlled data-expression components, V3.5 restrained style expansion, V4 multi-renderer stabilization.
 - Adjusted V5 away from a standalone web generation product. V5 is now an introduction and promotion website for the Skill, while the core workflow remains Skill + Agent workbench.
+
+## [2026-06-30] update | V3.4 data expression components
+
+- Started V3.4 as a controlled component expansion on top of `expression-canvas`.
+- Added the first component set direction: status board, trend sparkline, decision matrix, and variance bridge 2.0.
+- Kept the rule that expression variety must come from schema-backed renderer components, not arbitrary freehand SVG.

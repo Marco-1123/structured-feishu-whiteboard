@@ -20,6 +20,9 @@ Use `expression-canvas` when the material contains at least three of these relat
 - status or indicators,
 - progress or completion,
 - contribution or ranking,
+- trend or time-series change,
+- decision matrix or option selection,
+- start/end variance attribution,
 - problem and cause,
 - evidence and risk,
 - action and ownership,
@@ -45,6 +48,8 @@ Optional:
 
 - 1 `ranked-bar`
 - 1 `evidence-list`
+- 1 `status-board`
+- 1 `trend-sparkline`
 
 ### narrative-map
 
@@ -60,6 +65,7 @@ Required blocks:
 Optional:
 
 - 1 `risk-list`
+- 1 `decision-matrix`
 
 ### modular-canvas
 
@@ -68,8 +74,8 @@ Use for mixed long-form materials where no single pattern dominates.
 Required:
 
 - 1 `statement`
-- at least one signal block: `metric-card`, `progress-bar`, `ranked-bar`, or `evidence-list`
-- at least one closure block: `risk-list`, `action-list`, or `mini-roadmap`
+- at least one signal block: `metric-card`, `progress-bar`, `ranked-bar`, `evidence-list`, `status-board`, `trend-sparkline`, or `variance-bridge-v2`
+- at least one closure block: `risk-list`, `action-list`, `status-board`, or `mini-roadmap`
 
 Use this mode when the board should look less like a repeated card grid while still staying deterministic.
 
@@ -85,6 +91,24 @@ Use this mode when the board should look less like a repeated card grid while st
 - `narrative-chain`: 2 to 5 ordered reasoning nodes.
 - `mini-roadmap`: 2 to 5 ordered phases.
 - `comparison-summary`: 2 to 5 trade-off items.
+- `status-board`: 3 to 6 status items. Use for health, ownership, risk state, progress state, and project status. Status-board color is semantic, not decorative.
+- `trend-sparkline`: 3 to 6 ordered values. Use only when the material has a visible time sequence or trend. Do not use it for unrelated parallel indicators.
+- `decision-matrix`: 3 to 4 options with recommendation labels and short rationale. Use for tool choice, route choice, priority choice, or container choice.
+- `variance-bridge-v2`: 4 to 6 items where the first item is the start value, the last item is the end value, and middle items are signed change factors. Use only when the core story is change attribution.
+
+## V3.4 Component Selection
+
+V3.4 expands data-expression components. The core behavior should be "choose components by information relationship", not "decorate a card template".
+
+Use these rules:
+
+- If the input contains status levels, owners, blockers, health state, or risk state, prefer `status-board`.
+- If the input contains values across weeks, months, versions, stages, or before/after points, prefer `trend-sparkline`.
+- If the input compares multiple options against criteria, prefer `decision-matrix`.
+- If the input explains why a number changed from start to end, prefer `variance-bridge-v2`.
+- If none of these relationships are present, keep using V3.3 blocks rather than forcing a data component.
+
+Do not use more than two V3.4 components in one canvas unless the material is explicitly a dashboard. Too many component types can make the board feel like a component demo instead of a coherent report.
 
 ## Fallback
 
@@ -102,6 +126,9 @@ Before writing to Feishu, verify:
 - no text touches a divider line,
 - no block clips its content,
 - no progress or ranked bar exceeds its track,
+- no trend point label collides with the line or frame,
+- no decision matrix row exceeds its frame,
+- no variance bridge bar loses the shared baseline,
 - no arrows are used unless the relationship is directional,
 - no useless blank region dominates the page,
 - the board still has one clear reading order.

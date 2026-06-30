@@ -1,0 +1,58 @@
+{
+  "layout": "expression-canvas",
+  "style": "apple-studio",
+  "title": "知识承载方式选择",
+  "subtitle": "在沉淀能力、可读性和协作成本之间做取舍。",
+  "summaryLabel": "核心结论",
+  "summary": "长期原则进入 Wiki，执行约束进入 Skill，展示材料进入飞书文档。",
+  "expressionMode": "narrative-map",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "主判断",
+      "body": ["知识承载不是只选一个容器，而是按稳定性、执行性和展示性分层。"]
+    },
+    {
+      "type": "narrative-chain",
+      "title": "判断路径",
+      "note": "从问题到选择",
+      "items": [
+        {"label": "问题", "note": "经验沉淀分散，Agent 很难持续复用。"},
+        {"label": "约束", "note": "既要长期可读，也要能进入执行链路。"},
+        {"label": "选择", "note": "把稳定原则、执行规则和展示材料分开放。"},
+        {"label": "落地", "note": "Wiki 记知识，Skill 管执行。"}
+      ]
+    },
+    {
+      "type": "decision-matrix",
+      "title": "决策矩阵",
+      "note": "用明确维度减少主观争论",
+      "items": [
+        {"label": "LLM Wiki", "value": "推荐", "note": "沉淀能力强，可被 Agent 长期读取", "status": "good"},
+        {"label": "飞书文档", "value": "展示", "note": "适合人工阅读和对外介绍", "status": "neutral"},
+        {"label": "聊天记录", "value": "不推荐", "note": "临时性强，复用成本高", "status": "risk"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "主要风险",
+      "note": "避免知识只被写下但不被使用",
+      "items": [
+        {"label": "记录过多但没人读", "status": "risk"},
+        {"label": "规则没有进入 Skill", "status": "risk"},
+        {"label": "展示材料和执行规则混杂", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "推荐动作",
+      "note": "先分层，再维护",
+      "items": [
+        {"label": "Wiki 记录长期判断"},
+        {"label": "Skill 写执行规则"},
+        {"label": "飞书文档做案例展示"}
+      ]
+    }
+  ],
+  "footer": "适合方案选择、工具选型、知识治理和路径判断。"
+}

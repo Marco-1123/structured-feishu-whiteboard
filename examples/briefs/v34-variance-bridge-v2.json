@@ -1,0 +1,93 @@
+{
+  "layout": "expression-canvas",
+  "style": "professional-blue",
+  "title": "H1 组织效率变化归因",
+  "subtitle": "用变化桥解释规模变化，而不是把所有数字并列摆放。",
+  "summaryLabel": "核心判断",
+  "summary": "组织规模下降主要来自业务归口和模式迭代，专项补充抵消了一部分核心能力缺口。",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "主结论",
+      "body": ["规模变化来自归口、迭代和专项补充。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "当前规模",
+      "value": "1623人",
+      "label": "起点",
+      "note": "H1 初始基线",
+      "status": "neutral"
+    },
+    {
+      "type": "metric-card",
+      "title": "目标规模",
+      "value": "1173人",
+      "label": "终点",
+      "note": "H2 推进目标",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "净变化",
+      "value": "-450",
+      "label": "收敛",
+      "note": "归因后规模",
+      "status": "risk"
+    },
+    {
+      "type": "mini-roadmap",
+      "title": "推进路径",
+      "note": "先归口，再迭代，最后补齐关键能力",
+      "items": [
+        {"label": "统一归口", "note": "减少重复建设"},
+        {"label": "模式迭代", "note": "自营转向协作"},
+        {"label": "专项补充", "note": "补足高价值岗位"}
+      ]
+    },
+    {
+      "type": "progress-bar",
+      "title": "配套动作",
+      "note": "变化需要和机制一起落地",
+      "items": [
+        {"label": "口径对齐", "value": "80%"},
+        {"label": "岗位映射", "value": "65%"},
+        {"label": "风险复盘", "value": "52%"}
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "风险状态",
+      "note": "把潜在影响显性化",
+      "items": [
+        {"label": "交付连续性", "value": "关注", "note": "核心岗位衔接", "status": "neutral"},
+        {"label": "经验流失", "value": "待处理", "note": "需要复盘沉淀", "status": "risk"},
+        {"label": "能力补位", "value": "正常", "note": "专项补充覆盖", "status": "good"}
+      ]
+    },
+    {
+      "type": "variance-bridge-v2",
+      "title": "变化桥 2.0",
+      "note": "起点、增减项和终点共用一条基线",
+      "items": [
+        {"label": "当前规模", "value": "1623"},
+        {"label": "业务归口", "value": "-387", "note": "统一入口管理", "status": "risk"},
+        {"label": "模式迭代", "value": "-94", "note": "BPO 与自营优化", "status": "risk"},
+        {"label": "专项补充", "value": "+31", "note": "新增高价值专项", "status": "good"},
+        {"label": "目标规模", "value": "1173"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "后续动作",
+      "note": "让变化可追踪",
+      "items": [
+        {"label": "确认岗位清单"},
+        {"label": "追踪交付风险"},
+        {"label": "沉淀归口规则"}
+      ]
+    }
+  ],
+  "footer": "适合人力变化、成本变化、收入变化和效率变化的归因汇报。"
+}

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1320" viewBox="0 0 2200 1320">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#2563EB"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="2200" height="1320" fill="#F7FAFC"/>
+
+<text x="92" y="104" font-size="50" fill="#172033" font-weight="700"><tspan x="92" dy="0">H1 组织效率变化归因</tspan></text>
+<text x="94" y="146" font-size="23" fill="#5C6B82" font-weight="400"><tspan x="94" dy="0">用变化桥解释规模变化，而不是把所有数字并列摆放。</tspan></text>
+<rect x="92" y="206" width="1320" height="180" rx="18" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<rect x="92" y="206" width="12" height="180" rx="6" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="130" y="248" font-size="18" fill="#2563EB" font-weight="700"><tspan x="130" dy="0">主结论</tspan></text>
+<text x="130" y="298" font-size="30" fill="#172033" font-weight="700"><tspan x="130" dy="0">规模变化来自归口、迭代和专项补充。</tspan></text>
+<rect x="1460" y="206" width="201" height="180" rx="16" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1484" y="244" font-size="18" fill="#5C6B82" font-weight="700"><tspan x="1484" dy="0">当前规模</tspan></text>
+<text x="1484" y="296" font-size="42" fill="#2563EB" font-weight="700"><tspan x="1484" dy="0">1623人</tspan></text>
+<text x="1484" y="334" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1484" dy="0">H1 初始基线</tspan></text>
+<rect x="1484" y="332" width="112" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1502" y="357" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1502" dy="0">起点</tspan></text>
+<rect x="1683" y="206" width="201" height="180" rx="16" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1707" y="244" font-size="18" fill="#5C6B82" font-weight="700"><tspan x="1707" dy="0">目标规模</tspan></text>
+<text x="1707" y="296" font-size="42" fill="#2563EB" font-weight="700"><tspan x="1707" dy="0">1173人</tspan></text>
+<text x="1707" y="334" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1707" dy="0">H2 推进目标</tspan></text>
+<rect x="1707" y="332" width="112" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1725" y="357" font-size="17" fill="#2563EB" font-weight="700"><tspan x="1725" dy="0">终点</tspan></text>
+<rect x="1906" y="206" width="201" height="180" rx="16" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1930" y="244" font-size="18" fill="#5C6B82" font-weight="700"><tspan x="1930" dy="0">净变化</tspan></text>
+<text x="1930" y="296" font-size="42" fill="#8A5A44" font-weight="700"><tspan x="1930" dy="0">-450</tspan></text>
+<text x="1930" y="334" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1930" dy="0">归因后规模</tspan></text>
+<rect x="1930" y="332" width="112" height="36" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="1948" y="357" font-size="17" fill="#8A5A44" font-weight="700"><tspan x="1948" dy="0">收敛</tspan></text>
+<rect x="92" y="446" width="920" height="330" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="120" y="494" font-size="24" fill="#172033" font-weight="700"><tspan x="120" dy="0">推进路径</tspan></text>
+<text x="120" y="528" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="120" dy="0">先归口，再迭代，最后补齐关键能力</tspan></text>
+<rect x="120" y="550" width="265" height="194" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="142" y="598" font-size="23" fill="#172033" font-weight="700"><tspan x="142" dy="0">统一归口</tspan></text>
+<text x="142" y="642" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="142" dy="0">减少重复建设</tspan></text>
+<line x1="389" y1="638" x2="411" y2="638" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="419" y="550" width="265" height="194" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="441" y="598" font-size="23" fill="#172033" font-weight="700"><tspan x="441" dy="0">模式迭代</tspan></text>
+<text x="441" y="642" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="441" dy="0">自营转向协作</tspan></text>
+<line x1="688" y1="638" x2="710" y2="638" stroke="#2563EB" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="718" y="550" width="265" height="194" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.5"/>
+<text x="740" y="598" font-size="23" fill="#172033" font-weight="700"><tspan x="740" dy="0">专项补充</tspan></text>
+<text x="740" y="642" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="740" dy="0">补足高价值岗位</tspan></text>
+
+<rect x="1052" y="446" width="540" height="330" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="1080" y="494" font-size="24" fill="#172033" font-weight="700"><tspan x="1080" dy="0">配套动作</tspan></text>
+<text x="1080" y="528" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1080" dy="0">变化需要和机制一起落地</tspan></text>
+<text x="1080" y="569" font-size="18" fill="#172033" font-weight="700"><tspan x="1080" dy="0">口径对齐</tspan></text>
+<rect x="1222" y="554" width="310" height="18" rx="9" fill="#E6EDF5" stroke="#D8E2EF" stroke-width="1"/>
+<rect x="1222" y="554" width="248" height="18" rx="9" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1542" y="571" font-size="17" fill="#5C6B82" font-weight="700"><tspan x="1542" dy="0">80%</tspan></text>
+<text x="1080" y="642" font-size="18" fill="#172033" font-weight="700"><tspan x="1080" dy="0">岗位映射</tspan></text>
+<rect x="1222" y="627" width="310" height="18" rx="9" fill="#E6EDF5" stroke="#D8E2EF" stroke-width="1"/>
+<rect x="1222" y="627" width="202" height="18" rx="9" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1542" y="644" font-size="17" fill="#5C6B82" font-weight="700"><tspan x="1542" dy="0">65%</tspan></text>
+<text x="1080" y="715" font-size="18" fill="#172033" font-weight="700"><tspan x="1080" dy="0">风险复盘</tspan></text>
+<rect x="1222" y="700" width="310" height="18" rx="9" fill="#E6EDF5" stroke="#D8E2EF" stroke-width="1"/>
+<rect x="1222" y="700" width="161" height="18" rx="9" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1542" y="717" font-size="17" fill="#5C6B82" font-weight="700"><tspan x="1542" dy="0">52%</tspan></text>
+<rect x="1632" y="446" width="476" height="330" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="1660" y="494" font-size="24" fill="#172033" font-weight="700"><tspan x="1660" dy="0">风险状态</tspan></text>
+<text x="1660" y="528" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1660" dy="0">把潜在影响显性化</tspan></text>
+<rect x="1660" y="540" width="130" height="212" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1676" y="558" width="10" height="176" rx="5" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1702" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1702" dy="0">交付连</tspan></text>
+<text x="1702" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1702" dy="0">核心岗位</tspan><tspan x="1702" dy="22">衔接</tspan></text>
+<text x="1716" y="730" font-size="16" fill="#2563EB" font-weight="700"><tspan x="1716" dy="0">关注</tspan></text>
+<rect x="1804" y="540" width="130" height="212" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1820" y="558" width="10" height="176" rx="5" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="1846" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1846" dy="0">经验流</tspan></text>
+<text x="1846" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1846" dy="0">需要复盘</tspan><tspan x="1846" dy="22">沉淀</tspan></text>
+<text x="1860" y="730" font-size="16" fill="#8A5A44" font-weight="700"><tspan x="1860" dy="0">待处理</tspan></text>
+<rect x="1948" y="540" width="130" height="212" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1964" y="558" width="10" height="176" rx="5" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1990" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1990" dy="0">能力补</tspan></text>
+<text x="1990" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1990" dy="0">专项补充</tspan><tspan x="1990" dy="22">覆盖</tspan></text>
+<text x="2004" y="730" font-size="16" fill="#2563EB" font-weight="700"><tspan x="2004" dy="0">正常</tspan></text>
+<rect x="92" y="836" width="980" height="300" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="120" y="884" font-size="24" fill="#172033" font-weight="700"><tspan x="120" dy="0">变化桥 2.0</tspan></text>
+<text x="120" y="918" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="120" dy="0">起点、增减项和终点共用一条基线</tspan></text><line x1="128" y1="1010" x2="1036" y2="1010" stroke="#D8E2EF" stroke-width="3"/>
+<rect x="126" y="936" width="112" height="126" rx="14" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="144" y="982" font-size="26" fill="#172033" font-weight="700"><tspan x="144" dy="0">1623</tspan></text>
+<text x="144" y="1014" font-size="16" fill="#5C6B82" font-weight="700"><tspan x="144" dy="0">当前规模</tspan></text>
+<line x1="244" y1="1010" x2="246" y2="1010" stroke="#D8E2EF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="252" y="1010" width="206" height="62" rx="12" fill="#EEF4FA" stroke="#8A5A44" stroke-width="2"/>
+<text x="268" y="1040" font-size="22" fill="#172033" font-weight="700"><tspan x="268" dy="0">-387</tspan></text>
+<rect x="252" y="1078" width="206" height="30" rx="8" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1"/>
+<text x="268" y="1099" font-size="16" fill="#172033" font-weight="700"><tspan x="268" dy="0">业务归口</tspan></text>
+<line x1="464" y1="1010" x2="466" y2="1010" stroke="#D8E2EF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="472" y="1010" width="206" height="26" rx="12" fill="#EEF4FA" stroke="#8A5A44" stroke-width="2"/>
+<text x="488" y="1026" font-size="22" fill="#172033" font-weight="700"><tspan x="488" dy="0">-94</tspan></text>
+<rect x="472" y="1078" width="206" height="30" rx="8" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1"/>
+<text x="488" y="1099" font-size="16" fill="#172033" font-weight="700"><tspan x="488" dy="0">模式迭代</tspan></text>
+<line x1="684" y1="1010" x2="686" y2="1010" stroke="#D8E2EF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="692" y="984" width="206" height="26" rx="12" fill="#EEF4FA" stroke="#2563EB" stroke-width="2"/>
+<text x="708" y="1014" font-size="22" fill="#172033" font-weight="700"><tspan x="708" dy="0">+31</tspan></text>
+<rect x="692" y="1078" width="206" height="30" rx="8" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1"/>
+<text x="708" y="1099" font-size="16" fill="#172033" font-weight="700"><tspan x="708" dy="0">专项补充</tspan></text>
+<line x1="904" y1="1010" x2="906" y2="1010" stroke="#D8E2EF" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="912" y="936" width="112" height="126" rx="14" fill="#DBEAFE" stroke="#2563EB" stroke-width="2"/>
+<text x="930" y="982" font-size="26" fill="#172033" font-weight="700"><tspan x="930" dy="0">1173</tspan></text>
+<text x="930" y="1014" font-size="16" fill="#5C6B82" font-weight="700"><tspan x="930" dy="0">目标规模</tspan></text>
+<rect x="1112" y="836" width="996" height="300" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
+<text x="1140" y="884" font-size="24" fill="#172033" font-weight="700"><tspan x="1140" dy="0">后续动作</tspan></text>
+<text x="1140" y="918" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1140" dy="0">让变化可追踪</tspan></text>
+<rect x="1140" y="936" width="940" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1140" y="936" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1158" y="965" font-size="17" fill="#172033" font-weight="700"><tspan x="1158" dy="0">确认岗位清单</tspan></text>
+
+<rect x="1140" y="999" width="940" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1140" y="999" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1158" y="1028" font-size="17" fill="#172033" font-weight="700"><tspan x="1158" dy="0">追踪交付风险</tspan></text>
+
+<rect x="1140" y="1062" width="940" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1140" y="1062" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1158" y="1091" font-size="17" fill="#172033" font-weight="700"><tspan x="1158" dy="0">沉淀归口规则</tspan></text>
+
+<text x="92" y="1216" font-size="22" fill="#5C6B82" font-weight="400"><tspan x="92" dy="0">适合人力变化、成本变化、收入变化和效率变化的归因汇报。</tspan></text>
+</svg>

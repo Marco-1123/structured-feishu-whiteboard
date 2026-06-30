@@ -321,6 +321,12 @@ function parsePercent(value, fallback = 68) {
   return Math.max(4, Math.min(100, Number(match[1])));
 }
 
+function parseSignedNumber(value, fallback = 0) {
+  const match = String(value ?? "").replaceAll(",", "").match(/[-+]?\d+(?:\.\d+)?/);
+  if (!match) return fallback;
+  return Number(match[0]);
+}
+
 function statusTone(status, c) {
   if (status === "risk") return c.exprRisk || "#9A5A3F";
   return c.exprSeries || c.accent;
@@ -1188,6 +1194,141 @@ ${index < items.length - 1 ? `<line x1="${nx + nodeW + 4}" y1="${nodeY + 88}" x2
   return body;
 }
 
+function renderStatusBoardBlock(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 6);
+  const columns = Math.min(3, Math.max(2, items.length));
+  const rows = Math.ceil(items.length / columns);
+  const gap = 14;
+  const itemW = Math.floor((w - 56 - gap * (columns - 1)) / columns);
+  const itemH = Math.floor((h - 118 - gap * (rows - 1)) / rows);
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  items.forEach((item, index) => {
+    const col = index % columns;
+    const row = Math.floor(index / columns);
+    const ix = x + 28 + col * (itemW + gap);
+    const iy = y + 94 + row * (itemH + gap);
+    const tone = item.status === "risk" ? c.exprRisk : c.exprSeries;
+    const statusLabel = item.value || (item.status === "risk" ? "待处理" : item.status === "good" ? "正常" : "关注");
+    body += `
+${rect(ix, iy, itemW, itemH, c, { rx: 12, fill: c.surface, stroke: c.border, sw: 1.2 })}
+<rect x="${ix + 16}" y="${iy + 18}" width="10" height="${Math.max(34, itemH - 36)}" rx="5" fill="${tone}" stroke="${tone}" stroke-width="1"/>
+${text(ix + 42, iy + 42, 19, c.ink, splitByWidth(item.label, itemW - 68, 19, 1), "700")}
+${text(ix + 42, iy + 76, 16, c.secondary, splitByWidth(item.note || statusLabel, itemW - 68, 16, 2), "400", 22)}
+${text(ix + itemW - 74, iy + itemH - 22, 16, tone, [statusLabel], "700")}`;
+  });
+  return body;
+}
+
+function renderTrendSparklineBlock(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 6);
+  const values = items.map((item, index) => parseSignedNumber(item.value, 50 + index * 8));
+  const min = Math.min(...values, 0);
+  const max = Math.max(...values, 100);
+  const chartX = x + 44;
+  const chartY = y + 120;
+  const chartW = w - 88;
+  const chartH = h - 178;
+  const range = Math.max(1, max - min);
+  const points = values.map((value, index) => {
+    const px = chartX + (items.length === 1 ? chartW / 2 : (chartW * index) / (items.length - 1));
+    const py = chartY + chartH - ((value - min) / range) * chartH;
+    return [Math.round(px), Math.round(py)];
+  });
+  const polyline = points.map(([px, py]) => `${px},${py}`).join(" ");
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  body += `
+<line x1="${chartX}" y1="${chartY + chartH}" x2="${chartX + chartW}" y2="${chartY + chartH}" stroke="${c.border}" stroke-width="2"/>
+<line x1="${chartX}" y1="${chartY}" x2="${chartX}" y2="${chartY + chartH}" stroke="${c.border}" stroke-width="2"/>
+<polyline points="${polyline}" fill="none" stroke="${seriesTone(c)}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`;
+  points.forEach(([px, py], index) => {
+    const item = items[index];
+    body += `
+<circle cx="${px}" cy="${py}" r="8" fill="${c.surface}" stroke="${seriesTone(c)}" stroke-width="4"/>
+${text(px - 28, chartY + chartH + 34, 15, c.secondary, [item.label], "700")}
+${text(px - 24, py - 16, 15, c.ink, [item.value], "700")}`;
+  });
+  return body;
+}
+
+function renderDecisionMatrixBlock(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 4);
+  const rowH = Math.floor((h - 150) / Math.max(1, items.length));
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  body += `
+<rect x="${x + 28}" y="${y + 94}" width="${w - 56}" height="42" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.2"/>
+${text(x + 48, y + 122, 16, c.secondary, ["选项"], "700")}
+${text(x + Math.round(w * 0.38), y + 122, 16, c.secondary, ["判断依据"], "700")}
+${text(x + w - 126, y + 122, 16, c.secondary, ["结论"], "700")}`;
+  items.forEach((item, index) => {
+    const iy = y + 146 + index * rowH;
+    const recommended = item.status === "good";
+    const tone = recommended ? seriesTone(c) : item.status === "risk" ? c.exprRisk : c.secondary;
+    body += `
+${rect(x + 28, iy, w - 56, rowH - 12, c, { rx: 10, fill: recommended ? c.soft : c.surface, stroke: recommended ? seriesTone(c) : c.border, sw: recommended ? 2 : 1.2 })}
+${text(x + 50, iy + 34, 18, recommended ? seriesTone(c) : c.ink, [item.label], "700")}
+${text(x + Math.round(w * 0.38), iy + 32, 16, c.secondary, splitByWidth(item.note || "", Math.round(w * 0.42), 16, 2), "400", 21)}
+${text(x + w - 126, iy + 34, 17, tone, [item.value || (recommended ? "推荐" : "备选")], "700")}`;
+  });
+  return body;
+}
+
+function renderVarianceBridgeV2Block(x, y, w, h, c, block) {
+  const items = (block.items || []).slice(0, 6);
+  const start = items[0];
+  const end = items[items.length - 1];
+  const deltas = items.slice(1, -1);
+  const baseY = y + Math.round(h * 0.58);
+  const startW = 112;
+  const endW = 112;
+  const deltaGap = 14;
+  const deltaW = Math.floor((w - 80 - startW - endW - deltaGap * (deltas.length + 1)) / Math.max(1, deltas.length));
+  const maxAbs = Math.max(1, ...deltas.map((item) => Math.abs(parseSignedNumber(item.value, 0))));
+  let cursor = x + 34;
+  let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
+  body += `<line x1="${x + 36}" y1="${baseY}" x2="${x + w - 36}" y2="${baseY}" stroke="${c.border}" stroke-width="3"/>`;
+  body += `
+${rect(cursor, baseY - 74, startW, 126, c, { rx: 14, fill: c.soft, stroke: seriesTone(c), sw: 2 })}
+${text(cursor + 18, baseY - 28, 26, c.ink, [start?.value || ""], "700")}
+${text(cursor + 18, baseY + 4, 16, c.secondary, splitByWidth(start?.label || "起点", startW - 36, 16, 2), "700", 20)}`;
+  cursor += startW + deltaGap;
+  deltas.forEach((item) => {
+    const value = parseSignedNumber(item.value, 0);
+    const barH = Math.max(26, Math.round((Math.abs(value) / maxAbs) * 62));
+    const isPositive = value >= 0;
+    const tone = isPositive ? seriesTone(c) : c.exprRisk;
+    const barY = isPositive ? baseY - barH : baseY;
+    const labelBoxY = y + h - 58;
+    const labelY = labelBoxY + 21;
+    body += `
+<line x1="${cursor - deltaGap + 6}" y1="${baseY}" x2="${cursor - 6}" y2="${baseY}" stroke="${c.border}" stroke-width="2" marker-end="url(#arrow)"/>
+${rect(cursor, barY, deltaW, barH, c, { rx: 12, fill: c.muted, stroke: tone, sw: 2 })}
+${text(cursor + 16, barY + (isPositive ? 30 : Math.min(barH - 10, 30)), 22, c.ink, [item.value], "700")}
+${rect(cursor, labelBoxY, deltaW, 30, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1 })}
+${text(cursor + 16, labelY, 16, c.ink, splitByWidth(item.label, deltaW - 32, 16, 1), "700", 20)}`;
+    cursor += deltaW + deltaGap;
+  });
+  body += `
+<line x1="${cursor - deltaGap + 6}" y1="${baseY}" x2="${cursor - 6}" y2="${baseY}" stroke="${c.border}" stroke-width="2" marker-end="url(#arrow)"/>
+${rect(cursor, baseY - 74, endW, 126, c, { rx: 14, fill: c.soft, stroke: seriesTone(c), sw: 2 })}
+${text(cursor + 18, baseY - 28, 26, c.ink, [end?.value || ""], "700")}
+${text(cursor + 18, baseY + 4, 16, c.secondary, splitByWidth(end?.label || "终点", endW - 36, 16, 2), "700", 20)}`;
+  return body;
+}
+
+function renderExpressionBlockByType(x, y, w, h, c, block, options = {}) {
+  if (!block) return "";
+  if (block.type === "status-board") return renderStatusBoardBlock(x, y, w, h, c, block);
+  if (block.type === "trend-sparkline") return renderTrendSparklineBlock(x, y, w, h, c, block);
+  if (block.type === "decision-matrix") return renderDecisionMatrixBlock(x, y, w, h, c, block);
+  if (block.type === "variance-bridge-v2") return renderVarianceBridgeV2Block(x, y, w, h, c, block);
+  if (block.type === "progress-bar") return renderProgressBlock(x, y, w, h, c, block);
+  if (block.type === "ranked-bar") return renderRankedBlock(x, y, w, h, c, block);
+  if (block.type === "risk-list") return renderListBlock(x, y, w, h, c, block, { ...options, tone: c.exprRisk, emphasis: true });
+  if (block.type === "action-list" || block.type === "evidence-list" || block.type === "comparison-summary") return renderListBlock(x, y, w, h, c, block, options);
+  if (block.type === "mini-roadmap" || block.type === "narrative-chain") return renderNarrativeChainBlock(x, y, w, h, c, block);
+  return renderListBlock(x, y, w, h, c, block, options);
+}
+
 function renderExpressionTitle(brief, c, width) {
   return `${text(92, 104, 50, c.ink, [brief.title], "700")}
 ${brief.subtitle ? text(94, 146, 23, c.secondary, [brief.subtitle]) : ""}`;
@@ -1203,6 +1344,8 @@ function renderDashboardExpression(brief, c) {
   const risks = firstExpressionBlock(brief, "risk-list");
   const actions = firstExpressionBlock(brief, "action-list");
   const evidence = firstExpressionBlock(brief, "evidence-list");
+  const statusBoard = firstExpressionBlock(brief, "status-board");
+  const trend = firstExpressionBlock(brief, "trend-sparkline");
   const metricGap = 24;
   const metricW = Math.floor((2016 - metricGap * (metrics.length - 1)) / metrics.length);
   return wrap(width, height, c, `
@@ -1210,8 +1353,8 @@ ${renderExpressionTitle(brief, c, width)}
 ${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
 ${metrics.map((block, index) => renderMetricTile(92 + index * (metricW + metricGap), 412, metricW, 190, c, block)).join("\n")}
 ${renderProgressBlock(92, 652, 640, 292, c, progress)}
-${ranked ? renderRankedBlock(772, 652, 640, 292, c, ranked) : renderListBlock(772, 652, 640, 292, c, evidence, { columns: 1, itemH: 48 })}
-${renderListBlock(1452, 652, 656, 292, c, risks, { columns: 2, itemH: 44, emphasis: true, tone: c.exprRisk })}
+${trend ? renderTrendSparklineBlock(772, 652, 640, 292, c, trend) : ranked ? renderRankedBlock(772, 652, 640, 292, c, ranked) : renderListBlock(772, 652, 640, 292, c, evidence, { columns: 1, itemH: 48 })}
+${statusBoard ? renderStatusBoardBlock(1452, 652, 656, 292, c, statusBoard) : renderListBlock(1452, 652, 656, 292, c, risks, { columns: 2, itemH: 44, emphasis: true, tone: c.exprRisk })}
 ${renderListBlock(92, 990, 2016, 220, c, actions, { columns: 4, itemH: 54 })}
 ${brief.footer ? text(92, 1264, 22, c.secondary, [brief.footer]) : ""}`);
 }
@@ -1224,11 +1367,12 @@ function renderNarrativeExpression(brief, c) {
   const evidence = firstExpressionBlock(brief, "evidence-list");
   const risks = firstExpressionBlock(brief, "risk-list");
   const actions = firstExpressionBlock(brief, "action-list");
+  const decision = firstExpressionBlock(brief, "decision-matrix");
   return wrap(width, height, c, `
 ${renderExpressionTitle(brief, c, width)}
 ${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
 ${renderNarrativeChainBlock(92, 416, 2016, 350, c, chain)}
-${renderListBlock(92, 830, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
+${decision ? renderDecisionMatrixBlock(92, 830, 650, 300, c, decision) : renderListBlock(92, 830, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
 ${risks ? renderListBlock(776, 830, 650, 300, c, risks, { columns: 1, itemH: 54, emphasis: true, tone: c.exprRisk }) : ""}
 ${renderListBlock(1460, 830, 648, 300, c, actions, { columns: 1, itemH: 54 })}
 ${brief.footer ? text(92, 1216, 22, c.secondary, [brief.footer]) : ""}`);
@@ -1245,20 +1389,26 @@ function renderModularExpression(brief, c) {
   const risks = firstExpressionBlock(brief, "risk-list");
   const actions = firstExpressionBlock(brief, "action-list");
   const roadmap = firstExpressionBlock(brief, "mini-roadmap");
+  const bridge = firstExpressionBlock(brief, "variance-bridge-v2");
+  const statusBoard = firstExpressionBlock(brief, "status-board");
   const metricAreaX = 1460;
   const metricAreaW = 648;
   const metricGap = 22;
   const metricW = metrics.length > 0 ? Math.floor((metricAreaW - metricGap * (metrics.length - 1)) / metrics.length) : 0;
+  const lowerBand = bridge && !evidence
+    ? `${renderVarianceBridgeV2Block(92, 836, 980, 300, c, bridge)}
+${actions ? renderListBlock(1112, 836, 996, 300, c, actions, { columns: 1, itemH: 54 }) : ""}`
+    : `${bridge ? renderVarianceBridgeV2Block(92, 836, 650, 300, c, bridge) : ranked ? renderRankedBlock(92, 836, 650, 300, c, ranked) : renderListBlock(92, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
+${evidence ? renderListBlock(776, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 }) : ""}
+${actions ? renderListBlock(1460, 836, 648, 300, c, actions, { columns: 1, itemH: 54 }) : ""}`;
   return wrap(width, height, c, `
 ${renderExpressionTitle(brief, c, width)}
 ${renderExpressionStatement(92, 206, 1320, 180, c, statement)}
 ${metrics.map((block, index) => renderMetricTile(metricAreaX + index * (metricW + metricGap), 206, metricW, 180, c, block)).join("\n")}
 ${renderNarrativeChainBlock(92, 446, 920, 330, c, roadmap || progress)}
 ${progress ? renderProgressBlock(1052, 446, 540, 330, c, progress) : renderListBlock(1052, 446, 540, 330, c, evidence, { columns: 1, itemH: 54 })}
-${risks ? renderListBlock(1632, 446, 476, 330, c, risks, { columns: 1, itemH: 54, emphasis: true, tone: c.exprRisk }) : ""}
-${ranked ? renderRankedBlock(92, 836, 650, 300, c, ranked) : renderListBlock(92, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
-${evidence ? renderListBlock(776, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 }) : ""}
-${actions ? renderListBlock(1460, 836, 648, 300, c, actions, { columns: 1, itemH: 54 }) : ""}
+${statusBoard ? renderStatusBoardBlock(1632, 446, 476, 330, c, statusBoard) : risks ? renderListBlock(1632, 446, 476, 330, c, risks, { columns: 1, itemH: 54, emphasis: true, tone: c.exprRisk }) : ""}
+${lowerBand}
 ${brief.footer ? text(92, 1216, 22, c.secondary, [brief.footer]) : ""}`);
 }
 

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1320" viewBox="0 0 2200 1320">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#007AFF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="2200" height="1320" fill="#F5F5F7"/>
+
+<text x="92" y="104" font-size="50" fill="#1D1D1F" font-weight="700"><tspan x="92" dy="0">知识承载方式选择</tspan></text>
+<text x="94" y="146" font-size="23" fill="#6E6E73" font-weight="400"><tspan x="94" dy="0">在沉淀能力、可读性和协作成本之间做取舍。</tspan></text>
+<rect x="92" y="206" width="2016" height="150" rx="18" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="92" y="206" width="12" height="150" rx="6" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="130" y="248" font-size="18" fill="#007AFF" font-weight="700"><tspan x="130" dy="0">主判断</tspan></text>
+<text x="130" y="298" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="130" dy="0">知识承载不是只选一个容器，而是按稳定性、执行性和展示性分层。</tspan></text>
+<rect x="92" y="416" width="2016" height="350" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="120" y="464" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">判断路径</tspan></text>
+<text x="120" y="498" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">从问题到选择</tspan></text>
+<rect x="120" y="520" width="464" height="214" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="142" y="568" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">问题</tspan></text>
+<text x="142" y="612" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="142" dy="0">经验沉淀分散，Agent 很难持续复用。</tspan></text>
+<line x1="588" y1="608" x2="610" y2="608" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="618" y="520" width="464" height="214" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="640" y="568" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="640" dy="0">约束</tspan></text>
+<text x="640" y="612" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="640" dy="0">既要长期可读，也要能进入执行链路。</tspan></text>
+<line x1="1086" y1="608" x2="1108" y2="608" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1116" y="520" width="464" height="214" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1138" y="568" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="1138" dy="0">选择</tspan></text>
+<text x="1138" y="612" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1138" dy="0">把稳定原则、执行规则和展示材料分开放。</tspan></text>
+<line x1="1584" y1="608" x2="1606" y2="608" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1614" y="520" width="464" height="214" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1636" y="568" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="1636" dy="0">落地</tspan></text>
+<text x="1636" y="612" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1636" dy="0">Wiki 记知识，Skill 管执行。</tspan></text>
+
+<rect x="92" y="830" width="650" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="120" y="878" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">决策矩阵</tspan></text>
+<text x="120" y="912" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">用明确维度减少主观争论</tspan></text>
+<rect x="120" y="924" width="594" height="42" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<text x="140" y="952" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="140" dy="0">选项</tspan></text>
+<text x="339" y="952" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="339" dy="0">判断依据</tspan></text>
+<text x="616" y="952" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="616" dy="0">结论</tspan></text>
+<rect x="120" y="976" width="594" height="38" rx="10" fill="#E8F2FF" stroke="#007AFF" stroke-width="2"/>
+<text x="142" y="1010" font-size="18" fill="#007AFF" font-weight="700"><tspan x="142" dy="0">LLM Wiki</tspan></text>
+<text x="339" y="1008" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="339" dy="0">沉淀能力强，可被 Agent 长期读取</tspan></text>
+<text x="616" y="1010" font-size="17" fill="#007AFF" font-weight="700"><tspan x="616" dy="0">推荐</tspan></text>
+<rect x="120" y="1026" width="594" height="38" rx="10" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<text x="142" y="1060" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">飞书文档</tspan></text>
+<text x="339" y="1058" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="339" dy="0">适合人工阅读和对外介绍</tspan></text>
+<text x="616" y="1060" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="616" dy="0">展示</tspan></text>
+<rect x="120" y="1076" width="594" height="38" rx="10" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<text x="142" y="1110" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">聊天记录</tspan></text>
+<text x="339" y="1108" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="339" dy="0">临时性强，复用成本高</tspan></text>
+<text x="616" y="1110" font-size="17" fill="#7D6258" font-weight="700"><tspan x="616" dy="0">不推荐</tspan></text>
+<rect x="776" y="830" width="650" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="804" y="878" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="804" dy="0">主要风险</tspan></text>
+<text x="804" y="912" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="804" dy="0">避免知识只被写下但不被使用</tspan></text>
+<rect x="804" y="930" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="804" y="930" width="6" height="51" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
+<text x="822" y="959" font-size="17" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">记录过多但没人读</tspan></text>
+
+<rect x="804" y="993" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="804" y="993" width="6" height="51" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
+<text x="822" y="1022" font-size="17" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">规则没有进入 Skill</tspan></text>
+
+<rect x="804" y="1056" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="804" y="1056" width="6" height="51" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
+<text x="822" y="1085" font-size="17" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">展示材料和执行规则混杂</tspan></text>
+
+<rect x="1460" y="830" width="648" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1488" y="878" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1488" dy="0">推荐动作</tspan></text>
+<text x="1488" y="912" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1488" dy="0">先分层，再维护</tspan></text>
+<rect x="1488" y="930" width="592" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1488" y="930" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1506" y="959" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">Wiki 记录长期判断</tspan></text>
+
+<rect x="1488" y="993" width="592" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1488" y="993" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1506" y="1022" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">Skill 写执行规则</tspan></text>
+
+<rect x="1488" y="1056" width="592" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1488" y="1056" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1506" y="1085" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">飞书文档做案例展示</tspan></text>
+
+<text x="92" y="1216" font-size="22" fill="#6E6E73" font-weight="400"><tspan x="92" dy="0">适合方案选择、工具选型、知识治理和路径判断。</tspan></text>
+</svg>

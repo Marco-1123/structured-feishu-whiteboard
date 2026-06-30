@@ -24,6 +24,8 @@ Focus on schema-backed, renderer-backed data and information components:
 
 The aim is not more decoration. Different materials should trigger different information structures while preserving deterministic rendering and layout checks.
 
+Initial V3.4 implementation uses `expression-canvas` blocks rather than a new top-level layout. This keeps V3.4 close to the V3.3 expression grammar while adding higher-signal components.
+
 ### V3.5: Restrained Style Expansion
 
 Goal: expand visual variety after the component library becomes more expressive.
@@ -66,4 +68,3 @@ The project should optimize for reliable adoption:
 - Agent workbench remains the main user workflow.
 - Web pages can help explain, compare, and promote the Skill.
 - Full web-product generation should not be prioritized unless the Skill workflow becomes a bottleneck.
-
