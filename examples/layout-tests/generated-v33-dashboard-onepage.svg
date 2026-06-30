@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1320" viewBox="0 0 2200 1320">
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1272" viewBox="0 0 2200 1272">
 <defs>
   <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
     <path d="M0 0 L10 4 L0 8 z" fill="#5E6AD2"/>
   </marker>
 </defs>
-<rect x="0" y="0" width="2200" height="1320" fill="#F7F8FA"/>
+<rect x="0" y="0" width="2200" height="1272" fill="#F7F8FA"/>
 
 <text x="92" y="104" font-size="50" fill="#111827" font-weight="700"><tspan x="92" dy="0">项目运营健康度总览</tspan></text>
 <text x="94" y="146" font-size="23" fill="#5F6B7A" font-weight="400"><tspan x="94" dy="0">用指标、进展、风险和行动看清当前状态。</tspan></text>
@@ -79,7 +79,7 @@
 <rect x="1787" y="808" width="6" height="44" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
 <text x="1805" y="837" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1805" dy="0">责任边界模糊</tspan></text>
 
-<rect x="92" y="990" width="2016" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="92" y="990" width="2016" height="170" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="120" y="1038" font-size="24" fill="#111827" font-weight="700"><tspan x="120" dy="0">下一步行动</tspan></text>
 <text x="120" y="1072" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="120" dy="0">两周内形成可复用节奏</tspan></text>
 <rect x="120" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
@@ -98,5 +98,5 @@
 <rect x="1599" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1617" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="1617" dy="0">沉淀复用模板</tspan></text>
 
-<text x="92" y="1264" font-size="22" fill="#5F6B7A" font-weight="400"><tspan x="92" dy="0">适合经营复盘、项目状态同步和高频指标汇报。</tspan></text>
+<text x="92" y="1214" font-size="22" fill="#5F6B7A" font-weight="400"><tspan x="92" dy="0">适合经营复盘、项目状态同步和高频指标汇报。</tspan></text>
 </svg>

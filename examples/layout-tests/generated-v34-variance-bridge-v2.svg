@@ -63,21 +63,24 @@
 <rect x="1632" y="446" width="476" height="330" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="1660" y="494" font-size="24" fill="#172033" font-weight="700"><tspan x="1660" dy="0">风险状态</tspan></text>
 <text x="1660" y="528" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1660" dy="0">把潜在影响显性化</tspan></text>
-<rect x="1660" y="540" width="130" height="212" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1676" y="558" width="10" height="176" rx="5" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
-<text x="1702" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1702" dy="0">交付连</tspan></text>
-<text x="1702" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1702" dy="0">核心岗位</tspan><tspan x="1702" dy="22">衔接</tspan></text>
-<text x="1716" y="730" font-size="16" fill="#2563EB" font-weight="700"><tspan x="1716" dy="0">关注</tspan></text>
-<rect x="1804" y="540" width="130" height="212" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1820" y="558" width="10" height="176" rx="5" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="1846" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1846" dy="0">经验流</tspan></text>
-<text x="1846" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1846" dy="0">需要复盘</tspan><tspan x="1846" dy="22">沉淀</tspan></text>
-<text x="1860" y="730" font-size="16" fill="#8A5A44" font-weight="700"><tspan x="1860" dy="0">待处理</tspan></text>
-<rect x="1948" y="540" width="130" height="212" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1964" y="558" width="10" height="176" rx="5" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
-<text x="1990" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1990" dy="0">能力补</tspan></text>
-<text x="1990" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1990" dy="0">专项补充</tspan><tspan x="1990" dy="22">覆盖</tspan></text>
-<text x="2004" y="730" font-size="16" fill="#2563EB" font-weight="700"><tspan x="2004" dy="0">正常</tspan></text>
+<rect x="1660" y="540" width="203" height="99" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1676" y="558" width="10" height="63" rx="5" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1702" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1702" dy="0">交付连续</tspan></text>
+<rect x="1771" y="558" width="76" height="28" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1"/>
+<text x="1785" y="578" font-size="15" fill="#2563EB" font-weight="700"><tspan x="1785" dy="0">关注</tspan></text>
+<text x="1702" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1702" dy="0">核心岗位衔接</tspan></text>
+<rect x="1877" y="540" width="203" height="99" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1893" y="558" width="10" height="63" rx="5" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="1919" y="582" font-size="19" fill="#172033" font-weight="700"><tspan x="1919" dy="0">经验流失</tspan></text>
+<rect x="1988" y="558" width="76" height="28" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1"/>
+<text x="2002" y="578" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="2002" dy="0">待处理</tspan></text>
+<text x="1919" y="616" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1919" dy="0">需要复盘沉淀</tspan></text>
+<rect x="1660" y="653" width="203" height="99" rx="12" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="1.2"/>
+<rect x="1676" y="671" width="10" height="63" rx="5" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<text x="1702" y="695" font-size="19" fill="#172033" font-weight="700"><tspan x="1702" dy="0">能力补位</tspan></text>
+<rect x="1771" y="671" width="76" height="28" rx="8" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1"/>
+<text x="1785" y="691" font-size="15" fill="#2563EB" font-weight="700"><tspan x="1785" dy="0">正常</tspan></text>
+<text x="1702" y="729" font-size="16" fill="#5C6B82" font-weight="400"><tspan x="1702" dy="0">专项补充覆盖</tspan></text>
 <rect x="92" y="836" width="980" height="300" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="120" y="884" font-size="24" fill="#172033" font-weight="700"><tspan x="120" dy="0">变化桥 2.0</tspan></text>
 <text x="120" y="918" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="120" dy="0">起点、增减项和终点共用一条基线</tspan></text><line x1="128" y1="1010" x2="1036" y2="1010" stroke="#D8E2EF" stroke-width="3"/>

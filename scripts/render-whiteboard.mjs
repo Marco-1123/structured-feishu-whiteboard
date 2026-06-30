@@ -1196,7 +1196,7 @@ ${index < items.length - 1 ? `<line x1="${nx + nodeW + 4}" y1="${nodeY + 88}" x2
 
 function renderStatusBoardBlock(x, y, w, h, c, block) {
   const items = (block.items || []).slice(0, 6);
-  const columns = Math.min(3, Math.max(2, items.length));
+  const columns = items.length <= 4 ? 2 : 3;
   const rows = Math.ceil(items.length / columns);
   const gap = 14;
   const itemW = Math.floor((w - 56 - gap * (columns - 1)) / columns);
@@ -1209,12 +1209,14 @@ function renderStatusBoardBlock(x, y, w, h, c, block) {
     const iy = y + 94 + row * (itemH + gap);
     const tone = item.status === "risk" ? c.exprRisk : c.exprSeries;
     const statusLabel = item.value || (item.status === "risk" ? "待处理" : item.status === "good" ? "正常" : "关注");
+    const pillW = Math.min(76, Math.max(58, itemW - 112));
     body += `
 ${rect(ix, iy, itemW, itemH, c, { rx: 12, fill: c.surface, stroke: c.border, sw: 1.2 })}
 <rect x="${ix + 16}" y="${iy + 18}" width="10" height="${Math.max(34, itemH - 36)}" rx="5" fill="${tone}" stroke="${tone}" stroke-width="1"/>
-${text(ix + 42, iy + 42, 19, c.ink, splitByWidth(item.label, itemW - 68, 19, 1), "700")}
-${text(ix + 42, iy + 76, 16, c.secondary, splitByWidth(item.note || statusLabel, itemW - 68, 16, 2), "400", 22)}
-${text(ix + itemW - 74, iy + itemH - 22, 16, tone, [statusLabel], "700")}`;
+${text(ix + 42, iy + 42, 19, c.ink, splitByWidth(item.label, itemW - 122, 19, 1), "700")}
+${rect(ix + itemW - pillW - 16, iy + 18, pillW, 28, c, { rx: 8, fill: c.muted, stroke: c.border, sw: 1 })}
+${text(ix + itemW - pillW - 2, iy + 38, 15, tone, [statusLabel], "700")}
+${text(ix + 42, iy + 76, 16, c.secondary, splitByWidth(item.note || "", itemW - 68, 16, 2), "400", 22)}`;
   });
   return body;
 }
@@ -1336,7 +1338,6 @@ ${brief.subtitle ? text(94, 146, 23, c.secondary, [brief.subtitle]) : ""}`;
 
 function renderDashboardExpression(brief, c) {
   const width = 2200;
-  const height = 1320;
   const statement = firstExpressionBlock(brief, "statement");
   const metrics = expressionBlocks(brief, "metric-card").slice(0, 4);
   const progress = firstExpressionBlock(brief, "progress-bar");
@@ -1348,6 +1349,10 @@ function renderDashboardExpression(brief, c) {
   const trend = firstExpressionBlock(brief, "trend-sparkline");
   const metricGap = 24;
   const metricW = Math.floor((2016 - metricGap * (metrics.length - 1)) / metrics.length);
+  const actionCount = (actions?.items || []).length;
+  const actionH = actionCount <= 4 ? 170 : 220;
+  const footerY = 990 + actionH + 54;
+  const height = brief.footer ? footerY + 58 : 990 + actionH + 42;
   return wrap(width, height, c, `
 ${renderExpressionTitle(brief, c, width)}
 ${renderExpressionStatement(92, 206, 2016, 150, c, statement)}
@@ -1355,8 +1360,8 @@ ${metrics.map((block, index) => renderMetricTile(92 + index * (metricW + metricG
 ${renderProgressBlock(92, 652, 640, 292, c, progress)}
 ${trend ? renderTrendSparklineBlock(772, 652, 640, 292, c, trend) : ranked ? renderRankedBlock(772, 652, 640, 292, c, ranked) : renderListBlock(772, 652, 640, 292, c, evidence, { columns: 1, itemH: 48 })}
 ${statusBoard ? renderStatusBoardBlock(1452, 652, 656, 292, c, statusBoard) : renderListBlock(1452, 652, 656, 292, c, risks, { columns: 2, itemH: 44, emphasis: true, tone: c.exprRisk })}
-${renderListBlock(92, 990, 2016, 220, c, actions, { columns: 4, itemH: 54 })}
-${brief.footer ? text(92, 1264, 22, c.secondary, [brief.footer]) : ""}`);
+${renderListBlock(92, 990, 2016, actionH, c, actions, { columns: 4, itemH: 54 })}
+${brief.footer ? text(92, footerY, 22, c.secondary, [brief.footer]) : ""}`);
 }
 
 function renderNarrativeExpression(brief, c) {
