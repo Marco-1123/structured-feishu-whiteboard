@@ -14,16 +14,16 @@
 <text x="130" y="298" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="130" dy="0">价值不是更多模板，而是表达关系。</tspan></text>
 <rect x="1460" y="206" width="313" height="180" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="1484" y="244" font-size="18" fill="#6E6E73" font-weight="700"><tspan x="1484" dy="0">表达丰富度</tspan></text>
-<text x="1484" y="296" font-size="42" fill="#248A3D" font-weight="700"><tspan x="1484" dy="0">+3类</tspan></text>
+<text x="1484" y="296" font-size="42" fill="#1D1D1F" font-weight="700"><tspan x="1484" dy="0">+3类</tspan></text>
 <text x="1484" y="334" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1484" dy="0">指标、叙事、模块</tspan></text>
 <rect x="1484" y="332" width="112" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<text x="1502" y="357" font-size="17" fill="#248A3D" font-weight="700"><tspan x="1502" dy="0">提升</tspan></text>
+<text x="1502" y="357" font-size="17" fill="#3F7668" font-weight="700"><tspan x="1502" dy="0">提升</tspan></text>
 <rect x="1795" y="206" width="313" height="180" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="1819" y="244" font-size="18" fill="#6E6E73" font-weight="700"><tspan x="1819" dy="0">稳定边界</tspan></text>
-<text x="1819" y="296" font-size="42" fill="#007AFF" font-weight="700"><tspan x="1819" dy="0">9块</tspan></text>
+<text x="1819" y="296" font-size="42" fill="#1D1D1F" font-weight="700"><tspan x="1819" dy="0">9块</tspan></text>
 <text x="1819" y="334" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1819" dy="0">超过即回退筛选</tspan></text>
 <rect x="1819" y="332" width="112" height="36" rx="18" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<text x="1837" y="357" font-size="17" fill="#007AFF" font-weight="700"><tspan x="1837" dy="0">上限</tspan></text>
+<text x="1837" y="357" font-size="17" fill="#2F6FB2" font-weight="700"><tspan x="1837" dy="0">上限</tspan></text>
 <rect x="92" y="446" width="920" height="330" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="120" y="494" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">升级路径</tspan></text>
 <text x="120" y="528" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">先可控，再丰富</tspan></text>
@@ -43,79 +43,79 @@
 <text x="1080" y="494" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1080" dy="0">能力成熟度</tspan></text>
 <text x="1080" y="528" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1080" dy="0">当前先覆盖高频场景</tspan></text>
 <text x="1080" y="569" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="1080" dy="0">结构理解</tspan></text>
-<rect x="1222" y="554" width="310" height="18" rx="9" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<rect x="1222" y="554" width="267" height="18" rx="9" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
+<rect x="1222" y="554" width="310" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="1222" y="554" width="267" height="18" rx="9" fill="#3F7668" stroke="#3F7668" stroke-width="1"/>
 <text x="1542" y="571" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="1542" dy="0">86%</tspan></text>
 <text x="1080" y="642" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="1080" dy="0">表达多样性</tspan></text>
-<rect x="1222" y="627" width="310" height="18" rx="9" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<rect x="1222" y="627" width="198" height="18" rx="9" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="1222" y="627" width="310" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="1222" y="627" width="198" height="18" rx="9" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="1542" y="644" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="1542" dy="0">64%</tspan></text>
 <text x="1080" y="715" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="1080" dy="0">产品交互</tspan></text>
-<rect x="1222" y="700" width="310" height="18" rx="9" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<rect x="1222" y="700" width="87" height="18" rx="9" fill="#C2410C" stroke="#C2410C" stroke-width="1"/>
+<rect x="1222" y="700" width="310" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="1222" y="700" width="87" height="18" rx="9" fill="#8A6254" stroke="#8A6254" stroke-width="1"/>
 <text x="1542" y="717" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="1542" dy="0">28%</tspan></text>
 <rect x="1632" y="446" width="476" height="330" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="1660" y="494" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1660" dy="0">控制风险</tspan></text>
 <text x="1660" y="528" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1660" dy="0">灵活度不能变成发散</tspan></text>
 <rect x="1660" y="546" width="420" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1660" y="546" width="6" height="54" rx="3" fill="#C2410C" stroke="#C2410C" stroke-width="1"/>
-<text x="1678" y="575" font-size="17" fill="#C2410C" font-weight="700"><tspan x="1678" dy="0">模块过多</tspan></text>
+<rect x="1660" y="546" width="6" height="54" rx="3" fill="#8A6254" stroke="#8A6254" stroke-width="1"/>
+<text x="1678" y="575" font-size="17" fill="#8A6254" font-weight="700"><tspan x="1678" dy="0">模块过多</tspan></text>
 
 <rect x="1660" y="612" width="420" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1660" y="612" width="6" height="54" rx="3" fill="#C2410C" stroke="#C2410C" stroke-width="1"/>
-<text x="1678" y="641" font-size="17" fill="#C2410C" font-weight="700"><tspan x="1678" dy="0">关系误判</tspan></text>
+<rect x="1660" y="612" width="6" height="54" rx="3" fill="#8A6254" stroke="#8A6254" stroke-width="1"/>
+<text x="1678" y="641" font-size="17" fill="#8A6254" font-weight="700"><tspan x="1678" dy="0">关系误判</tspan></text>
 
 <rect x="1660" y="678" width="420" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1660" y="678" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1678" y="707" font-size="17" fill="#007AFF" font-weight="700"><tspan x="1678" dy="0">信息堆叠</tspan></text>
+<rect x="1660" y="678" width="6" height="54" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
+<text x="1678" y="707" font-size="17" fill="#2F6FB2" font-weight="700"><tspan x="1678" dy="0">信息堆叠</tspan></text>
 
 <rect x="92" y="836" width="650" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="120" y="884" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">表达优先级</tspan></text>
 <text x="120" y="918" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">先补最常见的信息关系</tspan></text>
 <text x="120" y="962" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">指标状态</tspan></text>
-<rect x="302" y="946" width="370" height="18" rx="9" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<rect x="302" y="946" width="326" height="18" rx="9" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
+<rect x="302" y="946" width="370" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="302" y="946" width="326" height="18" rx="9" fill="#3F7668" stroke="#3F7668" stroke-width="1"/>
 <text x="684" y="963" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="684" dy="0">88%</tspan></text>
 <text x="120" y="1023" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">路径行动</tspan></text>
-<rect x="302" y="1007" width="370" height="18" rx="9" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<rect x="302" y="1007" width="274" height="18" rx="9" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
+<rect x="302" y="1007" width="370" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="302" y="1007" width="274" height="18" rx="9" fill="#3F7668" stroke="#3F7668" stroke-width="1"/>
 <text x="684" y="1024" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="684" dy="0">74%</tspan></text>
 <text x="120" y="1084" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">风险证据</tspan></text>
-<rect x="302" y="1068" width="370" height="18" rx="9" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<rect x="302" y="1068" width="244" height="18" rx="9" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="302" y="1068" width="370" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="302" y="1068" width="244" height="18" rx="9" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="684" y="1085" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="684" dy="0">66%</tspan></text>
 <rect x="776" y="836" width="650" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="804" y="884" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="804" dy="0">为什么需要</tspan></text>
 <text x="804" y="918" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="804" dy="0">解决用几次就疲劳的问题</tspan></text>
 <rect x="804" y="936" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="804" y="936" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="804" y="936" width="6" height="51" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="822" y="965" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="822" dy="0">固定卡片太单一</tspan></text>
 
 <rect x="804" y="999" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="804" y="999" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="804" y="999" width="6" height="51" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="822" y="1028" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="822" dy="0">长文关系更复杂</tspan></text>
 
 <rect x="804" y="1062" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="804" y="1062" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="804" y="1062" width="6" height="51" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="822" y="1091" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="822" dy="0">数据表达需要增强</tspan></text>
 
 <rect x="1460" y="836" width="648" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="1488" y="884" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1488" dy="0">近期动作</tspan></text>
 <text x="1488" y="918" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1488" dy="0">先用样例回归验证</tspan></text>
 <rect x="1488" y="936" width="592" height="36" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1488" y="936" width="6" height="36" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="1488" y="936" width="6" height="36" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="1506" y="965" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">补充三类样例</tspan></text>
 
 <rect x="1488" y="984" width="592" height="36" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1488" y="984" width="6" height="36" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="1488" y="984" width="6" height="36" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="1506" y="1013" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">跑布局检查</tspan></text>
 
 <rect x="1488" y="1032" width="592" height="36" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1488" y="1032" width="6" height="36" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="1488" y="1032" width="6" height="36" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="1506" y="1061" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">飞书侧预览</tspan></text>
 
 <rect x="1488" y="1080" width="592" height="36" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1488" y="1080" width="6" height="36" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<rect x="1488" y="1080" width="6" height="36" rx="3" fill="#2F6FB2" stroke="#2F6FB2" stroke-width="1"/>
 <text x="1506" y="1109" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">再决定是否推广</tspan></text>
 
 <text x="92" y="1216" font-size="22" fill="#6E6E73" font-weight="400"><tspan x="92" dy="0">适合复杂长文、混合汇报和需要更强一览图表达的材料。</tspan></text>

@@ -35,49 +35,49 @@
 <text x="120" y="878" font-size="24" fill="#172033" font-weight="700"><tspan x="120" dy="0">关键证据</tspan></text>
 <text x="120" y="912" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="120" dy="0">只保留能支撑判断的信息</tspan></text>
 <rect x="120" y="930" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="120" y="930" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="120" y="930" width="6" height="51" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="138" y="959" font-size="17" fill="#172033" font-weight="700"><tspan x="138" dy="0">问题重复出现</tspan></text>
 <text x="138" y="984" font-size="14" fill="#5C6B82" font-weight="400"><tspan x="138" dy="0">复盘缺少横向对比</tspan></text>
 <rect x="120" y="993" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="120" y="993" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="120" y="993" width="6" height="51" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="138" y="1022" font-size="17" fill="#172033" font-weight="700"><tspan x="138" dy="0">路径无法复用</tspan></text>
 <text x="138" y="1047" font-size="14" fill="#5C6B82" font-weight="400"><tspan x="138" dy="0">依赖人工经验</tspan></text>
 <rect x="120" y="1056" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="120" y="1056" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="120" y="1056" width="6" height="51" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="138" y="1085" font-size="17" fill="#172033" font-weight="700"><tspan x="138" dy="0">指标难以对齐</tspan></text>
 <text x="138" y="1110" font-size="14" fill="#5C6B82" font-weight="400"><tspan x="138" dy="0">团队各自解释</tspan></text>
 <rect x="776" y="830" width="650" height="300" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="804" y="878" font-size="24" fill="#172033" font-weight="700"><tspan x="804" dy="0">主要风险</tspan></text>
 <text x="804" y="912" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="804" dy="0">不处理会继续放大协作成本</tspan></text>
 <rect x="804" y="930" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="804" y="930" width="6" height="51" rx="3" fill="#C2410C" stroke="#C2410C" stroke-width="1"/>
-<text x="822" y="959" font-size="17" fill="#C2410C" font-weight="700"><tspan x="822" dy="0">行动变成清单</tspan></text>
+<rect x="804" y="930" width="6" height="51" rx="3" fill="#9A5A3F" stroke="#9A5A3F" stroke-width="1"/>
+<text x="822" y="959" font-size="17" fill="#9A5A3F" font-weight="700"><tspan x="822" dy="0">行动变成清单</tspan></text>
 
 <rect x="804" y="993" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="804" y="993" width="6" height="51" rx="3" fill="#C2410C" stroke="#C2410C" stroke-width="1"/>
-<text x="822" y="1022" font-size="17" fill="#C2410C" font-weight="700"><tspan x="822" dy="0">责任继续漂移</tspan></text>
+<rect x="804" y="993" width="6" height="51" rx="3" fill="#9A5A3F" stroke="#9A5A3F" stroke-width="1"/>
+<text x="822" y="1022" font-size="17" fill="#9A5A3F" font-weight="700"><tspan x="822" dy="0">责任继续漂移</tspan></text>
 
 <rect x="804" y="1056" width="594" height="51" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="804" y="1056" width="6" height="51" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
-<text x="822" y="1085" font-size="17" fill="#2563EB" font-weight="700"><tspan x="822" dy="0">复盘不能沉淀</tspan></text>
+<rect x="804" y="1056" width="6" height="51" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
+<text x="822" y="1085" font-size="17" fill="#365F9D" font-weight="700"><tspan x="822" dy="0">复盘不能沉淀</tspan></text>
 
 <rect x="1460" y="830" width="648" height="300" rx="14" fill="#FFFFFF" stroke="#D8E2EF" stroke-width="2"/>
 <text x="1488" y="878" font-size="24" fill="#172033" font-weight="700"><tspan x="1488" dy="0">推荐动作</tspan></text>
 <text x="1488" y="912" font-size="17" fill="#5C6B82" font-weight="400"><tspan x="1488" dy="0">先统一，再自动化</tspan></text>
 <rect x="1488" y="930" width="592" height="36" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1488" y="930" width="6" height="36" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="1488" y="930" width="6" height="36" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="1506" y="959" font-size="17" fill="#172033" font-weight="700"><tspan x="1506" dy="0">定义核心指标</tspan></text>
 
 <rect x="1488" y="978" width="592" height="36" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1488" y="978" width="6" height="36" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="1488" y="978" width="6" height="36" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="1506" y="1007" font-size="17" fill="#172033" font-weight="700"><tspan x="1506" dy="0">明确风险边界</tspan></text>
 
 <rect x="1488" y="1026" width="592" height="36" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1488" y="1026" width="6" height="36" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="1488" y="1026" width="6" height="36" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="1506" y="1055" font-size="17" fill="#172033" font-weight="700"><tspan x="1506" dy="0">建立复盘模板</tspan></text>
 
 <rect x="1488" y="1074" width="592" height="36" rx="10" fill="#EEF4FA" stroke="#D8E2EF" stroke-width="1.2"/>
-<rect x="1488" y="1074" width="6" height="36" rx="3" fill="#2563EB" stroke="#2563EB" stroke-width="1"/>
+<rect x="1488" y="1074" width="6" height="36" rx="3" fill="#365F9D" stroke="#365F9D" stroke-width="1"/>
 <text x="1506" y="1103" font-size="17" fill="#172033" font-weight="700"><tspan x="1506" dy="0">把动作写入流程</tspan></text>
 
 <text x="92" y="1216" font-size="22" fill="#5C6B82" font-weight="400"><tspan x="92" dy="0">适合诊断、观点表达、决策说明和咨询式汇报。</tspan></text>

@@ -11,6 +11,10 @@ const styles = {
     accent: "#2563EB",
     soft: "#DBEAFE",
     success: "#0F766E",
+    exprGood: "#34796D",
+    exprNeutral: "#365F9D",
+    exprRisk: "#9A5A3F",
+    exprTrack: "#E6EDF5",
   },
   "dark-emphasis": {
     canvas: "#101828",
@@ -22,6 +26,10 @@ const styles = {
     accent: "#38BDF8",
     soft: "#22314A",
     success: "#A3E635",
+    exprGood: "#8FBF66",
+    exprNeutral: "#75A8D8",
+    exprRisk: "#D08A56",
+    exprTrack: "#2B3A55",
   },
   "warm-editorial": {
     canvas: "#F3EFE7",
@@ -33,6 +41,10 @@ const styles = {
     accent: "#B45309",
     soft: "#F7D9B4",
     success: "#6B7D3A",
+    exprGood: "#687A4A",
+    exprNeutral: "#8C6848",
+    exprRisk: "#9A5E41",
+    exprTrack: "#E3D8CA",
   },
   "feishu-neutral": {
     canvas: "#F5F7FA",
@@ -44,6 +56,10 @@ const styles = {
     accent: "#3370FF",
     soft: "#EAF0FF",
     success: "#2B8F77",
+    exprGood: "#2B7A67",
+    exprNeutral: "#2F62B3",
+    exprRisk: "#9B5D36",
+    exprTrack: "#E7ECF3",
   },
   "feishu-status": {
     canvas: "#F6F8FB",
@@ -56,6 +72,10 @@ const styles = {
     soft: "#E8F3FF",
     success: "#2B8F77",
     warning: "#C98100",
+    exprGood: "#2B7A67",
+    exprNeutral: "#2F62B3",
+    exprRisk: "#9B5D36",
+    exprTrack: "#E7ECF3",
   },
   "feishu-decision-dark": {
     canvas: "#F2F5FA",
@@ -67,6 +87,10 @@ const styles = {
     accent: "#1F3A5F",
     soft: "#DCE8F6",
     success: "#2B8F77",
+    exprGood: "#2B7A67",
+    exprNeutral: "#385A7D",
+    exprRisk: "#8F5B42",
+    exprTrack: "#E3E9F1",
   },
   "apple-studio": {
     grammar: "apple",
@@ -79,6 +103,11 @@ const styles = {
     accent: "#007AFF",
     soft: "#E8F2FF",
     success: "#248A3D",
+    exprGood: "#3F7668",
+    exprNeutral: "#2F6FB2",
+    exprRisk: "#8A6254",
+    exprTrack: "#E7E7EC",
+    exprValue: "#1D1D1F",
   },
   "fluent-workbench": {
     grammar: "fluent",
@@ -92,6 +121,10 @@ const styles = {
     soft: "#E5F1FB",
     success: "#107C10",
     warning: "#C19C00",
+    exprGood: "#2F755F",
+    exprNeutral: "#2E6C9F",
+    exprRisk: "#8E613B",
+    exprTrack: "#E6E6E6",
   },
   "carbon-data": {
     grammar: "carbon",
@@ -104,6 +137,10 @@ const styles = {
     accent: "#0F62FE",
     soft: "#D0E2FF",
     success: "#198038",
+    exprGood: "#2A6F5E",
+    exprNeutral: "#335C9C",
+    exprRisk: "#8A5B3F",
+    exprTrack: "#E8E8E8",
   },
   "linear-command": {
     grammar: "linear",
@@ -119,6 +156,11 @@ const styles = {
     dark: "#111827",
     darkMuted: "#1F2937",
     darkText: "#F9FAFB",
+    exprGood: "#3B7A6A",
+    exprNeutral: "#5E6AD2",
+    exprRisk: "#946247",
+    exprTrack: "#E7EAF0",
+    exprValue: "#111827",
   },
 };
 
@@ -290,9 +332,13 @@ function parsePercent(value, fallback = 68) {
 }
 
 function statusTone(status, c) {
-  if (status === "risk") return "#C2410C";
-  if (status === "good") return c.success;
-  return c.accent;
+  if (status === "risk") return c.exprRisk || "#9A5A3F";
+  if (status === "good") return c.exprGood || c.success;
+  return c.exprNeutral || c.accent;
+}
+
+function statusTrack(c) {
+  return c.exprTrack || c.muted;
 }
 
 function centerTextGroup(containerY, containerH, items) {
@@ -1060,9 +1106,10 @@ ${text(x + 38, y + 92, 30, c.ink, lines, "700", 39)}`;
 
 function renderMetricTile(x, y, w, h, c, block) {
   const tone = statusTone(block.status, c);
+  const valueTone = block.status === "risk" ? tone : (c.exprValue || tone);
   return `${rect(x, y, w, h, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
 ${text(x + 24, y + 38, 18, c.secondary, [block.title], "700")}
-${text(x + 24, y + 90, 42, tone, [block.value], "700")}
+${text(x + 24, y + 90, 42, valueTone, [block.value], "700")}
 ${block.note ? text(x + 24, y + 128, 17, c.secondary, splitByWidth(block.note, w - 48, 17, 2), "400", 24) : ""}
 ${block.label ? label(x + 24, y + h - 54, 112, c, block.label, tone) : ""}`;
 }
@@ -1078,7 +1125,7 @@ function renderProgressBlock(x, y, w, h, c, block) {
     const trackW = w - 230;
     body += `
 ${text(x + 28, rowY + 25, 18, c.ink, [item.label], "700")}
-<rect x="${trackX}" y="${rowY + 10}" width="${trackW}" height="18" rx="9" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+<rect x="${trackX}" y="${rowY + 10}" width="${trackW}" height="18" rx="9" fill="${statusTrack(c)}" stroke="${c.border}" stroke-width="1"/>
 <rect x="${trackX}" y="${rowY + 10}" width="${Math.round(trackW * pct / 100)}" height="18" rx="9" fill="${statusTone(item.status, c)}" stroke="${statusTone(item.status, c)}" stroke-width="1"/>
 ${text(x + w - 50, rowY + 27, 17, c.secondary, [item.value], "700")}`;
   });
@@ -1096,7 +1143,7 @@ function renderRankedBlock(x, y, w, h, c, block) {
     const barW = w - 280;
     body += `
 ${text(x + 28, rowY + 24, 17, c.ink, [item.label], "700")}
-<rect x="${barX}" y="${rowY + 8}" width="${barW}" height="18" rx="9" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+<rect x="${barX}" y="${rowY + 8}" width="${barW}" height="18" rx="9" fill="${statusTrack(c)}" stroke="${c.border}" stroke-width="1"/>
 <rect x="${barX}" y="${rowY + 8}" width="${Math.round(barW * pct / 100)}" height="18" rx="9" fill="${statusTone(item.status, c)}" stroke="${statusTone(item.status, c)}" stroke-width="1"/>
 ${text(x + w - 58, rowY + 25, 16, c.secondary, [item.value], "700")}`;
   });
