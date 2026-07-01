@@ -27,17 +27,17 @@
 <rect x="92" y="446" width="920" height="330" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="120" y="494" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">升级路径</tspan></text>
 <text x="120" y="528" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">先可控，再丰富</tspan></text>
-<rect x="120" y="550" width="265" height="194" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="142" y="598" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">识别关系</tspan></text>
-<text x="142" y="642" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="142" dy="0">判断材料类型</tspan></text>
-<line x1="389" y1="638" x2="411" y2="638" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
-<rect x="419" y="550" width="265" height="194" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="441" y="598" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="441" dy="0">选择模式</tspan></text>
-<text x="441" y="642" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="441" dy="0">A/B/C 三选一</tspan></text>
-<line x1="688" y1="638" x2="710" y2="638" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
-<rect x="718" y="550" width="265" height="194" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="740" y="598" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="740" dy="0">组合模块</tspan></text>
-<text x="740" y="642" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="740" dy="0">生成一张 onepage</tspan></text>
+<rect x="120" y="558" width="265" height="168" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="142" y="606" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">识别关系</tspan></text>
+<text x="142" y="650" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="142" dy="0">判断材料类型</tspan></text>
+<line x1="389" y1="646" x2="411" y2="646" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="419" y="558" width="265" height="168" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="441" y="606" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="441" dy="0">选择模式</tspan></text>
+<text x="441" y="650" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="441" dy="0">A/B/C 三选一</tspan></text>
+<line x1="688" y1="646" x2="710" y2="646" stroke="#007AFF" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="718" y="558" width="265" height="168" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="740" y="606" font-size="23" fill="#1D1D1F" font-weight="700"><tspan x="740" dy="0">组合模块</tspan></text>
+<text x="740" y="650" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="740" dy="0">生成一张 onepage</tspan></text>
 
 <rect x="1052" y="446" width="540" height="330" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="1080" y="494" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1080" dy="0">能力成熟度</tspan></text>

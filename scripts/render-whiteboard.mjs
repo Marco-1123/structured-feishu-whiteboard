@@ -1181,12 +1181,13 @@ function renderNarrativeChainBlock(x, y, w, h, c, block) {
   const items = (block.items || []).slice(0, 4);
   const gap = 34;
   const nodeW = Math.floor((w - 56 - gap * (items.length - 1)) / items.length);
-  const nodeY = y + 104;
+  const nodeH = Math.min(h - 136, 168);
+  const nodeY = y + 112;
   let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
   items.forEach((item, index) => {
     const nx = x + 28 + index * (nodeW + gap);
     body += `
-${rect(nx, nodeY, nodeW, h - 136, c, { rx: 14, fill: c.surface, stroke: c.border, sw: 1.5 })}
+${rect(nx, nodeY, nodeW, nodeH, c, { rx: 14, fill: c.surface, stroke: c.border, sw: 1.5 })}
 ${text(nx + 22, nodeY + 48, 23, c.ink, [item.label], "700")}
 ${item.note ? text(nx + 22, nodeY + 92, 17, c.secondary, splitByWidth(item.note, nodeW - 44, 17, 3), "400", 24) : ""}
 ${index < items.length - 1 ? `<line x1="${nx + nodeW + 4}" y1="${nodeY + 88}" x2="${nx + nodeW + gap - 8}" y2="${nodeY + 88}" stroke="${c.accent}" stroke-width="3" marker-end="url(#arrow)"/>` : ""}`;
@@ -1196,27 +1197,29 @@ ${index < items.length - 1 ? `<line x1="${nx + nodeW + 4}" y1="${nodeY + 88}" x2
 
 function renderStatusBoardBlock(x, y, w, h, c, block) {
   const items = (block.items || []).slice(0, 6);
-  const columns = items.length <= 4 ? 2 : 3;
+  const columns = items.length === 3 ? 1 : items.length <= 4 ? 2 : 3;
   const rows = Math.ceil(items.length / columns);
   const gap = 14;
   const itemW = Math.floor((w - 56 - gap * (columns - 1)) / columns);
-  const itemH = Math.floor((h - 118 - gap * (rows - 1)) / rows);
+  const itemTop = columns === 1 ? y + 88 : y + 94;
+  const itemH = Math.floor(((columns === 1 ? h - 104 : h - 118) - gap * (rows - 1)) / rows);
   let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
   items.forEach((item, index) => {
     const col = index % columns;
     const row = Math.floor(index / columns);
     const ix = x + 28 + col * (itemW + gap);
-    const iy = y + 94 + row * (itemH + gap);
+    const iy = itemTop + row * (itemH + gap);
     const tone = item.status === "risk" ? c.exprRisk : c.exprSeries;
     const statusLabel = item.value || (item.status === "risk" ? "待处理" : item.status === "good" ? "正常" : "关注");
     const pillW = Math.min(76, Math.max(58, itemW - 112));
+    const compact = columns === 1;
     body += `
 ${rect(ix, iy, itemW, itemH, c, { rx: 12, fill: c.surface, stroke: c.border, sw: 1.2 })}
-<rect x="${ix + 16}" y="${iy + 18}" width="10" height="${Math.max(34, itemH - 36)}" rx="5" fill="${tone}" stroke="${tone}" stroke-width="1"/>
-${text(ix + 42, iy + 42, 19, c.ink, splitByWidth(item.label, itemW - 122, 19, 1), "700")}
-${rect(ix + itemW - pillW - 16, iy + 18, pillW, 28, c, { rx: 8, fill: c.muted, stroke: c.border, sw: 1 })}
-${text(ix + itemW - pillW - 2, iy + 38, 15, tone, [statusLabel], "700")}
-${text(ix + 42, iy + 76, 16, c.secondary, splitByWidth(item.note || "", itemW - 68, 16, 2), "400", 22)}`;
+<rect x="${ix + 16}" y="${iy + (compact ? 14 : 18)}" width="10" height="${Math.max(34, itemH - (compact ? 28 : 36))}" rx="5" fill="${tone}" stroke="${tone}" stroke-width="1"/>
+${text(ix + 42, iy + (compact ? 35 : 42), compact ? 18 : 19, c.ink, splitByWidth(item.label, itemW - 122, compact ? 18 : 19, 1), "700")}
+${rect(ix + itemW - pillW - 16, iy + (compact ? 14 : 18), pillW, 28, c, { rx: 8, fill: c.muted, stroke: c.border, sw: 1 })}
+${text(ix + itemW - pillW - 2, iy + (compact ? 34 : 38), 15, tone, [statusLabel], "700")}
+${text(ix + 42, iy + (compact ? 59 : 76), compact ? 14 : 16, c.secondary, splitByWidth(item.note || "", itemW - 68, compact ? 14 : 16, 1), "400", compact ? 18 : 22)}`;
   });
   return body;
 }
@@ -1255,21 +1258,28 @@ ${text(px - 24, py - 16, 15, c.ink, [item.value], "700")}`;
 function renderDecisionMatrixBlock(x, y, w, h, c, block) {
   const items = (block.items || []).slice(0, 4);
   const rowH = Math.floor((h - 150) / Math.max(1, items.length));
+  const tableX = x + 28;
+  const tableW = w - 56;
+  const optionX = tableX + 24;
+  const basisX = tableX + Math.round(tableW * 0.34);
+  const resultX = tableX + tableW - 96;
   let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
   body += `
-<rect x="${x + 28}" y="${y + 94}" width="${w - 56}" height="42" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.2"/>
-${text(x + 48, y + 122, 16, c.secondary, ["选项"], "700")}
-${text(x + Math.round(w * 0.38), y + 122, 16, c.secondary, ["判断依据"], "700")}
-${text(x + w - 126, y + 122, 16, c.secondary, ["结论"], "700")}`;
+<rect x="${tableX}" y="${y + 94}" width="${tableW}" height="42" rx="8" fill="${c.muted}" stroke="${c.border}" stroke-width="1.2"/>
+${text(optionX, y + 122, 16, c.secondary, ["选项"], "700")}
+${text(basisX, y + 122, 16, c.secondary, ["判断依据"], "700")}
+${text(resultX, y + 122, 16, c.secondary, ["结论"], "700")}`;
   items.forEach((item, index) => {
     const iy = y + 146 + index * rowH;
     const recommended = item.status === "good";
     const tone = recommended ? seriesTone(c) : item.status === "risk" ? c.exprRisk : c.secondary;
+    const fill = recommended ? c.soft : c.surface;
     body += `
-${rect(x + 28, iy, w - 56, rowH - 12, c, { rx: 10, fill: recommended ? c.soft : c.surface, stroke: recommended ? seriesTone(c) : c.border, sw: recommended ? 2 : 1.2 })}
-${text(x + 50, iy + 34, 18, recommended ? seriesTone(c) : c.ink, [item.label], "700")}
-${text(x + Math.round(w * 0.38), iy + 32, 16, c.secondary, splitByWidth(item.note || "", Math.round(w * 0.42), 16, 2), "400", 21)}
-${text(x + w - 126, iy + 34, 17, tone, [item.value || (recommended ? "推荐" : "备选")], "700")}`;
+${rect(tableX, iy, tableW, rowH - 12, c, { rx: 10, fill, stroke: c.border, sw: 1.2 })}
+${recommended ? `<rect x="${tableX}" y="${iy}" width="7" height="${rowH - 12}" rx="3.5" fill="${seriesTone(c)}" stroke="${seriesTone(c)}" stroke-width="1"/>` : ""}
+${text(optionX, iy + 34, 18, recommended ? seriesTone(c) : c.ink, [item.label], "700")}
+${text(basisX, iy + 32, 16, c.secondary, splitByWidth(item.note || "", Math.round(tableW * 0.42), 16, 2), "400", 21)}
+${text(resultX, iy + 34, 17, tone, [item.value || (recommended ? "推荐" : "备选")], "700")}`;
   });
   return body;
 }
@@ -1280,10 +1290,10 @@ function renderVarianceBridgeV2Block(x, y, w, h, c, block) {
   const end = items[items.length - 1];
   const deltas = items.slice(1, -1);
   const baseY = y + Math.round(h * 0.58);
-  const startW = 112;
-  const endW = 112;
-  const deltaGap = 14;
-  const deltaW = Math.floor((w - 80 - startW - endW - deltaGap * (deltas.length + 1)) / Math.max(1, deltas.length));
+  const startW = 126;
+  const endW = 126;
+  const deltaGap = 22;
+  const deltaW = Math.floor((w - 92 - startW - endW - deltaGap * (deltas.length + 1)) / Math.max(1, deltas.length));
   const maxAbs = Math.max(1, ...deltas.map((item) => Math.abs(parseSignedNumber(item.value, 0))));
   let cursor = x + 34;
   let body = renderExpressionFrame(x, y, w, h, c, block.title, block.note);
@@ -1295,16 +1305,16 @@ ${text(cursor + 18, baseY + 4, 16, c.secondary, splitByWidth(start?.label || "�
   cursor += startW + deltaGap;
   deltas.forEach((item) => {
     const value = parseSignedNumber(item.value, 0);
-    const barH = Math.max(26, Math.round((Math.abs(value) / maxAbs) * 62));
+    const barH = Math.max(42, Math.round((Math.abs(value) / maxAbs) * 62));
     const isPositive = value >= 0;
     const tone = isPositive ? seriesTone(c) : c.exprRisk;
     const barY = isPositive ? baseY - barH : baseY;
-    const labelBoxY = y + h - 58;
+    const labelBoxY = y + h - 56;
     const labelY = labelBoxY + 21;
     body += `
 <line x1="${cursor - deltaGap + 6}" y1="${baseY}" x2="${cursor - 6}" y2="${baseY}" stroke="${c.border}" stroke-width="2" marker-end="url(#arrow)"/>
 ${rect(cursor, barY, deltaW, barH, c, { rx: 12, fill: c.muted, stroke: tone, sw: 2 })}
-${text(cursor + 16, barY + (isPositive ? 30 : Math.min(barH - 10, 30)), 22, c.ink, [item.value], "700")}
+${text(cursor + 18, isPositive ? barY + 31 : barY + 31, 22, c.ink, [item.value], "700")}
 ${rect(cursor, labelBoxY, deltaW, 30, c, { rx: 8, fill: c.surface, stroke: c.border, sw: 1 })}
 ${text(cursor + 16, labelY, 16, c.ink, splitByWidth(item.label, deltaW - 32, 16, 1), "700", 20)}`;
     cursor += deltaW + deltaGap;
