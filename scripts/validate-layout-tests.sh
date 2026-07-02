@@ -16,15 +16,15 @@ for brief in examples/briefs/*.json; do
     if [ "$(basename "$brief")" = "v32-variance-bridge.json" ]; then
       node -e 'const fs=require("fs"); const p=process.argv[1]; const j=JSON.parse(fs.readFileSync(p,"utf8")); const bars=j.nodes.filter(n=>n.type==="rect" && ["#F59E0B","#16A085","#5E6AD2","#2563EB","#3370FF","#007AFF"].includes(n.fillColor) && n.height>=24 && n.height<=160); if (bars.length < 3 || new Set(bars.map(b=>Math.round(b.height))).size < 2) { console.error("variance bridge must encode relative magnitude with proportional bars"); process.exit(1); }' "$dsl"
     fi
-    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$dsl" -o "$png" >/dev/null
-    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$dsl" --check >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$dsl" -o "$png" >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$dsl" --check >/dev/null
   else
     svg="examples/layout-tests/generated-$(basename "${brief%.json}").svg"
     png="${svg%.svg}.png"
     node scripts/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
     node scripts/check-svg-layout.mjs "$svg" >/dev/null
-    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null
-    npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -f svg --check >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -o "$png" -f svg >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -f svg --check >/dev/null
   fi
 done
 
@@ -95,8 +95,8 @@ rm -f "$tmp_summary_width_brief" "$tmp_summary_width_svg"
 
 for svg in examples/layout-tests/*.svg; do
   png="${svg%.svg}.png"
-  npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -o "$png" -f svg >/dev/null
-  npx -y @larksuite/whiteboard-cli@^0.2.11 -i "$svg" -f svg --check >/dev/null
+  npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -o "$png" -f svg >/dev/null
+  npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -f svg --check >/dev/null
   if grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradient|<radialGradient|<clipPath|<mask' "$svg"; then
     echo "forbidden SVG feature found in $svg" >&2
     exit 1

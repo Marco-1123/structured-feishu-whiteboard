@@ -1,0 +1,58 @@
+{
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "title": "团队协作系统图",
+  "subtitle": "把输入、路由、处理和结果做成可追踪的系统关系。",
+  "summaryLabel": "系统判断",
+  "summary": "流程不是缺人，而是缺少统一接口和可回溯的执行链路。",
+  "expressionMode": "narrative-map",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "系统判断",
+      "body": ["流程不是缺人，而是缺少统一接口和可回溯的执行链路。"]
+    },
+    {
+      "type": "narrative-chain",
+      "title": "协作链路",
+      "note": "从输入到审计",
+      "items": [
+        {"label": "身份与权限", "note": "明确谁在操作、可读什么资料。"},
+        {"label": "任务路由", "note": "把问题交给对应 Agent 或工具链。"},
+        {"label": "执行校验", "note": "关键动作保留证据和可回滚路径。"},
+        {"label": "复盘沉淀", "note": "流程进 Skill，原则进 Wiki。"}
+      ]
+    },
+    {
+      "type": "decision-matrix",
+      "title": "决策矩阵",
+      "note": "用明确维度减少主观争论",
+      "items": [
+        {"label": "团队上下文", "value": "推荐", "note": "复用价值高，适合先沉淀", "status": "good"},
+        {"label": "个人提示词", "value": "过渡", "note": "灵活但不稳定", "status": "neutral"},
+        {"label": "聊天记录", "value": "不推荐", "note": "难复用，难审计", "status": "risk"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "关键风险",
+      "note": "避免协作链路失真",
+      "items": [
+        {"label": "身份边界不清", "status": "risk"},
+        {"label": "任务路由漂移", "status": "risk"},
+        {"label": "日志证据缺失", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "推荐动作",
+      "note": "先收敛接口，再扩大范围",
+      "items": [
+        {"label": "定义团队上下文契约"},
+        {"label": "沉淀任务路由规则"},
+        {"label": "建立执行审计清单"}
+      ]
+    }
+  ],
+  "footer": "适合机制、流程、Agent 协作和系统化决策路径。"
+}

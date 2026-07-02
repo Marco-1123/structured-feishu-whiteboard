@@ -16,35 +16,35 @@
 <text x="116" y="450" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="116" dy="0">目标完成</tspan></text>
 <text x="116" y="502" font-size="42" fill="#111827" font-weight="700"><tspan x="116" dy="0">78%</tspan></text>
 <text x="116" y="540" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="116" dy="0">主线进度正常</tspan></text>
-<rect x="116" y="548" width="112" height="36" rx="8" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1"/>
-<text x="134" y="573" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="134" dy="0">可控</tspan></text>
+<rect x="116" y="558" width="112" height="34" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="134" y="581" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="134" dy="0">可控</tspan></text>
 <rect x="772" y="412" width="656" height="190" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="796" y="450" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="796" dy="0">试点转化</tspan></text>
 <text x="796" y="502" font-size="42" fill="#111827" font-weight="700"><tspan x="796" dy="0">+12%</tspan></text>
 <text x="796" y="540" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="796" dy="0">小流量有效</tspan></text>
-<rect x="796" y="548" width="112" height="36" rx="8" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1"/>
-<text x="814" y="573" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="814" dy="0">改善</tspan></text>
+<rect x="796" y="558" width="112" height="34" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="814" y="581" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="814" dy="0">改善</tspan></text>
 <rect x="1452" y="412" width="656" height="190" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="1476" y="450" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="1476" dy="0">待闭环风险</tspan></text>
 <text x="1476" y="502" font-size="42" fill="#7C6254" font-weight="700"><tspan x="1476" dy="0">4</tspan></text>
 <text x="1476" y="540" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="1476" dy="0">集中在口径</tspan></text>
-<rect x="1476" y="548" width="112" height="36" rx="8" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1"/>
-<text x="1494" y="573" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1494" dy="0">关注</tspan></text>
+<rect x="1476" y="558" width="112" height="34" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1494" y="581" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1494" dy="0">关注</tspan></text>
 <rect x="92" y="652" width="640" height="292" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="120" y="700" font-size="24" fill="#111827" font-weight="700"><tspan x="120" dy="0">关键进度</tspan></text>
 <text x="120" y="734" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="120" dy="0">按目标、数据和复盘三条线检查</tspan></text>
 <text x="120" y="775" font-size="18" fill="#111827" font-weight="700"><tspan x="120" dy="0">目标对齐</tspan></text>
-<rect x="262" y="760" width="410" height="18" rx="9" fill="#E7EAF0" stroke="#D8DEE8" stroke-width="1"/>
-<rect x="262" y="760" width="344" height="18" rx="9" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="682" y="777" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="682" dy="0">84%</tspan></text>
+<rect x="262" y="760" width="380" height="18" rx="9" fill="#E7EAF0" stroke="#D8DEE8" stroke-width="1"/>
+<rect x="262" y="760" width="319" height="18" rx="9" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="662" y="777" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="662" dy="0">84%</tspan></text>
 <text x="120" y="835" font-size="18" fill="#111827" font-weight="700"><tspan x="120" dy="0">数据接入</tspan></text>
-<rect x="262" y="820" width="410" height="18" rx="9" fill="#E7EAF0" stroke="#D8DEE8" stroke-width="1"/>
-<rect x="262" y="820" width="279" height="18" rx="9" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="682" y="837" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="682" dy="0">68%</tspan></text>
+<rect x="262" y="820" width="380" height="18" rx="9" fill="#E7EAF0" stroke="#D8DEE8" stroke-width="1"/>
+<rect x="262" y="820" width="258" height="18" rx="9" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="662" y="837" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="662" dy="0">68%</tspan></text>
 <text x="120" y="895" font-size="18" fill="#111827" font-weight="700"><tspan x="120" dy="0">复盘闭环</tspan></text>
-<rect x="262" y="880" width="410" height="18" rx="9" fill="#E7EAF0" stroke="#D8DEE8" stroke-width="1"/>
-<rect x="262" y="880" width="213" height="18" rx="9" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="682" y="897" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="682" dy="0">52%</tspan></text>
+<rect x="262" y="880" width="380" height="18" rx="9" fill="#E7EAF0" stroke="#D8DEE8" stroke-width="1"/>
+<rect x="262" y="880" width="198" height="18" rx="9" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="662" y="897" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="662" dy="0">52%</tspan></text>
 <rect x="772" y="652" width="640" height="292" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="800" y="700" font-size="24" fill="#111827" font-weight="700"><tspan x="800" dy="0">周度转化趋势</tspan></text>
 <text x="800" y="734" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="800" dy="0">关注是否持续改善，而不是单周波动</tspan></text>

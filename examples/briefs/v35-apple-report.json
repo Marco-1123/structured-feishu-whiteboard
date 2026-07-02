@@ -1,0 +1,85 @@
+{
+  "layout": "expression-canvas",
+  "style": "apple-report",
+  "title": "Agent 协作能力升级",
+  "subtitle": "把复杂系统讲成清晰、克制、有呼吸感的一页策略稿。",
+  "summaryLabel": "主判断",
+  "summary": "先沉淀团队上下文，再把执行链路产品化。",
+  "expressionMode": "dashboard-onepage",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "主判断",
+      "body": ["先沉淀团队上下文，再把执行链路产品化。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "上下文完整度",
+      "value": "82%",
+      "label": "稳定",
+      "note": "关键项目资料可被复用",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "可复用流程",
+      "value": "5",
+      "label": "沉淀",
+      "note": "会议、任务、文档、审批、复盘",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "待闭环风险",
+      "value": "3",
+      "label": "关注",
+      "note": "集中在权限和口径",
+      "status": "risk"
+    },
+    {
+      "type": "progress-bar",
+      "title": "能力成熟度",
+      "note": "按上下文、流程和治理三条线检查",
+      "items": [
+        {"label": "上下文资产", "value": "82%"},
+        {"label": "流程复用", "value": "68%"},
+        {"label": "治理闭环", "value": "56%"}
+      ]
+    },
+    {
+      "type": "trend-sparkline",
+      "title": "周度复用趋势",
+      "note": "关注能力是否持续被团队使用",
+      "items": [
+        {"label": "W1", "value": "38%"},
+        {"label": "W2", "value": "45%"},
+        {"label": "W3", "value": "51%"},
+        {"label": "W4", "value": "61%"},
+        {"label": "W5", "value": "70%"}
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "治理状态",
+      "note": "把潜在影响显性化",
+      "items": [
+        {"label": "身份权限", "value": "正常", "note": "边界清晰", "status": "good"},
+        {"label": "知识口径", "value": "关注", "note": "部分定义不一", "status": "neutral"},
+        {"label": "风险升级", "value": "待处理", "note": "审批链需补齐", "status": "risk"},
+        {"label": "复盘节奏", "value": "正常", "note": "周会已固定", "status": "good"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "两周内完成团队试点",
+      "items": [
+        {"label": "补齐权限边界"},
+        {"label": "固化上下文模板"},
+        {"label": "建立复盘节奏"},
+        {"label": "输出试点报告"}
+      ]
+    }
+  ],
+  "footer": "适合产品介绍、能力总览和高质量一页汇报。"
+}

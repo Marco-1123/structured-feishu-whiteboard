@@ -1,0 +1,58 @@
+{
+  "layout": "expression-canvas",
+  "style": "riptide-cobalt",
+  "title": "团队智能体协作蓝图",
+  "subtitle": "用强双色块表达主张，用高对比内容区保证小字可读。",
+  "summaryLabel": "蓝图判断",
+  "summary": "V3.5 从稳定模板走向可控多样化表达，但不能牺牲结构和秩序。",
+  "expressionMode": "narrative-map",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "蓝图判断",
+      "body": ["走向可控多样化，但不牺牲结构和秩序。"]
+    },
+    {
+      "type": "narrative-chain",
+      "title": "协作蓝图",
+      "note": "从输入到可编辑画板",
+      "items": [
+        {"label": "统一入口", "note": "用户只提交材料和表达目标。"},
+        {"label": "结构化判断", "note": "先提炼主题、证据、风险和行动。"},
+        {"label": "风格选择", "note": "默认工作型，创意风格主动选择。"},
+        {"label": "画板生成", "note": "输出可编辑 SVG 画板并检查。"}
+      ]
+    },
+    {
+      "type": "decision-matrix",
+      "title": "风格选择",
+      "note": "按场景选择而不是随机换皮",
+      "items": [
+        {"label": "工作汇报", "value": "默认", "note": "蓝白、Linear、Apple 稳定优先", "status": "good"},
+        {"label": "数据复盘", "value": "推荐", "note": "Stripe Data 承载指标趋势", "status": "good"},
+        {"label": "概念宣讲", "value": "可选", "note": "Riptide 用于高冲击表达", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "设计边界",
+      "note": "强视觉不能破坏可读性",
+      "items": [
+        {"label": "小字直接压在强色块", "status": "risk"},
+        {"label": "颜色承担多重含义", "status": "risk"},
+        {"label": "卡片排列失去秩序", "status": "risk"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "落地动作",
+      "note": "先验证，再发布",
+      "items": [
+        {"label": "生成样例图"},
+        {"label": "检查内容层级"},
+        {"label": "飞书预览复核"}
+      ]
+    }
+  ],
+  "footer": "适合概念蓝图、宣讲页和战略主张，不作为默认自动风格。"
+}

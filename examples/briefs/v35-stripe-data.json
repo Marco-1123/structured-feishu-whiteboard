@@ -1,0 +1,85 @@
+{
+  "layout": "expression-canvas",
+  "style": "stripe-data",
+  "title": "增长动作经营面板",
+  "subtitle": "目标、指标、趋势、风险和行动在一页中建立因果关系。",
+  "summaryLabel": "数据解释",
+  "summary": "增长动作有效，但关键口径仍需要统一，风险闭环要进入固定运营节奏。",
+  "expressionMode": "dashboard-onepage",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "数据解释",
+      "body": ["增长动作有效，但关键口径仍需要统一。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "目标对齐",
+      "value": "84%",
+      "label": "正常",
+      "note": "主指标已统一",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "效率提升",
+      "value": "+18%",
+      "label": "改善",
+      "note": "小流量验证有效",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "关键风险",
+      "value": "3",
+      "label": "关注",
+      "note": "口径与数据质量",
+      "status": "risk"
+    },
+    {
+      "type": "progress-bar",
+      "title": "关键进度",
+      "note": "按目标、数据和复盘三条线检查",
+      "items": [
+        {"label": "目标对齐", "value": "84%"},
+        {"label": "数据接入", "value": "68%"},
+        {"label": "复盘闭环", "value": "52%"}
+      ]
+    },
+    {
+      "type": "trend-sparkline",
+      "title": "周度趋势",
+      "note": "关注是否持续改善，而不是单周波动",
+      "items": [
+        {"label": "W1", "value": "41%"},
+        {"label": "W2", "value": "46%"},
+        {"label": "W3", "value": "45%"},
+        {"label": "W4", "value": "53%"},
+        {"label": "W5", "value": "58%"}
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "状态与行动",
+      "note": "把状态和责任从文字里显性化",
+      "items": [
+        {"label": "目标口径", "value": "正常", "note": "主指标已统一", "status": "good"},
+        {"label": "数据质量", "value": "关注", "note": "漏斗仍有缺口", "status": "neutral"},
+        {"label": "风险闭环", "value": "待处理", "note": "复盘动作分散", "status": "risk"},
+        {"label": "输出报告", "value": "本周", "note": "试点结论待发", "status": "good"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "两周内形成可复用运营节奏",
+      "items": [
+        {"label": "补齐漏斗口径"},
+        {"label": "建立风险分层"},
+        {"label": "固定周复盘模板"},
+        {"label": "输出试点报告"}
+      ]
+    }
+  ],
+  "footer": "适合经营复盘、增长项目同步和数据化表达的工作汇报。"
+}

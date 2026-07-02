@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1320" viewBox="0 0 2200 1320">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#5E6AD2"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="2200" height="1320" fill="#F7F8FA"/>
+
+<text x="92" y="104" font-size="50" fill="#111827" font-weight="700"><tspan x="92" dy="0">团队协作系统图</tspan></text>
+<text x="94" y="146" font-size="23" fill="#5F6B7A" font-weight="400"><tspan x="94" dy="0">把输入、路由、处理和结果做成可追踪的系统关系。</tspan></text>
+<rect x="92" y="206" width="2016" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="92" y="206" width="12" height="150" rx="6" fill="#111827" stroke="#111827" stroke-width="1"/>
+<text x="130" y="248" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="130" dy="0">系统判断</tspan></text>
+<text x="130" y="298" font-size="30" fill="#111827" font-weight="700"><tspan x="130" dy="0">流程不是缺人，而是缺少统一接口和可回溯的执行链路。</tspan></text>
+<rect x="92" y="416" width="2016" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="120" y="464" font-size="24" fill="#111827" font-weight="700"><tspan x="120" dy="0">协作链路</tspan></text>
+<text x="120" y="498" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="120" dy="0">从输入到审计</tspan></text>
+<rect x="120" y="528" width="464" height="168" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="142" y="576" font-size="23" fill="#111827" font-weight="700"><tspan x="142" dy="0">身份与权限</tspan></text>
+<text x="142" y="620" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="142" dy="0">明确谁在操作、可读什么资料。</tspan></text>
+<line x1="588" y1="616" x2="610" y2="616" stroke="#5E6AD2" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="618" y="528" width="464" height="168" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="640" y="576" font-size="23" fill="#111827" font-weight="700"><tspan x="640" dy="0">任务路由</tspan></text>
+<text x="640" y="620" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="640" dy="0">把问题交给对应 Agent 或工具链。</tspan></text>
+<line x1="1086" y1="616" x2="1108" y2="616" stroke="#5E6AD2" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1116" y="528" width="464" height="168" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="1138" y="576" font-size="23" fill="#111827" font-weight="700"><tspan x="1138" dy="0">执行校验</tspan></text>
+<text x="1138" y="620" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="1138" dy="0">关键动作保留证据和可回滚路径。</tspan></text>
+<line x1="1584" y1="616" x2="1606" y2="616" stroke="#5E6AD2" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1614" y="528" width="464" height="168" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="1636" y="576" font-size="23" fill="#111827" font-weight="700"><tspan x="1636" dy="0">复盘沉淀</tspan></text>
+<text x="1636" y="620" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="1636" dy="0">流程进 Skill，原则进 Wiki。</tspan></text>
+
+<rect x="92" y="830" width="650" height="300" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="120" y="878" font-size="24" fill="#111827" font-weight="700"><tspan x="120" dy="0">决策矩阵</tspan></text>
+<text x="120" y="912" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="120" dy="0">用明确维度减少主观争论</tspan></text>
+<rect x="120" y="924" width="594" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="144" y="952" font-size="16" fill="#5F6B7A" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
+<text x="322" y="952" font-size="16" fill="#5F6B7A" font-weight="700"><tspan x="322" dy="0">判断依据</tspan></text>
+<text x="618" y="952" font-size="16" fill="#5F6B7A" font-weight="700"><tspan x="618" dy="0">结论</tspan></text>
+<rect x="120" y="976" width="594" height="38" rx="10" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="120" y="976" width="7" height="38" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="144" y="1010" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">团队上下文</tspan></text>
+<text x="322" y="1008" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="322" dy="0">复用价值高，适合先沉淀</tspan></text>
+<text x="618" y="1010" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="618" dy="0">推荐</tspan></text>
+<rect x="120" y="1026" width="594" height="38" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+
+<text x="144" y="1060" font-size="18" fill="#111827" font-weight="700"><tspan x="144" dy="0">个人提示词</tspan></text>
+<text x="322" y="1058" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="322" dy="0">灵活但不稳定</tspan></text>
+<text x="618" y="1060" font-size="17" fill="#5F6B7A" font-weight="700"><tspan x="618" dy="0">过渡</tspan></text>
+<rect x="120" y="1076" width="594" height="38" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+
+<text x="144" y="1110" font-size="18" fill="#111827" font-weight="700"><tspan x="144" dy="0">聊天记录</tspan></text>
+<text x="322" y="1108" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="322" dy="0">难复用，难审计</tspan></text>
+<text x="618" y="1110" font-size="17" fill="#7C6254" font-weight="700"><tspan x="618" dy="0">不推荐</tspan></text>
+<rect x="776" y="830" width="650" height="300" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="804" y="878" font-size="24" fill="#111827" font-weight="700"><tspan x="804" dy="0">关键风险</tspan></text>
+<text x="804" y="912" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="804" dy="0">避免协作链路失真</tspan></text>
+<rect x="804" y="930" width="594" height="51" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="804" y="930" width="6" height="51" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
+<text x="822" y="959" font-size="17" fill="#7C6254" font-weight="700"><tspan x="822" dy="0">身份边界不清</tspan></text>
+
+<rect x="804" y="993" width="594" height="51" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="804" y="993" width="6" height="51" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
+<text x="822" y="1022" font-size="17" fill="#7C6254" font-weight="700"><tspan x="822" dy="0">任务路由漂移</tspan></text>
+
+<rect x="804" y="1056" width="594" height="51" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="804" y="1056" width="6" height="51" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
+<text x="822" y="1085" font-size="17" fill="#7C6254" font-weight="700"><tspan x="822" dy="0">日志证据缺失</tspan></text>
+
+<rect x="1460" y="830" width="648" height="300" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="1488" y="878" font-size="24" fill="#111827" font-weight="700"><tspan x="1488" dy="0">推荐动作</tspan></text>
+<text x="1488" y="912" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="1488" dy="0">先收敛接口，再扩大范围</tspan></text>
+<rect x="1488" y="930" width="592" height="51" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1488" y="930" width="6" height="51" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1506" y="959" font-size="17" fill="#111827" font-weight="700"><tspan x="1506" dy="0">定义团队上下文契约</tspan></text>
+
+<rect x="1488" y="993" width="592" height="51" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1488" y="993" width="6" height="51" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1506" y="1022" font-size="17" fill="#111827" font-weight="700"><tspan x="1506" dy="0">沉淀任务路由规则</tspan></text>
+
+<rect x="1488" y="1056" width="592" height="51" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1488" y="1056" width="6" height="51" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1506" y="1085" font-size="17" fill="#111827" font-weight="700"><tspan x="1506" dy="0">建立执行审计清单</tspan></text>
+
+<text x="92" y="1216" font-size="22" fill="#5F6B7A" font-weight="400"><tspan x="92" dy="0">适合机制、流程、Agent 协作和系统化决策路径。</tspan></text>
+</svg>

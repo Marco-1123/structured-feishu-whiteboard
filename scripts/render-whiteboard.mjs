@@ -152,6 +152,106 @@ const styles = {
     exprTrack: "#E7EAF0",
     exprValue: "#111827",
   },
+  "apple-report": {
+    grammar: "apple",
+    canvas: "#F5F5F7",
+    surface: "#FFFFFF",
+    muted: "#F2F2F7",
+    ink: "#1D1D1F",
+    secondary: "#6E6E73",
+    border: "#D2D2D7",
+    accent: "#007AFF",
+    soft: "#E8F2FF",
+    success: "#248A3D",
+    exprSeries: "#007AFF",
+    exprRisk: "#7D6258",
+    exprTrack: "#E7E7EC",
+    exprValue: "#1D1D1F",
+  },
+  "linear-system": {
+    grammar: "linear",
+    canvas: "#F7F8FA",
+    surface: "#FFFFFF",
+    muted: "#F1F3F6",
+    ink: "#111827",
+    secondary: "#5F6B7A",
+    border: "#D8DEE8",
+    accent: "#5E6AD2",
+    soft: "#ECEEFE",
+    success: "#16A085",
+    dark: "#111827",
+    darkMuted: "#1F2937",
+    darkText: "#F9FAFB",
+    exprSeries: "#5E6AD2",
+    exprRisk: "#7C6254",
+    exprTrack: "#E7EAF0",
+    exprValue: "#111827",
+  },
+  "stripe-data": {
+    grammar: "stripe",
+    canvas: "#F6F9FC",
+    surface: "#FFFFFF",
+    muted: "#F0F6FF",
+    ink: "#0A2540",
+    secondary: "#53657D",
+    border: "#D9E5F2",
+    accent: "#635BFF",
+    soft: "#EEF2FF",
+    success: "#00A88F",
+    warning: "#AD6A00",
+    exprSeries: "#635BFF",
+    exprRisk: "#7A5A46",
+    exprTrack: "#E5EDF7",
+    exprValue: "#635BFF",
+  },
+  "vercel-precision": {
+    grammar: "vercel",
+    canvas: "#FFFFFF",
+    surface: "#FFFFFF",
+    muted: "#F5F5F5",
+    ink: "#000000",
+    secondary: "#666666",
+    border: "#D8D8D8",
+    accent: "#000000",
+    soft: "#F5F5F5",
+    success: "#000000",
+    exprSeries: "#000000",
+    exprRisk: "#666666",
+    exprTrack: "#EEEEEE",
+    exprValue: "#000000",
+  },
+  "neo-grid-bold": {
+    grammar: "neo",
+    canvas: "#F5F4EF",
+    surface: "#F5F4EF",
+    muted: "#ECECE8",
+    ink: "#0A0A0A",
+    secondary: "#5F5F59",
+    border: "#0A0A0A",
+    accent: "#E6FF3D",
+    soft: "#E6FF3D",
+    success: "#0A0A0A",
+    exprSeries: "#0A0A0A",
+    exprRisk: "#0A0A0A",
+    exprTrack: "#DCDCD6",
+    exprValue: "#0A0A0A",
+  },
+  "riptide-cobalt": {
+    grammar: "riptide",
+    canvas: "#FDF0E0",
+    surface: "#FFFFFF",
+    muted: "#FDF0E0",
+    ink: "#1A2240",
+    secondary: "#4E5873",
+    border: "#1A2240",
+    accent: "#375DFE",
+    soft: "#E8ECFF",
+    success: "#2741C0",
+    exprSeries: "#375DFE",
+    exprRisk: "#1A2240",
+    exprTrack: "#E2D7C9",
+    exprValue: "#1A2240",
+  },
 };
 
 function parseArgs(argv) {
@@ -276,11 +376,14 @@ function card(x, y, w, h, c) {
   if (c.grammar === "linear") {
     return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" fill="${c.surface}" stroke="${c.border}" stroke-width="1.5"/>`;
   }
+  if (c.grammar === "neo" || c.grammar === "riptide") {
+    return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="0" fill="${c.surface}" stroke="${c.border}" stroke-width="3"/>`;
+  }
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="${c.surface}" stroke="${c.border}" stroke-width="2"/>`;
 }
 
 function rect(x, y, w, h, c, options = {}) {
-  const rx = options.rx ?? 14;
+  const rx = c.grammar === "neo" || c.grammar === "riptide" ? 0 : options.rx ?? 14;
   const fill = options.fill ?? c.surface;
   const stroke = options.stroke ?? c.border;
   const sw = options.sw ?? 2;
@@ -1106,11 +1209,17 @@ ${text(x + 38, y + 92, 30, c.ink, lines, "700", 39)}`;
 function renderMetricTile(x, y, w, h, c, block) {
   const tone = statusTone(block.status, c);
   const valueTone = block.status === "risk" ? tone : (c.exprValue || tone);
+  const compact = h <= 190;
+  const noteY = compact ? y + 128 : y + 128;
+  const labelY = compact ? y + h - 44 : y + h - 54;
+  const labelH = compact ? 34 : 36;
+  const noteLines = block.note ? splitByWidth(block.note, w - 48, 17, compact ? 1 : 2) : [];
   return `${rect(x, y, w, h, c, { rx: 16, fill: c.surface, stroke: c.border, sw: 1.5 })}
 ${text(x + 24, y + 38, 18, c.secondary, [block.title], "700")}
 ${text(x + 24, y + 90, 42, valueTone, [block.value], "700")}
-${block.note ? text(x + 24, y + 128, 17, c.secondary, splitByWidth(block.note, w - 48, 17, 2), "400", 24) : ""}
-${block.label ? label(x + 24, y + h - 54, 112, c, block.label, tone) : ""}`;
+${noteLines.length ? text(x + 24, noteY, 17, c.secondary, noteLines, "400", 24) : ""}
+${block.label ? `<rect x="${x + 24}" y="${labelY}" width="112" height="${labelH}" rx="${c.grammar === "neo" || c.grammar === "riptide" ? 0 : c.grammar === "apple" ? Math.round(labelH / 2) : 8}" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+${text(x + 42, labelY + (compact ? 23 : 25), 17, tone, [block.label], "700", 24)}` : ""}`;
 }
 
 function renderProgressBlock(x, y, w, h, c, block) {
@@ -1121,13 +1230,13 @@ function renderProgressBlock(x, y, w, h, c, block) {
     const rowY = y + 98 + index * rowH;
     const pct = parsePercent(item.value, 60);
     const trackX = x + 170;
-    const trackW = w - 230;
+    const trackW = w - 260;
     const barTone = seriesTone(c);
     body += `
 ${text(x + 28, rowY + 25, 18, c.ink, [item.label], "700")}
 <rect x="${trackX}" y="${rowY + 10}" width="${trackW}" height="18" rx="9" fill="${statusTrack(c)}" stroke="${c.border}" stroke-width="1"/>
 <rect x="${trackX}" y="${rowY + 10}" width="${Math.round(trackW * pct / 100)}" height="18" rx="9" fill="${barTone}" stroke="${barTone}" stroke-width="1"/>
-${text(x + w - 50, rowY + 27, 17, c.secondary, [item.value], "700")}`;
+${text(x + w - 70, rowY + 27, 17, c.secondary, [item.value], "700")}`;
   });
   return body;
 }
@@ -1410,12 +1519,30 @@ function renderModularExpression(brief, c) {
   const metricAreaW = 648;
   const metricGap = 22;
   const metricW = metrics.length > 0 ? Math.floor((metricAreaW - metricGap * (metrics.length - 1)) / metrics.length) : 0;
+  const risksRenderedInUpper = !statusBoard && Boolean(risks);
   const lowerBand = bridge && !evidence
     ? `${renderVarianceBridgeV2Block(92, 836, 980, 300, c, bridge)}
 ${actions ? renderListBlock(1112, 836, 996, 300, c, actions, { columns: 1, itemH: 54 }) : ""}`
-    : `${bridge ? renderVarianceBridgeV2Block(92, 836, 650, 300, c, bridge) : ranked ? renderRankedBlock(92, 836, 650, 300, c, ranked) : renderListBlock(92, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 })}
-${evidence ? renderListBlock(776, 836, 650, 300, c, evidence, { columns: 1, itemH: 54 }) : ""}
-${actions ? renderListBlock(1460, 836, 648, 300, c, actions, { columns: 1, itemH: 54 }) : ""}`;
+    : risksRenderedInUpper && evidence && actions && !bridge && !ranked
+      ? `${renderListBlock(92, 836, 980, 300, c, evidence, { columns: 1, itemH: 54 })}
+${renderListBlock(1112, 836, 996, 300, c, actions, { columns: 1, itemH: 54 })}`
+    : (() => {
+      const lowerRisks = risksRenderedInUpper ? null : risks;
+      const leftBlock = bridge || ranked || lowerRisks || evidence;
+      const middleBlock = bridge || ranked || lowerRisks ? evidence : null;
+      const left = bridge
+        ? renderVarianceBridgeV2Block(92, 836, 650, 300, c, bridge)
+        : ranked
+          ? renderRankedBlock(92, 836, 650, 300, c, ranked)
+          : leftBlock
+            ? renderListBlock(92, 836, 650, 300, c, leftBlock, { columns: 1, itemH: 54, emphasis: leftBlock.type === "risk-list", tone: leftBlock.type === "risk-list" ? c.exprRisk : undefined })
+            : "";
+      const middle = middleBlock ? renderListBlock(776, 836, 650, 300, c, middleBlock, { columns: 1, itemH: 54 }) : "";
+      const right = actions ? renderListBlock(1460, 836, 648, 300, c, actions, { columns: 1, itemH: 54 }) : "";
+      return `${left}
+${middle}
+${right}`;
+    })();
   return wrap(width, height, c, `
 ${renderExpressionTitle(brief, c, width)}
 ${renderExpressionStatement(92, 206, 1320, 180, c, statement)}

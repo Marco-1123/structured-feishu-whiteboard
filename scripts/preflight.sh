@@ -26,7 +26,7 @@ if command -v node >/dev/null 2>&1; then
 fi
 
 if command -v npx >/dev/null 2>&1; then
-  if npx -y @larksuite/whiteboard-cli@^0.2.11 -v >/dev/null 2>&1; then
+  if npx -y @larksuite/whiteboard-cli@^0.2.12 -v >/dev/null 2>&1; then
     echo "ok: @larksuite/whiteboard-cli"
   else
     echo "missing or unavailable: @larksuite/whiteboard-cli"

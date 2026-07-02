@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1272" viewBox="0 0 2200 1272">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#007AFF"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="2200" height="1272" fill="#F5F5F7"/>
+
+<text x="92" y="104" font-size="50" fill="#1D1D1F" font-weight="700"><tspan x="92" dy="0">Agent 协作能力升级</tspan></text>
+<text x="94" y="146" font-size="23" fill="#6E6E73" font-weight="400"><tspan x="94" dy="0">把复杂系统讲成清晰、克制、有呼吸感的一页策略稿。</tspan></text>
+<rect x="92" y="206" width="2016" height="150" rx="18" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<rect x="92" y="206" width="12" height="150" rx="6" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="130" y="248" font-size="18" fill="#007AFF" font-weight="700"><tspan x="130" dy="0">主判断</tspan></text>
+<text x="130" y="298" font-size="30" fill="#1D1D1F" font-weight="700"><tspan x="130" dy="0">先沉淀团队上下文，再把执行链路产品化。</tspan></text>
+<rect x="92" y="412" width="656" height="190" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="116" y="450" font-size="18" fill="#6E6E73" font-weight="700"><tspan x="116" dy="0">上下文完整度</tspan></text>
+<text x="116" y="502" font-size="42" fill="#1D1D1F" font-weight="700"><tspan x="116" dy="0">82%</tspan></text>
+<text x="116" y="540" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="116" dy="0">关键项目资料可被复用</tspan></text>
+<rect x="116" y="558" width="112" height="34" rx="17" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="134" y="581" font-size="17" fill="#007AFF" font-weight="700"><tspan x="134" dy="0">稳定</tspan></text>
+<rect x="772" y="412" width="656" height="190" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="796" y="450" font-size="18" fill="#6E6E73" font-weight="700"><tspan x="796" dy="0">可复用流程</tspan></text>
+<text x="796" y="502" font-size="42" fill="#1D1D1F" font-weight="700"><tspan x="796" dy="0">5</tspan></text>
+<text x="796" y="540" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="796" dy="0">会议、任务、文档、审批、复盘</tspan></text>
+<rect x="796" y="558" width="112" height="34" rx="17" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="814" y="581" font-size="17" fill="#007AFF" font-weight="700"><tspan x="814" dy="0">沉淀</tspan></text>
+<rect x="1452" y="412" width="656" height="190" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1476" y="450" font-size="18" fill="#6E6E73" font-weight="700"><tspan x="1476" dy="0">待闭环风险</tspan></text>
+<text x="1476" y="502" font-size="42" fill="#7D6258" font-weight="700"><tspan x="1476" dy="0">3</tspan></text>
+<text x="1476" y="540" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1476" dy="0">集中在权限和口径</tspan></text>
+<rect x="1476" y="558" width="112" height="34" rx="17" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="1494" y="581" font-size="17" fill="#7D6258" font-weight="700"><tspan x="1494" dy="0">关注</tspan></text>
+<rect x="92" y="652" width="640" height="292" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="120" y="700" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">能力成熟度</tspan></text>
+<text x="120" y="734" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">按上下文、流程和治理三条线检查</tspan></text>
+<text x="120" y="775" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">上下文资产</tspan></text>
+<rect x="262" y="760" width="380" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="262" y="760" width="312" height="18" rx="9" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="662" y="777" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="662" dy="0">82%</tspan></text>
+<text x="120" y="835" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">流程复用</tspan></text>
+<rect x="262" y="820" width="380" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="262" y="820" width="258" height="18" rx="9" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="662" y="837" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="662" dy="0">68%</tspan></text>
+<text x="120" y="895" font-size="18" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">治理闭环</tspan></text>
+<rect x="262" y="880" width="380" height="18" rx="9" fill="#E7E7EC" stroke="#D2D2D7" stroke-width="1"/>
+<rect x="262" y="880" width="213" height="18" rx="9" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="662" y="897" font-size="17" fill="#6E6E73" font-weight="700"><tspan x="662" dy="0">56%</tspan></text>
+<rect x="772" y="652" width="640" height="292" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="800" y="700" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="800" dy="0">周度复用趋势</tspan></text>
+<text x="800" y="734" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="800" dy="0">关注能力是否持续被团队使用</tspan></text>
+<line x1="816" y1="886" x2="1368" y2="886" stroke="#D2D2D7" stroke-width="2"/>
+<line x1="816" y1="772" x2="816" y2="886" stroke="#D2D2D7" stroke-width="2"/>
+<polyline points="816,843 954,835 1092,828 1230,816 1368,806" fill="none" stroke="#007AFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="816" cy="843" r="8" fill="#FFFFFF" stroke="#007AFF" stroke-width="4"/>
+<text x="788" y="920" font-size="15" fill="#6E6E73" font-weight="700"><tspan x="788" dy="0">W1</tspan></text>
+<text x="792" y="827" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="792" dy="0">38%</tspan></text>
+<circle cx="954" cy="835" r="8" fill="#FFFFFF" stroke="#007AFF" stroke-width="4"/>
+<text x="926" y="920" font-size="15" fill="#6E6E73" font-weight="700"><tspan x="926" dy="0">W2</tspan></text>
+<text x="930" y="819" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="930" dy="0">45%</tspan></text>
+<circle cx="1092" cy="828" r="8" fill="#FFFFFF" stroke="#007AFF" stroke-width="4"/>
+<text x="1064" y="920" font-size="15" fill="#6E6E73" font-weight="700"><tspan x="1064" dy="0">W3</tspan></text>
+<text x="1068" y="812" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1068" dy="0">51%</tspan></text>
+<circle cx="1230" cy="816" r="8" fill="#FFFFFF" stroke="#007AFF" stroke-width="4"/>
+<text x="1202" y="920" font-size="15" fill="#6E6E73" font-weight="700"><tspan x="1202" dy="0">W4</tspan></text>
+<text x="1206" y="800" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1206" dy="0">61%</tspan></text>
+<circle cx="1368" cy="806" r="8" fill="#FFFFFF" stroke="#007AFF" stroke-width="4"/>
+<text x="1340" y="920" font-size="15" fill="#6E6E73" font-weight="700"><tspan x="1340" dy="0">W5</tspan></text>
+<text x="1344" y="790" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1344" dy="0">70%</tspan></text>
+<rect x="1452" y="652" width="656" height="292" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="1480" y="700" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1480" dy="0">治理状态</tspan></text>
+<text x="1480" y="734" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1480" dy="0">把潜在影响显性化</tspan></text>
+<rect x="1480" y="746" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1496" y="764" width="10" height="44" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1522" y="788" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1522" dy="0">身份权限</tspan></text>
+<rect x="1681" y="764" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="1695" y="784" font-size="15" fill="#007AFF" font-weight="700"><tspan x="1695" dy="0">正常</tspan></text>
+<text x="1522" y="822" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1522" dy="0">边界清晰</tspan></text>
+<rect x="1787" y="746" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1803" y="764" width="10" height="44" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1829" y="788" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1829" dy="0">知识口径</tspan></text>
+<rect x="1988" y="764" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="2002" y="784" font-size="15" fill="#007AFF" font-weight="700"><tspan x="2002" dy="0">关注</tspan></text>
+<text x="1829" y="822" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1829" dy="0">部分定义不一</tspan></text>
+<rect x="1480" y="840" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1496" y="858" width="10" height="44" rx="5" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
+<text x="1522" y="882" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1522" dy="0">风险升级</tspan></text>
+<rect x="1681" y="858" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="1695" y="878" font-size="15" fill="#7D6258" font-weight="700"><tspan x="1695" dy="0">待处理</tspan></text>
+<text x="1522" y="916" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1522" dy="0">审批链需补齐</tspan></text>
+<rect x="1787" y="840" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1803" y="858" width="10" height="44" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1829" y="882" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1829" dy="0">复盘节奏</tspan></text>
+<rect x="1988" y="858" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
+<text x="2002" y="878" font-size="15" fill="#007AFF" font-weight="700"><tspan x="2002" dy="0">正常</tspan></text>
+<text x="1829" y="916" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1829" dy="0">周会已固定</tspan></text>
+<rect x="92" y="990" width="2016" height="170" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="120" y="1038" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">下一步行动</tspan></text>
+<text x="120" y="1072" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">两周内完成团队试点</tspan></text>
+<rect x="120" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="120" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="138" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="138" dy="0">补齐权限边界</tspan></text>
+
+<rect x="613" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="613" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="631" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="631" dy="0">固化上下文模板</tspan></text>
+
+<rect x="1106" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1106" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1124" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1124" dy="0">建立复盘节奏</tspan></text>
+
+<rect x="1599" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="1599" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="1617" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1617" dy="0">输出试点报告</tspan></text>
+
+<text x="92" y="1214" font-size="22" fill="#6E6E73" font-weight="400"><tspan x="92" dy="0">适合产品介绍、能力总览和高质量一页汇报。</tspan></text>
+</svg>

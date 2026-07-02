@@ -26,6 +26,12 @@ const supportedStyles = new Set([
   "feishu-decision-dark",
   "apple-studio",
   "linear-command",
+  "apple-report",
+  "linear-system",
+  "stripe-data",
+  "vercel-precision",
+  "neo-grid-bold",
+  "riptide-cobalt",
 ]);
 const supportedSectionTypes = new Set(["overview", "background", "modules", "roadmap", "metrics-evidence", "risks", "actions"]);
 const supportedExpressionModes = new Set(["dashboard-onepage", "narrative-map", "modular-canvas"]);

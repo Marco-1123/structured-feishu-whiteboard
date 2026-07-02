@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1320" viewBox="0 0 2200 1320">
+<defs>
+  <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
+    <path d="M0 0 L10 4 L0 8 z" fill="#375DFE"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="2200" height="1320" fill="#FDF0E0"/>
+
+<text x="92" y="104" font-size="50" fill="#1A2240" font-weight="700"><tspan x="92" dy="0">团队智能体协作蓝图</tspan></text>
+<text x="94" y="146" font-size="23" fill="#4E5873" font-weight="400"><tspan x="94" dy="0">用强双色块表达主张，用高对比内容区保证小字可读。</tspan></text>
+<rect x="92" y="206" width="2016" height="150" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="1.5"/>
+<rect x="92" y="206" width="12" height="150" rx="6" fill="#375DFE" stroke="#375DFE" stroke-width="1"/>
+<text x="130" y="248" font-size="18" fill="#375DFE" font-weight="700"><tspan x="130" dy="0">蓝图判断</tspan></text>
+<text x="130" y="298" font-size="30" fill="#1A2240" font-weight="700"><tspan x="130" dy="0">走向可控多样化，但不牺牲结构和秩序。</tspan></text>
+<rect x="92" y="416" width="2016" height="350" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="3"/>
+<text x="120" y="464" font-size="24" fill="#1A2240" font-weight="700"><tspan x="120" dy="0">协作蓝图</tspan></text>
+<text x="120" y="498" font-size="17" fill="#4E5873" font-weight="400"><tspan x="120" dy="0">从输入到可编辑画板</tspan></text>
+<rect x="120" y="528" width="464" height="168" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="1.5"/>
+<text x="142" y="576" font-size="23" fill="#1A2240" font-weight="700"><tspan x="142" dy="0">统一入口</tspan></text>
+<text x="142" y="620" font-size="17" fill="#4E5873" font-weight="400"><tspan x="142" dy="0">用户只提交材料和表达目标。</tspan></text>
+<line x1="588" y1="616" x2="610" y2="616" stroke="#375DFE" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="618" y="528" width="464" height="168" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="1.5"/>
+<text x="640" y="576" font-size="23" fill="#1A2240" font-weight="700"><tspan x="640" dy="0">结构化判断</tspan></text>
+<text x="640" y="620" font-size="17" fill="#4E5873" font-weight="400"><tspan x="640" dy="0">先提炼主题、证据、风险和行动。</tspan></text>
+<line x1="1086" y1="616" x2="1108" y2="616" stroke="#375DFE" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1116" y="528" width="464" height="168" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="1.5"/>
+<text x="1138" y="576" font-size="23" fill="#1A2240" font-weight="700"><tspan x="1138" dy="0">风格选择</tspan></text>
+<text x="1138" y="620" font-size="17" fill="#4E5873" font-weight="400"><tspan x="1138" dy="0">默认工作型，创意风格主动选择。</tspan></text>
+<line x1="1584" y1="616" x2="1606" y2="616" stroke="#375DFE" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="1614" y="528" width="464" height="168" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="1.5"/>
+<text x="1636" y="576" font-size="23" fill="#1A2240" font-weight="700"><tspan x="1636" dy="0">画板生成</tspan></text>
+<text x="1636" y="620" font-size="17" fill="#4E5873" font-weight="400"><tspan x="1636" dy="0">输出可编辑 SVG 画板并检查。</tspan></text>
+
+<rect x="92" y="830" width="650" height="300" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="3"/>
+<text x="120" y="878" font-size="24" fill="#1A2240" font-weight="700"><tspan x="120" dy="0">风格选择</tspan></text>
+<text x="120" y="912" font-size="17" fill="#4E5873" font-weight="400"><tspan x="120" dy="0">按场景选择而不是随机换皮</tspan></text>
+<rect x="120" y="924" width="594" height="42" rx="8" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<text x="144" y="952" font-size="16" fill="#4E5873" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
+<text x="322" y="952" font-size="16" fill="#4E5873" font-weight="700"><tspan x="322" dy="0">判断依据</tspan></text>
+<text x="618" y="952" font-size="16" fill="#4E5873" font-weight="700"><tspan x="618" dy="0">结论</tspan></text>
+<rect x="120" y="976" width="594" height="38" rx="0" fill="#E8ECFF" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="120" y="976" width="7" height="38" rx="3.5" fill="#375DFE" stroke="#375DFE" stroke-width="1"/>
+<text x="144" y="1010" font-size="18" fill="#375DFE" font-weight="700"><tspan x="144" dy="0">工作汇报</tspan></text>
+<text x="322" y="1008" font-size="16" fill="#4E5873" font-weight="400"><tspan x="322" dy="0">蓝白、Linear、Apple 稳定优先</tspan></text>
+<text x="618" y="1010" font-size="17" fill="#375DFE" font-weight="700"><tspan x="618" dy="0">默认</tspan></text>
+<rect x="120" y="1026" width="594" height="38" rx="0" fill="#E8ECFF" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="120" y="1026" width="7" height="38" rx="3.5" fill="#375DFE" stroke="#375DFE" stroke-width="1"/>
+<text x="144" y="1060" font-size="18" fill="#375DFE" font-weight="700"><tspan x="144" dy="0">数据复盘</tspan></text>
+<text x="322" y="1058" font-size="16" fill="#4E5873" font-weight="400"><tspan x="322" dy="0">Stripe Data 承载指标趋势</tspan></text>
+<text x="618" y="1060" font-size="17" fill="#375DFE" font-weight="700"><tspan x="618" dy="0">推荐</tspan></text>
+<rect x="120" y="1076" width="594" height="38" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="1.2"/>
+
+<text x="144" y="1110" font-size="18" fill="#1A2240" font-weight="700"><tspan x="144" dy="0">概念宣讲</tspan></text>
+<text x="322" y="1108" font-size="16" fill="#4E5873" font-weight="400"><tspan x="322" dy="0">Riptide 用于高冲击表达</tspan></text>
+<text x="618" y="1110" font-size="17" fill="#4E5873" font-weight="700"><tspan x="618" dy="0">可选</tspan></text>
+<rect x="776" y="830" width="650" height="300" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="3"/>
+<text x="804" y="878" font-size="24" fill="#1A2240" font-weight="700"><tspan x="804" dy="0">设计边界</tspan></text>
+<text x="804" y="912" font-size="17" fill="#4E5873" font-weight="400"><tspan x="804" dy="0">强视觉不能破坏可读性</tspan></text>
+<rect x="804" y="930" width="594" height="51" rx="10" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="804" y="930" width="6" height="51" rx="3" fill="#1A2240" stroke="#1A2240" stroke-width="1"/>
+<text x="822" y="959" font-size="17" fill="#1A2240" font-weight="700"><tspan x="822" dy="0">小字直接压在强色块</tspan></text>
+
+<rect x="804" y="993" width="594" height="51" rx="10" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="804" y="993" width="6" height="51" rx="3" fill="#1A2240" stroke="#1A2240" stroke-width="1"/>
+<text x="822" y="1022" font-size="17" fill="#1A2240" font-weight="700"><tspan x="822" dy="0">颜色承担多重含义</tspan></text>
+
+<rect x="804" y="1056" width="594" height="51" rx="10" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="804" y="1056" width="6" height="51" rx="3" fill="#1A2240" stroke="#1A2240" stroke-width="1"/>
+<text x="822" y="1085" font-size="17" fill="#1A2240" font-weight="700"><tspan x="822" dy="0">卡片排列失去秩序</tspan></text>
+
+<rect x="1460" y="830" width="648" height="300" rx="0" fill="#FFFFFF" stroke="#1A2240" stroke-width="3"/>
+<text x="1488" y="878" font-size="24" fill="#1A2240" font-weight="700"><tspan x="1488" dy="0">落地动作</tspan></text>
+<text x="1488" y="912" font-size="17" fill="#4E5873" font-weight="400"><tspan x="1488" dy="0">先验证，再发布</tspan></text>
+<rect x="1488" y="930" width="592" height="51" rx="10" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="1488" y="930" width="6" height="51" rx="3" fill="#375DFE" stroke="#375DFE" stroke-width="1"/>
+<text x="1506" y="959" font-size="17" fill="#1A2240" font-weight="700"><tspan x="1506" dy="0">生成样例图</tspan></text>
+
+<rect x="1488" y="993" width="592" height="51" rx="10" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="1488" y="993" width="6" height="51" rx="3" fill="#375DFE" stroke="#375DFE" stroke-width="1"/>
+<text x="1506" y="1022" font-size="17" fill="#1A2240" font-weight="700"><tspan x="1506" dy="0">检查内容层级</tspan></text>
+
+<rect x="1488" y="1056" width="592" height="51" rx="10" fill="#FDF0E0" stroke="#1A2240" stroke-width="1.2"/>
+<rect x="1488" y="1056" width="6" height="51" rx="3" fill="#375DFE" stroke="#375DFE" stroke-width="1"/>
+<text x="1506" y="1085" font-size="17" fill="#1A2240" font-weight="700"><tspan x="1506" dy="0">飞书预览复核</tspan></text>
+
+<text x="92" y="1216" font-size="22" fill="#4E5873" font-weight="400"><tspan x="92" dy="0">适合概念蓝图、宣讲页和战略主张，不作为默认自动风格。</tspan></text>
+</svg>

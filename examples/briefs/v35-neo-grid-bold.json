@@ -1,0 +1,91 @@
+{
+  "layout": "expression-canvas",
+  "style": "neo-grid-bold",
+  "title": "AI 组织能力跃迁地图",
+  "subtitle": "把复杂结论做成有冲击力的编辑网格，而不是普通卡片堆叠。",
+  "summaryLabel": "核心主张",
+  "summary": "不是更花，而是更有记忆点；创意风格必须服务结构化表达。",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心主张",
+      "body": ["不是更花，而是更有记忆点；创意风格必须服务结构化表达。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "默认工作型",
+      "value": "80%",
+      "label": "主力",
+      "note": "正式、稳定、低风险",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "创意张力",
+      "value": "20%",
+      "label": "主动选择",
+      "note": "用于高记忆点场景",
+      "status": "neutral"
+    },
+    {
+      "type": "metric-card",
+      "title": "强强调色",
+      "value": "1",
+      "label": "约束",
+      "note": "避免彩虹化和语义混乱",
+      "status": "risk"
+    },
+    {
+      "type": "mini-roadmap",
+      "title": "能力跃迁",
+      "note": "从个人效率到组织复用",
+      "items": [
+        {"label": "上下文资产化", "note": "身份、权限、项目记忆团队可读"},
+        {"label": "流程脚本化", "note": "高频工作进入可复用 Skill"},
+        {"label": "质量可验证", "note": "结构、渲染、预览形成闭环"}
+      ]
+    },
+    {
+      "type": "progress-bar",
+      "title": "设计约束",
+      "note": "大胆但不随机",
+      "items": [
+        {"label": "结构清晰", "value": "100%"},
+        {"label": "颜色语义", "value": "90%"},
+        {"label": "可读密度", "value": "82%"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "使用边界",
+      "note": "不适合日常周报",
+      "items": [
+        {"label": "信息密度过高", "status": "risk"},
+        {"label": "正式高管周报", "status": "neutral"},
+        {"label": "低容错场景", "status": "risk"}
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "结构证据",
+      "note": "大胆但仍有秩序",
+      "items": [
+        {"label": "固定网格"},
+        {"label": "单一强调色"},
+        {"label": "短句卡片"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "适用场景",
+      "note": "主动选择，不自动默认",
+      "items": [
+        {"label": "版本发布"},
+        {"label": "方法论介绍"},
+        {"label": "概念包装"}
+      ]
+    }
+  ],
+  "footer": "适合发布、愿景、方法论和高记忆点概念包装。"
+}

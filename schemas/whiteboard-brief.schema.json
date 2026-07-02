@@ -16,7 +16,7 @@
     },
     "style": {
       "type": "string",
-      "enum": ["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark", "apple-studio", "linear-command"]
+      "enum": ["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark", "apple-studio", "linear-command", "apple-report", "linear-system", "stripe-data", "vercel-precision", "neo-grid-bold", "riptide-cobalt"]
     },
     "expressionMode": {
       "type": "string",

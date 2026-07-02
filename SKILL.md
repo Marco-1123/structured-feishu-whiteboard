@@ -20,7 +20,7 @@ description: >
 3. **理解材料**：读取 [`references/report-workflow.md`](references/report-workflow.md)，提炼主题、结论、证据、对象、冲突、时间线和行动项。
 4. **长文处理**：中等内容、长文或复杂材料必须读取 [`references/long-form-workflow.md`](references/long-form-workflow.md)；长文还要读取 [`references/large-canvas-workflow.md`](references/large-canvas-workflow.md)，先做信息保全清单和 onepage 区域草稿；不要直接把全文塞进 SVG。
 5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从生产版式和 V3.2/V3.3 受控表达场景中选择一个主结构；不要自由发明复杂版式。复杂材料如果包含指标、进展、证据、风险和行动等多种关系，再读取 [`references/expression-grammar.md`](references/expression-grammar.md)，判断是否使用 `expression-canvas`。
-6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从生产可选风格中选择一个；如果用户指定风格偏好，优先匹配。Apple Studio 和 Linear Command 属于 V3.1 生产候选风格，但新增或改动后的样例必须经过飞书侧预览复核。
+6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从生产可选风格中选择一个；如果用户指定风格偏好，优先匹配。V3.5 起，Apple Report、Linear System、Stripe Data、Vercel Precision 属于工作型增强风格；Neo Grid Bold 和 Riptide Cobalt 属于用户主动选择的创意张力风格，不能作为默认自动风格。新增或改动后的样例必须经过飞书侧预览复核。
 7. **稳定渲染**：默认必须读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再根据 `renderTarget` 使用 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs`；不要自由手写整张 SVG 或 DSL。
 8. **生成画板产物**：只有用户明确要求“实验性手写 SVG”或当前仓库缺少渲染器脚本时，才允许读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md) 手写；否则手写 SVG/DSL 视为不合格输出。
 9. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
@@ -54,6 +54,11 @@ bash scripts/preflight.sh
 - 用户给的是筛选、转化、收敛、优先级漏斗：优先使用 `funnel`，并设置 `renderTarget: "dsl"`。
 - 用户给的是层级、优先级、能力基座、战略承接：优先使用 `pyramid`，并设置 `renderTarget: "dsl"`。
 - 用户给的是多个核心指标、状态复盘、覆盖率、风险数或效率变化：优先使用 `metric-dashboard`，并设置 `renderTarget: "dsl"`。
+- 用户给的是经营复盘、增长项目、指标趋势、状态和行动组合：优先考虑 `expression-canvas` + `stripe-data`，但仍要保持单页结构清晰。
+- 用户给的是机制、流程、Agent 协作、工程系统图：优先考虑 `expression-canvas` + `linear-system`。
+- 用户给的是产品介绍、能力总览、策略一页稿：优先考虑 `expression-canvas` + `apple-report`。
+- 用户给的是规则、验收、技术方案、发布检查：优先考虑 `expression-canvas` + `vercel-precision`。
+- 用户明确要求更大胆、更有设计感、发布感或概念包装：可以考虑 `neo-grid-bold` 或 `riptide-cobalt`，但必须短句化、固定网格、人工复核；不要默认自动使用。
 - 用户给的是目标完成度、阶段进展、OKR 复盘或风险收敛：优先使用 `progress-wall`，并设置 `renderTarget: "dsl"`。
 - 用户给的是 Top-N、贡献度、问题分布、异常来源或资源占比：优先使用 `ranked-bars`，并设置 `renderTarget: "dsl"`。
 - 用户给的是数字变化、成本变化、人力优化、收入差异或效率提升归因：优先使用 `variance-bridge`，并设置 `renderTarget: "dsl"`。
