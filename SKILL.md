@@ -58,7 +58,7 @@ bash scripts/preflight.sh
 - 用户给的是机制、流程、Agent 协作、工程系统图：优先考虑 `expression-canvas` + `linear-system`。
 - 用户给的是产品介绍、能力总览、策略一页稿：优先考虑 `expression-canvas` + `apple-report`。
 - 用户给的是规则、验收、技术方案、发布检查：优先考虑 `expression-canvas` + `vercel-precision`。
-- 用户明确要求更大胆、更有设计感、发布感或概念包装：可以考虑 `neo-grid-bold` 或 `riptide-cobalt`，但必须短句化、固定网格、人工复核；不要默认自动使用。
+- 用户明确要求更大胆、更有设计感、发布感或概念包装：可以考虑 `neo-grid-bold` 或 `riptide-cobalt`，但必须短句化、固定网格、人工复核；不要默认自动使用。两者必须走专属创意渲染器，不能只套用通用 `expression-canvas` 卡片模板换颜色。
 - 用户给的是目标完成度、阶段进展、OKR 复盘或风险收敛：优先使用 `progress-wall`，并设置 `renderTarget: "dsl"`。
 - 用户给的是 Top-N、贡献度、问题分布、异常来源或资源占比：优先使用 `ranked-bars`，并设置 `renderTarget: "dsl"`。
 - 用户给的是数字变化、成本变化、人力优化、收入差异或效率提升归因：优先使用 `variance-bridge`，并设置 `renderTarget: "dsl"`。

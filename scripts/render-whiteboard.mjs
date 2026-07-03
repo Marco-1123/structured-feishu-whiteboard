@@ -1554,7 +1554,138 @@ ${lowerBand}
 ${brief.footer ? text(92, 1216, 22, c.secondary, [brief.footer]) : ""}`);
 }
 
+function renderCreativeTitleBlock(x, y, w, h, c, label, title, body, options = {}) {
+  const fill = options.fill ?? c.surface;
+  const stroke = options.stroke ?? c.border;
+  const accent = options.accent ?? c.accent;
+  const ink = options.ink ?? c.ink;
+  const secondary = options.secondary ?? c.secondary;
+  return `${rect(x, y, w, h, c, { rx: 0, fill, stroke, sw: options.sw ?? 3 })}
+<rect x="${x}" y="${y}" width="${options.barW ?? 16}" height="${h}" rx="0" fill="${accent}" stroke="${accent}" stroke-width="1"/>
+${text(x + 36, y + 44, 18, accent, [label], "800")}
+${text(x + 36, y + 94, options.titleSize ?? 34, ink, splitByWidth(title, w - 84, options.titleSize ?? 34, 2), "800", options.titleGap ?? 42)}
+${body ? text(x + 36, y + h - 42, 18, secondary, splitByWidth(body, w - 84, 18, 1), "500", 24) : ""}`;
+}
+
+function renderNeoMetricBand(x, y, w, h, c, metrics) {
+  const gap = 18;
+  const tileW = Math.floor((w - gap * 2) / 3);
+  return metrics.slice(0, 3).map((block, index) => {
+    const tx = x + index * (tileW + gap);
+    return `${rect(tx, y, tileW, h, c, { rx: 0, fill: index === 1 ? c.accent : c.surface, stroke: c.border, sw: 3 })}
+${text(tx + 22, y + 38, 18, index === 1 ? c.ink : c.secondary, [block.title], "800")}
+${text(tx + 22, y + 98, 46, c.ink, [block.value], "900")}
+${text(tx + 22, y + 140, 16, index === 1 ? c.ink : c.secondary, splitByWidth(block.note || block.label || "", tileW - 44, 16, 1), "600")}`;
+  }).join("\n");
+}
+
+function renderNeoGridCreative(brief, c) {
+  const width = 2200;
+  const height = 1320;
+  const statement = firstExpressionBlock(brief, "statement");
+  const metrics = expressionBlocks(brief, "metric-card");
+  const roadmap = firstExpressionBlock(brief, "mini-roadmap") || firstExpressionBlock(brief, "narrative-chain");
+  const progress = firstExpressionBlock(brief, "progress-bar");
+  const risks = firstExpressionBlock(brief, "risk-list");
+  const evidence = firstExpressionBlock(brief, "evidence-list");
+  const actions = firstExpressionBlock(brief, "action-list");
+  const roadmapItems = (roadmap?.items || []).slice(0, 3);
+  const titleLines = splitByWidth(brief.title, 920, 66, 2);
+  const subtitleLines = splitByWidth(brief.subtitle || "", 820, 24, 2);
+  let body = `<g data-creative-renderer="neo-grid">
+<rect x="0" y="0" width="${width}" height="${height}" fill="${c.canvas}"/>
+<line x1="92" y1="80" x2="2108" y2="80" stroke="${c.border}" stroke-width="3"/>
+<line x1="92" y1="1216" x2="2108" y2="1216" stroke="${c.border}" stroke-width="3"/>
+<rect x="92" y="126" width="168" height="36" rx="0" fill="${c.accent}" stroke="${c.border}" stroke-width="3"/>
+${text(112, 151, 17, c.ink, ["V3.5 CREATIVE"], "900")}
+${text(92, 258, 66, c.ink, titleLines, "900", 78)}
+${subtitleLines.length ? text(96, 402, 24, c.secondary, subtitleLines, "500", 34) : ""}
+${renderCreativeTitleBlock(1060, 132, 1048, 294, c, statement?.title || brief.summaryLabel || "核心主张", (statement?.body || [brief.summary || ""])[0], "创意风格必须有独立构图，而不是普通卡片换皮。", { fill: c.surface, accent: c.accent, titleSize: 34 })}
+${renderNeoMetricBand(92, 498, 640, 190, c, metrics)}
+${renderExpressionFrame(772, 498, 620, 190, c, progress?.title || "设计约束", progress?.note || "保持强视觉但不牺牲秩序")}`;
+  (progress?.items || []).slice(0, 3).forEach((item, index) => {
+    const rowY = 586 + index * 42;
+    const pct = parsePercent(item.value, 72);
+    body += `
+${text(806, rowY + 14, 16, c.ink, [item.label], "800")}
+<rect x="1016" y="${rowY}" width="260" height="16" rx="0" fill="${c.muted}" stroke="${c.border}" stroke-width="1"/>
+<rect x="1016" y="${rowY}" width="${Math.round(260 * pct / 100)}" height="16" rx="0" fill="${c.ink}" stroke="${c.ink}" stroke-width="1"/>
+${text(1302, rowY + 15, 15, c.secondary, [item.value], "800")}`;
+  });
+  body += `
+${renderListBlock(1432, 498, 676, 248, c, risks, { columns: 1, itemH: 42, maxItems: 3, emphasis: true, tone: c.ink })}
+${renderExpressionFrame(92, 758, 880, 330, c, roadmap?.title || "能力跃迁", roadmap?.note || "从概念到可复用系统")}`;
+  roadmapItems.forEach((item, index) => {
+    const nx = 132 + index * 270;
+    body += `
+${rect(nx, 858, 222, 128, c, { rx: 0, fill: index === 1 ? c.accent : c.surface, stroke: c.border, sw: 3 })}
+${text(nx + 20, 906, 22, c.ink, [item.label], "900")}
+${text(nx + 20, 946, 16, c.secondary, splitByWidth(item.note || "", 176, 16, 2), "500", 22)}
+${index < roadmapItems.length - 1 ? `<line x1="${nx + 222}" y1="922" x2="${nx + 258}" y2="922" stroke="${c.accent}" stroke-width="5" marker-end="url(#arrow)"/>` : ""}`;
+  });
+  body += `
+${renderListBlock(1014, 758, 510, 330, c, evidence, { columns: 1, itemH: 54 })}
+${renderListBlock(1564, 758, 544, 330, c, actions, { columns: 1, itemH: 54 })}
+${brief.footer ? text(92, 1272, 24, c.secondary, [brief.footer], "600") : ""}
+</g>`;
+  return wrap(width, height, c, body);
+}
+
+function renderRiptideCobaltCreative(brief, c) {
+  const width = 2200;
+  const height = 1320;
+  const statement = firstExpressionBlock(brief, "statement");
+  const chain = firstExpressionBlock(brief, "narrative-chain") || firstExpressionBlock(brief, "mini-roadmap");
+  const decision = firstExpressionBlock(brief, "decision-matrix");
+  const risks = firstExpressionBlock(brief, "risk-list");
+  const actions = firstExpressionBlock(brief, "action-list");
+  const chainItems = (chain?.items || []).slice(0, 4);
+  const decisionItems = (decision?.items || []).slice(0, 3);
+  let body = `<g data-creative-renderer="riptide-cobalt">
+<rect x="0" y="0" width="${width}" height="${height}" fill="${c.canvas}"/>
+<rect x="72" y="72" width="760" height="496" rx="0" fill="${c.accent}" stroke="${c.border}" stroke-width="3"/>
+<rect x="112" y="122" width="170" height="44" rx="0" fill="${c.surface}" stroke="${c.border}" stroke-width="2"/>
+${text(132, 152, 20, c.accent, [brief.summaryLabel || "BLUEPRINT"], "800")}
+<rect x="112" y="204" width="642" height="258" rx="0" fill="${c.surface}" stroke="${c.border}" stroke-width="3"/>
+${text(146, 290, 56, c.ink, splitByWidth(brief.title, 548, 56, 2), "900", 68)}
+${brief.subtitle ? text(150, 408, 22, c.secondary, splitByWidth(brief.subtitle, 540, 22, 2), "500", 32) : ""}
+<rect x="72" y="608" width="760" height="198" rx="0" fill="${c.surface}" stroke="${c.border}" stroke-width="3"/>
+${text(112, 664, 20, c.accent, [statement?.title || "核心判断"], "800")}
+${text(112, 724, 34, c.ink, splitByWidth((statement?.body || [brief.summary || ""])[0], 650, 34, 2), "800", 42)}
+<rect x="880" y="72" width="1248" height="734" rx="0" fill="${c.surface}" stroke="${c.border}" stroke-width="3"/>
+${text(926, 142, 30, c.ink, [chain?.title || "协作蓝图"], "900")}
+${chain?.note ? text(928, 180, 18, c.secondary, [chain.note], "500") : ""}`;
+  chainItems.forEach((item, index) => {
+    const nx = 928 + index * 292;
+    const active = index === 1;
+    body += `
+${rect(nx, 238, 238, 302, c, { rx: 0, fill: active ? c.soft : c.surface, stroke: active ? c.accent : c.border, sw: active ? 3 : 2 })}
+<rect x="${nx}" y="238" width="238" height="52" rx="0" fill="${active ? c.accent : c.muted}" stroke="${active ? c.accent : c.border}" stroke-width="1"/>
+${text(nx + 22, 273, 18, active ? "#FFFFFF" : c.accent, [`0${index + 1}`], "900")}
+${text(nx + 22, 346, 28, c.ink, splitByWidth(item.label, 190, 28, 2), "900", 34)}
+${text(nx + 22, 428, 16, c.secondary, splitByWidth(item.note || "", 158, 16, 3), "500", 23)}
+${index < chainItems.length - 1 ? `<line x1="${nx + 238}" y1="390" x2="${nx + 276}" y2="390" stroke="${c.accent}" stroke-width="4" marker-end="url(#arrow)"/>` : ""}`;
+  });
+  body += `
+<rect x="926" y="592" width="1156" height="154" rx="0" fill="${c.muted}" stroke="${c.border}" stroke-width="2"/>
+${text(956, 646, 22, c.ink, [decision?.title || "风格选择"], "900")}`;
+  decisionItems.forEach((item, index) => {
+    const px = 956 + index * 360;
+    body += `
+<rect x="${px}" y="674" width="310" height="44" rx="0" fill="${item.status === "good" ? c.accent : c.surface}" stroke="${c.border}" stroke-width="2"/>
+${text(px + 18, 703, 17, item.status === "good" ? "#FFFFFF" : c.ink, [item.label], "800")}`;
+  });
+  body += `
+${renderListBlock(72, 860, 988, 292, c, risks, { columns: 3, itemH: 136, maxItems: 3, emphasis: true, tone: c.accent })}
+${renderListBlock(1108, 860, 1020, 292, c, actions, { columns: 3, itemH: 136, maxItems: 3 })}
+${brief.footer ? text(72, 1234, 24, c.secondary, [brief.footer], "600") : ""}
+</g>`;
+  return wrap(width, height, c, body);
+}
+
 function renderExpressionCanvas(brief, c) {
+  if (brief.style === "neo-grid-bold") return renderNeoGridCreative(brief, c);
+  if (brief.style === "riptide-cobalt") return renderRiptideCobaltCreative(brief, c);
   if (brief.expressionMode === "dashboard-onepage") return renderDashboardExpression(brief, c);
   if (brief.expressionMode === "narrative-map") return renderNarrativeExpression(brief, c);
   if (brief.expressionMode === "modular-canvas") return renderModularExpression(brief, c);

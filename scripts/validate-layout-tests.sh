@@ -22,6 +22,7 @@ for brief in examples/briefs/*.json; do
     svg="examples/layout-tests/generated-$(basename "${brief%.json}").svg"
     png="${svg%.svg}.png"
     node scripts/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
+    node -e 'const fs=require("fs"); const brief=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); const svg=fs.readFileSync(process.argv[2],"utf8"); const expected={ "neo-grid-bold": "data-creative-renderer=\"neo-grid\"", "riptide-cobalt": "data-creative-renderer=\"riptide-cobalt\"" }[brief.style]; if (expected && !svg.includes(expected)) { console.error(`${brief.style} must use its dedicated creative renderer, not the generic expression renderer`); process.exit(1); }' "$brief" "$svg"
     node scripts/check-svg-layout.mjs "$svg" >/dev/null
     npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -o "$png" -f svg >/dev/null
     npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -f svg --check >/dev/null
