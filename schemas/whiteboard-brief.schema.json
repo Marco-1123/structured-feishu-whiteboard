@@ -9,6 +9,11 @@
       "type": "string",
       "enum": ["conclusion-first", "problem-breakdown", "large-canvas", "roadmap", "process-chain", "comparison-matrix", "milestone-timeline", "funnel", "pyramid", "metric-dashboard", "progress-wall", "ranked-bars", "variance-bridge", "expression-canvas"]
     },
+    "engine": {
+      "type": "string",
+      "enum": ["v3", "v4"],
+      "description": "Optional renderer engine. Defaults to v3. V4 is an experimental parallel layout engine for expression-canvas SVG only."
+    },
     "renderTarget": {
       "type": "string",
       "enum": ["svg", "dsl"],

@@ -110,6 +110,43 @@ Use these rules:
 
 Do not use more than two V3.4 components in one canvas unless the material is explicitly a dashboard. Too many component types can make the board feel like a component demo instead of a coherent report.
 
+## V4 Layout Engine Pilot
+
+V4 does not add freeform design. It changes how `expression-canvas` is rendered: the brief is converted into a layout tree, then the layout tree is rendered to SVG. Use it only for marked test briefs or explicit V4 experiments.
+
+Set:
+
+```json
+{
+  "engine": "v4",
+  "layout": "expression-canvas",
+  "renderTarget": "svg"
+}
+```
+
+V4 currently supports the same three expression modes:
+
+- `dashboard-onepage`
+- `narrative-map`
+- `modular-canvas`
+
+V4 component composition principles:
+
+- Put one `statement` near the top.
+- Group parallel `metric-card` blocks together; metric values use one series color, while status chips may use semantic status colors.
+- Use full-width `narrative-chain`, `mini-roadmap`, and `variance-bridge-v2` only when directional reading is central.
+- Use two-column grids for mixed analytical components such as progress, status, risk, evidence, and action.
+- Let component height expand from content; do not solve overflow by shrinking text below the established size scale.
+- If a component becomes too tall, split the relationship into another block rather than cramming it.
+
+V4 constraints:
+
+- No white text on strong color blocks.
+- No text touching divider lines.
+- No component content outside its parent card.
+- No random color variation inside a parallel metric group.
+- No hand-authored SVG coordinates outside the renderer.
+
 ## Fallback
 
 Fall back to V3.2 when:

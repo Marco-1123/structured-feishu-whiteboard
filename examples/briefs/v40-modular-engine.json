@@ -1,0 +1,88 @@
+{
+  "engine": "v4",
+  "layout": "expression-canvas",
+  "style": "apple-report",
+  "title": "V4 长文混合画布",
+  "subtitle": "把长文拆成判断、指标、路径、证据、风险和行动模块。",
+  "summaryLabel": "核心判断",
+  "summary": "长文材料不应被压成几个并列方块，而要按信息关系组合成可读的一页图。",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "主结论",
+      "body": ["表达力来自关系组合，不是增加随机模板。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "信息完整度",
+      "value": "6类",
+      "label": "覆盖",
+      "note": "判断到行动",
+      "status": "good"
+    },
+    {
+      "type": "progress-bar",
+      "title": "处理漏斗",
+      "note": "从原文到结构表达",
+      "items": [
+        {"label": "信息清理", "value": "80%"},
+        {"label": "结构提炼", "value": "62%"},
+        {"label": "画板表达", "value": "38%"}
+      ]
+    },
+    {
+      "type": "mini-roadmap",
+      "title": "落地路线",
+      "note": "先稳定，再扩表达",
+      "items": [
+        {"label": "关系识别", "note": "判断材料主关系"},
+        {"label": "组件组合", "note": "按关系选模块"},
+        {"label": "布局检查", "note": "自动验证边界"}
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "模块状态",
+      "note": "同组颜色只表达状态语义",
+      "items": [
+        {"label": "指标", "value": "正常", "note": "结构清楚", "status": "good"},
+        {"label": "风险", "value": "关注", "note": "需分层", "status": "neutral"},
+        {"label": "行动", "value": "正常", "note": "可落地", "status": "good"}
+      ]
+    },
+    {
+      "type": "variance-bridge-v2",
+      "title": "变化归因",
+      "note": "用共同基线呈现起点、变化和终点",
+      "items": [
+        {"label": "原文", "value": "100", "note": "输入信息量", "status": "neutral"},
+        {"label": "去重", "value": "-24", "note": "清理噪音", "status": "risk"},
+        {"label": "保全", "value": "+18", "note": "保留证据", "status": "good"},
+        {"label": "输出", "value": "94", "note": "结构信息", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "控制风险",
+      "note": "灵活度不能变成发散",
+      "items": [
+        {"label": "模块过多", "status": "risk"},
+        {"label": "关系误判", "status": "neutral"},
+        {"label": "信息堆叠", "status": "risk"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "近期动作",
+      "note": "用样例回归验证",
+      "items": [
+        {"label": "补充三类样例"},
+        {"label": "跑布局检查"},
+        {"label": "飞书侧预览"},
+        {"label": "决定推广范围"}
+      ]
+    }
+  ],
+  "footer": "V4 试点：验证混合长文能用组件树扩展，而不是手写坐标。"
+}

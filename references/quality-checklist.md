@@ -50,7 +50,7 @@
 
 ## 画板产物质量
 
-- 生产交付必须由 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs` 生成；除非用户明确接受实验性手写 SVG。
+- 生产交付必须由 `scripts/render-whiteboard.mjs`、`scripts/render-whiteboard-dsl.mjs` 或明确试点的 `scripts/render-whiteboard-v4.mjs` 生成；除非用户明确接受实验性手写 SVG。
 - 如果内容被判断为路线图、流程、价值链、对比矩阵、时间线、漏斗、金字塔或指标看板，必须使用对应脚本化模板，不能自由手写整图。
 - SVG 产物正文使用 `<text>` / `<tspan>`。
 - DSL 产物必须由白板节点组成，不能退化为整张截图。
@@ -75,6 +75,14 @@ npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.svg -f svg --check
 node scripts/check-svg-layout.mjs diagram.svg
 grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradient|<radialGradient|<clipPath|<mask' diagram.svg
 ```
+
+如果是 V4 SVG 试点产物，额外运行：
+
+```bash
+node scripts/check-v4-layout.mjs diagram.svg
+```
+
+并确认 SVG 含有 `data-layout-engine="v4"`，否则说明没有走 V4 并行布局引擎。
 
 如果是 V3.2 DSL 产物，运行：
 

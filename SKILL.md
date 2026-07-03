@@ -9,7 +9,7 @@ description: >
 
 # Structured Feishu Whiteboard
 
-把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。常规报告模板使用 SVG 渲染；V3.2 起，时间线、漏斗、金字塔和指标看板等复杂表达可以使用受控 DSL 渲染。
+把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。常规报告模板使用 SVG 渲染；V3.2 起，时间线、漏斗、金字塔和指标看板等复杂表达可以使用受控 DSL 渲染。V4 起新增并行布局引擎试点，只在 brief 明确写入 `engine: "v4"` 时启用。
 
 ## 快速判断
 
@@ -21,7 +21,7 @@ description: >
 4. **长文处理**：中等内容、长文或复杂材料必须读取 [`references/long-form-workflow.md`](references/long-form-workflow.md)；长文还要读取 [`references/large-canvas-workflow.md`](references/large-canvas-workflow.md)，先做信息保全清单和 onepage 区域草稿；不要直接把全文塞进 SVG。
 5. **选择版式**：读取 [`references/layout-library.md`](references/layout-library.md)，从生产版式和 V3.2/V3.3 受控表达场景中选择一个主结构；不要自由发明复杂版式。复杂材料如果包含指标、进展、证据、风险和行动等多种关系，再读取 [`references/expression-grammar.md`](references/expression-grammar.md)，判断是否使用 `expression-canvas`。
 6. **选择风格**：读取 [`references/style-library.md`](references/style-library.md)，从生产可选风格中选择一个；如果用户指定风格偏好，优先匹配。V3.5 起，Apple Report、Linear System、Stripe Data、Vercel Precision 属于工作型增强风格；Neo Grid Bold 和 Riptide Cobalt 属于用户主动选择的创意张力风格，不能作为默认自动风格。新增或改动后的样例必须经过飞书侧预览复核。
-7. **稳定渲染**：默认必须读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再根据 `renderTarget` 使用 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs`；不要自由手写整张 SVG 或 DSL。
+7. **稳定渲染**：默认必须读取 [`references/deterministic-rendering.md`](references/deterministic-rendering.md)，先生成 JSON brief，再根据 `engine` 和 `renderTarget` 使用 `scripts/render-whiteboard.mjs`、`scripts/render-whiteboard-dsl.mjs` 或实验性的 `scripts/render-whiteboard-v4.mjs`；不要自由手写整张 SVG 或 DSL。
 8. **生成画板产物**：只有用户明确要求“实验性手写 SVG”或当前仓库缺少渲染器脚本时，才允许读取 [`references/feishu-svg-rules.md`](references/feishu-svg-rules.md) 手写；否则手写 SVG/DSL 视为不合格输出。
 9. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
 10. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
@@ -64,6 +64,7 @@ bash scripts/preflight.sh
 - 用户给的是数字变化、成本变化、人力优化、收入差异或效率提升归因：优先使用 `variance-bridge`，并设置 `renderTarget: "dsl"`。
 - 用户给的是复杂项目汇报、经营复盘、决策诊断或混合长文，且同时包含指标、进展、证据、风险和行动中的至少三类：优先评估 V3.3 `expression-canvas`。根据材料主导关系选择 `dashboard-onepage`、`narrative-map` 或 `modular-canvas`，并设置 `renderTarget: "svg"` 或省略 `renderTarget`。
 - V3.4 起，`expression-canvas` 可以使用更强的数据化表达组件：状态/健康度用 `status-board`，时间变化用 `trend-sparkline`，方案选择用 `decision-matrix`，起终点差异归因用 `variance-bridge-v2`。这些组件必须由 JSON brief 触发并经渲染器生成，不允许手写自由 SVG。
+- V4 起，`engine: "v4"` 是并行布局引擎试点，只覆盖 `layout: "expression-canvas"` 和 `renderTarget: "svg"`。V4 不是默认生产链路；只有用户明确要验证 V4，或样例 brief 明确写入 `engine: "v4"`，才使用 `scripts/render-whiteboard-v4.mjs`。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
@@ -93,7 +94,7 @@ bash scripts/preflight.sh
 生成后必须确认：
 
 - 渲染产物没有明显文字溢出、重叠或裁切。
-- 产物是由 `scripts/render-whiteboard.mjs` 或 `scripts/render-whiteboard-dsl.mjs` 生成的，除非用户明确接受实验性手写 SVG。
+- 产物是由 `scripts/render-whiteboard.mjs`、`scripts/render-whiteboard-dsl.mjs` 或明确试点的 `scripts/render-whiteboard-v4.mjs` 生成的，除非用户明确接受实验性手写 SVG。
 - 所有正文是 `<text>` / `<tspan>`，不是路径或图片。
 - 结构元素使用 rect、circle、ellipse、line、polyline 等可编辑形状。
 - 画板没有无意义装饰、元信息页眉、来源说明或过程说明。

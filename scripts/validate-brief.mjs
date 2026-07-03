@@ -17,6 +17,7 @@ const supportedLayouts = new Set([
   "expression-canvas",
 ]);
 const supportedRenderTargets = new Set(["svg", "dsl"]);
+const supportedEngines = new Set(["v3", "v4"]);
 const supportedStyles = new Set([
   "professional-blue",
   "dark-emphasis",
@@ -428,7 +429,12 @@ try {
 
 if (!supportedLayouts.has(brief.layout)) fail(`unsupported layout: ${brief.layout}`);
 if (!supportedStyles.has(brief.style)) fail(`unsupported style: ${brief.style}`);
+if (brief.engine !== undefined && !supportedEngines.has(brief.engine)) fail("engine must be v3 or v4");
 if (brief.renderTarget !== undefined && !supportedRenderTargets.has(brief.renderTarget)) fail("renderTarget must be svg or dsl");
+if (brief.engine === "v4") {
+  if (brief.layout !== "expression-canvas") fail("engine v4 currently supports expression-canvas only");
+  if ((brief.renderTarget || "svg") !== "svg") fail("engine v4 currently supports SVG target only");
+}
 assertString(brief.title, "title", limits.title, true);
 assertString(brief.subtitle, "subtitle", limits.subtitle);
 assertString(brief.summary, "summary", limits.summary, true);

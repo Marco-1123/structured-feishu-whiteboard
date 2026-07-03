@@ -1,6 +1,6 @@
 # Deterministic Rendering
 
-当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成受控画板产物。常规报告模板生成 SVG；V3.2 受控表达版式生成飞书白板 DSL；V3.3 组合表达画布生成 SVG。不要让 Agent 自由手写整张 SVG 或 DSL。
+当其他 Agent 使用本 skill 时，必须先让 Agent 产出结构化 brief，再用脚本生成受控画板产物。常规报告模板生成 SVG；V3.2 受控表达版式生成飞书白板 DSL；V3.3/V3.5 组合表达画布生成 SVG。V4 新增并行布局引擎试点，仍输出 SVG，但必须由布局树生成。不要让 Agent 自由手写整张 SVG 或 DSL。
 
 ## 适用场景
 
@@ -19,14 +19,17 @@
 1. 按 `report-workflow.md` 和 `content-budget.md` 压缩内容。
 2. 生成符合 `schemas/whiteboard-brief.schema.json` 的 JSON brief。
 3. 运行 `scripts/validate-brief.mjs brief.json`。
-4. 如果 `renderTarget` 为空或为 `svg`，运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
-5. 如果 `renderTarget` 为 `dsl`，运行 `scripts/render-whiteboard-dsl.mjs --input brief.json --output diagram.json`。
-6. 对 SVG 产物运行 `scripts/check-svg-layout.mjs diagram.svg`，补充检查父容器越界。
-7. 按 `quality-checklist.md` 渲染、检查、写入飞书。
+4. 如果 `engine` 为空或为 `v3`，且 `renderTarget` 为空或为 `svg`，运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
+5. 如果 `engine` 为空或为 `v3`，且 `renderTarget` 为 `dsl`，运行 `scripts/render-whiteboard-dsl.mjs --input brief.json --output diagram.json`。
+6. 如果 `engine` 为 `v4`，必须同时满足 `layout: "expression-canvas"` 和 SVG 输出，运行 `scripts/render-whiteboard-v4.mjs --input brief.json --output diagram.svg`。
+7. 对 SVG 产物运行 `scripts/check-svg-layout.mjs diagram.svg`，补充检查父容器越界；V4 产物还要运行 `scripts/check-v4-layout.mjs diagram.svg`。
+8. 按 `quality-checklist.md` 渲染、检查、写入飞书。
 
 ## Brief 约束
 
 - `layout` 只能是脚本支持的版式。
+- `engine` 默认是 `v3`。只有 V4 试点样例才写 `engine: "v4"`。
+- `engine: "v4"` 当前只支持 `layout: "expression-canvas"`、`renderTarget: "svg"` 或省略 `renderTarget`。
 - 当前 SVG 生产输出允许 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`、`expression-canvas`。
 - V3.2 DSL 输出允许 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars`、`variance-bridge`。
 - 长文默认使用 `layout: "large-canvas"`；它表示统一 onepage 大画布，不是纵向长图或多页分屏。顶部总览不是完整输出。
@@ -56,8 +59,11 @@
 - `ranked-bars`，`renderTarget: "dsl"`
 - `variance-bridge`，`renderTarget: "dsl"`
 - `expression-canvas`
+- `expression-canvas` + `engine: "v4"`，实验性 SVG 布局引擎试点
 
 `expression-canvas` 需要同时设置 `expressionMode` 和 `expressionBlocks`。具体规则见 `expression-grammar.md`。
+
+V4 产物必须包含 `data-layout-engine="v4"`。这不是视觉风格标记，而是为了确认产物确实经过并行布局引擎，不是旧模板或手写 SVG。
 
 路线图、流程、价值链、矩阵、时间线、漏斗、金字塔和指标看板现在都有脚本化模板。交付时必须使用这些模板，不要因为 `layout-library.md` 里描述了这些版式，就自由手写 SVG 或 DSL。
 
@@ -71,6 +77,7 @@
 - 箭头位置。
 - 颜色 token。
 - SVG 转义或 DSL 节点结构。
+- V4 试点中的布局树、组件自适应高度、网格和堆叠规则。
 
 Agent 负责：
 

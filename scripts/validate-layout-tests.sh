@@ -8,8 +8,22 @@ node scripts/generate-layout-test-fixtures.mjs >/dev/null
 
 for brief in examples/briefs/*.json; do
   target="$(node -e 'const fs=require("fs"); const b=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); console.log(b.renderTarget || "svg")' "$brief")"
+  engine="$(node -e 'const fs=require("fs"); const b=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); console.log(b.engine || "v3")' "$brief")"
   node scripts/validate-brief.mjs "$brief" >/dev/null
-  if [ "$target" = "dsl" ]; then
+  if [ "$engine" = "v4" ]; then
+    if [ "$target" != "svg" ]; then
+      echo "V4 engine only supports SVG target in this pilot: $brief" >&2
+      exit 1
+    fi
+    svg="examples/layout-tests/generated-$(basename "${brief%.json}").svg"
+    png="${svg%.svg}.png"
+    node scripts/render-whiteboard-v4.mjs --input "$brief" --output "$svg" >/dev/null
+    node -e 'const fs=require("fs"); const svg=fs.readFileSync(process.argv[1],"utf8"); if (!svg.includes("data-layout-engine=\"v4\"")) { console.error("V4 output must include layout engine marker"); process.exit(1); }' "$svg"
+    node scripts/check-svg-layout.mjs "$svg" >/dev/null
+    node scripts/check-v4-layout.mjs "$svg" >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -o "$png" -f svg >/dev/null
+    npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -f svg --check >/dev/null
+  elif [ "$target" = "dsl" ]; then
     dsl="examples/layout-tests/generated-$(basename "${brief%.json}").json"
     png="${dsl%.json}.png"
     node scripts/render-whiteboard-dsl.mjs --input "$brief" --output "$dsl" >/dev/null
