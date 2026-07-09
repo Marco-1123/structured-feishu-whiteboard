@@ -161,6 +161,26 @@ V4 constraints:
 - No random color variation inside a parallel metric group.
 - No hand-authored SVG coordinates outside the renderer.
 
+## V4.2 Badcase Repair Rules
+
+V4.2 is driven by a concrete badcase: dense architecture / knowledge-governance material was rendered as many narrow half-width boxes, with text touching or exceeding frames. The fix is not to make the text smaller. The fix is to change component placement.
+
+Use these rules for dense expression canvases:
+
+- High-density `status-board`, `risk-list`, `action-list`, and `evidence-list` blocks should render full width when they have many items or long notes.
+- Parallel metric cards must reserve separate vertical space for value, note, and status chip. The chip must not share the same baseline with body text.
+- List rows with notes must be taller than rows without notes; notes can use two short lines before truncation.
+- A complex architecture or governance onepage may become taller. Prefer a readable onepage over a compact page made of narrow fragments.
+- If the board becomes too document-like after widening blocks, this is a scenario-routing problem: use a future `architecture-map` scenario instead of forcing `modular-canvas` to imitate architecture diagrams.
+
+Failure signals:
+
+- The page looks like a pile of narrow list rows.
+- A section title, row label, and note all compete in a 50px row.
+- A metric card chip visually collides with its note.
+- A flow or chain uses five narrow columns even though each node has meaningful text.
+- The automated checks pass but manual preview clearly feels cramped or fragmented.
+
 ## Fallback
 
 Fall back to V3.2 when:

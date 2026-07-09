@@ -66,6 +66,7 @@ bash scripts/preflight.sh
 - 用户给的是复杂项目汇报、经营复盘、决策诊断或混合长文，且同时包含指标、进展、证据、风险和行动中的至少三类：优先评估 V3.3 `expression-canvas`。根据材料主导关系选择 `dashboard-onepage`、`narrative-map` 或 `modular-canvas`，并设置 `renderTarget: "svg"` 或省略 `renderTarget`。
 - V3.4 起，`expression-canvas` 可以使用更强的数据化表达组件：状态/健康度用 `status-board`，时间变化用 `trend-sparkline`，方案选择用 `decision-matrix`，起终点差异归因用 `variance-bridge-v2`。这些组件必须由 JSON brief 触发并经渲染器生成，不允许手写自由 SVG。
 - V4 起，`engine: "v4"` 是并行布局引擎试点，覆盖 `layout: "expression-canvas"` 和 V4.1 `layout: "flow-canvas"`，均使用 `renderTarget: "svg"`。V4 不是默认生产链路；只有用户明确要验证 V4，或样例 brief 明确写入 `engine: "v4"`，才使用 `scripts/render-whiteboard-v4.mjs`。
+- V4.2 起，复杂架构、知识治理、风险治理和行动清单类材料如果使用 `expression-canvas`，必须避免把高密度内容压成多个半宽小窄框。条目多、说明多的状态板、风险列表、证据列表和行动列表应自动升级为全宽模块，必要时增高画布。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
@@ -91,6 +92,7 @@ bash scripts/preflight.sh
 - 指标是否重复出现，且是否使用统一网格对齐？
 - 如果使用 V3.3，为什么选择当前 `expressionMode`，以及每个 `expressionBlock` 承担什么信息关系？
 - 如果使用 V3.4 组件，为什么当前材料需要状态、趋势、决策或变化桥，而不是普通卡片？
+- 如果使用 V4.2 高密度表达，哪些模块被全宽呈现，为什么没有继续塞进半宽小框？
 
 生成后必须确认：
 

@@ -57,12 +57,25 @@ if (/<(?:linearGradient|radialGradient|filter|clipPath|mask|polygon)\b|opacity=|
 }
 
 const riskTones = new Set(["#7A5A46", "#8A5A44", "#A16207"]);
-for (const [, attrs] of svg.matchAll(/<rect\b([^>]*)\/>/g)) {
-  if (!attrs.includes('data-tone-group="parallel-metrics"')) continue;
-  const fill = attrs.match(/\bfill="([^"]+)"/)?.[1];
-  const stroke = attrs.match(/\bstroke="([^"]+)"/)?.[1];
+for (const [, raw] of svg.matchAll(/<rect\b([^>]*)\/>/g)) {
+  const a = attrs(raw);
+  if (a["data-tone-group"] !== "parallel-metrics") continue;
+  const fill = a.fill;
+  const stroke = a.stroke;
   if (riskTones.has(fill) || riskTones.has(stroke)) {
     issues.push("parallel metric group uses risk tone; keep metric color semantics consistent");
+  }
+  if (num(a.height) < 170) {
+    issues.push("parallel metric card is too short; note and chip may collide");
+  }
+}
+
+for (const [, raw] of svg.matchAll(/<rect\b([^>]*)\/>/g)) {
+  const a = attrs(raw);
+  if (!a["data-v4-list-row"]) continue;
+  const minHeight = a["data-has-note"] === "true" ? 60 : 44;
+  if (num(a.height) < minHeight) {
+    issues.push(`list row ${a["data-v4-list-row"]} is too short for readable text`);
   }
 }
 
@@ -77,6 +90,12 @@ if (svg.includes('data-layout="flow-canvas"')) {
       w: num(a.width),
       h: num(a.height),
     });
+    if (num(a.width) < 260) {
+      issues.push(`flow node ${a["data-flow-node"]} is too narrow for readable V4.2 flow layout`);
+    }
+    if (num(a.height) < 190) {
+      issues.push(`flow node ${a["data-flow-node"]} is too short for readable V4.2 flow layout`);
+    }
   }
 
   if (nodes.size < 4) {

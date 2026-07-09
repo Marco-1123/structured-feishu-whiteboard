@@ -241,8 +241,9 @@ ${text(x + 42, y + 98, 31, c.ink, body.lines, "800", 43)}`,
 
 function metricCard(block, x, y, w) {
   const note = measureLines(block.note || "", w - 52, 17, 2, 24);
-  const h = Math.max(150, 132 + note.height);
-  const chip = block.label ? `${rect(x + 26, y + h - 48, 104, 32, c.muted, c.border, 1, 8)}
+  const hasChip = Boolean(block.label);
+  const h = Math.max(172, 124 + note.height + (hasChip ? 54 : 18));
+  const chip = hasChip ? `${rect(x + 26, y + h - 48, 118, 32, c.muted, c.border, 1, 8)}
 ${text(x + 46, y + h - 27, 16, tone(block.status), [block.label], "800")}` : "";
   return {
     h,
@@ -347,17 +348,20 @@ ${item.note ? text(ix + 36, iy + 60, 15, c.secondary, splitText(item.note, itemW
 
 function listBlock(block, x, y, w, type = "action") {
   const items = (block.items || []).slice(0, 5);
-  const itemH = type === "evidence" ? 62 : 54;
-  const h = 104 + items.length * itemH + 26;
+  const withNotes = items.some((item) => item.note);
+  const itemH = withNotes ? 76 : type === "evidence" ? 66 : 58;
+  const h = 108 + items.length * itemH + 30;
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
-    const iy = y + 100 + index * itemH;
+    const iy = y + 104 + index * itemH;
     const t = type === "risk" ? tone(item.status || "risk") : c.accent;
+    const labelLines = splitText(item.label, w - 118, 17, 1);
+    const noteLines = item.note ? splitText(item.note, w - 118, 14, withNotes ? 2 : 1) : [];
     body += `
-${rect(x + 28, iy, w - 56, itemH - 12, c.muted, c.border, 1, 10)}
+${rect(x + 28, iy, w - 56, itemH - 12, c.muted, c.border, 1, 10, ` data-v4-list-row="${escapeXml(`${block.title || type}-${index}`)}" data-has-note="${noteLines.length ? "true" : "false"}"`)}
 <rect x="${x + 28}" y="${iy}" width="8" height="${itemH - 12}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
-${text(x + 50, iy + 30, 17, c.ink, splitText(item.label, w - 110, 17, 1), "800")}
-${item.note ? text(x + 50, iy + 53, 14, c.secondary, splitText(item.note, w - 110, 14, 1), "500") : ""}`;
+${text(x + 50, iy + 30, 17, c.ink, labelLines, "800")}
+${noteLines.length ? text(x + 50, iy + 54, 14, c.secondary, noteLines, "500", 20) : ""}`;
   });
   return { h, body };
 }
@@ -413,20 +417,26 @@ ${text(tableX + tableW - 110, iy + 31, 16, t, [item.value || ""], "800")}`;
 function miniRoadmap(block, x, y, w) {
   const items = (block.items || []).slice(0, 5);
   const gap = 20;
-  const itemW = Math.floor((w - 56 - gap * (items.length - 1)) / items.length);
-  const itemH = 100;
+  const cols = items.length >= 5 && w < 1600 ? 3 : items.length;
+  const rows = Math.ceil(items.length / cols);
+  const itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
+  const itemH = 116;
   const h = 118 + itemH + 36;
+  const totalH = 118 + rows * itemH + Math.max(0, rows - 1) * 28 + 36;
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
-    const ix = x + 28 + index * (itemW + gap);
-    const iy = y + 112;
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+    const ix = x + 28 + col * (itemW + gap);
+    const iy = y + 112 + row * (itemH + 28);
     body += `
 ${rect(ix, iy, itemW, itemH, c.muted, c.border, 1.2, 12)}
 ${text(ix + 20, iy + 36, 17, c.ink, [item.label], "800")}
 ${item.note ? text(ix + 20, iy + 64, 15, c.secondary, splitText(item.note, itemW - 40, 15, 2), "500", 21) : ""}`;
-    if (index < items.length - 1) body += `${text(ix + itemW + 3, iy + 60, 31, c.accent, ["→"], "700")}`;
+    if (index < items.length - 1 && col < cols - 1) body += `${text(ix + itemW + 3, iy + 66, 31, c.accent, ["→"], "700")}`;
   });
-  return { h, body };
+  body = body.replace(`width="${w}" height="${h}"`, `width="${w}" height="${totalH}"`);
+  return { h: totalH, body };
 }
 
 function varianceBridge(block, x, y, w) {
@@ -466,7 +476,22 @@ function blockRenderer(block, x, y, w) {
   return listBlock(block, x, y, w, "action");
 }
 
+function blockTextDensity(block) {
+  const own = `${block.title || ""}${block.note || ""}`;
+  const items = (block.items || []).map((item) => `${item.label || ""}${item.note || ""}${item.value || ""}`).join("");
+  return own.length + items.length;
+}
+
+function shouldRenderWide(block) {
+  const count = (block.items || []).length;
+  if (["mini-roadmap", "variance-bridge-v2", "narrative-chain"].includes(block.type)) return true;
+  if (block.type === "status-board" && (count >= 5 || blockTextDensity(block) > 130)) return true;
+  if (["risk-list", "action-list", "evidence-list"].includes(block.type) && (count >= 4 || blockTextDensity(block) > 120)) return true;
+  return false;
+}
+
 function twoColumnGrid(blocks, x, y, w) {
+  if (!blocks.length) return { h: 0, body: "" };
   const colGap = 32;
   const colW = Math.floor((w - colGap) / 2);
   const columnY = [y, y];
@@ -481,6 +506,7 @@ function twoColumnGrid(blocks, x, y, w) {
 }
 
 function fullRows(blocks, x, y, w) {
+  if (!blocks.length) return { h: 0, body: "" };
   let body = "";
   let cy = y;
   blocks.forEach((block) => {
@@ -525,9 +551,8 @@ function renderCanvas() {
     body += grid.body;
     y += grid.h + 40;
   } else if (brief.expressionMode === "modular-canvas") {
-    const wideTypes = new Set(["mini-roadmap", "variance-bridge-v2", "narrative-chain"]);
-    const wide = rest.filter((block) => wideTypes.has(block.type));
-    const compact = rest.filter((block) => !wideTypes.has(block.type));
+    const wide = rest.filter((block) => shouldRenderWide(block));
+    const compact = rest.filter((block) => !shouldRenderWide(block));
     const grid = twoColumnGrid(compact.slice(0, 4), M, y, CONTENT);
     body += grid.body;
     y += grid.h + 44;
@@ -564,16 +589,28 @@ ${body}
 </svg>`;
 }
 
+function flowNodeSize(node, w) {
+  const titleLines = splitText(node.title, w - 72, 24, 2);
+  const bodyLines = (node.body || []).slice(0, 3).flatMap((lineValue) => splitText(lineValue, w - 52, 17, 2));
+  const bodyHeight = bodyLines.length ? 24 * bodyLines.length : 0;
+  const titleHeight = titleLines.length ? 30 * titleLines.length : 0;
+  return {
+    titleLines,
+    bodyLines,
+    h: Math.max(198, 94 + titleHeight + bodyHeight + 42),
+  };
+}
+
 function flowNode(node, x, y, w, h) {
   const t = flowTone(node);
-  const bodyLines = (node.body || []).slice(0, 2).flatMap((lineValue) => splitText(lineValue, w - 52, 17, 1));
+  const measured = flowNodeSize(node, w);
   const chipFill = node.type === "result" ? "#ECFDF5" : node.type === "risk" || node.status === "risk" ? "#FFF7ED" : c.muted;
   return `${rect(x, y, w, h, c.surface, c.border, 1.5, 14, ` data-flow-node="${escapeXml(node.id)}"`)}
 <rect x="${x + 22}" y="${y + 22}" width="8" height="${h - 44}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
 ${rect(x + 46, y + 22, 86, 30, chipFill, c.border, 1, 8)}
 ${text(x + 64, y + 43, 15, t, [flowTypeLabel(node.type)], "800")}
-${text(x + 46, y + 84, 24, c.ink, splitText(node.title, w - 72, 24, 1), "850")}
-${bodyLines.length ? text(x + 46, y + 116, 17, c.secondary, bodyLines, "500", 24) : ""}`;
+${text(x + 46, y + 84, 24, c.ink, measured.titleLines, "850", 30)}
+${measured.bodyLines.length ? text(x + 46, y + 116 + Math.max(0, measured.titleLines.length - 1) * 30, 17, c.secondary, measured.bodyLines, "500", 24) : ""}`;
 }
 
 function arrowHead(x, y, direction = "right", stroke = c.accent) {
@@ -628,23 +665,35 @@ ${arrowHead(end.x, end.y, direction, stroke)}`;
 function renderLinearFlow(y) {
   const nodes = brief.flowNodes || [];
   const edges = brief.flowEdges || [];
-  const cols = Math.min(5, nodes.length);
-  const nodeGap = 34;
+  const averageDensity = nodes.reduce((sum, node) => sum + String(node.title || "").length + (node.body || []).join("").length, 0) / Math.max(1, nodes.length);
+  const cols = Math.min(averageDensity > 36 ? 3 : 4, nodes.length);
+  const nodeGap = 40;
   const nodeW = Math.floor((CONTENT - nodeGap * (cols - 1)) / cols);
-  const nodeH = 178;
-  const rowGap = 92;
+  const rowGap = 104;
   const boxes = new Map();
   const body = [];
+  const rowHeights = [];
+  nodes.forEach((node, index) => {
+    const row = Math.floor(index / cols);
+    const measured = flowNodeSize(node, nodeW);
+    rowHeights[row] = Math.max(rowHeights[row] || 0, measured.h);
+  });
+  const rowY = [];
+  rowHeights.reduce((cursor, h, index) => {
+    rowY[index] = cursor;
+    return cursor + h + rowGap;
+  }, y);
   nodes.forEach((node, index) => {
     const col = index % cols;
     const row = Math.floor(index / cols);
     const x = M + col * (nodeW + nodeGap);
-    const ny = y + row * (nodeH + rowGap);
-    boxes.set(node.id, { x, y: ny, w: nodeW, h: nodeH });
-    body.push(flowNode(node, x, ny, nodeW, nodeH));
+    const ny = rowY[row];
+    const h = rowHeights[row];
+    boxes.set(node.id, { x, y: ny, w: nodeW, h });
+    body.push(flowNode(node, x, ny, nodeW, h));
   });
   edges.forEach((edge) => body.push(flowConnector(edge, boxes, c.accent)));
-  return { h: Math.ceil(nodes.length / cols) * nodeH + Math.max(0, Math.ceil(nodes.length / cols) - 1) * rowGap, body: body.join("\n") };
+  return { h: rowHeights.reduce((sum, h) => sum + h, 0) + Math.max(0, rowHeights.length - 1) * rowGap, body: body.join("\n") };
 }
 
 function renderSwimlaneFlow(y) {
@@ -653,15 +702,15 @@ function renderSwimlaneFlow(y) {
   const edges = brief.flowEdges || [];
   const maxStep = Math.max(...nodes.map((node) => node.step || 1));
   const laneLabelW = 168;
-  const laneH = 222;
+  const laneGap = 22;
   const stepW = Math.floor((CONTENT - laneLabelW) / maxStep);
-  const nodeW = Math.max(188, stepW - 34);
-  const nodeH = 178;
+  const nodeW = Math.max(260, stepW - 34);
+  const laneH = Math.max(238, Math.max(...nodes.map((node) => flowNodeSize(node, nodeW).h)) + 44);
   const boxes = new Map();
   const body = [];
 
   lanes.forEach((lane, laneIndex) => {
-    const ly = y + laneIndex * laneH;
+    const ly = y + laneIndex * (laneH + laneGap);
     body.push(`${rect(M, ly, CONTENT, laneH, laneIndex % 2 === 0 ? c.surface : c.canvas, c.border, 1, 14, ` data-flow-lane="${escapeXml(lane.id)}"`)}
 ${text(M + 28, ly + 58, 22, c.ink, splitText(lane.title, laneLabelW - 44, 22, 1), "850")}
 ${line(M + laneLabelW, ly + 22, M + laneLabelW, ly + laneH - 22, c.border, 2)}`);
@@ -670,12 +719,13 @@ ${line(M + laneLabelW, ly + 22, M + laneLabelW, ly + laneH - 22, c.border, 2)}`)
   nodes.forEach((node) => {
     const laneIndex = lanes.findIndex((lane) => lane.id === node.lane);
     const x = M + laneLabelW + (node.step - 1) * stepW + 18;
-    const ny = y + laneIndex * laneH + 22;
-    boxes.set(node.id, { x, y: ny, w: nodeW, h: nodeH });
-    body.push(flowNode(node, x, ny, nodeW, nodeH));
+    const ny = y + laneIndex * (laneH + laneGap) + 22;
+    const h = laneH - 44;
+    boxes.set(node.id, { x, y: ny, w: nodeW, h });
+    body.push(flowNode(node, x, ny, nodeW, h));
   });
   edges.forEach((edge) => body.push(flowConnector(edge, boxes, c.accent)));
-  return { h: lanes.length * laneH, body: body.join("\n") };
+  return { h: lanes.length * laneH + Math.max(0, lanes.length - 1) * laneGap, body: body.join("\n") };
 }
 
 function renderFlowCanvas() {

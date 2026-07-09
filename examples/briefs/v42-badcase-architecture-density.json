@@ -1,0 +1,102 @@
+{
+  "engine": "v4",
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "title": "AI 助手全链路架构与知识治理",
+  "subtitle": "把 Skill、Wiki、脚本和治理规范组织成可复用的执行体系。",
+  "summaryLabel": "架构核心原则",
+  "summary": "Skill 只放执行约束，Wiki 做知识索引，AGENT.md 承载最高优先级规则，脚本消除重复编码风险。",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心判断",
+      "body": [
+        "执行规则、知识索引和脚本工具必须分层维护。"
+      ]
+    },
+    {
+      "type": "metric-card",
+      "title": "执行层",
+      "value": "5 Skills",
+      "label": "独立技能",
+      "note": "各自封装执行约束",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "编排层",
+      "value": "6 参数",
+      "label": "槽位模型",
+      "note": "控制输出稳定性",
+      "status": "neutral"
+    },
+    {
+      "type": "metric-card",
+      "title": "知识层",
+      "value": "4 类文档",
+      "label": "Wiki 分类",
+      "note": "长期知识索引",
+      "status": "good"
+    },
+    {
+      "type": "status-board",
+      "title": "五大 Skill 能力状态",
+      "note": "同层展示能力状态、检测方式和责任。",
+      "items": [
+        {"label": "量级异常分析", "value": "双周检查", "note": "异常归因 Top3 覆盖 80% 变化", "status": "good"},
+        {"label": "RR 调整分析", "value": "三维判断", "note": "入池、审核、废弃判断需留证据空间", "status": "neutral"},
+        {"label": "运营监控", "value": "T-1 巡检", "note": "四指标分层校验卡片和详表文档", "status": "good"},
+        {"label": "延时分析", "value": "6 层定位", "note": "单队列、批量、承接水位估算", "status": "neutral"},
+        {"label": "任务流查询", "value": "表格兜底", "note": "主表、主子队列关系要二次确认", "status": "risk"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "关键架构决策",
+      "note": "这些决策决定知识如何上移、沉淀和复用。",
+      "items": [
+        {"label": "约束上移原则", "note": "Skill 只保留执行约束", "status": "good"},
+        {"label": "脚本硬编码消除", "note": "LLM 只读变量，不改模板结构", "status": "risk"},
+        {"label": "校验层阻断", "note": "passed=false 禁止业务发卡片", "status": "good"},
+        {"label": "知识分层归档", "note": "Skill 不堆知识，Wiki 承担索引", "status": "neutral"},
+        {"label": "每次重新查数", "note": "禁止缓存历史结论冒充现场判断", "status": "risk"}
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "P0 教训",
+      "note": "这些教训需要进入长期治理，而不是只做临时备注。",
+      "items": [
+        {"label": "数据膨胀 33 倍", "note": "join date 条件缺失多日累加"},
+        {"label": "队列归因误判", "note": "多条记录未按主体归并"},
+        {"label": "白板回退坑", "note": "渲染侧问题误判为 LLM 内容问题"},
+        {"label": "LLM 不要管禁止项", "note": "底层约束应该由脚本和检查器负责"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "维护治理规范",
+      "note": "把维护动作变成固定节奏，避免靠记忆协作。",
+      "items": [
+        {"label": "修改必须平台同步", "note": "Skill、md、Wiki 和脚本一并更新"},
+        {"label": "新增项进 Checklist", "note": "Skill 层只记录必要问题"},
+        {"label": "BadCase Trace 覆盘", "note": "卡片出框必须进入回归样例"},
+        {"label": "知识沉淀判定落点", "note": "稳定经验进入 Wiki 或 Skill 规则"}
+      ]
+    },
+    {
+      "type": "mini-roadmap",
+      "title": "请求处理全链路",
+      "note": "链路节点要有足够宽度，不再用多个窄框硬拼。",
+      "items": [
+        {"label": "用户发消息", "note": "飞书群内 @ 助手"},
+        {"label": "意图识别", "note": "定义主题、分析问题和结构"},
+        {"label": "槽位收集", "note": "一次只问一个缺失参数"},
+        {"label": "Skill 执行", "note": "Aeolus 查询和脚本分析"},
+        {"label": "知识沉淀", "note": "异常自动进入 Wiki 闭环"}
+      ]
+    }
+  ],
+  "footer": "V4.2 回归样例：禁止把高密度架构材料压成一堆小窄框。"
+}
