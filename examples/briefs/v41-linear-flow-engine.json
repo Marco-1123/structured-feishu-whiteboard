@@ -1,0 +1,55 @@
+{
+  "layout": "flow-canvas",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "style": "linear-system",
+  "flowMode": "linear-flow",
+  "title": "Agent 任务执行链路",
+  "subtitle": "从目标输入到复盘沉淀的稳定执行流程。",
+  "summaryLabel": "流程判断",
+  "summary": "流程图适合表达强依赖步骤：每一步必须知道输入、动作、输出和下一步责任。",
+  "flowNodes": [
+    {
+      "id": "goal",
+      "title": "目标输入",
+      "body": ["明确任务边界", "补齐约束条件"],
+      "type": "start",
+      "status": "neutral"
+    },
+    {
+      "id": "plan",
+      "title": "计划拆解",
+      "body": ["判断版式与容量", "生成执行路径"],
+      "type": "action",
+      "status": "neutral"
+    },
+    {
+      "id": "render",
+      "title": "确定渲染",
+      "body": ["生成 JSON brief", "调用稳定渲染器"],
+      "type": "system",
+      "status": "neutral"
+    },
+    {
+      "id": "check",
+      "title": "质量检查",
+      "body": ["检查溢出重叠", "确认箭头连接"],
+      "type": "decision",
+      "status": "risk"
+    },
+    {
+      "id": "deliver",
+      "title": "写入飞书",
+      "body": ["插入可编辑画板", "返回链接预览"],
+      "type": "result",
+      "status": "good"
+    }
+  ],
+  "flowEdges": [
+    {"from": "goal", "to": "plan", "label": "约束明确"},
+    {"from": "plan", "to": "render", "label": "结构稳定"},
+    {"from": "render", "to": "check", "label": "进入校验"},
+    {"from": "check", "to": "deliver", "label": "通过"}
+  ],
+  "footer": "适合 SOP、工程执行链路、工具调用链路和线性业务流程。"
+}

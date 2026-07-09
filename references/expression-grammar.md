@@ -112,7 +112,7 @@ Do not use more than two V3.4 components in one canvas unless the material is ex
 
 ## V4 Layout Engine Pilot
 
-V4 does not add freeform design. It changes how `expression-canvas` is rendered: the brief is converted into a layout tree, then the layout tree is rendered to SVG. Use it only for marked test briefs or explicit V4 experiments.
+V4 does not add freeform design. It changes how experimental layouts are rendered: the brief is converted into a layout tree, then the layout tree is rendered to SVG. Use it only for marked test briefs or explicit V4 experiments.
 
 Set:
 
@@ -129,6 +129,20 @@ V4 currently supports the same three expression modes:
 - `dashboard-onepage`
 - `narrative-map`
 - `modular-canvas`
+
+V4.1 also supports `layout: "flow-canvas"` for real flowcharts. Use it only when node-to-node dependency is the core message. Do not use `expression-canvas` just because the material contains the word “流程”; use `flow-canvas` when arrows must connect exact nodes.
+
+Flow modes:
+
+- `linear-flow`: 4 to 8 ordered nodes, one main chain, no role lanes.
+- `swimlane-flow`: 2 to 4 lanes, each node has a `lane` and `step`, useful for approval flows, system interactions, and human-Agent collaboration.
+
+Flow rules:
+
+- Every node needs a stable `id`, short `title`, 1 to 2 body lines, and a `type`.
+- Every edge references existing node ids with `from` and `to`.
+- Connectors attach to node boundaries; no floating arrows.
+- Use `linear-system` for technical or Agent flows, `feishu-status` for business/status flows, and `professional-blue` for simple neutral flows.
 
 V4 component composition principles:
 

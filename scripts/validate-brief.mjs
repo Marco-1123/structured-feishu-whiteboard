@@ -15,6 +15,7 @@ const supportedLayouts = new Set([
   "ranked-bars",
   "variance-bridge",
   "expression-canvas",
+  "flow-canvas",
 ]);
 const supportedRenderTargets = new Set(["svg", "dsl"]);
 const supportedEngines = new Set(["v3", "v4"]);
@@ -36,6 +37,10 @@ const supportedStyles = new Set([
 ]);
 const supportedSectionTypes = new Set(["overview", "background", "modules", "roadmap", "metrics-evidence", "risks", "actions"]);
 const supportedExpressionModes = new Set(["dashboard-onepage", "narrative-map", "modular-canvas"]);
+const supportedFlowModes = new Set(["linear-flow", "swimlane-flow"]);
+const supportedFlowNodeTypes = new Set(["start", "action", "decision", "system", "result", "risk"]);
+const supportedFlowStatuses = new Set(["good", "neutral", "risk"]);
+const supportedFlowEdgeTypes = new Set(["primary", "fallback", "exception"]);
 const supportedExpressionBlockTypes = new Set([
   "statement",
   "metric-card",
@@ -101,6 +106,12 @@ const limits = {
   expressionNote: 28,
   expressionItemLabel: 16,
   expressionItemNote: 24,
+  flowId: 18,
+  flowLaneId: 16,
+  flowLaneTitle: 12,
+  flowNodeTitle: 14,
+  flowNodeLine: 24,
+  flowEdgeLabel: 12,
   insight: 90,
 };
 
@@ -417,6 +428,78 @@ function validateExpressionCanvas(brief) {
   }
 }
 
+function assertId(value, field, max, required = false) {
+  assertString(value, field, max, required);
+  if (value !== undefined && !/^[a-z][a-z0-9-]*$/i.test(value)) fail(`${field} must use letters, numbers, or hyphen`);
+}
+
+function validateFlowCanvas(brief) {
+  if (!supportedFlowModes.has(brief.flowMode)) fail("flowMode is unsupported");
+  if (!Array.isArray(brief.flowNodes)) fail("flowNodes must be an array");
+  if (brief.flowNodes.length < 4 || brief.flowNodes.length > 8) fail("flowNodes must contain 4 to 8 items");
+  if (!Array.isArray(brief.flowEdges)) fail("flowEdges must be an array");
+  if (brief.flowEdges.length < 3 || brief.flowEdges.length > 9) fail("flowEdges must contain 3 to 9 items");
+
+  const laneIds = new Set();
+  if (brief.flowMode === "swimlane-flow") {
+    if (!Array.isArray(brief.lanes)) fail("swimlane-flow requires lanes");
+    if (brief.lanes.length < 2 || brief.lanes.length > 4) fail("lanes must contain 2 to 4 items");
+    brief.lanes.forEach((lane, index) => {
+      assertId(lane.id, `lanes[${index}].id`, limits.flowLaneId, true);
+      if (laneIds.has(lane.id)) fail(`lanes[${index}].id duplicates another lane`);
+      laneIds.add(lane.id);
+      assertString(lane.title, `lanes[${index}].title`, limits.flowLaneTitle, true);
+    });
+  }
+
+  const nodeIds = new Set();
+  let startCount = 0;
+  let resultCount = 0;
+  brief.flowNodes.forEach((node, index) => {
+    assertId(node.id, `flowNodes[${index}].id`, limits.flowId, true);
+    if (nodeIds.has(node.id)) fail(`flowNodes[${index}].id duplicates another node`);
+    nodeIds.add(node.id);
+    assertString(node.title, `flowNodes[${index}].title`, limits.flowNodeTitle, true);
+    if (!Array.isArray(node.body)) fail(`flowNodes[${index}].body must be an array`);
+    if (node.body.length < 1 || node.body.length > 2) fail(`flowNodes[${index}].body must contain 1 to 2 lines`);
+    node.body.forEach((line, lineIndex) => assertString(line, `flowNodes[${index}].body[${lineIndex}]`, limits.flowNodeLine, true));
+    if (!supportedFlowNodeTypes.has(node.type)) fail(`flowNodes[${index}].type is unsupported`);
+    if (node.status !== undefined && !supportedFlowStatuses.has(node.status)) fail(`flowNodes[${index}].status is unsupported`);
+    if (node.type === "start") startCount += 1;
+    if (node.type === "result") resultCount += 1;
+
+    if (brief.flowMode === "swimlane-flow") {
+      assertId(node.lane, `flowNodes[${index}].lane`, limits.flowLaneId, true);
+      if (!laneIds.has(node.lane)) fail(`flowNodes[${index}].lane does not match lanes`);
+      if (!Number.isInteger(node.step) || node.step < 1 || node.step > 8) fail(`flowNodes[${index}].step must be an integer from 1 to 8`);
+    } else {
+      if (node.lane !== undefined) fail(`flowNodes[${index}].lane is only allowed for swimlane-flow`);
+      if (node.step !== undefined) fail(`flowNodes[${index}].step is only allowed for swimlane-flow`);
+    }
+  });
+  if (startCount !== 1) fail("flow-canvas requires exactly one start node");
+  if (resultCount < 1) fail("flow-canvas requires at least one result node");
+
+  const incoming = new Map();
+  const outgoing = new Map();
+  brief.flowEdges.forEach((edge, index) => {
+    assertId(edge.from, `flowEdges[${index}].from`, limits.flowId, true);
+    assertId(edge.to, `flowEdges[${index}].to`, limits.flowId, true);
+    assertString(edge.label, `flowEdges[${index}].label`, limits.flowEdgeLabel);
+    if (edge.type !== undefined && !supportedFlowEdgeTypes.has(edge.type)) fail(`flowEdges[${index}].type is unsupported`);
+    if (!nodeIds.has(edge.from)) fail(`flowEdges[${index}].from does not match flowNodes`);
+    if (!nodeIds.has(edge.to)) fail(`flowEdges[${index}].to does not match flowNodes`);
+    if (edge.from === edge.to) fail(`flowEdges[${index}] cannot connect a node to itself`);
+    outgoing.set(edge.from, (outgoing.get(edge.from) || 0) + 1);
+    incoming.set(edge.to, (incoming.get(edge.to) || 0) + 1);
+  });
+
+  brief.flowNodes.forEach((node, index) => {
+    if (node.type !== "start" && !incoming.has(node.id)) fail(`flowNodes[${index}].id has no incoming edge`);
+    if (node.type !== "result" && !outgoing.has(node.id)) fail(`flowNodes[${index}].id has no outgoing edge`);
+  });
+}
+
 const input = process.argv[2];
 if (!input) fail("usage: node scripts/validate-brief.mjs <brief.json>");
 
@@ -432,7 +515,7 @@ if (!supportedStyles.has(brief.style)) fail(`unsupported style: ${brief.style}`)
 if (brief.engine !== undefined && !supportedEngines.has(brief.engine)) fail("engine must be v3 or v4");
 if (brief.renderTarget !== undefined && !supportedRenderTargets.has(brief.renderTarget)) fail("renderTarget must be svg or dsl");
 if (brief.engine === "v4") {
-  if (brief.layout !== "expression-canvas") fail("engine v4 currently supports expression-canvas only");
+  if (!["expression-canvas", "flow-canvas"].includes(brief.layout)) fail("engine v4 currently supports expression-canvas and flow-canvas only");
   if ((brief.renderTarget || "svg") !== "svg") fail("engine v4 currently supports SVG target only");
 }
 assertString(brief.title, "title", limits.title, true);
@@ -453,6 +536,7 @@ else if (brief.layout === "progress-wall") validateProgressWall(brief);
 else if (brief.layout === "ranked-bars") validateRankedBars(brief);
 else if (brief.layout === "variance-bridge") validateVarianceBridge(brief);
 else if (brief.layout === "expression-canvas") validateExpressionCanvas(brief);
+else if (brief.layout === "flow-canvas") validateFlowCanvas(brief);
 else validateModules(brief);
 
 console.log("ok: brief is valid");

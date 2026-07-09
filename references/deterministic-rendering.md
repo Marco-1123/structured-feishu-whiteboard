@@ -11,7 +11,7 @@
 - 其他 Agent 产出与预期风格差异大。
 - 用户要求“按这个 skill 的标准版式生成”。
 - 长文需要在同一个 onepage 大画布中保留总览、证据、风险、指标和行动。
-- 内容看起来像路线图、流程图、价值链、对比矩阵、时间线、漏斗或金字塔时，必须使用对应脚本化模板；不能手写 SVG 或 DSL。
+- 内容看起来像路线图、流程图、价值链、对比矩阵、时间线、漏斗或金字塔时，必须使用对应脚本化模板；不能手写 SVG 或 DSL。真实节点连接流程图优先使用 V4.1 `flow-canvas`。
 - 内容包含指标、进展、风险、证据和行动等多种关系，且单一模板会显得死板时，使用 `expression-canvas`，但仍必须走脚本化渲染器。
 
 ## 工作流
@@ -21,7 +21,7 @@
 3. 运行 `scripts/validate-brief.mjs brief.json`。
 4. 如果 `engine` 为空或为 `v3`，且 `renderTarget` 为空或为 `svg`，运行 `scripts/render-whiteboard.mjs --input brief.json --output diagram.svg`。
 5. 如果 `engine` 为空或为 `v3`，且 `renderTarget` 为 `dsl`，运行 `scripts/render-whiteboard-dsl.mjs --input brief.json --output diagram.json`。
-6. 如果 `engine` 为 `v4`，必须同时满足 `layout: "expression-canvas"` 和 SVG 输出，运行 `scripts/render-whiteboard-v4.mjs --input brief.json --output diagram.svg`。
+6. 如果 `engine` 为 `v4`，必须同时满足 `layout: "expression-canvas"` 或 `layout: "flow-canvas"`，并使用 SVG 输出，运行 `scripts/render-whiteboard-v4.mjs --input brief.json --output diagram.svg`。
 7. 对 SVG 产物运行 `scripts/check-svg-layout.mjs diagram.svg`，补充检查父容器越界；V4 产物还要运行 `scripts/check-v4-layout.mjs diagram.svg`。
 8. 按 `quality-checklist.md` 渲染、检查、写入飞书。
 
@@ -29,7 +29,7 @@
 
 - `layout` 只能是脚本支持的版式。
 - `engine` 默认是 `v3`。只有 V4 试点样例才写 `engine: "v4"`。
-- `engine: "v4"` 当前只支持 `layout: "expression-canvas"`、`renderTarget: "svg"` 或省略 `renderTarget`。
+- `engine: "v4"` 当前只支持 `layout: "expression-canvas"` 或 `layout: "flow-canvas"`，`renderTarget: "svg"` 或省略 `renderTarget`。
 - 当前 SVG 生产输出允许 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`、`expression-canvas`。
 - V3.2 DSL 输出允许 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars`、`variance-bridge`。
 - 长文默认使用 `layout: "large-canvas"`；它表示统一 onepage 大画布，不是纵向长图或多页分屏。顶部总览不是完整输出。
@@ -60,8 +60,10 @@
 - `variance-bridge`，`renderTarget: "dsl"`
 - `expression-canvas`
 - `expression-canvas` + `engine: "v4"`，实验性 SVG 布局引擎试点
+- `flow-canvas` + `engine: "v4"`，V4.1 实验性流程图布局引擎试点
 
 `expression-canvas` 需要同时设置 `expressionMode` 和 `expressionBlocks`。具体规则见 `expression-grammar.md`。
+`flow-canvas` 需要同时设置 `flowMode`、`flowNodes` 和 `flowEdges`；`swimlane-flow` 还需要 `lanes`。
 
 V4 产物必须包含 `data-layout-engine="v4"`。这不是视觉风格标记，而是为了确认产物确实经过并行布局引擎，不是旧模板或手写 SVG。
 

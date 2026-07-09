@@ -49,13 +49,14 @@ bash scripts/preflight.sh
 
 - 用户给的是方案、报告、研究、网页长文：优先用 **结论先行**、**问题拆解** 或 **对比矩阵**。
 - 用户给的是计划、路线、阶段安排：概念上可参考 **路线图/阶段规划**，但当前交付仍必须映射到确定性渲染器；优先使用 `large-canvas` 的 roadmap 区域承载。
-- 用户给的是机制、业务链路、系统过程：概念上可参考 **流程/价值链**，但当前交付仍必须映射到确定性渲染器；优先使用 `large-canvas` 的模块区和 roadmap 区域承载。
+- 用户给的是普通机制、业务链路、系统过程：可使用 `process-chain` 或 `large-canvas` 的模块区/roadmap 区域承载。
+- 用户明确需要“流程图”、审批流、跨角色协作、系统交互、人机协同、节点到节点依赖：优先评估 V4.1 `flow-canvas`。线性步骤使用 `flowMode: "linear-flow"`；多角色责任流转使用 `flowMode: "swimlane-flow"`。流程图必须设置 `engine: "v4"` 和 `renderTarget: "svg"`。
 - 用户给的是版本迭代、事件推进、里程碑复盘：优先使用 `milestone-timeline`，并设置 `renderTarget: "dsl"`。
 - 用户给的是筛选、转化、收敛、优先级漏斗：优先使用 `funnel`，并设置 `renderTarget: "dsl"`。
 - 用户给的是层级、优先级、能力基座、战略承接：优先使用 `pyramid`，并设置 `renderTarget: "dsl"`。
 - 用户给的是多个核心指标、状态复盘、覆盖率、风险数或效率变化：优先使用 `metric-dashboard`，并设置 `renderTarget: "dsl"`。
 - 用户给的是经营复盘、增长项目、指标趋势、状态和行动组合：优先考虑 `expression-canvas` + `stripe-data`，但仍要保持单页结构清晰。
-- 用户给的是机制、流程、Agent 协作、工程系统图：优先考虑 `expression-canvas` + `linear-system`。
+- 用户给的是机制、Agent 协作、工程系统图但不需要真实节点连接：优先考虑 `expression-canvas` + `linear-system`。
 - 用户给的是产品介绍、能力总览、策略一页稿：优先考虑 `expression-canvas` + `apple-report`。
 - 用户给的是规则、验收、技术方案、发布检查：优先考虑 `expression-canvas` + `vercel-precision`。
 - 用户明确要求更大胆、更有设计感、发布感或概念包装：可以考虑 `neo-grid-bold` 或 `riptide-cobalt`，但必须短句化、固定网格、人工复核；不要默认自动使用。两者必须走专属创意渲染器，不能只套用通用 `expression-canvas` 卡片模板换颜色。
@@ -64,12 +65,12 @@ bash scripts/preflight.sh
 - 用户给的是数字变化、成本变化、人力优化、收入差异或效率提升归因：优先使用 `variance-bridge`，并设置 `renderTarget: "dsl"`。
 - 用户给的是复杂项目汇报、经营复盘、决策诊断或混合长文，且同时包含指标、进展、证据、风险和行动中的至少三类：优先评估 V3.3 `expression-canvas`。根据材料主导关系选择 `dashboard-onepage`、`narrative-map` 或 `modular-canvas`，并设置 `renderTarget: "svg"` 或省略 `renderTarget`。
 - V3.4 起，`expression-canvas` 可以使用更强的数据化表达组件：状态/健康度用 `status-board`，时间变化用 `trend-sparkline`，方案选择用 `decision-matrix`，起终点差异归因用 `variance-bridge-v2`。这些组件必须由 JSON brief 触发并经渲染器生成，不允许手写自由 SVG。
-- V4 起，`engine: "v4"` 是并行布局引擎试点，只覆盖 `layout: "expression-canvas"` 和 `renderTarget: "svg"`。V4 不是默认生产链路；只有用户明确要验证 V4，或样例 brief 明确写入 `engine: "v4"`，才使用 `scripts/render-whiteboard-v4.mjs`。
+- V4 起，`engine: "v4"` 是并行布局引擎试点，覆盖 `layout: "expression-canvas"` 和 V4.1 `layout: "flow-canvas"`，均使用 `renderTarget: "svg"`。V4 不是默认生产链路；只有用户明确要验证 V4，或样例 brief 明确写入 `engine: "v4"`，才使用 `scripts/render-whiteboard-v4.mjs`。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
-- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。V3.3/V3.4 受控组合表达版式为 `expression-canvas`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
+- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。V3.3/V3.4 受控组合表达版式为 `expression-canvas`。V4.1 实验流程图版式为 `flow-canvas`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
 - 单张画板只表达一个主任务；如果同时出现主线、动作、指标和读图说明，优先拆成总览图和指标图。
 - 并列模块不要使用箭头；只有时间推进、流程依赖或价值链才使用箭头。
 - 指标和 `xx%` 等草稿占位按 `content-budget.md` 执行：必须有业务语义，同类指标只出现一次，卡片内指标和底部指标区二选一。

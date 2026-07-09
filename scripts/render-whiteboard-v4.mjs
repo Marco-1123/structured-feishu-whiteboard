@@ -10,8 +10,8 @@ if (!input || !output) {
 }
 
 const brief = JSON.parse(fs.readFileSync(input, "utf8"));
-if (brief.layout !== "expression-canvas") {
-  throw new Error("V4 pilot supports layout: expression-canvas only");
+if (!["expression-canvas", "flow-canvas"].includes(brief.layout)) {
+  throw new Error("V4 pilot supports layout: expression-canvas and flow-canvas only");
 }
 if ((brief.engine || "v3") !== "v4") {
   throw new Error('V4 renderer requires engine: "v4"');
@@ -96,6 +96,19 @@ const styles = {
     risk: "#666666",
     track: "#E8E8E8",
   },
+  "feishu-status": {
+    canvas: "#F6FAFE",
+    surface: "#FFFFFF",
+    muted: "#EEF6FF",
+    ink: "#172033",
+    secondary: "#5C6B82",
+    border: "#D8E6F3",
+    accent: "#3370FF",
+    soft: "#EAF2FF",
+    success: "#0F766E",
+    risk: "#8A5A44",
+    track: "#E4EDF7",
+  },
 };
 
 const c = styles[brief.style] || styles["professional-blue"];
@@ -146,6 +159,14 @@ function rect(x, y, w, h, fill = c.surface, stroke = c.border, sw = 1.5, rx = 16
   return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"${attrs}/>`;
 }
 
+function line(x1, y1, x2, y2, stroke = c.accent, sw = 3, attrs = "") {
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${sw}" stroke-linecap="round"${attrs}/>`;
+}
+
+function polyline(points, stroke = c.accent, sw = 3, attrs = "") {
+  return `<polyline points="${points.map((point) => `${point.x},${point.y}`).join(" ")}" fill="none" stroke="${stroke}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"${attrs}/>`;
+}
+
 function text(x, y, size, fill, lines, weight = "500", lineHeight = Math.round(size * 1.38), attrs = "") {
   const safe = (Array.isArray(lines) ? lines : [lines]).filter(Boolean);
   if (!safe.length) return "";
@@ -170,6 +191,24 @@ function tone(status) {
   if (status === "good") return c.success;
   if (status === "risk") return c.risk;
   return c.accent;
+}
+
+function flowTone(node) {
+  if (node.type === "result" || node.status === "good") return c.success;
+  if (node.type === "risk" || node.status === "risk") return c.risk;
+  if (node.type === "system") return c.secondary;
+  return c.accent;
+}
+
+function flowTypeLabel(type) {
+  return ({
+    start: "开始",
+    action: "动作",
+    decision: "判断",
+    system: "系统",
+    result: "结果",
+    risk: "风险",
+  })[type] || "节点";
 }
 
 function parsePercent(value, fallback = 60) {
@@ -525,4 +564,149 @@ ${body}
 </svg>`;
 }
 
-fs.writeFileSync(output, renderCanvas());
+function flowNode(node, x, y, w, h) {
+  const t = flowTone(node);
+  const bodyLines = (node.body || []).slice(0, 2).flatMap((lineValue) => splitText(lineValue, w - 52, 17, 1));
+  const chipFill = node.type === "result" ? "#ECFDF5" : node.type === "risk" || node.status === "risk" ? "#FFF7ED" : c.muted;
+  return `${rect(x, y, w, h, c.surface, c.border, 1.5, 14, ` data-flow-node="${escapeXml(node.id)}"`)}
+<rect x="${x + 22}" y="${y + 22}" width="8" height="${h - 44}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
+${rect(x + 46, y + 22, 86, 30, chipFill, c.border, 1, 8)}
+${text(x + 64, y + 43, 15, t, [flowTypeLabel(node.type)], "800")}
+${text(x + 46, y + 84, 24, c.ink, splitText(node.title, w - 72, 24, 1), "850")}
+${bodyLines.length ? text(x + 46, y + 116, 17, c.secondary, bodyLines, "500", 24) : ""}`;
+}
+
+function arrowHead(x, y, direction = "right", stroke = c.accent) {
+  if (direction === "down") {
+    return `${line(x, y, x - 9, y - 12, stroke, 3)}${line(x, y, x + 9, y - 12, stroke, 3)}`;
+  }
+  if (direction === "up") {
+    return `${line(x, y, x - 9, y + 12, stroke, 3)}${line(x, y, x + 9, y + 12, stroke, 3)}`;
+  }
+  if (direction === "left") {
+    return `${line(x, y, x + 12, y - 9, stroke, 3)}${line(x, y, x + 12, y + 9, stroke, 3)}`;
+  }
+  return `${line(x, y, x - 12, y - 9, stroke, 3)}${line(x, y, x - 12, y + 9, stroke, 3)}`;
+}
+
+function flowStatement(y) {
+  const body = measureLines(brief.summary, CONTENT - 96, 27, 2, 38);
+  const h = Math.max(128, 78 + body.height);
+  return {
+    h,
+    body: `${rect(M, y, CONTENT, h, c.surface, c.border, 1.5, 16)}
+<rect x="${M}" y="${y}" width="12" height="${h}" rx="6" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
+${text(M + 42, y + 44, 17, c.accent, [brief.summaryLabel || "流程判断"], "800")}
+${text(M + 42, y + 88, 27, c.ink, body.lines, "800", 38)}`,
+  };
+}
+
+function edgeLabel(label, x, y, maxWidth = 120) {
+  if (!label) return "";
+  return `${rect(x - 8, y - 22, Math.min(maxWidth, Math.max(56, estimateWidth(label, 14) + 22)), 30, c.canvas, c.border, 1, 8)}
+${text(x + 4, y - 2, 14, c.secondary, splitText(label, maxWidth - 22, 14, 1), "700")}`;
+}
+
+function flowConnector(edge, boxes, stroke = c.accent) {
+  const from = boxes.get(edge.from);
+  const to = boxes.get(edge.to);
+  if (!from || !to) return "";
+  const start = { x: from.x + from.w, y: from.y + from.h / 2 };
+  const end = { x: to.x, y: to.y + to.h / 2 };
+  const attrs = ` data-flow-edge="${escapeXml(`${edge.from}->${edge.to}`)}" data-from="${escapeXml(edge.from)}" data-to="${escapeXml(edge.to)}" data-start="${Math.round(start.x)},${Math.round(start.y)}" data-end="${Math.round(end.x)},${Math.round(end.y)}"`;
+  if (Math.abs(start.y - end.y) < 2 && end.x > start.x) {
+    return `${line(start.x, start.y, end.x, end.y, stroke, 3, attrs)}
+${arrowHead(end.x, end.y, "right", stroke)}`;
+  }
+  const midX = Math.round(start.x + (end.x - start.x) / 2);
+  const points = [start, { x: midX, y: start.y }, { x: midX, y: end.y }, end];
+  const direction = end.x >= midX ? "right" : "left";
+  return `${polyline(points, stroke, 3, attrs)}
+${arrowHead(end.x, end.y, direction, stroke)}`;
+}
+
+function renderLinearFlow(y) {
+  const nodes = brief.flowNodes || [];
+  const edges = brief.flowEdges || [];
+  const cols = Math.min(5, nodes.length);
+  const nodeGap = 34;
+  const nodeW = Math.floor((CONTENT - nodeGap * (cols - 1)) / cols);
+  const nodeH = 178;
+  const rowGap = 92;
+  const boxes = new Map();
+  const body = [];
+  nodes.forEach((node, index) => {
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+    const x = M + col * (nodeW + nodeGap);
+    const ny = y + row * (nodeH + rowGap);
+    boxes.set(node.id, { x, y: ny, w: nodeW, h: nodeH });
+    body.push(flowNode(node, x, ny, nodeW, nodeH));
+  });
+  edges.forEach((edge) => body.push(flowConnector(edge, boxes, c.accent)));
+  return { h: Math.ceil(nodes.length / cols) * nodeH + Math.max(0, Math.ceil(nodes.length / cols) - 1) * rowGap, body: body.join("\n") };
+}
+
+function renderSwimlaneFlow(y) {
+  const lanes = brief.lanes || [];
+  const nodes = brief.flowNodes || [];
+  const edges = brief.flowEdges || [];
+  const maxStep = Math.max(...nodes.map((node) => node.step || 1));
+  const laneLabelW = 168;
+  const laneH = 222;
+  const stepW = Math.floor((CONTENT - laneLabelW) / maxStep);
+  const nodeW = Math.max(188, stepW - 34);
+  const nodeH = 178;
+  const boxes = new Map();
+  const body = [];
+
+  lanes.forEach((lane, laneIndex) => {
+    const ly = y + laneIndex * laneH;
+    body.push(`${rect(M, ly, CONTENT, laneH, laneIndex % 2 === 0 ? c.surface : c.canvas, c.border, 1, 14, ` data-flow-lane="${escapeXml(lane.id)}"`)}
+${text(M + 28, ly + 58, 22, c.ink, splitText(lane.title, laneLabelW - 44, 22, 1), "850")}
+${line(M + laneLabelW, ly + 22, M + laneLabelW, ly + laneH - 22, c.border, 2)}`);
+  });
+
+  nodes.forEach((node) => {
+    const laneIndex = lanes.findIndex((lane) => lane.id === node.lane);
+    const x = M + laneLabelW + (node.step - 1) * stepW + 18;
+    const ny = y + laneIndex * laneH + 22;
+    boxes.set(node.id, { x, y: ny, w: nodeW, h: nodeH });
+    body.push(flowNode(node, x, ny, nodeW, nodeH));
+  });
+  edges.forEach((edge) => body.push(flowConnector(edge, boxes, c.accent)));
+  return { h: lanes.length * laneH, body: body.join("\n") };
+}
+
+function renderFlowCanvas() {
+  const title = titleBlock();
+  let y = 64 + title.h;
+  let body = title.body;
+
+  const statement = flowStatement(y);
+  body += statement.body;
+  y += statement.h + 56;
+
+  const flow = brief.flowMode === "swimlane-flow" ? renderSwimlaneFlow(y) : renderLinearFlow(y);
+  body += flow.body;
+  y += flow.h + 56;
+
+  if (brief.footer) {
+    const footerLines = splitText(brief.footer, CONTENT - 68, 20, 2);
+    const h = 74 + (footerLines.length - 1) * 26;
+    body += `${rect(M, y, CONTENT, h, c.surface, c.border, 1.3, 14)}
+<rect x="${M}" y="${y}" width="10" height="${h}" rx="5" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
+${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
+    y += h + 72;
+  }
+
+  const height = Math.ceil(y);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="flow-canvas" data-flow-mode="${escapeXml(brief.flowMode)}">
+${rect(0, 0, WIDTH, height, c.canvas, c.canvas, 0, 0)}
+<g>
+${body}
+</g>
+</svg>`;
+}
+
+fs.writeFileSync(output, brief.layout === "flow-canvas" ? renderFlowCanvas() : renderCanvas());
