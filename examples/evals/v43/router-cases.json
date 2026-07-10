@@ -1,0 +1,165 @@
+[
+  {
+    "id": "operating-dashboard",
+    "expectedTopTwo": ["expression-canvas:dashboard-onepage", "metric-dashboard"],
+    "inventory": {
+      "inventoryId": "route-dashboard",
+      "title": "经营复盘",
+      "sourceType": "report",
+      "facts": [
+        {"id": "c1", "type": "conclusion", "importance": "critical", "text": "主线稳定但闭环不足。"},
+        {"id": "m1", "type": "metric", "importance": "high", "text": "目标完成率 82%。", "value": 82},
+        {"id": "m2", "type": "metric", "importance": "high", "text": "效率提升 18%。", "value": 18},
+        {"id": "m3", "type": "metric", "importance": "high", "text": "待处理风险 3 项。", "value": 3},
+        {"id": "r1", "type": "risk", "importance": "high", "text": "数据口径未统一。"},
+        {"id": "a1", "type": "action", "importance": "high", "text": "补齐口径并固定复盘节奏。"}
+      ]
+    }
+  },
+  {
+    "id": "decision-comparison",
+    "expectedTopTwo": ["comparison-matrix", "expression-canvas:narrative-map"],
+    "inventory": {
+      "inventoryId": "route-decision",
+      "title": "方案选择",
+      "sourceType": "report",
+      "facts": [
+        {"id": "c1", "type": "conclusion", "importance": "critical", "text": "选择可长期复用的知识载体。"},
+        {"id": "o1", "type": "comparison", "importance": "high", "text": "Wiki 可读性和沉淀能力强。", "relation": "contrast"},
+        {"id": "o2", "type": "comparison", "importance": "high", "text": "文档适合人工展示。", "relation": "contrast"},
+        {"id": "o3", "type": "comparison", "importance": "high", "text": "聊天记录复用成本高。", "relation": "contrast"},
+        {"id": "a1", "type": "action", "importance": "medium", "text": "稳定规则进入 Wiki。"}
+      ]
+    }
+  },
+  {
+    "id": "timeline",
+    "expectedTopTwo": ["milestone-timeline", "roadmap"],
+    "inventory": {
+      "inventoryId": "route-timeline",
+      "title": "版本演进",
+      "sourceType": "document",
+      "facts": [
+        {"id": "t1", "type": "timeline", "importance": "high", "text": "V1 建立基础模板。", "relation": "sequence", "order": 1},
+        {"id": "t2", "type": "timeline", "importance": "high", "text": "V2 解决长文稳定性。", "relation": "sequence", "order": 2},
+        {"id": "t3", "type": "timeline", "importance": "high", "text": "V3 扩展表达组件。", "relation": "sequence", "order": 3},
+        {"id": "t4", "type": "timeline", "importance": "critical", "text": "V4 建立布局引擎。", "relation": "sequence", "order": 4}
+      ]
+    }
+  },
+  {
+    "id": "hierarchy",
+    "expectedTopTwo": ["pyramid", "large-canvas"],
+    "inventory": {
+      "inventoryId": "route-hierarchy",
+      "title": "能力层级",
+      "sourceType": "document",
+      "facts": [
+        {"id": "h1", "type": "hierarchy", "importance": "critical", "text": "战略目标位于顶层。", "relation": "part-of"},
+        {"id": "h2", "type": "hierarchy", "importance": "high", "text": "流程能力承接战略。", "relation": "part-of", "relatedFactIds": ["h1"]},
+        {"id": "h3", "type": "hierarchy", "importance": "high", "text": "数据和工具构成基础。", "relation": "part-of", "relatedFactIds": ["h2"]}
+      ]
+    }
+  },
+  {
+    "id": "linear-process",
+    "expectedTopTwo": ["flow-canvas:linear-flow", "process-chain"],
+    "inventory": {
+      "inventoryId": "route-linear-flow",
+      "title": "生成流程",
+      "sourceType": "document",
+      "facts": [
+        {"id": "p1", "type": "process", "importance": "critical", "text": "读取材料。", "relation": "sequence", "order": 1},
+        {"id": "p2", "type": "process", "importance": "high", "text": "形成信息清单。", "relation": "sequence", "order": 2},
+        {"id": "p3", "type": "process", "importance": "high", "text": "选择版式。", "relation": "sequence", "order": 3},
+        {"id": "p4", "type": "process", "importance": "high", "text": "渲染画板。", "relation": "sequence", "order": 4},
+        {"id": "p5", "type": "process", "importance": "high", "text": "预览复核。", "relation": "sequence", "order": 5}
+      ]
+    }
+  },
+  {
+    "id": "swimlane",
+    "expectedTopTwo": ["flow-canvas:swimlane-flow", "flow-canvas:linear-flow"],
+    "inventory": {
+      "inventoryId": "route-swimlane",
+      "title": "跨角色审批",
+      "sourceType": "document",
+      "facts": [
+        {"id": "p1", "type": "process", "importance": "critical", "text": "用户发起申请。", "relation": "dependency", "lane": "用户", "order": 1},
+        {"id": "p2", "type": "process", "importance": "high", "text": "Agent 校验材料。", "relation": "dependency", "lane": "Agent", "order": 2},
+        {"id": "p3", "type": "process", "importance": "high", "text": "系统执行审批。", "relation": "dependency", "lane": "系统", "order": 3},
+        {"id": "p4", "type": "process", "importance": "high", "text": "用户确认结果。", "relation": "dependency", "lane": "用户", "order": 4}
+      ]
+    }
+  },
+  {
+    "id": "variance",
+    "expectedTopTwo": ["variance-bridge", "expression-canvas:modular-canvas"],
+    "inventory": {
+      "inventoryId": "route-variance",
+      "title": "规模变化归因",
+      "sourceType": "spreadsheet",
+      "facts": [
+        {"id": "m0", "type": "metric", "importance": "critical", "text": "当前规模 1623 人。", "value": 1623},
+        {"id": "m1", "type": "metric", "importance": "high", "text": "业务归口减少 387 人。", "relation": "effect", "value": -387},
+        {"id": "m2", "type": "metric", "importance": "high", "text": "模式迭代减少 94 人。", "relation": "effect", "value": -94},
+        {"id": "m3", "type": "metric", "importance": "high", "text": "专项补充增加 31 人。", "relation": "effect", "value": 31},
+        {"id": "m4", "type": "metric", "importance": "critical", "text": "目标规模 1173 人。", "value": 1173}
+      ]
+    }
+  },
+  {
+    "id": "long-mixed",
+    "expectedTopTwo": ["expression-canvas:modular-canvas", "large-canvas"],
+    "inventory": {
+      "inventoryId": "route-long-mixed",
+      "title": "复杂项目报告",
+      "sourceType": "mixed",
+      "facts": [
+        {"id": "c1", "type": "conclusion", "importance": "critical", "text": "项目应从试点转向规模化。"},
+        {"id": "m1", "type": "metric", "importance": "high", "text": "试点覆盖率 64%。", "value": 64},
+        {"id": "e1", "type": "evidence", "importance": "high", "text": "三个团队已完成验证。"},
+        {"id": "r1", "type": "risk", "importance": "high", "text": "数据标准仍不一致。"},
+        {"id": "a1", "type": "action", "importance": "high", "text": "建立统一指标字典。"},
+        {"id": "p1", "type": "process", "importance": "medium", "text": "先对齐再扩展。", "relation": "sequence", "order": 1},
+        {"id": "x1", "type": "comparison", "importance": "medium", "text": "自建方案稳定性更强。"},
+        {"id": "k1", "type": "constraint", "importance": "high", "text": "必须保持飞书可编辑。"}
+      ]
+    }
+  },
+  {
+    "id": "dense-architecture",
+    "expectedTopTwo": ["expression-canvas:modular-canvas", "large-canvas"],
+    "inventory": {
+      "inventoryId": "route-architecture",
+      "title": "AI 助手治理架构",
+      "sourceType": "report",
+      "facts": [
+        {"id": "c1", "type": "conclusion", "importance": "critical", "text": "执行规则、知识索引和脚本工具必须分层维护。"},
+        {"id": "h1", "type": "hierarchy", "importance": "high", "text": "Skill 是执行层。", "relation": "part-of"},
+        {"id": "h2", "type": "hierarchy", "importance": "high", "text": "配置是编排层。", "relation": "part-of"},
+        {"id": "h3", "type": "hierarchy", "importance": "high", "text": "Wiki 是知识层。", "relation": "part-of"},
+        {"id": "r1", "type": "risk", "importance": "high", "text": "规则重复导致漂移。"},
+        {"id": "e1", "type": "evidence", "importance": "medium", "text": "历史坏例多次复现。"},
+        {"id": "a1", "type": "action", "importance": "high", "text": "建立能力注册表。"}
+      ]
+    }
+  },
+  {
+    "id": "ambiguous",
+    "expectedTopTwo": ["expression-canvas:modular-canvas", "problem-breakdown"],
+    "inventory": {
+      "inventoryId": "route-ambiguous",
+      "title": "问题与推进计划",
+      "sourceType": "mixed",
+      "facts": [
+        {"id": "c1", "type": "conclusion", "importance": "critical", "text": "先解决数据问题再扩大试点。"},
+        {"id": "r1", "type": "risk", "importance": "high", "text": "指标口径不一致。", "relation": "cause"},
+        {"id": "e1", "type": "evidence", "importance": "high", "text": "三个团队结果无法横向比较。", "relation": "supports", "relatedFactIds": ["r1"]},
+        {"id": "t1", "type": "timeline", "importance": "high", "text": "第一阶段统一口径。", "relation": "sequence", "order": 1},
+        {"id": "t2", "type": "timeline", "importance": "high", "text": "第二阶段扩大试点。", "relation": "sequence", "order": 2},
+        {"id": "a1", "type": "action", "importance": "high", "text": "两周内完成指标字典。"}
+      ]
+    }
+  }
+]
