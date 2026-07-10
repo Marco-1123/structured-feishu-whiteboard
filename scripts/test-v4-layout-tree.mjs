@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { buildExpressionLayout, profileExpressionBlock } from "./lib/v4-layout-tree.mjs";
+import { buildAdaptiveExpressionLayout, buildExpressionLayout, profileExpressionBlock } from "./lib/v4-layout-tree.mjs";
 
 const blocks = [
   { type: "progress-bar", id: "tall", height: 400 },
@@ -63,5 +63,24 @@ const denseList = {
 const denseProfile = profileExpressionBlock(denseList);
 assert.equal(denseProfile.preferredSpan, 12, "dense explanatory lists must remain full width");
 assert.equal(denseProfile.itemLayout, "rows");
+
+const adaptiveTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { ...compactList, id: "compact-a", height: 180 },
+    { ...compactList, id: "compact-b", height: 220 },
+    { type: "mini-roadmap", id: "directional", height: 240, items: [{ label: "A" }, { label: "B" }] },
+  ],
+  mode: "modular-canvas",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: (block) => ({ height: block.height }),
+});
+assert.equal(adaptiveTree.nodes[0].span, 6);
+assert.equal(adaptiveTree.nodes[1].span, 6);
+assert.equal(adaptiveTree.nodes[0].row, adaptiveTree.nodes[1].row, "two compact lists should share a row");
+assert.equal(adaptiveTree.nodes[2].span, 12);
+assert.ok(adaptiveTree.nodes[2].y >= adaptiveTree.nodes[1].y + adaptiveTree.nodes[1].height + 32);
 
 console.log("ok: V4.3 layout tree tests passed");
