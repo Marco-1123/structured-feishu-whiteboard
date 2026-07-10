@@ -1,0 +1,126 @@
+{
+  "version": "4.3.0-beta.1",
+  "channels": {
+    "stable": {
+      "branch": "main",
+      "version": "3.2.0"
+    },
+    "next": {
+      "branch": "codex/v4.3-control-plane",
+      "version": "4.3.0-beta.1"
+    }
+  },
+  "styles": [
+    "professional-blue",
+    "dark-emphasis",
+    "warm-editorial",
+    "feishu-neutral",
+    "feishu-status",
+    "feishu-decision-dark",
+    "apple-studio",
+    "linear-command",
+    "apple-report",
+    "linear-system",
+    "stripe-data",
+    "vercel-precision",
+    "neo-grid-bold",
+    "riptide-cobalt"
+  ],
+  "layouts": [
+    "conclusion-first",
+    "problem-breakdown",
+    "large-canvas",
+    "roadmap",
+    "process-chain",
+    "comparison-matrix",
+    "milestone-timeline",
+    "funnel",
+    "pyramid",
+    "metric-dashboard",
+    "progress-wall",
+    "ranked-bars",
+    "variance-bridge",
+    "expression-canvas",
+    "flow-canvas"
+  ],
+  "capabilities": [
+    {
+      "id": "v3-svg",
+      "engine": "v3",
+      "renderTarget": "svg",
+      "renderer": "scripts/render-whiteboard.mjs",
+      "experimental": false,
+      "layouts": [
+        "conclusion-first",
+        "problem-breakdown",
+        "large-canvas",
+        "roadmap",
+        "process-chain",
+        "comparison-matrix",
+        "expression-canvas"
+      ],
+      "styles": [
+        "professional-blue",
+        "dark-emphasis",
+        "warm-editorial",
+        "feishu-neutral",
+        "feishu-status",
+        "feishu-decision-dark",
+        "apple-studio",
+        "linear-command",
+        "apple-report",
+        "linear-system",
+        "stripe-data",
+        "vercel-precision",
+        "neo-grid-bold",
+        "riptide-cobalt"
+      ]
+    },
+    {
+      "id": "v3-dsl",
+      "engine": "v3",
+      "renderTarget": "dsl",
+      "renderer": "scripts/render-whiteboard-dsl.mjs",
+      "experimental": false,
+      "layouts": [
+        "milestone-timeline",
+        "funnel",
+        "pyramid",
+        "metric-dashboard",
+        "progress-wall",
+        "ranked-bars",
+        "variance-bridge"
+      ],
+      "styles": [
+        "professional-blue",
+        "dark-emphasis",
+        "warm-editorial",
+        "feishu-neutral",
+        "feishu-status",
+        "feishu-decision-dark",
+        "linear-command",
+        "apple-studio"
+      ]
+    },
+    {
+      "id": "v4-svg",
+      "engine": "v4",
+      "renderTarget": "svg",
+      "renderer": "scripts/render-whiteboard-v4.mjs",
+      "experimental": true,
+      "layouts": [
+        "expression-canvas",
+        "flow-canvas"
+      ],
+      "styles": [
+        "professional-blue",
+        "linear-command",
+        "linear-system",
+        "apple-report",
+        "stripe-data",
+        "vercel-precision",
+        "feishu-status"
+      ]
+    }
+  ]
+}

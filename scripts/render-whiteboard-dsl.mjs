@@ -575,7 +575,8 @@ function renderPyramid(brief, c) {
 }
 
 function render(brief) {
-  const c = styles[brief.style] || styles["professional-blue"];
+  const c = styles[brief.style];
+  if (!c) throw new Error(`unsupported DSL style: ${brief.style}`);
   if (brief.layout === "milestone-timeline") return renderMilestoneTimeline(brief, c);
   if (brief.layout === "funnel") return renderFunnel(brief, c);
   if (brief.layout === "metric-dashboard") return renderMetricDashboard(brief, c);

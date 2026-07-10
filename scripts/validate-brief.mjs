@@ -1,4 +1,7 @@
 import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { assertCapability, loadCapabilities } from "./lib/capabilities.mjs";
 
 const supportedLayouts = new Set([
   "conclusion-first",
@@ -508,6 +511,14 @@ try {
   brief = JSON.parse(fs.readFileSync(input, "utf8"));
 } catch (error) {
   fail(`cannot read JSON: ${error.message}`);
+}
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const capabilityRegistry = loadCapabilities(root);
+try {
+  assertCapability(capabilityRegistry, brief);
+} catch (error) {
+  fail(error.message);
 }
 
 if (!supportedLayouts.has(brief.layout)) fail(`unsupported layout: ${brief.layout}`);

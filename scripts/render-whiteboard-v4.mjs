@@ -111,7 +111,8 @@ const styles = {
   },
 };
 
-const c = styles[brief.style] || styles["professional-blue"];
+const c = styles[brief.style];
+if (!c) throw new Error(`unsupported V4 style: ${brief.style}`);
 const WIDTH = 2200;
 const M = 96;
 const GAP = 32;
