@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { buildExpressionLayout } from "./lib/v4-layout-tree.mjs";
 
 const args = process.argv.slice(2);
 const input = args[args.indexOf("--input") + 1];
@@ -518,6 +519,12 @@ function fullRows(blocks, x, y, w) {
   return { h: cy - y - GAP, body };
 }
 
+function markLayoutNode(node, body) {
+  return `<g data-v43-block="${escapeXml(node.id)}" data-block-type="${escapeXml(node.type)}" data-x="${node.x}" data-y="${node.y}" data-width="${node.width}" data-height="${node.height}" data-column="${node.column || "full"}">
+${body}
+</g>`;
+}
+
 function renderCanvas() {
   const blocks = brief.expressionBlocks || [];
   const statement = blocks.find((block) => block.type === "statement");
@@ -526,58 +533,57 @@ function renderCanvas() {
 
   const title = titleBlock();
   let y = 64 + title.h;
-  let body = title.body;
+  let body = markLayoutNode({ id: "title", type: "title", x: M, y: 40, width: CONTENT, height: title.h + 24, column: "full" }, title.body);
 
   if (statement) {
     const rendered = statementBlock(statement, M, y, CONTENT);
-    body += rendered.body;
+    body += markLayoutNode({ id: "statement", type: "statement", x: M, y, width: CONTENT, height: rendered.h, column: "full" }, rendered.body);
     y += rendered.h + 44;
   }
 
   if (metrics.length) {
     const rendered = metricsGroup(metrics, M, y, CONTENT);
-    body += rendered.body;
+    body += markLayoutNode({ id: "metrics", type: "metric-group", x: M, y, width: CONTENT, height: rendered.h, column: "full" }, rendered.body);
     y += rendered.h + 44;
   }
 
+  let ordered;
   if (brief.expressionMode === "narrative-map") {
     const chain = rest.find((block) => block.type === "narrative-chain");
     const others = rest.filter((block) => block.type !== "narrative-chain");
-    if (chain) {
-      const rendered = blockRenderer(chain, M, y, CONTENT);
-      body += rendered.body;
-      y += rendered.h + 44;
-    }
-    const grid = twoColumnGrid(others, M, y, CONTENT);
-    body += grid.body;
-    y += grid.h + 40;
+    ordered = [...(chain ? [chain] : []), ...others];
   } else if (brief.expressionMode === "modular-canvas") {
-    const wide = rest.filter((block) => shouldRenderWide(block));
-    const compact = rest.filter((block) => !shouldRenderWide(block));
-    const grid = twoColumnGrid(compact.slice(0, 4), M, y, CONTENT);
-    body += grid.body;
-    y += grid.h + 44;
-    const rows = fullRows([...wide, ...compact.slice(4)], M, y, CONTENT);
-    body += rows.body;
-    y += rows.h + 40;
+    ordered = [...rest];
   } else {
     const upperTypes = new Set(["progress-bar", "trend-sparkline", "status-board", "ranked-bar"]);
     const upper = rest.filter((block) => upperTypes.has(block.type));
     const lower = rest.filter((block) => !upperTypes.has(block.type));
-    const grid = twoColumnGrid(upper, M, y, CONTENT);
-    body += grid.body;
-    y += grid.h + 44;
-    const lowerRendered = lower.length === 1 ? fullRows(lower, M, y, CONTENT) : twoColumnGrid(lower, M, y, CONTENT);
-    body += lowerRendered.body;
-    y += lowerRendered.h + 40;
+    ordered = [...upper, ...lower];
   }
+
+  const tree = buildExpressionLayout({
+    blocks: ordered,
+    mode: brief.expressionMode,
+    x: M,
+    startY: y,
+    width: CONTENT,
+    gap: GAP,
+    measure: (block, width) => ({ height: blockRenderer(block, 0, 0, width).h }),
+    isWide: (block) => shouldRenderWide(block),
+  });
+  for (const node of tree.nodes) {
+    const rendered = blockRenderer(node.block, node.x, node.y, node.width);
+    body += markLayoutNode(node, rendered.body);
+  }
+  y += tree.height + 40;
 
   if (brief.footer) {
     const footerLines = splitText(brief.footer, CONTENT - 68, 20, 2);
     const h = 74 + (footerLines.length - 1) * 26;
-    body += `${rect(M, y, CONTENT, h, c.surface, c.border, 1.3, 14)}
+    const footerBody = `${rect(M, y, CONTENT, h, c.surface, c.border, 1.3, 14)}
 <rect x="${M}" y="${y}" width="10" height="${h}" rx="5" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
 ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
+    body += markLayoutNode({ id: "footer", type: "footer", x: M, y, width: CONTENT, height: h, column: "full" }, footerBody);
     y += h + 72;
   }
 
@@ -732,22 +738,23 @@ ${line(M + laneLabelW, ly + 22, M + laneLabelW, ly + laneH - 22, c.border, 2)}`)
 function renderFlowCanvas() {
   const title = titleBlock();
   let y = 64 + title.h;
-  let body = title.body;
+  let body = markLayoutNode({ id: "title", type: "title", x: M, y: 40, width: CONTENT, height: title.h + 24, column: "full" }, title.body);
 
   const statement = flowStatement(y);
-  body += statement.body;
+  body += markLayoutNode({ id: "statement", type: "statement", x: M, y, width: CONTENT, height: statement.h, column: "full" }, statement.body);
   y += statement.h + 56;
 
   const flow = brief.flowMode === "swimlane-flow" ? renderSwimlaneFlow(y) : renderLinearFlow(y);
-  body += flow.body;
+  body += markLayoutNode({ id: "flow", type: brief.flowMode, x: M, y, width: CONTENT, height: flow.h, column: "full" }, flow.body);
   y += flow.h + 56;
 
   if (brief.footer) {
     const footerLines = splitText(brief.footer, CONTENT - 68, 20, 2);
     const h = 74 + (footerLines.length - 1) * 26;
-    body += `${rect(M, y, CONTENT, h, c.surface, c.border, 1.3, 14)}
+    const footerBody = `${rect(M, y, CONTENT, h, c.surface, c.border, 1.3, 14)}
 <rect x="${M}" y="${y}" width="10" height="${h}" rx="5" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
 ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
+    body += markLayoutNode({ id: "footer", type: "footer", x: M, y, width: CONTENT, height: h, column: "full" }, footerBody);
     y += h + 72;
   }
 
