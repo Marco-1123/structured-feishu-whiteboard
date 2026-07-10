@@ -131,7 +131,7 @@ assert.match(svg, /data-item-layout="grid-2"/);
 assert.ok([...svg.matchAll(/data-span="6"/g)].length >= 2);
 ```
 
-Also render the V4.2 dense fixture and assert its long list blocks remain `data-span="12"` and `data-item-layout="rows"`.
+Also render the V4.2 architecture fixture and assert its explanatory list blocks remain at least `data-span="6"` with `data-item-layout="rows"`; a separate synthetic dense profile test retains the full-width requirement.
 
 - [ ] **Step 2: Verify the render test fails**
 

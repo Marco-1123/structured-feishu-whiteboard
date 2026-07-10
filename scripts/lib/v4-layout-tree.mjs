@@ -43,7 +43,7 @@ export function profileExpressionBlock(block = {}) {
   }
 
   if (LIST_TYPES.has(block.type)) {
-    const sparse = demand.maxItemUnits <= 32 && demand.textUnits <= 190;
+    const sparse = demand.maxItemUnits <= 18 && demand.textUnits <= 100;
     const dense = demand.maxItemUnits > 42 || demand.textUnits > 240 || (demand.itemCount >= 5 && demand.maxItemUnits > 36);
     if (dense) {
       return { ...base, span: 12, minSpan: 8, preferredSpan: 12, maxSpan: 12, density: "dense", itemLayout: "rows", reason: "long-explanatory-items" };
@@ -54,7 +54,10 @@ export function profileExpressionBlock(block = {}) {
     if (sparse) {
       return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "sparse", itemLayout: "grid-2", reason: "short-parallel-items" };
     }
-    return { ...base, span: 8, minSpan: 6, preferredSpan: 8, maxSpan: 12, density: "medium", itemLayout: "grid-2", reason: "moderate-parallel-items" };
+    if (demand.maxItemUnits <= 32 && demand.textUnits <= 190) {
+      return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout: "rows", reason: "moderate-parallel-items" };
+    }
+    return { ...base, span: 8, minSpan: 6, preferredSpan: 8, maxSpan: 12, density: "medium", itemLayout: "grid-2", reason: "substantial-parallel-items" };
   }
 
   if (block.type === "status-board") {

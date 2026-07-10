@@ -115,7 +115,7 @@ Required assertions:
 - at least two compact sections share a row;
 - compact list items use a grid interior;
 - canvas height is materially below the old full-stack baseline;
-- the V4.2 dense architecture fixture still promotes long lists to full width;
+- the V4.2 architecture fixture keeps explanatory lists at least half width with row interiors, while truly dense synthetic lists remain full width;
 - all Feishu SVG checks continue to pass.
 
 ## Error Handling

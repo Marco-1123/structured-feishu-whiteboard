@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { buildExpressionLayout } from "./lib/v4-layout-tree.mjs";
+import { buildAdaptiveExpressionLayout, profileExpressionBlock } from "./lib/v4-layout-tree.mjs";
 
 const args = process.argv.slice(2);
 const input = args[args.indexOf("--input") + 1];
@@ -348,22 +348,30 @@ ${item.note ? text(ix + 36, iy + 60, 15, c.secondary, splitText(item.note, itemW
   return { h, body };
 }
 
-function listBlock(block, x, y, w, type = "action") {
+function listBlock(block, x, y, w, type = "action", profile = profileExpressionBlock(block)) {
   const items = (block.items || []).slice(0, 5);
   const withNotes = items.some((item) => item.note);
-  const itemH = withNotes ? 76 : type === "evidence" ? 66 : 58;
-  const h = 108 + items.length * itemH + 30;
+  const cols = profile.itemLayout === "grid-3" ? 3 : profile.itemLayout === "grid-2" ? 2 : 1;
+  const rows = Math.ceil(items.length / cols);
+  const itemGap = cols > 1 ? 14 : 0;
+  const itemW = Math.floor((w - 56 - itemGap * (cols - 1)) / cols);
+  const itemH = withNotes ? 82 : type === "evidence" ? 66 : 58;
+  const rowGap = cols > 1 ? 14 : 0;
+  const h = 108 + rows * itemH + Math.max(0, rows - 1) * rowGap + 30;
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
-    const iy = y + 104 + index * itemH;
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+    const ix = x + 28 + col * (itemW + itemGap);
+    const iy = y + 104 + row * (itemH + rowGap);
     const t = type === "risk" ? tone(item.status || "risk") : c.accent;
-    const labelLines = splitText(item.label, w - 118, 17, 1);
-    const noteLines = item.note ? splitText(item.note, w - 118, 14, withNotes ? 2 : 1) : [];
+    const labelLines = splitText(item.label, itemW - 62, 17, 1);
+    const noteLines = item.note ? splitText(item.note, itemW - 62, 14, withNotes ? 2 : 1) : [];
     body += `
-${rect(x + 28, iy, w - 56, itemH - 12, c.muted, c.border, 1, 10, ` data-v4-list-row="${escapeXml(`${block.title || type}-${index}`)}" data-has-note="${noteLines.length ? "true" : "false"}"`)}
-<rect x="${x + 28}" y="${iy}" width="8" height="${itemH - 12}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
-${text(x + 50, iy + 30, 17, c.ink, labelLines, "800")}
-${noteLines.length ? text(x + 50, iy + 54, 14, c.secondary, noteLines, "500", 20) : ""}`;
+${rect(ix, iy, itemW, itemH - 12, c.muted, c.border, 1, 10, ` data-v4-list-row="${escapeXml(`${block.title || type}-${index}`)}" data-has-note="${noteLines.length ? "true" : "false"}"`)}
+<rect x="${ix}" y="${iy}" width="8" height="${itemH - 12}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
+${text(ix + 22, iy + 30, 17, c.ink, labelLines, "800")}
+${noteLines.length ? text(ix + 22, iy + 54, 14, c.secondary, noteLines, "500", 20) : ""}`;
   });
   return { h, body };
 }
@@ -464,18 +472,18 @@ ${text(ix + 18, stageY + 124, 16, c.ink, splitText(item.label, stageW - 36, 16, 
   return { h, body };
 }
 
-function blockRenderer(block, x, y, w) {
+function blockRenderer(block, x, y, w, profile = profileExpressionBlock(block)) {
   if (block.type === "progress-bar" || block.type === "ranked-bar") return progressGroup(block, x, y, w);
   if (block.type === "trend-sparkline") return trendSparkline(block, x, y, w);
   if (block.type === "status-board") return statusBoard(block, x, y, w);
-  if (block.type === "risk-list") return listBlock(block, x, y, w, "risk");
-  if (block.type === "action-list") return listBlock(block, x, y, w, "action");
-  if (block.type === "evidence-list") return listBlock(block, x, y, w, "evidence");
+  if (block.type === "risk-list") return listBlock(block, x, y, w, "risk", profile);
+  if (block.type === "action-list") return listBlock(block, x, y, w, "action", profile);
+  if (block.type === "evidence-list") return listBlock(block, x, y, w, "evidence", profile);
   if (block.type === "narrative-chain") return narrativeChain(block, x, y, w);
   if (block.type === "decision-matrix") return decisionMatrix(block, x, y, w);
   if (block.type === "mini-roadmap") return miniRoadmap(block, x, y, w);
   if (block.type === "variance-bridge-v2") return varianceBridge(block, x, y, w);
-  return listBlock(block, x, y, w, "action");
+  return listBlock(block, x, y, w, "action", profile);
 }
 
 function blockTextDensity(block) {
@@ -520,7 +528,9 @@ function fullRows(blocks, x, y, w) {
 }
 
 function markLayoutNode(node, body) {
-  return `<g data-v43-block="${escapeXml(node.id)}" data-block-type="${escapeXml(node.type)}" data-x="${node.x}" data-y="${node.y}" data-width="${node.width}" data-height="${node.height}" data-column="${node.column || "full"}">
+  const profile = node.profile;
+  const densityAttributes = profile ? ` data-row="${node.row}" data-span="${node.span}" data-density="${profile.density}" data-preferred-width="${node.preferredWidth}" data-text-units="${profile.textUnits}" data-item-count="${profile.itemCount}" data-item-layout="${profile.itemLayout}" data-layout-reason="${escapeXml(profile.reason)}"` : "";
+  return `<g data-v43-block="${escapeXml(node.id)}" data-block-type="${escapeXml(node.type)}" data-x="${node.x}" data-y="${node.y}" data-width="${node.width}" data-height="${node.height}" data-column="${node.column || "full"}"${densityAttributes}>
 ${body}
 </g>`;
 }
@@ -561,18 +571,17 @@ function renderCanvas() {
     ordered = [...upper, ...lower];
   }
 
-  const tree = buildExpressionLayout({
+  const tree = buildAdaptiveExpressionLayout({
     blocks: ordered,
     mode: brief.expressionMode,
     x: M,
     startY: y,
     width: CONTENT,
     gap: GAP,
-    measure: (block, width) => ({ height: blockRenderer(block, 0, 0, width).h }),
-    isWide: (block) => shouldRenderWide(block),
+    measure: (block, width, profile) => ({ height: blockRenderer(block, 0, 0, width, profile).h }),
   });
   for (const node of tree.nodes) {
-    const rendered = blockRenderer(node.block, node.x, node.y, node.width);
+    const rendered = blockRenderer(node.block, node.x, node.y, node.width, node.profile);
     body += markLayoutNode(node, rendered.body);
   }
   y += tree.height + 40;
