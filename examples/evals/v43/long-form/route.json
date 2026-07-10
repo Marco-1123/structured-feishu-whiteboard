@@ -1,0 +1,25 @@
+{
+  "decisionId": "route-v43-long-form",
+  "inventoryId": "v43-long-form",
+  "candidates": [
+    {
+      "layout": "expression-canvas",
+      "mode": "modular-canvas",
+      "engine": "v4",
+      "renderTarget": "svg",
+      "style": "linear-system",
+      "score": 0.94,
+      "reasons": ["结论、指标、风险、证据、行动和流程需要组合表达"]
+    },
+    {
+      "layout": "large-canvas",
+      "engine": "v3",
+      "renderTarget": "svg",
+      "style": "professional-blue",
+      "score": 0.72,
+      "reasons": ["复杂长文需要完整 onepage 回退"]
+    }
+  ],
+  "confidence": "high",
+  "fallback": {"layout": "large-canvas", "engine": "v3", "renderTarget": "svg", "style": "professional-blue"}
+}

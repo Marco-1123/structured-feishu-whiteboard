@@ -1,0 +1,26 @@
+{
+  "decisionId": "route-v43-flow",
+  "inventoryId": "v43-flow",
+  "candidates": [
+    {
+      "layout": "flow-canvas",
+      "mode": "swimlane-flow",
+      "engine": "v4",
+      "renderTarget": "svg",
+      "style": "feishu-status",
+      "score": 0.96,
+      "reasons": ["6 个流程节点跨越 4 个责任角色"]
+    },
+    {
+      "layout": "flow-canvas",
+      "mode": "linear-flow",
+      "engine": "v4",
+      "renderTarget": "svg",
+      "style": "linear-system",
+      "score": 0.64,
+      "reasons": ["存在单一主流程链"]
+    }
+  ],
+  "confidence": "high",
+  "fallback": {"layout": "process-chain", "engine": "v3", "renderTarget": "svg", "style": "professional-blue"}
+}

@@ -1,0 +1,13 @@
+{
+  "inventoryId": "v43-flow",
+  "title": "飞书文档到画板生成流程",
+  "sourceType": "document",
+  "facts": [
+    {"id": "process-1", "type": "process", "importance": "critical", "text": "用户提供文本或文档链接。", "relation": "dependency", "lane": "用户", "order": 1},
+    {"id": "process-2", "type": "process", "importance": "high", "text": "Agent 识别流程和角色。", "relation": "dependency", "lane": "Agent", "order": 2},
+    {"id": "process-3", "type": "process", "importance": "high", "text": "Agent 生成结构化 brief。", "relation": "dependency", "lane": "Agent", "order": 3},
+    {"id": "process-4", "type": "process", "importance": "high", "text": "渲染器稳定排布并连接节点。", "relation": "dependency", "lane": "渲染器", "order": 4},
+    {"id": "process-5", "type": "process", "importance": "high", "text": "用户检查预览并反馈问题。", "relation": "dependency", "lane": "用户", "order": 5},
+    {"id": "process-6", "type": "process", "importance": "high", "text": "飞书文档写入可编辑画板。", "relation": "dependency", "lane": "飞书文档", "order": 6}
+  ]
+}

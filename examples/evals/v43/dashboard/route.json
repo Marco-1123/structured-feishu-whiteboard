@@ -1,0 +1,25 @@
+{
+  "decisionId": "route-v43-dashboard",
+  "inventoryId": "v43-dashboard",
+  "candidates": [
+    {
+      "layout": "expression-canvas",
+      "mode": "dashboard-onepage",
+      "engine": "v4",
+      "renderTarget": "svg",
+      "style": "stripe-data",
+      "score": 0.91,
+      "reasons": ["3 个指标与风险、行动需要联合判断"]
+    },
+    {
+      "layout": "metric-dashboard",
+      "engine": "v3",
+      "renderTarget": "dsl",
+      "style": "professional-blue",
+      "score": 0.73,
+      "reasons": ["存在多个并列指标"]
+    }
+  ],
+  "confidence": "high",
+  "fallback": {"layout": "large-canvas", "engine": "v3", "renderTarget": "svg", "style": "professional-blue"}
+}

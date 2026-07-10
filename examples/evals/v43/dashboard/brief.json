@@ -1,0 +1,68 @@
+{
+  "pipelineVersion": "4.3",
+  "planning": {
+    "inventoryId": "v43-dashboard",
+    "selectedFactIds": ["conclusion-1", "metric-1", "metric-2", "metric-3", "risk-1", "action-1"],
+    "omittedFacts": [{"id": "context-1", "reason": "low-value-context"}],
+    "routeDecisionId": "route-v43-dashboard"
+  },
+  "engine": "v4",
+  "layout": "expression-canvas",
+  "style": "stripe-data",
+  "title": "V4.3 经营复盘仪表盘",
+  "subtitle": "从指标、趋势、状态和行动快速判断推进质量。",
+  "summaryLabel": "经营判断",
+  "summary": "增长动作已跑通，但数据接入、复盘闭环和风险分层需要进入固定经营节奏。",
+  "expressionMode": "dashboard-onepage",
+  "expressionBlocks": [
+    {"type": "statement", "title": "经营判断", "body": ["主线稳定，问题集中在数据口径和复盘节奏。"]},
+    {"type": "metric-card", "title": "目标完成", "value": "82%", "label": "正常", "note": "按周推进", "status": "good"},
+    {"type": "metric-card", "title": "效率提升", "value": "+18%", "label": "改善", "note": "试点有效", "status": "good"},
+    {"type": "metric-card", "title": "待处理风险", "value": "3", "label": "关注", "note": "集中在数据", "status": "risk"},
+    {
+      "type": "progress-bar",
+      "title": "关键进度",
+      "note": "把目标、数据和闭环拆成独立进度",
+      "items": [
+        {"label": "目标对齐", "value": "86%"},
+        {"label": "数据接入", "value": "70%"},
+        {"label": "复盘闭环", "value": "58%"}
+      ]
+    },
+    {
+      "type": "trend-sparkline",
+      "title": "周度改善趋势",
+      "note": "看连续改善，不看单点波动",
+      "items": [
+        {"label": "W1", "value": "42%"},
+        {"label": "W2", "value": "47%"},
+        {"label": "W3", "value": "51%"},
+        {"label": "W4", "value": "57%"},
+        {"label": "W5", "value": "63%"}
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "状态看板",
+      "note": "同组状态只按语义上色",
+      "items": [
+        {"label": "目标口径", "value": "正常", "note": "主指标统一", "status": "good"},
+        {"label": "数据质量", "value": "关注", "note": "仍有缺口", "status": "neutral"},
+        {"label": "风险闭环", "value": "待处理", "note": "动作分散", "status": "risk"},
+        {"label": "行动节奏", "value": "正常", "note": "周会固定", "status": "good"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "两周内形成可复用经营节奏",
+      "items": [
+        {"label": "补齐漏斗口径"},
+        {"label": "建立风险分层"},
+        {"label": "固定复盘模板"},
+        {"label": "输出试点报告"}
+      ]
+    }
+  ],
+  "footer": "V4.3：每次生成都有信息清单、路由理由、覆盖校验和运行记录。"
+}

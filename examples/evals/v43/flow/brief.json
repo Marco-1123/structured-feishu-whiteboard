@@ -1,0 +1,88 @@
+{
+  "pipelineVersion": "4.3",
+  "planning": {
+    "inventoryId": "v43-flow",
+    "selectedFactIds": ["process-1", "process-2", "process-3", "process-4", "process-5", "process-6"],
+    "omittedFacts": [],
+    "routeDecisionId": "route-v43-flow"
+  },
+  "layout": "flow-canvas",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "style": "feishu-status",
+  "flowMode": "swimlane-flow",
+  "title": "飞书文档到画板生成流程",
+  "subtitle": "把用户、Agent、渲染器和飞书文档的责任边界分清楚。",
+  "summaryLabel": "协作判断",
+  "summary": "泳道流程适合表达多角色协作：重点不是步骤数量，而是谁负责、交付什么、何时进入下一方。",
+  "lanes": [
+    {"id": "user", "title": "用户"},
+    {"id": "agent", "title": "Agent"},
+    {"id": "renderer", "title": "渲染器"},
+    {"id": "lark", "title": "飞书文档"}
+  ],
+  "flowNodes": [
+    {
+      "id": "material",
+      "title": "提供材料",
+      "body": ["粘贴文本或文档链接"],
+      "type": "start",
+      "lane": "user",
+      "step": 1,
+      "status": "neutral"
+    },
+    {
+      "id": "structure",
+      "title": "结构判断",
+      "body": ["识别流程和角色", "选择流程模式"],
+      "type": "decision",
+      "lane": "agent",
+      "step": 2,
+      "status": "neutral"
+    },
+    {
+      "id": "brief",
+      "title": "生成 brief",
+      "body": ["输出节点和边", "禁止手写 SVG"],
+      "type": "action",
+      "lane": "agent",
+      "step": 3,
+      "status": "neutral"
+    },
+    {
+      "id": "layout",
+      "title": "稳定排布",
+      "body": ["泳道网格定位", "连接边界对齐"],
+      "type": "system",
+      "lane": "renderer",
+      "step": 4,
+      "status": "neutral"
+    },
+    {
+      "id": "review",
+      "title": "预览复核",
+      "body": ["检查可读性", "反馈排版问题"],
+      "type": "decision",
+      "lane": "user",
+      "step": 5,
+      "status": "risk"
+    },
+    {
+      "id": "publish",
+      "title": "写入画板",
+      "body": ["保存可编辑结果", "返回文档链接"],
+      "type": "result",
+      "lane": "lark",
+      "step": 6,
+      "status": "good"
+    }
+  ],
+  "flowEdges": [
+    {"from": "material", "to": "structure", "label": "输入"},
+    {"from": "structure", "to": "brief", "label": "确认"},
+    {"from": "brief", "to": "layout", "label": "渲染"},
+    {"from": "layout", "to": "review", "label": "预览"},
+    {"from": "review", "to": "publish", "label": "通过"}
+  ],
+  "footer": "适合审批流、跨角色协作、系统交互和人机协同流程。"
+}

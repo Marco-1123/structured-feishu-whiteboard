@@ -1,0 +1,18 @@
+{
+  "inventoryId": "v43-long-form",
+  "title": "AI 助手全链路架构与知识治理",
+  "sourceType": "mixed",
+  "facts": [
+    {"id": "conclusion-1", "type": "conclusion", "importance": "critical", "text": "执行规则、知识索引和脚本工具必须分层维护。"},
+    {"id": "metric-1", "type": "metric", "importance": "high", "text": "执行层包含 5 个独立 Skill。", "value": 5},
+    {"id": "metric-2", "type": "metric", "importance": "high", "text": "编排层使用 6 个稳定参数。", "value": 6},
+    {"id": "metric-3", "type": "metric", "importance": "high", "text": "知识层分为 4 类文档。", "value": 4},
+    {"id": "risk-1", "type": "risk", "importance": "high", "text": "脚本硬编码和缓存结论会造成漂移。", "relation": "cause"},
+    {"id": "risk-2", "type": "risk", "importance": "high", "text": "高密度内容容易被压成大量窄框。", "relation": "cause"},
+    {"id": "evidence-1", "type": "evidence", "importance": "high", "text": "数据膨胀、队列误判和白板回退问题已经形成历史坏例。", "relation": "supports", "relatedFactIds": ["risk-1"]},
+    {"id": "action-1", "type": "action", "importance": "high", "text": "修改时同步 Skill、Wiki、脚本、Checklist 和坏例回归。"},
+    {"id": "process-1", "type": "process", "importance": "high", "text": "请求从消息进入意图、槽位、执行和知识沉淀链路。", "relation": "sequence", "order": 1},
+    {"id": "constraint-1", "type": "constraint", "importance": "high", "text": "LLM 只填写变量，不改稳定模板结构。"},
+    {"id": "context-1", "type": "context", "importance": "low", "text": "这些经验来自多个历史项目。"}
+  ]
+}

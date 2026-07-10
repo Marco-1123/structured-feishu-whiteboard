@@ -1,0 +1,14 @@
+{
+  "inventoryId": "v43-dashboard",
+  "title": "经营复盘",
+  "sourceType": "report",
+  "facts": [
+    {"id": "conclusion-1", "type": "conclusion", "importance": "critical", "text": "主线稳定，但数据接入和复盘闭环需要进入固定节奏。"},
+    {"id": "metric-1", "type": "metric", "importance": "high", "text": "目标完成率 82%。", "value": 82},
+    {"id": "metric-2", "type": "metric", "importance": "high", "text": "效率提升 18%。", "value": 18},
+    {"id": "metric-3", "type": "metric", "importance": "high", "text": "待处理风险 3 项。", "value": 3},
+    {"id": "risk-1", "type": "risk", "importance": "high", "text": "数据口径仍有缺口。"},
+    {"id": "action-1", "type": "action", "importance": "high", "text": "补齐口径、建立风险分层并固定复盘模板。"},
+    {"id": "context-1", "type": "context", "importance": "low", "text": "试点已持续五周。"}
+  ]
+}
