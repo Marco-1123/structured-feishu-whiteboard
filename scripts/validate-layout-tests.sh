@@ -108,7 +108,7 @@ node scripts/render-whiteboard.mjs --input "$tmp_summary_width_brief" --output "
 node -e 'const fs=require("fs"); const svg=fs.readFileSync(process.argv[1],"utf8"); const expected="李想讨论的重点不是简单说“会用AI的人更值钱”，而是人才标准正在从执行经验转向专业底座、AI使用深度、工作流重构和自我迭代能力。"; if (!svg.includes(`>${expected}</tspan>`)) { console.error("summary width regression: large-canvas summary was split despite available width"); process.exit(1); }' "$tmp_summary_width_svg"
 rm -f "$tmp_summary_width_brief" "$tmp_summary_width_svg"
 
-for svg in examples/layout-tests/*.svg; do
+while IFS= read -r -d '' svg; do
   png="${svg%.svg}.png"
   npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -o "$png" -f svg >/dev/null
   npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -f svg --check >/dev/null
@@ -116,6 +116,14 @@ for svg in examples/layout-tests/*.svg; do
     echo "forbidden SVG feature found in $svg" >&2
     exit 1
   fi
-done
+done < <(find examples/layout-tests -maxdepth 1 -type f -name '*.svg' ! -name 'generated-*' -print0)
+
+node scripts/test-capabilities.mjs >/dev/null
+node scripts/test-content-coverage.mjs >/dev/null
+node scripts/test-scenario-router.mjs >/dev/null
+node scripts/test-v4-layout-tree.mjs >/dev/null
+node scripts/test-v43-visual-quality.mjs >/dev/null
+node scripts/test-run-whiteboard.mjs >/dev/null
+node scripts/test-v43-evaluator.mjs >/dev/null
 
 echo "ok: layout test fixtures rendered and checked"

@@ -1,0 +1,9 @@
+{
+  "pipelineVersion": "4.3",
+  "routerCases": "router-cases.json",
+  "pipelineCases": [
+    {"id": "dashboard", "directory": "dashboard"},
+    {"id": "long-form", "directory": "long-form"},
+    {"id": "flow", "directory": "flow"}
+  ]
+}

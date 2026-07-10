@@ -22,7 +22,7 @@ function createSignals(inventory) {
   const typeCounts = countBy(inventory.facts, "type");
   const relationCounts = countBy(inventory.facts, "relation");
   const lanes = new Set(inventory.facts.map((fact) => fact.lane).filter(Boolean));
-  const signedMetrics = inventory.facts.filter((fact) => fact.type === "metric" && typeof fact.value === "number" && fact.value !== 0 && Math.abs(fact.value) < 1000).length;
+  const signedMetrics = inventory.facts.filter((fact) => fact.type === "metric" && fact.relation === "effect" && typeof fact.value === "number" && fact.value !== 0).length;
   return {
     factCount: inventory.facts.length,
     typeCounts,

@@ -82,6 +82,14 @@ grep -nE '<polygon|opacity=|fill-opacity=|stroke-opacity=|<filter|<linearGradien
 node scripts/check-v4-layout.mjs diagram.svg
 ```
 
+V4.3 产物还必须运行：
+
+```bash
+node scripts/check-v43-visual-quality.mjs diagram.svg
+```
+
+该检查读取顶层布局标记，验证区域重叠、列高差、底部安全距离、画布比例和有效内容占比。它不能替代飞书侧预览，但可以挡住工具合法、视觉明显失衡的产物。
+
 并确认 SVG 含有 `data-layout-engine="v4"`，否则说明没有走 V4 并行布局引擎。
 
 如果是 V3.2 DSL 产物，运行：
@@ -120,5 +128,6 @@ npx -y @larksuite/whiteboard-cli@^0.2.11 -i diagram.json --check
 - 飞书文档链接可用。
 - 画板内容已写入，不是空白。
 - 返回了预览图。
+- V4.3 返回了 `run-manifest.json`，并且 critical coverage 与 high accounting 都为 100%。
 - 回复中说明采用的版式和风格。
 - 回复中说明必要的信息压缩，但不冗长解释制作过程。

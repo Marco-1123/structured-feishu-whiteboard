@@ -16,6 +16,20 @@
 
 ## 工作流
 
+### V4.3 可回放工作流
+
+V4.3 不直接从材料跳到 brief。顺序固定为：
+
+1. Agent 将材料整理成符合 `schemas/content-inventory.schema.json` 的信息清单。
+2. 运行 `scripts/route-whiteboard.mjs`，获得带分数、理由、置信度和回退方案的候选版式。
+3. Agent 生成带 `pipelineVersion: "4.3"` 和 `planning` 的 brief。
+4. 运行 `scripts/run-whiteboard.mjs`；不要分别手动调用渲染器和检查器。
+5. 保留 `run-manifest.json`，用于复现当前选择、覆盖结果和检查状态。
+
+能力组合以 `config/capabilities.json` 为唯一执行注册表。不支持的引擎、版式、目标和风格组合必须报错，禁止回退成专业蓝白。
+
+### 旧版兼容工作流
+
 1. 按 `report-workflow.md` 和 `content-budget.md` 压缩内容。
 2. 生成符合 `schemas/whiteboard-brief.schema.json` 的 JSON brief。
 3. 运行 `scripts/validate-brief.mjs brief.json`。
@@ -89,6 +103,7 @@ Agent 负责：
 - 选择版式和风格。
 - 填写 brief。
 - 执行渲染和检查。
+- V4.3 中持久化信息清单和选版理由，不把这些决策只留在上下文里。
 
 ## 不合格输出
 

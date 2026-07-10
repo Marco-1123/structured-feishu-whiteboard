@@ -1,16 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2513" viewBox="0 0 2200 2513" data-layout-engine="v4" data-expression-mode="modular-canvas">
-<rect x="0" y="0" width="2200" height="2513" rx="0" fill="#F5F5F7" stroke="#F5F5F7" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2753" viewBox="0 0 2200 2753" data-layout-engine="v4" data-expression-mode="modular-canvas">
+<rect x="0" y="0" width="2200" height="2753" rx="0" fill="#F5F5F7" stroke="#F5F5F7" stroke-width="0"/>
 <g>
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
 <text x="96" y="86" font-size="46" fill="#1D1D1F" font-weight="700"><tspan x="96" dy="0">V4 长文混合画布</tspan></text>
-<text x="96" y="144" font-size="21" fill="#6E6E73" font-weight="500"><tspan x="96" dy="0">把长文拆成判断、指标、路径、证据、风险和行动模块。</tspan></text><rect x="96" y="240" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="96" y="144" font-size="21" fill="#6E6E73" font-weight="500"><tspan x="96" dy="0">把长文拆成判断、指标、路径、证据、风险和行动模块。</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="150" data-column="full">
+<rect x="96" y="240" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <rect x="96" y="240" width="12" height="150" rx="6" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
 <text x="138" y="288" font-size="18" fill="#007AFF" font-weight="700"><tspan x="138" dy="0">主结论</tspan></text>
-<text x="138" y="338" font-size="31" fill="#1D1D1F" font-weight="700"><tspan x="138" dy="0">表达力来自关系组合，不是增加随机模板。</tspan></text><rect x="96" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5" data-tone-group="parallel-metrics"/>
+<text x="138" y="338" font-size="31" fill="#1D1D1F" font-weight="700"><tspan x="138" dy="0">表达力来自关系组合，不是增加随机模板。</tspan></text>
+</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="434" data-width="2008" data-height="195" data-column="full">
+<rect x="96" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5" data-tone-group="parallel-metrics"/>
 <text x="122" y="474" font-size="18" fill="#6E6E73" font-weight="700"><tspan x="122" dy="0">信息完整度</tspan></text>
 <text x="122" y="526" font-size="42" fill="#007AFF" font-weight="700"><tspan x="122" dy="0">6类</tspan></text>
 <text x="122" y="558" font-size="17" fill="#6E6E73" font-weight="500"><tspan x="122" dy="0">判断到行动</tspan></text>
 <rect x="122" y="581" width="118" height="32" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
-<text x="142" y="602" font-size="16" fill="#248A3D" font-weight="700"><tspan x="142" dy="0">覆盖</tspan></text><rect x="96" y="673" width="988" height="280" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="142" y="602" font-size="16" fill="#248A3D" font-weight="700"><tspan x="142" dy="0">覆盖</tspan></text>
+</g><g data-v43-block="progress-bar-1" data-block-type="progress-bar" data-x="96" data-y="673" data-width="988" data-height="280" data-column="left">
+<rect x="96" y="673" width="988" height="280" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="124" y="721" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">处理漏斗</tspan></text>
 <text x="124" y="753" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">从原文到结构表达</tspan></text>
 <text x="124" y="787" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">信息清理</tspan></text>
@@ -24,86 +31,99 @@
 <text x="124" y="895" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">画板表达</tspan></text>
 <rect x="274" y="880" width="708" height="18" rx="9" fill="#E5E5EA" stroke="#E5E5EA" stroke-width="1"/>
 <rect x="274" y="880" width="269" height="18" rx="9" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1000" y="896" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="1000" dy="0">38%</tspan></text><rect x="1116" y="673" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="1144" y="721" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="1144" dy="0">模块状态</tspan></text>
-<text x="1144" y="753" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="1144" dy="0">同组颜色只表达状态语义</tspan></text>
-<rect x="1144" y="779" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1158" y="797" width="8" height="46" rx="4" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
-<text x="1180" y="810" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1180" dy="0">指标</tspan></text>
-<text x="1350" y="810" font-size="16" fill="#248A3D" font-weight="700"><tspan x="1350" dy="0">正常</tspan></text>
-<text x="1180" y="839" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1180" dy="0">结构清楚</tspan></text>
-<rect x="1460" y="779" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1474" y="797" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1496" y="810" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1496" dy="0">风险</tspan></text>
-<text x="1666" y="810" font-size="16" fill="#007AFF" font-weight="700"><tspan x="1666" dy="0">关注</tspan></text>
-<text x="1496" y="839" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1496" dy="0">需分层</tspan></text>
-<rect x="1776" y="779" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
-<rect x="1790" y="797" width="8" height="46" rx="4" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
-<text x="1812" y="810" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1812" dy="0">行动</tspan></text>
-<text x="1982" y="810" font-size="16" fill="#248A3D" font-weight="700"><tspan x="1982" dy="0">正常</tspan></text>
-<text x="1812" y="839" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1812" dy="0">可落地</tspan></text><rect x="96" y="985" width="988" height="312" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="124" y="1033" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">控制风险</tspan></text>
-<text x="124" y="1065" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">灵活度不能变成发散</tspan></text>
-<rect x="124" y="1089" width="932" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-0" data-has-note="false"/>
-<rect x="124" y="1089" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="146" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">模块过多</tspan></text>
+<text x="1000" y="896" font-size="16" fill="#6E6E73" font-weight="700"><tspan x="1000" dy="0">38%</tspan></text>
+</g><g data-v43-block="mini-roadmap-2" data-block-type="mini-roadmap" data-x="96" data-y="985" data-width="2008" data-height="270" data-column="full">
+<rect x="96" y="985" width="2008" height="270" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="124" y="1033" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">落地路线</tspan></text>
+<text x="124" y="1065" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">先稳定，再扩表达</tspan></text>
+<rect x="124" y="1097" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<text x="144" y="1133" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="144" dy="0">关系识别</tspan></text>
+<text x="144" y="1161" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="144" dy="0">判断材料主关系</tspan></text><text x="764" y="1163" font-size="31" fill="#007AFF" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
+<rect x="781" y="1097" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<text x="801" y="1133" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="801" dy="0">组件组合</tspan></text>
+<text x="801" y="1161" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="801" dy="0">按关系选模块</tspan></text><text x="1421" y="1163" font-size="31" fill="#007AFF" font-weight="700"><tspan x="1421" dy="0">→</tspan></text>
+<rect x="1438" y="1097" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
+<text x="1458" y="1133" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1458" dy="0">布局检查</tspan></text>
+<text x="1458" y="1161" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1458" dy="0">自动验证边界</tspan></text>
+</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1287" data-width="988" data-height="220" data-column="left">
+<rect x="96" y="1287" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="124" y="1335" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">模块状态</tspan></text>
+<text x="124" y="1367" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">同组颜色只表达状态语义</tspan></text>
+<rect x="124" y="1393" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="138" y="1411" width="8" height="46" rx="4" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
+<text x="160" y="1424" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="160" dy="0">指标</tspan></text>
+<text x="330" y="1424" font-size="16" fill="#248A3D" font-weight="700"><tspan x="330" dy="0">正常</tspan></text>
+<text x="160" y="1453" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="160" dy="0">结构清楚</tspan></text>
+<rect x="440" y="1393" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="454" y="1411" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="476" y="1424" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="476" dy="0">风险</tspan></text>
+<text x="646" y="1424" font-size="16" fill="#007AFF" font-weight="700"><tspan x="646" dy="0">关注</tspan></text>
+<text x="476" y="1453" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="476" dy="0">需分层</tspan></text>
+<rect x="756" y="1393" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
+<rect x="770" y="1411" width="8" height="46" rx="4" fill="#248A3D" stroke="#248A3D" stroke-width="1"/>
+<text x="792" y="1424" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="792" dy="0">行动</tspan></text>
+<text x="962" y="1424" font-size="16" fill="#248A3D" font-weight="700"><tspan x="962" dy="0">正常</tspan></text>
+<text x="792" y="1453" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="792" dy="0">可落地</tspan></text>
+</g><g data-v43-block="variance-bridge-v2-4" data-block-type="variance-bridge-v2" data-x="96" data-y="1539" data-width="2008" data-height="282" data-column="full">
+<rect x="96" y="1539" width="2008" height="282" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="124" y="1587" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">变化归因</tspan></text>
+<text x="124" y="1619" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">用共同基线呈现起点、变化和终点</tspan></text>
+<rect x="124" y="1693" width="474" height="102" rx="10" fill="#E8F2FF" stroke="#007AFF" stroke-width="2"/>
+<text x="142" y="1727" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">100</tspan></text>
+<text x="142" y="1761" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="142" dy="0">输入信息量</tspan></text>
+<text x="142" y="1817" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">原文</tspan></text><text x="600" y="1743" font-size="30" fill="#007AFF" font-weight="700"><tspan x="600" dy="0">→</tspan></text>
+<rect x="616" y="1740.12" width="474" height="54.88" rx="10" fill="#FFFFFF" stroke="#8A5A44" stroke-width="2"/>
+<text x="634" y="1727" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="634" dy="0">-24</tspan></text>
+<text x="634" y="1761" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="634" dy="0">清理噪音</tspan></text>
+<text x="634" y="1817" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="634" dy="0">去重</tspan></text><text x="1092" y="1743" font-size="30" fill="#007AFF" font-weight="700"><tspan x="1092" dy="0">→</tspan></text>
+<rect x="1108" y="1740.84" width="474" height="54.16" rx="10" fill="#FFFFFF" stroke="#248A3D" stroke-width="2"/>
+<text x="1126" y="1727" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="1126" dy="0">+18</tspan></text>
+<text x="1126" y="1761" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1126" dy="0">保留证据</tspan></text>
+<text x="1126" y="1817" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="1126" dy="0">保全</tspan></text><text x="1584" y="1743" font-size="30" fill="#007AFF" font-weight="700"><tspan x="1584" dy="0">→</tspan></text>
+<rect x="1600" y="1693" width="474" height="102" rx="10" fill="#E8F2FF" stroke="#007AFF" stroke-width="2"/>
+<text x="1618" y="1727" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="1618" dy="0">94</tspan></text>
+<text x="1618" y="1761" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1618" dy="0">结构信息</tspan></text>
+<text x="1618" y="1817" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="1618" dy="0">输出</tspan></text>
+</g><g data-v43-block="risk-list-5" data-block-type="risk-list" data-x="96" data-y="1853" data-width="988" data-height="312" data-column="left">
+<rect x="96" y="1853" width="988" height="312" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="124" y="1901" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">控制风险</tspan></text>
+<text x="124" y="1933" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">灵活度不能变成发散</tspan></text>
+<rect x="124" y="1957" width="932" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-0" data-has-note="false"/>
+<rect x="124" y="1957" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="146" y="1987" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">模块过多</tspan></text>
 
-<rect x="124" y="1147" width="932" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-1" data-has-note="false"/>
-<rect x="124" y="1147" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="146" y="1177" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">关系误判</tspan></text>
+<rect x="124" y="2015" width="932" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-1" data-has-note="false"/>
+<rect x="124" y="2015" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="146" y="2045" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">关系误判</tspan></text>
 
-<rect x="124" y="1205" width="932" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-2" data-has-note="false"/>
-<rect x="124" y="1205" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="146" y="1235" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">信息堆叠</tspan></text>
-<rect x="96" y="1341" width="2008" height="270" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="124" y="1389" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">落地路线</tspan></text>
-<text x="124" y="1421" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">先稳定，再扩表达</tspan></text>
-<rect x="124" y="1453" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<text x="144" y="1489" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="144" dy="0">关系识别</tspan></text>
-<text x="144" y="1517" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="144" dy="0">判断材料主关系</tspan></text><text x="764" y="1519" font-size="31" fill="#007AFF" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
-<rect x="781" y="1453" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<text x="801" y="1489" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="801" dy="0">组件组合</tspan></text>
-<text x="801" y="1517" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="801" dy="0">按关系选模块</tspan></text><text x="1421" y="1519" font-size="31" fill="#007AFF" font-weight="700"><tspan x="1421" dy="0">→</tspan></text>
-<rect x="1438" y="1453" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
-<text x="1458" y="1489" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1458" dy="0">布局检查</tspan></text>
-<text x="1458" y="1517" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1458" dy="0">自动验证边界</tspan></text><rect x="96" y="1643" width="2008" height="282" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="124" y="1691" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">变化归因</tspan></text>
-<text x="124" y="1723" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">用共同基线呈现起点、变化和终点</tspan></text>
-<rect x="124" y="1797" width="474" height="102" rx="10" fill="#E8F2FF" stroke="#007AFF" stroke-width="2"/>
-<text x="142" y="1831" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">100</tspan></text>
-<text x="142" y="1865" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="142" dy="0">输入信息量</tspan></text>
-<text x="142" y="1921" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="142" dy="0">原文</tspan></text><text x="600" y="1847" font-size="30" fill="#007AFF" font-weight="700"><tspan x="600" dy="0">→</tspan></text>
-<rect x="616" y="1844.12" width="474" height="54.88" rx="10" fill="#FFFFFF" stroke="#8A5A44" stroke-width="2"/>
-<text x="634" y="1831" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="634" dy="0">-24</tspan></text>
-<text x="634" y="1865" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="634" dy="0">清理噪音</tspan></text>
-<text x="634" y="1921" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="634" dy="0">去重</tspan></text><text x="1092" y="1847" font-size="30" fill="#007AFF" font-weight="700"><tspan x="1092" dy="0">→</tspan></text>
-<rect x="1108" y="1844.84" width="474" height="54.16" rx="10" fill="#FFFFFF" stroke="#248A3D" stroke-width="2"/>
-<text x="1126" y="1831" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="1126" dy="0">+18</tspan></text>
-<text x="1126" y="1865" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1126" dy="0">保留证据</tspan></text>
-<text x="1126" y="1921" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="1126" dy="0">保全</tspan></text><text x="1584" y="1847" font-size="30" fill="#007AFF" font-weight="700"><tspan x="1584" dy="0">→</tspan></text>
-<rect x="1600" y="1797" width="474" height="102" rx="10" fill="#E8F2FF" stroke="#007AFF" stroke-width="2"/>
-<text x="1618" y="1831" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="1618" dy="0">94</tspan></text>
-<text x="1618" y="1865" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1618" dy="0">结构信息</tspan></text>
-<text x="1618" y="1921" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="1618" dy="0">输出</tspan></text><rect x="96" y="1957" width="2008" height="370" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
-<text x="124" y="2005" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">近期动作</tspan></text>
-<text x="124" y="2037" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">用样例回归验证</tspan></text>
-<rect x="124" y="2061" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-0" data-has-note="false"/>
-<rect x="124" y="2061" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="146" y="2091" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">补充三类样例</tspan></text>
+<rect x="124" y="2073" width="932" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-2" data-has-note="false"/>
+<rect x="124" y="2073" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="146" y="2103" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">信息堆叠</tspan></text>
 
-<rect x="124" y="2119" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-1" data-has-note="false"/>
-<rect x="124" y="2119" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="146" y="2149" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">跑布局检查</tspan></text>
+</g><g data-v43-block="action-list-6" data-block-type="action-list" data-x="96" data-y="2197" data-width="2008" data-height="370" data-column="full">
+<rect x="96" y="2197" width="2008" height="370" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+<text x="124" y="2245" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">近期动作</tspan></text>
+<text x="124" y="2277" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">用样例回归验证</tspan></text>
+<rect x="124" y="2301" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-0" data-has-note="false"/>
+<rect x="124" y="2301" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="146" y="2331" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">补充三类样例</tspan></text>
 
-<rect x="124" y="2177" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-2" data-has-note="false"/>
-<rect x="124" y="2177" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="146" y="2207" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">飞书侧预览</tspan></text>
+<rect x="124" y="2359" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-1" data-has-note="false"/>
+<rect x="124" y="2359" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="146" y="2389" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">跑布局检查</tspan></text>
 
-<rect x="124" y="2235" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-3" data-has-note="false"/>
-<rect x="124" y="2235" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="146" y="2265" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">决定推广范围</tspan></text>
-<rect x="96" y="2367" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.3"/>
-<rect x="96" y="2367" width="10" height="74" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="132" y="2413" font-size="20" fill="#1D1D1F" font-weight="700"><tspan x="132" dy="0">V4 试点：验证混合长文能用组件树扩展，而不是手写坐标。</tspan></text>
+<rect x="124" y="2417" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-2" data-has-note="false"/>
+<rect x="124" y="2417" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="146" y="2447" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">飞书侧预览</tspan></text>
+
+<rect x="124" y="2475" width="1952" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-3" data-has-note="false"/>
+<rect x="124" y="2475" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="146" y="2505" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">决定推广范围</tspan></text>
+
+</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="2607" data-width="2008" data-height="74" data-column="full">
+<rect x="96" y="2607" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.3"/>
+<rect x="96" y="2607" width="10" height="74" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="132" y="2653" font-size="20" fill="#1D1D1F" font-weight="700"><tspan x="132" dy="0">V4 试点：验证混合长文能用组件树扩展，而不是手写坐标。</tspan></text>
+</g>
 </g>
 </svg>
