@@ -15,6 +15,14 @@
 - 版式选择：内置 6 个常规报告版式，并正式支持 7 个 V3.2 受控表达场景。
 - 视觉风格：主推专业蓝白、Apple Studio、Linear Command，并保留飞书克制风格组。
 - 飞书落地：默认新建飞书文档，写入可编辑画板，并返回链接和预览图。
+- V4.3 测试能力：信息保全清单、可解释场景路由、引擎能力注册表、布局树、视觉质量门禁和可回放运行记录。
+
+## 发布通道
+
+- **稳定版**：`main`，版本 V3.2，适合正式使用。
+- **最新测试版**：`codex/v4.3-control-plane`，版本 `4.3.0-beta.1`，用于验证 V4.3 控制层和新布局树。
+
+V4.3 尚未替代稳定版。测试反馈确认跨 Agent、长文和飞书预览均达到发布标准后，再合并到 `main`。
 
 ## 内置版式
 
@@ -40,10 +48,16 @@
 
 ## 安装
 
-如果你的 Agent 支持从 GitHub 安装 Skill，发布后可以使用类似命令：
+稳定版：
 
 ```bash
-npx skills add <your-github-username>/structured-feishu-whiteboard
+npx skills add Marco-1123/structured-feishu-whiteboard
+```
+
+V4.3 最新测试版：
+
+```bash
+npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/codex/v4.3-control-plane
 ```
 
 也可以手动复制本仓库到你的 Skills 目录。
@@ -83,8 +97,11 @@ references/
   quality-checklist.md
 scripts/
   preflight.sh
+  route-whiteboard.mjs
+  run-whiteboard.mjs
   render-whiteboard.mjs
   render-whiteboard-dsl.mjs
+  render-whiteboard-v4.mjs
 ```
 
 ## 许可

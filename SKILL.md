@@ -9,7 +9,7 @@ description: >
 
 # Structured Feishu Whiteboard
 
-把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。常规报告模板使用 SVG 渲染；V3.2 起，时间线、漏斗、金字塔和指标看板等复杂表达可以使用受控 DSL 渲染。V4 起新增并行布局引擎试点，只在 brief 明确写入 `engine: "v4"` 时启用。
+把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。V3.2 是稳定版；V4.3 是可回放测试链路，增加信息清单、候选路由、能力注册、内容覆盖、布局树、视觉门禁和运行记录。
 
 ## 快速判断
 
@@ -26,12 +26,25 @@ description: >
 9. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
 10. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
 
+## V4.3 测试链路
+
+用户明确要求最新测试版、V4.3、跨 Agent 稳定性验证，或需要验证长文完整性时，必须使用 V4.3 控制链路：
+
+1. 将材料写成符合 `schemas/content-inventory.schema.json` 的信息清单，为事实分配 ID、类型和重要程度。
+2. 运行 `scripts/route-whiteboard.mjs`，保留前三个候选版式、分数、理由、置信度和回退方案。
+3. 生成带 `pipelineVersion: "4.3"` 与 `planning` 的 brief，记录选中和省略的信息 ID。
+4. 运行 `scripts/run-whiteboard.mjs`，统一完成覆盖验证、能力解析、渲染和质量检查。
+5. 保留 `run-manifest.json`；没有运行记录或关键事实覆盖不足时，不得声称 V4.3 生成成功。
+
+合法的引擎、版式、目标和风格组合以 `config/capabilities.json` 为准。禁止把不支持的风格静默替换为专业蓝白。
+
 ## 默认输出
 
 - 一个新建飞书文档链接。
 - 文档内包含一块可编辑飞书画板。
 - 一张渲染预览图，方便用户不用打开文档也能快速检查。
 - 简短说明：使用了什么版式、什么风格、哪些信息被压缩或合并。
+- V4.3 额外返回运行清单，说明内容覆盖、路由候选、实际引擎、产物哈希和检查结果。
 
 不要把用户的原始指令、来源路径、工具过程、风格名解释或“根据某材料整理”等元信息写到画板上。画板上只放最终内容。
 
@@ -67,6 +80,7 @@ bash scripts/preflight.sh
 - V3.4 起，`expression-canvas` 可以使用更强的数据化表达组件：状态/健康度用 `status-board`，时间变化用 `trend-sparkline`，方案选择用 `decision-matrix`，起终点差异归因用 `variance-bridge-v2`。这些组件必须由 JSON brief 触发并经渲染器生成，不允许手写自由 SVG。
 - V4 起，`engine: "v4"` 是并行布局引擎试点，覆盖 `layout: "expression-canvas"` 和 V4.1 `layout: "flow-canvas"`，均使用 `renderTarget: "svg"`。V4 不是默认生产链路；只有用户明确要验证 V4，或样例 brief 明确写入 `engine: "v4"`，才使用 `scripts/render-whiteboard-v4.mjs`。
 - V4.2 起，复杂架构、知识治理、风险治理和行动清单类材料如果使用 `expression-canvas`，必须避免把高密度内容压成多个半宽小窄框。条目多、说明多的状态板、风险列表、证据列表和行动列表应自动升级为全宽模块，必要时增高画布。
+- V4.3 起，场景选择不得只凭关键词直接落到一个模板。先生成信息清单和候选路由；低置信度时保留备选和稳定回退。V4.3 expression-canvas 使用短列优先布局树，不再按序号左右交替硬塞。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
@@ -93,6 +107,7 @@ bash scripts/preflight.sh
 - 如果使用 V3.3，为什么选择当前 `expressionMode`，以及每个 `expressionBlock` 承担什么信息关系？
 - 如果使用 V3.4 组件，为什么当前材料需要状态、趋势、决策或变化桥，而不是普通卡片？
 - 如果使用 V4.2 高密度表达，哪些模块被全宽呈现，为什么没有继续塞进半宽小框？
+- 如果使用 V4.3，关键事实覆盖率是否为 100%，高优先级事实是否全部被选中或明确省略？路由候选和选择理由是什么？
 
 生成后必须确认：
 
@@ -102,3 +117,4 @@ bash scripts/preflight.sh
 - 结构元素使用 rect、circle、ellipse、line、polyline 等可编辑形状。
 - 画板没有无意义装饰、元信息页眉、来源说明或过程说明。
 - 没有乱码、异常符号、长 URL 或未清理的原文残片进入画板。
+- V4.3 产物通过 `scripts/check-v43-visual-quality.mjs`，并生成状态为 `passed` 的 `run-manifest.json`。

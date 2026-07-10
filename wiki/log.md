@@ -63,6 +63,14 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Treated the DSL expression set as production supported: timeline, funnel, pyramid, metric dashboard, progress wall, ranked bars, and variance bridge.
 - Kept the core release rule: richer visual expression must remain schema-backed, renderer-backed, fixture-backed, and checked before Feishu delivery.
 
+## [2026-07-10] develop | V4.3 control plane beta
+
+- Converted the external project audit findings into the V4.3 product requirements.
+- Added a capability registry that rejects unsupported engine, layout, target, and style combinations instead of silently falling back.
+- Added persistent content inventories, critical/high fact accounting, ranked scene routing, layout-tree composition, deterministic visual-quality checks, and replayable run manifests.
+- Added executable router and pipeline evaluations and aligned long-form regression rules with the unified-onepage policy.
+- Kept V3.2 on `main` as stable while V4.3 remains on the `next` branch for cross-Agent and Feishu-side validation.
+
 ## [2026-06-30] query | Future product roadmap
 
 - Added roadmap page: `wiki/topics/future-product-roadmap.md`.
