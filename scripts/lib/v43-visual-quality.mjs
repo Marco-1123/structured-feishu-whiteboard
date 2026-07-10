@@ -32,6 +32,13 @@ export function inspectV43VisualQuality(svg) {
       y: number(a["data-y"]),
       w: number(a["data-width"]),
       h: number(a["data-height"]),
+      span: number(a["data-span"]),
+      row: number(a["data-row"]),
+      density: a["data-density"] || "",
+      preferredWidth: number(a["data-preferred-width"]),
+      textUnits: number(a["data-text-units"]),
+      itemCount: number(a["data-item-count"]),
+      itemLayout: a["data-item-layout"] || "",
     };
   });
 
@@ -43,6 +50,32 @@ export function inspectV43VisualQuality(svg) {
   for (let i = 0; i < blocks.length; i += 1) {
     for (let j = i + 1; j < blocks.length; j += 1) {
       if (overlaps(blocks[i], blocks[j])) issues.push(`Top-level blocks overlap: ${blocks[i].id} and ${blocks[j].id}`);
+    }
+  }
+
+  const directionalTypes = new Set(["narrative-chain", "mini-roadmap", "variance-bridge-v2", "trend-sparkline", "flow"]);
+  const sparseFullWidth = (block) => block.density === "sparse"
+    && block.span === 12
+    && !directionalTypes.has(block.type);
+  for (const block of blocks) {
+    if (sparseFullWidth(block) && block.preferredWidth > 0 && block.w > block.preferredWidth + 120) {
+      issues.push(`Sparse full-width block ${block.id} is overstretched: width ${block.w}, preferred ${block.preferredWidth}`);
+    }
+    if (block.density === "sparse" && block.span >= 8 && block.textUnits > 0) {
+      const textUnitsPerHundredPx = block.textUnits / Math.max(1, block.w / 100);
+      if (textUnitsPerHundredPx < 2.2 && !directionalTypes.has(block.type)) {
+        issues.push(`Sparse block ${block.id} has low content utilization: ${textUnitsPerHundredPx.toFixed(2)} text units per 100px`);
+      }
+    }
+  }
+
+  let sparseRun = [];
+  for (const block of blocks) {
+    if (sparseFullWidth(block)) {
+      sparseRun.push(block.id);
+      if (sparseRun.length === 3) issues.push(`Sparse full-width repetition: ${sparseRun.join(", ")}`);
+    } else if (!["title", "statement", "metric-group"].includes(block.type)) {
+      sparseRun = [];
     }
   }
 
@@ -71,6 +104,15 @@ export function inspectV43VisualQuality(svg) {
   return {
     ok: issues.length === 0,
     issues,
-    metrics: { width, height, aspectRatio, bottomMargin, columnImbalance, occupiedRatio, blockCount: blocks.length },
+    metrics: {
+      width,
+      height,
+      aspectRatio,
+      bottomMargin,
+      columnImbalance,
+      occupiedRatio,
+      sparseFullWidthCount: blocks.filter(sparseFullWidth).length,
+      blockCount: blocks.length,
+    },
   };
 }

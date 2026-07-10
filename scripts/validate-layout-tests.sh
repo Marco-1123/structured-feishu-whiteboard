@@ -122,6 +122,7 @@ node scripts/test-capabilities.mjs >/dev/null
 node scripts/test-content-coverage.mjs >/dev/null
 node scripts/test-scenario-router.mjs >/dev/null
 node scripts/test-v4-layout-tree.mjs >/dev/null
+node scripts/test-v43-adaptive-render.mjs >/dev/null
 node scripts/test-v43-visual-quality.mjs >/dev/null
 node scripts/test-run-whiteboard.mjs >/dev/null
 node scripts/test-v43-evaluator.mjs >/dev/null
