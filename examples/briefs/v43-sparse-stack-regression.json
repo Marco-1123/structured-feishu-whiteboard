@@ -1,0 +1,99 @@
+{
+  "engine": "v4",
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "title": "审核智能助手阶段性汇报",
+  "subtitle": "用紧凑信息结构呈现核心指标、状态、链路、风险和行动。",
+  "summaryLabel": "阶段核心判断",
+  "summary": "核心场景已上线，数据分析与业务问答链路闭环，下一阶段重点是稳定复用和风险治理。",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心判断",
+      "body": ["五个核心场景已上线，Agent 具备稳定可持续的阶段能力。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "人力节省",
+      "value": "3-4h/日",
+      "label": "稳定收益",
+      "note": "减少重复分析",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "响应速度",
+      "value": "≤ 30s",
+      "label": "即时响应",
+      "note": "关键问题快速返回",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "覆盖场景",
+      "value": "5 + 1",
+      "label": "持续扩展",
+      "note": "五场景加一条主链",
+      "status": "neutral"
+    },
+    {
+      "type": "status-board",
+      "title": "五大分析能力状态",
+      "note": "能力已经具备稳定入口和责任边界。",
+      "items": [
+        {"label": "量级分析", "value": "稳定", "note": "异常快速归因", "status": "good"},
+        {"label": "延时分析", "value": "稳定", "note": "分钟级定位", "status": "good"},
+        {"label": "运营监控", "value": "稳定", "note": "日常巡检", "status": "good"},
+        {"label": "任务查询", "value": "稳定", "note": "链路可追溯", "status": "good"},
+        {"label": "知识问答", "value": "验证", "note": "持续补齐", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "关键风险",
+      "note": "需要继续关注但不需要占满整行。",
+      "items": [
+        {"label": "数据口径", "note": "统一来源", "status": "risk"},
+        {"label": "权限边界", "note": "分层控制", "status": "risk"},
+        {"label": "异常回退", "note": "保留兜底", "status": "neutral"},
+        {"label": "知识时效", "note": "周期复核", "status": "neutral"}
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "阶段证据",
+      "note": "短证据适合紧凑并列。",
+      "items": [
+        {"label": "核心场景上线", "note": "五项能力"},
+        {"label": "响应速度达标", "note": "三十秒内"},
+        {"label": "人工耗时下降", "note": "每日节省"},
+        {"label": "链路能够回放", "note": "结果可追溯"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "四项行动可以在两列中完成阅读。",
+      "items": [
+        {"label": "统一口径", "note": "补齐字典"},
+        {"label": "完善回退", "note": "增加兜底"},
+        {"label": "固定复盘", "note": "双周检查"},
+        {"label": "扩展场景", "note": "验证复用"}
+      ]
+    },
+    {
+      "type": "mini-roadmap",
+      "title": "自动化闭环链路",
+      "note": "方向关系继续保持全宽。",
+      "items": [
+        {"label": "任务触发", "note": "用户发起"},
+        {"label": "检索定位", "note": "确认范围"},
+        {"label": "量级归因", "note": "形成判断"},
+        {"label": "智能总结", "note": "输出结论"},
+        {"label": "自动复用", "note": "沉淀规则"}
+      ]
+    }
+  ],
+  "footer": "V4.3 beta.2 回归样例：短内容不得被拉伸成连续全宽积木墙。"
+}

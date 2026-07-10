@@ -39,4 +39,13 @@ const imbalance = inspectV43VisualQuality(svg([
 assert.equal(imbalance.ok, false);
 assert.match(imbalance.issues.join(" "), /column imbalance/i);
 
+const sparseStack = inspectV43VisualQuality(`<svg width="1000" height="900" viewBox="0 0 1000 900" data-layout-engine="v4">
+  <g data-v43-block="title" data-block-type="title" data-x="50" data-y="40" data-width="900" data-height="100" data-column="full"></g>
+  <g data-v43-block="risk" data-block-type="risk-list" data-x="50" data-y="180" data-width="900" data-height="180" data-column="full" data-span="12" data-density="sparse" data-preferred-width="440" data-text-units="42" data-item-count="4" data-item-layout="rows"></g>
+  <g data-v43-block="evidence" data-block-type="evidence-list" data-x="50" data-y="392" data-width="900" data-height="180" data-column="full" data-span="12" data-density="sparse" data-preferred-width="440" data-text-units="38" data-item-count="4" data-item-layout="rows"></g>
+  <g data-v43-block="action" data-block-type="action-list" data-x="50" data-y="604" data-width="900" data-height="180" data-column="full" data-span="12" data-density="sparse" data-preferred-width="440" data-text-units="36" data-item-count="4" data-item-layout="rows"></g>
+</svg>`);
+assert.equal(sparseStack.ok, false);
+assert.match(sparseStack.issues.join(" "), /sparse full-width/i);
+
 console.log("ok: V4.3 visual quality tests passed");
