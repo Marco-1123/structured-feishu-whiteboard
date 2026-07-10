@@ -161,17 +161,25 @@ V4 constraints:
 - No random color variation inside a parallel metric group.
 - No hand-authored SVG coordinates outside the renderer.
 
-## V4.2 Badcase Repair Rules
+## V4.2 And V4.3 Beta.2 Density Rules
 
 V4.2 is driven by a concrete badcase: dense architecture / knowledge-governance material was rendered as many narrow half-width boxes, with text touching or exceeding frames. The fix is not to make the text smaller. The fix is to change component placement.
 
 Use these rules for dense expression canvases:
 
-- High-density `status-board`, `risk-list`, `action-list`, and `evidence-list` blocks should render full width when they have many items or long notes.
+- High-density `status-board`, `risk-list`, `action-list`, and `evidence-list` blocks may render full width when measured line demand requires it. Item count alone does not justify full width.
 - Parallel metric cards must reserve separate vertical space for value, note, and status chip. The chip must not share the same baseline with body text.
 - List rows with notes must be taller than rows without notes; notes can use two short lines before truncation.
 - A complex architecture or governance onepage may become taller. Prefer a readable onepage over a compact page made of narrow fragments.
 - If the board becomes too document-like after widening blocks, this is a scenario-routing problem: use a future `architecture-map` scenario instead of forcing `modular-canvas` to imitate architecture diagrams.
+
+V4.3 beta.2 adds the opposite guardrail:
+
+- short parallel items should use a compact two- or three-column interior;
+- blocks choose 1/3, 1/2, 2/3, or full width from measured text demand and directional semantics;
+- only directional components and truly dense explanatory content default to full width;
+- three consecutive sparse full-width blocks are a quality failure;
+- outer rectangle area is not evidence of good information density.
 
 Failure signals:
 

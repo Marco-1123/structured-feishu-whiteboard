@@ -56,7 +56,7 @@ export async function evaluateV43(root) {
   const topTwoHits = routeResults.filter((result) => result.hit).length;
   const passed = pipelineResults.filter((result) => result.status === "passed").length;
   const report = {
-    version: "4.3.0-beta.1",
+    version: fs.readFileSync(path.join(root, "VERSION"), "utf8").trim(),
     router: {
       caseCount: routeResults.length,
       topTwoHits,

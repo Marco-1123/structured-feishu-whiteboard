@@ -71,6 +71,13 @@ Append-only timeline of wiki operations. Use a consistent heading format so futu
 - Added executable router and pipeline evaluations and aligned long-form regression rules with the unified-onepage policy.
 - Kept V3.2 on `main` as stable while V4.3 remains on the `next` branch for cross-Agent and Feishu-side validation.
 
+## [2026-07-10] fix | V4.3 beta.2 adaptive density
+
+- Converted the first cross-Agent V4.3 visual badcase into an executable sparse-stack regression fixture.
+- Diagnosed the root cause as item-count-only full-width promotion plus serial full-row flushing and an outer-area-only quality metric.
+- Added intrinsic block profiles, ordered 12-column spans, compact two-column list interiors, and sparse-overstretch quality checks.
+- Preserved explanatory-list readability without forcing every four-item section to full width.
+
 ## [2026-06-30] query | Future product roadmap
 
 - Added roadmap page: `wiki/topics/future-product-roadmap.md`.

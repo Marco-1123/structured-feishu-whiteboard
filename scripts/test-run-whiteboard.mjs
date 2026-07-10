@@ -34,7 +34,7 @@ assert.ok(fs.existsSync(path.join(success.outputDir, "whiteboard.svg")));
 assert.ok(fs.existsSync(path.join(success.outputDir, "run-manifest.json")));
 const manifest = JSON.parse(fs.readFileSync(path.join(success.outputDir, "run-manifest.json"), "utf8"));
 assert.equal(manifest.status, "passed");
-assert.equal(manifest.version, "4.3.0-beta.1");
+assert.equal(manifest.version, fs.readFileSync(path.join(root, "VERSION"), "utf8").trim());
 assert.equal(manifest.coverage.criticalCoverage, 1);
 assert.equal(manifest.coverage.highAccounting, 1);
 assert.equal(manifest.route.decisionId, "route-v43-dashboard");

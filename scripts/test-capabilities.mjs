@@ -11,7 +11,7 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const registry = loadCapabilities(root);
 
-assert.equal(registry.version, "4.3.0-beta.1");
+assert.equal(registry.version, "4.3.0-beta.2");
 
 const briefsDir = path.join(root, "examples", "briefs");
 for (const name of fs.readdirSync(briefsDir).filter((entry) => entry.endsWith(".json"))) {
