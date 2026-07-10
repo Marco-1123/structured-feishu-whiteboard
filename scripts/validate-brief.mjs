@@ -44,6 +44,7 @@ const supportedFlowModes = new Set(["linear-flow", "swimlane-flow"]);
 const supportedFlowNodeTypes = new Set(["start", "action", "decision", "system", "result", "risk"]);
 const supportedFlowStatuses = new Set(["good", "neutral", "risk"]);
 const supportedFlowEdgeTypes = new Set(["primary", "fallback", "exception"]);
+const supportedOmissionReasons = new Set(["duplicate", "low-value-context", "deferred-to-detail", "user-excluded", "formatting-noise"]);
 const supportedExpressionBlockTypes = new Set([
   "statement",
   "metric-card",
@@ -133,6 +134,31 @@ const metricKeyPatterns = [
 function fail(message) {
   console.error(`invalid brief: ${message}`);
   process.exit(1);
+}
+
+function validatePlanning(brief) {
+  if (brief.pipelineVersion === undefined && brief.planning === undefined) return;
+  if (brief.pipelineVersion !== "4.3") fail('pipelineVersion must be "4.3"');
+  const planning = brief.planning;
+  if (!planning || typeof planning !== "object" || Array.isArray(planning)) fail("planning is required for pipelineVersion 4.3");
+  assertString(planning.inventoryId, "planning.inventoryId", 64, true);
+  assertString(planning.routeDecisionId, "planning.routeDecisionId", 80, true);
+  if (!Array.isArray(planning.selectedFactIds) || planning.selectedFactIds.length === 0) fail("planning.selectedFactIds must contain at least one fact id");
+  const selected = new Set();
+  planning.selectedFactIds.forEach((id, index) => {
+    assertString(id, `planning.selectedFactIds[${index}]`, 48, true);
+    if (selected.has(id)) fail(`planning.selectedFactIds contains duplicate id: ${id}`);
+    selected.add(id);
+  });
+  if (!Array.isArray(planning.omittedFacts)) fail("planning.omittedFacts must be an array");
+  const omitted = new Set();
+  planning.omittedFacts.forEach((item, index) => {
+    assertString(item?.id, `planning.omittedFacts[${index}].id`, 48, true);
+    if (!supportedOmissionReasons.has(item?.reason)) fail(`planning.omittedFacts[${index}].reason is unsupported`);
+    if (omitted.has(item.id)) fail(`planning.omittedFacts contains duplicate id: ${item.id}`);
+    if (selected.has(item.id)) fail(`fact cannot be selected and omitted: ${item.id}`);
+    omitted.add(item.id);
+  });
 }
 
 function assertString(value, field, max, required = false) {
@@ -534,6 +560,7 @@ assertString(brief.subtitle, "subtitle", limits.subtitle);
 assertString(brief.summary, "summary", limits.summary, true);
 assertString(brief.summaryLabel, "summaryLabel", limits.summaryLabel);
 assertString(brief.footer, "footer", limits.footer);
+validatePlanning(brief);
 
 if (brief.layout === "large-canvas") validateLargeCanvas(brief);
 else if (brief.layout === "roadmap") validateStages(brief);

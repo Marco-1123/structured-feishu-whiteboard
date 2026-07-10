@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Structured Feishu Whiteboard Content Inventory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["inventoryId", "title", "sourceType", "facts"],
+  "properties": {
+    "inventoryId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": ["text", "report", "document", "webpage", "meeting", "spreadsheet", "mixed"]
+    },
+    "sourceRef": {
+      "type": "string",
+      "maxLength": 240
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 120,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "importance", "text"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 48,
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*$"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["conclusion", "constraint", "risk", "metric", "evidence", "action", "process", "comparison", "timeline", "hierarchy", "context"]
+          },
+          "importance": {
+            "type": "string",
+            "enum": ["critical", "high", "medium", "low"]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "relation": {
+            "type": "string",
+            "enum": ["cause", "effect", "sequence", "dependency", "parallel", "contrast", "part-of", "supports", "owns"]
+          },
+          "relatedFactIds": {
+            "type": "array",
+            "maxItems": 12,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "maxLength": 48
+            }
+          },
+          "lane": {
+            "type": "string",
+            "maxLength": 24
+          },
+          "order": {
+            "type": "number"
+          },
+          "value": {
+            "type": ["number", "string"]
+          }
+        }
+      }
+    }
+  }
+}
