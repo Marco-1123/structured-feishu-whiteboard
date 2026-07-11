@@ -34,27 +34,27 @@
 <rect x="138" y="797" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <text x="160" y="810" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">量级异常分析</tspan></text>
 <text x="330" y="810" font-size="16" fill="#16A085" font-weight="700"><tspan x="330" dy="0">双周检查</tspan></text>
-<text x="160" y="839" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="160" dy="0">异常归因 Top3 覆盖 80% 变化</tspan></text>
+<text x="160" y="840" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="160" dy="0">异常归因 Top3 覆盖 80% 变化</tspan></text>
 <rect x="440" y="779" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="454" y="797" width="8" height="46" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="476" y="810" font-size="17" fill="#111827" font-weight="700"><tspan x="476" dy="0">RR 调整分析</tspan></text>
 <text x="646" y="810" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="646" dy="0">三维判断</tspan></text>
-<text x="476" y="839" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="476" dy="0">入池、审核、废弃判断需留证据空间</tspan></text>
+<text x="476" y="840" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="476" dy="0">入池、审核、废弃判断需留证据空间</tspan></text>
 <rect x="756" y="779" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="770" y="797" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <text x="792" y="810" font-size="17" fill="#111827" font-weight="700"><tspan x="792" dy="0">运营监控</tspan></text>
 <text x="962" y="810" font-size="16" fill="#16A085" font-weight="700"><tspan x="962" dy="0">T-1 巡检</tspan></text>
-<text x="792" y="839" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="792" dy="0">四指标分层校验卡片和详表文档</tspan></text>
+<text x="792" y="840" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="792" dy="0">四指标分层校验卡片和详表文档</tspan></text>
 <rect x="124" y="875" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="138" y="893" width="8" height="46" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="160" y="906" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">延时分析</tspan></text>
 <text x="330" y="906" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="330" dy="0">6 层定位</tspan></text>
-<text x="160" y="935" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="160" dy="0">单队列、批量、承接水位估算</tspan></text>
+<text x="160" y="936" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="160" dy="0">单队列、批量、承接水位估算</tspan></text>
 <rect x="440" y="875" width="300" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="454" y="893" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="476" y="906" font-size="17" fill="#111827" font-weight="700"><tspan x="476" dy="0">任务流查询</tspan></text>
 <text x="646" y="906" font-size="16" fill="#8A5A44" font-weight="700"><tspan x="646" dy="0">表格兜底</tspan></text>
-<text x="476" y="935" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="476" dy="0">主表、主子队列关系要二次确认</tspan></text>
+<text x="476" y="936" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="476" dy="0">主表、主子队列关系要二次确认</tspan></text>
 </g><g data-v43-block="risk-list-2" data-block-type="risk-list" data-x="1116" data-y="673" data-width="988" data-height="316" data-column="right" data-component-variant="risk-cluster" data-row="0" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="137" data-item-count="5" data-item-layout="grid-3" data-layout-reason="compact-risk-cluster">
 <rect x="1116" y="673" width="988" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="1144" y="721" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">关键架构决策</tspan></text>
@@ -62,23 +62,23 @@
 <rect x="1144" y="777" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
 <circle cx="1170" cy="804" r="7" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <text x="1188" y="809" font-size="17" fill="#111827" font-weight="700"><tspan x="1188" dy="0">约束上移原则</tspan></text>
-<text x="1188" y="834" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1188" dy="0">Skill 只保留执行约束</tspan></text>
+<text x="1188" y="836" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1188" dy="0">Skill 只保留执行约束</tspan></text>
 <rect x="1459" y="777" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="1"/>
 <circle cx="1485" cy="804" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="1503" y="809" font-size="17" fill="#111827" font-weight="700"><tspan x="1503" dy="0">脚本硬编码消除</tspan></text>
-<text x="1503" y="834" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1503" dy="0">LLM 只读变量，不改模板结构</tspan></text>
+<text x="1503" y="836" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1503" dy="0">LLM 只读变量，不改模板结构</tspan></text>
 <rect x="1774" y="777" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="2"/>
 <circle cx="1800" cy="804" r="7" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <text x="1818" y="809" font-size="17" fill="#111827" font-weight="700"><tspan x="1818" dy="0">校验层阻断</tspan></text>
-<text x="1818" y="834" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1818" dy="0">passed=false 禁止业务发卡片</tspan></text>
+<text x="1818" y="836" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1818" dy="0">passed=false 禁止业务发卡片</tspan></text>
 <rect x="1144" y="873" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="3"/>
 <circle cx="1170" cy="900" r="7" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1188" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="1188" dy="0">知识分层归档</tspan></text>
-<text x="1188" y="930" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1188" dy="0">Skill 不堆知识，Wiki 承担索引</tspan></text>
+<text x="1188" y="932" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1188" dy="0">Skill 不堆知识，Wiki 承担索引</tspan></text>
 <rect x="1459" y="873" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="4"/>
 <circle cx="1485" cy="900" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="1503" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="1503" dy="0">每次重新查数</tspan></text>
-<text x="1503" y="930" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1503" dy="0">禁止缓存历史结论冒充现场判断</tspan></text>
+<text x="1503" y="932" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1503" dy="0">禁止缓存历史结论冒充现场判断</tspan></text>
 </g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="96" data-y="1021" data-width="988" data-height="466" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="118" data-item-count="4" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
 <rect x="96" y="1021" width="988" height="466" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="124" y="1069" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">P0 教训</tspan></text>
@@ -87,22 +87,22 @@
 <rect x="140" y="1142" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="152" y="1165" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
 <text x="196" y="1156" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">数据膨胀 33 倍</tspan></text>
-<text x="196" y="1181" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">join date 条件缺失多日累加</tspan></text>
+<text x="196" y="1183" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">join date 条件缺失多日累加</tspan></text>
 <rect x="124" y="1207" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
 <rect x="140" y="1224" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="152" y="1247" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">02</tspan></text>
 <text x="196" y="1238" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">队列归因误判</tspan></text>
-<text x="196" y="1263" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">多条记录未按主体归并</tspan></text>
+<text x="196" y="1265" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">多条记录未按主体归并</tspan></text>
 <rect x="124" y="1289" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="2"/>
 <rect x="140" y="1306" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="152" y="1329" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">03</tspan></text>
 <text x="196" y="1320" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">白板回退坑</tspan></text>
-<text x="196" y="1345" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">渲染侧问题误判为 LLM 内容问题</tspan></text>
+<text x="196" y="1347" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">渲染侧问题误判为 LLM 内容问题</tspan></text>
 <rect x="124" y="1371" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="3"/>
 <rect x="140" y="1388" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="152" y="1411" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">04</tspan></text>
 <text x="196" y="1402" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">LLM 不要管禁止项</tspan></text>
-<text x="196" y="1427" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">底层约束应该由脚本和检查器负责</tspan></text>
+<text x="196" y="1429" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">底层约束应该由脚本和检查器负责</tspan></text>
 </g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1021" data-width="988" data-height="466" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="141" data-item-count="4" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
 <rect x="1116" y="1021" width="988" height="466" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="1144" y="1069" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">维护治理规范</tspan></text>
@@ -111,22 +111,22 @@
 <circle cx="1171" cy="1152" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1167" y="1158" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
 <text x="1196" y="1156" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">修改必须平台同步</tspan></text>
-<text x="1196" y="1181" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill、md、Wiki 和脚本一并更新</tspan></text>
+<text x="1196" y="1183" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill、md、Wiki 和脚本一并更新</tspan></text>
 <rect x="1144" y="1207" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
 <circle cx="1171" cy="1234" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1167" y="1240" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">2</tspan></text>
 <text x="1196" y="1238" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">新增项进 Checklist</tspan></text>
-<text x="1196" y="1263" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill 层只记录必要问题</tspan></text>
+<text x="1196" y="1265" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill 层只记录必要问题</tspan></text>
 <rect x="1144" y="1289" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="2"/>
 <circle cx="1171" cy="1316" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1167" y="1322" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">3</tspan></text>
 <text x="1196" y="1320" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">BadCase Trace 覆盘</tspan></text>
-<text x="1196" y="1345" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">卡片出框必须进入回归样例</tspan></text>
+<text x="1196" y="1347" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">卡片出框必须进入回归样例</tspan></text>
 <rect x="1144" y="1371" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="3"/>
 <circle cx="1171" cy="1398" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1167" y="1404" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">4</tspan></text>
 <text x="1196" y="1402" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">知识沉淀判定落点</tspan></text>
-<text x="1196" y="1427" font-size="14" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">稳定经验进入 Wiki 或 Skill 规则</tspan></text>
+<text x="1196" y="1429" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">稳定经验进入 Wiki 或 Skill 规则</tspan></text>
 </g><g data-v43-block="mini-roadmap-5" data-block-type="mini-roadmap" data-x="96" data-y="1519" data-width="2008" data-height="270" data-column="full" data-row="2" data-span="12" data-density="medium" data-preferred-width="2008" data-text-units="112" data-item-count="5" data-item-layout="rows" data-layout-reason="directional-reading">
 <rect x="96" y="1519" width="2008" height="270" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="124" y="1567" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">请求处理全链路</tspan></text>

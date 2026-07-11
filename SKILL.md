@@ -9,7 +9,7 @@ description: >
 
 # Structured Feishu Whiteboard
 
-把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。V3.2 是稳定版；V4.3 beta.3 是可回放测试链路，增加信息清单、候选路由、能力注册、内容覆盖、自适应密度布局、行级协调、语义组件、视觉门禁和运行记录。
+把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。V4.3 是稳定版，包含信息清单、候选路由、能力注册、内容覆盖、自适应密度布局、行级协调、语义组件、流程图质量门禁和运行记录。
 
 ## 快速判断
 
@@ -26,9 +26,9 @@ description: >
 9. **检查和修复**：读取 [`references/quality-checklist.md`](references/quality-checklist.md)；发现出框、堆叠、拥挤或乱码时，按 [`references/overflow-repair.md`](references/overflow-repair.md) 修复。
 10. **写入飞书**：默认新建飞书文档，插入白板，写入生成结果，返回文档链接和预览图。
 
-## V4.3 测试链路
+## V4.3 稳定链路
 
-用户明确要求最新测试版、V4.3、跨 Agent 稳定性验证，或需要验证长文完整性时，必须使用 V4.3 控制链路：
+用户要求生成复杂画板、流程图、跨 Agent 稳定输出，或需要验证长文完整性时，必须使用 V4.3 控制链路：
 
 1. 将材料写成符合 `schemas/content-inventory.schema.json` 的信息清单，为事实分配 ID、类型和重要程度。
 2. 运行 `scripts/route-whiteboard.mjs`，保留前三个候选版式、分数、理由、置信度和回退方案。
@@ -78,14 +78,14 @@ bash scripts/preflight.sh
 - 用户给的是数字变化、成本变化、人力优化、收入差异或效率提升归因：优先使用 `variance-bridge`，并设置 `renderTarget: "dsl"`。
 - 用户给的是复杂项目汇报、经营复盘、决策诊断或混合长文，且同时包含指标、进展、证据、风险和行动中的至少三类：优先评估 V3.3 `expression-canvas`。根据材料主导关系选择 `dashboard-onepage`、`narrative-map` 或 `modular-canvas`，并设置 `renderTarget: "svg"` 或省略 `renderTarget`。
 - V3.4 起，`expression-canvas` 可以使用更强的数据化表达组件：状态/健康度用 `status-board`，时间变化用 `trend-sparkline`，方案选择用 `decision-matrix`，起终点差异归因用 `variance-bridge-v2`。这些组件必须由 JSON brief 触发并经渲染器生成，不允许手写自由 SVG。
-- V4 起，`engine: "v4"` 是并行布局引擎试点，覆盖 `layout: "expression-canvas"` 和 V4.1 `layout: "flow-canvas"`，均使用 `renderTarget: "svg"`。V4 不是默认生产链路；只有用户明确要验证 V4，或样例 brief 明确写入 `engine: "v4"`，才使用 `scripts/render-whiteboard-v4.mjs`。
+- V4.3 起，复杂 `expression-canvas` 和 `flow-canvas` 默认使用 `engine: "v4"` 与 `renderTarget: "svg"`。流程图必须先构建节点和边，再由脚本完成分层、边界连接和质量检查；禁止 Agent 自由手写连线坐标。
 - V4.2 起，复杂架构、知识治理、风险治理和行动清单类材料如果使用 `expression-canvas`，必须避免把长说明压成小窄框。真正长内容可以升级为全宽模块，但不能只因条目达到 4 个就强制全宽。
-- V4.3 beta.3 起，场景选择不得只凭关键词直接落到一个模板。先生成信息清单和候选路由；低置信度时保留备选和稳定回退。V4 expression-canvas 根据条目长度、说明密度和方向关系在 1/3、1/2、2/3、全宽之间选择；四到六个短并列项优先使用紧凑网格，禁止连续稀疏全宽积木墙。同一行的模块必须选择高度协调的内部变体；风险、证据和行动必须使用各自的语义组件，不能退化成同一种竖线列表。
+- V4.3 起，场景选择不得只凭关键词直接落到一个模板。先生成信息清单和候选路由；低置信度时保留备选和稳定回退。V4 expression-canvas 根据条目长度、说明密度和方向关系在 1/3、1/2、2/3、全宽之间选择；四到六个短并列项优先使用紧凑网格，禁止连续稀疏全宽积木墙。同一行的模块必须选择高度协调的内部变体；风险、证据和行动必须使用各自的语义组件，不能退化成同一种竖线列表。
 - 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
 - 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
-- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain` 和 `comparison-matrix`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。V3.3/V3.4 受控组合表达版式为 `expression-canvas`。V4.1 实验流程图版式为 `flow-canvas`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
+- 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`、`expression-canvas` 和 `flow-canvas`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。
 - 单张画板只表达一个主任务；如果同时出现主线、动作、指标和读图说明，优先拆成总览图和指标图。
 - 并列模块不要使用箭头；只有时间推进、流程依赖或价值链才使用箭头。
 - 指标和 `xx%` 等草稿占位按 `content-budget.md` 执行：必须有业务语义，同类指标只出现一次，卡片内指标和底部指标区二选一。
@@ -108,7 +108,8 @@ bash scripts/preflight.sh
 - 如果使用 V3.4 组件，为什么当前材料需要状态、趋势、决策或变化桥，而不是普通卡片？
 - 如果使用 V4.2 高密度表达，哪些模块被全宽呈现，为什么没有继续塞进半宽小框？
 - 如果使用 V4.3，关键事实覆盖率是否为 100%，高优先级事实是否全部被选中或明确省略？路由候选和选择理由是什么？
-- 如果使用 V4.3 beta.3，短内容是否被无意义拉伸？同排模块是否高度协调？风险、证据和行动是否使用了不同的信息表达语法？
+- 如果使用 V4.3，短内容是否被无意义拉伸？同排模块是否高度协调？风险、证据和行动是否使用了不同的信息表达语法？
+- 如果使用流程图，连线是否位于节点下层、连接节点边界、避免穿越无关节点，并保留必要的边标签？
 
 生成后必须确认：
 

@@ -343,7 +343,7 @@ ${rect(ix, iy, itemW, itemH, c.surface, c.border, 1.2, 12)}
 <rect x="${ix + 14}" y="${iy + 18}" width="8" height="${itemH - 36}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
 ${text(ix + 36, iy + 31, 17, c.ink, [item.label], "800")}
 ${text(ix + itemW - 94, iy + 31, 16, t, [item.value || ""], "800")}
-${item.note ? text(ix + 36, iy + 60, 15, c.secondary, splitText(item.note, itemW - 52, 15, 1), "500") : ""}`;
+${item.note ? text(ix + 36, iy + 61, cols >= 3 ? 15 : 16, c.secondary, splitText(item.note, itemW - 52, cols >= 3 ? 15 : 16, 1), "500") : ""}`;
   });
   return { h, body };
 }
@@ -372,12 +372,13 @@ function riskCluster(block, x, y, w, profile = profileExpressionBlock(block)) {
     const iy = y + 104 + row * (itemH + rowGap);
     const t = tone(item.status || "risk");
     const labelLines = splitText(item.label, itemW - 62, 17, 1);
-    const noteLines = item.note ? splitText(item.note, itemW - 62, 14, 2) : [];
+    const noteSize = cols >= 3 ? 15 : 16;
+    const noteLines = item.note ? splitText(item.note, itemW - 62, noteSize, 2) : [];
     body += `
 ${rect(ix, iy, itemW, itemH - 12, c.surface, c.border, 1.2, 10, ` data-v4-risk-item="${index}"`)}
 <circle cx="${ix + 26}" cy="${iy + 27}" r="7" fill="${t}" stroke="${t}" stroke-width="1"/>
 ${text(ix + 44, iy + 32, 17, c.ink, labelLines, "800")}
-${noteLines.length ? text(ix + 44, iy + 57, 14, c.secondary, noteLines, "500", 20) : ""}`;
+${noteLines.length ? text(ix + 44, iy + 59, noteSize, c.secondary, noteLines, "500", 21) : ""}`;
   });
   return { h, body };
 }
@@ -396,7 +397,7 @@ ${rect(ix, iy, itemW, itemH - 12, c.surface, c.border, 1.2, 10, ` data-v4-eviden
 ${rect(ix + 16, iy + 17, 42, 34, c.soft, c.accent, 1, 9)}
 ${text(ix + 28, iy + 40, 15, c.accent, [String(index + 1).padStart(2, "0")], "800")}
 ${text(ix + 72, iy + 31, 17, c.ink, splitText(item.label, itemW - 92, 17, 1), "800")}
-${item.note ? text(ix + 72, iy + 56, 14, c.secondary, splitText(item.note, itemW - 92, 14, 1), "500") : ""}`;
+${item.note ? text(ix + 72, iy + 58, 16, c.secondary, splitText(item.note, itemW - 92, 16, 1), "500") : ""}`;
   });
   return { h, body };
 }
@@ -415,7 +416,7 @@ ${rect(ix, iy, itemW, itemH - 12, c.muted, c.border, 1, 10, ` data-v4-action-ite
 <circle cx="${ix + 27}" cy="${iy + 27}" r="13" fill="${c.soft}" stroke="${c.accent}" stroke-width="1"/>
 ${text(ix + 23, iy + 33, 13, c.accent, [String(index + 1)], "800")}
 ${text(ix + 52, iy + 31, 17, c.ink, splitText(item.label, itemW - 72, 17, 1), "800")}
-${item.note ? text(ix + 52, iy + 56, 14, c.secondary, splitText(item.note, itemW - 72, 14, 1), "500") : ""}`;
+${item.note ? text(ix + 52, iy + 58, 16, c.secondary, splitText(item.note, itemW - 72, 16, 1), "500") : ""}`;
   });
   return { h, body };
 }
@@ -672,7 +673,7 @@ function flowNode(node, x, y, w, h) {
   const t = flowTone(node);
   const measured = flowNodeSize(node, w);
   const chipFill = node.type === "result" ? "#ECFDF5" : node.type === "risk" || node.status === "risk" ? "#FFF7ED" : c.muted;
-  return `${rect(x, y, w, h, c.surface, c.border, 1.5, 14, ` data-flow-node="${escapeXml(node.id)}"`)}
+  return `${rect(x, y, w, h, c.surface, c.border, 1.5, node.type === "start" || node.type === "result" ? 24 : 14, ` data-flow-node="${escapeXml(node.id)}" data-node-x="${Math.round(x)}" data-node-y="${Math.round(y)}" data-node-width="${Math.round(w)}" data-node-height="${Math.round(h)}" data-node-type="${escapeXml(node.type)}"`)}
 <rect x="${x + 22}" y="${y + 22}" width="8" height="${h - 44}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
 ${rect(x + 46, y + 22, 86, 30, chipFill, c.border, 1, 8)}
 ${text(x + 64, y + 43, 15, t, [flowTypeLabel(node.type)], "800")}
@@ -707,8 +708,7 @@ ${text(M + 42, y + 88, 27, c.ink, body.lines, "800", 38)}`,
 
 function edgeLabel(label, x, y, maxWidth = 120) {
   if (!label) return "";
-  return `${rect(x - 8, y - 22, Math.min(maxWidth, Math.max(56, estimateWidth(label, 14) + 22)), 30, c.canvas, c.border, 1, 8)}
-${text(x + 4, y - 2, 14, c.secondary, splitText(label, maxWidth - 22, 14, 1), "700")}`;
+  return text(x, y - 3, 15, c.secondary, splitText(label, maxWidth, 15, 1), "700", 20, ` data-flow-edge-label="${escapeXml(label)}"`);
 }
 
 function flowConnector(edge, boxes, stroke = c.accent) {
@@ -717,28 +717,31 @@ function flowConnector(edge, boxes, stroke = c.accent) {
   if (!from || !to) return "";
   const start = { x: from.x + from.w, y: from.y + from.h / 2 };
   const end = { x: to.x, y: to.y + to.h / 2 };
-  const attrs = ` data-flow-edge="${escapeXml(`${edge.from}->${edge.to}`)}" data-from="${escapeXml(edge.from)}" data-to="${escapeXml(edge.to)}" data-start="${Math.round(start.x)},${Math.round(start.y)}" data-end="${Math.round(end.x)},${Math.round(end.y)}"`;
+  const attrs = ` data-flow-edge="${escapeXml(`${edge.from}->${edge.to}`)}" data-from="${escapeXml(edge.from)}" data-to="${escapeXml(edge.to)}" data-start="${Math.round(start.x)},${Math.round(start.y)}" data-end="${Math.round(end.x)},${Math.round(end.y)}" data-edge-label="${escapeXml(edge.label || "")}"`;
   if (Math.abs(start.y - end.y) < 2 && end.x > start.x) {
+    const labelX = Math.round((start.x + end.x) / 2);
     return `${line(start.x, start.y, end.x, end.y, stroke, 3, attrs)}
-${arrowHead(end.x, end.y, "right", stroke)}`;
+${arrowHead(end.x, end.y, "right", stroke)}
+${edgeLabel(edge.label, labelX, start.y - 14, 150)}`;
   }
   const midX = Math.round(start.x + (end.x - start.x) / 2);
   const points = [start, { x: midX, y: start.y }, { x: midX, y: end.y }, end];
   const direction = end.x >= midX ? "right" : "left";
   return `${polyline(points, stroke, 3, attrs)}
-${arrowHead(end.x, end.y, direction, stroke)}`;
+${arrowHead(end.x, end.y, direction, stroke)}
+${edgeLabel(edge.label, midX + 10, Math.round((start.y + end.y) / 2), 150)}`;
 }
 
 function renderLinearFlow(y) {
   const nodes = brief.flowNodes || [];
   const edges = brief.flowEdges || [];
   const averageDensity = nodes.reduce((sum, node) => sum + String(node.title || "").length + (node.body || []).join("").length, 0) / Math.max(1, nodes.length);
-  const cols = Math.min(averageDensity > 36 ? 3 : 4, nodes.length);
+  const cols = nodes.length <= 6 && averageDensity <= 48 ? nodes.length : Math.min(4, nodes.length);
   const nodeGap = 40;
   const nodeW = Math.floor((CONTENT - nodeGap * (cols - 1)) / cols);
   const rowGap = 104;
   const boxes = new Map();
-  const body = [];
+  const nodeBody = [];
   const rowHeights = [];
   nodes.forEach((node, index) => {
     const row = Math.floor(index / cols);
@@ -757,10 +760,10 @@ function renderLinearFlow(y) {
     const ny = rowY[row];
     const h = rowHeights[row];
     boxes.set(node.id, { x, y: ny, w: nodeW, h });
-    body.push(flowNode(node, x, ny, nodeW, h));
+    nodeBody.push(flowNode(node, x, ny, nodeW, h));
   });
-  edges.forEach((edge) => body.push(flowConnector(edge, boxes, c.accent)));
-  return { h: rowHeights.reduce((sum, h) => sum + h, 0) + Math.max(0, rowHeights.length - 1) * rowGap, body: body.join("\n") };
+  const edgeBody = edges.map((edge) => flowConnector(edge, boxes, c.accent));
+  return { h: rowHeights.reduce((sum, h) => sum + h, 0) + Math.max(0, rowHeights.length - 1) * rowGap, body: [...edgeBody, ...nodeBody].join("\n") };
 }
 
 function renderSwimlaneFlow(y) {
@@ -774,11 +777,12 @@ function renderSwimlaneFlow(y) {
   const nodeW = Math.max(260, stepW - 34);
   const laneH = Math.max(238, Math.max(...nodes.map((node) => flowNodeSize(node, nodeW).h)) + 44);
   const boxes = new Map();
-  const body = [];
+  const laneBody = [];
+  const nodeBody = [];
 
   lanes.forEach((lane, laneIndex) => {
     const ly = y + laneIndex * (laneH + laneGap);
-    body.push(`${rect(M, ly, CONTENT, laneH, laneIndex % 2 === 0 ? c.surface : c.canvas, c.border, 1, 14, ` data-flow-lane="${escapeXml(lane.id)}"`)}
+    laneBody.push(`${rect(M, ly, CONTENT, laneH, laneIndex % 2 === 0 ? c.surface : c.canvas, c.border, 1, 14, ` data-flow-lane="${escapeXml(lane.id)}"`)}
 ${text(M + 28, ly + 58, 22, c.ink, splitText(lane.title, laneLabelW - 44, 22, 1), "850")}
 ${line(M + laneLabelW, ly + 22, M + laneLabelW, ly + laneH - 22, c.border, 2)}`);
   });
@@ -789,10 +793,10 @@ ${line(M + laneLabelW, ly + 22, M + laneLabelW, ly + laneH - 22, c.border, 2)}`)
     const ny = y + laneIndex * (laneH + laneGap) + 22;
     const h = laneH - 44;
     boxes.set(node.id, { x, y: ny, w: nodeW, h });
-    body.push(flowNode(node, x, ny, nodeW, h));
+    nodeBody.push(flowNode(node, x, ny, nodeW, h));
   });
-  edges.forEach((edge) => body.push(flowConnector(edge, boxes, c.accent)));
-  return { h: lanes.length * laneH + Math.max(0, lanes.length - 1) * laneGap, body: body.join("\n") };
+  const edgeBody = edges.map((edge) => flowConnector(edge, boxes, c.accent));
+  return { h: lanes.length * laneH + Math.max(0, lanes.length - 1) * laneGap, body: [...laneBody, ...edgeBody, ...nodeBody].join("\n") };
 }
 
 function renderFlowCanvas() {

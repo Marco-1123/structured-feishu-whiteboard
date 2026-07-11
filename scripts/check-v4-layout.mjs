@@ -34,6 +34,20 @@ function touchesBoundary(rect, p, tolerance = 2) {
   return onLeft || onRight || onTop || onBottom;
 }
 
+function segmentCrossesRect(a, b, rect, padding = 3) {
+  const left = rect.x + padding;
+  const right = rect.x + rect.w - padding;
+  const top = rect.y + padding;
+  const bottom = rect.y + rect.h - padding;
+  if (Math.abs(a.y - b.y) < 0.1) {
+    return a.y > top && a.y < bottom && Math.max(a.x, b.x) > left && Math.min(a.x, b.x) < right;
+  }
+  if (Math.abs(a.x - b.x) < 0.1) {
+    return a.x > left && a.x < right && Math.max(a.y, b.y) > top && Math.min(a.y, b.y) < bottom;
+  }
+  return false;
+}
+
 function textWidth(line, size) {
   let width = 0;
   for (const char of String(line || "")) {
@@ -140,6 +154,18 @@ if (svg.includes('data-layout="flow-canvas"')) {
     }
     if (!Number.isFinite(end.x) || !Number.isFinite(end.y) || !touchesBoundary(to, end)) {
       issues.push(`flow edge ${a["data-flow-edge"]} end does not touch target node boundary`);
+    }
+    const points = a.points
+      ? a.points.trim().split(/\s+/).map(point)
+      : [{ x: num(a.x1), y: num(a.y1) }, { x: num(a.x2), y: num(a.y2) }];
+    for (const [nodeId, node] of nodes) {
+      if (nodeId === a["data-from"] || nodeId === a["data-to"]) continue;
+      for (let index = 0; index < points.length - 1; index += 1) {
+        if (segmentCrossesRect(points[index], points[index + 1], node)) {
+          issues.push(`flow edge ${a["data-flow-edge"]} crosses unrelated node ${nodeId}`);
+          break;
+        }
+      }
     }
   }
 

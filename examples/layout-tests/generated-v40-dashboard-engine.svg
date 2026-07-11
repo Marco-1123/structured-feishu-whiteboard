@@ -71,22 +71,22 @@
 <rect x="138" y="1129" width="8" height="46" rx="4" fill="#00A88F" stroke="#00A88F" stroke-width="1"/>
 <text x="160" y="1142" font-size="17" fill="#0A2540" font-weight="700"><tspan x="160" dy="0">目标口径</tspan></text>
 <text x="488" y="1142" font-size="16" fill="#00A88F" font-weight="700"><tspan x="488" dy="0">正常</tspan></text>
-<text x="160" y="1171" font-size="15" fill="#53657D" font-weight="500"><tspan x="160" dy="0">主指标统一</tspan></text>
+<text x="160" y="1172" font-size="16" fill="#53657D" font-weight="500"><tspan x="160" dy="0">主指标统一</tspan></text>
 <rect x="598" y="1111" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.2"/>
 <rect x="612" y="1129" width="8" height="46" rx="4" fill="#635BFF" stroke="#635BFF" stroke-width="1"/>
 <text x="634" y="1142" font-size="17" fill="#0A2540" font-weight="700"><tspan x="634" dy="0">数据质量</tspan></text>
 <text x="962" y="1142" font-size="16" fill="#635BFF" font-weight="700"><tspan x="962" dy="0">关注</tspan></text>
-<text x="634" y="1171" font-size="15" fill="#53657D" font-weight="500"><tspan x="634" dy="0">仍有缺口</tspan></text>
+<text x="634" y="1172" font-size="16" fill="#53657D" font-weight="500"><tspan x="634" dy="0">仍有缺口</tspan></text>
 <rect x="124" y="1207" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.2"/>
 <rect x="138" y="1225" width="8" height="46" rx="4" fill="#7A5A46" stroke="#7A5A46" stroke-width="1"/>
 <text x="160" y="1238" font-size="17" fill="#0A2540" font-weight="700"><tspan x="160" dy="0">风险闭环</tspan></text>
 <text x="488" y="1238" font-size="16" fill="#7A5A46" font-weight="700"><tspan x="488" dy="0">待处理</tspan></text>
-<text x="160" y="1267" font-size="15" fill="#53657D" font-weight="500"><tspan x="160" dy="0">动作分散</tspan></text>
+<text x="160" y="1268" font-size="16" fill="#53657D" font-weight="500"><tspan x="160" dy="0">动作分散</tspan></text>
 <rect x="598" y="1207" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.2"/>
 <rect x="612" y="1225" width="8" height="46" rx="4" fill="#00A88F" stroke="#00A88F" stroke-width="1"/>
 <text x="634" y="1238" font-size="17" fill="#0A2540" font-weight="700"><tspan x="634" dy="0">行动节奏</tspan></text>
 <text x="962" y="1238" font-size="16" fill="#00A88F" font-weight="700"><tspan x="962" dy="0">正常</tspan></text>
-<text x="634" y="1267" font-size="15" fill="#53657D" font-weight="500"><tspan x="634" dy="0">周会固定</tspan></text>
+<text x="634" y="1268" font-size="16" fill="#53657D" font-weight="500"><tspan x="634" dy="0">周会固定</tspan></text>
 </g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1005" data-width="988" data-height="284" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="41" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
 <rect x="1116" y="1005" width="988" height="284" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
 <text x="1144" y="1053" font-size="26" fill="#0A2540" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
