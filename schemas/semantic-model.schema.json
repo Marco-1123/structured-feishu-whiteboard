@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Structured Feishu Whiteboard V4.4 Semantic Model",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "modelId", "inventoryId", "scenario", "audienceIntent", "facts", "relationships", "readingLayers", "completenessLedger"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "modelId": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9._-]*$" },
+    "inventoryId": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9._-]*$" },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary"],
+      "properties": {
+        "primary": { "$ref": "#/$defs/scenario" },
+        "secondary": { "$ref": "#/$defs/scenario" }
+      }
+    },
+    "audienceIntent": { "enum": ["quick-understanding", "decision", "alignment", "selection"] },
+    "timeScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "reviewPeriod": { "type": "string", "maxLength": 80 },
+        "currentStage": { "type": "string", "maxLength": 80 },
+        "planningPeriod": { "type": "string", "maxLength": 80 }
+      }
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 160,
+      "items": { "$ref": "#/$defs/fact" }
+    },
+    "relationships": {
+      "type": "array",
+      "maxItems": 320,
+      "items": { "$ref": "#/$defs/relationship" }
+    },
+    "readingLayers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["first", "second"],
+      "properties": {
+        "first": { "$ref": "#/$defs/idList" },
+        "second": { "$ref": "#/$defs/idList" }
+      }
+    },
+    "completenessLedger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["selected", "merged", "downgraded", "omitted"],
+      "properties": {
+        "selected": { "$ref": "#/$defs/idList" },
+        "merged": { "$ref": "#/$defs/ledgerList" },
+        "downgraded": { "$ref": "#/$defs/ledgerList" },
+        "omitted": { "$ref": "#/$defs/ledgerList" }
+      }
+    }
+  },
+  "$defs": {
+    "scenario": { "enum": ["review-update", "strategy-proposal", "project-plan", "research-decision", "product-capability", "process-collaboration"] },
+    "idList": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "ledgerList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "reason"],
+        "properties": {
+          "id": { "type": "string" },
+          "reason": { "enum": ["duplicate", "low-value-context", "merged", "deferred-to-detail", "unsupported", "formatting-noise"] }
+        }
+      }
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "type", "text", "importance", "sourceRef", "confidence"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9._-]*$" },
+        "type": { "enum": ["conclusion", "objective", "result", "metric", "trend", "variance", "cause", "risk", "evidence", "action", "stage", "actor", "capability", "option", "constraint", "input", "output", "unresolved"] },
+        "text": { "type": "string", "minLength": 1, "maxLength": 320 },
+        "importance": { "enum": ["critical", "high", "medium", "low"] },
+        "sourceRef": { "type": "string", "minLength": 1 },
+        "confidence": { "enum": ["supported", "inferred", "draft", "missing"] }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type", "from", "to"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9._-]*$" },
+        "type": { "enum": ["causes", "supports", "contrasts", "precedes", "depends-on", "belongs-to", "conflicts-with", "mitigates", "produces", "owned-by"] },
+        "from": { "type": "string" },
+        "to": { "type": "string" },
+        "label": { "type": "string", "maxLength": 80 }
+      }
+    }
+  }
+}
