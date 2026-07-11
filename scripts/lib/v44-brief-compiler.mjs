@@ -30,8 +30,8 @@ function item(fact) {
   return { label: clip(fact.text, 16), ...(fact.value !== undefined ? { value: clip(fact.value, 12) } : {}), note: clip(fact.text, 24), status: fact.type === "risk" ? "risk" : fact.confidence === "missing" ? "neutral" : "good" };
 }
 
-function expressionMode(candidate) {
-  if (candidate.narrativeType === "result-driven") return "dashboard-onepage";
+function expressionMode(candidate, model) {
+  if (candidate.narrativeType === "result-driven" && model.facts.filter((fact) => fact.type === "metric").length >= 3) return "dashboard-onepage";
   if (["comparison-driven", "causal", "problem-driven"].includes(candidate.narrativeType)) return "narrative-map";
   return "modular-canvas";
 }
@@ -46,7 +46,9 @@ function expressionBlock(region, facts) {
   }
   const supported = new Set(["risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2", "progress-bar", "ranked-bar"]);
   const safeType = supported.has(type) ? type : "evidence-list";
-  return { type: safeType, title: clip(region.purpose.replaceAll("-", " / "), 18), note: clip(regionFacts.map((fact) => fact.text).join("；"), 28), items: regionFacts.slice(0, 5).map(item), sourceFactIds: region.factIds };
+  const items = regionFacts.slice(0, 5).map(item);
+  if (items.length === 1) items.push({ label: "材料未提供第二项", note: "待补充", status: "neutral" });
+  return { type: safeType, title: clip(region.purpose.replaceAll("-", " / "), 18), note: clip(regionFacts.map((fact) => fact.text).join("；"), 28), items, sourceFactIds: region.factIds };
 }
 
 function ensureExpressionRequirements(blocks, model) {
@@ -56,7 +58,11 @@ function ensureExpressionRequirements(blocks, model) {
   const appendList = (type, factType, title) => {
     if (out.some((block) => block.type === type)) return;
     const selected = model.facts.filter((fact) => fact.type === factType).slice(0, 4);
-    if (selected.length) out.push({ type, title, items: selected.map(item), sourceFactIds: selected.map((fact) => fact.id) });
+    if (selected.length) {
+      const items = selected.map(item);
+      if (items.length === 1) items.push({ label: "材料未提供第二项", note: "待补充", status: "neutral" });
+      out.push({ type, title, items, sourceFactIds: selected.map((fact) => fact.id) });
+    }
   };
   appendList("risk-list", "risk", "关键风险");
   appendList("action-list", "action", "下一步行动");
@@ -81,7 +87,7 @@ export function compileV44Brief({ semanticModel, planningResult, style = "linear
   const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
   return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], fallback: { version: "4.3", reason: "on-failure" }, brief: {
     pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
-    title: clip(title || summaryFact.text, 32), subtitle: clip(`${semanticModel.scenario.primary} · ${selected.narrativeType}`, 48), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: expressionMode(selected), expressionBlocks: blocks,
+    title: clip(title || summaryFact.text, 32), subtitle: clip(`${semanticModel.scenario.primary} · ${selected.narrativeType}`, 48), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: expressionMode(selected, semanticModel), expressionBlocks: blocks,
     planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: selected.planId },
   } };
 }
