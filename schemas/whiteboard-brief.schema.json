@@ -16,7 +16,7 @@
     },
     "pipelineVersion": {
       "type": "string",
-      "enum": ["4.3"],
+      "enum": ["4.3", "4.4"],
       "description": "Marks briefs that use the V4.3 inventory, routing, coverage, and replay pipeline."
     },
     "planning": {
@@ -618,6 +618,11 @@
                 }
               }
             }
+          },
+          "sourceFactIds": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string" }
           }
         }
       }
@@ -669,6 +674,11 @@
           "status": {
             "type": "string",
             "enum": ["good", "neutral", "risk"]
+          },
+          "sourceFactIds": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string" }
           }
         }
       }

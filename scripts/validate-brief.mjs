@@ -138,9 +138,9 @@ function fail(message) {
 
 function validatePlanning(brief) {
   if (brief.pipelineVersion === undefined && brief.planning === undefined) return;
-  if (brief.pipelineVersion !== "4.3") fail('pipelineVersion must be "4.3"');
+  if (!["4.3", "4.4"].includes(brief.pipelineVersion)) fail('pipelineVersion must be "4.3" or "4.4"');
   const planning = brief.planning;
-  if (!planning || typeof planning !== "object" || Array.isArray(planning)) fail("planning is required for pipelineVersion 4.3");
+  if (!planning || typeof planning !== "object" || Array.isArray(planning)) fail("planning is required for pipelineVersion 4.3 or 4.4");
   assertString(planning.inventoryId, "planning.inventoryId", 64, true);
   assertString(planning.routeDecisionId, "planning.routeDecisionId", 80, true);
   if (!Array.isArray(planning.selectedFactIds) || planning.selectedFactIds.length === 0) fail("planning.selectedFactIds must contain at least one fact id");
