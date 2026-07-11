@@ -1,0 +1,11 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import { evaluateV44 } from "./lib/v44-evaluator.mjs";
+const suite = JSON.parse(fs.readFileSync("examples/evals/v44/cases.json", "utf8"));
+assert.equal(suite.cases.length, 42);
+const report = evaluateV44(suite.cases);
+assert.ok(report.summary.scenarioAccuracy >= 0.85, JSON.stringify(report.summary));
+assert.ok(report.summary.distinctNarratives >= 5, JSON.stringify(report.summary));
+assert.ok(report.summary.distinctSkeletons >= 5, JSON.stringify(report.summary));
+assert.ok(report.summary.distinctComponentMixes >= 5, JSON.stringify(report.summary));
+console.log("ok: V4.4 evaluator tests passed");

@@ -1,0 +1,2008 @@
+{
+  "version": "4.4-beta",
+  "cases": [
+    {
+      "id": "review-1",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-1",
+        "title": "季度复盘：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 1 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 77%",
+            "importance": "high",
+            "value": "77%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 9%",
+            "importance": "high",
+            "value": "+9%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-2",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-2",
+        "title": "项目阶段汇报：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 2 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 78%",
+            "importance": "high",
+            "value": "78%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 10%",
+            "importance": "high",
+            "value": "+10%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-3",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-3",
+        "title": "半年度总结：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 3 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 79%",
+            "importance": "high",
+            "value": "79%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 11%",
+            "importance": "high",
+            "value": "+11%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-4",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-4",
+        "title": "季度复盘：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 4 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 80%",
+            "importance": "high",
+            "value": "80%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 12%",
+            "importance": "high",
+            "value": "+12%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-5",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-5",
+        "title": "项目阶段汇报：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 5 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 81%",
+            "importance": "high",
+            "value": "81%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 13%",
+            "importance": "high",
+            "value": "+13%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-6",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-6",
+        "title": "半年度总结：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 6 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 82%",
+            "importance": "high",
+            "value": "82%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 14%",
+            "importance": "high",
+            "value": "+14%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-7",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-7",
+        "title": "季度复盘：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 7 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 83%",
+            "importance": "high",
+            "value": "83%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 15%",
+            "importance": "high",
+            "value": "+15%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-8",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-8",
+        "title": "项目阶段汇报：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 8 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 84%",
+            "importance": "high",
+            "value": "84%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 16%",
+            "importance": "high",
+            "value": "+16%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-9",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-9",
+        "title": "半年度总结：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 9 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 85%",
+            "importance": "high",
+            "value": "85%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 17%",
+            "importance": "high",
+            "value": "+17%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-10",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-10",
+        "title": "季度复盘：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 10 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 86%",
+            "importance": "high",
+            "value": "86%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 18%",
+            "importance": "high",
+            "value": "+18%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-11",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-11",
+        "title": "项目阶段汇报：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 11 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 87%",
+            "importance": "high",
+            "value": "87%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 19%",
+            "importance": "high",
+            "value": "+19%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "review-12",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "review-12",
+        "title": "半年度总结：成果、问题与下一阶段规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "阶段主线整体达成，第 12 组试点进入稳定期",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "目标完成率 88%",
+            "importance": "high",
+            "value": "88%"
+          },
+          {
+            "id": "m2",
+            "type": "metric",
+            "text": "效率提升 20%",
+            "importance": "high",
+            "value": "+20%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "跨团队数据口径仍需统一",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一阶段建立统一复盘节奏",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "连续四周核心指标改善",
+            "importance": "medium"
+          }
+        ]
+      }
+    },
+    {
+      "id": "strategy-1",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "inventory": {
+        "inventoryId": "strategy-1",
+        "title": "业务增长策略方案 1",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "建议从高价值场景切入",
+            "importance": "critical"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "重点客户需求集中在效率和稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "资源投入与回报周期存在不确定性",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "先完成小范围验证",
+            "importance": "high"
+          },
+          {
+            "id": "x1",
+            "type": "constraint",
+            "text": "预算和人力必须控制在现有范围",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "strategy-2",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "inventory": {
+        "inventoryId": "strategy-2",
+        "title": "业务增长策略方案 2",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "建议从高价值场景切入",
+            "importance": "critical"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "重点客户需求集中在效率和稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "资源投入与回报周期存在不确定性",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "先完成小范围验证",
+            "importance": "high"
+          },
+          {
+            "id": "x1",
+            "type": "constraint",
+            "text": "预算和人力必须控制在现有范围",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "strategy-3",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "inventory": {
+        "inventoryId": "strategy-3",
+        "title": "业务增长策略方案 3",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "建议从高价值场景切入",
+            "importance": "critical"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "重点客户需求集中在效率和稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "资源投入与回报周期存在不确定性",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "先完成小范围验证",
+            "importance": "high"
+          },
+          {
+            "id": "x1",
+            "type": "constraint",
+            "text": "预算和人力必须控制在现有范围",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "strategy-4",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "inventory": {
+        "inventoryId": "strategy-4",
+        "title": "业务增长策略方案 4",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "建议从高价值场景切入",
+            "importance": "critical"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "重点客户需求集中在效率和稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "资源投入与回报周期存在不确定性",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "先完成小范围验证",
+            "importance": "high"
+          },
+          {
+            "id": "x1",
+            "type": "constraint",
+            "text": "预算和人力必须控制在现有范围",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "strategy-5",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "inventory": {
+        "inventoryId": "strategy-5",
+        "title": "业务增长策略方案 5",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "建议从高价值场景切入",
+            "importance": "critical"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "重点客户需求集中在效率和稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "资源投入与回报周期存在不确定性",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "先完成小范围验证",
+            "importance": "high"
+          },
+          {
+            "id": "x1",
+            "type": "constraint",
+            "text": "预算和人力必须控制在现有范围",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan-1",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "inventory": {
+        "inventoryId": "plan-1",
+        "title": "项目实施计划与里程碑 1",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "项目分三阶段交付",
+            "importance": "critical"
+          },
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "阶段一完成需求对齐",
+            "importance": "high",
+            "order": 1
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "阶段二完成试点上线",
+            "importance": "high",
+            "order": 2
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "阶段三完成规模推广",
+            "importance": "high",
+            "order": 3
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "依赖接口交付时间",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "本周确认里程碑责任人",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan-2",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "inventory": {
+        "inventoryId": "plan-2",
+        "title": "项目实施计划与里程碑 2",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "项目分三阶段交付",
+            "importance": "critical"
+          },
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "阶段一完成需求对齐",
+            "importance": "high",
+            "order": 1
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "阶段二完成试点上线",
+            "importance": "high",
+            "order": 2
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "阶段三完成规模推广",
+            "importance": "high",
+            "order": 3
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "依赖接口交付时间",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "本周确认里程碑责任人",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan-3",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "inventory": {
+        "inventoryId": "plan-3",
+        "title": "项目实施计划与里程碑 3",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "项目分三阶段交付",
+            "importance": "critical"
+          },
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "阶段一完成需求对齐",
+            "importance": "high",
+            "order": 1
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "阶段二完成试点上线",
+            "importance": "high",
+            "order": 2
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "阶段三完成规模推广",
+            "importance": "high",
+            "order": 3
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "依赖接口交付时间",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "本周确认里程碑责任人",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan-4",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "inventory": {
+        "inventoryId": "plan-4",
+        "title": "项目实施计划与里程碑 4",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "项目分三阶段交付",
+            "importance": "critical"
+          },
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "阶段一完成需求对齐",
+            "importance": "high",
+            "order": 1
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "阶段二完成试点上线",
+            "importance": "high",
+            "order": 2
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "阶段三完成规模推广",
+            "importance": "high",
+            "order": 3
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "依赖接口交付时间",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "本周确认里程碑责任人",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "plan-5",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "inventory": {
+        "inventoryId": "plan-5",
+        "title": "项目实施计划与里程碑 5",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "项目分三阶段交付",
+            "importance": "critical"
+          },
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "阶段一完成需求对齐",
+            "importance": "high",
+            "order": 1
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "阶段二完成试点上线",
+            "importance": "high",
+            "order": 2
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "阶段三完成规模推广",
+            "importance": "high",
+            "order": 3
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "依赖接口交付时间",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "本周确认里程碑责任人",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "research-1",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "inventory": {
+        "inventoryId": "research-1",
+        "title": "方案调研与选型决策 1",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "方案 A 更适合作为长期底座",
+            "importance": "critical"
+          },
+          {
+            "id": "o1",
+            "type": "comparison",
+            "text": "方案 A 稳定性强但实施成本中等",
+            "importance": "high"
+          },
+          {
+            "id": "o2",
+            "type": "comparison",
+            "text": "方案 B 上线快但扩展性弱",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "真实试点验证了读取稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "迁移成本需要单独评估",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "补充两周压力测试",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "research-2",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "inventory": {
+        "inventoryId": "research-2",
+        "title": "方案调研与选型决策 2",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "方案 A 更适合作为长期底座",
+            "importance": "critical"
+          },
+          {
+            "id": "o1",
+            "type": "comparison",
+            "text": "方案 A 稳定性强但实施成本中等",
+            "importance": "high"
+          },
+          {
+            "id": "o2",
+            "type": "comparison",
+            "text": "方案 B 上线快但扩展性弱",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "真实试点验证了读取稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "迁移成本需要单独评估",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "补充两周压力测试",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "research-3",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "inventory": {
+        "inventoryId": "research-3",
+        "title": "方案调研与选型决策 3",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "方案 A 更适合作为长期底座",
+            "importance": "critical"
+          },
+          {
+            "id": "o1",
+            "type": "comparison",
+            "text": "方案 A 稳定性强但实施成本中等",
+            "importance": "high"
+          },
+          {
+            "id": "o2",
+            "type": "comparison",
+            "text": "方案 B 上线快但扩展性弱",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "真实试点验证了读取稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "迁移成本需要单独评估",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "补充两周压力测试",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "research-4",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "inventory": {
+        "inventoryId": "research-4",
+        "title": "方案调研与选型决策 4",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "方案 A 更适合作为长期底座",
+            "importance": "critical"
+          },
+          {
+            "id": "o1",
+            "type": "comparison",
+            "text": "方案 A 稳定性强但实施成本中等",
+            "importance": "high"
+          },
+          {
+            "id": "o2",
+            "type": "comparison",
+            "text": "方案 B 上线快但扩展性弱",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "真实试点验证了读取稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "迁移成本需要单独评估",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "补充两周压力测试",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "research-5",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "inventory": {
+        "inventoryId": "research-5",
+        "title": "方案调研与选型决策 5",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "方案 A 更适合作为长期底座",
+            "importance": "critical"
+          },
+          {
+            "id": "o1",
+            "type": "comparison",
+            "text": "方案 A 稳定性强但实施成本中等",
+            "importance": "high"
+          },
+          {
+            "id": "o2",
+            "type": "comparison",
+            "text": "方案 B 上线快但扩展性弱",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "真实试点验证了读取稳定性",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "迁移成本需要单独评估",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "补充两周压力测试",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "product-1",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "inventory": {
+        "inventoryId": "product-1",
+        "title": "智能助手产品能力介绍 1",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "产品提供从输入到结论的完整能力",
+            "importance": "critical"
+          },
+          {
+            "id": "h1",
+            "type": "hierarchy",
+            "text": "数据接入与权限控制",
+            "importance": "high"
+          },
+          {
+            "id": "h2",
+            "type": "hierarchy",
+            "text": "智能分析与异常识别",
+            "importance": "high"
+          },
+          {
+            "id": "h3",
+            "type": "hierarchy",
+            "text": "报告生成与团队复用",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "已覆盖五类高频工作场景",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一步扩展团队协作能力",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "product-2",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "inventory": {
+        "inventoryId": "product-2",
+        "title": "智能助手产品能力介绍 2",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "产品提供从输入到结论的完整能力",
+            "importance": "critical"
+          },
+          {
+            "id": "h1",
+            "type": "hierarchy",
+            "text": "数据接入与权限控制",
+            "importance": "high"
+          },
+          {
+            "id": "h2",
+            "type": "hierarchy",
+            "text": "智能分析与异常识别",
+            "importance": "high"
+          },
+          {
+            "id": "h3",
+            "type": "hierarchy",
+            "text": "报告生成与团队复用",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "已覆盖五类高频工作场景",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一步扩展团队协作能力",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "product-3",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "inventory": {
+        "inventoryId": "product-3",
+        "title": "智能助手产品能力介绍 3",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "产品提供从输入到结论的完整能力",
+            "importance": "critical"
+          },
+          {
+            "id": "h1",
+            "type": "hierarchy",
+            "text": "数据接入与权限控制",
+            "importance": "high"
+          },
+          {
+            "id": "h2",
+            "type": "hierarchy",
+            "text": "智能分析与异常识别",
+            "importance": "high"
+          },
+          {
+            "id": "h3",
+            "type": "hierarchy",
+            "text": "报告生成与团队复用",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "已覆盖五类高频工作场景",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一步扩展团队协作能力",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "product-4",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "inventory": {
+        "inventoryId": "product-4",
+        "title": "智能助手产品能力介绍 4",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "产品提供从输入到结论的完整能力",
+            "importance": "critical"
+          },
+          {
+            "id": "h1",
+            "type": "hierarchy",
+            "text": "数据接入与权限控制",
+            "importance": "high"
+          },
+          {
+            "id": "h2",
+            "type": "hierarchy",
+            "text": "智能分析与异常识别",
+            "importance": "high"
+          },
+          {
+            "id": "h3",
+            "type": "hierarchy",
+            "text": "报告生成与团队复用",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "已覆盖五类高频工作场景",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一步扩展团队协作能力",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "product-5",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "inventory": {
+        "inventoryId": "product-5",
+        "title": "智能助手产品能力介绍 5",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "产品提供从输入到结论的完整能力",
+            "importance": "critical"
+          },
+          {
+            "id": "h1",
+            "type": "hierarchy",
+            "text": "数据接入与权限控制",
+            "importance": "high"
+          },
+          {
+            "id": "h2",
+            "type": "hierarchy",
+            "text": "智能分析与异常识别",
+            "importance": "high"
+          },
+          {
+            "id": "h3",
+            "type": "hierarchy",
+            "text": "报告生成与团队复用",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "已覆盖五类高频工作场景",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "下一步扩展团队协作能力",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flow-1",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "inventory": {
+        "inventoryId": "flow-1",
+        "title": "跨团队审批协作流程 1",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "业务提交申请",
+            "importance": "high",
+            "order": 1,
+            "lane": "业务"
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "系统校验材料",
+            "importance": "high",
+            "order": 2,
+            "lane": "系统"
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "负责人审批判断",
+            "importance": "critical",
+            "order": 3,
+            "lane": "审批人"
+          },
+          {
+            "id": "p4",
+            "type": "process",
+            "text": "结果回传并归档",
+            "importance": "high",
+            "order": 4,
+            "lane": "系统"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "异常材料进入人工复核",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flow-2",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "inventory": {
+        "inventoryId": "flow-2",
+        "title": "跨团队审批协作流程 2",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "业务提交申请",
+            "importance": "high",
+            "order": 1,
+            "lane": "业务"
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "系统校验材料",
+            "importance": "high",
+            "order": 2,
+            "lane": "系统"
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "负责人审批判断",
+            "importance": "critical",
+            "order": 3,
+            "lane": "审批人"
+          },
+          {
+            "id": "p4",
+            "type": "process",
+            "text": "结果回传并归档",
+            "importance": "high",
+            "order": 4,
+            "lane": "系统"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "异常材料进入人工复核",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flow-3",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "inventory": {
+        "inventoryId": "flow-3",
+        "title": "跨团队审批协作流程 3",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "业务提交申请",
+            "importance": "high",
+            "order": 1,
+            "lane": "业务"
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "系统校验材料",
+            "importance": "high",
+            "order": 2,
+            "lane": "系统"
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "负责人审批判断",
+            "importance": "critical",
+            "order": 3,
+            "lane": "审批人"
+          },
+          {
+            "id": "p4",
+            "type": "process",
+            "text": "结果回传并归档",
+            "importance": "high",
+            "order": 4,
+            "lane": "系统"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "异常材料进入人工复核",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flow-4",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "inventory": {
+        "inventoryId": "flow-4",
+        "title": "跨团队审批协作流程 4",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "业务提交申请",
+            "importance": "high",
+            "order": 1,
+            "lane": "业务"
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "系统校验材料",
+            "importance": "high",
+            "order": 2,
+            "lane": "系统"
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "负责人审批判断",
+            "importance": "critical",
+            "order": 3,
+            "lane": "审批人"
+          },
+          {
+            "id": "p4",
+            "type": "process",
+            "text": "结果回传并归档",
+            "importance": "high",
+            "order": 4,
+            "lane": "系统"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "异常材料进入人工复核",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "flow-5",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "inventory": {
+        "inventoryId": "flow-5",
+        "title": "跨团队审批协作流程 5",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "业务提交申请",
+            "importance": "high",
+            "order": 1,
+            "lane": "业务"
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "系统校验材料",
+            "importance": "high",
+            "order": 2,
+            "lane": "系统"
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "负责人审批判断",
+            "importance": "critical",
+            "order": 3,
+            "lane": "审批人"
+          },
+          {
+            "id": "p4",
+            "type": "process",
+            "text": "结果回传并归档",
+            "importance": "high",
+            "order": 4,
+            "lane": "系统"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "异常材料进入人工复核",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-1",
+      "group": "mixed",
+      "expectedScenario": "review-update",
+      "inventory": {
+        "inventoryId": "mixed-1",
+        "title": "年度经营复盘与组织规划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "年度目标基本达成",
+            "importance": "critical"
+          },
+          {
+            "id": "m1",
+            "type": "metric",
+            "text": "完成率 91%",
+            "importance": "high",
+            "value": "91%"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "组织协同效率偏低",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "明年优化协作机制",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-2",
+      "group": "mixed",
+      "expectedScenario": "strategy-proposal",
+      "inventory": {
+        "inventoryId": "mixed-2",
+        "title": "新市场进入方案与试点计划",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "先试点再扩张",
+            "importance": "critical"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "目标市场需求明确",
+            "importance": "high"
+          },
+          {
+            "id": "x1",
+            "type": "constraint",
+            "text": "首期预算有限",
+            "importance": "high"
+          },
+          {
+            "id": "a1",
+            "type": "action",
+            "text": "选择两个城市试点",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-3",
+      "group": "mixed",
+      "expectedScenario": "research-decision",
+      "inventory": {
+        "inventoryId": "mixed-3",
+        "title": "平台选型研究与迁移路线",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "选择开放架构方案",
+            "importance": "critical"
+          },
+          {
+            "id": "o1",
+            "type": "comparison",
+            "text": "A 方案扩展性更强",
+            "importance": "high"
+          },
+          {
+            "id": "o2",
+            "type": "comparison",
+            "text": "B 方案迁移成本更低",
+            "importance": "high"
+          },
+          {
+            "id": "e1",
+            "type": "evidence",
+            "text": "压测结果支持 A 方案",
+            "importance": "high"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "迁移窗口有限",
+            "importance": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-4",
+      "group": "mixed",
+      "expectedScenario": "product-capability",
+      "inventory": {
+        "inventoryId": "mixed-4",
+        "title": "平台能力全景与上线阶段",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "c1",
+            "type": "conclusion",
+            "text": "平台形成三层能力",
+            "importance": "critical"
+          },
+          {
+            "id": "h1",
+            "type": "hierarchy",
+            "text": "基础数据层",
+            "importance": "high"
+          },
+          {
+            "id": "h2",
+            "type": "hierarchy",
+            "text": "智能分析层",
+            "importance": "high"
+          },
+          {
+            "id": "h3",
+            "type": "hierarchy",
+            "text": "业务应用层",
+            "importance": "high"
+          },
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "先试点后推广",
+            "importance": "medium",
+            "order": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "mixed-5",
+      "group": "mixed",
+      "expectedScenario": "process-collaboration",
+      "inventory": {
+        "inventoryId": "mixed-5",
+        "title": "客户问题闭环流程与阶段复盘",
+        "sourceType": "report",
+        "facts": [
+          {
+            "id": "p1",
+            "type": "process",
+            "text": "客服受理",
+            "importance": "high",
+            "order": 1,
+            "lane": "客服"
+          },
+          {
+            "id": "p2",
+            "type": "process",
+            "text": "产品定位",
+            "importance": "critical",
+            "order": 2,
+            "lane": "产品"
+          },
+          {
+            "id": "p3",
+            "type": "process",
+            "text": "研发修复",
+            "importance": "high",
+            "order": 3,
+            "lane": "研发"
+          },
+          {
+            "id": "p4",
+            "type": "process",
+            "text": "客服回访",
+            "importance": "high",
+            "order": 4,
+            "lane": "客服"
+          },
+          {
+            "id": "r1",
+            "type": "risk",
+            "text": "超时问题升级",
+            "importance": "high"
+          }
+        ]
+      }
+    }
+  ]
+}

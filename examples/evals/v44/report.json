@@ -1,0 +1,746 @@
+{
+  "summary": {
+    "cases": 42,
+    "scenarioAccuracy": 1,
+    "distinctNarratives": 5,
+    "distinctSkeletons": 5,
+    "distinctComponentMixes": 6,
+    "fallbackRate": 0.16666666666666666,
+    "passed": true
+  },
+  "results": [
+    {
+      "id": "review-1",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-2",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-3",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-4",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-5",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-6",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-7",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-8",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-9",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-10",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-11",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "review-12",
+      "group": "review-update",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "strategy-1",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "actualScenario": "strategy-proposal",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    },
+    {
+      "id": "strategy-2",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "actualScenario": "strategy-proposal",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    },
+    {
+      "id": "strategy-3",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "actualScenario": "strategy-proposal",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    },
+    {
+      "id": "strategy-4",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "actualScenario": "strategy-proposal",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    },
+    {
+      "id": "strategy-5",
+      "group": "strategy-proposal",
+      "expectedScenario": "strategy-proposal",
+      "actualScenario": "strategy-proposal",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    },
+    {
+      "id": "plan-1",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "actualScenario": "project-plan",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "plan-2",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "actualScenario": "project-plan",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "plan-3",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "actualScenario": "project-plan",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "plan-4",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "actualScenario": "project-plan",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "plan-5",
+      "group": "project-plan",
+      "expectedScenario": "project-plan",
+      "actualScenario": "project-plan",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "research-1",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "actualScenario": "research-decision",
+      "scenarioMatch": true,
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "research-2",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "actualScenario": "research-decision",
+      "scenarioMatch": true,
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "research-3",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "actualScenario": "research-decision",
+      "scenarioMatch": true,
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "research-4",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "actualScenario": "research-decision",
+      "scenarioMatch": true,
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "research-5",
+      "group": "research-decision",
+      "expectedScenario": "research-decision",
+      "actualScenario": "research-decision",
+      "scenarioMatch": true,
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "product-1",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "actualScenario": "product-capability",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "product-2",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "actualScenario": "product-capability",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "product-3",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "actualScenario": "product-capability",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "product-4",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "actualScenario": "product-capability",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "product-5",
+      "group": "product-capability",
+      "expectedScenario": "product-capability",
+      "actualScenario": "product-capability",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "flow-1",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "actualScenario": "process-collaboration",
+      "scenarioMatch": true,
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "flow-2",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "actualScenario": "process-collaboration",
+      "scenarioMatch": true,
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "flow-3",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "actualScenario": "process-collaboration",
+      "scenarioMatch": true,
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "flow-4",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "actualScenario": "process-collaboration",
+      "scenarioMatch": true,
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "flow-5",
+      "group": "process-collaboration",
+      "expectedScenario": "process-collaboration",
+      "actualScenario": "process-collaboration",
+      "scenarioMatch": true,
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "mixed-1",
+      "group": "mixed",
+      "expectedScenario": "review-update",
+      "actualScenario": "review-update",
+      "scenarioMatch": true,
+      "narrativeType": "temporal",
+      "pageSkeleton": "past-future-split",
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "mini-roadmap",
+        "risk-list",
+        "action-list"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    },
+    {
+      "id": "mixed-2",
+      "group": "mixed",
+      "expectedScenario": "strategy-proposal",
+      "actualScenario": "strategy-proposal",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "confidence": "medium",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "mixed-3",
+      "group": "mixed",
+      "expectedScenario": "research-decision",
+      "actualScenario": "research-decision",
+      "scenarioMatch": true,
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "mixed-4",
+      "group": "mixed",
+      "expectedScenario": "product-capability",
+      "actualScenario": "product-capability",
+      "scenarioMatch": true,
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "confidence": "high",
+      "pipeline": "v4.4"
+    },
+    {
+      "id": "mixed-5",
+      "group": "mixed",
+      "expectedScenario": "process-collaboration",
+      "actualScenario": "process-collaboration",
+      "scenarioMatch": true,
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "confidence": "low",
+      "pipeline": "v4.3-fallback"
+    }
+  ]
+}

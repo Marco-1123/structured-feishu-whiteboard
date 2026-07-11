@@ -125,6 +125,7 @@ node scripts/test-semantic-compiler.mjs >/dev/null
 node scripts/test-expression-planner.mjs >/dev/null
 node scripts/test-v44-brief-compiler.mjs >/dev/null
 node scripts/test-run-whiteboard-v44.mjs >/dev/null
+node scripts/test-v44-evaluator.mjs >/dev/null
 node scripts/test-scenario-router.mjs >/dev/null
 node scripts/test-v4-layout-tree.mjs >/dev/null
 node scripts/test-v43-adaptive-render.mjs >/dev/null

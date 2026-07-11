@@ -16,7 +16,7 @@ function scoreArchetypes(inventory, config) {
   return Object.entries(config.archetypes).map(([scenario, rule]) => {
     const titleHits = rule.titleTerms.filter((term) => title.toLowerCase().includes(term.toLowerCase()));
     const typeHits = rule.factTypes.reduce((sum, type) => sum + Math.min(2, typeCount(inventory.facts, type)), 0);
-    const laneBonus = scenario === "process-collaboration" && lanes.size >= 2 ? 4 : 0;
+    const laneBonus = scenario === "process-collaboration" && lanes.size >= 2 ? 4 + Math.min(8, typeCount(inventory.facts, "process") * 2) : 0;
     const timeBonus = scenario === "review-update" && /较|同比|环比|完成率|提升|下降|复盘|总结/.test(title) ? 3 : 0;
     const futureBonus = scenario === "project-plan" && /计划|阶段|里程碑|交付|上线/.test(title) ? 2 : 0;
     return { scenario, score: titleHits.length * 3 + typeHits + laneBonus + timeBonus + futureBonus, evidence: { titleTerms: titleHits, factTypeHits: typeHits, laneBonus, timeBonus, futureBonus } };
