@@ -121,6 +121,7 @@ done < <(find examples/layout-tests -maxdepth 1 -type f -name '*.svg' ! -name 'g
 node scripts/test-capabilities.mjs >/dev/null
 node scripts/test-content-coverage.mjs >/dev/null
 node scripts/test-semantic-model.mjs >/dev/null
+node scripts/test-semantic-compiler.mjs >/dev/null
 node scripts/test-scenario-router.mjs >/dev/null
 node scripts/test-v4-layout-tree.mjs >/dev/null
 node scripts/test-v43-adaptive-render.mjs >/dev/null

@@ -1,0 +1,11 @@
+{
+  "version": "4.4.0-beta.1",
+  "archetypes": {
+    "review-update": { "titleTerms": ["复盘", "总结", "汇报", "季度", "半年", "阶段", "Q1", "Q2", "Q3", "Q4"], "factTypes": ["metric", "action", "risk", "evidence"] },
+    "strategy-proposal": { "titleTerms": ["战略", "策略", "方案", "规划", "主线"], "factTypes": ["constraint", "comparison", "conclusion"] },
+    "project-plan": { "titleTerms": ["项目计划", "上线计划", "实施计划", "排期", "里程碑"], "factTypes": ["timeline", "risk", "process"] },
+    "research-decision": { "titleTerms": ["调研", "研究", "决策", "选型", "比较", "对比"], "factTypes": ["comparison", "evidence", "context"] },
+    "product-capability": { "titleTerms": ["产品", "能力", "介绍", "助手", "解决方案"], "factTypes": ["hierarchy", "process", "conclusion"] },
+    "process-collaboration": { "titleTerms": ["流程", "协作", "审批", "流转", "跨角色", "泳道"], "factTypes": ["process"] }
+  }
+}

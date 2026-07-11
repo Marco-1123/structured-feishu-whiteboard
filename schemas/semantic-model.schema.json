@@ -57,7 +57,8 @@
         "downgraded": { "$ref": "#/$defs/ledgerList" },
         "omitted": { "$ref": "#/$defs/ledgerList" }
       }
-    }
+    },
+    "archetypeEvidence": { "type": "array", "items": { "type": "object" } }
   },
   "$defs": {
     "scenario": { "enum": ["review-update", "strategy-proposal", "project-plan", "research-decision", "product-capability", "process-collaboration"] },
