@@ -1,0 +1,147 @@
+{
+  "candidates": [
+    {
+      "planId": "semantic-flow-1-flow-driven",
+      "scenario": "process-collaboration",
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "swimlane",
+      "layout": "flow-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "input-actor-action-constraint-output",
+          "factIds": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ],
+          "preferredComponent": "flow-node",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        }
+      ],
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "lane"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 96,
+        "criticalCoverage": 1,
+        "highCoverage": 0.75,
+        "semanticMatch": 1,
+        "coherence": 1,
+        "semanticSignalBonus": 12,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-flow-1-hierarchical",
+      "scenario": "process-collaboration",
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-2",
+          "purpose": "capability-constraint",
+          "factIds": [
+            "p3"
+          ],
+          "preferredComponent": "status-board",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "stage-action",
+          "factIds": [
+            "p2",
+            "p4"
+          ],
+          "preferredComponent": "mini-roadmap",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "status-board",
+        "narrative-chain",
+        "mini-roadmap"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 78,
+        "criticalCoverage": 1,
+        "highCoverage": 0.5,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 3,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-flow-1-temporal",
+      "scenario": "process-collaboration",
+      "narrativeType": "temporal",
+      "pageSkeleton": "timeline",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "action",
+          "factIds": [
+            "p2",
+            "p4"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "mini-roadmap",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 55,
+        "criticalCoverage": 0,
+        "highCoverage": 0.75,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 6,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "confidenceEvidence": {
+    "topScore": 96,
+    "secondScore": 78,
+    "scoreMargin": 18,
+    "missingRequiredSignals": [],
+    "unsupportedInferenceCount": 0
+  }
+}

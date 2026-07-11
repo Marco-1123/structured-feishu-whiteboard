@@ -433,7 +433,9 @@ function validateExpressionCanvas(brief) {
 
     if (block.type === "metric-card" && !block.value) fail(`expressionBlocks[${index}].metric-card requires value`);
     if (["progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2"].includes(block.type)) {
-      if (!block.items || block.items.length < 2) fail(`expressionBlocks[${index}].${block.type} requires at least 2 items`);
+      const v44SingleItemTypes = new Set(["risk-list", "action-list", "evidence-list", "status-board"]);
+      const minimum = brief.pipelineVersion === "4.4" && v44SingleItemTypes.has(block.type) ? 1 : 2;
+      if (!block.items || block.items.length < minimum) fail(`expressionBlocks[${index}].${block.type} requires at least ${minimum} item${minimum > 1 ? "s" : ""}`);
     }
   });
 

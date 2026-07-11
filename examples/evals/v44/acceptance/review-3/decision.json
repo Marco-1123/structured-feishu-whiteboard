@@ -1,0 +1,295 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 94,
+    "scoreMargin": 7,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-review-3-result-driven",
+  "alternatives": [
+    {
+      "planId": "semantic-review-3-temporal",
+      "scenario": "review-update",
+      "narrativeType": "temporal",
+      "pageSkeleton": "past-future-split",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result-metric",
+          "factIds": [
+            "c1",
+            "m1",
+            "m2"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "action",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "mini-roadmap",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 87,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 3,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-review-3-causal",
+      "scenario": "review-update",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 83,
+        "criticalCoverage": 1,
+        "highCoverage": 0.5,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 6,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "半年度总结：成果、问题与下一阶段规划",
+    "subtitle": "review-update · result-driven",
+    "summaryLabel": "核心判断",
+    "summary": "阶段主线整体达成，第 3 组试点进入稳定期",
+    "expressionMode": "modular-canvas",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "阶段主线整体达成，第 3 组试点进入稳定期"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "目标完成率 79%",
+        "value": "79%",
+        "label": "阶段结果",
+        "note": "目标完成率 79%",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m1"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "效率提升 11%",
+        "value": "+11%",
+        "label": "阶段结果",
+        "note": "效率提升 11%",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m2"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "跨团队数据口径仍需统一",
+        "items": [
+          {
+            "label": "跨团队数据口径仍需统一",
+            "note": "跨团队数据口径仍需统一",
+            "status": "risk"
+          },
+          {
+            "label": "材料未提供第二项",
+            "note": "待补充",
+            "status": "neutral"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "下一阶段建立统一复盘节奏",
+        "items": [
+          {
+            "label": "下一阶段建立统一复盘节奏",
+            "note": "下一阶段建立统一复盘节奏",
+            "status": "good"
+          },
+          {
+            "label": "材料未提供第二项",
+            "note": "待补充",
+            "status": "neutral"
+          }
+        ],
+        "sourceFactIds": [
+          "a1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "items": [
+          {
+            "label": "连续四周核心指标改善",
+            "note": "连续四周核心指标改善",
+            "status": "good"
+          },
+          {
+            "label": "材料未提供第二项",
+            "note": "待补充",
+            "status": "neutral"
+          }
+        ],
+        "sourceFactIds": [
+          "e1"
+        ]
+      },
+      {
+        "type": "narrative-chain",
+        "title": "判断链路",
+        "items": [
+          {
+            "label": "阶段主线整体达成，第 3 组试…",
+            "note": "阶段主线整体达成，第 3 组试点进入稳定期",
+            "status": "good"
+          },
+          {
+            "label": "下一阶段建立统一复盘节奏",
+            "note": "下一阶段建立统一复盘节奏",
+            "status": "good"
+          },
+          {
+            "label": "连续四周核心指标改善",
+            "note": "连续四周核心指标改善",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "c1",
+          "a1",
+          "e1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "review-3",
+      "selectedFactIds": [
+        "c1",
+        "m1",
+        "m2",
+        "r1",
+        "a1",
+        "e1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-review-3-result-driven"
+    }
+  }
+}

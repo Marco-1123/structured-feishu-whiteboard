@@ -1,0 +1,46 @@
+{
+  "inventoryId": "plan-1",
+  "title": "项目实施计划与里程碑 1",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "项目分三阶段交付",
+      "importance": "critical"
+    },
+    {
+      "id": "p1",
+      "type": "process",
+      "text": "阶段一完成需求对齐",
+      "importance": "high",
+      "order": 1
+    },
+    {
+      "id": "p2",
+      "type": "process",
+      "text": "阶段二完成试点上线",
+      "importance": "high",
+      "order": 2
+    },
+    {
+      "id": "p3",
+      "type": "process",
+      "text": "阶段三完成规模推广",
+      "importance": "high",
+      "order": 3
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "依赖接口交付时间",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "本周确认里程碑责任人",
+      "importance": "high"
+    }
+  ]
+}

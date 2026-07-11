@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1715" viewBox="0 0 2200 1715" data-layout-engine="v4" data-expression-mode="modular-canvas">
+<rect x="0" y="0" width="2200" height="1715" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<g>
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
+<text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">半年度总结：成果、问题与下一阶段规划</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">review-update · result-driven</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="150" data-column="full">
+<rect x="96" y="240" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="96" y="240" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="138" y="288" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="338" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">阶段主线整体达成，第 3 组试点进入稳定期</tspan></text>
+</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="434" data-width="2008" data-height="195" data-column="full">
+<rect x="96" y="434" width="992" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics"/>
+<text x="122" y="474" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="122" dy="0">目标完成率 79%</tspan></text>
+<text x="122" y="526" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="122" dy="0">79%</tspan></text>
+<text x="122" y="558" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="122" dy="0">目标完成率 79%</tspan></text>
+<rect x="122" y="581" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="142" y="602" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="142" dy="0">阶段结果</tspan></text><rect x="1112" y="434" width="992" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics"/>
+<text x="1138" y="474" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="1138" dy="0">效率提升 11%</tspan></text>
+<text x="1138" y="526" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="1138" dy="0">+11%</tspan></text>
+<text x="1138" y="558" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1138" dy="0">效率提升 11%</tspan></text>
+<rect x="1138" y="581" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1158" y="602" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1158" dy="0">阶段结果</tspan></text>
+</g><g data-v43-block="risk-list-1" data-block-type="risk-list" data-x="96" data-y="673" data-width="988" data-height="302" data-column="left" data-component-variant="risk-cluster" data-row="0" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="49" data-item-count="2" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
+<rect x="96" y="673" width="988" height="302" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="721" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">风险与约束</tspan></text>
+<text x="124" y="753" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">跨团队数据口径仍需统一</tspan></text>
+<rect x="124" y="777" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
+<circle cx="150" cy="804" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="168" y="809" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">跨团队数据口径仍需统一</tspan></text>
+<text x="168" y="836" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="168" dy="0">跨团队数据口径仍需统一</tspan></text>
+<rect x="124" y="859" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="1"/>
+<circle cx="150" cy="886" r="7" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="168" y="891" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">材料未提供第二项</tspan></text>
+<text x="168" y="918" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="168" dy="0">待补充</tspan></text>
+</g><g data-v43-block="action-list-2" data-block-type="action-list" data-x="1116" data-y="673" data-width="988" data-height="302" data-column="right" data-component-variant="action-checklist" data-row="0" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="52" data-item-count="2" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
+<rect x="1116" y="673" width="988" height="302" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="1144" y="721" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
+<text x="1144" y="753" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="1144" dy="0">下一阶段建立统一复盘节奏</tspan></text>
+<rect x="1144" y="777" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="1171" cy="804" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1167" y="810" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
+<text x="1196" y="808" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">下一阶段建立统一复盘节奏</tspan></text>
+<text x="1196" y="835" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">下一阶段建立统一复盘节奏</tspan></text>
+<rect x="1144" y="859" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="1171" cy="886" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1167" y="892" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">2</tspan></text>
+<text x="1196" y="890" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">材料未提供第二项</tspan></text>
+<text x="1196" y="917" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">待补充</tspan></text>
+</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="96" data-y="1007" data-width="988" data-height="302" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="35" data-item-count="2" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
+<rect x="96" y="1007" width="988" height="302" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="1055" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+
+<rect x="124" y="1111" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="140" y="1128" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1151" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
+<text x="196" y="1142" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">连续四周核心指标改善</tspan></text>
+<text x="196" y="1169" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">连续四周核心指标改善</tspan></text>
+<rect x="124" y="1193" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
+<rect x="140" y="1210" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1233" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">02</tspan></text>
+<text x="196" y="1224" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">材料未提供第二项</tspan></text>
+<text x="196" y="1251" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">待补充</tspan></text>
+</g><g data-v43-block="narrative-chain-4" data-block-type="narrative-chain" data-x="96" data-y="1341" data-width="2008" data-height="334" data-column="full" data-row="2" data-span="12" data-density="medium" data-preferred-width="2008" data-text-units="85" data-item-count="3" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="1341" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="1389" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
+
+<rect x="124" y="1451" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="148" y="1497" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">阶段主线整体达成，第 3 组试…</tspan></text>
+<text x="148" y="1533" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">阶段主线整体达成，第 3 组试点进入稳定期</tspan></text><text x="764" y="1551" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
+<rect x="783" y="1451" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="807" y="1497" font-size="24" fill="#111827" font-weight="700"><tspan x="807" dy="0">下一阶段建立统一复盘节奏</tspan></text>
+<text x="807" y="1533" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="807" dy="0">下一阶段建立统一复盘节奏</tspan></text><text x="1423" y="1551" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1423" dy="0">→</tspan></text>
+<rect x="1442" y="1451" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="1466" y="1497" font-size="24" fill="#111827" font-weight="700"><tspan x="1466" dy="0">连续四周核心指标改善</tspan></text>
+<text x="1466" y="1533" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1466" dy="0">连续四周核心指标改善</tspan></text>
+</g>
+</g>
+</svg>

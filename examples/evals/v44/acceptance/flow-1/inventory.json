@@ -1,0 +1,45 @@
+{
+  "inventoryId": "flow-1",
+  "title": "跨团队审批协作流程 1",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "p1",
+      "type": "process",
+      "text": "业务提交申请",
+      "importance": "high",
+      "order": 1,
+      "lane": "业务"
+    },
+    {
+      "id": "p2",
+      "type": "process",
+      "text": "系统校验材料",
+      "importance": "high",
+      "order": 2,
+      "lane": "系统"
+    },
+    {
+      "id": "p3",
+      "type": "process",
+      "text": "负责人审批判断",
+      "importance": "critical",
+      "order": 3,
+      "lane": "审批人"
+    },
+    {
+      "id": "p4",
+      "type": "process",
+      "text": "结果回传并归档",
+      "importance": "high",
+      "order": 4,
+      "lane": "系统"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "异常材料进入人工复核",
+      "importance": "high"
+    }
+  ]
+}

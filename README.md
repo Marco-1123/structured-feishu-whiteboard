@@ -20,6 +20,7 @@
 ## 发布通道
 
 - **稳定版**：`main`，版本 V4.3，适合正式使用。
+- **测试版**：`codex/v4.4-semantic-compiler`，版本 V4.4 Beta 1，用于跨 Agent 验证语义编译和差异化表达。
 - **关键历史版本**：`v0.1.0`、`v3.2.0`，用于回看初版和受控表达阶段。
 
 V4.3 将信息保全、候选路由、自适应密度布局、行级协调、语义组件和流程图质量门禁整合为默认稳定链路。
@@ -53,6 +54,14 @@ V4.3 将信息保全、候选路由、自适应密度布局、行级协调、语
 ```bash
 npx skills add Marco-1123/structured-feishu-whiteboard
 ```
+
+V4.4 Beta：
+
+```bash
+npx skills add Marco-1123/structured-feishu-whiteboard@codex/v4.4-semantic-compiler
+```
+
+V4.4 Beta 会先将材料编译为语义模型，再从多个受控表达候选中选择结构。它覆盖复盘汇报、策略方案、项目计划、研究决策、产品能力和流程协作六类场景；低置信度时保留候选并明确回退 V4.3。
 
 也可以手动复制本仓库到你的 Skills 目录。
 

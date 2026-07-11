@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-flow-1",
+  "inventoryId": "flow-1",
+  "scenario": {
+    "primary": "process-collaboration"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "p1",
+      "type": "input",
+      "text": "业务提交申请",
+      "importance": "high",
+      "sourceRef": "p1",
+      "confidence": "supported",
+      "actor": "业务",
+      "order": 1
+    },
+    {
+      "id": "p2",
+      "type": "action",
+      "text": "系统校验材料",
+      "importance": "high",
+      "sourceRef": "p2",
+      "confidence": "supported",
+      "actor": "系统",
+      "order": 2
+    },
+    {
+      "id": "p3",
+      "type": "constraint",
+      "text": "负责人审批判断",
+      "importance": "critical",
+      "sourceRef": "p3",
+      "confidence": "supported",
+      "actor": "审批人",
+      "order": 3
+    },
+    {
+      "id": "p4",
+      "type": "action",
+      "text": "结果回传并归档",
+      "importance": "high",
+      "sourceRef": "p4",
+      "confidence": "supported",
+      "actor": "系统",
+      "order": 4
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "异常材料进入人工复核",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [],
+  "readingLayers": {
+    "first": [
+      "p3"
+    ],
+    "second": [
+      "p1",
+      "p2",
+      "p4",
+      "r1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "r1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "process-collaboration",
+      "score": 23,
+      "evidence": {
+        "titleTerms": [
+          "流程",
+          "协作",
+          "审批"
+        ],
+        "factTypeHits": 2,
+        "laneBonus": 12,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "product-capability",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

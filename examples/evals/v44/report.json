@@ -2,10 +2,10 @@
   "summary": {
     "cases": 42,
     "scenarioAccuracy": 1,
-    "distinctNarratives": 5,
+    "distinctNarratives": 6,
     "distinctSkeletons": 5,
-    "distinctComponentMixes": 6,
-    "fallbackRate": 0.16666666666666666,
+    "distinctComponentMixes": 7,
+    "fallbackRate": 0.023809523809523808,
     "passed": true
   },
   "results": [
@@ -243,16 +243,17 @@
       "expectedScenario": "strategy-proposal",
       "actualScenario": "strategy-proposal",
       "scenarioMatch": true,
-      "narrativeType": "hierarchical",
-      "pageSkeleton": "centered-system",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "status-board",
         "narrative-chain",
-        "mini-roadmap"
+        "evidence-list",
+        "risk-list",
+        "action-list"
       ],
-      "confidence": "low",
-      "pipeline": "v4.3-fallback"
+      "confidence": "high",
+      "pipeline": "v4.4"
     },
     {
       "id": "strategy-2",
@@ -260,16 +261,17 @@
       "expectedScenario": "strategy-proposal",
       "actualScenario": "strategy-proposal",
       "scenarioMatch": true,
-      "narrativeType": "hierarchical",
-      "pageSkeleton": "centered-system",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "status-board",
         "narrative-chain",
-        "mini-roadmap"
+        "evidence-list",
+        "risk-list",
+        "action-list"
       ],
-      "confidence": "low",
-      "pipeline": "v4.3-fallback"
+      "confidence": "high",
+      "pipeline": "v4.4"
     },
     {
       "id": "strategy-3",
@@ -277,16 +279,17 @@
       "expectedScenario": "strategy-proposal",
       "actualScenario": "strategy-proposal",
       "scenarioMatch": true,
-      "narrativeType": "hierarchical",
-      "pageSkeleton": "centered-system",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "status-board",
         "narrative-chain",
-        "mini-roadmap"
+        "evidence-list",
+        "risk-list",
+        "action-list"
       ],
-      "confidence": "low",
-      "pipeline": "v4.3-fallback"
+      "confidence": "high",
+      "pipeline": "v4.4"
     },
     {
       "id": "strategy-4",
@@ -294,16 +297,17 @@
       "expectedScenario": "strategy-proposal",
       "actualScenario": "strategy-proposal",
       "scenarioMatch": true,
-      "narrativeType": "hierarchical",
-      "pageSkeleton": "centered-system",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "status-board",
         "narrative-chain",
-        "mini-roadmap"
+        "evidence-list",
+        "risk-list",
+        "action-list"
       ],
-      "confidence": "low",
-      "pipeline": "v4.3-fallback"
+      "confidence": "high",
+      "pipeline": "v4.4"
     },
     {
       "id": "strategy-5",
@@ -311,16 +315,17 @@
       "expectedScenario": "strategy-proposal",
       "actualScenario": "strategy-proposal",
       "scenarioMatch": true,
-      "narrativeType": "hierarchical",
-      "pageSkeleton": "centered-system",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "status-board",
         "narrative-chain",
-        "mini-roadmap"
+        "evidence-list",
+        "risk-list",
+        "action-list"
       ],
-      "confidence": "low",
-      "pipeline": "v4.3-fallback"
+      "confidence": "high",
+      "pipeline": "v4.4"
     },
     {
       "id": "plan-1",
@@ -681,13 +686,14 @@
       "expectedScenario": "strategy-proposal",
       "actualScenario": "strategy-proposal",
       "scenarioMatch": true,
-      "narrativeType": "hierarchical",
-      "pageSkeleton": "centered-system",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "status-board",
         "narrative-chain",
-        "mini-roadmap"
+        "evidence-list",
+        "risk-list",
+        "action-list"
       ],
       "confidence": "medium",
       "pipeline": "v4.4"
@@ -739,8 +745,8 @@
         "flow-edge",
         "lane"
       ],
-      "confidence": "low",
-      "pipeline": "v4.3-fallback"
+      "confidence": "medium",
+      "pipeline": "v4.4"
     }
   ]
 }

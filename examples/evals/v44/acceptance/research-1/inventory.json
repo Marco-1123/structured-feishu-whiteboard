@@ -1,0 +1,43 @@
+{
+  "inventoryId": "research-1",
+  "title": "方案调研与选型决策 1",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "方案 A 更适合作为长期底座",
+      "importance": "critical"
+    },
+    {
+      "id": "o1",
+      "type": "comparison",
+      "text": "方案 A 稳定性强但实施成本中等",
+      "importance": "high"
+    },
+    {
+      "id": "o2",
+      "type": "comparison",
+      "text": "方案 B 上线快但扩展性弱",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "真实试点验证了读取稳定性",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "迁移成本需要单独评估",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "补充两周压力测试",
+      "importance": "high"
+    }
+  ]
+}

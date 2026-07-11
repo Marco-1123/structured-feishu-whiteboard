@@ -1,0 +1,117 @@
+{
+  "pipelineVersion": "4.4",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "layout": "flow-canvas",
+  "style": "linear-system",
+  "flowMode": "swimlane-flow",
+  "lanes": [
+    {
+      "id": "lane-1",
+      "title": "业务"
+    },
+    {
+      "id": "lane-2",
+      "title": "系统"
+    },
+    {
+      "id": "lane-3",
+      "title": "审批人"
+    }
+  ],
+  "title": "跨团队审批协作流程 1",
+  "subtitle": "按输入、动作、判断和输出组织流程",
+  "summaryLabel": "流程判断",
+  "summary": "业务提交申请",
+  "flowNodes": [
+    {
+      "id": "node-1",
+      "title": "业务提交申请",
+      "body": [
+        "业务提交申请"
+      ],
+      "type": "start",
+      "step": 1,
+      "lane": "lane-1",
+      "status": "neutral",
+      "sourceFactIds": [
+        "p1"
+      ]
+    },
+    {
+      "id": "node-2",
+      "title": "系统校验材料",
+      "body": [
+        "系统校验材料"
+      ],
+      "type": "action",
+      "step": 2,
+      "lane": "lane-2",
+      "status": "neutral",
+      "sourceFactIds": [
+        "p2"
+      ]
+    },
+    {
+      "id": "node-3",
+      "title": "负责人审批判断",
+      "body": [
+        "负责人审批判断"
+      ],
+      "type": "decision",
+      "step": 3,
+      "lane": "lane-3",
+      "status": "risk",
+      "sourceFactIds": [
+        "p3"
+      ]
+    },
+    {
+      "id": "node-4",
+      "title": "结果回传并归档",
+      "body": [
+        "结果回传并归档"
+      ],
+      "type": "result",
+      "step": 4,
+      "lane": "lane-2",
+      "status": "neutral",
+      "sourceFactIds": [
+        "p4"
+      ]
+    }
+  ],
+  "flowEdges": [
+    {
+      "from": "node-1",
+      "to": "node-2",
+      "label": "进入下一步"
+    },
+    {
+      "from": "node-2",
+      "to": "node-3",
+      "label": "进入下一步"
+    },
+    {
+      "from": "node-3",
+      "to": "node-4",
+      "label": "进入下一步"
+    }
+  ],
+  "planning": {
+    "inventoryId": "flow-1",
+    "selectedFactIds": [
+      "p1",
+      "p2",
+      "p3",
+      "p4"
+    ],
+    "omittedFacts": [
+      {
+        "id": "r1",
+        "reason": "deferred-to-detail"
+      }
+    ],
+    "routeDecisionId": "semantic-flow-1-flow-driven"
+  }
+}

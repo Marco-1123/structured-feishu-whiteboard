@@ -1,0 +1,45 @@
+{
+  "inventoryId": "review-2",
+  "title": "项目阶段汇报：成果、问题与下一阶段规划",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "阶段主线整体达成，第 2 组试点进入稳定期",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "目标完成率 78%",
+      "importance": "high",
+      "value": "78%"
+    },
+    {
+      "id": "m2",
+      "type": "metric",
+      "text": "效率提升 10%",
+      "importance": "high",
+      "value": "+10%"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "跨团队数据口径仍需统一",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "下一阶段建立统一复盘节奏",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "连续四周核心指标改善",
+      "importance": "medium"
+    }
+  ]
+}

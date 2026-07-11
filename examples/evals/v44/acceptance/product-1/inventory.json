@@ -1,0 +1,43 @@
+{
+  "inventoryId": "product-1",
+  "title": "智能助手产品能力介绍 1",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "产品提供从输入到结论的完整能力",
+      "importance": "critical"
+    },
+    {
+      "id": "h1",
+      "type": "hierarchy",
+      "text": "数据接入与权限控制",
+      "importance": "high"
+    },
+    {
+      "id": "h2",
+      "type": "hierarchy",
+      "text": "智能分析与异常识别",
+      "importance": "high"
+    },
+    {
+      "id": "h3",
+      "type": "hierarchy",
+      "text": "报告生成与团队复用",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "已覆盖五类高频工作场景",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "下一步扩展团队协作能力",
+      "importance": "high"
+    }
+  ]
+}

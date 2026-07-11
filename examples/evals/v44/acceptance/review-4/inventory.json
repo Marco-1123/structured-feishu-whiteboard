@@ -1,0 +1,45 @@
+{
+  "inventoryId": "review-4",
+  "title": "季度复盘：成果、问题与下一阶段规划",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "阶段主线整体达成，第 4 组试点进入稳定期",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "目标完成率 80%",
+      "importance": "high",
+      "value": "80%"
+    },
+    {
+      "id": "m2",
+      "type": "metric",
+      "text": "效率提升 12%",
+      "importance": "high",
+      "value": "+12%"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "跨团队数据口径仍需统一",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "下一阶段建立统一复盘节奏",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "连续四周核心指标改善",
+      "importance": "medium"
+    }
+  ]
+}

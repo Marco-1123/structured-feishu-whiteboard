@@ -1,0 +1,30 @@
+<title>structured-feishu-whiteboard V4.4 Beta 验收</title>
+<p>V4.4 Beta 在 V4.3 稳定渲染链路之前新增语义编译层。它先识别材料任务，再规划叙事骨架和组件组合；目标是让不同类型的输入得到明显不同、但仍可复现的 onepage。</p>
+<callout emoji="✅" background-color="light-green" border-color="green">
+  <p><b>自动评测：</b>42 个固定样例，六类场景识别准确率 100%；形成 6 种叙事类型、5 种页面骨架和 7 种组件组合。低置信度不会伪装成确定结果，而是保留候选并明确回退 V4.3。</p>
+</callout>
+<h1>1. 复盘与阶段汇报</h1>
+<p>突出阶段结论、指标结果、风险、证据和下一阶段动作。该场景是 V4.4 的最高优先级。</p>
+<whiteboard type="svg" path="@examples/evals/v44/acceptance/review-1/whiteboard.svg"></whiteboard>
+<h1>2. 策略与方案</h1>
+<p>使用判断链路组织主张、依据、约束和验证动作，而不是套用复盘仪表盘。</p>
+<whiteboard type="svg" path="@examples/evals/v44/acceptance/strategy-1/whiteboard.svg"></whiteboard>
+<h1>3. 项目计划</h1>
+<p>围绕阶段、里程碑、依赖和交付形成时间结构。</p>
+<whiteboard type="svg" path="@examples/evals/v44/acceptance/plan-1/whiteboard.svg"></whiteboard>
+<h1>4. 研究与决策</h1>
+<p>把证据、方案差异、风险和待确认行动组织为决策结构。</p>
+<whiteboard type="svg" path="@examples/evals/v44/acceptance/research-1/whiteboard.svg"></whiteboard>
+<h1>5. 产品与能力介绍</h1>
+<p>突出能力层级、应用场景、证据和扩展方向。</p>
+<whiteboard type="svg" path="@examples/evals/v44/acceptance/product-1/whiteboard.svg"></whiteboard>
+<h1>6. 流程与协作</h1>
+<p>识别多角色有序节点后使用泳道流程，保留角色边界和节点连接。</p>
+<whiteboard type="svg" path="@examples/evals/v44/acceptance/flow-1/whiteboard.svg"></whiteboard>
+<h1>验收重点</h1>
+<ol>
+  <li seq="auto">六类材料的结构是否有明显差异，而不是同一模板换文案。</li>
+  <li seq="auto">第一层是否能快速读出核心判断，第二层是否保留证据和细节。</li>
+  <li seq="auto">是否存在不自然留白、组件比例失衡、文字截断或重复信息。</li>
+  <li seq="auto">低置信度时是否应该让用户选择候选，而不是直接回退。</li>
+</ol>

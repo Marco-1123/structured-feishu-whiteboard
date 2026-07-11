@@ -11,6 +11,8 @@ description: >
 
 把任意材料转成结构清晰、咨询汇报风格的飞书画板。这个 skill 的重点不是装饰文本，而是先完成信息筛选、观点组织、版式选择，再通过确定性渲染器生成可编辑画板。V4.3 是稳定版，包含信息清单、候选路由、能力注册、内容覆盖、自适应密度布局、行级协调、语义组件、流程图质量门禁和运行记录。
 
+当前分支是 V4.4 Beta。稳定版仍是 V4.3；只有明确安装测试分支时才启用语义编译链路。V4.4 先生成统一语义模型，再根据语义证据选择叙事骨架和组件组合，目标是让不同材料得到明显不同、但仍可控稳定的 onepage。
+
 ## 快速判断
 
 使用本 skill 时，按这个顺序工作：
@@ -37,6 +39,16 @@ description: >
 5. 保留 `run-manifest.json`；没有运行记录或关键事实覆盖不足时，不得声称 V4.3 生成成功。
 
 合法的引擎、版式、目标和风格组合以 `config/capabilities.json` 为准。禁止把不支持的风格静默替换为专业蓝白。
+
+## V4.4 Beta 语义编译链路
+
+仅当仓库版本为 `4.4.0-beta.*` 时使用：
+
+1. 先生成内容清单，再运行 `scripts/compile-semantic-model.mjs`，识别复盘汇报、策略方案、项目计划、研究决策、产品能力、流程协作六类场景。
+2. 运行 `scripts/plan-expression.mjs`，产出三个受控表达候选；不能让 Agent 直接决定坐标或手写 SVG。
+3. 运行 `scripts/compile-v44-brief.mjs` 完成置信度决策。高置信度自动选择；中置信度内部比较后选择并保留备选；低置信度保留候选并明确回退 V4.3。
+4. 正式生成使用 `scripts/run-whiteboard-v44.mjs`，保存语义模型、候选表达、决策、brief、SVG/PNG 和运行记录。
+5. 详细规则见 [`references/semantic-routing-v44.md`](references/semantic-routing-v44.md)。
 
 ## 默认输出
 

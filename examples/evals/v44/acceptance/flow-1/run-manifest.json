@@ -1,0 +1,27 @@
+{
+  "pipeline": "v4.4",
+  "status": "passed",
+  "startedAt": "2026-07-11T19:45:22.736Z",
+  "inputs": {
+    "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/inventory.json"
+  },
+  "checks": [
+    {
+      "name": "inventory-validation",
+      "status": "passed"
+    },
+    {
+      "name": "semantic-plan-render-layout",
+      "status": "passed"
+    }
+  ],
+  "outputs": {
+    "semanticModel": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/semantic-model.json",
+    "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/expression-plans.json",
+    "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/decision.json",
+    "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/brief.json",
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/whiteboard.svg",
+    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/whiteboard.png"
+  },
+  "finishedAt": "2026-07-11T19:45:29.218Z"
+}

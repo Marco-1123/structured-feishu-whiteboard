@@ -1,0 +1,37 @@
+{
+  "inventoryId": "strategy-1",
+  "title": "业务增长策略方案 1",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "建议从高价值场景切入",
+      "importance": "critical"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "重点客户需求集中在效率和稳定性",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "资源投入与回报周期存在不确定性",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "先完成小范围验证",
+      "importance": "high"
+    },
+    {
+      "id": "x1",
+      "type": "constraint",
+      "text": "预算和人力必须控制在现有范围",
+      "importance": "high"
+    }
+  ]
+}
