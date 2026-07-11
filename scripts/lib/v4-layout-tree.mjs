@@ -55,7 +55,8 @@ export function profileExpressionBlock(block = {}) {
       return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "sparse", itemLayout: "grid-2", reason: "short-parallel-items" };
     }
     if (demand.maxItemUnits <= 32 && demand.textUnits <= 190) {
-      return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout: "rows", reason: "moderate-parallel-items" };
+      const itemLayout = block.type === "risk-list" && demand.itemCount === 5 ? "grid-3" : "rows";
+      return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout, reason: itemLayout === "grid-3" ? "compact-risk-cluster" : "moderate-parallel-items" };
     }
     return { ...base, span: 8, minSpan: 6, preferredSpan: 8, maxSpan: 12, density: "medium", itemLayout: "grid-2", reason: "substantial-parallel-items" };
   }

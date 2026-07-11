@@ -63,7 +63,7 @@
 <circle cx="2048" cy="832" r="7" fill="#FFFFFF" stroke="#635BFF" stroke-width="4"/>
 <text x="2030" y="812" font-size="16" fill="#0A2540" font-weight="700"><tspan x="2030" dy="0">63%</tspan></text>
 <text x="2032" y="935" font-size="15" fill="#53657D" font-weight="700"><tspan x="2032" dy="0">W5</tspan></text>
-</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1005" data-width="988" data-height="316" data-column="left" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="56" data-item-count="4" data-item-layout="grid-2" data-layout-reason="compact-status-items">
+</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1005" data-width="988" data-height="316" data-column="left" data-component-variant="status-grid" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="56" data-item-count="4" data-item-layout="grid-2" data-layout-reason="compact-status-items">
 <rect x="96" y="1005" width="988" height="316" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
 <text x="124" y="1053" font-size="26" fill="#0A2540" font-weight="700"><tspan x="124" dy="0">状态看板</tspan></text>
 <text x="124" y="1085" font-size="18" fill="#53657D" font-weight="500"><tspan x="124" dy="0">同组状态只按语义上色</tspan></text>
@@ -87,25 +87,29 @@
 <text x="634" y="1238" font-size="17" fill="#0A2540" font-weight="700"><tspan x="634" dy="0">行动节奏</tspan></text>
 <text x="962" y="1238" font-size="16" fill="#00A88F" font-weight="700"><tspan x="962" dy="0">正常</tspan></text>
 <text x="634" y="1267" font-size="15" fill="#53657D" font-weight="500"><tspan x="634" dy="0">周会固定</tspan></text>
-</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1005" data-width="988" data-height="268" data-column="right" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="41" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
-<rect x="1116" y="1005" width="988" height="268" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
+</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1005" data-width="988" data-height="284" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="41" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
+<rect x="1116" y="1005" width="988" height="284" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
 <text x="1144" y="1053" font-size="26" fill="#0A2540" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
 <text x="1144" y="1085" font-size="18" fill="#53657D" font-weight="500"><tspan x="1144" dy="0">两周内形成可复用经营节奏</tspan></text>
-<rect x="1144" y="1109" width="459" height="46" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-list-row="下一步行动-0" data-has-note="false"/>
-<rect x="1144" y="1109" width="8" height="46" rx="4" fill="#635BFF" stroke="#635BFF" stroke-width="1"/>
-<text x="1166" y="1139" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1166" dy="0">补齐漏斗口径</tspan></text>
+<rect x="1144" y="1109" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="1171" cy="1136" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1167" y="1142" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
+<text x="1196" y="1140" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1196" dy="0">补齐漏斗口径</tspan></text>
 
-<rect x="1617" y="1109" width="459" height="46" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-list-row="下一步行动-1" data-has-note="false"/>
-<rect x="1617" y="1109" width="8" height="46" rx="4" fill="#635BFF" stroke="#635BFF" stroke-width="1"/>
-<text x="1639" y="1139" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1639" dy="0">建立风险分层</tspan></text>
+<rect x="1617" y="1109" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="1644" cy="1136" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1640" y="1142" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1640" dy="0">2</tspan></text>
+<text x="1669" y="1140" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1669" dy="0">建立风险分层</tspan></text>
 
-<rect x="1144" y="1181" width="459" height="46" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-list-row="下一步行动-2" data-has-note="false"/>
-<rect x="1144" y="1181" width="8" height="46" rx="4" fill="#635BFF" stroke="#635BFF" stroke-width="1"/>
-<text x="1166" y="1211" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1166" dy="0">固定复盘模板</tspan></text>
+<rect x="1144" y="1189" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="2"/>
+<circle cx="1171" cy="1216" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1167" y="1222" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1167" dy="0">3</tspan></text>
+<text x="1196" y="1220" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1196" dy="0">固定复盘模板</tspan></text>
 
-<rect x="1617" y="1181" width="459" height="46" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-list-row="下一步行动-3" data-has-note="false"/>
-<rect x="1617" y="1181" width="8" height="46" rx="4" fill="#635BFF" stroke="#635BFF" stroke-width="1"/>
-<text x="1639" y="1211" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1639" dy="0">输出试点报告</tspan></text>
+<rect x="1617" y="1189" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="3"/>
+<circle cx="1644" cy="1216" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1640" y="1222" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1640" dy="0">4</tspan></text>
+<text x="1669" y="1220" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1669" dy="0">输出试点报告</tspan></text>
 
 </g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1361" data-width="2008" data-height="74" data-column="full">
 <rect x="96" y="1361" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.3"/>

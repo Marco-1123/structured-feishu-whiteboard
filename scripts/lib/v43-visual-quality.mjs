@@ -33,7 +33,7 @@ export function inspectV43VisualQuality(svg) {
       w: number(a["data-width"]),
       h: number(a["data-height"]),
       span: number(a["data-span"]),
-      row: number(a["data-row"]),
+      row: a["data-row"] === undefined ? Number.NaN : number(a["data-row"]),
       density: a["data-density"] || "",
       preferredWidth: number(a["data-preferred-width"]),
       textUnits: number(a["data-text-units"]),
@@ -51,6 +51,22 @@ export function inspectV43VisualQuality(svg) {
     for (let j = i + 1; j < blocks.length; j += 1) {
       if (overlaps(blocks[i], blocks[j])) issues.push(`Top-level blocks overlap: ${blocks[i].id} and ${blocks[j].id}`);
     }
+  }
+
+  const rows = new Map();
+  for (const block of blocks) {
+    if (!Number.isFinite(block.row) || block.span === 12 || block.row < 0) continue;
+    const rowBlocks = rows.get(block.row) || [];
+    rowBlocks.push(block);
+    rows.set(block.row, rowBlocks);
+  }
+  let maxRowHeightDelta = 0;
+  for (const [row, rowBlocks] of rows) {
+    if (rowBlocks.length < 2) continue;
+    const heights = rowBlocks.map((block) => block.h);
+    const delta = Math.max(...heights) - Math.min(...heights);
+    maxRowHeightDelta = Math.max(maxRowHeightDelta, delta);
+    if (delta > 32) issues.push(`Row harmony failure in row ${row}: height delta ${delta}`);
   }
 
   const directionalTypes = new Set(["narrative-chain", "mini-roadmap", "variance-bridge-v2", "trend-sparkline", "flow"]);
@@ -113,6 +129,7 @@ export function inspectV43VisualQuality(svg) {
       occupiedRatio,
       sparseFullWidthCount: blocks.filter(sparseFullWidth).length,
       blockCount: blocks.length,
+      maxRowHeightDelta,
     },
   };
 }

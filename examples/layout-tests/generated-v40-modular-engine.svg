@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2351" viewBox="0 0 2200 2351" data-layout-engine="v4" data-expression-mode="modular-canvas">
-<rect x="0" y="0" width="2200" height="2351" rx="0" fill="#F5F5F7" stroke="#F5F5F7" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2375" viewBox="0 0 2200 2375" data-layout-engine="v4" data-expression-mode="modular-canvas">
+<rect x="0" y="0" width="2200" height="2375" rx="0" fill="#F5F5F7" stroke="#F5F5F7" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
 <text x="96" y="86" font-size="46" fill="#1D1D1F" font-weight="700"><tspan x="96" dy="0">V4 长文混合画布</tspan></text>
@@ -45,7 +45,7 @@
 <rect x="1438" y="1097" width="637" height="116" rx="12" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <text x="1458" y="1133" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1458" dy="0">布局检查</tspan></text>
 <text x="1458" y="1161" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1458" dy="0">自动验证边界</tspan></text>
-</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1287" data-width="648" data-height="220" data-column="left" data-row="2" data-span="4" data-density="sparse" data-preferred-width="648" data-text-units="37" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-status-items">
+</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1287" data-width="648" data-height="220" data-column="left" data-component-variant="status-grid" data-row="2" data-span="4" data-density="sparse" data-preferred-width="648" data-text-units="37" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-status-items">
 <rect x="96" y="1287" width="648" height="220" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="124" y="1335" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">模块状态</tspan></text>
 <text x="124" y="1367" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">同组颜色只表达状态语义</tspan></text>
@@ -84,46 +84,50 @@
 <text x="1618" y="1727" font-size="22" fill="#1D1D1F" font-weight="700"><tspan x="1618" dy="0">94</tspan></text>
 <text x="1618" y="1761" font-size="15" fill="#6E6E73" font-weight="500"><tspan x="1618" dy="0">结构信息</tspan></text>
 <text x="1618" y="1817" font-size="16" fill="#1D1D1F" font-weight="700"><tspan x="1618" dy="0">输出</tspan></text>
-</g><g data-v43-block="risk-list-5" data-block-type="risk-list" data-x="96" data-y="1853" data-width="648" data-height="312" data-column="left" data-row="4" data-span="4" data-density="sparse" data-preferred-width="648" data-text-units="25" data-item-count="3" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
-<rect x="96" y="1853" width="648" height="312" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+</g><g data-v43-block="risk-list-5" data-block-type="risk-list" data-x="96" data-y="1853" data-width="648" data-height="336" data-column="left" data-component-variant="risk-cluster" data-row="4" data-span="4" data-density="sparse" data-preferred-width="648" data-text-units="25" data-item-count="3" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
+<rect x="96" y="1853" width="648" height="336" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="124" y="1901" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="124" dy="0">控制风险</tspan></text>
 <text x="124" y="1933" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="124" dy="0">灵活度不能变成发散</tspan></text>
-<rect x="124" y="1957" width="592" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-0" data-has-note="false"/>
-<rect x="124" y="1957" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="146" y="1987" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">模块过多</tspan></text>
+<rect x="124" y="1957" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2" data-v4-risk-item="0"/>
+<circle cx="150" cy="1984" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="168" y="1989" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="168" dy="0">模块过多</tspan></text>
 
-<rect x="124" y="2015" width="592" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-1" data-has-note="false"/>
-<rect x="124" y="2015" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="146" y="2045" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">关系误判</tspan></text>
+<rect x="124" y="2023" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2" data-v4-risk-item="1"/>
+<circle cx="150" cy="2050" r="7" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="168" y="2055" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="168" dy="0">关系误判</tspan></text>
 
-<rect x="124" y="2073" width="592" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="控制风险-2" data-has-note="false"/>
-<rect x="124" y="2073" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="146" y="2103" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="146" dy="0">信息堆叠</tspan></text>
+<rect x="124" y="2089" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2" data-v4-risk-item="2"/>
+<circle cx="150" cy="2116" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="168" y="2121" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="168" dy="0">信息堆叠</tspan></text>
 
-</g><g data-v43-block="action-list-6" data-block-type="action-list" data-x="776" data-y="1853" data-width="988" data-height="268" data-column="grid" data-row="4" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="33" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
-<rect x="776" y="1853" width="988" height="268" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
+</g><g data-v43-block="action-list-6" data-block-type="action-list" data-x="776" data-y="1853" data-width="988" data-height="284" data-column="grid" data-component-variant="action-checklist" data-row="4" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="33" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
+<rect x="776" y="1853" width="988" height="284" rx="16" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="804" y="1901" font-size="26" fill="#1D1D1F" font-weight="700"><tspan x="804" dy="0">近期动作</tspan></text>
 <text x="804" y="1933" font-size="18" fill="#6E6E73" font-weight="500"><tspan x="804" dy="0">用样例回归验证</tspan></text>
-<rect x="804" y="1957" width="459" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-0" data-has-note="false"/>
-<rect x="804" y="1957" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="826" y="1987" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="826" dy="0">补充三类样例</tspan></text>
+<rect x="804" y="1957" width="459" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="831" cy="1984" r="13" fill="#E8F2FF" stroke="#007AFF" stroke-width="1"/>
+<text x="827" y="1990" font-size="13" fill="#007AFF" font-weight="700"><tspan x="827" dy="0">1</tspan></text>
+<text x="856" y="1988" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="856" dy="0">补充三类样例</tspan></text>
 
-<rect x="1277" y="1957" width="459" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-1" data-has-note="false"/>
-<rect x="1277" y="1957" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1299" y="1987" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1299" dy="0">跑布局检查</tspan></text>
+<rect x="1277" y="1957" width="459" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="1304" cy="1984" r="13" fill="#E8F2FF" stroke="#007AFF" stroke-width="1"/>
+<text x="1300" y="1990" font-size="13" fill="#007AFF" font-weight="700"><tspan x="1300" dy="0">2</tspan></text>
+<text x="1329" y="1988" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1329" dy="0">跑布局检查</tspan></text>
 
-<rect x="804" y="2029" width="459" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-2" data-has-note="false"/>
-<rect x="804" y="2029" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="826" y="2059" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="826" dy="0">飞书侧预览</tspan></text>
+<rect x="804" y="2037" width="459" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-action-item="2"/>
+<circle cx="831" cy="2064" r="13" fill="#E8F2FF" stroke="#007AFF" stroke-width="1"/>
+<text x="827" y="2070" font-size="13" fill="#007AFF" font-weight="700"><tspan x="827" dy="0">3</tspan></text>
+<text x="856" y="2068" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="856" dy="0">飞书侧预览</tspan></text>
 
-<rect x="1277" y="2029" width="459" height="46" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-list-row="近期动作-3" data-has-note="false"/>
-<rect x="1277" y="2029" width="8" height="46" rx="4" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1299" y="2059" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1299" dy="0">决定推广范围</tspan></text>
+<rect x="1277" y="2037" width="459" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1" data-v4-action-item="3"/>
+<circle cx="1304" cy="2064" r="13" fill="#E8F2FF" stroke="#007AFF" stroke-width="1"/>
+<text x="1300" y="2070" font-size="13" fill="#007AFF" font-weight="700"><tspan x="1300" dy="0">4</tspan></text>
+<text x="1329" y="2068" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1329" dy="0">决定推广范围</tspan></text>
 
-</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="2205" data-width="2008" data-height="74" data-column="full">
-<rect x="96" y="2205" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.3"/>
-<rect x="96" y="2205" width="10" height="74" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="132" y="2251" font-size="20" fill="#1D1D1F" font-weight="700"><tspan x="132" dy="0">V4 试点：验证混合长文能用组件树扩展，而不是手写坐标。</tspan></text>
+</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="2229" data-width="2008" data-height="74" data-column="full">
+<rect x="96" y="2229" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.3"/>
+<rect x="96" y="2229" width="10" height="74" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
+<text x="132" y="2275" font-size="20" fill="#1D1D1F" font-weight="700"><tspan x="132" dy="0">V4 试点：验证混合长文能用组件树扩展，而不是手写坐标。</tspan></text>
 </g>
 </g>
 </svg>

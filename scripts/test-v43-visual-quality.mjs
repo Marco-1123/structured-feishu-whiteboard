@@ -48,4 +48,13 @@ const sparseStack = inspectV43VisualQuality(`<svg width="1000" height="900" view
 assert.equal(sparseStack.ok, false);
 assert.match(sparseStack.issues.join(" "), /sparse full-width/i);
 
+const rowVoid = inspectV43VisualQuality(`<svg width="1000" height="760" viewBox="0 0 1000 760" data-layout-engine="v4">
+  <g data-v43-block="status" data-block-type="status-board" data-x="50" data-y="80" data-width="430" data-height="310" data-column="left" data-row="0" data-span="6"></g>
+  <g data-v43-block="risk" data-block-type="risk-list" data-x="520" data-y="80" data-width="430" data-height="180" data-column="right" data-row="0" data-span="6"></g>
+  <g data-v43-block="evidence" data-block-type="evidence-list" data-x="50" data-y="430" data-width="430" data-height="220" data-column="left" data-row="1" data-span="6"></g>
+  <g data-v43-block="action" data-block-type="action-list" data-x="520" data-y="430" data-width="430" data-height="220" data-column="right" data-row="1" data-span="6"></g>
+</svg>`);
+assert.equal(rowVoid.ok, false);
+assert.match(rowVoid.issues.join(" "), /row harmony/i);
+
 console.log("ok: V4.3 visual quality tests passed");
