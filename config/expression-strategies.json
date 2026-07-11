@@ -1,0 +1,12 @@
+{
+  "version": "4.4.0-beta.1",
+  "confidence": { "highScore": 78, "highMargin": 10, "mediumScore": 58, "mediumMargin": 4 },
+  "archetypes": {
+    "review-update": ["result-driven", "causal", "temporal"],
+    "strategy-proposal": ["hierarchical", "comparison-driven", "temporal"],
+    "project-plan": ["temporal", "flow-driven", "hierarchical"],
+    "research-decision": ["comparison-driven", "problem-driven", "causal"],
+    "product-capability": ["hierarchical", "flow-driven", "comparison-driven"],
+    "process-collaboration": ["flow-driven", "temporal", "hierarchical"]
+  }
+}
