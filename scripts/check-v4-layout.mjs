@@ -70,6 +70,49 @@ if (/<(?:linearGradient|radialGradient|filter|clipPath|mask|polygon)\b|opacity=|
   issues.push("V4 output contains forbidden SVG features");
 }
 
+if (svg.includes('data-expression-mode=')) {
+  const rows = new Map();
+  for (const [, raw] of svg.matchAll(/<g\b([^>]*data-row="[^"]+"[^>]*)>/g)) {
+    const a = attrs(raw);
+    const row = a["data-row"];
+    if (!rows.has(row)) rows.set(row, []);
+    rows.get(row).push({ span: num(a["data-span"]), alignment: a["data-row-alignment"] || "filled", offset: num(a["data-offset-span"]), height: num(a["data-height"]) });
+  }
+  for (const [row, entries] of rows) {
+    const used = entries.reduce((sum, entry) => sum + entry.span, 0);
+    const alignments = new Set(entries.map((entry) => entry.alignment));
+    if (alignments.size !== 1) issues.push(`expression row ${row} mixes alignment policies`);
+    const alignment = entries[0]?.alignment;
+    if (alignment === "filled" && used !== 12) issues.push(`expression row ${row} leaves an unintended ${12 - used}-column hole`);
+    if (alignment === "centered" && (entries.length !== 1 || entries[0].offset * 2 + used !== 12)) issues.push(`expression row ${row} is not symmetrically centered`);
+    if (entries.length > 1 && new Set(entries.map((entry) => entry.height)).size !== 1) issues.push(`expression row ${row} has uneven card heights`);
+  }
+
+  const outerRows = new Map();
+  for (const [, raw, body] of svg.matchAll(/<g\b([^>]*data-row="[^"]+"[^>]*)>([\s\S]*?)<\/g>/g)) {
+    const group = attrs(raw);
+    const outer = body.match(/<rect\b([^>]*data-v4-block-card="true"[^>]*)\/>/);
+    if (!outer) continue;
+    const row = group["data-row"];
+    if (!outerRows.has(row)) outerRows.set(row, []);
+    outerRows.get(row).push(num(attrs(outer[1]).height));
+  }
+  for (const [row, heights] of outerRows) {
+    if (heights.length > 1 && new Set(heights).size !== 1) issues.push(`expression row ${row} renders uneven outer card heights`);
+  }
+}
+
+const metricRows = new Map();
+for (const [, raw] of svg.matchAll(/<rect\b([^>]*data-metric-card="true"[^>]*)\/>/g)) {
+  const a = attrs(raw);
+  const row = a["data-metric-row"] || "0";
+  if (!metricRows.has(row)) metricRows.set(row, []);
+  metricRows.get(row).push(num(a.height));
+}
+for (const [row, heights] of metricRows) {
+  if (heights.length > 1 && new Set(heights).size !== 1) issues.push(`metric row ${row} renders uneven card heights`);
+}
+
 const riskTones = new Set(["#7A5A46", "#8A5A44", "#A16207"]);
 for (const [, raw] of svg.matchAll(/<rect\b([^>]*)\/>/g)) {
   const a = attrs(raw);

@@ -26,7 +26,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "智能助手产品能力介绍 1",
-    "subtitle": "product-capability · hierarchical",
+    "subtitle": "能力层级、应用场景与扩展方向",
     "summaryLabel": "核心判断",
     "summary": "产品提供从输入到结论的完整能力",
     "expressionMode": "modular-canvas",
@@ -47,18 +47,18 @@
         "note": "数据接入与权限控制；智能分析与异常识别；报告生成与团队…",
         "items": [
           {
-            "label": "数据接入与权…",
-            "note": "数据接入与权限…",
+            "label": "数据接入与权限控制",
+            "note": "数据接入与权限控制",
             "status": "good"
           },
           {
-            "label": "智能分析与异…",
-            "note": "智能分析与异常…",
+            "label": "智能分析与异常识别",
+            "note": "智能分析与异常识别",
             "status": "good"
           },
           {
-            "label": "报告生成与团…",
-            "note": "报告生成与团队…",
+            "label": "报告生成与团队复用",
+            "note": "报告生成与团队复用",
             "status": "good"
           }
         ],

@@ -32,6 +32,8 @@ assert.equal(compiled.brief.engine, "v4");
 assert.equal(compiled.decision.level, "high");
 assert.deepEqual(compiled.brief.planning.selectedFactIds.sort(), semanticModel.facts.map((fact) => fact.id).sort());
 assert.ok(compiled.brief.expressionBlocks.some((block) => block.type === "metric-card"));
+assert.equal(compiled.brief.subtitle, "阶段结果、关键问题与下一阶段行动");
+assert.ok(!compiled.brief.subtitle.includes("review-update"), "internal routing ids must not leak into the board");
 
 const low = compileV44Brief({ semanticModel, planningResult: { candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }, style: "linear-system", title: "混合材料" });
 assert.equal(low.decision.level, "low");

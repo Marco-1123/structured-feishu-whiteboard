@@ -184,7 +184,7 @@ function measureLines(value, width, size, maxLines = 4, lineHeight = Math.round(
 
 function blockCard(x, y, w, h, title, note = "") {
   const noteLines = splitText(note, w - 56, 18, 2);
-  return `${rect(x, y, w, h)}
+  return `${rect(x, y, w, h, c.surface, c.border, 1.5, 16, ' data-v4-block-card="true"')}
 ${text(x + 28, y + 48, 26, c.ink, [title], "800")}
 ${noteLines.length ? text(x + 28, y + 80, 18, c.secondary, noteLines, "500", 25) : ""}`;
 }
@@ -241,15 +241,15 @@ ${text(x + 42, y + 98, 31, c.ink, body.lines, "800", 43)}`,
   };
 }
 
-function metricCard(block, x, y, w) {
+function metricCard(block, x, y, w, targetHeight = 0, metricRow = 0) {
   const note = measureLines(block.note || "", w - 52, 17, 2, 24);
   const hasChip = Boolean(block.label);
-  const h = Math.max(172, 124 + note.height + (hasChip ? 54 : 18));
+  const h = Math.max(172, 124 + note.height + (hasChip ? 54 : 18), targetHeight);
   const chip = hasChip ? `${rect(x + 26, y + h - 48, 118, 32, c.muted, c.border, 1, 8)}
 ${text(x + 46, y + h - 27, 16, tone(block.status), [block.label], "800")}` : "";
   return {
     h,
-    body: `${rect(x, y, w, h, c.surface, c.border, 1.5, 16, ' data-tone-group="parallel-metrics"')}
+    body: `${rect(x, y, w, h, c.surface, c.border, 1.5, 16, ` data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="${metricRow}"`)}
 ${text(x + 26, y + 40, 18, c.secondary, [block.title], "800")}
 ${text(x + 26, y + 92, 42, c.accent, [block.value], "850")}
 ${note.lines.length ? text(x + 26, y + 124, 17, c.secondary, note.lines, "500", 24) : ""}
@@ -267,16 +267,17 @@ function metricsGroup(blocks, x, y, w) {
   cards.forEach((card, i) => {
     const col = i % cols;
     const row = Math.floor(i / cols);
-    body += metricCard(blocks[i], x + col * (cardW + gap), y + row * (h + gap), cardW).body;
+    body += metricCard(blocks[i], x + col * (cardW + gap), y + row * (h + gap), cardW, h, row).body;
   });
   return { h: Math.ceil(blocks.length / cols) * h + Math.max(0, Math.ceil(blocks.length / cols) - 1) * gap, body };
 }
 
-function progressGroup(block, x, y, w) {
+function progressGroup(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 5);
   const titleH = block.note ? 84 : 58;
   const rowH = 54;
-  const h = titleH + items.length * rowH + 34;
+  const naturalH = titleH + items.length * rowH + 34;
+  const h = Math.max(naturalH, profile.targetHeight || 0);
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const rowY = y + titleH + index * rowH + 6;
@@ -294,9 +295,9 @@ ${text(trackX + trackW + 18, rowY + 25, 16, c.secondary, [item.value], "800")}`;
   return { h, body };
 }
 
-function trendSparkline(block, x, y, w) {
+function trendSparkline(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 6);
-  const h = 300;
+  const h = Math.max(300, profile.targetHeight || 0);
   const chartX = x + 56;
   const chartY = y + 118;
   const chartW = w - 112;
@@ -323,20 +324,22 @@ ${text(point.x - 16, chartY + chartH + 34, 15, c.secondary, [point.label], "700"
   return { h, body };
 }
 
-function statusBoard(block, x, y, w) {
+function statusBoard(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 6);
-  const cols = items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
+  const cols = profile.assignedSpan <= 4 ? 1 : items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
   const gap = 16;
   const itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
   const itemH = 82;
   const rows = Math.ceil(items.length / cols);
-  const h = 112 + rows * itemH + Math.max(0, rows - 1) * 14 + 26;
+  const naturalH = 112 + rows * itemH + Math.max(0, rows - 1) * 14 + 26;
+  const h = Math.max(naturalH, profile.targetHeight || 0);
+  const contentOffset = Math.max(0, Math.floor((h - naturalH) / 2));
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const col = index % cols;
     const row = Math.floor(index / cols);
     const ix = x + 28 + col * (itemW + gap);
-    const iy = y + 106 + row * (itemH + 14);
+    const iy = y + 106 + contentOffset + row * (itemH + 14);
     const t = tone(item.status);
     body += `
 ${rect(ix, iy, itemW, itemH, c.surface, c.border, 1.2, 12)}
@@ -351,7 +354,8 @@ ${item.note ? text(ix + 36, iy + 61, cols >= 3 ? 15 : 16, c.secondary, splitText
 function listGeometry(block, w, profile) {
   const items = (block.items || []).slice(0, 5);
   const withNotes = items.some((item) => item.note);
-  const cols = profile.itemLayout === "grid-3" ? 3 : profile.itemLayout === "grid-2" ? 2 : 1;
+  const requestedCols = profile.itemLayout === "grid-3" ? 3 : profile.itemLayout === "grid-2" ? 2 : 1;
+  const cols = profile.assignedSpan <= 4 ? 1 : requestedCols;
   const rows = Math.ceil(items.length / cols);
   const itemGap = cols > 1 ? 14 : 0;
   const itemW = Math.floor((w - 56 - itemGap * (cols - 1)) / cols);
@@ -363,13 +367,15 @@ function listGeometry(block, w, profile) {
 
 function riskCluster(block, x, y, w, profile = profileExpressionBlock(block)) {
   const geometry = listGeometry(block, w, profile);
-  const { items, cols, itemGap, itemW, itemH, rowGap, h } = geometry;
+  const { items, cols, itemGap, itemW, itemH, rowGap } = geometry;
+  const h = Math.max(geometry.h, profile.targetHeight || 0);
+  const contentOffset = Math.max(0, Math.floor((h - geometry.h) / 2));
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const col = index % cols;
     const row = Math.floor(index / cols);
     const ix = x + 28 + col * (itemW + itemGap);
-    const iy = y + 104 + row * (itemH + rowGap);
+    const iy = y + 104 + contentOffset + row * (itemH + rowGap);
     const t = tone(item.status || "risk");
     const labelLines = splitText(item.label, itemW - 62, 17, 1);
     const noteSize = cols >= 3 ? 15 : 16;
@@ -385,13 +391,15 @@ ${noteLines.length ? text(ix + 44, iy + 59, noteSize, c.secondary, noteLines, "5
 
 function evidenceTiles(block, x, y, w, profile = profileExpressionBlock(block)) {
   const geometry = listGeometry(block, w, profile);
-  const { items, cols, itemGap, itemW, itemH, rowGap, h } = geometry;
+  const { items, cols, itemGap, itemW, itemH, rowGap } = geometry;
+  const h = Math.max(geometry.h, profile.targetHeight || 0);
+  const contentOffset = Math.max(0, Math.floor((h - geometry.h) / 2));
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const col = index % cols;
     const row = Math.floor(index / cols);
     const ix = x + 28 + col * (itemW + itemGap);
-    const iy = y + 104 + row * (itemH + rowGap);
+    const iy = y + 104 + contentOffset + row * (itemH + rowGap);
     body += `
 ${rect(ix, iy, itemW, itemH - 12, c.surface, c.border, 1.2, 10, ` data-v4-evidence-item="${index}"`)}
 ${rect(ix + 16, iy + 17, 42, 34, c.soft, c.accent, 1, 9)}
@@ -404,13 +412,15 @@ ${item.note ? text(ix + 72, iy + 58, 16, c.secondary, splitText(item.note, itemW
 
 function actionChecklist(block, x, y, w, profile = profileExpressionBlock(block)) {
   const geometry = listGeometry(block, w, profile);
-  const { items, cols, itemGap, itemW, itemH, rowGap, h } = geometry;
+  const { items, cols, itemGap, itemW, itemH, rowGap } = geometry;
+  const h = Math.max(geometry.h, profile.targetHeight || 0);
+  const contentOffset = Math.max(0, Math.floor((h - geometry.h) / 2));
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const col = index % cols;
     const row = Math.floor(index / cols);
     const ix = x + 28 + col * (itemW + itemGap);
-    const iy = y + 104 + row * (itemH + rowGap);
+    const iy = y + 104 + contentOffset + row * (itemH + rowGap);
     body += `
 ${rect(ix, iy, itemW, itemH - 12, c.muted, c.border, 1, 10, ` data-v4-action-item="${index}"`)}
 <circle cx="${ix + 27}" cy="${iy + 27}" r="13" fill="${c.soft}" stroke="${c.accent}" stroke-width="1"/>
@@ -421,20 +431,22 @@ ${item.note ? text(ix + 52, iy + 58, 16, c.secondary, splitText(item.note, itemW
   return { h, body };
 }
 
-function narrativeChain(block, x, y, w) {
+function narrativeChain(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 5);
   const gap = 26;
   const itemW = Math.floor((w - 56 - gap * (items.length - 1)) / items.length);
   const itemH = 180;
-  const h = 118 + itemH + 36;
+  const h = Math.max(118 + itemH + 36, profile.targetHeight || 0);
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const ix = x + 28 + index * (itemW + gap);
     const iy = y + 110;
+    const labelLines = splitText(item.label, itemW - 48, 24, 2);
+    const noteY = iy + 82 + Math.max(0, labelLines.length - 1) * 30;
     body += `
 ${rect(ix, iy, itemW, itemH, c.surface, c.border, 1.4, 14)}
-${text(ix + 24, iy + 46, 24, c.ink, [item.label], "850")}
-${item.note ? text(ix + 24, iy + 82, 17, c.secondary, splitText(item.note, itemW - 48, 17, 3), "500", 25) : ""}`;
+${text(ix + 24, iy + 46, 24, c.ink, labelLines, "850", 30)}
+${item.note ? text(ix + 24, noteY, 17, c.secondary, splitText(item.note, itemW - 48, 17, labelLines.length > 1 ? 2 : 3), "500", 25) : ""}`;
     if (index < items.length - 1) {
       const ax = ix + itemW + 7;
       const ay = iy + itemH / 2;
@@ -444,11 +456,11 @@ ${item.note ? text(ix + 24, iy + 82, 17, c.secondary, splitText(item.note, itemW
   return { h, body };
 }
 
-function decisionMatrix(block, x, y, w) {
+function decisionMatrix(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 4);
   const headerH = 42;
   const rowH = 56;
-  const h = 112 + headerH + rowH * items.length + 28;
+  const h = Math.max(112 + headerH + rowH * items.length + 28, profile.targetHeight || 0);
   const tableX = x + 28;
   const tableY = y + 98;
   const tableW = w - 56;
@@ -469,16 +481,16 @@ ${text(tableX + tableW - 110, iy + 31, 16, t, [item.value || ""], "800")}`;
   return { h, body };
 }
 
-function miniRoadmap(block, x, y, w) {
+function miniRoadmap(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 5);
   const gap = 20;
   const cols = items.length >= 5 && w < 1600 ? 3 : items.length;
   const rows = Math.ceil(items.length / cols);
   const itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
   const itemH = 116;
-  const h = 118 + itemH + 36;
-  const totalH = 118 + rows * itemH + Math.max(0, rows - 1) * 28 + 36;
-  let body = blockCard(x, y, w, h, block.title, block.note);
+  const naturalH = 118 + rows * itemH + Math.max(0, rows - 1) * 28 + 36;
+  const totalH = Math.max(naturalH, profile.targetHeight || 0);
+  let body = blockCard(x, y, w, totalH, block.title, block.note);
   items.forEach((item, index) => {
     const col = index % cols;
     const row = Math.floor(index / cols);
@@ -490,13 +502,12 @@ ${text(ix + 20, iy + 36, 17, c.ink, [item.label], "800")}
 ${item.note ? text(ix + 20, iy + 64, 15, c.secondary, splitText(item.note, itemW - 40, 15, 2), "500", 21) : ""}`;
     if (index < items.length - 1 && col < cols - 1) body += `${text(ix + itemW + 3, iy + 66, 31, c.accent, ["→"], "700")}`;
   });
-  body = body.replace(`width="${w}" height="${h}"`, `width="${w}" height="${totalH}"`);
   return { h: totalH, body };
 }
 
-function varianceBridge(block, x, y, w) {
+function varianceBridge(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 6);
-  const h = 282;
+  const h = Math.max(282, profile.targetHeight || 0);
   const stageY = y + 154;
   const stageGap = 18;
   const stageW = Math.floor((w - 56 - stageGap * (items.length - 1)) / items.length);
@@ -518,16 +529,16 @@ ${text(ix + 18, stageY + 124, 16, c.ink, splitText(item.label, stageW - 36, 16, 
 }
 
 function blockRenderer(block, x, y, w, profile = profileExpressionBlock(block)) {
-  if (block.type === "progress-bar" || block.type === "ranked-bar") return progressGroup(block, x, y, w);
-  if (block.type === "trend-sparkline") return trendSparkline(block, x, y, w);
-  if (block.type === "status-board") return statusBoard(block, x, y, w);
+  if (block.type === "progress-bar" || block.type === "ranked-bar") return progressGroup(block, x, y, w, profile);
+  if (block.type === "trend-sparkline") return trendSparkline(block, x, y, w, profile);
+  if (block.type === "status-board") return statusBoard(block, x, y, w, profile);
   if (block.type === "risk-list") return riskCluster(block, x, y, w, profile);
   if (block.type === "action-list") return actionChecklist(block, x, y, w, profile);
   if (block.type === "evidence-list") return evidenceTiles(block, x, y, w, profile);
-  if (block.type === "narrative-chain") return narrativeChain(block, x, y, w);
-  if (block.type === "decision-matrix") return decisionMatrix(block, x, y, w);
-  if (block.type === "mini-roadmap") return miniRoadmap(block, x, y, w);
-  if (block.type === "variance-bridge-v2") return varianceBridge(block, x, y, w);
+  if (block.type === "narrative-chain") return narrativeChain(block, x, y, w, profile);
+  if (block.type === "decision-matrix") return decisionMatrix(block, x, y, w, profile);
+  if (block.type === "mini-roadmap") return miniRoadmap(block, x, y, w, profile);
+  if (block.type === "variance-bridge-v2") return varianceBridge(block, x, y, w, profile);
   return actionChecklist(block, x, y, w, profile);
 }
 
@@ -581,7 +592,7 @@ function markLayoutNode(node, body) {
     "action-list": "action-checklist",
   };
   const componentVariant = variants[node.type] ? ` data-component-variant="${variants[node.type]}"` : "";
-  const densityAttributes = profile ? ` data-row="${node.row}" data-span="${node.span}" data-density="${profile.density}" data-preferred-width="${node.preferredWidth}" data-text-units="${profile.textUnits}" data-item-count="${profile.itemCount}" data-item-layout="${profile.itemLayout}" data-layout-reason="${escapeXml(profile.reason)}"` : "";
+  const densityAttributes = profile ? ` data-row="${node.row}" data-span="${node.span}" data-row-alignment="${node.rowAlignment || "filled"}" data-offset-span="${node.offsetSpan || 0}" data-density="${profile.density}" data-preferred-width="${node.preferredWidth}" data-text-units="${profile.textUnits}" data-item-count="${profile.itemCount}" data-item-layout="${profile.itemLayout}" data-layout-reason="${escapeXml(profile.reason)}"` : "";
   return `<g data-v43-block="${escapeXml(node.id)}" data-block-type="${escapeXml(node.type)}" data-x="${node.x}" data-y="${node.y}" data-width="${node.width}" data-height="${node.height}" data-column="${node.column || "full"}"${componentVariant}${densityAttributes}>
 ${body}
 </g>`;

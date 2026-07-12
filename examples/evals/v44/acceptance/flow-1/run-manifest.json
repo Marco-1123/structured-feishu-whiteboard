@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-12T02:45:57.493Z",
+  "startedAt": "2026-07-12T04:05:15.420Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/inventory.json"
   },
@@ -46,5 +46,5 @@
     },
     "selectedPlanId": "semantic-flow-1-flow-driven"
   },
-  "finishedAt": "2026-07-12T02:46:07.314Z"
+  "finishedAt": "2026-07-12T04:05:23.589Z"
 }

@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "半年度总结：成果、问题与下一阶段规划",
-  "subtitle": "review-update · result-driven",
+  "subtitle": "阶段结果、关键问题与下一阶段行动",
   "summaryLabel": "核心判断",
   "summary": "阶段主线整体达成，第 3 组试点进入稳定期",
   "expressionMode": "modular-canvas",
@@ -51,11 +51,6 @@
           "label": "跨团队数据口径仍需统一",
           "note": "跨团队数据口径仍需统一",
           "status": "risk"
-        },
-        {
-          "label": "材料未提供第二项",
-          "note": "待补充",
-          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -71,11 +66,6 @@
           "label": "下一阶段建立统一复盘节奏",
           "note": "下一阶段建立统一复盘节奏",
           "status": "good"
-        },
-        {
-          "label": "材料未提供第二项",
-          "note": "待补充",
-          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -90,11 +80,6 @@
           "label": "连续四周核心指标改善",
           "note": "连续四周核心指标改善",
           "status": "good"
-        },
-        {
-          "label": "材料未提供第二项",
-          "note": "待补充",
-          "status": "neutral"
         }
       ],
       "sourceFactIds": [

@@ -26,7 +26,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "平台选型研究与迁移路线",
-    "subtitle": "research-decision · comparison-driven",
+    "subtitle": "证据、方案差异与决策建议",
     "summaryLabel": "核心判断",
     "summary": "选择开放架构方案",
     "expressionMode": "narrative-map",
@@ -50,11 +50,6 @@
             "label": "压测结果支持 A 方案",
             "note": "压测结果支持 A 方案",
             "status": "good"
-          },
-          {
-            "label": "材料未提供第二项",
-            "note": "待补充",
-            "status": "neutral"
           }
         ],
         "sourceFactIds": [
@@ -91,11 +86,6 @@
             "label": "迁移窗口有限",
             "note": "迁移窗口有限",
             "status": "risk"
-          },
-          {
-            "label": "材料未提供第二项",
-            "note": "待补充",
-            "status": "neutral"
           }
         ],
         "sourceFactIds": [
@@ -128,11 +118,6 @@
         "items": [
           {
             "label": "下一步待确认",
-            "note": "材料未提供",
-            "status": "neutral"
-          },
-          {
-            "label": "责任人待确认",
             "note": "材料未提供",
             "status": "neutral"
           }

@@ -10,24 +10,24 @@
 <text x="138" y="288" font-size="18" fill="#635BFF" font-weight="700"><tspan x="138" dy="0">经营判断</tspan></text>
 <text x="138" y="338" font-size="31" fill="#0A2540" font-weight="700"><tspan x="138" dy="0">主线没有失控，问题集中在口径和节奏。</tspan></text>
 </g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="434" data-width="2008" data-height="195" data-column="full">
-<rect x="96" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-tone-group="parallel-metrics"/>
+<rect x="96" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
 <text x="122" y="474" font-size="18" fill="#53657D" font-weight="700"><tspan x="122" dy="0">目标完成</tspan></text>
 <text x="122" y="526" font-size="42" fill="#635BFF" font-weight="700"><tspan x="122" dy="0">82%</tspan></text>
 <text x="122" y="558" font-size="17" fill="#53657D" font-weight="500"><tspan x="122" dy="0">按周推进</tspan></text>
 <rect x="122" y="581" width="118" height="32" rx="8" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1"/>
-<text x="142" y="602" font-size="16" fill="#00A88F" font-weight="700"><tspan x="142" dy="0">正常</tspan></text><rect x="773" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-tone-group="parallel-metrics"/>
+<text x="142" y="602" font-size="16" fill="#00A88F" font-weight="700"><tspan x="142" dy="0">正常</tspan></text><rect x="773" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
 <text x="799" y="474" font-size="18" fill="#53657D" font-weight="700"><tspan x="799" dy="0">效率提升</tspan></text>
 <text x="799" y="526" font-size="42" fill="#635BFF" font-weight="700"><tspan x="799" dy="0">+18%</tspan></text>
 <text x="799" y="558" font-size="17" fill="#53657D" font-weight="500"><tspan x="799" dy="0">试点有效</tspan></text>
 <rect x="799" y="581" width="118" height="32" rx="8" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1"/>
-<text x="819" y="602" font-size="16" fill="#00A88F" font-weight="700"><tspan x="819" dy="0">改善</tspan></text><rect x="1450" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-tone-group="parallel-metrics"/>
+<text x="819" y="602" font-size="16" fill="#00A88F" font-weight="700"><tspan x="819" dy="0">改善</tspan></text><rect x="1450" y="434" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
 <text x="1476" y="474" font-size="18" fill="#53657D" font-weight="700"><tspan x="1476" dy="0">待处理风险</tspan></text>
 <text x="1476" y="526" font-size="42" fill="#635BFF" font-weight="700"><tspan x="1476" dy="0">3</tspan></text>
 <text x="1476" y="558" font-size="17" fill="#53657D" font-weight="500"><tspan x="1476" dy="0">集中在数据</tspan></text>
 <rect x="1476" y="581" width="118" height="32" rx="8" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1"/>
 <text x="1496" y="602" font-size="16" fill="#7A5A46" font-weight="700"><tspan x="1496" dy="0">关注</tspan></text>
-</g><g data-v43-block="progress-bar-1" data-block-type="progress-bar" data-x="96" data-y="673" data-width="988" data-height="280" data-column="left" data-row="0" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="40" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-chart">
-<rect x="96" y="673" width="988" height="280" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
+</g><g data-v43-block="progress-bar-1" data-block-type="progress-bar" data-x="96" data-y="673" data-width="988" data-height="300" data-column="left" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="40" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-chart">
+<rect x="96" y="673" width="988" height="300" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="721" font-size="26" fill="#0A2540" font-weight="700"><tspan x="124" dy="0">关键进度</tspan></text>
 <text x="124" y="753" font-size="18" fill="#53657D" font-weight="500"><tspan x="124" dy="0">把目标、数据和闭环拆成独立进度</tspan></text>
 <text x="124" y="787" font-size="17" fill="#0A2540" font-weight="700"><tspan x="124" dy="0">目标对齐</tspan></text>
@@ -42,8 +42,8 @@
 <rect x="274" y="880" width="708" height="18" rx="9" fill="#E8EEF7" stroke="#E8EEF7" stroke-width="1"/>
 <rect x="274" y="880" width="411" height="18" rx="9" fill="#635BFF" stroke="#635BFF" stroke-width="1"/>
 <text x="1000" y="896" font-size="16" fill="#53657D" font-weight="700"><tspan x="1000" dy="0">58%</tspan></text>
-</g><g data-v43-block="trend-sparkline-2" data-block-type="trend-sparkline" data-x="1116" data-y="673" data-width="988" data-height="300" data-column="right" data-row="0" data-span="6" data-density="medium" data-preferred-width="988" data-text-units="43" data-item-count="5" data-item-layout="rows" data-layout-reason="compact-chart">
-<rect x="1116" y="673" width="988" height="300" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
+</g><g data-v43-block="trend-sparkline-2" data-block-type="trend-sparkline" data-x="1116" data-y="673" data-width="988" data-height="300" data-column="right" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="43" data-item-count="5" data-item-layout="rows" data-layout-reason="compact-chart">
+<rect x="1116" y="673" width="988" height="300" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="1144" y="721" font-size="26" fill="#0A2540" font-weight="700"><tspan x="1144" dy="0">周度改善趋势</tspan></text>
 <text x="1144" y="753" font-size="18" fill="#53657D" font-weight="500"><tspan x="1144" dy="0">看连续改善，不看单点波动</tspan></text>
 <line x1="1172" y1="901" x2="2048" y2="901" stroke="#D9E5F2" stroke-width="2"/>
@@ -63,8 +63,8 @@
 <circle cx="2048" cy="832" r="7" fill="#FFFFFF" stroke="#635BFF" stroke-width="4"/>
 <text x="2030" y="812" font-size="16" fill="#0A2540" font-weight="700"><tspan x="2030" dy="0">63%</tspan></text>
 <text x="2032" y="935" font-size="15" fill="#53657D" font-weight="700"><tspan x="2032" dy="0">W5</tspan></text>
-</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1005" data-width="988" data-height="316" data-column="left" data-component-variant="status-grid" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="56" data-item-count="4" data-item-layout="grid-2" data-layout-reason="compact-status-items">
-<rect x="96" y="1005" width="988" height="316" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
+</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="96" data-y="1005" data-width="988" data-height="316" data-column="left" data-component-variant="status-grid" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="56" data-item-count="4" data-item-layout="grid-2" data-layout-reason="compact-status-items">
+<rect x="96" y="1005" width="988" height="316" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="1053" font-size="26" fill="#0A2540" font-weight="700"><tspan x="124" dy="0">状态看板</tspan></text>
 <text x="124" y="1085" font-size="18" fill="#53657D" font-weight="500"><tspan x="124" dy="0">同组状态只按语义上色</tspan></text>
 <rect x="124" y="1111" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.2"/>
@@ -87,29 +87,29 @@
 <text x="634" y="1238" font-size="17" fill="#0A2540" font-weight="700"><tspan x="634" dy="0">行动节奏</tspan></text>
 <text x="962" y="1238" font-size="16" fill="#00A88F" font-weight="700"><tspan x="962" dy="0">正常</tspan></text>
 <text x="634" y="1268" font-size="16" fill="#53657D" font-weight="500"><tspan x="634" dy="0">周会固定</tspan></text>
-</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1005" data-width="988" data-height="284" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-density="sparse" data-preferred-width="988" data-text-units="41" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
-<rect x="1116" y="1005" width="988" height="284" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5"/>
+</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1005" data-width="988" data-height="316" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="41" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">
+<rect x="1116" y="1005" width="988" height="316" rx="16" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="1144" y="1053" font-size="26" fill="#0A2540" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
 <text x="1144" y="1085" font-size="18" fill="#53657D" font-weight="500"><tspan x="1144" dy="0">两周内形成可复用经营节奏</tspan></text>
-<rect x="1144" y="1109" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="1171" cy="1136" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
-<text x="1167" y="1142" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
-<text x="1196" y="1140" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1196" dy="0">补齐漏斗口径</tspan></text>
+<rect x="1144" y="1125" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="1171" cy="1152" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1167" y="1158" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
+<text x="1196" y="1156" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1196" dy="0">补齐漏斗口径</tspan></text>
 
-<rect x="1617" y="1109" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="1"/>
-<circle cx="1644" cy="1136" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
-<text x="1640" y="1142" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1640" dy="0">2</tspan></text>
-<text x="1669" y="1140" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1669" dy="0">建立风险分层</tspan></text>
+<rect x="1617" y="1125" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="1644" cy="1152" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1640" y="1158" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1640" dy="0">2</tspan></text>
+<text x="1669" y="1156" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1669" dy="0">建立风险分层</tspan></text>
 
-<rect x="1144" y="1189" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="2"/>
-<circle cx="1171" cy="1216" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
-<text x="1167" y="1222" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1167" dy="0">3</tspan></text>
-<text x="1196" y="1220" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1196" dy="0">固定复盘模板</tspan></text>
+<rect x="1144" y="1205" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="2"/>
+<circle cx="1171" cy="1232" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1167" y="1238" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1167" dy="0">3</tspan></text>
+<text x="1196" y="1236" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1196" dy="0">固定复盘模板</tspan></text>
 
-<rect x="1617" y="1189" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="3"/>
-<circle cx="1644" cy="1216" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
-<text x="1640" y="1222" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1640" dy="0">4</tspan></text>
-<text x="1669" y="1220" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1669" dy="0">输出试点报告</tspan></text>
+<rect x="1617" y="1205" width="459" height="54" rx="10" fill="#F0F6FF" stroke="#D9E5F2" stroke-width="1" data-v4-action-item="3"/>
+<circle cx="1644" cy="1232" r="13" fill="#EEF2FF" stroke="#635BFF" stroke-width="1"/>
+<text x="1640" y="1238" font-size="13" fill="#635BFF" font-weight="700"><tspan x="1640" dy="0">4</tspan></text>
+<text x="1669" y="1236" font-size="17" fill="#0A2540" font-weight="700"><tspan x="1669" dy="0">输出试点报告</tspan></text>
 
 </g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1361" data-width="2008" data-height="74" data-column="full">
 <rect x="96" y="1361" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D9E5F2" stroke-width="1.3"/>

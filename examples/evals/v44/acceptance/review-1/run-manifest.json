@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-11T19:44:49.313Z",
+  "startedAt": "2026-07-12T04:05:55.186Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/review-1/inventory.json"
   },
@@ -23,5 +23,28 @@
     "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/review-1/whiteboard.svg",
     "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/review-1/whiteboard.png"
   },
-  "finishedAt": "2026-07-11T19:44:56.218Z"
+  "coverage": {
+    "importantFacts": 5,
+    "missingImportantFacts": []
+  },
+  "decision": {
+    "scenario": {
+      "primary": "review-update"
+    },
+    "confidence": {
+      "level": "medium",
+      "topScore": 94,
+      "scoreMargin": 7,
+      "missingRequiredSignals": 0,
+      "unsupportedInferenceCount": 0,
+      "thresholds": {
+        "highScore": 78,
+        "highMargin": 10,
+        "mediumScore": 58,
+        "mediumMargin": 4
+      }
+    },
+    "selectedPlanId": "semantic-review-1-result-driven"
+  },
+  "finishedAt": "2026-07-12T04:06:03.150Z"
 }

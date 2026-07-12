@@ -56,7 +56,7 @@ export function profileExpressionBlock(block = {}) {
     }
     if (demand.maxItemUnits <= 32 && demand.textUnits <= 190) {
       const itemLayout = block.type === "risk-list" && demand.itemCount === 5 ? "grid-3" : "rows";
-      return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout, reason: itemLayout === "grid-3" ? "compact-risk-cluster" : "moderate-parallel-items" };
+      return { ...base, span: 6, minSpan: 4, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout, reason: itemLayout === "grid-3" ? "compact-risk-cluster" : "moderate-parallel-items" };
     }
     return { ...base, span: 8, minSpan: 6, preferredSpan: 8, maxSpan: 12, density: "medium", itemLayout: "grid-2", reason: "substantial-parallel-items" };
   }
@@ -97,56 +97,105 @@ export function buildAdaptiveExpressionLayout({
   measure,
   profile = profileExpressionBlock,
 }) {
-  const nodes = [];
-  let row = 0;
-  let rowY = startY;
-  let rowHeight = 0;
-  let usedSpan = 0;
-
-  const closeRow = () => {
-    if (usedSpan === 0) return;
-    rowY += rowHeight + gap;
-    row += 1;
-    rowHeight = 0;
-    usedSpan = 0;
+  const intents = blocks.map((block) => profile(block));
+  const allowed = (intent) => [4, 6, 8, 12].filter((span) => span >= intent.minSpan && span <= intent.maxSpan);
+  const canUse = (index, span) => index < blocks.length && allowed(intents[index]).includes(span);
+  const pair = (index) => {
+    if (index + 1 >= blocks.length) return null;
+    const candidates = [];
+    for (const left of allowed(intents[index])) {
+      for (const right of allowed(intents[index + 1])) {
+        if (left + right !== 12) continue;
+        const cost = Math.abs(left - intents[index].preferredSpan) + Math.abs(right - intents[index + 1].preferredSpan);
+        candidates.push({ spans: [left, right], cost });
+      }
+    }
+    return candidates.sort((a, b) => a.cost - b.cost || a.spans[0] - b.spans[0])[0]?.spans || null;
+  };
+  const compactRunLength = (index) => {
+    let length = 0;
+    while (index + length < blocks.length && canUse(index + length, 4)) length += 1;
+    return length;
   };
 
-  for (const [index, block] of blocks.entries()) {
-    const intent = profile(block);
-    const span = [4, 6, 8, 12].includes(intent.span) ? intent.span : 12;
-    if (usedSpan > 0 && usedSpan + span > 12) closeRow();
-    if (span === 12 && usedSpan > 0) closeRow();
+  const rowPlans = [];
+  for (let index = 0; index < blocks.length;) {
+    const currentAllowed = allowed(intents[index]);
+    if (currentAllowed.length === 1 && currentAllowed[0] === 12) {
+      rowPlans.push({ indexes: [index], spans: [12], alignment: "filled", offsetSpan: 0 });
+      index += 1;
+      continue;
+    }
 
-    const blockWidth = spanWidth(width, span, gap);
-    const blockX = x + usedSpan * ((width - gap * 11) / 12 + gap);
-    const measured = measure(block, blockWidth, intent);
-    const node = {
-      id: nodeId(block, index),
-      type: block.type,
-      x: Math.round(blockX),
-      y: Math.round(rowY),
-      width: Math.round(blockWidth),
-      height: measured.height,
-      children: [],
-      sourceBlockIndex: index,
-      column: span === 12 ? "full" : usedSpan === 0 ? "left" : usedSpan + span === 12 ? "right" : "grid",
-      row,
-      span,
-      preferredWidth: Math.round(spanWidth(width, intent.preferredSpan, gap)),
-      profile: intent,
-      block,
-    };
-    nodes.push(node);
-    usedSpan += span;
-    rowHeight = Math.max(rowHeight, node.height);
-    if (usedSpan === 12 || span === 12) closeRow();
+    const runLength = compactRunLength(index);
+    if (runLength >= 3 && runLength % 3 !== 1) {
+      rowPlans.push({ indexes: [index, index + 1, index + 2], spans: [4, 4, 4], alignment: "filled", offsetSpan: 0 });
+      index += 3;
+      continue;
+    }
+
+    const pairSpans = pair(index);
+    if (pairSpans) {
+      rowPlans.push({ indexes: [index, index + 1], spans: pairSpans, alignment: "filled", offsetSpan: 0 });
+      index += 2;
+      continue;
+    }
+
+    if (runLength >= 3) {
+      rowPlans.push({ indexes: [index, index + 1, index + 2], spans: [4, 4, 4], alignment: "filled", offsetSpan: 0 });
+      index += 3;
+      continue;
+    }
+
+    if (currentAllowed.includes(12)) {
+      rowPlans.push({ indexes: [index], spans: [12], alignment: "filled", offsetSpan: 0 });
+    } else {
+      const span = currentAllowed.at(-1);
+      rowPlans.push({ indexes: [index], spans: [span], alignment: "centered", offsetSpan: (12 - span) / 2 });
+    }
+    index += 1;
   }
-  closeRow();
+
+  const nodes = [];
+  const rows = [];
+  const unitWithGap = (width - gap * 11) / 12 + gap;
+  let rowY = startY;
+  rowPlans.forEach((rowPlan, row) => {
+    let usedSpan = rowPlan.offsetSpan;
+    const rowNodes = rowPlan.indexes.map((sourceIndex, position) => {
+      const block = blocks[sourceIndex];
+      const intent = intents[sourceIndex];
+      const span = rowPlan.spans[position];
+      const blockWidth = spanWidth(width, span, gap);
+      const blockX = x + usedSpan * unitWithGap;
+      const assignedProfile = { ...intent, assignedSpan: span };
+      const measured = measure(block, blockWidth, assignedProfile);
+      const node = {
+        id: nodeId(block, sourceIndex), type: block.type, x: Math.round(blockX), y: Math.round(rowY), width: Math.round(blockWidth), height: measured.height,
+        children: [], sourceBlockIndex: sourceIndex,
+        column: span === 12 ? "full" : rowPlan.alignment === "centered" ? "center" : usedSpan === 0 ? "left" : usedSpan + span === 12 ? "right" : "grid",
+        row, span, offsetSpan: rowPlan.offsetSpan, rowAlignment: rowPlan.alignment,
+        preferredWidth: Math.round(spanWidth(width, intent.preferredSpan, gap)), profile: assignedProfile, block,
+      };
+      usedSpan += span;
+      return node;
+    });
+    const rowHeight = Math.max(...rowNodes.map((node) => node.height));
+    rowNodes.forEach((node) => {
+      node.naturalHeight = node.height;
+      node.height = rowHeight;
+      node.profile = { ...node.profile, targetHeight: rowHeight };
+    });
+    nodes.push(...rowNodes);
+    rows.push({ row, usedSpan: rowPlan.spans.reduce((sum, span) => sum + span, 0), alignment: rowPlan.alignment, offsetSpan: rowPlan.offsetSpan, height: rowHeight, nodeIds: rowNodes.map((node) => node.id) });
+    rowY += rowHeight + gap;
+  });
 
   const bottom = nodes.length ? Math.max(...nodes.map((node) => node.y + node.height)) : startY;
   return {
     mode,
     nodes,
+    rows,
     height: Math.max(0, bottom - startY),
     rowCount: nodes.length ? Math.max(...nodes.map((node) => node.row)) + 1 : 0,
     contentBounds: { x, y: startY, width, height: Math.max(0, bottom - startY) },

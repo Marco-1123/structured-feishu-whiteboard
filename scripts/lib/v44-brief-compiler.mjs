@@ -59,7 +59,7 @@ function expressionBlock(region, facts) {
   const safeType = supported.has(type) ? type : "evidence-list";
   const items = regionFacts.slice(0, 5).map((fact) => {
     const result = item(fact);
-    if (safeType === "status-board") { result.label = clip(fact.text, 7); result.note = clip(fact.text, 8); }
+    if (safeType === "status-board") { result.label = clip(fact.text, 14); result.note = clip(fact.text, 24); }
     return result;
   });
   return { type: safeType, title: purposeTitle(region.purpose), note: clip(regionFacts.map((fact) => fact.text).join("；"), 28), items, sourceFactIds: region.factIds };
@@ -114,9 +114,29 @@ export function compileV44Brief({ semanticModel, planningResult, style = "linear
   const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
   return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], fallback: { version: "4.3", reason: "on-failure" }, brief: {
     pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
-    title: clip(title || summaryFact.text, 32), subtitle: clip(`${semanticModel.scenario.primary} · ${selected.narrativeType}`, 48), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, expressionBlocks: blocks,
+    title: clip(title || summaryFact.text, 32), subtitle: scenarioSubtitle(semanticModel.scenario.primary, selected.narrativeType), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, expressionBlocks: blocks,
     planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: selected.planId },
   } };
+}
+
+function scenarioSubtitle(scenario, narrativeType) {
+  const labels = {
+    "review-update": "阶段结果、关键问题与下一阶段行动",
+    "strategy-proposal": "从核心判断到证据、约束与验证动作",
+    "project-plan": "目标、阶段、依赖与交付路径",
+    "research-decision": "证据、方案差异与决策建议",
+    "product-capability": "能力层级、应用场景与扩展方向",
+    "process-collaboration": "角色、节点、判断与异常分支",
+  };
+  const narrativeFallback = {
+    "result-driven": "结果、问题与行动",
+    causal: "判断、原因与验证",
+    hierarchical: "层级、能力与路径",
+    temporal: "阶段、节奏与交付",
+    "comparison-driven": "证据、差异与选择",
+    "flow-driven": "节点、流转与异常",
+  };
+  return labels[scenario] || narrativeFallback[narrativeType] || "结构化信息一览";
 }
 
 function compileFlowBrief(model, candidate, style, title) {

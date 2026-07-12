@@ -9,8 +9,8 @@
 <rect x="96" y="240" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="288" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">主判断</tspan></text>
 <text x="138" y="338" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">原则进 Wiki，规则进 Skill，案例进文档。</tspan></text>
-</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="434" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-density="medium" data-preferred-width="2008" data-text-units="95" data-item-count="4" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="434" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="434" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="95" data-item-count="4" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="434" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="482" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断路径</tspan></text>
 <text x="124" y="514" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">从问题到落地选择</tspan></text>
 <rect x="124" y="544" width="468" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
@@ -25,59 +25,59 @@
 <rect x="1606" y="544" width="468" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
 <text x="1630" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="1630" dy="0">落地</tspan></text>
 <text x="1630" y="626" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1630" dy="0">Wiki 记录原则，Skill 写执行规则。</tspan></text>
-</g><g data-v43-block="decision-matrix-2" data-block-type="decision-matrix" data-x="96" data-y="800" data-width="2008" data-height="350" data-column="full" data-row="1" data-span="12" data-density="dense" data-preferred-width="2008" data-text-units="54" data-item-count="3" data-item-layout="rows" data-layout-reason="tabular-comparison">
-<rect x="96" y="800" width="2008" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+</g><g data-v43-block="decision-matrix-2" data-block-type="decision-matrix" data-x="96" data-y="800" data-width="1328" data-height="350" data-column="left" data-row="1" data-span="8" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="54" data-item-count="3" data-item-layout="rows" data-layout-reason="tabular-comparison">
+<rect x="96" y="800" width="1328" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="848" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">决策矩阵</tspan></text>
-<text x="124" y="880" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">用明确维度减少主观争论</tspan></text><rect x="124" y="898" width="1952" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="124" y="880" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">用明确维度减少主观争论</tspan></text><rect x="124" y="898" width="1272" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="144" y="925" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
-<text x="865.76" y="925" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="865.76" dy="0">判断依据</tspan></text>
-<text x="1966" y="925" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1966" dy="0">结论</tspan></text>
-<rect x="124" y="940" width="1952" height="48" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
+<text x="607.36" y="925" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="607.36" dy="0">判断依据</tspan></text>
+<text x="1286" y="925" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1286" dy="0">结论</tspan></text>
+<rect x="124" y="940" width="1272" height="48" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
 <text x="144" y="971" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">LLM Wiki</tspan></text>
-<text x="865.76" y="971" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="865.76" dy="0">沉淀能力强</tspan></text>
-<text x="1966" y="971" font-size="16" fill="#16A085" font-weight="700"><tspan x="1966" dy="0">推荐</tspan></text>
-<rect x="124" y="996" width="1952" height="48" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="607.36" y="971" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="607.36" dy="0">沉淀能力强</tspan></text>
+<text x="1286" y="971" font-size="16" fill="#16A085" font-weight="700"><tspan x="1286" dy="0">推荐</tspan></text>
+<rect x="124" y="996" width="1272" height="48" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
 <text x="144" y="1027" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">飞书文档</tspan></text>
-<text x="865.76" y="1027" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="865.76" dy="0">适合人工阅读</tspan></text>
-<text x="1966" y="1027" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1966" dy="0">展示</tspan></text>
-<rect x="124" y="1052" width="1952" height="48" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="607.36" y="1027" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="607.36" dy="0">适合人工阅读</tspan></text>
+<text x="1286" y="1027" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1286" dy="0">展示</tspan></text>
+<rect x="124" y="1052" width="1272" height="48" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
 <text x="144" y="1083" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">聊天记录</tspan></text>
-<text x="865.76" y="1083" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="865.76" dy="0">复用成本高</tspan></text>
-<text x="1966" y="1083" font-size="16" fill="#8A5A44" font-weight="700"><tspan x="1966" dy="0">不推荐</tspan></text>
-</g><g data-v43-block="risk-list-3" data-block-type="risk-list" data-x="96" data-y="1182" data-width="648" data-height="336" data-column="left" data-component-variant="risk-cluster" data-row="2" data-span="4" data-density="sparse" data-preferred-width="648" data-text-units="43" data-item-count="3" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
-<rect x="96" y="1182" width="648" height="336" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
-<text x="124" y="1230" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">主要风险</tspan></text>
-<text x="124" y="1262" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">避免记录了但没有被使用</tspan></text>
-<rect x="124" y="1286" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
-<circle cx="150" cy="1313" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="168" y="1318" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">记录过多没人读</tspan></text>
+<text x="607.36" y="1083" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="607.36" dy="0">复用成本高</tspan></text>
+<text x="1286" y="1083" font-size="16" fill="#8A5A44" font-weight="700"><tspan x="1286" dy="0">不推荐</tspan></text>
+</g><g data-v43-block="risk-list-3" data-block-type="risk-list" data-x="1456" data-y="800" data-width="648" data-height="350" data-column="right" data-component-variant="risk-cluster" data-row="1" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="43" data-item-count="3" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
+<rect x="1456" y="800" width="648" height="350" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1484" y="848" font-size="26" fill="#111827" font-weight="700"><tspan x="1484" dy="0">主要风险</tspan></text>
+<text x="1484" y="880" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="1484" dy="0">避免记录了但没有被使用</tspan></text>
+<rect x="1484" y="911" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
+<circle cx="1510" cy="938" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="1528" y="943" font-size="17" fill="#111827" font-weight="700"><tspan x="1528" dy="0">记录过多没人读</tspan></text>
 
-<rect x="124" y="1352" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="1"/>
-<circle cx="150" cy="1379" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="168" y="1384" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">规则没有进 Skill</tspan></text>
+<rect x="1484" y="977" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="1"/>
+<circle cx="1510" cy="1004" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="1528" y="1009" font-size="17" fill="#111827" font-weight="700"><tspan x="1528" dy="0">规则没有进 Skill</tspan></text>
 
-<rect x="124" y="1418" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="2"/>
-<circle cx="150" cy="1445" r="7" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="168" y="1450" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">展示材料混入执行规则</tspan></text>
+<rect x="1484" y="1043" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="2"/>
+<circle cx="1510" cy="1070" r="7" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1528" y="1075" font-size="17" fill="#111827" font-weight="700"><tspan x="1528" dy="0">展示材料混入执行规则</tspan></text>
 
-</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="776" data-y="1182" data-width="648" data-height="336" data-column="grid" data-component-variant="action-checklist" data-row="2" data-span="4" data-density="sparse" data-preferred-width="648" data-text-units="42" data-item-count="3" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
-<rect x="776" y="1182" width="648" height="336" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
-<text x="804" y="1230" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">推荐动作</tspan></text>
-<text x="804" y="1262" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="804" dy="0">先分层，再维护</tspan></text>
-<rect x="804" y="1286" width="592" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="831" cy="1313" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="827" y="1319" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="827" dy="0">1</tspan></text>
-<text x="856" y="1317" font-size="17" fill="#111827" font-weight="700"><tspan x="856" dy="0">Wiki 记录长期判断</tspan></text>
+</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="606" data-y="1182" data-width="988" data-height="336" data-column="center" data-component-variant="action-checklist" data-row="2" data-span="6" data-row-alignment="centered" data-offset-span="3" data-density="sparse" data-preferred-width="648" data-text-units="42" data-item-count="3" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
+<rect x="606" y="1182" width="988" height="336" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="634" y="1230" font-size="26" fill="#111827" font-weight="700"><tspan x="634" dy="0">推荐动作</tspan></text>
+<text x="634" y="1262" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="634" dy="0">先分层，再维护</tspan></text>
+<rect x="634" y="1286" width="932" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="661" cy="1313" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="657" y="1319" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="657" dy="0">1</tspan></text>
+<text x="686" y="1317" font-size="17" fill="#111827" font-weight="700"><tspan x="686" dy="0">Wiki 记录长期判断</tspan></text>
 
-<rect x="804" y="1352" width="592" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
-<circle cx="831" cy="1379" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="827" y="1385" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="827" dy="0">2</tspan></text>
-<text x="856" y="1383" font-size="17" fill="#111827" font-weight="700"><tspan x="856" dy="0">Skill 写执行规则</tspan></text>
+<rect x="634" y="1352" width="932" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="661" cy="1379" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="657" y="1385" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="657" dy="0">2</tspan></text>
+<text x="686" y="1383" font-size="17" fill="#111827" font-weight="700"><tspan x="686" dy="0">Skill 写执行规则</tspan></text>
 
-<rect x="804" y="1418" width="592" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="2"/>
-<circle cx="831" cy="1445" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="827" y="1451" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="827" dy="0">3</tspan></text>
-<text x="856" y="1449" font-size="17" fill="#111827" font-weight="700"><tspan x="856" dy="0">飞书文档做案例展示</tspan></text>
+<rect x="634" y="1418" width="932" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="2"/>
+<circle cx="661" cy="1445" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="657" y="1451" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="657" dy="0">3</tspan></text>
+<text x="686" y="1449" font-size="17" fill="#111827" font-weight="700"><tspan x="686" dy="0">飞书文档做案例展示</tspan></text>
 
 </g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1558" data-width="2008" data-height="74" data-column="full">
 <rect x="96" y="1558" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>

@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-11T19:45:16.151Z",
+  "startedAt": "2026-07-12T04:05:37.673Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/product-1/inventory.json"
   },
@@ -23,5 +23,28 @@
     "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/product-1/whiteboard.svg",
     "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/product-1/whiteboard.png"
   },
-  "finishedAt": "2026-07-11T19:45:22.736Z"
+  "coverage": {
+    "importantFacts": 6,
+    "missingImportantFacts": []
+  },
+  "decision": {
+    "scenario": {
+      "primary": "product-capability"
+    },
+    "confidence": {
+      "level": "high",
+      "topScore": 93,
+      "scoreMargin": 20,
+      "missingRequiredSignals": 0,
+      "unsupportedInferenceCount": 0,
+      "thresholds": {
+        "highScore": 78,
+        "highMargin": 10,
+        "mediumScore": 58,
+        "mediumMargin": 4
+      }
+    },
+    "selectedPlanId": "semantic-product-1-hierarchical"
+  },
+  "finishedAt": "2026-07-12T04:05:47.182Z"
 }

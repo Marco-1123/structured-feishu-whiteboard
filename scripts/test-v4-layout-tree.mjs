@@ -64,6 +64,9 @@ const denseProfile = profileExpressionBlock(denseList);
 assert.equal(denseProfile.preferredSpan, 12, "dense explanatory lists must remain full width");
 assert.equal(denseProfile.itemLayout, "rows");
 
+const moderateSingle = profileExpressionBlock({ type: "evidence-list", items: [{ label: "真实试点验证", note: "读取稳定性达到预期" }] });
+assert.equal(moderateSingle.minSpan, 4, "a short evidence list must remain eligible for a three-column support row");
+
 const adaptiveTree = buildAdaptiveExpressionLayout({
   blocks: [
     { ...compactList, id: "compact-a", height: 180 },
@@ -82,5 +85,66 @@ assert.equal(adaptiveTree.nodes[1].span, 6);
 assert.equal(adaptiveTree.nodes[0].row, adaptiveTree.nodes[1].row, "two compact lists should share a row");
 assert.equal(adaptiveTree.nodes[2].span, 12);
 assert.ok(adaptiveTree.nodes[2].y >= adaptiveTree.nodes[1].y + adaptiveTree.nodes[1].height + 32);
+
+const noHoleTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "evidence-list", id: "evidence", items: [{ label: "证据" }] },
+    { type: "risk-list", id: "risk", items: [{ label: "风险" }] },
+    { type: "action-list", id: "action", items: [{ label: "行动" }] },
+  ],
+  mode: "narrative-map",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.deepEqual(noHoleTree.nodes.map((node) => node.span), [4, 4, 4], "three compact support blocks must form a complete row");
+assert.deepEqual(noHoleTree.nodes.map((node) => node.profile.assignedSpan), [4, 4, 4], "renderers must know the width assigned by the row planner");
+assert.equal(new Set(noHoleTree.nodes.map((node) => node.row)).size, 1, "three compact support blocks must not create an orphan row");
+assert.equal(noHoleTree.rows[0].usedSpan, 12, "a multi-block row must fill all 12 columns");
+assert.equal(new Set(noHoleTree.nodes.map((node) => node.height)).size, 1, "cards in the same row must share one outer height");
+assert.equal(noHoleTree.nodes[0].height, 180, "equal-height rows must preserve the tallest natural card height");
+
+const unevenRowTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "evidence-list", id: "short-card", items: [{ label: "证据" }] },
+    { type: "risk-list", id: "tall-card", items: [{ label: "风险一" }, { label: "风险二" }] },
+  ],
+  mode: "narrative-map",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: (block) => ({ height: block.id === "short-card" ? 160 : 240 }),
+});
+assert.deepEqual(unevenRowTree.nodes.map((node) => node.height), [240, 240], "short cards must stretch to the tallest card in their row");
+assert.deepEqual(unevenRowTree.nodes.map((node) => node.profile.targetHeight), [240, 240], "renderer profiles must receive the row target height");
+
+const balancedPairTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "risk-list", id: "risk-pair", items: [{ label: "风险" }] },
+    { type: "status-board", id: "status-pair", items: [{ label: "状态" }, { label: "状态二" }, { label: "状态三" }, { label: "状态四" }] },
+  ],
+  mode: "modular-canvas",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.equal(balancedPairTree.rows[0].usedSpan, 12, "compatible pairs must be resized to a complete row");
+
+const centeredOrphanTree = buildAdaptiveExpressionLayout({
+  blocks: [{ type: "action-list", id: "single", items: [{ label: "单项行动" }] }],
+  mode: "modular-canvas",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.equal(centeredOrphanTree.nodes[0].rowAlignment, "centered", "a compact orphan must be intentionally centered");
+assert.equal(centeredOrphanTree.nodes[0].offsetSpan, 3, "a half-width orphan must have symmetric margins");
 
 console.log("ok: V4.3 layout tree tests passed");

@@ -128,6 +128,7 @@ node scripts/test-run-whiteboard-v44.mjs >/dev/null
 node scripts/test-v44-evaluator.mjs >/dev/null
 node scripts/test-scenario-router.mjs >/dev/null
 node scripts/test-v4-layout-tree.mjs >/dev/null
+node scripts/test-v4-grid-quality.mjs >/dev/null
 node scripts/test-v43-adaptive-render.mjs >/dev/null
 node scripts/test-v43-visual-quality.mjs >/dev/null
 node scripts/test-v43-flow-render.mjs >/dev/null
