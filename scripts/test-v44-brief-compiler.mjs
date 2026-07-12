@@ -38,4 +38,21 @@ assert.equal(low.decision.level, "low");
 assert.equal(low.requiresUserChoice, true);
 assert.equal(low.fallback.version, "4.3");
 
+const flowModel = {
+  ...semanticModel,
+  modelId: "semantic-flow",
+  scenario: { primary: "process-collaboration" },
+  facts: [
+    { id: "p1", type: "input", text: "业务提交申请", importance: "critical", sourceRef: "p1", confidence: "supported", actor: "业务", order: 1 },
+    { id: "p2", type: "action", text: "系统校验材料", importance: "high", sourceRef: "p2", confidence: "supported", actor: "系统", order: 2 },
+    { id: "p3", type: "output", text: "结果回传归档", importance: "high", sourceRef: "p3", confidence: "supported", actor: "系统", order: 3 },
+    { id: "risk-1", type: "risk", text: "异常材料转人工复核", importance: "high", sourceRef: "risk-1", confidence: "supported" },
+  ],
+};
+const flowCandidate = { planId: "flow-plan", scenario: "process-collaboration", narrativeType: "flow-driven", pageSkeleton: "swimlane", layout: "flow-canvas", regions: [{ id: "flow", purpose: "flow", factIds: ["p1", "p2", "p3"], preferredComponent: "flow-node", visualPriority: "primary", widthIntent: "full" }], componentMix: ["flow-node", "flow-edge", "lane"], fallbackLayout: "large-canvas", scoreBreakdown: { total: 94, criticalCoverage: 1, highCoverage: 1, semanticMatch: 1, coherence: 1, rendererCompatibility: 1 } };
+const flowCompiled = compileV44Brief({ semanticModel: flowModel, planningResult: { candidates: [flowCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } });
+assert.ok(flowCompiled.brief.planning.selectedFactIds.includes("risk-1"));
+assert.ok(flowCompiled.brief.flowNodes.some((node) => node.type === "risk"));
+assert.ok(flowCompiled.brief.flowEdges.some((edge) => edge.type === "fallback"));
+
 console.log("ok: V4.4 brief compiler tests passed");

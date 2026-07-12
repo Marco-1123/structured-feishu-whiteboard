@@ -55,10 +55,10 @@ V4.3 将信息保全、候选路由、自适应密度布局、行级协调、语
 npx skills add Marco-1123/structured-feishu-whiteboard
 ```
 
-V4.4 Beta：
+V4.4 Beta（固定测试标签，推荐跨 Agent 安装）：
 
 ```bash
-npx skills add Marco-1123/structured-feishu-whiteboard@codex/v4.4-semantic-compiler
+npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/v4.4.0-beta.1 --skill structured-feishu-whiteboard -g -y
 ```
 
 V4.4 Beta 会先将材料编译为语义模型，再从多个受控表达候选中选择结构。它覆盖复盘汇报、策略方案、项目计划、研究决策、产品能力和流程协作六类场景；低置信度时保留候选并明确回退 V4.3。
