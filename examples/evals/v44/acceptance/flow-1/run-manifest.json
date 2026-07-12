@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-11T19:45:22.736Z",
+  "startedAt": "2026-07-12T02:45:57.493Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/inventory.json"
   },
@@ -23,5 +23,28 @@
     "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/whiteboard.svg",
     "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44/acceptance/flow-1/whiteboard.png"
   },
-  "finishedAt": "2026-07-11T19:45:29.218Z"
+  "coverage": {
+    "importantFacts": 5,
+    "missingImportantFacts": []
+  },
+  "decision": {
+    "scenario": {
+      "primary": "process-collaboration"
+    },
+    "confidence": {
+      "level": "high",
+      "topScore": 96,
+      "scoreMargin": 18,
+      "missingRequiredSignals": 0,
+      "unsupportedInferenceCount": 0,
+      "thresholds": {
+        "highScore": 78,
+        "highMargin": 10,
+        "mediumScore": 58,
+        "mediumMargin": 4
+      }
+    },
+    "selectedPlanId": "semantic-flow-1-flow-driven"
+  },
+  "finishedAt": "2026-07-12T02:46:07.314Z"
 }

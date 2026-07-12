@@ -121,10 +121,20 @@ export function compileV44Brief({ semanticModel, planningResult, style = "linear
 
 function compileFlowBrief(model, candidate, style, title) {
   const ordered = [...model.facts].filter((fact) => ["input", "action", "constraint", "output", "stage"].includes(fact.type)).sort((a, b) => (a.order || 0) - (b.order || 0)).slice(0, 8);
+  const riskFacts = model.facts.filter((fact) => fact.type === "risk").slice(0, Math.max(0, 8 - ordered.length));
   const actors = [...new Set(ordered.map((fact) => fact.actor).filter(Boolean))].slice(0, 4);
   const swimlane = actors.length >= 2;
   const laneIds = new Map(actors.map((actor, index) => [actor, `lane-${index + 1}`]));
   const nodes = ordered.map((fact, index) => ({ id: `node-${index + 1}`, title: clip(fact.text, 14), body: [clip(fact.text, 24)], type: index === 0 ? "start" : index === ordered.length - 1 ? "result" : fact.type === "constraint" ? "decision" : "action", ...(swimlane ? { step: index + 1, lane: laneIds.get(fact.actor) || "lane-1" } : {}), status: fact.type === "constraint" ? "risk" : "neutral", sourceFactIds: [fact.id] }));
-  const edges = nodes.slice(0, -1).map((node, index) => ({ from: node.id, to: nodes[index + 1].id, label: "进入下一步" }));
-  return { pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "flow-canvas", style, flowMode: swimlane ? "swimlane-flow" : "linear-flow", ...(swimlane ? { lanes: actors.map((actor) => ({ id: laneIds.get(actor), title: clip(actor, 12) })) } : {}), title: clip(title || model.facts[0].text, 32), subtitle: "按输入、动作、判断和输出组织流程", summaryLabel: "流程判断", summary: clip(model.facts[0].text, 90), flowNodes: nodes, flowEdges: edges, planning: { inventoryId: model.inventoryId, selectedFactIds: ordered.map((fact) => fact.id), omittedFacts: model.facts.filter((fact) => !ordered.includes(fact)).map((fact) => ({ id: fact.id, reason: "deferred-to-detail" })), routeDecisionId: candidate.planId } };
+  const riskNodes = riskFacts.map((fact, index) => ({ id: `risk-${index + 1}`, title: clip(fact.text, 14), body: [clip(fact.text, 24)], type: "risk", ...(swimlane ? { step: Math.min(8, Math.max(2, ordered.length - 1 + index)), lane: "lane-1" } : {}), status: "risk", sourceFactIds: [fact.id] }));
+  nodes.push(...riskNodes);
+  const primaryNodes = nodes.filter((node) => !node.id.startsWith("risk-"));
+  const edges = primaryNodes.slice(0, -1).map((node, index) => ({ from: node.id, to: primaryNodes[index + 1].id, label: "进入下一步", type: "primary" }));
+  const branchFrom = primaryNodes.find((node) => node.type === "decision") || primaryNodes[Math.max(0, primaryNodes.length - 2)];
+  for (const riskNode of riskNodes) {
+    edges.push({ from: branchFrom.id, to: riskNode.id, label: "异常处理", type: "fallback" });
+    edges.push({ from: riskNode.id, to: primaryNodes.at(-1).id, label: "处理后回归", type: "primary" });
+  }
+  const selectedFacts = [...ordered, ...riskFacts];
+  return { pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "flow-canvas", style, flowMode: swimlane ? "swimlane-flow" : "linear-flow", ...(swimlane ? { lanes: actors.map((actor) => ({ id: laneIds.get(actor), title: clip(actor, 12) })) } : {}), title: clip(title || model.facts[0].text, 32), subtitle: "按输入、动作、判断和输出组织流程", summaryLabel: "流程判断", summary: clip(model.facts[0].text, 90), flowNodes: nodes, flowEdges: edges, planning: { inventoryId: model.inventoryId, selectedFactIds: selectedFacts.map((fact) => fact.id), omittedFacts: model.facts.filter((fact) => !selectedFacts.includes(fact)).map((fact) => ({ id: fact.id, reason: "deferred-to-detail" })), routeDecisionId: candidate.planId } };
 }

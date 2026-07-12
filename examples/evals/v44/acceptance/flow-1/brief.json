@@ -79,23 +79,52 @@
       "sourceFactIds": [
         "p4"
       ]
+    },
+    {
+      "id": "risk-1",
+      "title": "异常材料进入人工复核",
+      "body": [
+        "异常材料进入人工复核"
+      ],
+      "type": "risk",
+      "step": 3,
+      "lane": "lane-1",
+      "status": "risk",
+      "sourceFactIds": [
+        "r1"
+      ]
     }
   ],
   "flowEdges": [
     {
       "from": "node-1",
       "to": "node-2",
-      "label": "进入下一步"
+      "label": "进入下一步",
+      "type": "primary"
     },
     {
       "from": "node-2",
       "to": "node-3",
-      "label": "进入下一步"
+      "label": "进入下一步",
+      "type": "primary"
     },
     {
       "from": "node-3",
       "to": "node-4",
-      "label": "进入下一步"
+      "label": "进入下一步",
+      "type": "primary"
+    },
+    {
+      "from": "node-3",
+      "to": "risk-1",
+      "label": "异常处理",
+      "type": "fallback"
+    },
+    {
+      "from": "risk-1",
+      "to": "node-4",
+      "label": "处理后回归",
+      "type": "primary"
     }
   ],
   "planning": {
@@ -104,14 +133,10 @@
       "p1",
       "p2",
       "p3",
-      "p4"
+      "p4",
+      "r1"
     ],
-    "omittedFacts": [
-      {
-        "id": "r1",
-        "reason": "deferred-to-detail"
-      }
-    ],
+    "omittedFacts": [],
     "routeDecisionId": "semantic-flow-1-flow-driven"
   }
 }

@@ -35,6 +35,13 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     const decisionPath = path.join(outputDir, "decision.json"); writeJson(decisionPath, decision);
     let brief = decision.brief; let renderer = "scripts/render-whiteboard-v4.mjs";
     if (!brief) { manifest.pipeline = "v4.3-fallback"; manifest.fallback = decision.fallback; brief = fallbackBrief(inventory); renderer = "scripts/render-whiteboard.mjs"; }
+    if (manifest.pipeline === "v4.4") {
+      const selected = new Set(brief.planning.selectedFactIds || []);
+      const missingImportant = semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !selected.has(fact.id));
+      if (missingImportant.length) throw new Error(`V4.4 critical coverage failed: ${missingImportant.map((fact) => fact.id).join(", ")}`);
+      manifest.coverage = { importantFacts: semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance)).length, missingImportantFacts: [] };
+      manifest.decision = { scenario: semanticModel.scenario, confidence: decision.decision, selectedPlanId: decision.selectedPlanId };
+    }
     const briefPath = path.join(outputDir, "brief.json"); writeJson(briefPath, brief);
     run(process.execPath, [path.join(root, "scripts/validate-brief.mjs"), briefPath], root);
     const outputPath = path.join(outputDir, "whiteboard.svg");

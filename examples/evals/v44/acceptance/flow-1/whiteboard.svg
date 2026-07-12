@@ -28,6 +28,12 @@
 <polyline points="1628,1073 1645,1073 1645,809 1662,809" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="node-3-&gt;node-4" data-from="node-3" data-to="node-4" data-start="1628,1073" data-end="1662,809" data-edge-label="进入下一步"/>
 <line x1="1662" y1="809" x2="1650" y2="800" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1662" y1="809" x2="1650" y2="818" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
 <text x="1655" y="938" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="1655" dy="0">进入下一步</tspan></text>
+<polyline points="1628,1073 1415,1073 1415,545 1202,545" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="node-3-&gt;risk-1" data-from="node-3" data-to="risk-1" data-start="1628,1073" data-end="1202,545" data-edge-label="异常处理"/>
+<line x1="1202" y1="545" x2="1214" y2="536" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1202" y1="545" x2="1214" y2="554" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1425" y="806" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="异常处理"><tspan x="1425" dy="0">异常处理</tspan></text>
+<polyline points="1628,545 1645,545 1645,809 1662,809" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="risk-1-&gt;node-4" data-from="risk-1" data-to="node-4" data-start="1628,545" data-end="1662,809" data-edge-label="处理后回归"/>
+<line x1="1662" y1="809" x2="1650" y2="800" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1662" y1="809" x2="1650" y2="818" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1655" y="674" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="处理后回归"><tspan x="1655" dy="0">处理后回归</tspan></text>
 <rect x="282" y="446" width="426" height="198" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-1" data-node-x="282" data-node-y="446" data-node-width="426" data-node-height="198" data-node-type="start"/>
 <rect x="304" y="468" width="8" height="154" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <rect x="328" y="468" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
@@ -52,6 +58,12 @@
 <text x="1726" y="753" font-size="15" fill="#16A085" font-weight="700"><tspan x="1726" dy="0">结果</tspan></text>
 <text x="1708" y="794" font-size="24" fill="#111827" font-weight="700"><tspan x="1708" dy="0">结果回传并归档</tspan></text>
 <text x="1708" y="826" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1708" dy="0">结果回传并归档</tspan></text>
+<rect x="1202" y="446" width="426" height="198" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="risk-1" data-node-x="1202" data-node-y="446" data-node-width="426" data-node-height="198" data-node-type="risk"/>
+<rect x="1224" y="468" width="8" height="154" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<rect x="1248" y="468" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1266" y="489" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1266" dy="0">风险</tspan></text>
+<text x="1248" y="530" font-size="24" fill="#111827" font-weight="700"><tspan x="1248" dy="0">异常材料进入人工复核</tspan></text>
+<text x="1248" y="562" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1248" dy="0">异常材料进入人工复核</tspan></text>
 </g>
 </g>
 </svg>
