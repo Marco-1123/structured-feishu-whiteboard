@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "Claude Code 七个月使用变化复盘",
-  "subtitle": "阶段结果、关键问题与下一阶段行动",
+  "subtitle": "结果与变化、路径与机制、重点信息",
   "summaryLabel": "核心判断",
   "summary": "Claude Code 使用正在从调试转向端到端的 Agent 工作",
   "expressionMode": "modular-canvas",
@@ -52,51 +52,37 @@
           "status": "good"
         },
         {
-          "label": "当前使用逐步扩展到设计、实现、测试和部署链路",
+          "label": "当前使用逐步扩展到设计、实现、测试和部署",
+          "note": "链路",
+          "status": "good"
+        },
+        {
+          "label": "后续持续跟踪端到端任务、非代码产物和部署",
+          "note": "工作的增长",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "t1",
-        "t2"
-      ]
-    },
-    {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
-        {
-          "label": "专家与中级用户仍存在可测量但不极端的成功率差距",
-          "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
-      "type": "action-list",
-      "title": "下一步行动",
-      "items": [
-        {
-          "label": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
+        "t2",
         "a1"
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
+      "type": "status-board",
+      "title": "重点关注",
       "items": [
+        {
+          "label": "专家与中级用户仍存在可测量但不极端的成功率差距",
+          "status": "risk"
+        },
         {
           "label": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
           "status": "good"
         }
       ],
       "sourceFactIds": [
+        "r1",
         "e1"
       ]
     }
@@ -109,8 +95,8 @@
       "m2",
       "t1",
       "t2",
-      "r1",
       "a1",
+      "r1",
       "e1"
     ],
     "omittedFacts": [],

@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "ASL-3 防护实施计划与里程碑",
-  "subtitle": "目标、阶段、依赖与交付路径",
+  "subtitle": "路径与机制、风险边界",
   "summaryLabel": "核心判断",
   "summary": "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准",
   "expressionMode": "modular-canvas",
@@ -34,14 +34,20 @@
           "status": "good"
         },
         {
-          "label": "阶段三上线面向 CBRN 风险的窄域部署防护",
+          "label": "阶段三上线面向 CBRN 风险的窄域部署",
+          "note": "防护",
+          "status": "good"
+        },
+        {
+          "label": "持续评估防护有效性并根据证据调整标准",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "a1"
       ]
     },
     {
@@ -56,19 +62,6 @@
       "sourceFactIds": [
         "r1"
       ]
-    },
-    {
-      "type": "action-list",
-      "title": "下一步行动",
-      "items": [
-        {
-          "label": "持续评估防护有效性并根据证据调整标准",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "a1"
-      ]
     }
   ],
   "planning": {
@@ -78,8 +71,8 @@
       "t1",
       "t2",
       "t3",
-      "r1",
-      "a1"
+      "a1",
+      "r1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-official-plan-asl3-rollout-temporal"

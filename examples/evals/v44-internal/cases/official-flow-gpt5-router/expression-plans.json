@@ -22,8 +22,7 @@
         }
       ],
       "componentMix": [
-        "flow-node",
-        "flow-edge"
+        "flow-node"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -50,11 +49,15 @@
           "id": "region-3",
           "purpose": "risk",
           "factIds": [
-            "r1"
+            "r1",
+            "p2"
           ],
           "preferredComponent": "risk-list",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "uncovered-constraint"
+          ]
         },
         {
           "id": "region-4",
@@ -69,10 +72,9 @@
         },
         {
           "id": "region-3",
-          "purpose": "supporting-evidence",
+          "purpose": "input",
           "factIds": [
-            "p1",
-            "p2"
+            "p1"
           ],
           "preferredComponent": "evidence-list",
           "visualPriority": "secondary",
@@ -80,9 +82,6 @@
         }
       ],
       "componentMix": [
-        "statement",
-        "metric-card",
-        "mini-roadmap",
         "risk-list",
         "action-list",
         "evidence-list"
@@ -131,7 +130,7 @@
         },
         {
           "id": "region-3",
-          "purpose": "supporting-evidence",
+          "purpose": "input",
           "factIds": [
             "p1"
           ],
@@ -141,9 +140,7 @@
         }
       ],
       "componentMix": [
-        "statement",
         "status-board",
-        "narrative-chain",
         "mini-roadmap",
         "evidence-list"
       ],

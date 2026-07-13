@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:21:58.185Z",
+  "startedAt": "2026-07-13T14:20:58.893Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-plan-codex-enterprise-flow-driven"
   },
-  "finishedAt": "2026-07-13T11:21:58.746Z"
+  "finishedAt": "2026-07-13T14:20:59.370Z"
 }

@@ -59,7 +59,7 @@
 <rect x="1776" y="1058" width="8" height="200" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <rect x="1800" y="1058" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1818" y="1079" font-size="15" fill="#16A085" font-weight="700"><tspan x="1818" dy="0">结果</tspan></text>
-<text x="1800" y="1120" font-size="24" fill="#111827" font-weight="700"><tspan x="1800" dy="0">阶段三形成生产级部署</tspan><tspan x="1800" dy="30">、治理和规模化推广</tspan></text>
+<text x="1800" y="1120" font-size="24" fill="#111827" font-weight="700"><tspan x="1800" dy="0">阶段三形成生产级部署、</tspan><tspan x="1800" dy="30">治理和规模化推广</tspan></text>
 <text x="1800" y="1182" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1800" dy="0">阶段三形成生产级部署、治理和规</tspan><tspan x="1800" dy="24">模化推广</tspan></text>
 </g>
 </g>

@@ -26,7 +26,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "Codex 团队协作能力介绍",
-    "subtitle": "能力层级、应用场景与扩展方向",
+    "subtitle": "重点信息、关键依据",
     "summaryLabel": "核心判断",
     "summary": "Codex 已成为覆盖编辑器、终端、云端与团队协作的编码 Agent",
     "expressionMode": "modular-canvas",
@@ -44,7 +44,7 @@
       },
       {
         "type": "evidence-list",
-        "title": "结构化信息",
+        "title": "使用链路",
         "items": [
           {
             "label": "同一账户连接编辑器、终端和云端任务",
@@ -70,24 +70,16 @@
           {
             "label": "管理工具提供环境控制、监控和分析能力",
             "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "h1",
-          "h2",
-          "h3"
-        ]
-      },
-      {
-        "type": "evidence-list",
-        "title": "关键证据",
-        "items": [
+          },
           {
             "label": "团队规模化使用需要统一环境与管理员控制",
             "status": "risk"
           }
         ],
         "sourceFactIds": [
+          "h1",
+          "h2",
+          "h3",
           "r1"
         ]
       }

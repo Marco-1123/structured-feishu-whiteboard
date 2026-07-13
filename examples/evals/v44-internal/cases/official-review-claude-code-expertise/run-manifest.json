@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:21:55.428Z",
+  "startedAt": "2026-07-13T14:20:56.391Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-review-claude-code-expertise-temporal"
   },
-  "finishedAt": "2026-07-13T11:21:55.996Z"
+  "finishedAt": "2026-07-13T14:20:56.886Z"
 }

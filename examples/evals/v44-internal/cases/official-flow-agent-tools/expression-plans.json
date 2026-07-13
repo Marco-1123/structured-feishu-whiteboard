@@ -22,20 +22,18 @@
         },
         {
           "id": "region-2",
-          "purpose": "supporting-evidence",
+          "purpose": "risk",
           "factIds": [
             "r1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "risk-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
         "flow-node",
-        "flow-edge",
-        "lane",
-        "evidence-list"
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -59,16 +57,6 @@
       "layout": "expression-canvas",
       "regions": [
         {
-          "id": "region-3",
-          "purpose": "risk",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-4",
           "purpose": "action",
           "factIds": [
@@ -82,22 +70,29 @@
         },
         {
           "id": "region-3",
-          "purpose": "supporting-evidence",
+          "purpose": "input",
           "factIds": [
             "p1"
           ],
           "preferredComponent": "evidence-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
-        "statement",
-        "metric-card",
-        "mini-roadmap",
-        "risk-list",
         "action-list",
-        "evidence-list"
+        "evidence-list",
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -134,22 +129,29 @@
         },
         {
           "id": "region-2",
-          "purpose": "supporting-evidence",
+          "purpose": "input",
           "factIds": [
-            "p1",
-            "r1"
+            "p1"
           ],
           "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
-        "statement",
-        "status-board",
-        "narrative-chain",
         "mini-roadmap",
-        "evidence-list"
+        "evidence-list",
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

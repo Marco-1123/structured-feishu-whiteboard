@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "前沿模型负责任扩展策略",
-  "subtitle": "从核心判断到证据、约束与验证动作",
+  "subtitle": "路径与机制、比较与选择、后续行动",
   "summaryLabel": "核心判断",
   "summary": "模型能力提升必须与相匹配的安全和安全保障同步推进",
   "expressionMode": "narrative-map",
@@ -22,28 +22,25 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
+      "type": "decision-matrix",
+      "title": "方案比较",
       "items": [
+        {
+          "label": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
+          "status": "good"
+        },
         {
           "label": "ASL-3 要求更强安全措施和高水平红队验证",
           "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1"
-      ]
-    },
-    {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
+        },
         {
           "label": "灾难性误用与非预期自主行为风险随能力提升而增加",
           "status": "good"
         }
       ],
       "sourceFactIds": [
+        "o1",
+        "e1",
         "k1"
       ]
     },
@@ -61,28 +58,17 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
-      "items": [
-        {
-          "label": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "o1"
-      ]
-    },
-    {
       "type": "narrative-chain",
       "title": "判断链路",
       "items": [
         {
-          "label": "模型能力提升必须与相匹配的安全和安全保障同步推进",
+          "label": "模型能力提升必须与相匹配的安全和安全保障",
+          "note": "同步推进",
           "status": "good"
         },
         {
-          "label": "能力触及阈值前先完成对应等级的安全证明与部署控制",
+          "label": "能力触及阈值前先完成对应等级的安全证明与",
+          "note": "部署控制",
           "status": "good"
         }
       ],
@@ -96,10 +82,10 @@
     "inventoryId": "official-strategy-responsible-scaling",
     "selectedFactIds": [
       "c1",
+      "o1",
       "e1",
       "k1",
-      "a1",
-      "o1"
+      "a1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-official-strategy-responsible-scaling-causal"

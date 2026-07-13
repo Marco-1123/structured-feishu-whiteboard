@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "模型能力材料中的冲突证据与选型判断",
-  "subtitle": "证据、方案差异与决策建议",
+  "subtitle": "比较与选择、关键依据、后续行动",
   "summaryLabel": "核心判断",
   "summary": "应使用真实任务集验证后再确定模型与路由策略",
   "expressionMode": "narrative-map",
@@ -40,19 +40,6 @@
       ]
     },
     {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
-        {
-          "label": "单一公开基准不能代表企业真实任务质量",
-          "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
       "type": "action-list",
       "title": "下一步行动",
       "items": [
@@ -66,16 +53,21 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
+      "type": "decision-matrix",
+      "title": "方案比较",
       "items": [
         {
           "label": "统一路由与固定模型各有可控性和效率取舍",
           "status": "good"
+        },
+        {
+          "label": "单一公开基准不能代表企业真实任务质量",
+          "status": "risk"
         }
       ],
       "sourceFactIds": [
-        "o1"
+        "o1",
+        "r1"
       ]
     }
   ],
@@ -85,9 +77,9 @@
       "c1",
       "e1",
       "e2",
-      "r1",
       "q1",
-      "o1"
+      "o1",
+      "r1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-stress-conflicting-benchmarks-problem-driven"

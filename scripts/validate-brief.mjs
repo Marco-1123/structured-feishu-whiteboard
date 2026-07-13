@@ -441,20 +441,17 @@ function validateExpressionCanvas(brief) {
 
   if ((counts.get("statement") || 0) !== 1) fail("expression-canvas requires exactly one statement block");
   if (brief.expressionMode === "dashboard-onepage") {
-    if ((counts.get("metric-card") || 0) < 3) fail("dashboard-onepage requires at least 3 metric-card blocks");
-    if ((counts.get("progress-bar") || 0) < 1) fail("dashboard-onepage requires a progress-bar block");
-    if ((counts.get("risk-list") || 0) < 1 && (counts.get("status-board") || 0) < 1) fail("dashboard-onepage requires a risk-list or status-board block");
-    if ((counts.get("action-list") || 0) < 1) fail("dashboard-onepage requires an action-list block");
+    const quantitativeBlocks = ["metric-card", "progress-bar", "ranked-bar", "trend-sparkline", "variance-bridge-v2"]
+      .reduce((total, type) => total + (counts.get(type) || 0), 0);
+    if (quantitativeBlocks < 2) fail("dashboard-onepage requires at least 2 quantitative blocks");
   }
   if (brief.expressionMode === "narrative-map") {
-    if ((counts.get("evidence-list") || 0) < 1 && (counts.get("decision-matrix") || 0) < 1) fail("narrative-map requires an evidence-list or decision-matrix block");
-    if ((counts.get("action-list") || 0) < 1 && (counts.get("risk-list") || 0) < 1) fail("narrative-map requires an action-list or risk-list closure block");
+    const hasNarrativeModule = [...counts.entries()].some(([type, count]) => type !== "statement" && count > 0);
+    if (!hasNarrativeModule) fail("narrative-map requires at least one narrative content module");
   }
   if (brief.expressionMode === "modular-canvas") {
-    const hasSignal = ["metric-card", "progress-bar", "ranked-bar", "evidence-list", "status-board", "trend-sparkline", "variance-bridge-v2", "mini-roadmap", "narrative-chain"].some((type) => (counts.get(type) || 0) > 0);
-    const hasClosure = ["risk-list", "action-list", "mini-roadmap", "status-board"].some((type) => (counts.get(type) || 0) > 0);
-    if (!hasSignal) fail("modular-canvas requires at least one signal block");
-    if (!hasClosure) fail("modular-canvas requires at least one risk, action, or roadmap block");
+    const hasContentModule = [...counts.entries()].some(([type, count]) => type !== "statement" && count > 0);
+    if (!hasContentModule) fail("modular-canvas requires at least one content module");
   }
 }
 

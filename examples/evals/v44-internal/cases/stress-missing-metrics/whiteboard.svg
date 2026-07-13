@@ -3,7 +3,7 @@
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Agent 治理方向材料但缺少量化结果</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">从核心判断到证据、约束与验证动作</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">路径与机制、重点信息、后续行动</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
@@ -37,11 +37,11 @@
 <text x="124" y="800" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
 
 <rect x="124" y="862" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="148" y="908" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">可信 Agent 需要自主性与控制能力共同设计</tspan></text>
-<text x="1094" y="962" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
+<text x="148" y="908" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">可信 Agent 需要自主性与控制能力共</tspan></text>
+<text x="148" y="944" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">同设计</tspan></text><text x="1094" y="962" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
 <rect x="1113" y="862" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="1137" y="908" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">先建立可观察、可确认、可回退的控制面再扩大自主范围</tspan></text>
-
+<text x="1137" y="908" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">先建立可观察、可确认、可回退的控制面再扩</tspan></text>
+<text x="1137" y="944" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1137" dy="0">大自主范围</tspan></text>
 </g>
 </g>
 </svg>

@@ -30,16 +30,6 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-3",
-          "purpose": "risk",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-4",
           "purpose": "action-unresolved",
           "factIds": [
@@ -48,13 +38,23 @@
           "preferredComponent": "action-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
-        "action-list"
+        "action-list",
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -114,7 +114,6 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "decision-matrix",
         "risk-list"
       ],
       "fallbackLayout": "large-canvas",
@@ -161,16 +160,6 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-4",
-          "purpose": "risk-constraint",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-5",
           "purpose": "action-unresolved",
           "factIds": [
@@ -179,14 +168,23 @@
           "preferredComponent": "action-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
         "statement",
-        "narrative-chain",
         "evidence-list",
-        "risk-list",
-        "action-list"
+        "action-list",
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "Agent 成功率与专业经验关系研究决策",
-  "subtitle": "证据、方案差异与决策建议",
+  "subtitle": "比较与选择、关键依据、后续行动",
   "summaryLabel": "核心判断",
   "summary": "Agent 降低了执行门槛，但领域经验仍持续产生回报",
   "expressionMode": "narrative-map",
@@ -40,19 +40,6 @@
       ]
     },
     {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
-        {
-          "label": "研究基于可验证会话结果但不能覆盖所有工作质量维度",
-          "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
       "type": "action-list",
       "title": "下一步行动",
       "items": [
@@ -66,16 +53,21 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
+      "type": "decision-matrix",
+      "title": "方案比较",
       "items": [
         {
           "label": "不同职业完成编码目标的平均成功率接近软件工程师",
           "status": "good"
+        },
+        {
+          "label": "研究基于可验证会话结果但不能覆盖所有工作质量维度",
+          "status": "risk"
         }
       ],
       "sourceFactIds": [
-        "o1"
+        "o1",
+        "r1"
       ]
     }
   ],
@@ -85,9 +77,9 @@
       "c1",
       "e1",
       "e2",
-      "r1",
       "q1",
-      "o1"
+      "o1",
+      "r1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-official-research-agent-expertise-problem-driven"

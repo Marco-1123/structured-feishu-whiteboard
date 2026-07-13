@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:22:07.717Z",
+  "startedAt": "2026-07-13T14:21:06.564Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-stress-duplicate-codex-scaling-causal"
   },
-  "finishedAt": "2026-07-13T11:22:08.332Z"
+  "finishedAt": "2026-07-13T14:21:07.043Z"
 }

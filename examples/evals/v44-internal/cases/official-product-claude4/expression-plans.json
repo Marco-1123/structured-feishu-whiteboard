@@ -22,39 +22,25 @@
           "purpose": "option",
           "factIds": [
             "h1",
-            "h2"
+            "h2",
+            "e1",
+            "r1"
           ],
           "preferredComponent": "decision-matrix",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-3",
-          "purpose": "evidence",
-          "factIds": [
-            "e1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "risk",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence",
+            "risk"
+          ]
         },
         {
           "id": "region-5",
-          "purpose": "supporting-evidence",
+          "purpose": "capability",
           "factIds": [
             "h3"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
         }
@@ -62,8 +48,7 @@
       "componentMix": [
         "statement",
         "decision-matrix",
-        "evidence-list",
-        "risk-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -107,34 +92,27 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-6",
-          "purpose": "evidence",
-          "factIds": [
-            "e1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-4",
-          "purpose": "supporting-evidence",
+          "purpose": "option-option",
           "factIds": [
             "h1",
             "h2",
+            "e1",
             "r1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "decision-matrix",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence",
+            "risk"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "metric-card",
         "status-board",
-        "narrative-chain",
-        "evidence-list"
+        "decision-matrix"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -159,23 +137,51 @@
       "regions": [
         {
           "id": "region-1",
-          "purpose": "supporting-evidence",
+          "purpose": "conclusion",
           "factIds": [
-            "c1",
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-2",
+          "purpose": "option-option",
+          "factIds": [
             "h1",
-            "h2",
-            "h3",
+            "h2"
+          ],
+          "preferredComponent": "decision-matrix",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "capability",
+          "factIds": [
+            "h3"
+          ],
+          "preferredComponent": "status-board",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk",
+          "factIds": [
             "r1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "risk-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
-        "flow-node",
-        "flow-edge",
-        "evidence-list"
+        "statement",
+        "decision-matrix",
+        "status-board",
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

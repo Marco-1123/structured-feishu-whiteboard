@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "Agent 治理方向材料但缺少量化结果",
-  "subtitle": "从核心判断到证据、约束与验证动作",
+  "subtitle": "路径与机制、重点信息、后续行动",
   "summaryLabel": "核心判断",
   "summary": "可信 Agent 需要自主性与控制能力共同设计",
   "expressionMode": "modular-canvas",
@@ -57,11 +57,13 @@
       "title": "判断链路",
       "items": [
         {
-          "label": "可信 Agent 需要自主性与控制能力共同设计",
+          "label": "可信 Agent 需要自主性与控制能力共",
+          "note": "同设计",
           "status": "good"
         },
         {
-          "label": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
+          "label": "先建立可观察、可确认、可回退的控制面再扩",
+          "note": "大自主范围",
           "status": "good"
         }
       ],

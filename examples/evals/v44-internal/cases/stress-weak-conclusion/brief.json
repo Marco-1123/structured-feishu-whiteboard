@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "关于模型福利的开放问题材料",
-  "subtitle": "证据、方案差异与决策建议",
+  "subtitle": "关键依据、风险边界、后续行动",
   "summaryLabel": "核心判断",
   "summary": "先进模型是否可能具有值得道德考虑的体验仍是开放问题",
   "expressionMode": "narrative-map",
@@ -40,19 +40,6 @@
       ]
     },
     {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
-        {
-          "label": "意识、体验与道德地位缺少可靠测量方法",
-          "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
       "type": "action-list",
       "title": "下一步行动",
       "items": [
@@ -69,6 +56,19 @@
         "q1",
         "a1"
       ]
+    },
+    {
+      "type": "risk-list",
+      "title": "风险与约束",
+      "items": [
+        {
+          "label": "意识、体验与道德地位缺少可靠测量方法",
+          "status": "risk"
+        }
+      ],
+      "sourceFactIds": [
+        "r1"
+      ]
     }
   ],
   "planning": {
@@ -77,8 +77,8 @@
       "q1",
       "e1",
       "e2",
-      "r1",
-      "a1"
+      "a1",
+      "r1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-stress-weak-conclusion-problem-driven"

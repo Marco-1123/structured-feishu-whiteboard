@@ -42,7 +42,6 @@
       "componentMix": [
         "statement",
         "status-board",
-        "narrative-chain",
         "mini-roadmap"
       ],
       "fallbackLayout": "large-canvas",
@@ -77,16 +76,6 @@
           "widthIntent": "full"
         },
         {
-          "id": "region-3",
-          "purpose": "evidence",
-          "factIds": [
-            "e1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-4",
           "purpose": "risk-constraint",
           "factIds": [
@@ -98,22 +87,25 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-5",
-          "purpose": "action-unresolved",
+          "id": "region-support-3",
+          "purpose": "support-summary",
           "factIds": [
+            "e1",
             "a1"
           ],
-          "preferredComponent": "action-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence",
+            "action-unresolved"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "narrative-chain",
-        "evidence-list",
         "risk-list",
-        "action-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -148,32 +140,35 @@
         },
         {
           "id": "region-3",
-          "purpose": "evidence",
+          "purpose": "constraint-constraint",
           "factIds": [
-            "e1"
+            "k1",
+            "k2"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "risk-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-3",
-          "purpose": "supporting-evidence",
+          "id": "region-support-3",
+          "purpose": "support-summary",
           "factIds": [
-            "k1",
-            "k2",
+            "e1",
             "a1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence",
+            "action"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "decision-matrix",
-        "evidence-list",
-        "risk-list"
+        "risk-list",
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

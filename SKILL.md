@@ -49,6 +49,7 @@ description: >
 3. 运行 `scripts/compile-v44-brief.mjs` 完成置信度决策。高置信度自动选择；中置信度内部比较后选择并保留备选；低置信度保留候选并明确回退 V4.3。
 4. 正式生成使用 `scripts/run-whiteboard-v44.mjs`，保存语义模型、候选表达、决策、brief、SVG/PNG 和运行记录。
 5. V4.4 的 `pageSkeleton` 必须进入最终 brief 和 SVG；若最终仍表现为顺序纵向堆叠、宽高比低于 1.1，或有明确数字却没有数据组件，必须判定失败并回退，不得把结果交付给用户。
+6. V4.4 只强制核心判断或主题锚点，不强制“证据、风险、行动”三件套。单条支持事实优先嵌入路线、链路、状态板或比较结构；只有信息量、重要性或独立阅读价值足够时才单独成区。
 5. 详细规则见 [`references/semantic-routing-v44.md`](references/semantic-routing-v44.md)。
 
 ## 默认输出
@@ -93,9 +94,9 @@ bash scripts/preflight.sh
 - V3.4 起，`expression-canvas` 可以使用更强的数据化表达组件：状态/健康度用 `status-board`，时间变化用 `trend-sparkline`，方案选择用 `decision-matrix`，起终点差异归因用 `variance-bridge-v2`。这些组件必须由 JSON brief 触发并经渲染器生成，不允许手写自由 SVG。
 - V4.3 起，复杂 `expression-canvas` 和 `flow-canvas` 默认使用 `engine: "v4"` 与 `renderTarget: "svg"`。流程图必须先构建节点和边，再由脚本完成分层、边界连接和质量检查；禁止 Agent 自由手写连线坐标。
 - V4.2 起，复杂架构、知识治理、风险治理和行动清单类材料如果使用 `expression-canvas`，必须避免把长说明压成小窄框。真正长内容可以升级为全宽模块，但不能只因条目达到 4 个就强制全宽。
-- V4.3 起，场景选择不得只凭关键词直接落到一个模板。先生成信息清单和候选路由；低置信度时保留备选和稳定回退。V4 expression-canvas 根据条目长度、说明密度和方向关系在 1/3、1/2、2/3、全宽之间选择；四到六个短并列项优先使用紧凑网格，禁止连续稀疏全宽积木墙。同一行的模块必须选择高度协调的内部变体；风险、证据和行动必须使用各自的语义组件，不能退化成同一种竖线列表。
-- 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键结论、约束、风险、指标、证据和行动。
-- 长文默认生成一个统一 onepage 大画布；总览、模块、路线、指标、证据、风险和行动属于同一张连续版面。
+- V4.3 起，场景选择不得只凭关键词直接落到一个模板。先生成信息清单和候选路由；低置信度时保留备选和稳定回退。V4 expression-canvas 根据条目长度、说明密度和方向关系在 1/3、1/2、2/3、全宽之间选择；四到六个短并列项优先使用紧凑网格，禁止连续稀疏全宽积木墙。同一行的模块必须选择高度协调的内部变体。风险、证据和行动只有在独立成区时才使用各自的语义组件；可以被准确嵌入主结构时，不得为了凑齐章节重复生成。
+- 信息太多时，先做信息保全清单，再在一张 onepage 大画布内扩展区域承载；不要把原文完整搬上画板，也不要丢掉关键事实。事实保全不等于每类事实都必须成为独立模块。
+- 长文默认生成一个统一 onepage 大画布；具体区域由材料的主导关系决定，不预设总览、证据、风险和行动必须同时出现。
 - 如果某个区域超过容量预算，不要靠缩小字号硬塞；改写短句、合并重复项，或扩大同页区域。
 - 结论先行、问题拆解和长文 onepage 必须使用确定性渲染器，确保其他 Agent 输出的留白、字号、颜色和卡片结构稳定一致。
 - 当前生产可交付版式包括 `conclusion-first`、`problem-breakdown`、`large-canvas`、`roadmap`、`process-chain`、`comparison-matrix`、`expression-canvas` 和 `flow-canvas`。V3.2 受控表达版式包括 `milestone-timeline`、`funnel`、`pyramid`、`metric-dashboard`、`progress-wall`、`ranked-bars` 和 `variance-bridge`。如果内容不满足对应版式条件，不要自由手写新布局；回退到 `conclusion-first` 或 `large-canvas`。

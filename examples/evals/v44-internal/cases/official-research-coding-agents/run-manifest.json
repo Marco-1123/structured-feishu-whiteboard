@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:21:59.881Z",
+  "startedAt": "2026-07-13T14:21:00.323Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-research-coding-agents/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-research-coding-agents-problem-driven"
   },
-  "finishedAt": "2026-07-13T11:22:00.442Z"
+  "finishedAt": "2026-07-13T14:21:00.811Z"
 }

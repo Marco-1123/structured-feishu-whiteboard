@@ -12,12 +12,17 @@ const fixtures = [
     expectedSkeleton: "overview-detail",
     minimumMetrics: 3,
     requiredBlocks: ["risk-list", "action-list"],
+    expectClosingBand: false,
+    expectCompactSupportRow: true,
   },
   {
     id: "audit-assistant-capability",
     expectedSkeleton: "centered-system",
     minimumMetrics: 0,
-    requiredBlocks: ["status-board", "narrative-chain", "evidence-list"],
+    requiredBlocks: ["status-board", "narrative-chain"],
+    forbiddenBlocks: ["evidence-list"],
+    embeddedFactId: "e1",
+    expectClosingBand: false,
   },
 ];
 
@@ -33,6 +38,8 @@ for (const fixture of fixtures) {
   assert.doesNotMatch(svg, />[，。；：！？]<\/tspan>/, `${fixture.id} must not leave Chinese punctuation alone at the start of a wrapped line`);
   assert.ok((brief.expressionBlocks || []).filter((block) => block.type === "metric-card").length >= fixture.minimumMetrics);
   for (const type of fixture.requiredBlocks) assert.ok(brief.expressionBlocks.some((block) => block.type === type), `${fixture.id} must render ${type}`);
+  for (const type of fixture.forbiddenBlocks || []) assert.ok(!brief.expressionBlocks.some((block) => block.type === type), `${fixture.id} must embed a singleton ${type} instead of forcing an independent section`);
+  if (fixture.embeddedFactId) assert.ok(brief.expressionBlocks.some((block) => (block.sourceFactIds || []).includes(fixture.embeddedFactId)), `${fixture.id} must keep embedded supporting facts visible`);
   for (const block of brief.expressionBlocks || []) {
     for (const item of block.items || []) assert.notEqual(item.note, item.label, `${fixture.id} must not repeat the same sentence as label and note`);
     assert.ok(!String(block.note || "").endsWith("…"), `${fixture.id} must not use a clipped aggregate sentence as a decorative block note`);
@@ -40,7 +47,11 @@ for (const fixture of fixtures) {
   const dimensions = svg.match(/<svg[^>]*width="([\d.]+)"[^>]*height="([\d.]+)"/);
   assert.ok(dimensions, `${fixture.id} must expose SVG dimensions`);
   assert.ok(Number(dimensions[1]) / Number(dimensions[2]) >= 1.1, `${fixture.id} must remain a compact onepage`);
-  assert.match(svg, /data-span="12"[^>]*data-item-layout="footer-band"/, `${fixture.id} must finish with a full-width closing band rather than a narrow floating card`);
+  if (fixture.expectClosingBand) assert.match(svg, /data-span="12"[^>]*data-item-layout="footer-band"/, `${fixture.id} must finish with a full-width closing band rather than a narrow floating card`);
+  if (fixture.expectCompactSupportRow) {
+    for (const type of ["status-board", "risk-list", "action-list"]) assert.match(svg, new RegExp(`data-block-type="${type}"[^>]*data-row="0"[^>]*data-span="4"`), `${fixture.id} must compose three compact support modules into one balanced row`);
+  }
+  assert.doesNotMatch(svg, /data-has-secondary="false"[^>]*data-label-layout="stacked"/, `${fixture.id} must vertically center a support item that has no secondary text`);
 }
 
 console.log("ok: V4.4 onepage bad-case regressions passed");

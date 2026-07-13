@@ -58,14 +58,17 @@ Use for diagnosis, viewpoint explanation, recommendation logic, and decision rat
 Required blocks:
 
 - 1 `statement`
-- 1 `narrative-chain`
-- 1 `evidence-list`
-- 1 `action-list`
+- at least one narrative content module
 
 Optional:
 
+- 1 `evidence-list`
+- 1 `action-list`
 - 1 `risk-list`
 - 1 `decision-matrix`
+- 1 `narrative-chain`
+
+Evidence, risk, and action facts may remain independent, merge into a support summary, or embed in the narrative chain. Their semantic coverage is required only when the source contains important facts of that role; a dedicated block is never required merely to complete a template.
 
 ### modular-canvas
 
@@ -74,8 +77,9 @@ Use for mixed long-form materials where no single pattern dominates.
 Required:
 
 - 1 `statement`
-- at least one signal block: `metric-card`, `progress-bar`, `ranked-bar`, `evidence-list`, `status-board`, `trend-sparkline`, or `variance-bridge-v2`
-- at least one closure block: `risk-list`, `action-list`, `status-board`, or `mini-roadmap`
+- at least one content module selected from the available expression blocks
+
+Do not manufacture a closure block. A conclusion, status summary, comparison result, route, or embedded action can close the page when that better matches the material.
 
 Use this mode when the board should look less like a repeated card grid while still staying deterministic.
 

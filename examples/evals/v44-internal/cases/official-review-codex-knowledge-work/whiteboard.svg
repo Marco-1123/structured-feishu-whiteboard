@@ -3,7 +3,7 @@
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Codex 知识工作采用阶段总结</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">阶段结果、关键问题与下一阶段行动</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">结果与变化、重点信息</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
@@ -26,23 +26,19 @@
 <text x="1476" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1476" dy="0">知识工作者约占用户的 20%</tspan></text>
 <rect x="1476" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1496" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1496" dy="0">阶段结果</tspan></text>
-</g><g data-v43-block="evidence-list-1" data-block-type="evidence-list" data-x="96" data-y="643" data-width="988" data-height="220" data-column="left" data-component-variant="evidence-tiles" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="27" data-item-count="1" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="96" y="643" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="776" data-y="643" data-width="648" data-height="316" data-column="center" data-component-variant="status-grid" data-row="0" data-span="4" data-row-alignment="centered" data-offset-span="4" data-density="sparse" data-preferred-width="648" data-text-units="45" data-item-count="2" data-item-layout="rows" data-layout-reason="compact-status-items">
+<rect x="776" y="643" width="648" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="804" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">重点关注</tspan></text>
 
-<rect x="124" y="747" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="787" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">增长最快的任务包括数据分析、研究和知识产物创建</tspan></text>
+<rect x="804" y="749" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="767" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="840" y="780" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">继续扩展跨工具并行任务和审批协作场景</tspan></text>
 
-</g><g data-v43-block="action-list-2" data-block-type="action-list" data-x="1116" data-y="643" data-width="988" data-height="220" data-column="right" data-component-variant="action-checklist" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="23" data-item-count="1" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
-<rect x="1116" y="643" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="1144" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
 
-<rect x="1144" y="747" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="1171" cy="774" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1167" y="780" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
-<text x="1196" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">继续扩展跨工具并行任务和审批协作场景</tspan></text>
+<rect x="804" y="845" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="863" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="840" y="876" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">增长最快的任务包括数据分析、研究和知识产物创建</tspan></text>
+
 
 </g>
 </g>

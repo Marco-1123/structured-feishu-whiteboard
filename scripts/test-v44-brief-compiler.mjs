@@ -34,7 +34,7 @@ assert.equal(compiled.brief.pageSkeleton, "overview-detail", "the selected page 
 assert.equal(compiled.decision.level, "high");
 assert.deepEqual(compiled.brief.planning.selectedFactIds.sort(), semanticModel.facts.map((fact) => fact.id).sort());
 assert.ok(compiled.brief.expressionBlocks.some((block) => block.type === "metric-card"));
-assert.equal(compiled.brief.subtitle, "阶段结果、关键问题与下一阶段行动");
+assert.equal(compiled.brief.subtitle, "结果与变化、风险边界、后续行动");
 assert.ok(!compiled.brief.subtitle.includes("review-update"), "internal routing ids must not leak into the board");
 
 const groupedMetricModel = {
@@ -70,6 +70,28 @@ const longConclusionCandidate = {
 const longConclusionBrief = compileV44Brief({ semanticModel: longConclusionModel, planningResult: { candidates: [longConclusionCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
 assert.deepEqual(longConclusionBrief.planning.selectedFactIds, ["long-1"], "a clipped statement must not claim facts that never became visible");
 assert.ok(longConclusionBrief.planning.omittedFacts.some((fact) => fact.id === "long-2"));
+
+const embeddedChainModel = {
+  ...semanticModel,
+  inventoryId: "embedded-chain-evidence",
+  facts: [
+    semanticModel.facts[0],
+    { id: "process-1", type: "process-chain", text: "自动查询并完成诊断", importance: "high", sourceRef: "process-1", confidence: "supported" },
+    { id: "evidence-long", type: "evidence", text: "知识库沉淀场景导航、通用决策约定、概念解释、错误原因与日志。", importance: "high", sourceRef: "evidence-long", confidence: "supported" },
+  ],
+};
+const embeddedChainCandidate = {
+  ...candidate("embedded-chain", 94, "hierarchical"),
+  pageSkeleton: "centered-system",
+  regions: [
+    { id: "statement", purpose: "conclusion", factIds: ["conclusion-1"], preferredComponent: "statement", visualPriority: "primary", widthIntent: "full" },
+    { id: "chain", purpose: "process-chain-evidence", factIds: ["process-1", "evidence-long"], preferredComponent: "narrative-chain", visualPriority: "secondary", widthIntent: "adaptive" },
+  ],
+};
+const embeddedChainBrief = compileV44Brief({ semanticModel: embeddedChainModel, planningResult: { candidates: [embeddedChainCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
+const embeddedEvidenceItem = embeddedChainBrief.expressionBlocks.find((block) => block.type === "narrative-chain").items.at(-1);
+assert.ok(embeddedEvidenceItem.note, "long evidence embedded in a directional component must split into a short label and visible secondary text");
+assert.equal(`${embeddedEvidenceItem.label}${embeddedEvidenceItem.note}`, embeddedChainModel.facts.at(-1).text);
 
 const low = compileV44Brief({ semanticModel, planningResult: { candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }, style: "linear-system", title: "混合材料" });
 assert.equal(low.decision.level, "low");

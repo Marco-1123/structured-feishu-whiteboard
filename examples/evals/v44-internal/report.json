@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T11:22:08.454Z",
+  "generatedAt": "2026-07-13T14:21:07.124Z",
   "summary": {
     "cases": 24,
     "passedCases": 24,
@@ -56,8 +56,7 @@
         "metric-card",
         "metric-card",
         "metric-card",
-        "risk-list",
-        "action-list"
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -81,8 +80,7 @@
         "metric-card",
         "metric-card",
         "metric-card",
-        "action-list",
-        "evidence-list"
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -106,9 +104,7 @@
         "metric-card",
         "metric-card",
         "mini-roadmap",
-        "risk-list",
-        "action-list",
-        "evidence-list"
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -131,7 +127,6 @@
         "statement",
         "status-board",
         "action-list",
-        "evidence-list",
         "narrative-chain"
       ],
       "failureLayer": null,
@@ -154,8 +149,7 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
-        "action-list",
+        "status-board",
         "narrative-chain"
       ],
       "failureLayer": null,
@@ -177,10 +171,8 @@
       "skeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "evidence-list",
-        "risk-list",
+        "decision-matrix",
         "action-list",
-        "evidence-list",
         "narrative-chain"
       ],
       "failureLayer": null,
@@ -203,8 +195,7 @@
       "componentMix": [
         "statement",
         "mini-roadmap",
-        "risk-list",
-        "action-list"
+        "risk-list"
       ],
       "failureLayer": null,
       "error": null
@@ -244,8 +235,7 @@
       "componentMix": [
         "statement",
         "mini-roadmap",
-        "risk-list",
-        "action-list"
+        "risk-list"
       ],
       "failureLayer": null,
       "error": null
@@ -266,9 +256,7 @@
       "skeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "evidence-list",
-        "decision-matrix",
-        "risk-list"
+        "decision-matrix"
       ],
       "failureLayer": null,
       "error": null
@@ -289,10 +277,10 @@
       "skeleton": "overview-detail",
       "componentMix": [
         "statement",
-        "evidence-list",
-        "risk-list",
         "action-list",
-        "evidence-list"
+        "metric-card",
+        "metric-card",
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -314,9 +302,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
         "action-list",
-        "evidence-list"
+        "decision-matrix"
       ],
       "failureLayer": null,
       "error": null
@@ -338,8 +325,7 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "status-board",
-        "evidence-list"
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -361,8 +347,7 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "status-board",
-        "evidence-list"
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -384,9 +369,7 @@
       "componentMix": [
         "statement",
         "decision-matrix",
-        "evidence-list",
-        "risk-list",
-        "evidence-list"
+        "status-board"
       ],
       "failureLayer": null,
       "error": null
@@ -461,10 +444,8 @@
       "skeleton": "left-right-argument",
       "componentMix": [
         "statement",
-        "evidence-list",
-        "risk-list",
-        "action-list",
-        "evidence-list",
+        "metric-card",
+        "status-board",
         "narrative-chain"
       ],
       "failureLayer": null,
@@ -487,9 +468,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
         "action-list",
-        "evidence-list"
+        "decision-matrix"
       ],
       "failureLayer": null,
       "error": null
@@ -511,8 +491,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
-        "action-list"
+        "action-list",
+        "risk-list"
       ],
       "failureLayer": null,
       "error": null
@@ -557,8 +537,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
-        "action-list"
+        "action-list",
+        "risk-list"
       ],
       "failureLayer": null,
       "error": null
@@ -580,9 +560,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "risk-list",
-        "action-list",
-        "evidence-list",
+        "metric-card",
+        "status-board",
         "narrative-chain"
       ],
       "failureLayer": null,

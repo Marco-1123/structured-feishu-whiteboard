@@ -9,14 +9,17 @@ function model(primary, factTypes, relationships = []) {
 const dataReview = planExpressions(model("review-update", ["conclusion", "metric", "metric", "trend", "variance", "cause", "risk", "action"]));
 assert.equal(dataReview.candidates.length, 3);
 assert.equal(dataReview.candidates[0].narrativeType, "result-driven");
-assert.ok(dataReview.candidates[0].componentMix.includes("trend-sparkline"));
+assert.deepEqual(dataReview.candidates[0].componentMix, [...new Set(dataReview.candidates[0].regions.map((region) => region.preferredComponent))], "componentMix must describe components that are actually planned");
+assert.ok(dataReview.candidates[0].componentMix.includes("metric-card"));
 
 const textReview = planExpressions(model("review-update", ["conclusion", "result", "evidence", "cause", "risk", "action"]));
 assert.notEqual(textReview.candidates[0].pageSkeleton, dataReview.candidates[0].pageSkeleton);
-assert.ok(textReview.candidates[0].componentMix.includes("evidence-list"));
+assert.ok(!["evidence-list", "risk-list", "action-list"].every((type) => textReview.candidates[0].componentMix.includes(type)), "singleton evidence, risk and action facts must not automatically become a fixed three-block template");
+assert.ok(textReview.candidates[0].regions.some((region) => region.embeddedPurposes?.length), "compatible singleton support facts should be embedded into the narrative structure");
 
 const futureReview = planExpressions(model("review-update", ["conclusion", "result", "stage", "stage", "action", "risk"]));
 assert.equal(futureReview.candidates[0].pageSkeleton, "past-future-split");
+assert.ok(!futureReview.candidates[0].componentMix.includes("action-list"), "a single next action should be embedded into an existing roadmap instead of repeated as a standalone section");
 
 const research = planExpressions(model("research-decision", ["unresolved", "evidence", "evidence", "option", "option", "conclusion"]));
 assert.equal(research.candidates[0].narrativeType, "comparison-driven");
@@ -28,6 +31,10 @@ assert.ok(!sparseComparison.candidates[0].regions.some((region) => region.prefer
 const product = planExpressions(model("product-capability", ["conclusion", "capability", "capability", "evidence", "stage"]));
 assert.equal(product.candidates[0].narrativeType, "hierarchical");
 assert.ok(product.candidates[0].componentMix.includes("status-board"));
+assert.ok(!product.candidates[0].componentMix.includes("evidence-list"), "a single supporting fact should be embedded into a compatible capability structure");
+
+const substantiveRisks = planExpressions(model("strategy-proposal", ["conclusion", "evidence", "risk", "risk", "action"]));
+assert.ok(substantiveRisks.candidates[0].componentMix.includes("risk-list"), "multiple material risks retain an independent risk region");
 
 const measuredProductModel = model("product-capability", ["conclusion", "capability", "evidence", "evidence", "stage"]);
 measuredProductModel.facts[1].visualType = "metric";

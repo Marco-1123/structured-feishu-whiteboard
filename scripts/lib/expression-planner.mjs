@@ -14,6 +14,70 @@ function ids(model, types) {
   return model.facts.filter((fact) => fact.visualType ? allowed.has(fact.visualType) : allowed.has(fact.type)).map((fact) => fact.id);
 }
 
+const SUPPORT_COMPONENTS = new Set(["evidence-list", "risk-list", "action-list"]);
+
+function fallbackComponent(fact) {
+  if (fact.visualType === "metric" || fact.type === "metric") return "metric-card";
+  if (["risk", "constraint"].includes(fact.type)) return "risk-list";
+  if (["action", "unresolved"].includes(fact.type)) return "action-list";
+  if (fact.type === "stage") return "mini-roadmap";
+  if (fact.type === "capability") return "status-board";
+  if (["cause", "process-chain"].includes(fact.type)) return "narrative-chain";
+  if (fact.type === "option") return "decision-matrix";
+  if (["conclusion", "result", "objective"].includes(fact.type)) return "statement";
+  return "evidence-list";
+}
+
+function appendFacts(region, factIds, purpose) {
+  region.factIds.push(...factIds.filter((id) => !region.factIds.includes(id)));
+  region.embeddedPurposes = [...new Set([...(region.embeddedPurposes || []), purpose])];
+}
+
+function composeSupportRegions(regions, model) {
+  const facts = new Map(model.facts.map((fact) => [fact.id, fact]));
+  const independent = [];
+  const singleton = [];
+  for (const region of regions) {
+    if (!SUPPORT_COMPONENTS.has(region.preferredComponent)) {
+      independent.push(region);
+      continue;
+    }
+    const regionFacts = region.factIds.map((id) => facts.get(id)).filter(Boolean);
+    const deservesOwnRegion = regionFacts.length >= 2 || regionFacts.some((fact) => fact.importance === "critical");
+    (deservesOwnRegion ? independent : singleton).push(region);
+  }
+
+  const hostFor = (component) => {
+    const preferences = component === "action-list"
+      ? ["mini-roadmap", "narrative-chain", "status-board"]
+      : component === "evidence-list"
+        ? ["decision-matrix", "narrative-chain", "status-board"]
+        : ["decision-matrix", "status-board"];
+    return preferences.map((type) => independent.find((region) => region.preferredComponent === type)).find(Boolean);
+  };
+
+  const unresolved = [];
+  for (const region of singleton) {
+    const host = hostFor(region.preferredComponent);
+    if (host) appendFacts(host, region.factIds, region.purpose);
+    else unresolved.push(region);
+  }
+  if (unresolved.length >= 2) {
+    independent.push({
+      id: `region-support-${independent.length + 1}`,
+      purpose: "support-summary",
+      factIds: unresolved.flatMap((region) => region.factIds),
+      preferredComponent: "status-board",
+      visualPriority: "secondary",
+      widthIntent: "adaptive",
+      embeddedPurposes: unresolved.map((region) => region.purpose),
+    });
+  } else {
+    independent.push(...unresolved);
+  }
+  return independent;
+}
+
 function recipe(model, narrativeType) {
   const scenario = model.scenario.primary;
   const group = (types, component) => ({ types, component });
@@ -90,10 +154,21 @@ export function planExpressions(model, config = defaultConfig) {
       return { id: `region-${index + 1}`, purpose: group.types.join("-"), factIds, preferredComponent, visualPriority: index === 0 ? "primary" : "secondary", widthIntent: index === 0 ? "full" : "adaptive" };
     }).filter((region) => region.factIds.length);
     const covered = new Set(regions.flatMap((region) => region.factIds));
-    const uncoveredImportant = model.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !covered.has(fact.id)).map((fact) => fact.id);
-    if (uncoveredImportant.length) regions.push({ id: `region-${regions.length + 1}`, purpose: "supporting-evidence", factIds: uncoveredImportant, preferredComponent: "evidence-list", visualPriority: "secondary", widthIntent: "adaptive" });
-    const componentMix = [...new Set([...selected.components, ...(uncoveredImportant.length ? ["evidence-list"] : [])])];
-    const candidate = { planId: `${model.modelId}-${narrativeType}`, scenario: model.scenario.primary, narrativeType, pageSkeleton: selected.skeleton, layout: selected.layout, regions, componentMix, fallbackLayout: "large-canvas" };
+    const uncoveredImportant = model.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !covered.has(fact.id));
+    const uncoveredGroups = new Map();
+    for (const fact of uncoveredImportant) {
+      const component = fallbackComponent(fact);
+      if (!uncoveredGroups.has(component)) uncoveredGroups.set(component, []);
+      uncoveredGroups.get(component).push(fact);
+    }
+    for (const [component, facts] of uncoveredGroups) {
+      const existing = regions.find((region) => region.preferredComponent === component);
+      if (existing) appendFacts(existing, facts.map((fact) => fact.id), `uncovered-${facts[0].type}`);
+      else regions.push({ id: `region-${regions.length + 1}`, purpose: facts.map((fact) => fact.type).join("-"), factIds: facts.map((fact) => fact.id), preferredComponent: component, visualPriority: "secondary", widthIntent: "adaptive" });
+    }
+    const composedRegions = selected.layout === "flow-canvas" ? regions : composeSupportRegions(regions, model);
+    const componentMix = [...new Set(composedRegions.map((region) => region.preferredComponent))];
+    const candidate = { planId: `${model.modelId}-${narrativeType}`, scenario: model.scenario.primary, narrativeType, pageSkeleton: selected.skeleton, layout: selected.layout, regions: composedRegions, componentMix, fallbackLayout: "large-canvas" };
     candidate.scoreBreakdown = scoreCandidate(model, candidate, rank);
     return candidate;
   }).sort((a, b) => b.scoreBreakdown.total - a.scoreBreakdown.total);

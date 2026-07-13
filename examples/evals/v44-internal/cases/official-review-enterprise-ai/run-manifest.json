@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:21:54.243Z",
+  "startedAt": "2026-07-13T14:20:55.339Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-enterprise-ai/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-review-enterprise-ai-result-driven"
   },
-  "finishedAt": "2026-07-13T11:21:54.870Z"
+  "finishedAt": "2026-07-13T14:20:55.901Z"
 }

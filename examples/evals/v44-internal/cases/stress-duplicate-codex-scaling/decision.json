@@ -34,43 +34,26 @@
           "widthIntent": "full"
         },
         {
-          "id": "region-3",
-          "purpose": "risk",
+          "id": "region-support-2",
+          "purpose": "support-summary",
           "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "action",
-          "factIds": [
-            "a1"
-          ],
-          "preferredComponent": "action-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "supporting-evidence",
-          "factIds": [
+            "r1",
+            "a1",
             "e1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk",
+            "action",
+            "evidence"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "metric-card",
-        "mini-roadmap",
-        "risk-list",
-        "action-list",
-        "evidence-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -114,44 +97,27 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-4",
-          "purpose": "risk",
+          "id": "region-support-3",
+          "purpose": "support-summary",
           "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "action",
-          "factIds": [
-            "a1"
-          ],
-          "preferredComponent": "action-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "supporting-evidence",
-          "factIds": [
+            "r1",
+            "a1",
             "e1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk",
+            "action",
+            "evidence"
+          ]
         }
       ],
       "componentMix": [
         "statement",
         "metric-card",
-        "trend-sparkline",
-        "narrative-chain",
-        "risk-list",
-        "action-list",
-        "evidence-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -179,7 +145,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "Codex 采用信息散落且部分重复的阶段材料",
-    "subtitle": "阶段结果、关键问题与下一阶段行动",
+    "subtitle": "结果与变化、路径与机制、重点信息",
     "summaryLabel": "核心判断",
     "summary": "Codex 企业采用从个人工具快速进入组织工作流",
     "expressionMode": "narrative-map",
@@ -214,43 +180,32 @@
         ]
       },
       {
-        "type": "risk-list",
-        "title": "风险与约束",
+        "type": "metric-card",
+        "title": "Codex 周活跃开发者在两周内从 增至 40…",
+        "value": "4M+",
+        "label": "阶段结果",
+        "note": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m1"
+        ]
+      },
+      {
+        "type": "status-board",
+        "title": "重点关注",
         "items": [
           {
             "label": "试点成果尚未自动等于生产级规模化能力",
             "status": "risk"
-          }
-        ],
-        "sourceFactIds": [
-          "r1"
-        ]
-      },
-      {
-        "type": "action-list",
-        "title": "下一步行动",
-        "items": [
+          },
           {
             "label": "将验证有效的用例沉淀成生产部署与治理方法",
             "status": "good"
           }
         ],
         "sourceFactIds": [
+          "r1",
           "a1"
-        ]
-      },
-      {
-        "type": "evidence-list",
-        "title": "关键证据",
-        "items": [
-          {
-            "label": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
-            "value": "4M+",
-            "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "m1"
         ]
       },
       {
@@ -258,7 +213,8 @@
         "title": "判断链路",
         "items": [
           {
-            "label": "Codex 企业采用从个人工具快速进入组织工作流",
+            "label": "Codex 企业采用从个人工具快速进入组",
+            "note": "织工作流",
             "status": "good"
           },
           {
@@ -278,9 +234,9 @@
         "c1",
         "e1",
         "e2",
+        "m1",
         "r1",
-        "a1",
-        "m1"
+        "a1"
       ],
       "omittedFacts": [],
       "routeDecisionId": "semantic-stress-duplicate-codex-scaling-causal"

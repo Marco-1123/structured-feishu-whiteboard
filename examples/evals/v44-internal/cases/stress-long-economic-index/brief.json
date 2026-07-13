@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "AI 使用节律、产物与工作影响综合研究",
-  "subtitle": "证据、方案差异与决策建议",
+  "subtitle": "关键依据、风险边界、后续行动",
   "summaryLabel": "核心判断",
   "summary": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
   "expressionMode": "narrative-map",
@@ -46,19 +46,6 @@
       ]
     },
     {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
-        {
-          "label": "产品、职业和时间分布差异使单一平均数容易误导",
-          "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
       "type": "action-list",
       "title": "下一步行动",
       "items": [
@@ -70,6 +57,19 @@
       "sourceFactIds": [
         "q1"
       ]
+    },
+    {
+      "type": "risk-list",
+      "title": "风险与约束",
+      "items": [
+        {
+          "label": "产品、职业和时间分布差异使单一平均数容易误导",
+          "status": "risk"
+        }
+      ],
+      "sourceFactIds": [
+        "r1"
+      ]
     }
   ],
   "planning": {
@@ -79,8 +79,8 @@
       "e1",
       "e2",
       "e3",
-      "r1",
-      "q1"
+      "q1",
+      "r1"
     ],
     "omittedFacts": [
       {

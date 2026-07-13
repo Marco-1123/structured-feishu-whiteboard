@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "可信 Agent 治理策略方案",
-  "subtitle": "从核心判断到证据、约束与验证动作",
+  "subtitle": "路径与机制、重点信息、后续行动",
   "summaryLabel": "核心判断",
   "summary": "Agent 治理必须在提升自主性的同时保留可观察、可控制和可追责能力",
   "expressionMode": "modular-canvas",
@@ -32,11 +32,16 @@
         {
           "label": "跨应用工具使用会扩大提示注入和权限滥用风险",
           "status": "good"
+        },
+        {
+          "label": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益",
+          "status": "good"
         }
       ],
       "sourceFactIds": [
         "k1",
-        "k2"
+        "k2",
+        "e1"
       ]
     },
     {
@@ -53,28 +58,17 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
-      "items": [
-        {
-          "label": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1"
-      ]
-    },
-    {
       "type": "narrative-chain",
       "title": "判断链路",
       "items": [
         {
-          "label": "Agent 治理必须在提升自主性的同时保留可观察、可控制和可追责能力",
+          "label": "Agent 治理必须在提升自主性的同时保",
+          "note": "留可观察、可控制和可追责能力",
           "status": "good"
         },
         {
-          "label": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
+          "label": "建立权限边界、执行前确认、全程追踪和异常",
+          "note": "回退的治理组合",
           "status": "good"
         }
       ],
@@ -90,8 +84,8 @@
       "c1",
       "k1",
       "k2",
-      "a1",
-      "e1"
+      "e1",
+      "a1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-official-strategy-trustworthy-agents-hierarchical"

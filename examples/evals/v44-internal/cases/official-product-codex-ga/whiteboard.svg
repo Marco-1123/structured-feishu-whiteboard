@@ -1,50 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1108" viewBox="0 0 2200 1108" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="centered-system">
-<rect x="0" y="0" width="2200" height="1108" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1080" viewBox="0 0 2200 1080" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="centered-system">
+<rect x="0" y="0" width="2200" height="1080" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Codex 团队协作能力介绍</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">能力层级、应用场景与扩展方向</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">重点信息、关键依据</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">Codex 已成为覆盖编辑器、终端、云端与团队协作的编码 Agent</tspan></text>
-</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="96" data-y="404" data-width="648" data-height="412" data-column="left" data-component-variant="status-grid" data-row="0" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="72" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-status-items">
-<rect x="96" y="404" width="648" height="412" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="96" data-y="404" data-width="2008" data-height="316" data-column="full" data-component-variant="status-grid" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="2008" data-text-units="91" data-item-count="4" data-item-layout="grid-2" data-layout-reason="centered-system-anchor">
+<rect x="96" y="404" width="2008" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">核心能力</tspan></text>
 
-<rect x="124" y="510" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="124" y="510" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="138" y="528" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <text x="160" y="541" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">Slack 集成让团队可直接从频道委派任务</tspan></text>
 
 
-<rect x="124" y="606" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1108" y="510" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1122" y="528" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="1144" y="541" font-size="17" fill="#111827" font-weight="700"><tspan x="1144" dy="0">Codex SDK 可将同一 Agent 嵌入工作流和应用</tspan></text>
+
+
+<rect x="124" y="606" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="138" y="624" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="160" y="637" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">Codex SDK 可将同一 Agent 嵌入工作流和应用</tspan></text>
+<text x="160" y="637" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">管理工具提供环境控制、监控和分析能力</tspan></text>
 
 
-<rect x="124" y="702" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="138" y="720" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="160" y="733" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">管理工具提供环境控制、监控和分析能力</tspan></text>
+<rect x="1108" y="606" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1122" y="624" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="1144" y="637" font-size="17" fill="#111827" font-weight="700"><tspan x="1144" dy="0">团队规模化使用需要统一环境与管理员控制</tspan></text>
 
 
-</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="776" data-y="404" data-width="1328" data-height="412" data-column="right" data-component-variant="evidence-tiles" data-row="0" data-span="8" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="23" data-item-count="1" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="776" y="404" width="1328" height="412" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="804" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">关键证据</tspan></text>
-
-<rect x="804" y="604" width="1272" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="820" y="621" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="832" y="644" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="832" dy="0">01</tspan></text>
-<text x="876" y="635" font-size="17" fill="#111827" font-weight="700"><tspan x="876" dy="0">团队规模化使用需要统一环境与管理员控制</tspan></text>
-
-</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="606" data-y="848" data-width="988" data-height="220" data-column="center" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="centered" data-offset-span="3" data-density="sparse" data-preferred-width="648" data-text-units="22" data-item-count="1" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
-<rect x="606" y="848" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="634" y="896" font-size="26" fill="#111827" font-weight="700"><tspan x="634" dy="0">结构化信息</tspan></text>
-
-<rect x="634" y="952" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="650" y="969" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="662" y="992" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="662" dy="0">01</tspan></text>
-<text x="706" y="983" font-size="17" fill="#111827" font-weight="700"><tspan x="706" dy="0">同一账户连接编辑器、终端和云端任务</tspan></text>
+</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="752" data-width="2008" data-height="154" data-column="full" data-component-variant="evidence-tiles" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="2008" data-text-units="21" data-item-count="1" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
+<rect x="96" y="752" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="806" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">使用链路</tspan></text>
+<text x="124" y="840" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">支撑核心判断</tspan></text>
+<rect x="356" y="782" width="1720" height="94" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="372" y="800" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="394" y="835" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">同一账户连接编辑器、终端和云端任务</tspan></text>
 
 </g>
 </g>

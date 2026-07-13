@@ -1,58 +1,49 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1282" viewBox="0 0 2200 1282" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
-<rect x="0" y="0" width="2200" height="1282" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1461" viewBox="0 0 2200 1461" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
+<rect x="0" y="0" width="2200" height="1461" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">企业 AI 材料：现状数据、治理设想与后续动作</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">阶段结果、关键问题与下一阶段行动</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">结果与变化、路径与机制、重点信息</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长</tspan></text>
-</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="404" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="53" data-item-count="2" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="404" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
+</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="404" data-width="2008" data-height="195" data-column="full">
+<rect x="96" y="404" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
+<text x="122" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="122" dy="0">结构化工作流使用量年内增长 倍</tspan></text>
+<text x="122" y="496" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="122" dy="0">19x</tspan></text>
+<text x="122" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="122" dy="0">结构化工作流使用量年内增长 19 倍</tspan></text>
+<rect x="122" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="142" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="142" dy="0">阶段结果</tspan></text>
+</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="643" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="53" data-item-count="2" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="643" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
 
-<rect x="124" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="148" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长</tspan></text>
-<text x="1094" y="614" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
-<rect x="1113" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="1137" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">建立用例优先级、权限治理和效果复盘机制</tspan></text>
+<rect x="124" y="753" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="148" y="799" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">组织已进入 AI 深度采用阶段，但规模化</tspan></text>
+<text x="148" y="835" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">治理仍落后于使用增长</tspan></text><text x="1094" y="853" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
+<rect x="1113" y="753" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="1137" y="799" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">建立用例优先级、权限治理和效果复盘机制</tspan></text>
 
-</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="770" data-width="988" data-height="220" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="20" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
-<rect x="96" y="770" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="818" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+</g><g data-v43-block="status-board-2" data-block-type="status-board" data-x="776" data-y="1009" data-width="648" data-height="412" data-column="center" data-component-variant="status-grid" data-row="1" data-span="4" data-row-alignment="centered" data-offset-span="4" data-density="sparse" data-preferred-width="648" data-text-units="55" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-status-items">
+<rect x="776" y="1009" width="648" height="412" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="804" y="1057" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">重点关注</tspan></text>
 
-<rect x="124" y="874" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="891" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="914" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">技术、医疗和制造是增长最快的行业</tspan></text>
+<rect x="804" y="1115" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="1133" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="840" y="1146" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">技术、医疗和制造是增长最快的行业</tspan></text>
 
-</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="1116" data-y="770" data-width="988" data-height="220" data-column="right" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="25" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
-<rect x="1116" y="770" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="1144" y="818" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">关键证据</tspan></text>
 
-<rect x="1144" y="874" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="1160" y="891" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1172" y="914" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1172" dy="0">01</tspan></text>
-<text x="1216" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="1216" dy="0">结构化工作流使用量年内增长 19 倍</tspan></text>
+<rect x="804" y="1211" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="1229" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="840" y="1242" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">组织准备度与实施能力成为主要约束</tspan></text>
 
-</g><g data-v43-block="risk-list-4" data-block-type="risk-list" data-x="96" data-y="1022" data-width="988" data-height="220" data-column="left" data-component-variant="risk-cluster" data-row="2" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="21" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
-<rect x="96" y="1022" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">风险与约束</tspan></text>
 
-<rect x="124" y="1126" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
-<circle cx="150" cy="1153" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="168" y="1158" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">组织准备度与实施能力成为主要约束</tspan></text>
+<rect x="804" y="1307" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="1325" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="840" y="1338" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">建立用例优先级、权限治理和效果复盘机制</tspan></text>
 
-</g><g data-v43-block="action-list-5" data-block-type="action-list" data-x="1116" data-y="1022" data-width="988" data-height="220" data-column="right" data-component-variant="action-checklist" data-row="2" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="24" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
-<rect x="1116" y="1022" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="1144" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
-
-<rect x="1144" y="1126" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="1171" cy="1153" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1167" y="1159" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
-<text x="1196" y="1157" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">建立用例优先级、权限治理和效果复盘机制</tspan></text>
 
 </g>
 </g>

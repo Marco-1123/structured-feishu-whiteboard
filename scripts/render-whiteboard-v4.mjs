@@ -399,10 +399,13 @@ ${text(x + 28, y + 88, 16, c.secondary, [kind === "action" ? "形成明确收口
     const t = kind === "risk" ? tone(item.status || "risk") : kind === "action" ? c.accent : c.accent;
     const labelLines = splitText(item.label, itemW - 58, 17, item.note ? 1 : 2);
     const noteLines = item.note ? splitText(item.note, itemW - 58, 15, 1) : [];
+    const labelY = noteLines.length
+      ? contentY + 37
+      : contentY + Math.round((94 - labelLines.length * 22) / 2) + 17;
     body += `
-${rect(ix, contentY, itemW, 94, kind === "action" ? c.muted : c.surface, c.border, 1.1, 10, ` data-v4-support-band-item="${index}"`)}
+${rect(ix, contentY, itemW, 94, kind === "action" ? c.muted : c.surface, c.border, 1.1, 10, ` data-v4-support-band-item="${index}" data-has-secondary="${noteLines.length ? "true" : "false"}" data-label-layout="${noteLines.length ? "stacked" : "centered"}"`)}
 <rect x="${ix + 16}" y="${contentY + 18}" width="7" height="58" rx="3.5" fill="${t}" stroke="${t}" stroke-width="1"/>
-${text(ix + 38, contentY + 37, 17, c.ink, labelLines, "800", 22)}
+${text(ix + 38, labelY, 17, c.ink, labelLines, "800", 22)}
 ${noteLines.length ? text(ix + 38, contentY + 70, 15, c.secondary, noteLines, "500", 20) : ""}`;
   });
   return { h, body };

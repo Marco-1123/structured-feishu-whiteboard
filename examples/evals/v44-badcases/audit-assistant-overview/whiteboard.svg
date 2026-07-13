@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1089" viewBox="0 0 2200 1089" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
-<rect x="0" y="0" width="2200" height="1089" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1095" viewBox="0 0 2200 1095" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
+<rect x="0" y="0" width="2200" height="1095" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">审核智能助手阶段汇报</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">阶段结果、关键问题与下一阶段行动</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">结果与变化、重点信息、风险边界</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
@@ -26,48 +26,50 @@
 <text x="1476" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1476" dy="0">覆盖 5 个业务场景并保留 1 个扩展场景。</tspan></text>
 <rect x="1476" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1496" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1496" dy="0">阶段结果</tspan></text>
-</g><g data-v43-block="evidence-list-1" data-block-type="evidence-list" data-x="96" data-y="643" data-width="988" data-height="220" data-column="left" data-component-variant="evidence-tiles" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="46" data-item-count="3" data-item-layout="grid-3" data-layout-reason="three-short-parallel-items">
-<rect x="96" y="643" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="96" data-y="643" data-width="648" data-height="412" data-column="left" data-component-variant="status-grid" data-row="0" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="46" data-item-count="3" data-item-layout="rows" data-layout-reason="compact-status-items">
+<rect x="96" y="643" width="648" height="412" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">核心能力</tspan></text>
 
-<rect x="124" y="747" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="787" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">五类核心分析能力已上线并</tspan><tspan x="196" dy="22">稳定运行。</tspan></text>
+<rect x="124" y="749" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="138" y="767" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="160" y="780" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">量级异常分析支持快速归因。</tspan></text>
 
-<rect x="439" y="747" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
-<rect x="455" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="467" y="787" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="467" dy="0">02</tspan></text>
-<text x="511" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="511" dy="0">量级异常分析支持快速归因。</tspan></text>
 
-<rect x="754" y="747" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="2"/>
-<rect x="770" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="782" y="787" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="782" dy="0">03</tspan></text>
-<text x="826" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="826" dy="0">延时分析支持分钟级定位。</tspan></text>
+<rect x="124" y="845" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="138" y="863" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="160" y="876" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">延时分析支持分钟级定位。</tspan></text>
 
-</g><g data-v43-block="risk-list-2" data-block-type="risk-list" data-x="1116" data-y="643" data-width="988" data-height="220" data-column="right" data-component-variant="risk-cluster" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="28" data-item-count="2" data-item-layout="grid-2" data-layout-reason="few-short-parallel-items">
-<rect x="1116" y="643" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="1144" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">风险与约束</tspan></text>
 
-<rect x="1144" y="755" width="459" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
-<circle cx="1170" cy="782" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="1188" y="787" font-size="17" fill="#111827" font-weight="700"><tspan x="1188" dy="0">跨团队数据口径仍需统一。</tspan></text>
+<rect x="124" y="941" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="138" y="959" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="160" y="972" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">五类核心分析能力已上线并稳定运行。</tspan></text>
 
-<rect x="1617" y="755" width="459" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="1"/>
-<circle cx="1643" cy="782" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="1661" y="787" font-size="17" fill="#111827" font-weight="700"><tspan x="1661" dy="0">权限边界需要持续验证。</tspan></text>
 
-</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="96" data-y="895" data-width="2008" data-height="154" data-column="full" data-component-variant="action-checklist" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="2008" data-text-units="39" data-item-count="2" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
-<rect x="96" y="895" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
-<text x="124" y="949" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
-<text x="124" y="983" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">形成明确收口</tspan></text>
-<rect x="356" y="925" width="852" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0"/>
-<rect x="372" y="943" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="394" y="962" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">补齐统一指标字典并固定双周复盘。</tspan></text>
+</g><g data-v43-block="risk-list-2" data-block-type="risk-list" data-x="776" data-y="643" data-width="648" data-height="412" data-column="grid" data-component-variant="risk-cluster" data-row="0" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="28" data-item-count="2" data-item-layout="grid-2" data-layout-reason="few-short-parallel-items">
+<rect x="776" y="643" width="648" height="412" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="804" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">风险与约束</tspan></text>
 
-<rect x="1224" y="925" width="852" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="1"/>
-<rect x="1240" y="943" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1262" y="962" font-size="17" fill="#111827" font-weight="700"><tspan x="1262" dy="0">将稳定能力沉淀为可复用 Skill。</tspan></text>
+<rect x="804" y="818" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
+<circle cx="830" cy="845" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="848" y="850" font-size="17" fill="#111827" font-weight="700"><tspan x="848" dy="0">跨团队数据口径仍需统一。</tspan></text>
+
+<rect x="804" y="884" width="592" height="54" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="1"/>
+<circle cx="830" cy="911" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="848" y="916" font-size="17" fill="#111827" font-weight="700"><tspan x="848" dy="0">权限边界需要持续验证。</tspan></text>
+
+</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="1456" data-y="643" data-width="648" data-height="412" data-column="right" data-component-variant="action-checklist" data-row="0" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="39" data-item-count="2" data-item-layout="grid-2" data-layout-reason="few-short-parallel-items">
+<rect x="1456" y="643" width="648" height="412" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1484" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="1484" dy="0">下一步行动</tspan></text>
+
+<rect x="1484" y="802" width="592" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="1511" cy="829" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1507" y="835" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1507" dy="0">1</tspan></text>
+<text x="1536" y="833" font-size="17" fill="#111827" font-weight="700"><tspan x="1536" dy="0">补齐统一指标字典并固定双周复盘。</tspan></text>
+
+<rect x="1484" y="884" width="592" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="1511" cy="911" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1507" y="917" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1507" dy="0">2</tspan></text>
+<text x="1536" y="915" font-size="17" fill="#111827" font-weight="700"><tspan x="1536" dy="0">将稳定能力沉淀为可复用 Skill。</tspan></text>
 
 </g>
 </g>

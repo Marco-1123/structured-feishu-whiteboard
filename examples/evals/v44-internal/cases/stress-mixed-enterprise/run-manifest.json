@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:22:04.576Z",
+  "startedAt": "2026-07-13T14:21:04.169Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-stress-mixed-enterprise-causal"
   },
-  "finishedAt": "2026-07-13T11:22:05.210Z"
+  "finishedAt": "2026-07-13T14:21:04.648Z"
 }

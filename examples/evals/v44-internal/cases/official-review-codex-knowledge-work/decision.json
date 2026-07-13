@@ -26,7 +26,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "Codex 知识工作采用阶段总结",
-    "subtitle": "阶段结果、关键问题与下一阶段行动",
+    "subtitle": "结果与变化、重点信息",
     "summaryLabel": "核心判断",
     "summary": "Codex 已从编码工具扩展为覆盖多类知识工作的生产力工具",
     "expressionMode": "modular-canvas",
@@ -76,28 +76,20 @@
         ]
       },
       {
-        "type": "action-list",
-        "title": "下一步行动",
+        "type": "status-board",
+        "title": "重点关注",
         "items": [
           {
             "label": "继续扩展跨工具并行任务和审批协作场景",
             "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "a1"
-        ]
-      },
-      {
-        "type": "evidence-list",
-        "title": "关键证据",
-        "items": [
+          },
           {
             "label": "增长最快的任务包括数据分析、研究和知识产物创建",
             "status": "good"
           }
         ],
         "sourceFactIds": [
+          "a1",
           "e1"
         ]
       }

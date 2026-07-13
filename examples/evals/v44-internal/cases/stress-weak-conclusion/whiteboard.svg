@@ -3,7 +3,7 @@
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">关于模型福利的开放问题材料</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">证据、方案差异与决策建议</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">关键依据、风险边界、后续行动</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
@@ -31,19 +31,17 @@
 <circle cx="1170" cy="576" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="1188" y="581" font-size="17" fill="#111827" font-weight="700"><tspan x="1188" dy="0">意识、体验与道德地位缺少可靠测量方法</tspan></text>
 
-</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="436" data-y="738" data-width="1328" data-height="302" data-column="center" data-component-variant="action-checklist" data-row="1" data-span="8" data-row-alignment="centered" data-offset-span="2" data-density="medium" data-preferred-width="988" data-text-units="48" data-item-count="2" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="436" y="738" width="1328" height="302" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="464" y="786" font-size="26" fill="#111827" font-weight="700"><tspan x="464" dy="0">下一步行动</tspan></text>
+</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="96" data-y="738" data-width="2008" data-height="154" data-column="full" data-component-variant="action-checklist" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="48" data-item-count="2" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
+<rect x="96" y="738" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="792" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
+<text x="124" y="826" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">形成明确收口</tspan></text>
+<rect x="356" y="768" width="852" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="372" y="786" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="394" y="821" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">先进模型是否可能具有值得道德考虑的体验仍是开放问题</tspan></text>
 
-<rect x="464" y="842" width="1272" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="491" cy="869" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="487" y="875" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="487" dy="0">1</tspan></text>
-<text x="516" y="873" font-size="17" fill="#111827" font-weight="700"><tspan x="516" dy="0">先进模型是否可能具有值得道德考虑的体验仍是开放问题</tspan></text>
-
-<rect x="464" y="924" width="1272" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
-<circle cx="491" cy="951" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="487" y="957" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="487" dy="0">2</tspan></text>
-<text x="516" y="955" font-size="17" fill="#111827" font-weight="700"><tspan x="516" dy="0">建立跨学科研究计划并提前准备治理框架</tspan></text>
+<rect x="1224" y="768" width="852" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="1" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="1240" y="786" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1262" y="821" font-size="17" fill="#111827" font-weight="700"><tspan x="1262" dy="0">建立跨学科研究计划并提前准备治理框架</tspan></text>
 
 </g>
 </g>

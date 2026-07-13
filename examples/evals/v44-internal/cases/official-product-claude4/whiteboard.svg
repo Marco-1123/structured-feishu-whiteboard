@@ -1,54 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1294" viewBox="0 0 2200 1294" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="multi-line-comparison">
-<rect x="0" y="0" width="2200" height="1294" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1080" viewBox="0 0 2200 1080" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="multi-line-comparison">
+<rect x="0" y="0" width="2200" height="1080" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Claude 4 与 Claude Code 能力介绍</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">能力层级、应用场景与扩展方向</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">比较与选择、重点信息</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">Claude 4 面向编码、复杂推理和长时间 Agent 工作流升级能力</tspan></text>
-</g><g data-v43-block="decision-matrix-1" data-block-type="decision-matrix" data-x="96" data-y="404" data-width="2008" data-height="346" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="58" data-item-count="2" data-item-layout="rows" data-layout-reason="tabular-comparison">
-<rect x="96" y="404" width="2008" height="346" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="decision-matrix-1" data-block-type="decision-matrix" data-x="96" data-y="404" data-width="1328" data-height="510" data-column="left" data-row="0" data-span="8" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="103" data-item-count="4" data-item-layout="rows" data-layout-reason="tabular-comparison">
+<rect x="96" y="404" width="1328" height="510" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">方案比较</tspan></text>
-<rect x="124" y="502" width="1952" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<rect x="124" y="502" width="1272" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="144" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
-<text x="865.76" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="865.76" dy="0">判断依据</tspan></text>
-<text x="1966" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1966" dy="0">结论</tspan></text>
-<rect x="124" y="544" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
+<text x="607.36" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="607.36" dy="0">判断依据</tspan></text>
+<text x="1286" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1286" dy="0">结论</tspan></text>
+<rect x="124" y="544" width="1272" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
 <text x="144" y="573" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">Opus 4 强调编码、复杂推理和长时间 Agent 任务</tspan></text>
 
 
-<rect x="124" y="626" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
+<rect x="124" y="626" width="1272" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
 <text x="144" y="655" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">Sonnet 4 强调效率、可控成本和日常高频使用</tspan></text>
 
 
-</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="782" data-width="988" data-height="220" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="30" data-item-count="1" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="96" y="782" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="830" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+<rect x="124" y="708" width="1272" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
+<text x="144" y="737" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">本地文件访问可帮助模型提取并保存关键事实以维持</tspan><tspan x="144" dy="22">连续性</tspan></text>
 
-<rect x="124" y="886" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="903" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="926" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="917" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">本地文件访问可帮助模型提取并保存关键事实以维持连续性</tspan></text>
 
-</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="1116" data-y="782" data-width="988" data-height="220" data-column="right" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="35" data-item-count="1" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="1116" y="782" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="1144" y="830" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">关键证据</tspan></text>
+<rect x="124" y="790" width="1272" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="819" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">长时间自主任务仍需测试、审查和权限约束</tspan></text>
 
-<rect x="1144" y="886" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="1160" y="903" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1172" y="926" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1172" dy="0">01</tspan></text>
-<text x="1216" y="917" font-size="17" fill="#111827" font-weight="700"><tspan x="1216" dy="0">Claude Code 支持 IDE 集成、后台任务和 SDK</tspan></text>
 
-</g><g data-v43-block="risk-list-4" data-block-type="risk-list" data-x="436" data-y="1034" data-width="1328" data-height="220" data-column="center" data-component-variant="risk-cluster" data-row="2" data-span="8" data-row-alignment="centered" data-offset-span="2" data-density="medium" data-preferred-width="988" data-text-units="24" data-item-count="1" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="436" y="1034" width="1328" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="464" y="1082" font-size="26" fill="#111827" font-weight="700"><tspan x="464" dy="0">风险与约束</tspan></text>
+</g><g data-v43-block="status-board-2" data-block-type="status-board" data-x="1456" data-y="404" data-width="648" data-height="510" data-column="right" data-component-variant="status-grid" data-row="0" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="35" data-item-count="1" data-item-layout="rows" data-layout-reason="compact-status-items">
+<rect x="1456" y="404" width="648" height="510" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1484" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="1484" dy="0">核心能力</tspan></text>
 
-<rect x="464" y="1138" width="1272" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
-<circle cx="490" cy="1165" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="508" y="1170" font-size="17" fill="#111827" font-weight="700"><tspan x="508" dy="0">长时间自主任务仍需测试、审查和权限约束</tspan></text>
+<rect x="1484" y="634" width="592" height="124" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1498" y="652" width="8" height="88" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="1520" y="665" font-size="17" fill="#111827" font-weight="700"><tspan x="1520" dy="0">Claude Code 支持 IDE 集成、后台任务和 SDK</tspan></text>
+
 
 </g>
 </g>

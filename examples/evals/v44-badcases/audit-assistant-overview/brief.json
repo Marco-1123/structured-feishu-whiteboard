@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "审核智能助手阶段汇报",
-  "subtitle": "阶段结果、关键问题与下一阶段行动",
+  "subtitle": "结果与变化、重点信息、风险边界",
   "summaryLabel": "核心判断",
   "summary": "审核智能助手已形成稳定分析闭环，下一阶段重点转向统一口径与能力复用。",
   "expressionMode": "modular-canvas",
@@ -91,13 +91,9 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
+      "type": "status-board",
+      "title": "核心能力",
       "items": [
-        {
-          "label": "五类核心分析能力已上线并稳定运行。",
-          "status": "good"
-        },
         {
           "label": "量级异常分析支持快速归因。",
           "status": "good"
@@ -105,12 +101,16 @@
         {
           "label": "延时分析支持分钟级定位。",
           "status": "good"
+        },
+        {
+          "label": "五类核心分析能力已上线并稳定运行。",
+          "status": "good"
         }
       ],
       "sourceFactIds": [
-        "m1",
         "h1",
-        "h2"
+        "h2",
+        "m1"
       ]
     }
   ],
@@ -125,9 +125,9 @@
       "r2",
       "a1",
       "a2",
-      "m1",
       "h1",
-      "h2"
+      "h2",
+      "m1"
     ],
     "omittedFacts": [
       {

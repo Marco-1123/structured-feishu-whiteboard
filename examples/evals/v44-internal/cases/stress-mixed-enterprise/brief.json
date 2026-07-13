@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "企业 AI 材料：现状数据、治理设想与后续动作",
-  "subtitle": "阶段结果、关键问题与下一阶段行动",
+  "subtitle": "结果与变化、路径与机制、重点信息",
   "summaryLabel": "核心判断",
   "summary": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
   "expressionMode": "narrative-map",
@@ -22,56 +22,37 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
+      "type": "metric-card",
+      "title": "结构化工作流使用量年内增长 倍",
+      "value": "19x",
+      "label": "阶段结果",
+      "note": "结构化工作流使用量年内增长 19 倍",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m1"
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "重点关注",
       "items": [
         {
           "label": "技术、医疗和制造是增长最快的行业",
           "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1"
-      ]
-    },
-    {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
+        },
         {
           "label": "组织准备度与实施能力成为主要约束",
           "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
-      "type": "action-list",
-      "title": "下一步行动",
-      "items": [
+        },
         {
           "label": "建立用例优先级、权限治理和效果复盘机制",
           "status": "good"
         }
       ],
       "sourceFactIds": [
+        "e1",
+        "r1",
         "a1"
-      ]
-    },
-    {
-      "type": "evidence-list",
-      "title": "关键证据",
-      "items": [
-        {
-          "label": "结构化工作流使用量年内增长 19 倍",
-          "value": "19x",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "m1"
       ]
     },
     {
@@ -79,7 +60,8 @@
       "title": "判断链路",
       "items": [
         {
-          "label": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
+          "label": "组织已进入 AI 深度采用阶段，但规模化",
+          "note": "治理仍落后于使用增长",
           "status": "good"
         },
         {
@@ -97,10 +79,10 @@
     "inventoryId": "stress-mixed-enterprise",
     "selectedFactIds": [
       "c1",
+      "m1",
       "e1",
       "r1",
-      "a1",
-      "m1"
+      "a1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-stress-mixed-enterprise-causal"

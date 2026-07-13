@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "Agent 研究执行计划与阶段交付",
-  "subtitle": "目标、阶段、依赖与交付路径",
+  "subtitle": "路径与机制、风险边界",
   "summaryLabel": "核心判断",
   "summary": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
   "expressionMode": "modular-canvas",
@@ -26,22 +26,29 @@
       "title": "阶段路径",
       "items": [
         {
-          "label": "阶段一完成 1260 名社会科学家的基线调查",
+          "label": "阶段一完成 1260 名社会科学家的基线",
+          "note": "调查",
           "status": "good"
         },
         {
-          "label": "阶段二向研究者提供 Claude Code 并开展随机实验",
+          "label": "阶段二向研究者提供 Claude Cod",
+          "note": "e 并开展随机实验",
           "status": "good"
         },
         {
           "label": "阶段三发布生产率、采用差异和研究质量结果",
+          "status": "good"
+        },
+        {
+          "label": "用随机实验区分工具作用与用户自选择效应",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "t1",
         "t2",
-        "t3"
+        "t3",
+        "a1"
       ]
     },
     {
@@ -56,19 +63,6 @@
       "sourceFactIds": [
         "r1"
       ]
-    },
-    {
-      "type": "action-list",
-      "title": "下一步行动",
-      "items": [
-        {
-          "label": "用随机实验区分工具作用与用户自选择效应",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "a1"
-      ]
     }
   ],
   "planning": {
@@ -78,8 +72,8 @@
       "t1",
       "t2",
       "t3",
-      "r1",
-      "a1"
+      "a1",
+      "r1"
     ],
     "omittedFacts": [],
     "routeDecisionId": "semantic-official-plan-agent-research-temporal"

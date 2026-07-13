@@ -26,7 +26,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "企业 AI 采用阶段复盘与下一步重点",
-    "subtitle": "阶段结果、关键问题与下一阶段行动",
+    "subtitle": "结果与变化、重点信息",
     "summaryLabel": "核心判断",
     "summary": "企业 AI 使用正从零散问答进入可复用的深度工作流",
     "expressionMode": "modular-canvas",
@@ -76,28 +76,20 @@
         ]
       },
       {
-        "type": "risk-list",
-        "title": "风险与约束",
+        "type": "status-board",
+        "title": "重点关注",
         "items": [
           {
             "label": "领先组织与中位组织之间的采用深度差距仍在扩大",
             "status": "risk"
-          }
-        ],
-        "sourceFactIds": [
-          "r1"
-        ]
-      },
-      {
-        "type": "action-list",
-        "title": "下一步行动",
-        "items": [
+          },
           {
             "label": "下一阶段把高价值用例沉淀为组织级可复用流程",
             "status": "good"
           }
         ],
         "sourceFactIds": [
+          "r1",
           "a1"
         ]
       }

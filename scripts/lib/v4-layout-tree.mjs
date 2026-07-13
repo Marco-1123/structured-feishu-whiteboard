@@ -148,17 +148,7 @@ export function buildAdaptiveExpressionLayout({
   pageSkeleton,
 }) {
   const workingBlocks = pageSkeleton ? arrangeExpressionBlocks(blocks, pageSkeleton, profile) : blocks;
-  const intents = workingBlocks.map((block, index) => {
-    const intent = skeletonProfile(block, pageSkeleton, profile);
-    const isClosingSupportBlock = Boolean(pageSkeleton)
-      && index === workingBlocks.length - 1
-      && LIST_TYPES.has(block.type)
-      && !intent.reason.endsWith("-paired-region")
-      && intent.maxSpan < 12;
-    return isClosingSupportBlock
-      ? { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "footer-band", reason: "full-width-closing-band" }
-      : intent;
-  });
+  const intents = workingBlocks.map((block) => skeletonProfile(block, pageSkeleton, profile));
   const allowed = (intent) => [4, 6, 8, 12].filter((span) => span >= intent.minSpan && span <= intent.maxSpan);
   const canUse = (index, span) => index < workingBlocks.length && allowed(intents[index]).includes(span);
   const pair = (index) => {
@@ -215,6 +205,18 @@ export function buildAdaptiveExpressionLayout({
       rowPlans.push({ indexes: [index], spans: [span], alignment: "centered", offsetSpan: (12 - span) / 2 });
     }
     index += 1;
+  }
+
+  const finalRow = rowPlans.at(-1);
+  if (pageSkeleton && finalRow?.indexes.length === 1 && finalRow.alignment === "centered") {
+    const finalIndex = finalRow.indexes[0];
+    const intent = intents[finalIndex];
+    if (LIST_TYPES.has(workingBlocks[finalIndex].type) && !intent.reason.endsWith("-paired-region")) {
+      finalRow.spans = [12];
+      finalRow.alignment = "filled";
+      finalRow.offsetSpan = 0;
+      intents[finalIndex] = { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "footer-band", reason: "full-width-closing-band" };
+    }
   }
 
   const nodes = [];

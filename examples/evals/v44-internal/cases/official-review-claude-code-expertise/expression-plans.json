@@ -24,50 +24,36 @@
           "purpose": "stage",
           "factIds": [
             "t1",
-            "t2"
+            "t2",
+            "a1"
           ],
           "preferredComponent": "mini-roadmap",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "action"
+          ]
         },
         {
-          "id": "region-3",
-          "purpose": "risk",
+          "id": "region-support-3",
+          "purpose": "support-summary",
           "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "action",
-          "factIds": [
-            "a1"
-          ],
-          "preferredComponent": "action-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "supporting-evidence",
-          "factIds": [
+            "r1",
             "e1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk",
+            "evidence"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "metric-card",
         "mini-roadmap",
-        "risk-list",
-        "action-list",
-        "evidence-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -112,46 +98,41 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-4",
-          "purpose": "risk",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-5",
-          "purpose": "action",
-          "factIds": [
-            "a1"
-          ],
-          "preferredComponent": "action-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "supporting-evidence",
+          "purpose": "stage-stage",
           "factIds": [
             "t1",
             "t2",
+            "a1"
+          ],
+          "preferredComponent": "mini-roadmap",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "action"
+          ]
+        },
+        {
+          "id": "region-support-4",
+          "purpose": "support-summary",
+          "factIds": [
+            "r1",
             "e1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk",
+            "evidence"
+          ]
         }
       ],
       "componentMix": [
         "statement",
         "metric-card",
-        "trend-sparkline",
-        "narrative-chain",
-        "risk-list",
-        "action-list",
-        "evidence-list"
+        "mini-roadmap",
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -185,55 +166,52 @@
           "widthIntent": "full"
         },
         {
-          "id": "region-3",
-          "purpose": "evidence",
-          "factIds": [
-            "e1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "risk-constraint",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-5",
-          "purpose": "action-unresolved",
-          "factIds": [
-            "a1"
-          ],
-          "preferredComponent": "action-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "supporting-evidence",
+          "purpose": "metric-metric",
           "factIds": [
             "m1",
-            "m2",
-            "t1",
-            "t2"
+            "m2"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "metric-card",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-6",
+          "purpose": "stage-stage",
+          "factIds": [
+            "t1",
+            "t2",
+            "a1"
+          ],
+          "preferredComponent": "mini-roadmap",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "action-unresolved"
+          ]
+        },
+        {
+          "id": "region-support-4",
+          "purpose": "support-summary",
+          "factIds": [
+            "e1",
+            "r1"
+          ],
+          "preferredComponent": "status-board",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence",
+            "risk-constraint"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "narrative-chain",
-        "evidence-list",
-        "risk-list",
-        "action-list"
+        "metric-card",
+        "mini-roadmap",
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

@@ -26,7 +26,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "审核智能助手能力概览",
-    "subtitle": "能力层级、应用场景与扩展方向",
+    "subtitle": "路径与机制、重点信息",
     "summaryLabel": "核心判断",
     "summary": "用户在飞书群聊输入分析关键词与队列 ID，即可自动完成查询、诊断与卡片输出。",
     "expressionMode": "modular-canvas",
@@ -44,7 +44,7 @@
       },
       {
         "type": "narrative-chain",
-        "title": "结构化信息",
+        "title": "使用链路",
         "items": [
           {
             "label": "群聊触发：",
@@ -65,13 +65,19 @@
             "label": "结果输出：",
             "note": "生成群聊简报卡片并保留完整报告入口。",
             "status": "good"
+          },
+          {
+            "label": "知识库沉淀场景导航、通用决策约定、概念解",
+            "note": "释、错误原因与日志。",
+            "status": "good"
           }
         ],
         "sourceFactIds": [
           "p1",
           "p2",
           "p3",
-          "p4"
+          "p4",
+          "e1"
         ]
       },
       {
@@ -106,19 +112,6 @@
           "h4",
           "h5"
         ]
-      },
-      {
-        "type": "evidence-list",
-        "title": "关键证据",
-        "items": [
-          {
-            "label": "知识库沉淀场景导航、通用决策约定、概念解释、错误原因与日志。",
-            "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "e1"
-        ]
       }
     ],
     "planning": {
@@ -129,12 +122,12 @@
         "p2",
         "p3",
         "p4",
+        "e1",
         "h1",
         "h2",
         "h3",
         "h4",
-        "h5",
-        "e1"
+        "h5"
       ],
       "omittedFacts": [
         {

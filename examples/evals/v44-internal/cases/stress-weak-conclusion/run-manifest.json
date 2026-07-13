@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:22:05.853Z",
+  "startedAt": "2026-07-13T14:21:05.123Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-weak-conclusion/inventory.json"
   },
@@ -46,5 +46,5 @@
     },
     "selectedPlanId": "semantic-stress-weak-conclusion-problem-driven"
   },
-  "finishedAt": "2026-07-13T11:22:06.469Z"
+  "finishedAt": "2026-07-13T14:21:05.610Z"
 }

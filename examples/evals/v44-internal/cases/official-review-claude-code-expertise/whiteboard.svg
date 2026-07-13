@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1483" viewBox="0 0 2200 1483" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="past-future-split">
-<rect x="0" y="0" width="2200" height="1483" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1327" viewBox="0 0 2200 1327" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="past-future-split">
+<rect x="0" y="0" width="2200" height="1327" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Claude Code 七个月使用变化复盘</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">阶段结果、关键问题与下一阶段行动</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">结果与变化、路径与机制、重点信息</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
@@ -21,41 +21,32 @@
 <text x="1138" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1138" dy="0">七个月内典型任务估算价值平均提高约 25%</tspan></text>
 <rect x="1138" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1158" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1158" dy="0">阶段结果</tspan></text>
-</g><g data-v43-block="evidence-list-1" data-block-type="evidence-list" data-x="96" data-y="643" data-width="988" data-height="220" data-column="left" data-component-variant="evidence-tiles" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="34" data-item-count="1" data-item-layout="rows" data-layout-reason="past-future-split-paired-region">
-<rect x="96" y="643" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+</g><g data-v43-block="mini-roadmap-1" data-block-type="mini-roadmap" data-x="96" data-y="643" data-width="2008" data-height="296" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="71" data-item-count="3" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="643" width="2008" height="296" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">阶段路径</tspan></text>
 
-<rect x="124" y="747" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="787" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">领域经验越强，Agent 每条指令承担的工作越多且成功率更高</tspan></text>
+<rect x="124" y="755" width="637" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="144" y="789" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">早期使用更集中在调试、解释和局部代码修改</tspan></text>
+<text x="764" y="821" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
+<rect x="781" y="755" width="637" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="801" y="789" font-size="17" fill="#111827" font-weight="700"><tspan x="801" dy="0">当前使用逐步扩展到设计、实现、测试和部署</tspan></text>
+<text x="801" y="823" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="801" dy="0">链路</tspan></text><text x="1421" y="821" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1421" dy="0">→</tspan></text>
+<rect x="1438" y="755" width="637" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="1458" y="789" font-size="17" fill="#111827" font-weight="700"><tspan x="1458" dy="0">后续持续跟踪端到端任务、非代码产物和部署</tspan></text>
+<text x="1458" y="823" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1458" dy="0">工作的增长</tspan></text>
+</g><g data-v43-block="status-board-2" data-block-type="status-board" data-x="776" data-y="971" data-width="648" data-height="316" data-column="center" data-component-variant="status-grid" data-row="1" data-span="4" data-row-alignment="centered" data-offset-span="4" data-density="sparse" data-preferred-width="648" data-text-units="57" data-item-count="2" data-item-layout="rows" data-layout-reason="compact-status-items">
+<rect x="776" y="971" width="648" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="804" y="1019" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">重点关注</tspan></text>
 
-</g><g data-v43-block="risk-list-2" data-block-type="risk-list" data-x="1116" data-y="643" data-width="988" data-height="220" data-column="right" data-component-variant="risk-cluster" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="28" data-item-count="1" data-item-layout="rows" data-layout-reason="past-future-split-paired-region">
-<rect x="1116" y="643" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="1144" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">风险与约束</tspan></text>
+<rect x="804" y="1077" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="1095" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="840" y="1108" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">专家与中级用户仍存在可测量但不极端的成功率差距</tspan></text>
 
-<rect x="1144" y="747" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
-<circle cx="1170" cy="774" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="1188" y="779" font-size="17" fill="#111827" font-weight="700"><tspan x="1188" dy="0">专家与中级用户仍存在可测量但不极端的成功率差距</tspan></text>
 
-</g><g data-v43-block="mini-roadmap-3" data-block-type="mini-roadmap" data-x="96" data-y="895" data-width="2008" data-height="296" data-column="full" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="46" data-item-count="2" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="895" width="2008" height="296" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="943" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">阶段路径</tspan></text>
+<rect x="804" y="1173" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="818" y="1191" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="840" y="1204" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">领域经验越强，Agent 每条指令承担的工作越多且成功率更高</tspan></text>
 
-<rect x="124" y="1007" width="966" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="144" y="1041" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">早期使用更集中在调试、解释和局部代码修改</tspan></text>
-<text x="1093" y="1073" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1093" dy="0">→</tspan></text>
-<rect x="1110" y="1007" width="966" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="1130" y="1041" font-size="17" fill="#111827" font-weight="700"><tspan x="1130" dy="0">当前使用逐步扩展到设计、实现、测试和部署链路</tspan></text>
-
-</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="606" data-y="1223" data-width="988" data-height="220" data-column="center" data-component-variant="action-checklist" data-row="2" data-span="6" data-row-alignment="centered" data-offset-span="3" data-density="medium" data-preferred-width="988" data-text-units="30" data-item-count="1" data-item-layout="rows" data-layout-reason="past-future-split-paired-region">
-<rect x="606" y="1223" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="634" y="1271" font-size="26" fill="#111827" font-weight="700"><tspan x="634" dy="0">下一步行动</tspan></text>
-
-<rect x="634" y="1327" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="661" cy="1354" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="657" y="1360" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="657" dy="0">1</tspan></text>
-<text x="686" y="1358" font-size="17" fill="#111827" font-weight="700"><tspan x="686" dy="0">后续持续跟踪端到端任务、非代码产物和部署工作的增长</tspan></text>
 
 </g>
 </g>

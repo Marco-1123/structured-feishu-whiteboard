@@ -18,52 +18,37 @@
           "widthIntent": "full"
         },
         {
-          "id": "region-3",
-          "purpose": "evidence",
-          "factIds": [
-            "e1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "risk-constraint",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-5",
-          "purpose": "action-unresolved",
-          "factIds": [
-            "a1"
-          ],
-          "preferredComponent": "action-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "supporting-evidence",
+          "purpose": "metric",
           "factIds": [
             "m1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "metric-card",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-support-3",
+          "purpose": "support-summary",
+          "factIds": [
+            "e1",
+            "r1",
+            "a1"
+          ],
+          "preferredComponent": "status-board",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence",
+            "risk-constraint",
+            "action-unresolved"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "narrative-chain",
-        "evidence-list",
-        "risk-list",
-        "action-list"
+        "metric-card",
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -98,32 +83,24 @@
           "widthIntent": "full"
         },
         {
-          "id": "region-3",
-          "purpose": "risk",
+          "id": "region-support-2",
+          "purpose": "support-summary",
           "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "action",
-          "factIds": [
+            "r1",
             "a1"
           ],
-          "preferredComponent": "action-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk",
+            "action"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "metric-card",
-        "mini-roadmap",
-        "risk-list",
-        "action-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -167,33 +144,25 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-4",
-          "purpose": "risk",
+          "id": "region-support-3",
+          "purpose": "support-summary",
           "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-5",
-          "purpose": "action",
-          "factIds": [
+            "r1",
             "a1"
           ],
-          "preferredComponent": "action-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk",
+            "action"
+          ]
         }
       ],
       "componentMix": [
         "statement",
         "metric-card",
-        "trend-sparkline",
-        "narrative-chain",
-        "risk-list",
-        "action-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "GPT-5 系统架构调研与模型选择决策",
-  "subtitle": "证据、方案差异与决策建议",
+  "subtitle": "比较与选择",
   "summaryLabel": "核心判断",
   "summary": "采用统一路由并为高风险任务保留显式模型与验证控制",
   "expressionMode": "narrative-map",
@@ -23,19 +23,6 @@
       ]
     },
     {
-      "type": "evidence-list",
-      "title": "关键证据",
-      "items": [
-        {
-          "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1"
-      ]
-    },
-    {
       "type": "decision-matrix",
       "title": "方案比较",
       "items": [
@@ -46,23 +33,20 @@
         {
           "label": "推理模型适合复杂问题、工具调用和更深分析",
           "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "o1",
-        "o2"
-      ]
-    },
-    {
-      "type": "risk-list",
-      "title": "风险与约束",
-      "items": [
+        },
+        {
+          "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+          "status": "good"
+        },
         {
           "label": "高风险任务仍需人工验证模型输出",
           "status": "risk"
         }
       ],
       "sourceFactIds": [
+        "o1",
+        "o2",
+        "e1",
         "r1"
       ]
     }
@@ -72,9 +56,9 @@
     "selectedFactIds": [
       "q1",
       "c1",
-      "e1",
       "o1",
       "o2",
+      "e1",
       "r1"
     ],
     "omittedFacts": [],

@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:21:56.550Z",
+  "startedAt": "2026-07-13T14:20:57.366Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/inventory.json"
   },
@@ -46,5 +46,5 @@
     },
     "selectedPlanId": "semantic-official-strategy-openai-frontier-causal"
   },
-  "finishedAt": "2026-07-13T11:21:57.093Z"
+  "finishedAt": "2026-07-13T14:20:57.848Z"
 }

@@ -55,6 +55,23 @@ try {
   execFileSync(process.execPath, [path.join(root, "scripts/render-whiteboard-v4.mjs"), "--input", longForm, "--output", longOutput], { stdio: "pipe" });
   const longSvg = fs.readFileSync(longOutput, "utf8");
   assert.match(longSvg, /data-block-type="risk-list"[^>]*data-item-layout="grid-3"/, "five readable risks should use a compact three-column cluster beside a status grid");
+
+  const closingBandBrief = {
+    engine: "v4", layout: "expression-canvas", style: "linear-system", title: "收束带排版测试", subtitle: "验证无副信息状态", summaryLabel: "核心判断", summary: "末尾孤立行动形成全宽收束带。", expressionMode: "modular-canvas", pageSkeleton: "overview-detail",
+    expressionBlocks: [
+      { type: "statement", title: "核心判断", body: ["末尾孤立行动形成全宽收束带。"] },
+      { type: "evidence-list", title: "关键依据", items: [{ label: "依据一" }, { label: "依据二" }, { label: "依据三" }] },
+      { type: "risk-list", title: "风险边界", items: [{ label: "风险一" }, { label: "风险二" }] },
+      { type: "action-list", title: "下一步", items: [{ label: "补齐统一指标字典并固定双周复盘。" }] },
+    ],
+  };
+  const closingBandInput = path.join(temp, "closing-band.json");
+  const closingBandOutput = path.join(temp, "closing-band.svg");
+  fs.writeFileSync(closingBandInput, JSON.stringify(closingBandBrief));
+  execFileSync(process.execPath, [path.join(root, "scripts/render-whiteboard-v4.mjs"), "--input", closingBandInput, "--output", closingBandOutput], { stdio: "pipe" });
+  const closingBandSvg = fs.readFileSync(closingBandOutput, "utf8");
+  assert.match(closingBandSvg, /data-item-layout="footer-band"/, "a genuinely orphaned final support block must become a closing band");
+  assert.match(closingBandSvg, /data-has-secondary="false" data-label-layout="centered"/, "a closing-band item without secondary text must center its primary label");
 } finally {
   fs.rmSync(temp, { recursive: true, force: true });
 }

@@ -18,6 +18,8 @@ The July 2026 cross-Agent samples exposed a system failure rather than an isolat
 - A onepage expands only inside a bounded aspect range. Capacity is increased through two-dimensional composition, component choice, and balanced grids before canvas height.
 - Three and five peer items must use complete grids. One or two sparse items remain compact and may be centered or paired.
 - A final unpaired support module must not float as a narrow centered card. It becomes a full-width closing band so the page retains a stable visual base.
+- Evidence, risk, and action are semantic roles rather than mandatory sections. Preserve their facts, but embed singleton support facts into compatible structures and reserve independent regions for material content.
+- A closing-band item without secondary text centers its primary label vertically; fixed two-line slots must not create a false missing-content state.
 - A fact counts as selected only when its visible representation contains that fact. Truncated aggregate copy cannot claim hidden fact IDs.
 - Labels and notes must add different information. The same sentence cannot be rendered twice inside one item.
 

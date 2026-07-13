@@ -37,8 +37,11 @@ function splitFactText(value) {
   return { label: text.slice(0, splitAt), note: text.slice(splitAt) };
 }
 
-function item(fact) {
-  const parts = splitFactText(fact.text);
+function item(fact, component) {
+  let parts = splitFactText(fact.text);
+  if (["narrative-chain", "mini-roadmap"].includes(component) && !parts.note && parts.label.length > 20) {
+    parts = { label: parts.label.slice(0, 20), note: parts.label.slice(20) };
+  }
   return {
     label: clip(parts.label, 40),
     ...(fact.value !== undefined ? { value: clip(fact.value, 12) } : {}),
@@ -77,14 +80,30 @@ function visibleStatement(facts, max = 80) {
 
 function purposeTitle(purpose) {
   const types = new Set(purpose.split("-"));
+  if (types.has("support") || types.has("summary")) return "重点关注";
   if (types.has("risk") || types.has("constraint")) return "风险与约束";
   if (types.has("action") || types.has("unresolved")) return "下一步行动";
   if (types.has("evidence")) return "关键证据";
   if (types.has("capability")) return "核心能力";
+  if (types.has("process") || types.has("chain")) return "使用链路";
   if (types.has("stage")) return "阶段路径";
   if (types.has("option")) return "方案比较";
   if (types.has("metric")) return "核心指标";
   return "结构化信息";
+}
+
+function semanticSubtitle(scenario, narrativeType, blocks) {
+  const types = new Set(blocks.map((block) => block.type));
+  const roles = [];
+  if ([...types].some((type) => ["metric-card", "progress-bar", "trend-sparkline", "ranked-bar", "variance-bridge-v2"].includes(type))) roles.push("结果与变化");
+  if ([...types].some((type) => ["mini-roadmap", "narrative-chain"].includes(type))) roles.push("路径与机制");
+  if (types.has("decision-matrix")) roles.push("比较与选择");
+  if (types.has("status-board")) roles.push("重点信息");
+  if (types.has("evidence-list")) roles.push("关键依据");
+  if (types.has("risk-list")) roles.push("风险边界");
+  if (types.has("action-list")) roles.push("后续行动");
+  if (roles.length) return roles.slice(0, 3).join("、");
+  return scenarioSubtitle(scenario, narrativeType);
 }
 
 function expressionMode(candidate, model) {
@@ -123,7 +142,7 @@ function expressionBlock(region, facts) {
   const supported = new Set(["risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2", "progress-bar", "ranked-bar"]);
   const safeType = supported.has(type) ? type : "evidence-list";
   const renderedFacts = regionFacts.slice(0, 5);
-  const items = renderedFacts.map(item);
+  const items = renderedFacts.map((fact) => item(fact, safeType));
   return { type: safeType, title: purposeTitle(region.purpose), items, sourceFactIds: renderedFacts.map((fact) => fact.id) };
 }
 
@@ -140,13 +159,13 @@ function ensureExpressionRequirements(blocks, model, narrativeType) {
   if (!out.some((block) => signalTypes.has(block.type))) {
     const signalFacts = model.facts.filter((fact) => ["stage", "capability", "option", "metric"].includes(fact.type) && !seenFacts.has(fact.id)).slice(0, 4);
     if (signalFacts.length) {
-      const items = signalFacts.map(item);
+      const items = signalFacts.map((fact) => item(fact, "status-board"));
       out.push({ type: "status-board", title: "结构化信息", items, sourceFactIds: signalFacts.map((fact) => fact.id) });
     }
   }
   if (["causal", "temporal", "hierarchical"].includes(narrativeType) && !out.some((block) => block.type === "narrative-chain" || block.type === "mini-roadmap")) {
     const chainFacts = model.facts.filter((fact) => ["conclusion", "stage", "action", "cause"].includes(fact.type)).slice(0, 4);
-    if (chainFacts.length >= 2) out.push({ type: "narrative-chain", title: "判断链路", items: chainFacts.map(item), sourceFactIds: chainFacts.map((fact) => fact.id) });
+    if (chainFacts.length >= 2) out.push({ type: "narrative-chain", title: "判断链路", items: chainFacts.map((fact) => item(fact, "narrative-chain")), sourceFactIds: chainFacts.map((fact) => fact.id) });
   }
   return out.slice(0, 8);
 }
@@ -165,7 +184,7 @@ export function compileV44Brief({ semanticModel, planningResult, style = "linear
   const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
   return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], fallback: { version: "4.3", reason: "on-failure" }, brief: {
     pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
-    title: clip(title || summaryFact.text, 32), subtitle: scenarioSubtitle(semanticModel.scenario.primary, selected.narrativeType), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, pageSkeleton: selected.pageSkeleton, expressionBlocks: visibleBlocks,
+    title: clip(title || summaryFact.text, 32), subtitle: semanticSubtitle(semanticModel.scenario.primary, selected.narrativeType, visibleBlocks), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, pageSkeleton: selected.pageSkeleton, expressionBlocks: visibleBlocks,
     planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: selected.planId },
   } };
 }

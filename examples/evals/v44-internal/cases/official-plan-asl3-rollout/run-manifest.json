@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:21:57.636Z",
+  "startedAt": "2026-07-13T14:20:58.418Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-asl3-rollout/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-plan-asl3-rollout-temporal"
   },
-  "finishedAt": "2026-07-13T11:21:58.184Z"
+  "finishedAt": "2026-07-13T14:20:58.892Z"
 }

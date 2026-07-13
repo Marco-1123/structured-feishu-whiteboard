@@ -33,29 +33,21 @@
           "factIds": [
             "h1",
             "h2",
-            "h3"
+            "h3",
+            "r1"
           ],
           "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "supporting-evidence",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "metric-card",
-        "status-board",
         "narrative-chain",
-        "evidence-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -80,23 +72,41 @@
       "regions": [
         {
           "id": "region-1",
-          "purpose": "supporting-evidence",
+          "purpose": "conclusion",
           "factIds": [
-            "c1",
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-2",
+          "purpose": "capability-capability-capability",
+          "factIds": [
             "h1",
             "h2",
-            "h3",
+            "h3"
+          ],
+          "preferredComponent": "status-board",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
             "r1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "risk-list",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
-        "flow-node",
-        "flow-edge",
-        "evidence-list"
+        "statement",
+        "status-board",
+        "risk-list"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -130,33 +140,25 @@
           "widthIntent": "full"
         },
         {
-          "id": "region-4",
-          "purpose": "risk",
-          "factIds": [
-            "r1"
-          ],
-          "preferredComponent": "risk-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
-        },
-        {
           "id": "region-3",
-          "purpose": "supporting-evidence",
+          "purpose": "capability-capability-capability",
           "factIds": [
             "h1",
             "h2",
-            "h3"
+            "h3",
+            "r1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "risk"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "decision-matrix",
-        "evidence-list",
-        "risk-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {

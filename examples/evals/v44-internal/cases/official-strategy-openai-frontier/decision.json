@@ -44,22 +44,25 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-3",
-          "purpose": "supporting-evidence",
+          "id": "region-support-3",
+          "purpose": "support-summary",
           "factIds": [
             "k1",
             "a1"
           ],
-          "preferredComponent": "evidence-list",
+          "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "constraint",
+            "action"
+          ]
         }
       ],
       "componentMix": [
         "statement",
-        "decision-matrix",
         "evidence-list",
-        "risk-list"
+        "status-board"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -96,11 +99,15 @@
           "id": "region-2",
           "purpose": "capability-constraint",
           "factIds": [
-            "k1"
+            "k1",
+            "e1"
           ],
           "preferredComponent": "status-board",
           "visualPriority": "secondary",
-          "widthIntent": "adaptive"
+          "widthIntent": "adaptive",
+          "embeddedPurposes": [
+            "evidence"
+          ]
         },
         {
           "id": "region-3",
@@ -111,24 +118,12 @@
           "preferredComponent": "mini-roadmap",
           "visualPriority": "secondary",
           "widthIntent": "adaptive"
-        },
-        {
-          "id": "region-4",
-          "purpose": "supporting-evidence",
-          "factIds": [
-            "e1"
-          ],
-          "preferredComponent": "evidence-list",
-          "visualPriority": "secondary",
-          "widthIntent": "adaptive"
         }
       ],
       "componentMix": [
         "statement",
         "status-board",
-        "narrative-chain",
-        "mini-roadmap",
-        "evidence-list"
+        "mini-roadmap"
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
@@ -156,7 +151,7 @@
     "layout": "expression-canvas",
     "style": "linear-system",
     "title": "企业 Agent 平台推广策略",
-    "subtitle": "从核心判断到证据、约束与验证动作",
+    "subtitle": "路径与机制、重点信息、关键依据",
     "summaryLabel": "核心判断",
     "summary": "企业 Agent 规模化的瓶颈正从模型能力转向组织运行与治理能力",
     "expressionMode": "narrative-map",
@@ -191,28 +186,20 @@
         ]
       },
       {
-        "type": "risk-list",
-        "title": "风险与约束",
+        "type": "status-board",
+        "title": "重点关注",
         "items": [
           {
             "label": "孤立用例缺少共享上下文、上手训练、反馈和清晰权限",
             "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "k1"
-        ]
-      },
-      {
-        "type": "action-list",
-        "title": "下一步行动",
-        "items": [
+          },
           {
             "label": "优先建设共享上下文、明确权限、持续反馈和可复用技能",
             "status": "good"
           }
         ],
         "sourceFactIds": [
+          "k1",
           "a1"
         ]
       },
@@ -221,11 +208,13 @@
         "title": "判断链路",
         "items": [
           {
-            "label": "企业 Agent 规模化的瓶颈正从模型能力转向组织运行与治理能力",
+            "label": "企业 Agent 规模化的瓶颈正从模型能",
+            "note": "力转向组织运行与治理能力",
             "status": "good"
           },
           {
-            "label": "优先建设共享上下文、明确权限、持续反馈和可复用技能",
+            "label": "优先建设共享上下文、明确权限、持续反馈和",
+            "note": "可复用技能",
             "status": "good"
           }
         ],
