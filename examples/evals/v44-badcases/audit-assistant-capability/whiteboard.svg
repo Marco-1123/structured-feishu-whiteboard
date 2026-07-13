@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1282" viewBox="0 0 2200 1282" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="centered-system">
-<rect x="0" y="0" width="2200" height="1282" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1216" viewBox="0 0 2200 1216" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="centered-system">
+<rect x="0" y="0" width="2200" height="1216" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">审核智能助手能力概览</tspan></text>
@@ -54,14 +54,13 @@
 <rect x="1606" y="766" width="468" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
 <text x="1630" y="812" font-size="24" fill="#111827" font-weight="700"><tspan x="1630" dy="0">结果输出：</tspan></text>
 <text x="1630" y="848" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1630" dy="0">生成群聊简报卡片并保留完整报告入口。</tspan></text>
-</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="436" data-y="1022" data-width="1328" data-height="220" data-column="center" data-component-variant="evidence-tiles" data-row="2" data-span="8" data-row-alignment="centered" data-offset-span="2" data-density="medium" data-preferred-width="988" data-text-units="34" data-item-count="1" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="436" y="1022" width="1328" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="464" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="464" dy="0">关键证据</tspan></text>
-
-<rect x="464" y="1126" width="1272" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="480" y="1143" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="492" y="1166" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="492" dy="0">01</tspan></text>
-<text x="536" y="1157" font-size="17" fill="#111827" font-weight="700"><tspan x="536" dy="0">知识库沉淀场景导航、通用决策约定、概念解释、错误原因与日志。</tspan></text>
+</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="96" data-y="1022" data-width="2008" data-height="154" data-column="full" data-component-variant="evidence-tiles" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="34" data-item-count="1" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
+<rect x="96" y="1022" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="1076" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+<text x="124" y="1110" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">支撑核心判断</tspan></text>
+<rect x="356" y="1052" width="1720" height="94" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0"/>
+<rect x="372" y="1070" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="394" y="1089" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">知识库沉淀场景导航、通用决策约定、概念解释、错误原因与日志。</tspan></text>
 
 </g>
 </g>

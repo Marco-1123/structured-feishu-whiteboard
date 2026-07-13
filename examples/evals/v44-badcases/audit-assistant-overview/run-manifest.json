@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T11:30:31.434Z",
+  "startedAt": "2026-07-13T12:03:55.208Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-overview/inventory.json"
   },
@@ -50,5 +50,5 @@
     },
     "selectedPlanId": "semantic-badcase-audit-assistant-overview-result-driven"
   },
-  "finishedAt": "2026-07-13T11:30:39.315Z"
+  "finishedAt": "2026-07-13T12:04:05.580Z"
 }

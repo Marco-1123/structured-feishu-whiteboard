@@ -147,6 +147,25 @@ const centeredOrphanTree = buildAdaptiveExpressionLayout({
 assert.equal(centeredOrphanTree.nodes[0].rowAlignment, "centered", "a compact orphan must be intentionally centered");
 assert.equal(centeredOrphanTree.nodes[0].offsetSpan, 3, "a half-width orphan must have symmetric margins");
 
+const closingBandTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "evidence-list", id: "main-evidence", items: [{ label: "证据一" }, { label: "证据二" }, { label: "证据三" }] },
+    { type: "risk-list", id: "main-risk", items: [{ label: "风险一" }, { label: "风险二" }] },
+    { type: "action-list", id: "closing-action", items: [{ label: "行动一" }, { label: "行动二" }] },
+  ],
+  mode: "dashboard-onepage",
+  pageSkeleton: "overview-detail",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: (_block, _width, profile) => ({ height: profile.itemLayout === "footer-band" ? 154 : 220 }),
+});
+const closingBand = closingBandTree.nodes.find((node) => node.id === "closing-action");
+assert.equal(closingBand.span, 12, "the last support block in a onepage must close the composition instead of floating as a narrow centered card");
+assert.equal(closingBand.profile.itemLayout, "footer-band");
+assert.equal(closingBand.rowAlignment, "filled");
+
 const centeredSystemTree = buildAdaptiveExpressionLayout({
   blocks: [{ type: "status-board", id: "five-status", items: Array.from({ length: 5 }, (_, index) => ({ label: `能力 ${index + 1}` })) }],
   mode: "modular-canvas",

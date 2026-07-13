@@ -381,7 +381,35 @@ function listGeometry(block, w, profile) {
   return { items, withNotes, hasLongItems, cols, rows, itemGap, itemW, itemH, rowGap, h };
 }
 
+function supportBand(block, x, y, w, kind, profile = {}) {
+  const items = (block.items || []).slice(0, 3);
+  const gap = 16;
+  const labelW = 260;
+  const contentX = x + labelW;
+  const contentW = w - labelW - 28;
+  const itemW = Math.floor((contentW - gap * Math.max(0, items.length - 1)) / Math.max(1, items.length));
+  const naturalH = 154;
+  const h = Math.max(naturalH, profile.targetHeight || 0);
+  const contentY = y + Math.floor((h - 94) / 2);
+  let body = `${rect(x, y, w, h, c.surface, c.border, 1.5, 16)}
+${text(x + 28, y + 54, 25, c.ink, [block.title], "800")}
+${text(x + 28, y + 88, 16, c.secondary, [kind === "action" ? "形成明确收口" : kind === "risk" ? "保留关键边界" : "支撑核心判断"], "500")}`;
+  items.forEach((item, index) => {
+    const ix = contentX + index * (itemW + gap);
+    const t = kind === "risk" ? tone(item.status || "risk") : kind === "action" ? c.accent : c.accent;
+    const labelLines = splitText(item.label, itemW - 58, 17, item.note ? 1 : 2);
+    const noteLines = item.note ? splitText(item.note, itemW - 58, 15, 1) : [];
+    body += `
+${rect(ix, contentY, itemW, 94, kind === "action" ? c.muted : c.surface, c.border, 1.1, 10, ` data-v4-support-band-item="${index}"`)}
+<rect x="${ix + 16}" y="${contentY + 18}" width="7" height="58" rx="3.5" fill="${t}" stroke="${t}" stroke-width="1"/>
+${text(ix + 38, contentY + 37, 17, c.ink, labelLines, "800", 22)}
+${noteLines.length ? text(ix + 38, contentY + 70, 15, c.secondary, noteLines, "500", 20) : ""}`;
+  });
+  return { h, body };
+}
+
 function riskCluster(block, x, y, w, profile = profileExpressionBlock(block)) {
+  if (profile.itemLayout === "footer-band") return supportBand(block, x, y, w, "risk", profile);
   const geometry = listGeometry(block, w, profile);
   const { items, hasLongItems, cols, itemGap, itemW, itemH, rowGap } = geometry;
   const h = Math.max(geometry.h, profile.targetHeight || 0);
@@ -407,6 +435,7 @@ ${noteLines.length ? text(ix + 44, noteY, noteSize, c.secondary, noteLines, "500
 }
 
 function evidenceTiles(block, x, y, w, profile = profileExpressionBlock(block)) {
+  if (profile.itemLayout === "footer-band") return supportBand(block, x, y, w, "evidence", profile);
   const geometry = listGeometry(block, w, profile);
   const { items, hasLongItems, cols, itemGap, itemW, itemH, rowGap } = geometry;
   const h = Math.max(geometry.h, profile.targetHeight || 0);
@@ -430,6 +459,7 @@ ${item.note ? text(ix + 72, noteY, 16, c.secondary, splitText(item.note, itemW -
 }
 
 function actionChecklist(block, x, y, w, profile = profileExpressionBlock(block)) {
+  if (profile.itemLayout === "footer-band") return supportBand(block, x, y, w, "action", profile);
   const geometry = listGeometry(block, w, profile);
   const { items, hasLongItems, cols, itemGap, itemW, itemH, rowGap } = geometry;
   const h = Math.max(geometry.h, profile.targetHeight || 0);

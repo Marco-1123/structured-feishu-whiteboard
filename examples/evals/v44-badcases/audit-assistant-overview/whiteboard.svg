@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1155" viewBox="0 0 2200 1155" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
-<rect x="0" y="0" width="2200" height="1155" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1089" viewBox="0 0 2200 1089" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
+<rect x="0" y="0" width="2200" height="1089" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">审核智能助手阶段汇报</tspan></text>
@@ -38,7 +38,7 @@
 <rect x="439" y="747" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
 <rect x="455" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="467" y="787" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="467" dy="0">02</tspan></text>
-<text x="511" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="511" dy="0">量级异常分析支持快速归因</tspan><tspan x="511" dy="22">。</tspan></text>
+<text x="511" y="778" font-size="17" fill="#111827" font-weight="700"><tspan x="511" dy="0">量级异常分析支持快速归因。</tspan></text>
 
 <rect x="754" y="747" width="301" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="2"/>
 <rect x="770" y="764" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
@@ -57,19 +57,17 @@
 <circle cx="1643" cy="782" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="1661" y="787" font-size="17" fill="#111827" font-weight="700"><tspan x="1661" dy="0">权限边界需要持续验证。</tspan></text>
 
-</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="606" data-y="895" data-width="988" data-height="220" data-column="center" data-component-variant="action-checklist" data-row="1" data-span="6" data-row-alignment="centered" data-offset-span="3" data-density="sparse" data-preferred-width="648" data-text-units="39" data-item-count="2" data-item-layout="grid-2" data-layout-reason="few-short-parallel-items">
-<rect x="606" y="895" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="634" y="943" font-size="26" fill="#111827" font-weight="700"><tspan x="634" dy="0">下一步行动</tspan></text>
+</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="96" data-y="895" data-width="2008" data-height="154" data-column="full" data-component-variant="action-checklist" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="2008" data-text-units="39" data-item-count="2" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
+<rect x="96" y="895" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="949" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
+<text x="124" y="983" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">形成明确收口</tspan></text>
+<rect x="356" y="925" width="852" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0"/>
+<rect x="372" y="943" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="394" y="962" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">补齐统一指标字典并固定双周复盘。</tspan></text>
 
-<rect x="634" y="999" width="459" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="661" cy="1026" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="657" y="1032" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="657" dy="0">1</tspan></text>
-<text x="686" y="1030" font-size="17" fill="#111827" font-weight="700"><tspan x="686" dy="0">补齐统一指标字典并固定双周复盘。</tspan></text>
-
-<rect x="1107" y="999" width="459" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
-<circle cx="1134" cy="1026" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1130" y="1032" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1130" dy="0">2</tspan></text>
-<text x="1159" y="1030" font-size="17" fill="#111827" font-weight="700"><tspan x="1159" dy="0">将稳定能力沉淀为可复用 Skill。</tspan></text>
+<rect x="1224" y="925" width="852" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="1"/>
+<rect x="1240" y="943" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1262" y="962" font-size="17" fill="#111827" font-weight="700"><tspan x="1262" dy="0">将稳定能力沉淀为可复用 Skill。</tspan></text>
 
 </g>
 </g>

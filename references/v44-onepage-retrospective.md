@@ -17,6 +17,7 @@ The July 2026 cross-Agent samples exposed a system failure rather than an isolat
 - `pageSkeleton` changes geometry, not only ordering. Overview/detail, centered system, past/future split, left/right argument, comparison, timeline, and swimlane have explicit span rules.
 - A onepage expands only inside a bounded aspect range. Capacity is increased through two-dimensional composition, component choice, and balanced grids before canvas height.
 - Three and five peer items must use complete grids. One or two sparse items remain compact and may be centered or paired.
+- A final unpaired support module must not float as a narrow centered card. It becomes a full-width closing band so the page retains a stable visual base.
 - A fact counts as selected only when its visible representation contains that fact. Truncated aggregate copy cannot claim hidden fact IDs.
 - Labels and notes must add different information. The same sentence cannot be rendered twice inside one item.
 

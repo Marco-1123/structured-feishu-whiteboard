@@ -74,12 +74,13 @@ export function inspectV43VisualQuality(svg) {
   const directionalTypes = new Set(["narrative-chain", "mini-roadmap", "variance-bridge-v2", "trend-sparkline", "flow"]);
   const sparseFullWidth = (block) => block.density === "sparse"
     && block.span === 12
+    && block.itemLayout !== "footer-band"
     && !directionalTypes.has(block.type);
   for (const block of blocks) {
     if (sparseFullWidth(block) && block.preferredWidth > 0 && block.w > block.preferredWidth + 120) {
       issues.push(`Sparse full-width block ${block.id} is overstretched: width ${block.w}, preferred ${block.preferredWidth}`);
     }
-    if (block.density === "sparse" && block.span >= 8 && block.textUnits > 0) {
+    if (block.density === "sparse" && block.span >= 8 && block.textUnits > 0 && block.itemLayout !== "footer-band") {
       const textUnitsPerHundredPx = block.textUnits / Math.max(1, block.w / 100);
       if (textUnitsPerHundredPx < 2.2 && !directionalTypes.has(block.type)) {
         issues.push(`Sparse block ${block.id} has low content utilization: ${textUnitsPerHundredPx.toFixed(2)} text units per 100px`);

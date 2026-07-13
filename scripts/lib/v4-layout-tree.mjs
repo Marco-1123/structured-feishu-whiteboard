@@ -148,7 +148,17 @@ export function buildAdaptiveExpressionLayout({
   pageSkeleton,
 }) {
   const workingBlocks = pageSkeleton ? arrangeExpressionBlocks(blocks, pageSkeleton, profile) : blocks;
-  const intents = workingBlocks.map((block) => skeletonProfile(block, pageSkeleton, profile));
+  const intents = workingBlocks.map((block, index) => {
+    const intent = skeletonProfile(block, pageSkeleton, profile);
+    const isClosingSupportBlock = Boolean(pageSkeleton)
+      && index === workingBlocks.length - 1
+      && LIST_TYPES.has(block.type)
+      && !intent.reason.endsWith("-paired-region")
+      && intent.maxSpan < 12;
+    return isClosingSupportBlock
+      ? { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "footer-band", reason: "full-width-closing-band" }
+      : intent;
+  });
   const allowed = (intent) => [4, 6, 8, 12].filter((span) => span >= intent.minSpan && span <= intent.maxSpan);
   const canUse = (index, span) => index < workingBlocks.length && allowed(intents[index]).includes(span);
   const pair = (index) => {

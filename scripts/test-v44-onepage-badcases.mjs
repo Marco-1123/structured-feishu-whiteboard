@@ -40,6 +40,7 @@ for (const fixture of fixtures) {
   const dimensions = svg.match(/<svg[^>]*width="([\d.]+)"[^>]*height="([\d.]+)"/);
   assert.ok(dimensions, `${fixture.id} must expose SVG dimensions`);
   assert.ok(Number(dimensions[1]) / Number(dimensions[2]) >= 1.1, `${fixture.id} must remain a compact onepage`);
+  assert.match(svg, /data-span="12"[^>]*data-item-layout="footer-band"/, `${fixture.id} must finish with a full-width closing band rather than a narrow floating card`);
 }
 
 console.log("ok: V4.4 onepage bad-case regressions passed");
