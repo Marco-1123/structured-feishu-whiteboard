@@ -79,6 +79,7 @@
         "semanticMatch": 1,
         "coherence": 1,
         "semanticSignalBonus": 9,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -158,6 +159,7 @@
         "semanticMatch": 1,
         "coherence": 0.76,
         "semanticSignalBonus": 9,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -179,6 +181,7 @@
     "summaryLabel": "核心判断",
     "summary": "应使用真实任务集验证后再确定模型与路由策略",
     "expressionMode": "narrative-map",
+    "pageSkeleton": "overview-detail",
     "expressionBlocks": [
       {
         "type": "statement",
@@ -193,16 +196,13 @@
       {
         "type": "evidence-list",
         "title": "关键证据",
-        "note": "复杂推理和编码评测显示推理模型优势明显；高吞吐日常任务仍更重视速度与成本",
         "items": [
           {
             "label": "复杂推理和编码评测显示推理模型优势明显",
-            "note": "复杂推理和编码评测显示推理模型优势明显",
             "status": "good"
           },
           {
             "label": "高吞吐日常任务仍更重视速度与成本",
-            "note": "高吞吐日常任务仍更重视速度与成本",
             "status": "good"
           }
         ],
@@ -214,11 +214,9 @@
       {
         "type": "risk-list",
         "title": "风险与约束",
-        "note": "单一公开基准不能代表企业真实任务质量",
         "items": [
           {
             "label": "单一公开基准不能代表企业真实任务质量",
-            "note": "单一公开基准不能代表企业真实任务质量",
             "status": "risk"
           }
         ],
@@ -229,11 +227,9 @@
       {
         "type": "action-list",
         "title": "下一步行动",
-        "note": "多个评测指标方向不一致时如何选择适合真实工作的模型",
         "items": [
           {
             "label": "多个评测指标方向不一致时如何选择适合真实工作的模型",
-            "note": "多个评测指标方向不一致时如何选择适合真实工作的模型",
             "status": "good"
           }
         ],
@@ -244,42 +240,14 @@
       {
         "type": "evidence-list",
         "title": "关键证据",
-        "note": "统一路由与固定模型各有可控性和效率取舍",
         "items": [
           {
             "label": "统一路由与固定模型各有可控性和效率取舍",
-            "note": "统一路由与固定模型各有可控性和效率取舍",
             "status": "good"
           }
         ],
         "sourceFactIds": [
           "o1"
-        ]
-      },
-      {
-        "type": "narrative-chain",
-        "title": "判断链路",
-        "items": [
-          {
-            "label": "复杂推理和编码评测显示推理模型优势明显",
-            "note": "复杂推理和编码评测显示推理模型优势明显",
-            "status": "good"
-          },
-          {
-            "label": "高吞吐日常任务仍更重视速度与成本",
-            "note": "高吞吐日常任务仍更重视速度与成本",
-            "status": "good"
-          },
-          {
-            "label": "应使用真实任务集验证后再确定模型与路由策略",
-            "note": "应使用真实任务集验证后再确定模型与路由策略",
-            "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "e1",
-          "e2",
-          "c1"
         ]
       }
     ],

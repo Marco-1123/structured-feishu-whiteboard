@@ -31,6 +31,25 @@ const extreme = inspectV43VisualQuality(svg([
 assert.equal(extreme.ok, false);
 assert.match(extreme.issues.join(" "), /aspect ratio/i);
 
+const longOnepage = inspectV43VisualQuality(`<svg width="2200" height="2600" viewBox="0 0 2200 2600" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-page-skeleton="overview-detail">
+  <g data-v43-block="a" data-block-type="statement" data-x="50" data-y="50" data-width="2100" data-height="240" data-column="full"></g>
+  <g data-v43-block="b" data-block-type="evidence-list" data-x="50" data-y="330" data-width="2100" data-height="2100" data-column="full"></g>
+</svg>`);
+assert.equal(longOnepage.ok, false, "V4.4 onepages must reject vertical report strips");
+assert.match(longOnepage.issues.join(" "), /onepage aspect ratio/i);
+
+const wideOnepage = inspectV43VisualQuality(`<svg width="3500" height="1000" viewBox="0 0 3500 1000" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4">
+  <g data-v43-block="a" data-block-type="statement" data-x="50" data-y="50" data-width="3400" data-height="850" data-column="full"></g>
+</svg>`);
+assert.equal(wideOnepage.ok, false, "V4.4 onepages must reject unreadably wide strips");
+assert.match(wideOnepage.issues.join(" "), /outside 1.1-2.4/i);
+
+const longFlow = inspectV43VisualQuality(`<svg width="1000" height="1600" viewBox="0 0 1000 1600" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="4.4">
+  <g data-v43-block="flow" data-block-type="linear-flow" data-x="50" data-y="50" data-width="900" data-height="1450" data-column="full"></g>
+</svg>`);
+assert.equal(longFlow.ok, false, "V4.4 flow canvases must carry pipeline markers and reject accidental report strips");
+assert.match(longFlow.issues.join(" "), /flow canvas is too vertical/i);
+
 const imbalance = inspectV43VisualQuality(svg([
   { id: "a", x: 50, y: 50, w: 430, h: 500, column: "left" },
   { id: "b", x: 520, y: 50, w: 430, h: 120, column: "right" },

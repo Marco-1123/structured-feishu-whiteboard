@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "Codex 已从编码工具扩展为覆盖多类知识工作的生产力工具",
   "expressionMode": "modular-canvas",
+  "pageSkeleton": "overview-detail",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -22,7 +23,7 @@
     },
     {
       "type": "metric-card",
-      "title": "Codex 周活跃用户超过 500 万",
+      "title": "Codex 周活跃用户超过",
       "value": "5M+",
       "label": "阶段结果",
       "note": "Codex 周活跃用户超过 500 万",
@@ -33,7 +34,7 @@
     },
     {
       "type": "metric-card",
-      "title": "桌面应用发布后周活跃用户增长超过 6 倍",
+      "title": "桌面应用发布后周活跃用户增长超过 倍",
       "value": "6x+",
       "label": "阶段结果",
       "note": "桌面应用发布后周活跃用户增长超过 6 倍",
@@ -44,7 +45,7 @@
     },
     {
       "type": "metric-card",
-      "title": "知识工作者约占用户的 20%",
+      "title": "知识工作者约占用户的",
       "value": "20%",
       "label": "阶段结果",
       "note": "知识工作者约占用户的 20%",
@@ -56,11 +57,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "继续扩展跨工具并行任务和审批协作场景",
       "items": [
         {
           "label": "继续扩展跨工具并行任务和审批协作场景",
-          "note": "继续扩展跨工具并行任务和审批协作场景",
           "status": "good"
         }
       ],
@@ -71,11 +70,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "增长最快的任务包括数据分析、研究和知识产物创建",
       "items": [
         {
           "label": "增长最快的任务包括数据分析、研究和知识产物创建",
-          "note": "增长最快的任务包括数据分析、研究和知识产物创建",
           "status": "good"
         }
       ],

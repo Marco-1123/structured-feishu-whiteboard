@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "Codex 企业采用从个人工具快速进入组织工作流",
   "expressionMode": "narrative-map",
+  "pageSkeleton": "left-right-argument",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -23,16 +24,13 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "企业正在测试覆盖率、团队速度和技术债治理场景；企业正在软件开发生命周期中寻找高价值 Codex 用例",
       "items": [
         {
           "label": "企业正在测试覆盖率、团队速度和技术债治理场景",
-          "note": "企业正在测试覆盖率、团队速度和技术债治理场景",
           "status": "good"
         },
         {
           "label": "企业正在软件开发生命周期中寻找高价值 Codex 用例",
-          "note": "企业正在软件开发生命周期中寻找高价值 Codex 用例",
           "status": "good"
         }
       ],
@@ -44,11 +42,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "试点成果尚未自动等于生产级规模化能力",
       "items": [
         {
           "label": "试点成果尚未自动等于生产级规模化能力",
-          "note": "试点成果尚未自动等于生产级规模化能力",
           "status": "risk"
         }
       ],
@@ -59,11 +55,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "将验证有效的用例沉淀成生产部署与治理方法",
       "items": [
         {
           "label": "将验证有效的用例沉淀成生产部署与治理方法",
-          "note": "将验证有效的用例沉淀成生产部署与治理方法",
           "status": "good"
         }
       ],
@@ -74,12 +68,10 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
       "items": [
         {
           "label": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
           "value": "4M+",
-          "note": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
           "status": "good"
         }
       ],
@@ -93,29 +85,15 @@
       "items": [
         {
           "label": "Codex 企业采用从个人工具快速进入组织工作流",
-          "note": "Codex 企业采用从个人工具快速进入组织工作流",
-          "status": "good"
-        },
-        {
-          "label": "企业正在测试覆盖率、团队速度和技术债治理场景",
-          "note": "企业正在测试覆盖率、团队速度和技术债治理场景",
-          "status": "good"
-        },
-        {
-          "label": "企业正在软件开发生命周期中寻找高价值 Codex 用例",
-          "note": "企业正在软件开发生命周期中寻找高价值 Codex 用例",
           "status": "good"
         },
         {
           "label": "将验证有效的用例沉淀成生产部署与治理方法",
-          "note": "将验证有效的用例沉淀成生产部署与治理方法",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "c1",
-        "e1",
-        "e2",
         "a1"
       ]
     }

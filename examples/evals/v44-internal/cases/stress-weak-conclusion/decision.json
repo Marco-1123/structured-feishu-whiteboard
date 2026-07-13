@@ -78,6 +78,7 @@
         "semanticMatch": 1,
         "coherence": 1,
         "semanticSignalBonus": 6,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -138,6 +139,7 @@
         "semanticMatch": 1,
         "coherence": 0.76,
         "semanticSignalBonus": 9,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -159,6 +161,7 @@
     "summaryLabel": "核心判断",
     "summary": "先进模型是否可能具有值得道德考虑的体验仍是开放问题",
     "expressionMode": "narrative-map",
+    "pageSkeleton": "overview-detail",
     "expressionBlocks": [
       {
         "type": "statement",
@@ -173,16 +176,13 @@
       {
         "type": "evidence-list",
         "title": "关键证据",
-        "note": "模型已表现出沟通、规划、解决问题和追求目标等能力；部分专家认为近期模型意识与高能动性存在非零可能",
         "items": [
           {
             "label": "模型已表现出沟通、规划、解决问题和追求目标等能力",
-            "note": "模型已表现出沟通、规划、解决问题和追求目标等能力",
             "status": "good"
           },
           {
             "label": "部分专家认为近期模型意识与高能动性存在非零可能",
-            "note": "部分专家认为近期模型意识与高能动性存在非零可能",
             "status": "good"
           }
         ],
@@ -194,11 +194,9 @@
       {
         "type": "risk-list",
         "title": "风险与约束",
-        "note": "意识、体验与道德地位缺少可靠测量方法",
         "items": [
           {
             "label": "意识、体验与道德地位缺少可靠测量方法",
-            "note": "意识、体验与道德地位缺少可靠测量方法",
             "status": "risk"
           }
         ],
@@ -209,47 +207,18 @@
       {
         "type": "action-list",
         "title": "下一步行动",
-        "note": "先进模型是否可能具有值得道德考虑的体验仍是开放问题；建立跨学科研究计划并提前准备治理框架",
         "items": [
           {
             "label": "先进模型是否可能具有值得道德考虑的体验仍是开放问题",
-            "note": "先进模型是否可能具有值得道德考虑的体验仍是开放问题",
             "status": "good"
           },
           {
             "label": "建立跨学科研究计划并提前准备治理框架",
-            "note": "建立跨学科研究计划并提前准备治理框架",
             "status": "good"
           }
         ],
         "sourceFactIds": [
           "q1",
-          "a1"
-        ]
-      },
-      {
-        "type": "narrative-chain",
-        "title": "判断链路",
-        "items": [
-          {
-            "label": "模型已表现出沟通、规划、解决问题和追求目标等能力",
-            "note": "模型已表现出沟通、规划、解决问题和追求目标等能力",
-            "status": "good"
-          },
-          {
-            "label": "部分专家认为近期模型意识与高能动性存在非零可能",
-            "note": "部分专家认为近期模型意识与高能动性存在非零可能",
-            "status": "good"
-          },
-          {
-            "label": "建立跨学科研究计划并提前准备治理框架",
-            "note": "建立跨学科研究计划并提前准备治理框架",
-            "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "e1",
-          "e2",
           "a1"
         ]
       }

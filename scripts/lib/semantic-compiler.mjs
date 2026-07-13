@@ -35,6 +35,30 @@ function semanticType(fact, scenario, index, total) {
   return "evidence";
 }
 
+function measurableSignal(fact) {
+  const text = `${fact.value ?? ""} ${fact.text || ""}`.trim();
+  if (!text || ["timeline", "process", "risk", "constraint", "action"].includes(fact.type)) return null;
+  const normalized = text.replace(/,/g, "");
+  const hasExplicitValue = fact.value !== undefined && fact.value !== null && String(fact.value).trim() !== "";
+  const pattern = /(小于|低于|少于|大于|高于|超过|不低于|不高于|[<>≤≥约近超达至+]?)\s*(-?\d+(?:\.\d+)?(?:\s*[-~至]\s*\d+(?:\.\d+)?)?)\s*(%|小时|分钟|秒|人|次|项|类|个|级|万|亿|h|hr|hrs|min|s)?/gi;
+  for (const match of normalized.matchAll(pattern)) {
+    const unit = match[3] || "";
+    const prefix = normalized.slice(Math.max(0, match.index - 8), match.index);
+    if (!hasExplicitValue && !unit && !/[<>≤≥+]/.test(match[1] || "")) continue;
+    if (!hasExplicitValue && /(?:19|20)\d{2}\s*年?$/.test(`${prefix}${match[0]}`)) continue;
+    if (!hasExplicitValue && unit === "级" && /审批|等级|机制/.test(`${prefix}${match[0]}${normalized.slice(match.index + match[0].length, match.index + match[0].length + 6)}`)) continue;
+    if (!hasExplicitValue && unit === "人" && /(?:仍需|需要|采用)\s*$/.test(prefix)) continue;
+    const qualifier = ({ 小于: "<", 低于: "<", 少于: "<", 大于: ">", 高于: ">", 超过: ">", 不低于: ">=", 不高于: "<=", "≤": "<=", "≥": ">=", "约": "~", "近": "~", "超": ">", "达": ">=", "至": "~" })[match[1]] || match[1] || "";
+    return {
+      value: match[2].replace(/\s+/g, ""),
+      ...(unit ? { unit } : {}),
+      ...(qualifier ? { qualifier } : {}),
+      display: `${qualifier}${match[2].replace(/\s+/g, "")}${unit}`,
+    };
+  }
+  return null;
+}
+
 function relationshipType(relation) {
   return ({ cause: "causes", effect: "produces", sequence: "precedes", dependency: "depends-on", parallel: "belongs-to", contrast: "contrasts", "part-of": "belongs-to", supports: "supports", owns: "owned-by" })[relation] || "supports";
 }
@@ -59,17 +83,23 @@ export function compileSemanticModel({ inventory, hints = {}, config = defaultCo
   const evidence = scoreArchetypes(inventory, config);
   const primary = hints.scenario || evidence[0].scenario;
   const secondary = evidence[1]?.score > 0 && evidence[0].score - evidence[1].score <= 2 ? evidence[1].scenario : undefined;
-  const facts = inventory.facts.map((fact, index) => ({
-    id: fact.id,
-    type: semanticType(fact, primary, index, inventory.facts.length),
-    text: fact.text,
-    importance: fact.importance,
-    sourceRef: fact.id,
-    confidence: fact.value === "TBD" ? "draft" : "supported",
-    ...(fact.value !== undefined ? { value: fact.value } : {}),
-    ...(fact.lane ? { actor: fact.lane } : {}),
-    ...(fact.order !== undefined ? { order: fact.order } : {}),
-  }));
+  const facts = inventory.facts.map((fact, index) => {
+    const measure = measurableSignal(fact);
+    return {
+      id: fact.id,
+      type: semanticType(fact, primary, index, inventory.facts.length),
+      text: fact.text,
+      importance: fact.importance,
+      sourceRef: fact.id,
+      confidence: fact.value === "TBD" ? "draft" : "supported",
+      ...(fact.value !== undefined ? { value: fact.value } : {}),
+      ...(fact.type === "process" && primary === "product-capability"
+        ? { visualType: "process-chain" }
+        : measure ? { visualType: "metric", measure } : {}),
+      ...(fact.lane ? { actor: fact.lane } : {}),
+      ...(fact.order !== undefined ? { order: fact.order } : {}),
+    };
+  });
 
   if (primary === "review-update" && !facts.some((fact) => fact.type === "action")) {
     facts.push({ id: "unresolved-next-action", type: "unresolved", text: "材料未提供下一阶段行动", importance: "medium", sourceRef: "missing:next-action", confidence: "missing" });

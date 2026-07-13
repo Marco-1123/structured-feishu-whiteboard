@@ -22,7 +22,12 @@
       "importance": "high",
       "sourceRef": "m1",
       "confidence": "supported",
-      "value": "4M+"
+      "value": "4M+",
+      "visualType": "metric",
+      "measure": {
+        "value": "4",
+        "display": "4"
+      }
     },
     {
       "id": "e1",

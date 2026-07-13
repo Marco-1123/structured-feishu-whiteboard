@@ -71,12 +71,13 @@
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
-        "total": 97,
+        "total": 100,
         "criticalCoverage": 1,
         "highCoverage": 1,
         "semanticMatch": 1,
         "coherence": 1,
         "semanticSignalBonus": 9,
+        "scenarioFitBonus": 12,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -160,6 +161,7 @@
         "semanticMatch": 1,
         "coherence": 0.88,
         "semanticSignalBonus": 6,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -241,6 +243,7 @@
         "semanticMatch": 1,
         "coherence": 0.76,
         "semanticSignalBonus": 6,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -248,9 +251,9 @@
     }
   ],
   "confidenceEvidence": {
-    "topScore": 97,
+    "topScore": 100,
     "secondScore": 92,
-    "scoreMargin": 5,
+    "scoreMargin": 8,
     "missingRequiredSignals": [],
     "unsupportedInferenceCount": 0
   }

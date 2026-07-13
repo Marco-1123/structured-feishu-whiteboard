@@ -1,0 +1,204 @@
+{
+  "candidates": [
+    {
+      "planId": "semantic-badcase-audit-assistant-capability-hierarchical",
+      "scenario": "product-capability",
+      "narrativeType": "hierarchical",
+      "pageSkeleton": "centered-system",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "process-chain",
+          "factIds": [
+            "p1",
+            "p2",
+            "p3",
+            "p4"
+          ],
+          "preferredComponent": "narrative-chain",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "capability",
+          "factIds": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5"
+          ],
+          "preferredComponent": "status-board",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-6",
+          "purpose": "evidence",
+          "factIds": [
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "status-board",
+        "narrative-chain",
+        "evidence-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 100,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 1,
+        "semanticSignalBonus": 12,
+        "scenarioFitBonus": 0,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-badcase-audit-assistant-capability-flow-driven",
+      "scenario": "product-capability",
+      "narrativeType": "flow-driven",
+      "pageSkeleton": "timeline",
+      "layout": "flow-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "input-actor-action-constraint-output-stage",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "flow-node",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "c1",
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "h1",
+            "h2",
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "flow-node",
+        "flow-edge",
+        "evidence-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 89,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 3,
+        "scenarioFitBonus": 0,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-badcase-audit-assistant-capability-comparison-driven",
+      "scenario": "product-capability",
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "multi-line-comparison",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "p1",
+            "p2",
+            "p3",
+            "p4",
+            "h1",
+            "h2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "decision-matrix",
+        "evidence-list",
+        "risk-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 87,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 3,
+        "scenarioFitBonus": 0,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "confidenceEvidence": {
+    "topScore": 100,
+    "secondScore": 89,
+    "scoreMargin": 11,
+    "missingRequiredSignals": [],
+    "unsupportedInferenceCount": 0
+  }
+}

@@ -29,6 +29,14 @@ const product = planExpressions(model("product-capability", ["conclusion", "capa
 assert.equal(product.candidates[0].narrativeType, "hierarchical");
 assert.ok(product.candidates[0].componentMix.includes("status-board"));
 
+const measuredProductModel = model("product-capability", ["conclusion", "capability", "evidence", "evidence", "stage"]);
+measuredProductModel.facts[1].visualType = "metric";
+measuredProductModel.facts[1].value = "5";
+measuredProductModel.facts[2].visualType = "metric";
+measuredProductModel.facts[2].value = "3-4h";
+const measuredProduct = planExpressions(measuredProductModel);
+assert.ok(measuredProduct.candidates[0].regions.some((region) => region.preferredComponent === "metric-card" && region.factIds.length === 2), "product capability metrics must produce a dedicated metric region");
+
 const comparativeProduct = planExpressions(model("product-capability", ["conclusion", "option", "option", "capability", "evidence", "risk"]));
 assert.equal(comparativeProduct.candidates[0].narrativeType, "comparison-driven");
 assert.equal(comparativeProduct.candidates[0].pageSkeleton, "multi-line-comparison");

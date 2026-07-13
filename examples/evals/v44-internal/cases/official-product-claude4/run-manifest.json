@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:33:12.020Z",
+  "startedAt": "2026-07-13T11:22:02.156Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-claude4/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 5,
@@ -50,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-product-claude4-comparison-driven"
   },
-  "finishedAt": "2026-07-13T06:33:23.343Z"
+  "finishedAt": "2026-07-13T11:22:02.749Z"
 }

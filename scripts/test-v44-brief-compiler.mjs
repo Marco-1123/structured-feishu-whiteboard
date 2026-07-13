@@ -30,6 +30,7 @@ const compiled = compileV44Brief({ semanticModel, planningResult: { candidates: 
 assert.equal(compiled.brief.pipelineVersion, "4.4");
 assert.equal(compiled.brief.layout, "expression-canvas");
 assert.equal(compiled.brief.engine, "v4");
+assert.equal(compiled.brief.pageSkeleton, "overview-detail", "the selected page skeleton must reach the renderer brief");
 assert.equal(compiled.decision.level, "high");
 assert.deepEqual(compiled.brief.planning.selectedFactIds.sort(), semanticModel.facts.map((fact) => fact.id).sort());
 assert.ok(compiled.brief.expressionBlocks.some((block) => block.type === "metric-card"));
@@ -53,6 +54,22 @@ const groupedMetricBrief = compileV44Brief({ semanticModel: groupedMetricModel, 
 const groupedMetricText = JSON.stringify(groupedMetricBrief.expressionBlocks);
 assert.match(groupedMetricText, /七个月内典型任务估算价值平均提高约 25%/, "high-importance metrics grouped with a statement must remain fully visible");
 assert.ok(groupedMetricBrief.expressionBlocks.filter((block) => block.type === "metric-card").length >= 2, "grouped metrics should become metric cards instead of being clipped into the statement");
+
+const longConclusionModel = {
+  ...semanticModel,
+  inventoryId: "long-conclusions",
+  facts: [
+    { id: "long-1", type: "conclusion", text: "第一条核心判断需要完整说明业务背景、当前结果、关键边界以及后续需要持续验证的方向，因此自身已经接近结论区的可见容量上限。", importance: "critical", sourceRef: "long-1", confidence: "supported" },
+    { id: "long-2", type: "result", text: "第二条结果不能在未显示时被计入事实覆盖。", importance: "high", sourceRef: "long-2", confidence: "supported" },
+  ],
+};
+const longConclusionCandidate = {
+  ...candidate("long-conclusions", 94),
+  regions: [{ id: "long-statement", purpose: "conclusion", factIds: ["long-1", "long-2"], preferredComponent: "statement", visualPriority: "primary", widthIntent: "full" }],
+};
+const longConclusionBrief = compileV44Brief({ semanticModel: longConclusionModel, planningResult: { candidates: [longConclusionCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
+assert.deepEqual(longConclusionBrief.planning.selectedFactIds, ["long-1"], "a clipped statement must not claim facts that never became visible");
+assert.ok(longConclusionBrief.planning.omittedFacts.some((fact) => fact.id === "long-2"));
 
 const low = compileV44Brief({ semanticModel, planningResult: { candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }, style: "linear-system", title: "混合材料" });
 assert.equal(low.decision.level, "low");

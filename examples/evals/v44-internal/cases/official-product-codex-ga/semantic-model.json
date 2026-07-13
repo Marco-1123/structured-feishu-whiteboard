@@ -45,7 +45,8 @@
       "text": "同一账户连接编辑器、终端和云端任务",
       "importance": "medium",
       "sourceRef": "p1",
-      "confidence": "supported"
+      "confidence": "supported",
+      "visualType": "process-chain"
     },
     {
       "id": "r1",

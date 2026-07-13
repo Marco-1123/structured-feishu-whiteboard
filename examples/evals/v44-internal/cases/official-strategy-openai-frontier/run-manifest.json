@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:31:27.223Z",
+  "startedAt": "2026-07-13T11:21:56.550Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-openai-frontier/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 4,
@@ -51,5 +46,5 @@
     },
     "selectedPlanId": "semantic-official-strategy-openai-frontier-causal"
   },
-  "finishedAt": "2026-07-13T06:31:38.699Z"
+  "finishedAt": "2026-07-13T11:21:57.093Z"
 }

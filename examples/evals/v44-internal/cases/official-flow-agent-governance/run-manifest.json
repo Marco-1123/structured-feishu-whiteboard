@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:33:42.324Z",
+  "startedAt": "2026-07-13T11:22:03.961Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 5,
@@ -50,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-flow-agent-governance-flow-driven"
   },
-  "finishedAt": "2026-07-13T06:33:53.112Z"
+  "finishedAt": "2026-07-13T11:22:04.576Z"
 }

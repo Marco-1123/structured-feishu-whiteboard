@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "Claude Code 使用正在从调试转向端到端的 Agent 工作",
   "expressionMode": "modular-canvas",
+  "pageSkeleton": "past-future-split",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -22,7 +23,7 @@
     },
     {
       "type": "metric-card",
-      "title": "研究覆盖约 40 万次交互会话和约 23.5 万名用户",
+      "title": "研究覆盖约 次交互会话和约 23.5 万名用户",
       "value": "400K",
       "label": "阶段结果",
       "note": "研究覆盖约 40 万次交互会话和约 23.5 万名用户",
@@ -33,7 +34,7 @@
     },
     {
       "type": "metric-card",
-      "title": "七个月内典型任务估算价值平均提高约 25%",
+      "title": "七个月内典型任务估算价值平均提高约",
       "value": "+25%",
       "label": "阶段结果",
       "note": "七个月内典型任务估算价值平均提高约 25%",
@@ -45,16 +46,13 @@
     {
       "type": "mini-roadmap",
       "title": "阶段路径",
-      "note": "早期使用更集中在调试、解释和局部代码修改；当前使用逐步扩展到设计、实现、测试和部署链路",
       "items": [
         {
           "label": "早期使用更集中在调试、解释和局部代码修改",
-          "note": "早期使用更集中在调试、解释和局部代码修改",
           "status": "good"
         },
         {
           "label": "当前使用逐步扩展到设计、实现、测试和部署链路",
-          "note": "当前使用逐步扩展到设计、实现、测试和部署链路",
           "status": "good"
         }
       ],
@@ -66,11 +64,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "专家与中级用户仍存在可测量但不极端的成功率差距",
       "items": [
         {
           "label": "专家与中级用户仍存在可测量但不极端的成功率差距",
-          "note": "专家与中级用户仍存在可测量但不极端的成功率差距",
           "status": "risk"
         }
       ],
@@ -81,11 +77,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
       "items": [
         {
           "label": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
-          "note": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
           "status": "good"
         }
       ],
@@ -96,11 +90,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
       "items": [
         {
           "label": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
-          "note": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
           "status": "good"
         }
       ],

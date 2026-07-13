@@ -6,12 +6,12 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const defaultConfig = JSON.parse(fs.readFileSync(path.join(root, "config/expression-strategies.json"), "utf8"));
 
 function count(model, type) {
-  return model.facts.filter((fact) => fact.type === type).length;
+  return model.facts.filter((fact) => fact.type === type || fact.visualType === type).length;
 }
 
 function ids(model, types) {
   const allowed = new Set(types);
-  return model.facts.filter((fact) => allowed.has(fact.type)).map((fact) => fact.id);
+  return model.facts.filter((fact) => fact.visualType ? allowed.has(fact.visualType) : allowed.has(fact.type)).map((fact) => fact.id);
 }
 
 function recipe(model, narrativeType) {
@@ -22,7 +22,7 @@ function recipe(model, narrativeType) {
     return { skeleton: actorCount >= 2 ? "swimlane" : "timeline", layout: "flow-canvas", components: actorCount >= 2 ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
   }
   if (scenario === "research-decision" && narrativeType === "comparison-driven") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "evidence-list", "decision-matrix", "risk-list"], groups: [group(["conclusion", "unresolved"], "statement"), group(["evidence"], "evidence-list"), group(["option"], "decision-matrix"), group(["risk"], "risk-list")] };
-  if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["capability"], "status-board"), group(["stage"], "narrative-chain"), group(["evidence"], "evidence-list")] };
+  if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "metric-card", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["metric"], "metric-card"), group(["process-chain"], "narrative-chain"), group(["capability"], "status-board"), group(["stage"], "narrative-chain"), group(["evidence"], "evidence-list")] };
   if (narrativeType === "temporal") return { skeleton: scenario === "review-update" ? "past-future-split" : "timeline", layout: "expression-canvas", components: ["statement", "metric-card", "mini-roadmap", "risk-list", "action-list"], groups: [group(["conclusion", "result", "metric"], "statement"), group(["stage"], "mini-roadmap"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
   if (narrativeType === "result-driven") return { skeleton: "overview-detail", layout: "expression-canvas", components: ["statement", "metric-card", "trend-sparkline", "narrative-chain", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["metric", "trend", "variance"], "metric-card"), group(["cause"], "narrative-chain"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
   if (narrativeType === "comparison-driven") return { skeleton: "multi-line-comparison", layout: "expression-canvas", components: ["statement", "decision-matrix", "evidence-list", "risk-list"], groups: [group(["conclusion"], "statement"), group(["option"], "decision-matrix"), group(["evidence"], "evidence-list"), group(["risk"], "risk-list")] };
@@ -55,8 +55,12 @@ function scoreCandidate(model, candidate, rank) {
     "problem-driven": count(model, "unresolved") + count(model, "evidence") + count(model, "risk"),
   };
   const semanticSignalBonus = Math.min(12, (signalCounts[candidate.narrativeType] || 0) * 3);
-  const total = Math.max(0, Math.min(100, Math.round(criticalCoverage * 32 + highCoverage * 18 + semanticMatch * 18 + coherence * 17 + 3 + semanticSignalBonus - repetitionPenalty - unsupportedInferencePenalty)));
-  return { total, criticalCoverage, highCoverage, semanticMatch, coherence, semanticSignalBonus, repetitionPenalty, unsupportedInferencePenalty, rendererCompatibility: 1 };
+  const reviewHasTimeline = model.scenario.primary === "review-update" && count(model, "stage") >= 2 && count(model, "action") >= 1;
+  const scenarioFitBonus = reviewHasTimeline && candidate.narrativeType === "temporal"
+    ? 12
+    : model.scenario.primary === "review-update" && candidate.narrativeType === "result-driven" && count(model, "metric") >= 2 && !reviewHasTimeline ? 8 : 0;
+  const total = Math.max(0, Math.min(100, Math.round(criticalCoverage * 32 + highCoverage * 18 + semanticMatch * 18 + coherence * 17 + 3 + semanticSignalBonus + scenarioFitBonus - repetitionPenalty - unsupportedInferencePenalty)));
+  return { total, criticalCoverage, highCoverage, semanticMatch, coherence, semanticSignalBonus, scenarioFitBonus, repetitionPenalty, unsupportedInferencePenalty, rendererCompatibility: 1 };
 }
 
 function preferredNarratives(model, config) {

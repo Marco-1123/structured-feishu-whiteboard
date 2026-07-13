@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "采用统一路由并为高风险任务保留显式模型与验证控制",
   "expressionMode": "narrative-map",
+  "pageSkeleton": "left-right-argument",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -24,11 +25,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
       "items": [
         {
           "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
-          "note": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
           "status": "good"
         }
       ],
@@ -39,16 +38,13 @@
     {
       "type": "decision-matrix",
       "title": "方案比较",
-      "note": "快速模型适合多数高吞吐日常问题；推理模型适合复杂问题、工具调用和更深分析",
       "items": [
         {
           "label": "快速模型适合多数高吞吐日常问题",
-          "note": "快速模型适合多数高吞吐日常问题",
           "status": "good"
         },
         {
           "label": "推理模型适合复杂问题、工具调用和更深分析",
-          "note": "推理模型适合复杂问题、工具调用和更深分析",
           "status": "good"
         }
       ],
@@ -60,36 +56,14 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "高风险任务仍需人工验证模型输出",
       "items": [
         {
           "label": "高风险任务仍需人工验证模型输出",
-          "note": "高风险任务仍需人工验证模型输出",
           "status": "risk"
         }
       ],
       "sourceFactIds": [
         "r1"
-      ]
-    },
-    {
-      "type": "narrative-chain",
-      "title": "判断链路",
-      "items": [
-        {
-          "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
-          "note": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
-          "status": "good"
-        },
-        {
-          "label": "采用统一路由并为高风险任务保留显式模型与验证控制",
-          "note": "采用统一路由并为高风险任务保留显式模型与验证控制",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1",
-        "c1"
       ]
     }
   ],

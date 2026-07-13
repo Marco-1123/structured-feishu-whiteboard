@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
   "expressionMode": "narrative-map",
+  "pageSkeleton": "overview-detail",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -23,21 +24,18 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "工作相关请求在周末下降且不同职业的节律存在差异；Chat、Cowork、Claude Code 与…",
       "items": [
         {
           "label": "工作相关请求在周末下降且不同职业的节律存在差异",
-          "note": "工作相关请求在周末下降且不同职业的节律存在差异",
           "status": "good"
         },
         {
-          "label": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显…",
-          "note": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显不同",
+          "label": "Chat、Cowork、Claude Code 与 API 产生",
+          "note": "的产物类型明显不同",
           "status": "good"
         },
         {
           "label": "更自动化的用户对 AI 承担更多任务更乐观",
-          "note": "更自动化的用户对 AI 承担更多任务更乐观",
           "status": "good"
         }
       ],
@@ -50,11 +48,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "产品、职业和时间分布差异使单一平均数容易误导",
       "items": [
         {
           "label": "产品、职业和时间分布差异使单一平均数容易误导",
-          "note": "产品、职业和时间分布差异使单一平均数容易误导",
           "status": "risk"
         }
       ],
@@ -65,48 +61,14 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
       "items": [
         {
           "label": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
-          "note": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "q1"
-      ]
-    },
-    {
-      "type": "narrative-chain",
-      "title": "判断链路",
-      "items": [
-        {
-          "label": "工作相关请求在周末下降且不同职业的节律存在差异",
-          "note": "工作相关请求在周末下降且不同职业的节律存在差异",
-          "status": "good"
-        },
-        {
-          "label": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显…",
-          "note": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显不同",
-          "status": "good"
-        },
-        {
-          "label": "更自动化的用户对 AI 承担更多任务更乐观",
-          "note": "更自动化的用户对 AI 承担更多任务更乐观",
-          "status": "good"
-        },
-        {
-          "label": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
-          "note": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1",
-        "e2",
-        "e3",
-        "c1"
       ]
     }
   ],

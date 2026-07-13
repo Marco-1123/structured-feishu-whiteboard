@@ -64,6 +64,7 @@
         "semanticMatch": 1,
         "coherence": 1,
         "semanticSignalBonus": 6,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -123,6 +124,7 @@
         "semanticMatch": 1,
         "coherence": 0.76,
         "semanticSignalBonus": 6,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -191,6 +193,7 @@
         "semanticMatch": 1,
         "coherence": 0.88,
         "semanticSignalBonus": 3,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1

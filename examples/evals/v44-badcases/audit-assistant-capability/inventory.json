@@ -1,0 +1,19 @@
+{
+  "inventoryId": "badcase-audit-assistant-capability",
+  "title": "审核智能助手能力概览",
+  "sourceType": "report",
+  "facts": [
+    { "id": "c1", "type": "conclusion", "text": "用户在飞书群聊输入分析关键词与队列 ID，即可自动完成查询、诊断与卡片输出。", "importance": "critical" },
+    { "id": "p1", "type": "process", "text": "群聊触发：@审核智能助手并输入关键词和队列 ID。", "importance": "high", "order": 1 },
+    { "id": "p2", "type": "process", "text": "自动查询：拉取近 7 天进审量、审核量、延时达标率与废弃量。", "importance": "high", "order": 2 },
+    { "id": "p3", "type": "process", "text": "智能分析：识别异常波动、延时原因、增量空间与任务池配置。", "importance": "high", "order": 3 },
+    { "id": "p4", "type": "process", "text": "结果输出：生成群聊简报卡片并保留完整报告入口。", "importance": "high", "order": 4 },
+    { "id": "h1", "type": "hierarchy", "text": "量级异常分析支持队列级归因。", "importance": "high" },
+    { "id": "h2", "type": "hierarchy", "text": "延时分析支持 SLA 诊断。", "importance": "high" },
+    { "id": "h3", "type": "hierarchy", "text": "RR 调整支持增量空间判断。", "importance": "medium" },
+    { "id": "h4", "type": "hierarchy", "text": "任务池查询支持配置回溯。", "importance": "medium" },
+    { "id": "h5", "type": "hierarchy", "text": "知识库问答支持口径与术语解释。", "importance": "medium" },
+    { "id": "e1", "type": "evidence", "text": "知识库沉淀场景导航、通用决策约定、概念解释、错误原因与日志。", "importance": "high" },
+    { "id": "a1", "type": "action", "text": "继续扩展知识库并统一群内调用口径。", "importance": "medium" }
+  ]
+}

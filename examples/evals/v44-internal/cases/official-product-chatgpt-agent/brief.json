@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验",
   "expressionMode": "modular-canvas",
+  "pageSkeleton": "centered-system",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -21,60 +22,47 @@
       ]
     },
     {
+      "type": "evidence-list",
+      "title": "结构化信息",
+      "items": [
+        {
+          "label": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
+          "status": "good"
+        }
+      ],
+      "sourceFactIds": [
+        "p1"
+      ]
+    },
+    {
       "type": "status-board",
       "title": "核心能力",
-      "note": "理解目标并规划多步骤任务；在计算机环境中浏览网站并使用工具；整合研究结果并交付可用产物；用户提出目…",
       "items": [
         {
           "label": "理解目标并规划多步骤任务",
-          "note": "理解目标并规划多步骤任务",
           "status": "good"
         },
         {
           "label": "在计算机环境中浏览网站并使用工具",
-          "note": "在计算机环境中浏览网站并使用工具",
           "status": "good"
         },
         {
           "label": "整合研究结果并交付可用产物",
-          "note": "整合研究结果并交付可用产物",
-          "status": "good"
-        },
-        {
-          "label": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
-          "note": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "h1",
         "h2",
-        "h3",
-        "p1"
+        "h3"
       ]
     },
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "复杂网页操作和新型安全风险仍可能限制可靠性",
       "items": [
         {
           "label": "复杂网页操作和新型安全风险仍可能限制可靠性",
-          "note": "复杂网页操作和新型安全风险仍可能限制可靠性",
-          "status": "risk"
-        }
-      ],
-      "sourceFactIds": [
-        "r1"
-      ]
-    },
-    {
-      "type": "risk-list",
-      "title": "关键风险",
-      "items": [
-        {
-          "label": "复杂网页操作和新型安全风险仍可能限制可靠性",
-          "note": "复杂网页操作和新型安全风险仍可能限制可靠性",
           "status": "risk"
         }
       ],
@@ -87,10 +75,10 @@
     "inventoryId": "official-product-chatgpt-agent",
     "selectedFactIds": [
       "c1",
+      "p1",
       "h1",
       "h2",
       "h3",
-      "p1",
       "r1"
     ],
     "omittedFacts": [],

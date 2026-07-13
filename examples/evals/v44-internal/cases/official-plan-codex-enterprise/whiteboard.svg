@@ -1,66 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1388" viewBox="0 0 2200 1388" data-layout-engine="v4" data-layout="flow-canvas" data-flow-mode="swimlane-flow">
-<rect x="0" y="0" width="2200" height="1388" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1358" viewBox="0 0 2200 1358" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="4.4" data-flow-mode="swimlane-flow">
+<rect x="0" y="0" width="2200" height="1358" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
-<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Codex 企业规模化实施计划</tspan></text>
 <text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">按输入、动作、判断和输出组织流程</tspan></text>
-</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="128" data-column="full">
-<rect x="96" y="240" width="2008" height="128" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
-<rect x="96" y="240" width="12" height="128" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="138" y="284" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">流程判断</tspan></text>
-<text x="138" y="328" font-size="27" fill="#111827" font-weight="700"><tspan x="138" dy="0">企业 Codex 推广需要把高价值用例从试点转化为生产级部署</tspan></text>
-</g><g data-v43-block="flow" data-block-type="swimlane-flow" data-x="96" data-y="424" data-width="2008" data-height="908" data-column="full">
-<rect x="96" y="424" width="2008" height="288" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1" data-flow-lane="lane-1"/>
-<text x="124" y="482" font-size="22" fill="#111827" font-weight="700"><tspan x="124" dy="0">业务团队</tspan></text>
-<line x1="264" y1="446" x2="264" y2="690" stroke="#D8DEE8" stroke-width="2" stroke-linecap="round"/>
-<rect x="96" y="734" width="2008" height="288" rx="14" fill="#F7F8FA" stroke="#D8DEE8" stroke-width="1" data-flow-lane="lane-2"/>
-<text x="124" y="792" font-size="22" fill="#111827" font-weight="700"><tspan x="124" dy="0">平台团队</tspan></text>
-<line x1="264" y1="756" x2="264" y2="1000" stroke="#D8DEE8" stroke-width="2" stroke-linecap="round"/>
-<rect x="96" y="1044" width="2008" height="288" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1" data-flow-lane="lane-3"/>
-<text x="124" y="1102" font-size="22" fill="#111827" font-weight="700"><tspan x="124" dy="0">治理团队</tspan></text>
-<line x1="264" y1="1066" x2="264" y2="1310" stroke="#D8DEE8" stroke-width="2" stroke-linecap="round"/>
-<line x1="616" y1="568" x2="650" y2="568" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="node-1-&gt;node-2" data-from="node-1" data-to="node-2" data-start="616,568" data-end="650,568" data-edge-label="进入下一步"/>
-<line x1="650" y1="568" x2="638" y2="559" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="650" y1="568" x2="638" y2="577" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
-<text x="633" y="551" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="633" dy="0">进入下一步</tspan></text>
-<polyline points="984,568 1001,568 1001,878 1018,878" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="node-2-&gt;node-3" data-from="node-2" data-to="node-3" data-start="984,568" data-end="1018,878" data-edge-label="进入下一步"/>
-<line x1="1018" y1="878" x2="1006" y2="869" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1018" y1="878" x2="1006" y2="887" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
-<text x="1011" y="720" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="1011" dy="0">进入下一步</tspan></text>
-<polyline points="1352,878 1369,878 1369,568 1386,568" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="node-3-&gt;risk-1" data-from="node-3" data-to="risk-1" data-start="1352,878" data-end="1386,568" data-edge-label="边界与保障"/>
-<line x1="1386" y1="568" x2="1374" y2="559" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1386" y1="568" x2="1374" y2="577" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
-<text x="1379" y="720" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="边界与保障"><tspan x="1379" dy="0">边界与保障</tspan></text>
-<polyline points="1720,568 1737,568 1737,1188 1754,1188" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="risk-1-&gt;node-4" data-from="risk-1" data-to="node-4" data-start="1720,568" data-end="1754,1188" data-edge-label="进入下一步"/>
-<line x1="1754" y1="1188" x2="1742" y2="1179" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1754" y1="1188" x2="1742" y2="1197" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
-<text x="1747" y="875" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="1747" dy="0">进入下一步</tspan></text>
-<rect x="282" y="446" width="334" height="244" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-1" data-node-x="282" data-node-y="446" data-node-width="334" data-node-height="244" data-node-type="start"/>
-<rect x="304" y="468" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<rect x="328" y="468" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="346" y="489" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="346" dy="0">开始</tspan></text>
-<text x="328" y="530" font-size="24" fill="#111827" font-weight="700"><tspan x="328" dy="0">建立可复用实施方法与</tspan><tspan x="328" dy="30">效果验证机制</tspan></text>
-<text x="328" y="592" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="328" dy="0">建立可复用实施方法与效果验证机</tspan><tspan x="328" dy="24">制</tspan></text>
-<rect x="650" y="446" width="334" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-2" data-node-x="650" data-node-y="446" data-node-width="334" data-node-height="244" data-node-type="action"/>
-<rect x="672" y="468" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<rect x="696" y="468" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="714" y="489" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="714" dy="0">动作</tspan></text>
-<text x="696" y="530" font-size="24" fill="#111827" font-weight="700"><tspan x="696" dy="0">阶段一识别软件生命周</tspan><tspan x="696" dy="30">期中的高价值场景</tspan></text>
-<text x="696" y="592" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="696" dy="0">阶段一识别软件生命周期中的高价</tspan><tspan x="696" dy="24">值场景</tspan></text>
-<rect x="1018" y="756" width="334" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-3" data-node-x="1018" data-node-y="756" data-node-width="334" data-node-height="244" data-node-type="action"/>
-<rect x="1040" y="778" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<rect x="1064" y="778" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="1082" y="799" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1082" dy="0">动作</tspan></text>
-<text x="1064" y="840" font-size="24" fill="#111827" font-weight="700"><tspan x="1064" dy="0">阶段二通过 Codex La</tspan><tspan x="1064" dy="30">bs 与合作伙伴验证用例</tspan></text>
-<text x="1064" y="902" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1064" dy="0">阶段二通过 Codex Labs 与合</tspan><tspan x="1064" dy="24">作伙伴验证用例</tspan></text>
-<rect x="1386" y="446" width="334" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="risk-1" data-node-x="1386" data-node-y="446" data-node-width="334" data-node-height="244" data-node-type="risk"/>
-<rect x="1408" y="468" width="8" height="200" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<rect x="1432" y="468" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8DEE8" stroke-width="1"/>
-<text x="1450" y="489" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1450" dy="0">风险</tspan></text>
-<text x="1432" y="530" font-size="24" fill="#111827" font-weight="700"><tspan x="1432" dy="0">企业环境、权限和工程</tspan><tspan x="1432" dy="30">流程差异会影响复...</tspan></text>
-<text x="1432" y="592" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1432" dy="0">企业环境、权限和工程流程差异会</tspan><tspan x="1432" dy="24">影响复制速度</tspan></text>
-<rect x="1754" y="1066" width="334" height="244" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-4" data-node-x="1754" data-node-y="1066" data-node-width="334" data-node-height="244" data-node-type="result"/>
-<rect x="1776" y="1088" width="8" height="200" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<rect x="1800" y="1088" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8DEE8" stroke-width="1"/>
-<text x="1818" y="1109" font-size="15" fill="#16A085" font-weight="700"><tspan x="1818" dy="0">结果</tspan></text>
-<text x="1800" y="1150" font-size="24" fill="#111827" font-weight="700"><tspan x="1800" dy="0">阶段三形成生产级部署</tspan><tspan x="1800" dy="30">、治理和规模化推广</tspan></text>
-<text x="1800" y="1212" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1800" dy="0">阶段三形成生产级部署、治理和规</tspan><tspan x="1800" dy="24">模化推广</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="128" data-column="full">
+<rect x="96" y="210" width="2008" height="128" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="96" y="210" width="12" height="128" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="138" y="254" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">流程判断</tspan></text>
+<text x="138" y="298" font-size="27" fill="#111827" font-weight="700"><tspan x="138" dy="0">企业 Codex 推广需要把高价值用例从试点转化为生产级部署</tspan></text>
+</g><g data-v43-block="flow" data-block-type="swimlane-flow" data-x="96" data-y="394" data-width="2008" data-height="908" data-column="full">
+<rect x="96" y="394" width="2008" height="288" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1" data-flow-lane="lane-1"/>
+<text x="124" y="452" font-size="22" fill="#111827" font-weight="700"><tspan x="124" dy="0">业务团队</tspan></text>
+<line x1="264" y1="416" x2="264" y2="660" stroke="#D8DEE8" stroke-width="2" stroke-linecap="round"/>
+<rect x="96" y="704" width="2008" height="288" rx="14" fill="#F7F8FA" stroke="#D8DEE8" stroke-width="1" data-flow-lane="lane-2"/>
+<text x="124" y="762" font-size="22" fill="#111827" font-weight="700"><tspan x="124" dy="0">平台团队</tspan></text>
+<line x1="264" y1="726" x2="264" y2="970" stroke="#D8DEE8" stroke-width="2" stroke-linecap="round"/>
+<rect x="96" y="1014" width="2008" height="288" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1" data-flow-lane="lane-3"/>
+<text x="124" y="1072" font-size="22" fill="#111827" font-weight="700"><tspan x="124" dy="0">治理团队</tspan></text>
+<line x1="264" y1="1036" x2="264" y2="1280" stroke="#D8DEE8" stroke-width="2" stroke-linecap="round"/>
+<line x1="616" y1="538" x2="650" y2="538" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="node-1-&gt;node-2" data-from="node-1" data-to="node-2" data-start="616,538" data-end="650,538" data-edge-label="进入下一步"/>
+<line x1="650" y1="538" x2="638" y2="529" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="650" y1="538" x2="638" y2="547" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="633" y="521" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="633" dy="0">进入下一步</tspan></text>
+<polyline points="984,538 1001,538 1001,848 1018,848" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="node-2-&gt;node-3" data-from="node-2" data-to="node-3" data-start="984,538" data-end="1018,848" data-edge-label="进入下一步"/>
+<line x1="1018" y1="848" x2="1006" y2="839" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1018" y1="848" x2="1006" y2="857" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1011" y="690" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="1011" dy="0">进入下一步</tspan></text>
+<polyline points="1352,848 1369,848 1369,538 1386,538" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="node-3-&gt;risk-1" data-from="node-3" data-to="risk-1" data-start="1352,848" data-end="1386,538" data-edge-label="边界与保障"/>
+<line x1="1386" y1="538" x2="1374" y2="529" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1386" y1="538" x2="1374" y2="547" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1379" y="690" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="边界与保障"><tspan x="1379" dy="0">边界与保障</tspan></text>
+<polyline points="1720,538 1737,538 1737,1158 1754,1158" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="risk-1-&gt;node-4" data-from="risk-1" data-to="node-4" data-start="1720,538" data-end="1754,1158" data-edge-label="进入下一步"/>
+<line x1="1754" y1="1158" x2="1742" y2="1149" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1754" y1="1158" x2="1742" y2="1167" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1747" y="845" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="1747" dy="0">进入下一步</tspan></text>
+<rect x="282" y="416" width="334" height="244" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-1" data-node-x="282" data-node-y="416" data-node-width="334" data-node-height="244" data-node-type="start"/>
+<rect x="304" y="438" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<rect x="328" y="438" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="346" y="459" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="346" dy="0">开始</tspan></text>
+<text x="328" y="500" font-size="24" fill="#111827" font-weight="700"><tspan x="328" dy="0">建立可复用实施方法与</tspan><tspan x="328" dy="30">效果验证机制</tspan></text>
+<text x="328" y="562" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="328" dy="0">建立可复用实施方法与效果验证机</tspan><tspan x="328" dy="24">制</tspan></text>
+<rect x="650" y="416" width="334" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-2" data-node-x="650" data-node-y="416" data-node-width="334" data-node-height="244" data-node-type="action"/>
+<rect x="672" y="438" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<rect x="696" y="438" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="714" y="459" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="714" dy="0">动作</tspan></text>
+<text x="696" y="500" font-size="24" fill="#111827" font-weight="700"><tspan x="696" dy="0">阶段一识别软件生命周</tspan><tspan x="696" dy="30">期中的高价值场景</tspan></text>
+<text x="696" y="562" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="696" dy="0">阶段一识别软件生命周期中的高价</tspan><tspan x="696" dy="24">值场景</tspan></text>
+<rect x="1018" y="726" width="334" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-3" data-node-x="1018" data-node-y="726" data-node-width="334" data-node-height="244" data-node-type="action"/>
+<rect x="1040" y="748" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<rect x="1064" y="748" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1082" y="769" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1082" dy="0">动作</tspan></text>
+<text x="1064" y="810" font-size="24" fill="#111827" font-weight="700"><tspan x="1064" dy="0">阶段二通过 Codex La</tspan><tspan x="1064" dy="30">bs 与合作伙伴验证用例</tspan></text>
+<text x="1064" y="872" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1064" dy="0">阶段二通过 Codex Labs 与合</tspan><tspan x="1064" dy="24">作伙伴验证用例</tspan></text>
+<rect x="1386" y="416" width="334" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="risk-1" data-node-x="1386" data-node-y="416" data-node-width="334" data-node-height="244" data-node-type="risk"/>
+<rect x="1408" y="438" width="8" height="200" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<rect x="1432" y="438" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1450" y="459" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1450" dy="0">风险</tspan></text>
+<text x="1432" y="500" font-size="24" fill="#111827" font-weight="700"><tspan x="1432" dy="0">企业环境、权限和工程</tspan><tspan x="1432" dy="30">流程差异会影响复...</tspan></text>
+<text x="1432" y="562" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1432" dy="0">企业环境、权限和工程流程差异会</tspan><tspan x="1432" dy="24">影响复制速度</tspan></text>
+<rect x="1754" y="1036" width="334" height="244" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-4" data-node-x="1754" data-node-y="1036" data-node-width="334" data-node-height="244" data-node-type="result"/>
+<rect x="1776" y="1058" width="8" height="200" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<rect x="1800" y="1058" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1818" y="1079" font-size="15" fill="#16A085" font-weight="700"><tspan x="1818" dy="0">结果</tspan></text>
+<text x="1800" y="1120" font-size="24" fill="#111827" font-weight="700"><tspan x="1800" dy="0">阶段三形成生产级部署</tspan><tspan x="1800" dy="30">、治理和规模化推广</tspan></text>
+<text x="1800" y="1182" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1800" dy="0">阶段三形成生产级部署、治理和规</tspan><tspan x="1800" dy="24">模化推广</tspan></text>
 </g>
 </g>
 </svg>

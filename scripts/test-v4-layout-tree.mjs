@@ -147,4 +147,32 @@ const centeredOrphanTree = buildAdaptiveExpressionLayout({
 assert.equal(centeredOrphanTree.nodes[0].rowAlignment, "centered", "a compact orphan must be intentionally centered");
 assert.equal(centeredOrphanTree.nodes[0].offsetSpan, 3, "a half-width orphan must have symmetric margins");
 
+const centeredSystemTree = buildAdaptiveExpressionLayout({
+  blocks: [{ type: "status-board", id: "five-status", items: Array.from({ length: 5 }, (_, index) => ({ label: `能力 ${index + 1}` })) }],
+  mode: "modular-canvas",
+  pageSkeleton: "centered-system",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.equal(centeredSystemTree.nodes[0].span, 12, "centered-system must create a real full-width system anchor rather than only reorder blocks");
+assert.equal(centeredSystemTree.nodes[0].profile.itemLayout, "grid-5", "five peers must use a balanced five-column grid without an empty cell");
+
+const splitTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "evidence-list", id: "past", items: [{ label: "阶段结果" }] },
+    { type: "action-list", id: "future", items: [{ label: "下一阶段" }] },
+  ],
+  mode: "narrative-map",
+  pageSkeleton: "past-future-split",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.deepEqual(splitTree.nodes.map((node) => node.span), [6, 6], "past-future-split must enforce a visible left/right geometry");
+
 console.log("ok: V4.3 layout tree tests passed");

@@ -22,7 +22,12 @@
       "importance": "high",
       "sourceRef": "m1",
       "confidence": "supported",
-      "value": "400K"
+      "value": "400K",
+      "visualType": "metric",
+      "measure": {
+        "value": "400",
+        "display": "400"
+      }
     },
     {
       "id": "m2",
@@ -31,7 +36,14 @@
       "importance": "high",
       "sourceRef": "m2",
       "confidence": "supported",
-      "value": "+25%"
+      "value": "+25%",
+      "visualType": "metric",
+      "measure": {
+        "value": "25",
+        "unit": "%",
+        "qualifier": "+",
+        "display": "+25%"
+      }
     },
     {
       "id": "t1",

@@ -1,62 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1952" viewBox="0 0 2200 1952" data-layout-engine="v4" data-expression-mode="narrative-map">
-<rect x="0" y="0" width="2200" height="1952" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1282" viewBox="0 0 2200 1282" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
+<rect x="0" y="0" width="2200" height="1282" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
-<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">前沿模型负责任扩展策略</tspan></text>
 <text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">从核心判断到证据、约束与验证动作</tspan></text>
-</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="150" data-column="full">
-<rect x="96" y="240" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
-<rect x="96" y="240" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="138" y="288" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
-<text x="138" y="338" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text>
-</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="434" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="144" data-item-count="3" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="434" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="482" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
+<rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text>
+</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="404" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="52" data-item-count="2" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="404" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
 
-<rect x="124" y="544" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="148" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text>
-<text x="148" y="626" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text><text x="764" y="644" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
-<rect x="783" y="544" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="807" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="807" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
-<text x="807" y="626" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="807" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text><text x="1423" y="644" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1423" dy="0">→</tspan></text>
-<rect x="1442" y="544" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="1466" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="1466" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
-<text x="1466" y="626" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1466" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
-</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="800" data-width="2008" data-height="254" data-column="full" data-component-variant="evidence-tiles" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="70" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
-<rect x="96" y="800" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="848" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
-<text x="124" y="880" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
-<rect x="124" y="904" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="921" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="944" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="935" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
-<text x="196" y="962" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
-</g><g data-v43-block="risk-list-3" data-block-type="risk-list" data-x="96" data-y="1086" data-width="2008" data-height="254" data-column="full" data-component-variant="risk-cluster" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="74" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
-<rect x="96" y="1086" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="1134" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">风险与约束</tspan></text>
-<text x="124" y="1166" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">灾难性误用与非预期自主行为风险随能力提升而增加</tspan></text>
-<rect x="124" y="1190" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
-<circle cx="150" cy="1217" r="7" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="168" y="1222" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">灾难性误用与非预期自主行为风险随能力提升而增加</tspan></text>
-<text x="168" y="1249" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="168" dy="0">灾难性误用与非预期自主行为风险随能力提升而增加</tspan></text>
-</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="96" data-y="1372" data-width="2008" data-height="254" data-column="full" data-component-variant="action-checklist" data-row="3" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="77" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
-<rect x="96" y="1372" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="1420" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
-<text x="124" y="1452" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
-<rect x="124" y="1476" width="1952" height="104" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="151" cy="1503" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="147" y="1509" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="147" dy="0">1</tspan></text>
-<text x="176" y="1507" font-size="17" fill="#111827" font-weight="700"><tspan x="176" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
-<text x="176" y="1534" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="176" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
-</g><g data-v43-block="evidence-list-5" data-block-type="evidence-list" data-x="96" data-y="1658" data-width="2008" data-height="254" data-column="full" data-component-variant="evidence-tiles" data-row="4" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="88" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
-<rect x="96" y="1658" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="1706" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
-<text x="124" y="1738" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">ASL-2、ASL-3 与更高等级对应逐级增强的安全标准</tspan></text>
-<rect x="124" y="1762" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="1779" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="1802" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="1793" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">ASL-2、ASL-3 与更高等级对应逐级增强的安全标准</tspan></text>
-<text x="196" y="1820" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">ASL-2、ASL-3 与更高等级对应逐级增强的安全标准</tspan></text>
+<rect x="124" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="148" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text>
+<text x="1094" y="614" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
+<rect x="1113" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="1137" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
+
+</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="770" data-width="988" data-height="220" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="26" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
+<rect x="96" y="770" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="818" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+
+<rect x="124" y="874" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="140" y="891" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="914" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
+<text x="196" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
+
+</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="1116" data-y="770" data-width="988" data-height="220" data-column="right" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="32" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
+<rect x="1116" y="770" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1144" y="818" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">关键证据</tspan></text>
+
+<rect x="1144" y="874" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="1160" y="891" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1172" y="914" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1172" dy="0">01</tspan></text>
+<text x="1216" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="1216" dy="0">ASL-2、ASL-3 与更高等级对应逐级增强的安全标准</tspan></text>
+
+</g><g data-v43-block="risk-list-4" data-block-type="risk-list" data-x="96" data-y="1022" data-width="988" data-height="220" data-column="left" data-component-variant="risk-cluster" data-row="2" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="28" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
+<rect x="96" y="1022" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">风险与约束</tspan></text>
+
+<rect x="124" y="1126" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
+<circle cx="150" cy="1153" r="7" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<text x="168" y="1158" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">灾难性误用与非预期自主行为风险随能力提升而增加</tspan></text>
+
+</g><g data-v43-block="action-list-5" data-block-type="action-list" data-x="1116" data-y="1022" data-width="988" data-height="220" data-column="right" data-component-variant="action-checklist" data-row="2" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="29" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
+<rect x="1116" y="1022" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1144" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">下一步行动</tspan></text>
+
+<rect x="1144" y="1126" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="1171" cy="1153" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1167" y="1159" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
+<text x="1196" y="1157" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
+
 </g>
 </g>
 </svg>

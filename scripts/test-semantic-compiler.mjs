@@ -70,4 +70,23 @@ const openQuestionResearch = compileSemanticModel({ inventory: inventory("open-q
 ]) });
 assert.equal(openQuestionResearch.scenario.primary, "research-decision", "an explicit open question with evidence must route to research-decision");
 
+const measurableCapability = compileSemanticModel({ inventory: inventory("product-measures", "审核智能助手能力概览", [
+  { id: "c1", type: "conclusion", text: "审核智能助手已经形成稳定能力闭环。" },
+  { id: "h1", type: "hierarchy", text: "覆盖 5 类核心分析能力。" },
+  { id: "e1", type: "evidence", text: "日均节省 3-4 小时人工分析时间。" },
+  { id: "e2", type: "evidence", text: "关键问题响应时间小于 30 秒。" },
+]) });
+assert.equal(measurableCapability.facts.find((fact) => fact.id === "h1")?.visualType, "metric", "measurable capability counts must be available to visual planning as metrics");
+assert.equal(measurableCapability.facts.find((fact) => fact.id === "e1")?.visualType, "metric", "measurable evidence must not degrade into a text-only list");
+assert.equal(measurableCapability.facts.find((fact) => fact.id === "e2")?.measure?.qualifier, "<", "metric qualifiers must be preserved");
+
+const metricBoundaries = compileSemanticModel({ inventory: inventory("metric-boundaries", "指标边界材料", [
+  { id: "dated", type: "evidence", text: "2025 年覆盖 5 个业务场景。" },
+  { id: "staffing", type: "evidence", text: "异常结果仍需 2 人复核。" },
+  { id: "approval", type: "evidence", text: "采用 3 级审批机制。" },
+]) });
+assert.equal(metricBoundaries.facts.find((fact) => fact.id === "dated")?.measure?.display, "5个", "the compiler must continue past a year prefix to find the real business metric");
+assert.notEqual(metricBoundaries.facts.find((fact) => fact.id === "staffing")?.visualType, "metric", "a staffing constraint is not automatically a result metric");
+assert.notEqual(metricBoundaries.facts.find((fact) => fact.id === "approval")?.visualType, "metric", "an approval level is not automatically a result metric");
+
 console.log("ok: semantic compiler tests passed");

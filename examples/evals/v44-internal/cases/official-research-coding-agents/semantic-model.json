@@ -22,7 +22,13 @@
       "importance": "high",
       "sourceRef": "m1",
       "confidence": "supported",
-      "value": "81%"
+      "value": "81%",
+      "visualType": "metric",
+      "measure": {
+        "value": "81",
+        "unit": "%",
+        "display": "81%"
+      }
     },
     {
       "id": "m2",
@@ -31,7 +37,13 @@
       "importance": "high",
       "sourceRef": "m2",
       "confidence": "supported",
-      "value": "20%"
+      "value": "20%",
+      "visualType": "metric",
+      "measure": {
+        "value": "20",
+        "unit": "%",
+        "display": "20%"
+      }
     },
     {
       "id": "e1",

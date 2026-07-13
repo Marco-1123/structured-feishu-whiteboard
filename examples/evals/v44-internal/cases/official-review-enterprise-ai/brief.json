@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "企业 AI 使用正从零散问答进入可复用的深度工作流",
   "expressionMode": "modular-canvas",
+  "pageSkeleton": "overview-detail",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -22,7 +23,7 @@
     },
     {
       "type": "metric-card",
-      "title": "企业用户每周消息量同比增长约 8 倍",
+      "title": "企业用户每周消息量同比增长约 倍",
       "value": "8x",
       "label": "阶段结果",
       "note": "企业用户每周消息量同比增长约 8 倍",
@@ -33,7 +34,7 @@
     },
     {
       "type": "metric-card",
-      "title": "Projects 与 Custom GPTs 等结构化工作流使…",
+      "title": "Projects 与 Custom GPTs …",
       "value": "19x",
       "label": "阶段结果",
       "note": "Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍",
@@ -44,7 +45,7 @@
     },
     {
       "type": "metric-card",
-      "title": "75% 的受访员工认为 AI 改善了工作速度或质量",
+      "title": "的受访员工认为 AI 改善了工作速度或质量",
       "value": "75%",
       "label": "阶段结果",
       "note": "75% 的受访员工认为 AI 改善了工作速度或质量",
@@ -56,11 +57,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "领先组织与中位组织之间的采用深度差距仍在扩大",
       "items": [
         {
           "label": "领先组织与中位组织之间的采用深度差距仍在扩大",
-          "note": "领先组织与中位组织之间的采用深度差距仍在扩大",
           "status": "risk"
         }
       ],
@@ -71,11 +70,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "下一阶段把高价值用例沉淀为组织级可复用流程",
       "items": [
         {
           "label": "下一阶段把高价值用例沉淀为组织级可复用流程",
-          "note": "下一阶段把高价值用例沉淀为组织级可复用流程",
           "status": "good"
         }
       ],

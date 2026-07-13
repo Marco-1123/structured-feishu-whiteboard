@@ -30,6 +30,7 @@
     "summaryLabel": "核心判断",
     "summary": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
     "expressionMode": "modular-canvas",
+    "pageSkeleton": "timeline",
     "expressionBlocks": [
       {
         "type": "statement",
@@ -44,21 +45,17 @@
       {
         "type": "mini-roadmap",
         "title": "阶段路径",
-        "note": "阶段一完成 1260 名社会科学家的基线调查；阶段二向研究者提供 Claude Code 并开展随…",
         "items": [
           {
             "label": "阶段一完成 1260 名社会科学家的基线调查",
-            "note": "阶段一完成 1260 名社会科学家的基线调查",
             "status": "good"
           },
           {
             "label": "阶段二向研究者提供 Claude Code 并开展随机实验",
-            "note": "阶段二向研究者提供 Claude Code 并开展随机实验",
             "status": "good"
           },
           {
             "label": "阶段三发布生产率、采用差异和研究质量结果",
-            "note": "阶段三发布生产率、采用差异和研究质量结果",
             "status": "good"
           }
         ],
@@ -71,11 +68,9 @@
       {
         "type": "risk-list",
         "title": "风险与约束",
-        "note": "当前相关性结果可能受到早期采用者差异影响",
         "items": [
           {
             "label": "当前相关性结果可能受到早期采用者差异影响",
-            "note": "当前相关性结果可能受到早期采用者差异影响",
             "status": "risk"
           }
         ],
@@ -86,31 +81,14 @@
       {
         "type": "action-list",
         "title": "下一步行动",
-        "note": "用随机实验区分工具作用与用户自选择效应",
         "items": [
           {
             "label": "用随机实验区分工具作用与用户自选择效应",
-            "note": "用随机实验区分工具作用与用户自选择效应",
             "status": "good"
           }
         ],
         "sourceFactIds": [
           "a1"
-        ]
-      },
-      {
-        "type": "evidence-list",
-        "title": "关键证据",
-        "note": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
-        "items": [
-          {
-            "label": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
-            "note": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
-            "status": "good"
-          }
-        ],
-        "sourceFactIds": [
-          "c1"
         ]
       }
     ],

@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "需要随机实验才能判断编码 Agent 的因果影响",
   "expressionMode": "narrative-map",
+  "pageSkeleton": "overview-detail",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -23,11 +24,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "编码 Agent 用户发布更多工作论文和基金申请",
       "items": [
         {
           "label": "编码 Agent 用户发布更多工作论文和基金申请",
-          "note": "编码 Agent 用户发布更多工作论文和基金申请",
           "status": "good"
         }
       ],
@@ -38,11 +37,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "观察结果不能排除早期采用者原本就更高产的解释",
       "items": [
         {
           "label": "观察结果不能排除早期采用者原本就更高产的解释",
-          "note": "观察结果不能排除早期采用者原本就更高产的解释",
           "status": "risk"
         }
       ],
@@ -53,11 +50,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "编码 Agent 是否正在改变社会科学研究生产率与资源差异",
       "items": [
         {
           "label": "编码 Agent 是否正在改变社会科学研究生产率与资源差异",
-          "note": "编码 Agent 是否正在改变社会科学研究生产率与资源差异",
           "status": "good"
         }
       ],
@@ -68,44 +63,21 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "81% 的受访者尝试过在研究中使用 AI 聊天工具；20% 的受访者已采用编码 Agent",
       "items": [
         {
           "label": "81% 的受访者尝试过在研究中使用 AI 聊天工具",
           "value": "81%",
-          "note": "81% 的受访者尝试过在研究中使用 AI 聊天工具",
           "status": "good"
         },
         {
           "label": "20% 的受访者已采用编码 Agent",
           "value": "20%",
-          "note": "20% 的受访者已采用编码 Agent",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "m1",
         "m2"
-      ]
-    },
-    {
-      "type": "narrative-chain",
-      "title": "判断链路",
-      "items": [
-        {
-          "label": "编码 Agent 用户发布更多工作论文和基金申请",
-          "note": "编码 Agent 用户发布更多工作论文和基金申请",
-          "status": "good"
-        },
-        {
-          "label": "需要随机实验才能判断编码 Agent 的因果影响",
-          "note": "需要随机实验才能判断编码 Agent 的因果影响",
-          "status": "good"
-        }
-      ],
-      "sourceFactIds": [
-        "e1",
-        "c1"
       ]
     }
   ],

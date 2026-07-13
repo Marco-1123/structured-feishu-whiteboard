@@ -406,7 +406,7 @@ function validateVarianceBridge(brief) {
 function validateExpressionCanvas(brief) {
   if (!supportedExpressionModes.has(brief.expressionMode)) fail("expressionMode is unsupported");
   if (!Array.isArray(brief.expressionBlocks)) fail("expressionBlocks must be an array");
-  if (brief.expressionBlocks.length < 4 || brief.expressionBlocks.length > 9) fail("expressionBlocks must contain 4 to 9 blocks");
+  if (brief.expressionBlocks.length < 2 || brief.expressionBlocks.length > 9) fail("expressionBlocks must contain 2 to 9 blocks");
 
   const counts = new Map();
   brief.expressionBlocks.forEach((block, index) => {
@@ -447,12 +447,11 @@ function validateExpressionCanvas(brief) {
     if ((counts.get("action-list") || 0) < 1) fail("dashboard-onepage requires an action-list block");
   }
   if (brief.expressionMode === "narrative-map") {
-    if ((counts.get("narrative-chain") || 0) < 1) fail("narrative-map requires a narrative-chain block");
     if ((counts.get("evidence-list") || 0) < 1 && (counts.get("decision-matrix") || 0) < 1) fail("narrative-map requires an evidence-list or decision-matrix block");
     if ((counts.get("action-list") || 0) < 1 && (counts.get("risk-list") || 0) < 1) fail("narrative-map requires an action-list or risk-list closure block");
   }
   if (brief.expressionMode === "modular-canvas") {
-    const hasSignal = ["metric-card", "progress-bar", "ranked-bar", "evidence-list", "status-board", "trend-sparkline", "variance-bridge-v2"].some((type) => (counts.get(type) || 0) > 0);
+    const hasSignal = ["metric-card", "progress-bar", "ranked-bar", "evidence-list", "status-board", "trend-sparkline", "variance-bridge-v2", "mini-roadmap", "narrative-chain"].some((type) => (counts.get(type) || 0) > 0);
     const hasClosure = ["risk-list", "action-list", "mini-roadmap", "status-board"].some((type) => (counts.get(type) || 0) > 0);
     if (!hasSignal) fail("modular-canvas requires at least one signal block");
     if (!hasClosure) fail("modular-canvas requires at least one risk, action, or roadmap block");

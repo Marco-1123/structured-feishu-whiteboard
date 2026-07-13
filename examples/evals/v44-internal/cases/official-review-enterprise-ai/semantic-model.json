@@ -22,7 +22,12 @@
       "importance": "high",
       "sourceRef": "m1",
       "confidence": "supported",
-      "value": "8x"
+      "value": "8x",
+      "visualType": "metric",
+      "measure": {
+        "value": "8",
+        "display": "8"
+      }
     },
     {
       "id": "m2",
@@ -31,7 +36,12 @@
       "importance": "high",
       "sourceRef": "m2",
       "confidence": "supported",
-      "value": "19x"
+      "value": "19x",
+      "visualType": "metric",
+      "measure": {
+        "value": "19",
+        "display": "19"
+      }
     },
     {
       "id": "m3",
@@ -40,7 +50,13 @@
       "importance": "high",
       "sourceRef": "m3",
       "confidence": "supported",
-      "value": "75%"
+      "value": "75%",
+      "visualType": "metric",
+      "measure": {
+        "value": "75",
+        "unit": "%",
+        "display": "75%"
+      }
     },
     {
       "id": "r1",

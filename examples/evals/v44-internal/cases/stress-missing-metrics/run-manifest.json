@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:34:23.829Z",
+  "startedAt": "2026-07-13T11:22:06.472Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-missing-metrics/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 4,
@@ -51,5 +46,5 @@
     },
     "selectedPlanId": "semantic-stress-missing-metrics-hierarchical"
   },
-  "finishedAt": "2026-07-13T06:34:33.272Z"
+  "finishedAt": "2026-07-13T11:22:07.099Z"
 }

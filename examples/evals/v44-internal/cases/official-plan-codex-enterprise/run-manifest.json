@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:31:59.426Z",
+  "startedAt": "2026-07-13T11:21:58.185Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-plan-codex-enterprise/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 6,
@@ -50,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-plan-codex-enterprise-flow-driven"
   },
-  "finishedAt": "2026-07-13T06:32:10.103Z"
+  "finishedAt": "2026-07-13T11:21:58.746Z"
 }

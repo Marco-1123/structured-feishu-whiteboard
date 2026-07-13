@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "模型能力提升必须与相匹配的安全和安全保障同步推进",
   "expressionMode": "narrative-map",
+  "pageSkeleton": "left-right-argument",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -23,11 +24,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "ASL-3 要求更强安全措施和高水平红队验证",
       "items": [
         {
           "label": "ASL-3 要求更强安全措施和高水平红队验证",
-          "note": "ASL-3 要求更强安全措施和高水平红队验证",
           "status": "good"
         }
       ],
@@ -38,11 +37,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "灾难性误用与非预期自主行为风险随能力提升而增加",
       "items": [
         {
           "label": "灾难性误用与非预期自主行为风险随能力提升而增加",
-          "note": "灾难性误用与非预期自主行为风险随能力提升而增加",
           "status": "good"
         }
       ],
@@ -53,11 +50,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "能力触及阈值前先完成对应等级的安全证明与部署控制",
       "items": [
         {
           "label": "能力触及阈值前先完成对应等级的安全证明与部署控制",
-          "note": "能力触及阈值前先完成对应等级的安全证明与部署控制",
           "status": "good"
         }
       ],
@@ -68,11 +63,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
       "items": [
         {
           "label": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
-          "note": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
           "status": "good"
         }
       ],
@@ -86,23 +79,15 @@
       "items": [
         {
           "label": "模型能力提升必须与相匹配的安全和安全保障同步推进",
-          "note": "模型能力提升必须与相匹配的安全和安全保障同步推进",
-          "status": "good"
-        },
-        {
-          "label": "ASL-3 要求更强安全措施和高水平红队验证",
-          "note": "ASL-3 要求更强安全措施和高水平红队验证",
           "status": "good"
         },
         {
           "label": "能力触及阈值前先完成对应等级的安全证明与部署控制",
-          "note": "能力触及阈值前先完成对应等级的安全证明与部署控制",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "c1",
-        "e1",
         "a1"
       ]
     }

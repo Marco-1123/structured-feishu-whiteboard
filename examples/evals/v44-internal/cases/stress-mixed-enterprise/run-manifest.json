@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:33:53.113Z",
+  "startedAt": "2026-07-13T11:22:04.576Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-mixed-enterprise/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 4,
@@ -50,5 +45,5 @@
     },
     "selectedPlanId": "semantic-stress-mixed-enterprise-causal"
   },
-  "finishedAt": "2026-07-13T06:34:02.880Z"
+  "finishedAt": "2026-07-13T11:22:05.210Z"
 }

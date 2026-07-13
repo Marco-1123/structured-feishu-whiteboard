@@ -9,6 +9,7 @@
   "summaryLabel": "核心判断",
   "summary": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
   "expressionMode": "narrative-map",
+  "pageSkeleton": "left-right-argument",
   "expressionBlocks": [
     {
       "type": "statement",
@@ -23,11 +24,9 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "技术、医疗和制造是增长最快的行业",
       "items": [
         {
           "label": "技术、医疗和制造是增长最快的行业",
-          "note": "技术、医疗和制造是增长最快的行业",
           "status": "good"
         }
       ],
@@ -38,11 +37,9 @@
     {
       "type": "risk-list",
       "title": "风险与约束",
-      "note": "组织准备度与实施能力成为主要约束",
       "items": [
         {
           "label": "组织准备度与实施能力成为主要约束",
-          "note": "组织准备度与实施能力成为主要约束",
           "status": "risk"
         }
       ],
@@ -53,11 +50,9 @@
     {
       "type": "action-list",
       "title": "下一步行动",
-      "note": "建立用例优先级、权限治理和效果复盘机制",
       "items": [
         {
           "label": "建立用例优先级、权限治理和效果复盘机制",
-          "note": "建立用例优先级、权限治理和效果复盘机制",
           "status": "good"
         }
       ],
@@ -68,12 +63,10 @@
     {
       "type": "evidence-list",
       "title": "关键证据",
-      "note": "结构化工作流使用量年内增长 19 倍",
       "items": [
         {
           "label": "结构化工作流使用量年内增长 19 倍",
           "value": "19x",
-          "note": "结构化工作流使用量年内增长 19 倍",
           "status": "good"
         }
       ],
@@ -87,23 +80,15 @@
       "items": [
         {
           "label": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
-          "note": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
-          "status": "good"
-        },
-        {
-          "label": "技术、医疗和制造是增长最快的行业",
-          "note": "技术、医疗和制造是增长最快的行业",
           "status": "good"
         },
         {
           "label": "建立用例优先级、权限治理和效果复盘机制",
-          "note": "建立用例优先级、权限治理和效果复盘机制",
           "status": "good"
         }
       ],
       "sourceFactIds": [
         "c1",
-        "e1",
         "a1"
       ]
     }

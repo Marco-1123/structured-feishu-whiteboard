@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T07:28:42.800Z",
+  "generatedAt": "2026-07-13T11:22:08.454Z",
   "summary": {
     "cases": 24,
     "passedCases": 24,
@@ -131,7 +131,8 @@
         "statement",
         "status-board",
         "action-list",
-        "evidence-list"
+        "evidence-list",
+        "narrative-chain"
       ],
       "failureLayer": null,
       "error": null
@@ -203,8 +204,7 @@
         "statement",
         "mini-roadmap",
         "risk-list",
-        "action-list",
-        "evidence-list"
+        "action-list"
       ],
       "failureLayer": null,
       "error": null
@@ -245,8 +245,7 @@
         "statement",
         "mini-roadmap",
         "risk-list",
-        "action-list",
-        "evidence-list"
+        "action-list"
       ],
       "failureLayer": null,
       "error": null
@@ -269,8 +268,7 @@
         "statement",
         "evidence-list",
         "decision-matrix",
-        "risk-list",
-        "narrative-chain"
+        "risk-list"
       ],
       "failureLayer": null,
       "error": null
@@ -294,8 +292,7 @@
         "evidence-list",
         "risk-list",
         "action-list",
-        "evidence-list",
-        "narrative-chain"
+        "evidence-list"
       ],
       "failureLayer": null,
       "error": null
@@ -319,8 +316,7 @@
         "evidence-list",
         "risk-list",
         "action-list",
-        "evidence-list",
-        "narrative-chain"
+        "evidence-list"
       ],
       "failureLayer": null,
       "error": null
@@ -341,9 +337,9 @@
       "skeleton": "centered-system",
       "componentMix": [
         "statement",
-        "status-board",
         "evidence-list",
-        "risk-list"
+        "status-board",
+        "evidence-list"
       ],
       "failureLayer": null,
       "error": null
@@ -364,9 +360,9 @@
       "skeleton": "centered-system",
       "componentMix": [
         "statement",
-        "status-board",
         "evidence-list",
-        "risk-list"
+        "status-board",
+        "evidence-list"
       ],
       "failureLayer": null,
       "error": null
@@ -390,8 +386,7 @@
         "decision-matrix",
         "evidence-list",
         "risk-list",
-        "evidence-list",
-        "narrative-chain"
+        "evidence-list"
       ],
       "failureLayer": null,
       "error": null
@@ -494,8 +489,7 @@
         "evidence-list",
         "risk-list",
         "action-list",
-        "evidence-list",
-        "narrative-chain"
+        "evidence-list"
       ],
       "failureLayer": null,
       "error": null
@@ -518,8 +512,7 @@
         "statement",
         "evidence-list",
         "risk-list",
-        "action-list",
-        "narrative-chain"
+        "action-list"
       ],
       "failureLayer": null,
       "error": null
@@ -542,7 +535,7 @@
         "statement",
         "status-board",
         "action-list",
-        "evidence-list"
+        "narrative-chain"
       ],
       "failureLayer": null,
       "error": null
@@ -565,8 +558,7 @@
         "statement",
         "evidence-list",
         "risk-list",
-        "action-list",
-        "narrative-chain"
+        "action-list"
       ],
       "failureLayer": null,
       "error": null

@@ -48,23 +48,27 @@ export function profileExpressionBlock(block = {}) {
     if (dense) {
       return { ...base, span: 12, minSpan: 8, preferredSpan: 12, maxSpan: 12, density: "dense", itemLayout: "rows", reason: "long-explanatory-items" };
     }
-    if (sparse && demand.itemCount <= 3) {
-      return { ...base, span: 4, minSpan: 4, preferredSpan: 4, maxSpan: 6, density: "sparse", itemLayout: "rows", reason: "few-short-parallel-items" };
+    if (sparse && demand.itemCount === 3) {
+      return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "sparse", itemLayout: "grid-3", reason: "three-short-parallel-items" };
+    }
+    if (sparse && demand.itemCount <= 2) {
+      return { ...base, span: 4, minSpan: 4, preferredSpan: 4, maxSpan: 6, density: "sparse", itemLayout: demand.itemCount === 2 ? "grid-2" : "rows", reason: "few-short-parallel-items" };
     }
     if (sparse) {
       return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "sparse", itemLayout: "grid-2", reason: "short-parallel-items" };
     }
     if (demand.maxItemUnits <= 32 && demand.textUnits <= 190) {
       const itemLayout = block.type === "risk-list" && demand.itemCount === 5 ? "grid-3" : "rows";
-      return { ...base, span: 6, minSpan: 4, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout, reason: itemLayout === "grid-3" ? "compact-risk-cluster" : "moderate-parallel-items" };
+      return { ...base, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 8, density: "medium", itemLayout, reason: itemLayout === "grid-3" ? "compact-risk-cluster" : "moderate-parallel-items" };
     }
     return { ...base, span: 8, minSpan: 6, preferredSpan: 8, maxSpan: 12, density: "medium", itemLayout: "grid-2", reason: "substantial-parallel-items" };
   }
 
   if (block.type === "status-board") {
     if (demand.maxItemUnits <= 34 && demand.textUnits <= 210) {
-      const span = demand.itemCount <= 3 ? 4 : demand.itemCount <= 5 ? 6 : 8;
-      return { ...base, span, minSpan: Math.min(6, span), preferredSpan: span, maxSpan: Math.min(12, span + 2), density: "sparse", itemLayout: demand.itemCount >= 4 ? "grid-2" : "rows", reason: "compact-status-items" };
+      const span = demand.itemCount <= 3 ? 4 : demand.itemCount === 5 ? 12 : 8;
+      const itemLayout = demand.itemCount === 5 ? "grid-5" : demand.itemCount >= 4 ? "grid-2" : "rows";
+      return { ...base, span, minSpan: span, preferredSpan: span, maxSpan: span, density: "sparse", itemLayout, reason: demand.itemCount === 5 ? "balanced-five-status-items" : "compact-status-items" };
     }
     if (demand.maxItemUnits > 64 || demand.textUnits > 320) {
       return { ...base, span: 12, minSpan: 8, preferredSpan: 12, maxSpan: 12, density: "dense", itemLayout: "grid-2", reason: "dense-status-items" };
@@ -87,6 +91,51 @@ function spanWidth(totalWidth, span, gap) {
   return unit * span + gap * (span - 1);
 }
 
+const SKELETON_PRIORITY = {
+  "overview-detail": ["progress-bar", "trend-sparkline", "ranked-bar", "status-board", "variance-bridge-v2", "evidence-list", "risk-list", "action-list", "narrative-chain", "mini-roadmap", "decision-matrix"],
+  "centered-system": ["status-board", "narrative-chain", "progress-bar", "evidence-list", "risk-list", "action-list", "mini-roadmap", "decision-matrix"],
+  "past-future-split": ["evidence-list", "risk-list", "mini-roadmap", "action-list", "status-board", "narrative-chain"],
+  "left-right-argument": ["narrative-chain", "evidence-list", "risk-list", "action-list", "decision-matrix", "status-board"],
+  "multi-line-comparison": ["decision-matrix", "evidence-list", "risk-list", "action-list", "status-board"],
+  timeline: ["mini-roadmap", "narrative-chain", "risk-list", "action-list", "evidence-list", "status-board"],
+};
+
+function skeletonProfile(block, pageSkeleton, profile) {
+  const intent = profile(block);
+  if (pageSkeleton === "centered-system" && block.type === "status-board" && intent.itemCount >= 4) {
+    return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: intent.itemCount === 5 ? "grid-5" : intent.itemLayout, reason: "centered-system-anchor" };
+  }
+  if (pageSkeleton === "timeline" && ["mini-roadmap", "narrative-chain"].includes(block.type)) {
+    return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, reason: "timeline-reading-axis" };
+  }
+  if (["past-future-split", "left-right-argument"].includes(pageSkeleton) && ["evidence-list", "risk-list", "action-list"].includes(block.type)) {
+    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, reason: `${pageSkeleton}-paired-region` };
+  }
+  return intent;
+}
+
+export function arrangeExpressionBlocks(blocks, pageSkeleton, profile = profileExpressionBlock) {
+  const priorities = SKELETON_PRIORITY[pageSkeleton] || [];
+  const rank = (block) => {
+    const index = priorities.indexOf(block.type);
+    return index === -1 ? priorities.length + 10 : index;
+  };
+  const pending = blocks.map((block, index) => ({ block, index, intent: skeletonProfile(block, pageSkeleton, profile) }))
+    .sort((a, b) => rank(a.block) - rank(b.block) || a.index - b.index);
+  const output = [];
+  const allowed = (intent) => [4, 6, 8, 12].filter((span) => span >= intent.minSpan && span <= intent.maxSpan);
+  const pairable = (a, b) => allowed(a.intent).some((left) => allowed(b.intent).some((right) => left + right === 12));
+
+  while (pending.length) {
+    const current = pending.shift();
+    output.push(current.block);
+    if (current.intent.minSpan === 12) continue;
+    const mateIndex = pending.findIndex((candidate) => pairable(current, candidate));
+    if (mateIndex >= 0) output.push(pending.splice(mateIndex, 1)[0].block);
+  }
+  return output;
+}
+
 export function buildAdaptiveExpressionLayout({
   blocks,
   mode,
@@ -96,12 +145,14 @@ export function buildAdaptiveExpressionLayout({
   gap = 32,
   measure,
   profile = profileExpressionBlock,
+  pageSkeleton,
 }) {
-  const intents = blocks.map((block) => profile(block));
+  const workingBlocks = pageSkeleton ? arrangeExpressionBlocks(blocks, pageSkeleton, profile) : blocks;
+  const intents = workingBlocks.map((block) => skeletonProfile(block, pageSkeleton, profile));
   const allowed = (intent) => [4, 6, 8, 12].filter((span) => span >= intent.minSpan && span <= intent.maxSpan);
-  const canUse = (index, span) => index < blocks.length && allowed(intents[index]).includes(span);
+  const canUse = (index, span) => index < workingBlocks.length && allowed(intents[index]).includes(span);
   const pair = (index) => {
-    if (index + 1 >= blocks.length) return null;
+    if (index + 1 >= workingBlocks.length) return null;
     const candidates = [];
     for (const left of allowed(intents[index])) {
       for (const right of allowed(intents[index + 1])) {
@@ -114,12 +165,12 @@ export function buildAdaptiveExpressionLayout({
   };
   const compactRunLength = (index) => {
     let length = 0;
-    while (index + length < blocks.length && canUse(index + length, 4)) length += 1;
+    while (index + length < workingBlocks.length && canUse(index + length, 4)) length += 1;
     return length;
   };
 
   const rowPlans = [];
-  for (let index = 0; index < blocks.length;) {
+  for (let index = 0; index < workingBlocks.length;) {
     const currentAllowed = allowed(intents[index]);
     if (currentAllowed.length === 1 && currentAllowed[0] === 12) {
       rowPlans.push({ indexes: [index], spans: [12], alignment: "filled", offsetSpan: 0 });
@@ -163,7 +214,7 @@ export function buildAdaptiveExpressionLayout({
   rowPlans.forEach((rowPlan, row) => {
     let usedSpan = rowPlan.offsetSpan;
     const rowNodes = rowPlan.indexes.map((sourceIndex, position) => {
-      const block = blocks[sourceIndex];
+      const block = workingBlocks[sourceIndex];
       const intent = intents[sourceIndex];
       const span = rowPlan.spans[position];
       const blockWidth = spanWidth(width, span, gap);

@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T06:31:08.040Z",
+  "startedAt": "2026-07-13T11:21:55.428Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/inventory.json"
   },
@@ -13,10 +13,6 @@
     {
       "name": "semantic-plan-render-layout",
       "status": "passed"
-    },
-    {
-      "name": "preview-pixel-sanity",
-      "status": "passed"
     }
   ],
   "outputs": {
@@ -24,8 +20,7 @@
     "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/expression-plans.json",
     "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/decision.json",
     "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/brief.json",
-    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/whiteboard.svg",
-    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/whiteboard.png"
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-review-claude-code-expertise/whiteboard.svg"
   },
   "coverage": {
     "importantFacts": 7,
@@ -37,8 +32,8 @@
     },
     "confidence": {
       "level": "medium",
-      "topScore": 97,
-      "scoreMargin": 5,
+      "topScore": 100,
+      "scoreMargin": 8,
       "missingRequiredSignals": 0,
       "unsupportedInferenceCount": 0,
       "thresholds": {
@@ -50,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-review-claude-code-expertise-temporal"
   },
-  "finishedAt": "2026-07-13T06:31:17.201Z"
+  "finishedAt": "2026-07-13T11:21:55.996Z"
 }

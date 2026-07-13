@@ -48,6 +48,7 @@ description: >
 2. 运行 `scripts/plan-expression.mjs`，产出三个受控表达候选；不能让 Agent 直接决定坐标或手写 SVG。
 3. 运行 `scripts/compile-v44-brief.mjs` 完成置信度决策。高置信度自动选择；中置信度内部比较后选择并保留备选；低置信度保留候选并明确回退 V4.3。
 4. 正式生成使用 `scripts/run-whiteboard-v44.mjs`，保存语义模型、候选表达、决策、brief、SVG/PNG 和运行记录。
+5. V4.4 的 `pageSkeleton` 必须进入最终 brief 和 SVG；若最终仍表现为顺序纵向堆叠、宽高比低于 1.1，或有明确数字却没有数据组件，必须判定失败并回退，不得把结果交付给用户。
 5. 详细规则见 [`references/semantic-routing-v44.md`](references/semantic-routing-v44.md)。
 
 ## 默认输出

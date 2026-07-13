@@ -145,6 +145,10 @@ function splitText(value, maxWidth, size, maxLines = 4) {
   for (const char of text) {
     const candidate = current + char;
     if (current && estimateWidth(candidate, size) > maxWidth) {
+      if (/[，。,.、；;：:！？!?）】》]/.test(char)) {
+        current = candidate;
+        continue;
+      }
       chunks.push(current.trim());
       current = char.trimStart();
     } else {
@@ -226,7 +230,7 @@ function parsePercent(value, fallback = 60) {
 function titleBlock() {
   const titleLines = splitText(brief.title, CONTENT, 46, 2);
   const subLines = splitText(brief.subtitle || "", CONTENT, 21, 2);
-  const h = 88 + titleLines.length * 58 + subLines.length * 30;
+  const h = 58 + titleLines.length * 58 + subLines.length * 30;
   const body = `${text(M, 86, 46, c.ink, titleLines, "850", 58)}
 ${subLines.length ? text(M, 86 + titleLines.length * 58, 21, c.secondary, subLines, "500", 30) : ""}`;
   return { body, h };
@@ -333,7 +337,9 @@ ${text(point.x - 16, chartY + chartH + 34, 15, c.secondary, [point.label], "700"
 function statusBoard(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 6);
   const hasLongItems = items.some((item) => `${item.label || ""}${item.note || ""}`.length > 30);
-  const cols = profile.assignedSpan <= 4 || (profile.assignedSpan <= 6 && hasLongItems) ? 1 : items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
+  const cols = profile.itemLayout === "grid-5" && w >= 1200
+    ? 5
+    : profile.assignedSpan <= 4 || (profile.assignedSpan <= 6 && hasLongItems) ? 1 : items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
   const gap = 16;
   const itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
   const itemH = hasLongItems ? 124 : 82;
@@ -369,7 +375,7 @@ function listGeometry(block, w, profile) {
   const itemGap = cols > 1 ? 14 : 0;
   const itemW = Math.floor((w - 56 - itemGap * (cols - 1)) / cols);
   const hasLongItems = items.some((item) => String(item.label || "").length > 14 || String(item.note || "").length > 24);
-  const itemH = withNotes ? (hasLongItems ? 116 : 82) : 66;
+  const itemH = withNotes ? (hasLongItems ? 116 : 82) : hasLongItems ? 82 : 66;
   const rowGap = cols > 1 ? 14 : 0;
   const h = 108 + rows * itemH + Math.max(0, rows - 1) * rowGap + 30;
   return { items, withNotes, hasLongItems, cols, rows, itemGap, itemW, itemH, rowGap, h };
@@ -661,6 +667,7 @@ function renderCanvas() {
     width: CONTENT,
     gap: GAP,
     measure: (block, width, profile) => ({ height: blockRenderer(block, 0, 0, width, profile).h }),
+    pageSkeleton: brief.pageSkeleton,
   });
   for (const node of tree.nodes) {
     const rendered = blockRenderer(node.block, node.x, node.y, node.width, node.profile);
@@ -679,7 +686,7 @@ ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
   }
 
   const height = Math.max(1080, y);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-expression-mode="${escapeXml(brief.expressionMode)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.3")}" data-expression-mode="${escapeXml(brief.expressionMode)}" data-page-skeleton="${escapeXml(brief.pageSkeleton || "overview-detail")}">
 ${rect(0, 0, WIDTH, height, c.canvas, c.canvas, 0, 0)}
 <g>
 ${body}
@@ -853,7 +860,7 @@ ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
   }
 
   const height = Math.ceil(y);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="flow-canvas" data-flow-mode="${escapeXml(brief.flowMode)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.3")}" data-flow-mode="${escapeXml(brief.flowMode)}">
 ${rect(0, 0, WIDTH, height, c.canvas, c.canvas, 0, 0)}
 <g>
 ${body}

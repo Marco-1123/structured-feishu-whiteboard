@@ -22,6 +22,8 @@ export function inspectV43VisualQuality(svg) {
   const root = attrs(svgMatch[1]);
   const width = number(root.width || String(root.viewBox || "").split(/\s+/)[2]);
   const height = number(root.height || String(root.viewBox || "").split(/\s+/)[3]);
+  const isV44 = root["data-layout-engine"] === "v4" && root["data-pipeline-version"] === "4.4";
+  const isV44Onepage = isV44 && root["data-layout"] === "expression-canvas";
   const blocks = [...svg.matchAll(/<g\b([^>]*)data-v43-block="([^"]+)"([^>]*)>/g)].map((match) => {
     const a = attrs(`${match[1]} data-v43-block="${match[2]}" ${match[3]}`);
     return {
@@ -101,7 +103,9 @@ export function inspectV43VisualQuality(svg) {
   if (blocks.length && bottomMargin > Math.max(260, height * 0.18)) issues.push(`Canvas bottom margin is excessive: ${bottomMargin}`);
 
   const aspectRatio = height ? width / height : 0;
-  if (aspectRatio < 0.5 || aspectRatio > 2.2) issues.push(`Unsupported canvas aspect ratio: ${aspectRatio.toFixed(2)}`);
+  if (aspectRatio < 0.5 || aspectRatio > 4) issues.push(`Unsupported canvas aspect ratio: ${aspectRatio.toFixed(2)}`);
+  if (isV44Onepage && (aspectRatio < 1.1 || aspectRatio > 2.4)) issues.push(`V4.4 onepage aspect ratio is outside 1.1-2.4: ${aspectRatio.toFixed(2)}`);
+  if (isV44 && root["data-layout"] === "flow-canvas" && aspectRatio < 1) issues.push(`V4.4 flow canvas is too vertical: ${aspectRatio.toFixed(2)}`);
 
   const left = blocks.filter((block) => block.column === "left");
   const right = blocks.filter((block) => block.column === "right");

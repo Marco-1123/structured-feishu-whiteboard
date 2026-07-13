@@ -73,7 +73,10 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     const outputPath = path.join(outputDir, "whiteboard.svg");
     run(process.execPath, [path.join(root, renderer), "--input", briefPath, "--output", outputPath], root);
     run(process.execPath, [path.join(root, "scripts/check-svg-layout.mjs"), outputPath], root);
-    if (manifest.pipeline === "v4.4") run(process.execPath, [path.join(root, "scripts/check-v4-layout.mjs"), outputPath], root);
+    if (manifest.pipeline === "v4.4") {
+      run(process.execPath, [path.join(root, "scripts/check-v4-layout.mjs"), outputPath], root);
+      run(process.execPath, [path.join(root, "scripts/check-v43-visual-quality.mjs"), outputPath], root);
+    }
     manifest.checks.push({ name: "semantic-plan-render-layout", status: "passed" });
     manifest.outputs = { semanticModel: semanticPath, expressionPlans: plansPath, decision: decisionPath, brief: briefPath, whiteboard: outputPath };
     if (!skipWhiteboardCli) { const pngPath = path.join(outputDir, "whiteboard.png"); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-o", pngPath, "-f", "svg"], root); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-f", "svg", "--check"], root); run("python3", [path.join(root, "scripts/check-v44-preview.py"), pngPath], root); manifest.checks.push({ name: "preview-pixel-sanity", status: "passed" }); manifest.outputs.preview = pngPath; }

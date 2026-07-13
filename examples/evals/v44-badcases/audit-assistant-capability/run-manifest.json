@@ -1,0 +1,54 @@
+{
+  "pipeline": "v4.4",
+  "status": "passed",
+  "startedAt": "2026-07-13T11:30:39.384Z",
+  "inputs": {
+    "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/inventory.json"
+  },
+  "checks": [
+    {
+      "name": "inventory-validation",
+      "status": "passed"
+    },
+    {
+      "name": "semantic-plan-render-layout",
+      "status": "passed"
+    },
+    {
+      "name": "preview-pixel-sanity",
+      "status": "passed"
+    }
+  ],
+  "outputs": {
+    "semanticModel": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/semantic-model.json",
+    "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/expression-plans.json",
+    "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/decision.json",
+    "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/brief.json",
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/whiteboard.svg",
+    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-badcases/audit-assistant-capability/whiteboard.png"
+  },
+  "coverage": {
+    "importantFacts": 8,
+    "missingImportantFacts": []
+  },
+  "decision": {
+    "scenario": {
+      "primary": "product-capability"
+    },
+    "confidence": {
+      "level": "high",
+      "topScore": 100,
+      "scoreMargin": 11,
+      "missingRequiredSignals": 0,
+      "unsupportedInferenceCount": 0,
+      "thresholds": {
+        "highScore": 78,
+        "highMargin": 10,
+        "mediumScore": 58,
+        "mediumMargin": 4
+      }
+    },
+    "selectedPlanId": "semantic-badcase-audit-assistant-capability-hierarchical"
+  },
+  "finishedAt": "2026-07-13T11:30:47.914Z"
+}

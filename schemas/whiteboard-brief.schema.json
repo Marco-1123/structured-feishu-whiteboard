@@ -76,6 +76,11 @@
       "type": "string",
       "enum": ["dashboard-onepage", "narrative-map", "modular-canvas"]
     },
+    "pageSkeleton": {
+      "type": "string",
+      "enum": ["overview-detail", "centered-system", "past-future-split", "left-right-argument", "multi-line-comparison", "timeline", "swimlane"],
+      "description": "The V4.4 composition skeleton selected by the semantic expression planner."
+    },
     "flowMode": {
       "type": "string",
       "enum": ["linear-flow", "swimlane-flow"]
@@ -550,7 +555,7 @@
     },
     "expressionBlocks": {
       "type": "array",
-      "minItems": 4,
+      "minItems": 2,
       "maxItems": 9,
       "items": {
         "type": "object",
@@ -734,7 +739,7 @@
         }
       },
       "then": {
-        "required": ["expressionMode", "expressionBlocks"]
+        "required": ["expressionMode", "pageSkeleton", "expressionBlocks"]
       },
       "else": {
         "if": {

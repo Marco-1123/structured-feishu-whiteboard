@@ -1,82 +1,82 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1724" viewBox="0 0 2200 1724" data-layout-engine="v4" data-layout="flow-canvas" data-flow-mode="swimlane-flow">
-<rect x="0" y="0" width="2200" height="1724" rx="0" fill="#F6FAFE" stroke="#F6FAFE" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1694" viewBox="0 0 2200 1694" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="4.3" data-flow-mode="swimlane-flow">
+<rect x="0" y="0" width="2200" height="1694" rx="0" fill="#F6FAFE" stroke="#F6FAFE" stroke-width="0"/>
 <g>
-<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#172033" font-weight="700"><tspan x="96" dy="0">飞书文档到画板生成流程</tspan></text>
 <text x="96" y="144" font-size="21" fill="#5C6B82" font-weight="500"><tspan x="96" dy="0">把用户、Agent、渲染器和飞书文档的责任边界分清楚。</tspan></text>
-</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="128" data-column="full">
-<rect x="96" y="240" width="2008" height="128" rx="16" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5"/>
-<rect x="96" y="240" width="12" height="128" rx="6" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
-<text x="138" y="284" font-size="17" fill="#3370FF" font-weight="700"><tspan x="138" dy="0">协作判断</tspan></text>
-<text x="138" y="328" font-size="27" fill="#172033" font-weight="700"><tspan x="138" dy="0">泳道流程适合表达多角色协作：重点不是步骤数量，而是谁负责、交付什么、何时进入下一方。</tspan></text>
-</g><g data-v43-block="flow" data-block-type="swimlane-flow" data-x="96" data-y="424" data-width="2008" data-height="1098" data-column="full">
-<rect x="96" y="424" width="2008" height="258" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1" data-flow-lane="user"/>
-<text x="124" y="482" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">用户</tspan></text>
-<line x1="264" y1="446" x2="264" y2="660" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
-<rect x="96" y="704" width="2008" height="258" rx="14" fill="#F6FAFE" stroke="#D8E6F3" stroke-width="1" data-flow-lane="agent"/>
-<text x="124" y="762" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">Agent</tspan></text>
-<line x1="264" y1="726" x2="264" y2="940" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
-<rect x="96" y="984" width="2008" height="258" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1" data-flow-lane="renderer"/>
-<text x="124" y="1042" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">渲染器</tspan></text>
-<line x1="264" y1="1006" x2="264" y2="1220" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
-<rect x="96" y="1264" width="2008" height="258" rx="14" fill="#F6FAFE" stroke="#D8E6F3" stroke-width="1" data-flow-lane="lark"/>
-<text x="124" y="1322" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">飞书文档</tspan></text>
-<line x1="264" y1="1286" x2="264" y2="1500" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
-<polyline points="554,553 571,553 571,833 588,833" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="material-&gt;structure" data-from="material" data-to="structure" data-start="554,553" data-end="588,833" data-edge-label="输入"/>
-<line x1="588" y1="833" x2="576" y2="824" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="588" y1="833" x2="576" y2="842" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
-<text x="581" y="690" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="输入"><tspan x="581" dy="0">输入</tspan></text>
-<line x1="860" y1="833" x2="894" y2="833" stroke="#3370FF" stroke-width="3" stroke-linecap="round" data-flow-edge="structure-&gt;brief" data-from="structure" data-to="brief" data-start="860,833" data-end="894,833" data-edge-label="确认"/>
-<line x1="894" y1="833" x2="882" y2="824" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="894" y1="833" x2="882" y2="842" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
-<text x="877" y="816" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="确认"><tspan x="877" dy="0">确认</tspan></text>
-<polyline points="1166,833 1183,833 1183,1113 1200,1113" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="brief-&gt;layout" data-from="brief" data-to="layout" data-start="1166,833" data-end="1200,1113" data-edge-label="渲染"/>
-<line x1="1200" y1="1113" x2="1188" y2="1104" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1200" y1="1113" x2="1188" y2="1122" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
-<text x="1193" y="970" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="渲染"><tspan x="1193" dy="0">渲染</tspan></text>
-<polyline points="1472,1113 1489,1113 1489,553 1506,553" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="layout-&gt;review" data-from="layout" data-to="review" data-start="1472,1113" data-end="1506,553" data-edge-label="预览"/>
-<line x1="1506" y1="553" x2="1494" y2="544" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1506" y1="553" x2="1494" y2="562" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
-<text x="1499" y="830" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="预览"><tspan x="1499" dy="0">预览</tspan></text>
-<polyline points="1778,553 1795,553 1795,1393 1812,1393" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="review-&gt;publish" data-from="review" data-to="publish" data-start="1778,553" data-end="1812,1393" data-edge-label="通过"/>
-<line x1="1812" y1="1393" x2="1800" y2="1384" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1812" y1="1393" x2="1800" y2="1402" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
-<text x="1805" y="970" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="通过"><tspan x="1805" dy="0">通过</tspan></text>
-<rect x="282" y="446" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="material" data-node-x="282" data-node-y="446" data-node-width="272" data-node-height="214" data-node-type="start"/>
-<rect x="304" y="468" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
-<rect x="328" y="468" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
-<text x="346" y="489" font-size="15" fill="#3370FF" font-weight="700"><tspan x="346" dy="0">开始</tspan></text>
-<text x="328" y="530" font-size="24" fill="#172033" font-weight="700"><tspan x="328" dy="0">提供材料</tspan></text>
-<text x="328" y="562" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="328" dy="0">粘贴文本或文档链接</tspan></text>
-<rect x="588" y="726" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="structure" data-node-x="588" data-node-y="726" data-node-width="272" data-node-height="214" data-node-type="decision"/>
-<rect x="610" y="748" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
-<rect x="634" y="748" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
-<text x="652" y="769" font-size="15" fill="#3370FF" font-weight="700"><tspan x="652" dy="0">判断</tspan></text>
-<text x="634" y="810" font-size="24" fill="#172033" font-weight="700"><tspan x="634" dy="0">结构判断</tspan></text>
-<text x="634" y="842" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="634" dy="0">识别流程和角色</tspan><tspan x="634" dy="24">选择流程模式</tspan></text>
-<rect x="894" y="726" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="brief" data-node-x="894" data-node-y="726" data-node-width="272" data-node-height="214" data-node-type="action"/>
-<rect x="916" y="748" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
-<rect x="940" y="748" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
-<text x="958" y="769" font-size="15" fill="#3370FF" font-weight="700"><tspan x="958" dy="0">动作</tspan></text>
-<text x="940" y="810" font-size="24" fill="#172033" font-weight="700"><tspan x="940" dy="0">生成 brief</tspan></text>
-<text x="940" y="842" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="940" dy="0">输出节点和边</tspan><tspan x="940" dy="24">禁止手写 SVG</tspan></text>
-<rect x="1200" y="1006" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="layout" data-node-x="1200" data-node-y="1006" data-node-width="272" data-node-height="214" data-node-type="system"/>
-<rect x="1222" y="1028" width="8" height="170" rx="4" fill="#5C6B82" stroke="#5C6B82" stroke-width="1"/>
-<rect x="1246" y="1028" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
-<text x="1264" y="1049" font-size="15" fill="#5C6B82" font-weight="700"><tspan x="1264" dy="0">系统</tspan></text>
-<text x="1246" y="1090" font-size="24" fill="#172033" font-weight="700"><tspan x="1246" dy="0">稳定排布</tspan></text>
-<text x="1246" y="1122" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1246" dy="0">泳道网格定位</tspan><tspan x="1246" dy="24">连接边界对齐</tspan></text>
-<rect x="1506" y="446" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="review" data-node-x="1506" data-node-y="446" data-node-width="272" data-node-height="214" data-node-type="decision"/>
-<rect x="1528" y="468" width="8" height="170" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<rect x="1552" y="468" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8E6F3" stroke-width="1"/>
-<text x="1570" y="489" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1570" dy="0">判断</tspan></text>
-<text x="1552" y="530" font-size="24" fill="#172033" font-weight="700"><tspan x="1552" dy="0">预览复核</tspan></text>
-<text x="1552" y="562" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1552" dy="0">检查可读性</tspan><tspan x="1552" dy="24">反馈排版问题</tspan></text>
-<rect x="1812" y="1286" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="publish" data-node-x="1812" data-node-y="1286" data-node-width="272" data-node-height="214" data-node-type="result"/>
-<rect x="1834" y="1308" width="8" height="170" rx="4" fill="#0F766E" stroke="#0F766E" stroke-width="1"/>
-<rect x="1858" y="1308" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8E6F3" stroke-width="1"/>
-<text x="1876" y="1329" font-size="15" fill="#0F766E" font-weight="700"><tspan x="1876" dy="0">结果</tspan></text>
-<text x="1858" y="1370" font-size="24" fill="#172033" font-weight="700"><tspan x="1858" dy="0">写入画板</tspan></text>
-<text x="1858" y="1402" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1858" dy="0">保存可编辑结果</tspan><tspan x="1858" dy="24">返回文档链接</tspan></text>
-</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1578" data-width="2008" data-height="74" data-column="full">
-<rect x="96" y="1578" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.3"/>
-<rect x="96" y="1578" width="10" height="74" rx="5" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
-<text x="132" y="1624" font-size="20" fill="#172033" font-weight="700"><tspan x="132" dy="0">适合审批流、跨角色协作、系统交互和人机协同流程。</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="128" data-column="full">
+<rect x="96" y="210" width="2008" height="128" rx="16" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5"/>
+<rect x="96" y="210" width="12" height="128" rx="6" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
+<text x="138" y="254" font-size="17" fill="#3370FF" font-weight="700"><tspan x="138" dy="0">协作判断</tspan></text>
+<text x="138" y="298" font-size="27" fill="#172033" font-weight="700"><tspan x="138" dy="0">泳道流程适合表达多角色协作：重点不是步骤数量，而是谁负责、交付什么、何时进入下一方。</tspan></text>
+</g><g data-v43-block="flow" data-block-type="swimlane-flow" data-x="96" data-y="394" data-width="2008" data-height="1098" data-column="full">
+<rect x="96" y="394" width="2008" height="258" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1" data-flow-lane="user"/>
+<text x="124" y="452" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">用户</tspan></text>
+<line x1="264" y1="416" x2="264" y2="630" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
+<rect x="96" y="674" width="2008" height="258" rx="14" fill="#F6FAFE" stroke="#D8E6F3" stroke-width="1" data-flow-lane="agent"/>
+<text x="124" y="732" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">Agent</tspan></text>
+<line x1="264" y1="696" x2="264" y2="910" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
+<rect x="96" y="954" width="2008" height="258" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1" data-flow-lane="renderer"/>
+<text x="124" y="1012" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">渲染器</tspan></text>
+<line x1="264" y1="976" x2="264" y2="1190" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
+<rect x="96" y="1234" width="2008" height="258" rx="14" fill="#F6FAFE" stroke="#D8E6F3" stroke-width="1" data-flow-lane="lark"/>
+<text x="124" y="1292" font-size="22" fill="#172033" font-weight="700"><tspan x="124" dy="0">飞书文档</tspan></text>
+<line x1="264" y1="1256" x2="264" y2="1470" stroke="#D8E6F3" stroke-width="2" stroke-linecap="round"/>
+<polyline points="554,523 571,523 571,803 588,803" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="material-&gt;structure" data-from="material" data-to="structure" data-start="554,523" data-end="588,803" data-edge-label="输入"/>
+<line x1="588" y1="803" x2="576" y2="794" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="588" y1="803" x2="576" y2="812" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
+<text x="581" y="660" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="输入"><tspan x="581" dy="0">输入</tspan></text>
+<line x1="860" y1="803" x2="894" y2="803" stroke="#3370FF" stroke-width="3" stroke-linecap="round" data-flow-edge="structure-&gt;brief" data-from="structure" data-to="brief" data-start="860,803" data-end="894,803" data-edge-label="确认"/>
+<line x1="894" y1="803" x2="882" y2="794" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="894" y1="803" x2="882" y2="812" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
+<text x="877" y="786" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="确认"><tspan x="877" dy="0">确认</tspan></text>
+<polyline points="1166,803 1183,803 1183,1083 1200,1083" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="brief-&gt;layout" data-from="brief" data-to="layout" data-start="1166,803" data-end="1200,1083" data-edge-label="渲染"/>
+<line x1="1200" y1="1083" x2="1188" y2="1074" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1200" y1="1083" x2="1188" y2="1092" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
+<text x="1193" y="940" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="渲染"><tspan x="1193" dy="0">渲染</tspan></text>
+<polyline points="1472,1083 1489,1083 1489,523 1506,523" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="layout-&gt;review" data-from="layout" data-to="review" data-start="1472,1083" data-end="1506,523" data-edge-label="预览"/>
+<line x1="1506" y1="523" x2="1494" y2="514" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1506" y1="523" x2="1494" y2="532" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
+<text x="1499" y="800" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="预览"><tspan x="1499" dy="0">预览</tspan></text>
+<polyline points="1778,523 1795,523 1795,1363 1812,1363" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="review-&gt;publish" data-from="review" data-to="publish" data-start="1778,523" data-end="1812,1363" data-edge-label="通过"/>
+<line x1="1812" y1="1363" x2="1800" y2="1354" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1812" y1="1363" x2="1800" y2="1372" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
+<text x="1805" y="940" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="通过"><tspan x="1805" dy="0">通过</tspan></text>
+<rect x="282" y="416" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="material" data-node-x="282" data-node-y="416" data-node-width="272" data-node-height="214" data-node-type="start"/>
+<rect x="304" y="438" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
+<rect x="328" y="438" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
+<text x="346" y="459" font-size="15" fill="#3370FF" font-weight="700"><tspan x="346" dy="0">开始</tspan></text>
+<text x="328" y="500" font-size="24" fill="#172033" font-weight="700"><tspan x="328" dy="0">提供材料</tspan></text>
+<text x="328" y="532" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="328" dy="0">粘贴文本或文档链接</tspan></text>
+<rect x="588" y="696" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="structure" data-node-x="588" data-node-y="696" data-node-width="272" data-node-height="214" data-node-type="decision"/>
+<rect x="610" y="718" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
+<rect x="634" y="718" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
+<text x="652" y="739" font-size="15" fill="#3370FF" font-weight="700"><tspan x="652" dy="0">判断</tspan></text>
+<text x="634" y="780" font-size="24" fill="#172033" font-weight="700"><tspan x="634" dy="0">结构判断</tspan></text>
+<text x="634" y="812" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="634" dy="0">识别流程和角色</tspan><tspan x="634" dy="24">选择流程模式</tspan></text>
+<rect x="894" y="696" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="brief" data-node-x="894" data-node-y="696" data-node-width="272" data-node-height="214" data-node-type="action"/>
+<rect x="916" y="718" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
+<rect x="940" y="718" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
+<text x="958" y="739" font-size="15" fill="#3370FF" font-weight="700"><tspan x="958" dy="0">动作</tspan></text>
+<text x="940" y="780" font-size="24" fill="#172033" font-weight="700"><tspan x="940" dy="0">生成 brief</tspan></text>
+<text x="940" y="812" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="940" dy="0">输出节点和边</tspan><tspan x="940" dy="24">禁止手写 SVG</tspan></text>
+<rect x="1200" y="976" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="layout" data-node-x="1200" data-node-y="976" data-node-width="272" data-node-height="214" data-node-type="system"/>
+<rect x="1222" y="998" width="8" height="170" rx="4" fill="#5C6B82" stroke="#5C6B82" stroke-width="1"/>
+<rect x="1246" y="998" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
+<text x="1264" y="1019" font-size="15" fill="#5C6B82" font-weight="700"><tspan x="1264" dy="0">系统</tspan></text>
+<text x="1246" y="1060" font-size="24" fill="#172033" font-weight="700"><tspan x="1246" dy="0">稳定排布</tspan></text>
+<text x="1246" y="1092" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1246" dy="0">泳道网格定位</tspan><tspan x="1246" dy="24">连接边界对齐</tspan></text>
+<rect x="1506" y="416" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="review" data-node-x="1506" data-node-y="416" data-node-width="272" data-node-height="214" data-node-type="decision"/>
+<rect x="1528" y="438" width="8" height="170" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<rect x="1552" y="438" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8E6F3" stroke-width="1"/>
+<text x="1570" y="459" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1570" dy="0">判断</tspan></text>
+<text x="1552" y="500" font-size="24" fill="#172033" font-weight="700"><tspan x="1552" dy="0">预览复核</tspan></text>
+<text x="1552" y="532" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1552" dy="0">检查可读性</tspan><tspan x="1552" dy="24">反馈排版问题</tspan></text>
+<rect x="1812" y="1256" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="publish" data-node-x="1812" data-node-y="1256" data-node-width="272" data-node-height="214" data-node-type="result"/>
+<rect x="1834" y="1278" width="8" height="170" rx="4" fill="#0F766E" stroke="#0F766E" stroke-width="1"/>
+<rect x="1858" y="1278" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8E6F3" stroke-width="1"/>
+<text x="1876" y="1299" font-size="15" fill="#0F766E" font-weight="700"><tspan x="1876" dy="0">结果</tspan></text>
+<text x="1858" y="1340" font-size="24" fill="#172033" font-weight="700"><tspan x="1858" dy="0">写入画板</tspan></text>
+<text x="1858" y="1372" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1858" dy="0">保存可编辑结果</tspan><tspan x="1858" dy="24">返回文档链接</tspan></text>
+</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1548" data-width="2008" data-height="74" data-column="full">
+<rect x="96" y="1548" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.3"/>
+<rect x="96" y="1548" width="10" height="74" rx="5" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
+<text x="132" y="1594" font-size="20" fill="#172033" font-weight="700"><tspan x="132" dy="0">适合审批流、跨角色协作、系统交互和人机协同流程。</tspan></text>
 </g>
 </g>
 </svg>

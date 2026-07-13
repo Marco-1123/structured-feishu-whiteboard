@@ -79,6 +79,7 @@
         "semanticMatch": 1,
         "coherence": 1,
         "semanticSignalBonus": 3,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -138,6 +139,7 @@
         "semanticMatch": 1,
         "coherence": 0.76,
         "semanticSignalBonus": 3,
+        "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
         "rendererCompatibility": 1
@@ -159,6 +161,7 @@
     "summaryLabel": "核心判断",
     "summary": "可信 Agent 需要自主性与控制能力共同设计",
     "expressionMode": "modular-canvas",
+    "pageSkeleton": "centered-system",
     "expressionBlocks": [
       {
         "type": "statement",
@@ -173,16 +176,13 @@
       {
         "type": "status-board",
         "title": "风险与约束",
-        "note": "跨应用执行会扩大意图误读的影响范围；提示注入可诱导 Agent 执行错误工具操作",
         "items": [
           {
             "label": "跨应用执行会扩大意图误读的影响范围",
-            "note": "跨应用执行会扩大意图误读的影响范围",
             "status": "good"
           },
           {
             "label": "提示注入可诱导 Agent 执行错误工具操作",
-            "note": "提示注入可诱导 Agent 执行错误工具操作",
             "status": "good"
           }
         ],
@@ -194,11 +194,9 @@
       {
         "type": "action-list",
         "title": "下一步行动",
-        "note": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
         "items": [
           {
             "label": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
-            "note": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
             "status": "good"
           }
         ],
@@ -207,17 +205,21 @@
         ]
       },
       {
-        "type": "evidence-list",
-        "title": "关键证据",
+        "type": "narrative-chain",
+        "title": "判断链路",
         "items": [
           {
-            "label": "当前材料提供机制与案例但没有统一量化收益口径",
-            "note": "当前材料提供机制与案例但没有统一量化收益口径",
+            "label": "可信 Agent 需要自主性与控制能力共同设计",
+            "status": "good"
+          },
+          {
+            "label": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
             "status": "good"
           }
         ],
         "sourceFactIds": [
-          "e1"
+          "c1",
+          "a1"
         ]
       }
     ],
@@ -227,10 +229,14 @@
         "c1",
         "k1",
         "k2",
-        "a1",
-        "e1"
+        "a1"
       ],
-      "omittedFacts": [],
+      "omittedFacts": [
+        {
+          "id": "e1",
+          "reason": "deferred-to-detail"
+        }
+      ],
       "routeDecisionId": "semantic-stress-missing-metrics-hierarchical"
     }
   }
