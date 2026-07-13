@@ -1,0 +1,59 @@
+{
+  "inventoryId": "official-review-claude-code-expertise",
+  "title": "Claude Code 七个月使用变化复盘",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "Claude Code 使用正在从调试转向端到端的 Agent 工作",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "研究覆盖约 40 万次交互会话和约 23.5 万名用户",
+      "value": "400K",
+      "importance": "high"
+    },
+    {
+      "id": "m2",
+      "type": "metric",
+      "text": "七个月内典型任务估算价值平均提高约 25%",
+      "value": "+25%",
+      "importance": "high"
+    },
+    {
+      "id": "t1",
+      "type": "timeline",
+      "text": "早期使用更集中在调试、解释和局部代码修改",
+      "importance": "high",
+      "order": 1
+    },
+    {
+      "id": "t2",
+      "type": "timeline",
+      "text": "当前使用逐步扩展到设计、实现、测试和部署链路",
+      "importance": "high",
+      "order": 2
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "专家与中级用户仍存在可测量但不极端的成功率差距",
+      "importance": "medium"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
+      "importance": "high"
+    }
+  ]
+}

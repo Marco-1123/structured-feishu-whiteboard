@@ -1,0 +1,50 @@
+{
+  "inventoryId": "stress-long-economic-index",
+  "title": "AI 使用节律、产物与工作影响综合研究",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "q1",
+      "type": "context",
+      "text": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
+      "importance": "critical"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "工作相关请求在周末下降且不同职业的节律存在差异",
+      "importance": "high"
+    },
+    {
+      "id": "e2",
+      "type": "evidence",
+      "text": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显不同",
+      "importance": "high"
+    },
+    {
+      "id": "e3",
+      "type": "evidence",
+      "text": "更自动化的用户对 AI 承担更多任务更乐观",
+      "importance": "high"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "研究引入更高频抽样以观察小时级使用变化",
+      "value": "hourly",
+      "importance": "medium"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "产品、职业和时间分布差异使单一平均数容易误导",
+      "importance": "high"
+    },
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
+      "importance": "high"
+    }
+  ]
+}

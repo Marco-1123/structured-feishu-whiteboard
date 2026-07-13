@@ -1,0 +1,284 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 98,
+    "scoreMargin": 1,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-stress-long-economic-index-problem-driven",
+  "alternatives": [
+    {
+      "planId": "semantic-stress-long-economic-index-comparison-driven",
+      "scenario": "research-decision",
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-unresolved",
+          "factIds": [
+            "q1",
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "evidence",
+          "factIds": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 97,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 1,
+        "semanticSignalBonus": 9,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-stress-long-economic-index-causal",
+      "scenario": "research-decision",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1",
+            "e2",
+            "e3"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "q1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 96,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 12,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "AI 使用节律、产物与工作影响综合研究",
+    "subtitle": "证据、方案差异与决策建议",
+    "summaryLabel": "核心判断",
+    "summary": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
+    "expressionMode": "narrative-map",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "应按产品、产物和自动化程度分层解释 AI 的工作影响"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "工作相关请求在周末下降且不同职业的节律存在差异；Chat、Cowork、Claude Code 与…",
+        "items": [
+          {
+            "label": "工作相关请求在周末下降且不同职业的节律存在差异",
+            "note": "工作相关请求在周末下降且不同职业的节律存在差异",
+            "status": "good"
+          },
+          {
+            "label": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显…",
+            "note": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显不同",
+            "status": "good"
+          },
+          {
+            "label": "更自动化的用户对 AI 承担更多任务更乐观",
+            "note": "更自动化的用户对 AI 承担更多任务更乐观",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1",
+          "e2",
+          "e3"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "产品、职业和时间分布差异使单一平均数容易误导",
+        "items": [
+          {
+            "label": "产品、职业和时间分布差异使单一平均数容易误导",
+            "note": "产品、职业和时间分布差异使单一平均数容易误导",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
+        "items": [
+          {
+            "label": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
+            "note": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "q1"
+        ]
+      },
+      {
+        "type": "narrative-chain",
+        "title": "判断链路",
+        "items": [
+          {
+            "label": "工作相关请求在周末下降且不同职业的节律存在差异",
+            "note": "工作相关请求在周末下降且不同职业的节律存在差异",
+            "status": "good"
+          },
+          {
+            "label": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显…",
+            "note": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显不同",
+            "status": "good"
+          },
+          {
+            "label": "更自动化的用户对 AI 承担更多任务更乐观",
+            "note": "更自动化的用户对 AI 承担更多任务更乐观",
+            "status": "good"
+          },
+          {
+            "label": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
+            "note": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1",
+          "e2",
+          "e3",
+          "c1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "stress-long-economic-index",
+      "selectedFactIds": [
+        "c1",
+        "e1",
+        "e2",
+        "e3",
+        "r1",
+        "q1"
+      ],
+      "omittedFacts": [
+        {
+          "id": "m1",
+          "reason": "deferred-to-detail"
+        }
+      ],
+      "routeDecisionId": "semantic-stress-long-economic-index-problem-driven"
+    }
+  }
+}

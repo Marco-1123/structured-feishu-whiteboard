@@ -1,0 +1,46 @@
+{
+  "inventoryId": "official-review-codex-knowledge-work",
+  "title": "Codex 知识工作采用阶段总结",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "Codex 已从编码工具扩展为覆盖多类知识工作的生产力工具",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "Codex 周活跃用户超过 500 万",
+      "value": "5M+",
+      "importance": "high"
+    },
+    {
+      "id": "m2",
+      "type": "metric",
+      "text": "桌面应用发布后周活跃用户增长超过 6 倍",
+      "value": "6x+",
+      "importance": "high"
+    },
+    {
+      "id": "m3",
+      "type": "metric",
+      "text": "知识工作者约占用户的 20%",
+      "value": "20%",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "增长最快的任务包括数据分析、研究和知识产物创建",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "继续扩展跨工具并行任务和审批协作场景",
+      "importance": "high"
+    }
+  ]
+}

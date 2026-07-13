@@ -1,0 +1,131 @@
+{
+  "decision": {
+    "level": "high",
+    "topScore": 100,
+    "scoreMargin": 11,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-official-plan-asl3-rollout-temporal",
+  "alternatives": [],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "ASL-3 防护实施计划与里程碑",
+    "subtitle": "目标、阶段、依赖与交付路径",
+    "summaryLabel": "核心判断",
+    "summary": "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准",
+    "expressionMode": "modular-canvas",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "mini-roadmap",
+        "title": "阶段路径",
+        "note": "阶段一完成模型能力阈值评估与风险排查；阶段二强化模型权重保护和内部安全控制；阶段三上线面向 CBR…",
+        "items": [
+          {
+            "label": "阶段一完成模型能力阈值评估与风险排查",
+            "note": "阶段一完成模型能力阈值评估与风险排查",
+            "status": "good"
+          },
+          {
+            "label": "阶段二强化模型权重保护和内部安全控制",
+            "note": "阶段二强化模型权重保护和内部安全控制",
+            "status": "good"
+          },
+          {
+            "label": "阶段三上线面向 CBRN 风险的窄域部署防护",
+            "note": "阶段三上线面向 CBRN 风险的窄域部署防护",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "t1",
+          "t2",
+          "t3"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "模型是否已明确越过能力阈值仍需进一步研究",
+        "items": [
+          {
+            "label": "模型是否已明确越过能力阈值仍需进一步研究",
+            "note": "模型是否已明确越过能力阈值仍需进一步研究",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "持续评估防护有效性并根据证据调整标准",
+        "items": [
+          {
+            "label": "持续评估防护有效性并根据证据调整标准",
+            "note": "持续评估防护有效性并根据证据调整标准",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "a1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准",
+        "items": [
+          {
+            "label": "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准",
+            "note": "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "official-plan-asl3-rollout",
+      "selectedFactIds": [
+        "c1",
+        "t1",
+        "t2",
+        "t3",
+        "r1",
+        "a1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-official-plan-asl3-rollout-temporal"
+    }
+  }
+}

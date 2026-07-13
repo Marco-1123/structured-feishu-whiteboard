@@ -1,0 +1,24 @@
+{
+  "caseId": "stress-mixed-enterprise",
+  "source": {
+    "publisher": "OpenAI",
+    "title": "The state of enterprise AI 2025",
+    "url": "https://openai.com/index/the-state-of-enterprise-ai-2025-report/",
+    "publishedAt": "2025-12-08"
+  },
+  "stress": true,
+  "expected": {
+    "scenario": "review-update",
+    "requiredFactIds": [
+      "c1",
+      "m1",
+      "r1",
+      "a1"
+    ],
+    "structureSignals": [
+      "mixed-review",
+      "metrics",
+      "governance"
+    ]
+  }
+}

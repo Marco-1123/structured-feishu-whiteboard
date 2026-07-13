@@ -1,0 +1,24 @@
+{
+  "caseId": "official-research-gpt5-system",
+  "source": {
+    "publisher": "OpenAI",
+    "title": "GPT-5 System Card",
+    "url": "https://openai.com/index/gpt-5-system-card/",
+    "publishedAt": "2025-08-07"
+  },
+  "stress": false,
+  "expected": {
+    "scenario": "research-decision",
+    "requiredFactIds": [
+      "q1",
+      "o1",
+      "o2",
+      "c1"
+    ],
+    "structureSignals": [
+      "comparison",
+      "decision-criteria",
+      "recommendation"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { buildBenchmarkCases, buildBenchmarkInventory } from "./lib/v44-benchmark-builder.mjs";
+
+const catalog = JSON.parse(fs.readFileSync("examples/evals/v44-internal/source-catalog.json", "utf8"));
+const first = catalog.cases[0];
+const inventory = buildBenchmarkInventory(first);
+assert.equal(inventory.inventoryId, first.id);
+assert.deepEqual(inventory.facts, first.facts);
+assert.notEqual(inventory.facts, first.facts, "builder must not reuse the mutable source array");
+const dir = fs.mkdtempSync(path.join(os.tmpdir(), "v44-benchmark-"));
+const outputs = buildBenchmarkCases(catalog, dir);
+assert.equal(outputs.length, 24);
+assert.ok(fs.existsSync(path.join(dir, "cases", first.id, "inventory.json")));
+const expected = JSON.parse(fs.readFileSync(path.join(dir, "cases", first.id, "expected.json"), "utf8"));
+assert.equal(expected.source.url, first.source.url);
+assert.deepEqual(expected.expected.requiredFactIds, first.expected.requiredFactIds);
+console.log("ok: V4.4 benchmark builder tests passed");

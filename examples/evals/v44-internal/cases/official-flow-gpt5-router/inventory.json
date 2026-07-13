@@ -1,0 +1,42 @@
+{
+  "inventoryId": "official-flow-gpt5-router",
+  "title": "GPT-5 实时路由决策流程",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "p1",
+      "type": "process",
+      "text": "用户输入问题并可显式要求深度思考",
+      "importance": "critical",
+      "order": 1
+    },
+    {
+      "id": "p2",
+      "type": "process",
+      "text": "路由器判断对话类型、复杂度和工具需求",
+      "importance": "high",
+      "order": 2
+    },
+    {
+      "id": "p3",
+      "type": "process",
+      "text": "日常任务进入快速模型，复杂任务进入推理模型",
+      "importance": "high",
+      "order": 3
+    },
+    {
+      "id": "p4",
+      "type": "process",
+      "text": "模型生成回答并收集切换、偏好和正确性信号",
+      "importance": "high",
+      "order": 4
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "额度达到上限后由对应 mini 模型承接剩余请求",
+      "importance": "medium",
+      "order": 5
+    }
+  ]
+}

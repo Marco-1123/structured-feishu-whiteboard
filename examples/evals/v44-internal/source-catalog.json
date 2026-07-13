@@ -1,0 +1,317 @@
+{
+  "version": "4.4.0-beta.2-internal-1",
+  "cases": [
+    {
+      "id": "official-review-enterprise-ai", "title": "企业 AI 采用阶段复盘与下一步重点", "sourceType": "official-report",
+      "source": { "publisher": "OpenAI", "title": "The state of enterprise AI 2025", "url": "https://openai.com/index/the-state-of-enterprise-ai-2025-report/", "publishedAt": "2025-12-08" },
+      "expected": { "scenario": "review-update", "requiredFactIds": ["c1", "m1", "m2", "a1"], "structureSignals": ["dashboard", "trend", "next-action"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "企业 AI 使用正从零散问答进入可复用的深度工作流", "importance": "critical" },
+        { "id": "m1", "type": "metric", "text": "企业用户每周消息量同比增长约 8 倍", "value": "8x", "importance": "high" },
+        { "id": "m2", "type": "metric", "text": "Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍", "value": "19x", "importance": "high" },
+        { "id": "m3", "type": "metric", "text": "75% 的受访员工认为 AI 改善了工作速度或质量", "value": "75%", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "领先组织与中位组织之间的采用深度差距仍在扩大", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "下一阶段把高价值用例沉淀为组织级可复用流程", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-review-codex-knowledge-work", "title": "Codex 知识工作采用阶段总结", "sourceType": "official-report",
+      "source": { "publisher": "OpenAI", "title": "Codex is becoming a productivity tool for everyone", "url": "https://openai.com/index/codex-for-knowledge-work/", "publishedAt": "2026-06-02" },
+      "expected": { "scenario": "review-update", "requiredFactIds": ["c1", "m1", "m2", "a1"], "structureSignals": ["metric-cards", "growth-review", "future-focus"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Codex 已从编码工具扩展为覆盖多类知识工作的生产力工具", "importance": "critical" },
+        { "id": "m1", "type": "metric", "text": "Codex 周活跃用户超过 500 万", "value": "5M+", "importance": "high" },
+        { "id": "m2", "type": "metric", "text": "桌面应用发布后周活跃用户增长超过 6 倍", "value": "6x+", "importance": "high" },
+        { "id": "m3", "type": "metric", "text": "知识工作者约占用户的 20%", "value": "20%", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "增长最快的任务包括数据分析、研究和知识产物创建", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "继续扩展跨工具并行任务和审批协作场景", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-review-claude-code-expertise", "title": "Claude Code 七个月使用变化复盘", "sourceType": "official-research",
+      "source": { "publisher": "Anthropic", "title": "Agentic coding and persistent returns to expertise", "url": "https://www.anthropic.com/research/claude-code-expertise", "publishedAt": "2026-06-16" },
+      "expected": { "scenario": "review-update", "requiredFactIds": ["c1", "m1", "t1", "e1", "a1"], "structureSignals": ["before-after", "trend", "evidence"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Claude Code 使用正在从调试转向端到端的 Agent 工作", "importance": "critical" },
+        { "id": "m1", "type": "metric", "text": "研究覆盖约 40 万次交互会话和约 23.5 万名用户", "value": "400K", "importance": "high" },
+        { "id": "m2", "type": "metric", "text": "七个月内典型任务估算价值平均提高约 25%", "value": "+25%", "importance": "high" },
+        { "id": "t1", "type": "timeline", "text": "早期使用更集中在调试、解释和局部代码修改", "importance": "high", "order": 1 },
+        { "id": "t2", "type": "timeline", "text": "当前使用逐步扩展到设计、实现、测试和部署链路", "importance": "high", "order": 2 },
+        { "id": "e1", "type": "evidence", "text": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "专家与中级用户仍存在可测量但不极端的成功率差距", "importance": "medium" },
+        { "id": "a1", "type": "action", "text": "后续持续跟踪端到端任务、非代码产物和部署工作的增长", "importance": "high" }
+      ]
+    },
+
+    {
+      "id": "official-strategy-trustworthy-agents", "title": "可信 Agent 治理策略方案", "sourceType": "official-research",
+      "source": { "publisher": "Anthropic", "title": "Trustworthy agents in practice", "url": "https://www.anthropic.com/research/trustworthy-agents", "publishedAt": "2026-04-09" },
+      "expected": { "scenario": "strategy-proposal", "requiredFactIds": ["c1", "k1", "k2", "a1"], "structureSignals": ["strategic-pillars", "risk-control", "recommendation"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Agent 治理必须在提升自主性的同时保留可观察、可控制和可追责能力", "importance": "critical" },
+        { "id": "k1", "type": "constraint", "text": "Agent 可能误读用户意图并执行非预期操作", "importance": "high" },
+        { "id": "k2", "type": "constraint", "text": "跨应用工具使用会扩大提示注入和权限滥用风险", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-strategy-openai-frontier", "title": "企业 Agent 平台推广策略", "sourceType": "official-product-strategy",
+      "source": { "publisher": "OpenAI", "title": "Introducing OpenAI Frontier", "url": "https://openai.com/index/introducing-openai-frontier/", "publishedAt": "2026-02-05" },
+      "expected": { "scenario": "strategy-proposal", "requiredFactIds": ["c1", "k1", "e1", "a1"], "structureSignals": ["problem-solution", "pillars", "validation"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "企业 Agent 规模化的瓶颈正从模型能力转向组织运行与治理能力", "importance": "critical" },
+        { "id": "k1", "type": "constraint", "text": "孤立用例缺少共享上下文、上手训练、反馈和清晰权限", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "多家大型企业正在复杂业务中试点统一 Agent 平台", "importance": "high" },
+        { "id": "e2", "type": "evidence", "text": "部分企业案例显示 Agent 可显著缩短流程周期或释放客户服务时间", "importance": "medium" },
+        { "id": "a1", "type": "action", "text": "优先建设共享上下文、明确权限、持续反馈和可复用技能", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-strategy-responsible-scaling", "title": "前沿模型负责任扩展策略", "sourceType": "official-policy",
+      "source": { "publisher": "Anthropic", "title": "Introducing Anthropic's Responsible Scaling Policy", "url": "https://www.anthropic.com/research/anthropics-responsible-scaling-policy", "publishedAt": "2023-09-19" },
+      "expected": { "scenario": "strategy-proposal", "requiredFactIds": ["c1", "k1", "o1", "a1"], "structureSignals": ["risk-levels", "decision-policy", "guardrails"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "模型能力提升必须与相匹配的安全和安全保障同步推进", "importance": "critical" },
+        { "id": "k1", "type": "constraint", "text": "灾难性误用与非预期自主行为风险随能力提升而增加", "importance": "high" },
+        { "id": "o1", "type": "comparison", "text": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "ASL-3 要求更强安全措施和高水平红队验证", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "能力触及阈值前先完成对应等级的安全证明与部署控制", "importance": "high" }
+      ]
+    },
+
+    {
+      "id": "official-plan-asl3-rollout", "title": "ASL-3 防护实施计划与里程碑", "sourceType": "official-policy",
+      "source": { "publisher": "Anthropic", "title": "Activating AI Safety Level 3 protections", "url": "https://www.anthropic.com/news/activating-asl3-protections", "publishedAt": "2025-05-22" },
+      "expected": { "scenario": "project-plan", "requiredFactIds": ["c1", "t1", "t2", "r1"], "structureSignals": ["timeline", "milestones", "risk"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Claude Opus 4 发布同步启用预防性的 ASL-3 部署与安全标准", "importance": "critical" },
+        { "id": "t1", "type": "timeline", "text": "阶段一完成模型能力阈值评估与风险排查", "importance": "high", "order": 1 },
+        { "id": "t2", "type": "timeline", "text": "阶段二强化模型权重保护和内部安全控制", "importance": "high", "order": 2 },
+        { "id": "t3", "type": "timeline", "text": "阶段三上线面向 CBRN 风险的窄域部署防护", "importance": "high", "order": 3 },
+        { "id": "r1", "type": "risk", "text": "模型是否已明确越过能力阈值仍需进一步研究", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "持续评估防护有效性并根据证据调整标准", "importance": "medium" }
+      ]
+    },
+    {
+      "id": "official-plan-codex-enterprise", "title": "Codex 企业规模化实施计划", "sourceType": "official-company",
+      "source": { "publisher": "OpenAI", "title": "Scaling Codex to enterprises worldwide", "url": "https://openai.com/index/scaling-codex-to-enterprises-worldwide/", "publishedAt": "2026-04-21" },
+      "expected": { "scenario": "project-plan", "requiredFactIds": ["c1", "t1", "t2", "a1"], "structureSignals": ["roadmap", "pilot-to-production", "deliverables"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "企业 Codex 推广需要把高价值用例从试点转化为生产级部署", "importance": "critical" },
+        { "id": "t1", "type": "timeline", "text": "阶段一识别软件生命周期中的高价值场景", "importance": "high", "lane": "业务团队", "order": 1 },
+        { "id": "t2", "type": "timeline", "text": "阶段二通过 Codex Labs 与合作伙伴验证用例", "importance": "high", "lane": "平台团队", "order": 2 },
+        { "id": "t3", "type": "timeline", "text": "阶段三形成生产级部署、治理和规模化推广", "importance": "high", "lane": "治理团队", "order": 3 },
+        { "id": "r1", "type": "risk", "text": "企业环境、权限和工程流程差异会影响复制速度", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "建立可复用实施方法与效果验证机制", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-plan-agent-research", "title": "Agent 研究执行计划与阶段交付", "sourceType": "official-research",
+      "source": { "publisher": "Anthropic", "title": "Coding agents in the social sciences", "url": "https://www.anthropic.com/research/coding-agents-social-sciences", "publishedAt": "2026-05-27" },
+      "expected": { "scenario": "project-plan", "requiredFactIds": ["c1", "t1", "t2", "r1"], "structureSignals": ["research-plan", "stages", "future-delivery"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响", "importance": "critical" },
+        { "id": "t1", "type": "timeline", "text": "阶段一完成 1260 名社会科学家的基线调查", "importance": "high", "order": 1 },
+        { "id": "t2", "type": "timeline", "text": "阶段二向研究者提供 Claude Code 并开展随机实验", "importance": "high", "order": 2 },
+        { "id": "t3", "type": "timeline", "text": "阶段三发布生产率、采用差异和研究质量结果", "importance": "high", "order": 3 },
+        { "id": "r1", "type": "risk", "text": "当前相关性结果可能受到早期采用者差异影响", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "用随机实验区分工具作用与用户自选择效应", "importance": "high" }
+      ]
+    },
+
+    {
+      "id": "official-research-gpt5-system", "title": "GPT-5 系统架构调研与模型选择决策", "sourceType": "official-system-card",
+      "source": { "publisher": "OpenAI", "title": "GPT-5 System Card", "url": "https://openai.com/index/gpt-5-system-card/", "publishedAt": "2025-08-07" },
+      "expected": { "scenario": "research-decision", "requiredFactIds": ["q1", "o1", "o2", "c1"], "structureSignals": ["comparison", "decision-criteria", "recommendation"] },
+      "facts": [
+        { "id": "q1", "type": "context", "text": "不同复杂度任务应如何选择快速模型、推理模型与路由系统", "importance": "critical" },
+        { "id": "o1", "type": "comparison", "text": "快速模型适合多数高吞吐日常问题", "importance": "high" },
+        { "id": "o2", "type": "comparison", "text": "推理模型适合复杂问题、工具调用和更深分析", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "高风险任务仍需人工验证模型输出", "importance": "medium" },
+        { "id": "c1", "type": "conclusion", "text": "采用统一路由并为高风险任务保留显式模型与验证控制", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-research-coding-agents", "title": "编码 Agent 对社会科学研究影响调研", "sourceType": "official-research",
+      "source": { "publisher": "Anthropic", "title": "Coding agents in the social sciences", "url": "https://www.anthropic.com/research/coding-agents-social-sciences", "publishedAt": "2026-05-27" },
+      "expected": { "scenario": "research-decision", "requiredFactIds": ["q1", "m1", "m2", "r1"], "structureSignals": ["evidence", "comparison", "uncertainty"] },
+      "facts": [
+        { "id": "q1", "type": "context", "text": "编码 Agent 是否正在改变社会科学研究生产率与资源差异", "importance": "critical" },
+        { "id": "m1", "type": "metric", "text": "81% 的受访者尝试过在研究中使用 AI 聊天工具", "value": "81%", "importance": "high" },
+        { "id": "m2", "type": "metric", "text": "20% 的受访者已采用编码 Agent", "value": "20%", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "编码 Agent 用户发布更多工作论文和基金申请", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "观察结果不能排除早期采用者原本就更高产的解释", "importance": "high" },
+        { "id": "c1", "type": "conclusion", "text": "需要随机实验才能判断编码 Agent 的因果影响", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-research-agent-expertise", "title": "Agent 成功率与专业经验关系研究决策", "sourceType": "official-research",
+      "source": { "publisher": "Anthropic", "title": "Agentic coding and persistent returns to expertise", "url": "https://www.anthropic.com/research/claude-code-expertise", "publishedAt": "2026-06-16" },
+      "expected": { "scenario": "research-decision", "requiredFactIds": ["q1", "e1", "e2", "c1"], "structureSignals": ["evidence-chain", "comparison", "finding"] },
+      "facts": [
+        { "id": "q1", "type": "context", "text": "领域经验是否仍会影响 Agent 编码任务的协作方式和成功率", "importance": "critical" },
+        { "id": "e1", "type": "evidence", "text": "典型会话中人主要决定做什么，Claude 主要决定如何执行", "importance": "high" },
+        { "id": "e2", "type": "evidence", "text": "专业经验越高，Claude 每条指令承担的工作越多", "importance": "high" },
+        { "id": "o1", "type": "comparison", "text": "不同职业完成编码目标的平均成功率接近软件工程师", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "研究基于可验证会话结果但不能覆盖所有工作质量维度", "importance": "medium" },
+        { "id": "c1", "type": "conclusion", "text": "Agent 降低了执行门槛，但领域经验仍持续产生回报", "importance": "high" }
+      ]
+    },
+
+    {
+      "id": "official-product-chatgpt-agent", "title": "ChatGPT Agent 产品能力介绍", "sourceType": "official-product",
+      "source": { "publisher": "OpenAI", "title": "Introducing ChatGPT agent", "url": "https://openai.com/index/introducing-chatgpt-agent/", "publishedAt": "2025-07-17" },
+      "expected": { "scenario": "product-capability", "requiredFactIds": ["c1", "h1", "h2", "r1"], "structureSignals": ["capability-map", "usage-path", "boundary"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验", "importance": "critical" },
+        { "id": "h1", "type": "hierarchy", "text": "理解目标并规划多步骤任务", "importance": "high" },
+        { "id": "h2", "type": "hierarchy", "text": "在计算机环境中浏览网站并使用工具", "importance": "high" },
+        { "id": "h3", "type": "hierarchy", "text": "整合研究结果并交付可用产物", "importance": "high" },
+        { "id": "p1", "type": "process", "text": "用户提出目标后 Agent 选择工具、执行并请求必要确认", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "复杂网页操作和新型安全风险仍可能限制可靠性", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-product-codex-ga", "title": "Codex 团队协作能力介绍", "sourceType": "official-product",
+      "source": { "publisher": "OpenAI", "title": "Codex is now generally available", "url": "https://openai.com/index/codex-now-generally-available/", "publishedAt": "2025-10-06" },
+      "expected": { "scenario": "product-capability", "requiredFactIds": ["c1", "h1", "h2", "h3"], "structureSignals": ["capabilities", "channels", "team-value"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Codex 已成为覆盖编辑器、终端、云端与团队协作的编码 Agent", "importance": "critical" },
+        { "id": "h1", "type": "hierarchy", "text": "Slack 集成让团队可直接从频道委派任务", "importance": "high" },
+        { "id": "h2", "type": "hierarchy", "text": "Codex SDK 可将同一 Agent 嵌入工作流和应用", "importance": "high" },
+        { "id": "h3", "type": "hierarchy", "text": "管理工具提供环境控制、监控和分析能力", "importance": "high" },
+        { "id": "p1", "type": "process", "text": "同一账户连接编辑器、终端和云端任务", "importance": "medium" },
+        { "id": "r1", "type": "risk", "text": "团队规模化使用需要统一环境与管理员控制", "importance": "high" }
+      ]
+    },
+    {
+      "id": "official-product-claude4", "title": "Claude 4 与 Claude Code 能力介绍", "sourceType": "official-product",
+      "source": { "publisher": "Anthropic", "title": "Introducing Claude 4", "url": "https://www.anthropic.com/news/claude-4", "publishedAt": "2025-05-22" },
+      "expected": { "scenario": "product-capability", "requiredFactIds": ["c1", "h1", "h2", "h3"], "structureSignals": ["model-capabilities", "developer-path", "proof"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Claude 4 面向编码、复杂推理和长时间 Agent 工作流升级能力", "importance": "critical" },
+        { "id": "h1", "type": "comparison", "text": "Opus 4 强调编码、复杂推理和长时间 Agent 任务", "importance": "high" },
+        { "id": "h2", "type": "comparison", "text": "Sonnet 4 强调效率、可控成本和日常高频使用", "importance": "high" },
+        { "id": "h3", "type": "hierarchy", "text": "Claude Code 支持 IDE 集成、后台任务和 SDK", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "本地文件访问可帮助模型提取并保存关键事实以维持连续性", "importance": "medium" },
+        { "id": "r1", "type": "risk", "text": "长时间自主任务仍需测试、审查和权限约束", "importance": "high" }
+      ]
+    },
+
+    {
+      "id": "official-flow-agent-tools", "title": "Agent 工具调用流程与协作", "sourceType": "official-product",
+      "source": { "publisher": "OpenAI", "title": "New tools for building agents", "url": "https://openai.com/index/new-tools-for-building-agents/", "publishedAt": "2025-03-11" },
+      "expected": { "scenario": "process-collaboration", "requiredFactIds": ["p1", "p2", "p3", "p4"], "structureSignals": ["flow", "tool-chain", "trace"] },
+      "facts": [
+        { "id": "p1", "type": "process", "text": "应用接收用户目标并提交 Responses API", "importance": "critical", "lane": "业务应用", "order": 1 },
+        { "id": "p2", "type": "process", "text": "Agent 根据任务选择网页搜索、文件搜索或计算机工具", "importance": "high", "lane": "Agent", "order": 2 },
+        { "id": "p3", "type": "process", "text": "工具执行并将观察结果返回 Agent", "importance": "high", "lane": "工具", "order": 3 },
+        { "id": "p4", "type": "process", "text": "Agent 整合结果并向应用交付输出", "importance": "high", "lane": "Agent", "order": 4 },
+        { "id": "r1", "type": "risk", "text": "生产环境需要通过追踪和评估定位失败步骤", "importance": "high", "lane": "平台", "order": 5 }
+      ]
+    },
+    {
+      "id": "official-flow-gpt5-router", "title": "GPT-5 实时路由决策流程", "sourceType": "official-system-card",
+      "source": { "publisher": "OpenAI", "title": "GPT-5 System Card", "url": "https://openai.com/index/gpt-5-system-card/", "publishedAt": "2025-08-07" },
+      "expected": { "scenario": "process-collaboration", "requiredFactIds": ["p1", "p2", "p3", "p4"], "structureSignals": ["decision-flow", "routing", "fallback"] },
+      "facts": [
+        { "id": "p1", "type": "process", "text": "用户输入问题并可显式要求深度思考", "importance": "critical", "order": 1 },
+        { "id": "p2", "type": "process", "text": "路由器判断对话类型、复杂度和工具需求", "importance": "high", "order": 2 },
+        { "id": "p3", "type": "process", "text": "日常任务进入快速模型，复杂任务进入推理模型", "importance": "high", "order": 3 },
+        { "id": "p4", "type": "process", "text": "模型生成回答并收集切换、偏好和正确性信号", "importance": "high", "order": 4 },
+        { "id": "r1", "type": "risk", "text": "额度达到上限后由对应 mini 模型承接剩余请求", "importance": "medium", "order": 5 }
+      ]
+    },
+    {
+      "id": "official-flow-agent-governance", "title": "可信 Agent 风险治理协作流程", "sourceType": "official-research",
+      "source": { "publisher": "Anthropic", "title": "Trustworthy agents in practice", "url": "https://www.anthropic.com/research/trustworthy-agents", "publishedAt": "2026-04-09" },
+      "expected": { "scenario": "process-collaboration", "requiredFactIds": ["p1", "p2", "p3", "p4"], "structureSignals": ["swimlane", "approval", "exception"] },
+      "facts": [
+        { "id": "p1", "type": "process", "text": "用户定义目标并授予最小必要权限", "importance": "critical", "lane": "用户", "order": 1 },
+        { "id": "p2", "type": "process", "text": "Agent 形成计划并识别高风险动作", "importance": "high", "lane": "Agent", "order": 2 },
+        { "id": "p3", "type": "process", "text": "高风险动作提交人工确认，低风险动作继续执行", "importance": "high", "lane": "审批人", "order": 3 },
+        { "id": "p4", "type": "process", "text": "平台记录工具调用、结果和异常回退", "importance": "high", "lane": "平台", "order": 4 },
+        { "id": "r1", "type": "risk", "text": "检测到提示注入或权限越界时停止并升级处理", "importance": "high", "lane": "平台", "order": 5 }
+      ]
+    },
+
+    {
+      "id": "stress-mixed-enterprise", "title": "企业 AI 材料：现状数据、治理设想与后续动作", "sourceType": "mixed-official-digest", "stress": true,
+      "source": { "publisher": "OpenAI", "title": "The state of enterprise AI 2025", "url": "https://openai.com/index/the-state-of-enterprise-ai-2025-report/", "publishedAt": "2025-12-08" },
+      "expected": { "scenario": "review-update", "requiredFactIds": ["c1", "m1", "r1", "a1"], "structureSignals": ["mixed-review", "metrics", "governance"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长", "importance": "critical" },
+        { "id": "m1", "type": "metric", "text": "结构化工作流使用量年内增长 19 倍", "value": "19x", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "技术、医疗和制造是增长最快的行业", "importance": "medium" },
+        { "id": "r1", "type": "risk", "text": "组织准备度与实施能力成为主要约束", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "建立用例优先级、权限治理和效果复盘机制", "importance": "high" }
+      ]
+    },
+    {
+      "id": "stress-conflicting-benchmarks", "title": "模型能力材料中的冲突证据与选型判断", "sourceType": "mixed-system-card", "stress": true,
+      "source": { "publisher": "OpenAI", "title": "GPT-5 System Card", "url": "https://openai.com/index/gpt-5-system-card/", "publishedAt": "2025-08-07" },
+      "expected": { "scenario": "research-decision", "requiredFactIds": ["q1", "e1", "e2", "r1"], "structureSignals": ["conflict", "evidence", "uncertainty"] },
+      "facts": [
+        { "id": "q1", "type": "context", "text": "多个评测指标方向不一致时如何选择适合真实工作的模型", "importance": "critical" },
+        { "id": "e1", "type": "evidence", "text": "复杂推理和编码评测显示推理模型优势明显", "importance": "high" },
+        { "id": "e2", "type": "evidence", "text": "高吞吐日常任务仍更重视速度与成本", "importance": "high" },
+        { "id": "o1", "type": "comparison", "text": "统一路由与固定模型各有可控性和效率取舍", "importance": "high" },
+        { "id": "r1", "type": "risk", "text": "单一公开基准不能代表企业真实任务质量", "importance": "high" },
+        { "id": "c1", "type": "conclusion", "text": "应使用真实任务集验证后再确定模型与路由策略", "importance": "high" }
+      ]
+    },
+    {
+      "id": "stress-weak-conclusion", "title": "关于模型福利的开放问题材料", "sourceType": "official-research", "stress": true,
+      "source": { "publisher": "Anthropic", "title": "Exploring model welfare", "url": "https://www.anthropic.com/research/exploring-model-welfare", "publishedAt": "2025-04-24" },
+      "expected": { "scenario": "research-decision", "requiredFactIds": ["q1", "e1", "r1", "a1"], "structureSignals": ["open-question", "uncertainty", "research-agenda"] },
+      "facts": [
+        { "id": "q1", "type": "context", "text": "先进模型是否可能具有值得道德考虑的体验仍是开放问题", "importance": "critical" },
+        { "id": "e1", "type": "evidence", "text": "模型已表现出沟通、规划、解决问题和追求目标等能力", "importance": "high" },
+        { "id": "e2", "type": "evidence", "text": "部分专家认为近期模型意识与高能动性存在非零可能", "importance": "medium" },
+        { "id": "r1", "type": "risk", "text": "意识、体验与道德地位缺少可靠测量方法", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "建立跨学科研究计划并提前准备治理框架", "importance": "high" }
+      ]
+    },
+    {
+      "id": "stress-missing-metrics", "title": "Agent 治理方向材料但缺少量化结果", "sourceType": "official-research", "stress": true,
+      "source": { "publisher": "Anthropic", "title": "Trustworthy agents in practice", "url": "https://www.anthropic.com/research/trustworthy-agents", "publishedAt": "2026-04-09" },
+      "expected": { "scenario": "strategy-proposal", "requiredFactIds": ["c1", "k1", "k2", "a1"], "structureSignals": ["qualitative-strategy", "risks", "controls"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "可信 Agent 需要自主性与控制能力共同设计", "importance": "critical" },
+        { "id": "k1", "type": "constraint", "text": "跨应用执行会扩大意图误读的影响范围", "importance": "high" },
+        { "id": "k2", "type": "constraint", "text": "提示注入可诱导 Agent 执行错误工具操作", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "当前材料提供机制与案例但没有统一量化收益口径", "importance": "medium" },
+        { "id": "a1", "type": "action", "text": "先建立可观察、可确认、可回退的控制面再扩大自主范围", "importance": "high" }
+      ]
+    },
+    {
+      "id": "stress-long-economic-index", "title": "AI 使用节律、产物与工作影响综合研究", "sourceType": "official-long-report", "stress": true,
+      "source": { "publisher": "Anthropic", "title": "Anthropic Economic Index report: Cadences", "url": "https://www.anthropic.com/research/economic-index-june-2026-report", "publishedAt": "2026-06-26" },
+      "expected": { "scenario": "research-decision", "requiredFactIds": ["q1", "e1", "e2", "r1"], "structureSignals": ["multi-section", "evidence", "insight"] },
+      "facts": [
+        { "id": "q1", "type": "context", "text": "AI 使用节律、产物类型和自动化程度如何共同影响工作体验", "importance": "critical" },
+        { "id": "e1", "type": "evidence", "text": "工作相关请求在周末下降且不同职业的节律存在差异", "importance": "high" },
+        { "id": "e2", "type": "evidence", "text": "Chat、Cowork、Claude Code 与 API 产生的产物类型明显不同", "importance": "high" },
+        { "id": "e3", "type": "evidence", "text": "更自动化的用户对 AI 承担更多任务更乐观", "importance": "high" },
+        { "id": "m1", "type": "metric", "text": "研究引入更高频抽样以观察小时级使用变化", "value": "hourly", "importance": "medium" },
+        { "id": "r1", "type": "risk", "text": "产品、职业和时间分布差异使单一平均数容易误导", "importance": "high" },
+        { "id": "c1", "type": "conclusion", "text": "应按产品、产物和自动化程度分层解释 AI 的工作影响", "importance": "high" }
+      ]
+    },
+    {
+      "id": "stress-duplicate-codex-scaling", "title": "Codex 采用信息散落且部分重复的阶段材料", "sourceType": "mixed-official-digest", "stress": true,
+      "source": { "publisher": "OpenAI", "title": "Scaling Codex to enterprises worldwide", "url": "https://openai.com/index/scaling-codex-to-enterprises-worldwide/", "publishedAt": "2026-04-21" },
+      "expected": { "scenario": "review-update", "requiredFactIds": ["c1", "m1", "r1", "a1"], "structureSignals": ["deduplication", "adoption-review", "next-stage"] },
+      "facts": [
+        { "id": "c1", "type": "conclusion", "text": "Codex 企业采用从个人工具快速进入组织工作流", "importance": "critical" },
+        { "id": "m1", "type": "metric", "text": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上", "value": "4M+", "importance": "high" },
+        { "id": "e1", "type": "evidence", "text": "企业正在测试覆盖率、团队速度和技术债治理场景", "importance": "high" },
+        { "id": "e2", "type": "evidence", "text": "企业正在软件开发生命周期中寻找高价值 Codex 用例", "importance": "medium" },
+        { "id": "r1", "type": "risk", "text": "试点成果尚未自动等于生产级规模化能力", "importance": "high" },
+        { "id": "a1", "type": "action", "text": "将验证有效的用例沉淀成生产部署与治理方法", "importance": "high" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 100,
+    "scoreMargin": 2,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-official-plan-codex-enterprise-flow-driven",
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "flow-canvas",
+    "style": "linear-system",
+    "flowMode": "swimlane-flow",
+    "lanes": [
+      {
+        "id": "lane-1",
+        "title": "业务团队"
+      },
+      {
+        "id": "lane-2",
+        "title": "平台团队"
+      },
+      {
+        "id": "lane-3",
+        "title": "治理团队"
+      }
+    ],
+    "title": "Codex 企业规模化实施计划",
+    "subtitle": "按输入、动作、判断和输出组织流程",
+    "summaryLabel": "流程判断",
+    "summary": "企业 Codex 推广需要把高价值用例从试点转化为生产级部署",
+    "flowNodes": [
+      {
+        "id": "node-1",
+        "title": "建立可复用实施方法与效果验证机制",
+        "body": [
+          "建立可复用实施方法与效果验证机制"
+        ],
+        "type": "start",
+        "step": 1,
+        "lane": "lane-1",
+        "status": "neutral",
+        "sourceFactIds": [
+          "a1"
+        ]
+      },
+      {
+        "id": "node-2",
+        "title": "阶段一识别软件生命周期中的高价值场景",
+        "body": [
+          "阶段一识别软件生命周期中的高价值场景"
+        ],
+        "type": "action",
+        "step": 2,
+        "lane": "lane-1",
+        "status": "neutral",
+        "sourceFactIds": [
+          "t1"
+        ]
+      },
+      {
+        "id": "node-3",
+        "title": "阶段二通过 Codex Labs 与合作伙伴验证用例",
+        "body": [
+          "阶段二通过 Codex Labs 与合作伙伴验证用例"
+        ],
+        "type": "action",
+        "step": 3,
+        "lane": "lane-2",
+        "status": "neutral",
+        "sourceFactIds": [
+          "t2"
+        ]
+      },
+      {
+        "id": "risk-1",
+        "title": "企业环境、权限和工程流程差异会影响复制速度",
+        "body": [
+          "企业环境、权限和工程流程差异会影响复制速度"
+        ],
+        "type": "risk",
+        "step": 4,
+        "lane": "lane-1",
+        "status": "risk",
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "id": "node-4",
+        "title": "阶段三形成生产级部署、治理和规模化推广",
+        "body": [
+          "阶段三形成生产级部署、治理和规模化推广"
+        ],
+        "type": "result",
+        "step": 5,
+        "lane": "lane-3",
+        "status": "neutral",
+        "sourceFactIds": [
+          "t3"
+        ]
+      }
+    ],
+    "flowEdges": [
+      {
+        "from": "node-1",
+        "to": "node-2",
+        "label": "进入下一步",
+        "type": "primary"
+      },
+      {
+        "from": "node-2",
+        "to": "node-3",
+        "label": "进入下一步",
+        "type": "primary"
+      },
+      {
+        "from": "node-3",
+        "to": "risk-1",
+        "label": "边界与保障",
+        "type": "primary"
+      },
+      {
+        "from": "risk-1",
+        "to": "node-4",
+        "label": "进入下一步",
+        "type": "primary"
+      }
+    ],
+    "planning": {
+      "inventoryId": "official-plan-codex-enterprise",
+      "selectedFactIds": [
+        "c1",
+        "a1",
+        "t1",
+        "t2",
+        "t3",
+        "r1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-official-plan-codex-enterprise-flow-driven"
+    }
+  }
+}

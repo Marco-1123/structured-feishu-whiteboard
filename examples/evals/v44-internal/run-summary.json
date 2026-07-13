@@ -1,0 +1,125 @@
+{
+  "generatedAt": "2026-07-13T06:34:54.723Z",
+  "results": [
+    {
+      "caseId": "official-review-enterprise-ai",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-review-codex-knowledge-work",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-review-claude-code-expertise",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-strategy-trustworthy-agents",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-strategy-openai-frontier",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-strategy-responsible-scaling",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-plan-asl3-rollout",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-plan-codex-enterprise",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-plan-agent-research",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-research-gpt5-system",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-research-coding-agents",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-research-agent-expertise",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-product-chatgpt-agent",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-product-codex-ga",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-product-claude4",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-flow-agent-tools",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-flow-gpt5-router",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "official-flow-agent-governance",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "stress-mixed-enterprise",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "stress-conflicting-benchmarks",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "stress-weak-conclusion",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "stress-missing-metrics",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "stress-long-economic-index",
+      "status": "passed",
+      "pipeline": "v4.4"
+    },
+    {
+      "caseId": "stress-duplicate-codex-scaling",
+      "status": "passed",
+      "pipeline": "v4.4"
+    }
+  ]
+}

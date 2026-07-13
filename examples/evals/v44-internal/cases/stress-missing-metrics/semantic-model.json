@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-stress-missing-metrics",
+  "inventoryId": "stress-missing-metrics",
+  "scenario": {
+    "primary": "strategy-proposal",
+    "secondary": "review-update"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "可信 Agent 需要自主性与控制能力共同设计",
+      "importance": "critical",
+      "sourceRef": "c1",
+      "confidence": "supported"
+    },
+    {
+      "id": "k1",
+      "type": "constraint",
+      "text": "跨应用执行会扩大意图误读的影响范围",
+      "importance": "high",
+      "sourceRef": "k1",
+      "confidence": "supported"
+    },
+    {
+      "id": "k2",
+      "type": "constraint",
+      "text": "提示注入可诱导 Agent 执行错误工具操作",
+      "importance": "high",
+      "sourceRef": "k2",
+      "confidence": "supported"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "当前材料提供机制与案例但没有统一量化收益口径",
+      "importance": "medium",
+      "sourceRef": "e1",
+      "confidence": "supported"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
+      "importance": "high",
+      "sourceRef": "a1",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [],
+  "readingLayers": {
+    "first": [
+      "c1"
+    ],
+    "second": [
+      "k1",
+      "k2",
+      "e1",
+      "a1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "c1",
+      "k1",
+      "k2",
+      "e1",
+      "a1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "strategy-proposal",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "product-capability",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "process-collaboration",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

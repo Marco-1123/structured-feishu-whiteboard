@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1975" viewBox="0 0 2200 1975" data-layout-engine="v4" data-expression-mode="modular-canvas">
-<rect x="0" y="0" width="2200" height="1975" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2137" viewBox="0 0 2200 2137" data-layout-engine="v4" data-expression-mode="modular-canvas">
+<rect x="0" y="0" width="2200" height="2137" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">AI 助手全链路架构与知识治理</tspan></text>
@@ -79,77 +79,77 @@
 <circle cx="1485" cy="900" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="1503" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="1503" dy="0">每次重新查数</tspan></text>
 <text x="1503" y="932" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1503" dy="0">禁止缓存历史结论冒充现场判断</tspan></text>
-</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="96" data-y="1021" data-width="988" data-height="466" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="118" data-item-count="4" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="96" y="1021" width="988" height="466" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="96" data-y="1021" data-width="988" data-height="602" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="118" data-item-count="4" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
+<rect x="96" y="1021" width="988" height="602" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="1069" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">P0 教训</tspan></text>
 <text x="124" y="1101" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">这些教训需要进入长期治理，而不是只做临时备注。</tspan></text>
-<rect x="124" y="1125" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="140" y="1142" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="1165" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
-<text x="196" y="1156" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">数据膨胀 33 倍</tspan></text>
-<text x="196" y="1183" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">join date 条件缺失多日累加</tspan></text>
-<rect x="124" y="1207" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
-<rect x="140" y="1224" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="1247" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">02</tspan></text>
-<text x="196" y="1238" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">队列归因误判</tspan></text>
-<text x="196" y="1265" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">多条记录未按主体归并</tspan></text>
-<rect x="124" y="1289" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="2"/>
-<rect x="140" y="1306" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="1329" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">03</tspan></text>
-<text x="196" y="1320" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">白板回退坑</tspan></text>
-<text x="196" y="1347" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">渲染侧问题误判为 LLM 内容问题</tspan></text>
-<rect x="124" y="1371" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="3"/>
-<rect x="140" y="1388" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="1411" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">04</tspan></text>
-<text x="196" y="1402" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">LLM 不要管禁止项</tspan></text>
-<text x="196" y="1429" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">底层约束应该由脚本和检查器负责</tspan></text>
-</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1021" data-width="988" data-height="466" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="141" data-item-count="4" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
-<rect x="1116" y="1021" width="988" height="466" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<rect x="124" y="1193" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="140" y="1210" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1233" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
+<text x="196" y="1224" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">数据膨胀 33 倍</tspan></text>
+<text x="196" y="1251" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">join date 条件缺失多日累加</tspan></text>
+<rect x="124" y="1275" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
+<rect x="140" y="1292" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1315" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">02</tspan></text>
+<text x="196" y="1306" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">队列归因误判</tspan></text>
+<text x="196" y="1333" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">多条记录未按主体归并</tspan></text>
+<rect x="124" y="1357" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="2"/>
+<rect x="140" y="1374" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1397" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">03</tspan></text>
+<text x="196" y="1388" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">白板回退坑</tspan></text>
+<text x="196" y="1415" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">渲染侧问题误判为 LLM 内容问题</tspan></text>
+<rect x="124" y="1439" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="3"/>
+<rect x="140" y="1456" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1479" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">04</tspan></text>
+<text x="196" y="1470" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">LLM 不要管禁止项</tspan></text>
+<text x="196" y="1497" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">底层约束应该由脚本和检查器负责</tspan></text>
+</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="1116" data-y="1021" data-width="988" data-height="602" data-column="right" data-component-variant="action-checklist" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="141" data-item-count="4" data-item-layout="rows" data-layout-reason="moderate-parallel-items">
+<rect x="1116" y="1021" width="988" height="602" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="1144" y="1069" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">维护治理规范</tspan></text>
 <text x="1144" y="1101" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="1144" dy="0">把维护动作变成固定节奏，避免靠记忆协作。</tspan></text>
-<rect x="1144" y="1125" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
+<rect x="1144" y="1125" width="932" height="104" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
 <circle cx="1171" cy="1152" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1167" y="1158" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">1</tspan></text>
 <text x="1196" y="1156" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">修改必须平台同步</tspan></text>
 <text x="1196" y="1183" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill、md、Wiki 和脚本一并更新</tspan></text>
-<rect x="1144" y="1207" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
-<circle cx="1171" cy="1234" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1167" y="1240" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">2</tspan></text>
-<text x="1196" y="1238" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">新增项进 Checklist</tspan></text>
-<text x="1196" y="1265" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill 层只记录必要问题</tspan></text>
-<rect x="1144" y="1289" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="2"/>
-<circle cx="1171" cy="1316" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1167" y="1322" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">3</tspan></text>
-<text x="1196" y="1320" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">BadCase Trace 覆盘</tspan></text>
-<text x="1196" y="1347" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">卡片出框必须进入回归样例</tspan></text>
-<rect x="1144" y="1371" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="3"/>
-<circle cx="1171" cy="1398" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1167" y="1404" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">4</tspan></text>
-<text x="1196" y="1402" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">知识沉淀判定落点</tspan></text>
-<text x="1196" y="1429" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">稳定经验进入 Wiki 或 Skill 规则</tspan></text>
-</g><g data-v43-block="mini-roadmap-5" data-block-type="mini-roadmap" data-x="96" data-y="1519" data-width="2008" data-height="270" data-column="full" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="112" data-item-count="5" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="1519" width="2008" height="270" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="1567" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">请求处理全链路</tspan></text>
-<text x="124" y="1599" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">链路节点要有足够宽度，不再用多个窄框硬拼。</tspan></text>
-<rect x="124" y="1631" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="144" y="1667" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">用户发消息</tspan></text>
-<text x="144" y="1695" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="144" dy="0">飞书群内 @ 助手</tspan></text><text x="501" y="1697" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="501" dy="0">→</tspan></text>
-<rect x="518" y="1631" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="538" y="1667" font-size="17" fill="#111827" font-weight="700"><tspan x="538" dy="0">意图识别</tspan></text>
-<text x="538" y="1695" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="538" dy="0">定义主题、分析问题和结构</tspan></text><text x="895" y="1697" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="895" dy="0">→</tspan></text>
-<rect x="912" y="1631" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="932" y="1667" font-size="17" fill="#111827" font-weight="700"><tspan x="932" dy="0">槽位收集</tspan></text>
-<text x="932" y="1695" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="932" dy="0">一次只问一个缺失参数</tspan></text><text x="1289" y="1697" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1289" dy="0">→</tspan></text>
-<rect x="1306" y="1631" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="1326" y="1667" font-size="17" fill="#111827" font-weight="700"><tspan x="1326" dy="0">Skill 执行</tspan></text>
-<text x="1326" y="1695" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1326" dy="0">Aeolus 查询和脚本分析</tspan></text><text x="1683" y="1697" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1683" dy="0">→</tspan></text>
-<rect x="1700" y="1631" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="1720" y="1667" font-size="17" fill="#111827" font-weight="700"><tspan x="1720" dy="0">知识沉淀</tspan></text>
-<text x="1720" y="1695" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1720" dy="0">异常自动进入 Wiki 闭环</tspan></text>
-</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1829" data-width="2008" data-height="74" data-column="full">
-<rect x="96" y="1829" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
-<rect x="96" y="1829" width="10" height="74" rx="5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="132" y="1875" font-size="20" fill="#111827" font-weight="700"><tspan x="132" dy="0">V4.2 回归样例：禁止把高密度架构材料压成一堆小窄框。</tspan></text>
+<rect x="1144" y="1241" width="932" height="104" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="1"/>
+<circle cx="1171" cy="1268" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1167" y="1274" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">2</tspan></text>
+<text x="1196" y="1272" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">新增项进 Checklist</tspan></text>
+<text x="1196" y="1299" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">Skill 层只记录必要问题</tspan></text>
+<rect x="1144" y="1357" width="932" height="104" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="2"/>
+<circle cx="1171" cy="1384" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1167" y="1390" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">3</tspan></text>
+<text x="1196" y="1388" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">BadCase Trace 覆盘</tspan></text>
+<text x="1196" y="1415" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">卡片出框必须进入回归样例</tspan></text>
+<rect x="1144" y="1473" width="932" height="104" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="3"/>
+<circle cx="1171" cy="1500" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1167" y="1506" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1167" dy="0">4</tspan></text>
+<text x="1196" y="1504" font-size="17" fill="#111827" font-weight="700"><tspan x="1196" dy="0">知识沉淀判定落点</tspan></text>
+<text x="1196" y="1531" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1196" dy="0">稳定经验进入 Wiki 或 Skill 规则</tspan></text>
+</g><g data-v43-block="mini-roadmap-5" data-block-type="mini-roadmap" data-x="96" data-y="1655" data-width="2008" data-height="296" data-column="full" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="112" data-item-count="5" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="1655" width="2008" height="296" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="1703" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">请求处理全链路</tspan></text>
+<text x="124" y="1735" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">链路节点要有足够宽度，不再用多个窄框硬拼。</tspan></text>
+<rect x="124" y="1767" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="144" y="1801" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">用户发消息</tspan></text>
+<text x="144" y="1835" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="144" dy="0">飞书群内 @ 助手</tspan></text><text x="501" y="1833" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="501" dy="0">→</tspan></text>
+<rect x="518" y="1767" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="538" y="1801" font-size="17" fill="#111827" font-weight="700"><tspan x="538" dy="0">意图识别</tspan></text>
+<text x="538" y="1835" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="538" dy="0">定义主题、分析问题和结构</tspan></text><text x="895" y="1833" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="895" dy="0">→</tspan></text>
+<rect x="912" y="1767" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="932" y="1801" font-size="17" fill="#111827" font-weight="700"><tspan x="932" dy="0">槽位收集</tspan></text>
+<text x="932" y="1835" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="932" dy="0">一次只问一个缺失参数</tspan></text><text x="1289" y="1833" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1289" dy="0">→</tspan></text>
+<rect x="1306" y="1767" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="1326" y="1801" font-size="17" fill="#111827" font-weight="700"><tspan x="1326" dy="0">Skill 执行</tspan></text>
+<text x="1326" y="1835" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1326" dy="0">Aeolus 查询和脚本分析</tspan></text><text x="1683" y="1833" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1683" dy="0">→</tspan></text>
+<rect x="1700" y="1767" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="1720" y="1801" font-size="17" fill="#111827" font-weight="700"><tspan x="1720" dy="0">知识沉淀</tspan></text>
+<text x="1720" y="1835" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1720" dy="0">异常自动进入 Wiki 闭环</tspan></text>
+</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1991" data-width="2008" data-height="74" data-column="full">
+<rect x="96" y="1991" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<rect x="96" y="1991" width="10" height="74" rx="5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="132" y="2037" font-size="20" fill="#111827" font-weight="700"><tspan x="132" dy="0">V4.2 回归样例：禁止把高密度架构材料压成一堆小窄框。</tspan></text>
 </g>
 </g>
 </svg>

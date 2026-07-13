@@ -1,0 +1,140 @@
+{
+  "pipelineVersion": "4.4",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "layout": "flow-canvas",
+  "style": "linear-system",
+  "flowMode": "swimlane-flow",
+  "lanes": [
+    {
+      "id": "lane-1",
+      "title": "用户"
+    },
+    {
+      "id": "lane-2",
+      "title": "Agent"
+    },
+    {
+      "id": "lane-3",
+      "title": "审批人"
+    },
+    {
+      "id": "lane-4",
+      "title": "平台"
+    }
+  ],
+  "title": "可信 Agent 风险治理协作流程",
+  "subtitle": "按输入、动作、判断和输出组织流程",
+  "summaryLabel": "流程判断",
+  "summary": "用户定义目标并授予最小必要权限",
+  "flowNodes": [
+    {
+      "id": "node-1",
+      "title": "用户定义目标并授予最小必要权限",
+      "body": [
+        "用户定义目标并授予最小必要权限"
+      ],
+      "type": "start",
+      "step": 1,
+      "lane": "lane-1",
+      "status": "neutral",
+      "sourceFactIds": [
+        "p1"
+      ]
+    },
+    {
+      "id": "node-2",
+      "title": "Agent 形成计划并识别高风险动作",
+      "body": [
+        "Agent 形成计划并识别高风险动作"
+      ],
+      "type": "action",
+      "step": 2,
+      "lane": "lane-2",
+      "status": "neutral",
+      "sourceFactIds": [
+        "p2"
+      ]
+    },
+    {
+      "id": "node-3",
+      "title": "高风险动作提交人工确认，低风险动作继续执行",
+      "body": [
+        "高风险动作提交人工确认，低风险动作继续执行"
+      ],
+      "type": "decision",
+      "step": 3,
+      "lane": "lane-3",
+      "status": "risk",
+      "sourceFactIds": [
+        "p3"
+      ]
+    },
+    {
+      "id": "risk-1",
+      "title": "检测到提示注入或权限越界时停止并升级处理",
+      "body": [
+        "检测到提示注入或权限越界时停止并升级处理"
+      ],
+      "type": "risk",
+      "step": 4,
+      "lane": "lane-1",
+      "status": "risk",
+      "sourceFactIds": [
+        "r1"
+      ]
+    },
+    {
+      "id": "node-4",
+      "title": "平台记录工具调用、结果和异常回退",
+      "body": [
+        "平台记录工具调用、结果和异常回退"
+      ],
+      "type": "result",
+      "step": 5,
+      "lane": "lane-4",
+      "status": "neutral",
+      "sourceFactIds": [
+        "p4"
+      ]
+    }
+  ],
+  "flowEdges": [
+    {
+      "from": "node-1",
+      "to": "node-2",
+      "label": "进入下一步",
+      "type": "primary"
+    },
+    {
+      "from": "node-2",
+      "to": "node-3",
+      "label": "进入下一步",
+      "type": "primary"
+    },
+    {
+      "from": "node-3",
+      "to": "risk-1",
+      "label": "边界与保障",
+      "type": "primary"
+    },
+    {
+      "from": "risk-1",
+      "to": "node-4",
+      "label": "进入下一步",
+      "type": "primary"
+    }
+  ],
+  "planning": {
+    "inventoryId": "official-flow-agent-governance",
+    "selectedFactIds": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "r1"
+    ],
+    "omittedFacts": [],
+    "routeDecisionId": "semantic-official-flow-agent-governance-flow-driven"
+  }
+}

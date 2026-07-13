@@ -17,7 +17,10 @@ function ids(model, types) {
 function recipe(model, narrativeType) {
   const scenario = model.scenario.primary;
   const group = (types, component) => ({ types, component });
-  if (scenario === "process-collaboration" && narrativeType === "flow-driven") return { skeleton: "swimlane", layout: "flow-canvas", components: ["flow-node", "flow-edge", "lane"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
+  if (scenario === "process-collaboration" && narrativeType === "flow-driven") {
+    const actorCount = new Set(model.facts.map((fact) => fact.actor).filter(Boolean)).size;
+    return { skeleton: actorCount >= 2 ? "swimlane" : "timeline", layout: "flow-canvas", components: actorCount >= 2 ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
+  }
   if (scenario === "research-decision" && narrativeType === "comparison-driven") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "evidence-list", "decision-matrix", "risk-list"], groups: [group(["conclusion", "unresolved"], "statement"), group(["evidence"], "evidence-list"), group(["option"], "decision-matrix"), group(["risk"], "risk-list")] };
   if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["capability"], "status-board"), group(["stage"], "narrative-chain"), group(["evidence"], "evidence-list")] };
   if (narrativeType === "temporal") return { skeleton: scenario === "review-update" ? "past-future-split" : "timeline", layout: "expression-canvas", components: ["statement", "metric-card", "mini-roadmap", "risk-list", "action-list"], groups: [group(["conclusion", "result", "metric"], "statement"), group(["stage"], "mini-roadmap"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
@@ -25,7 +28,10 @@ function recipe(model, narrativeType) {
   if (narrativeType === "comparison-driven") return { skeleton: "multi-line-comparison", layout: "expression-canvas", components: ["statement", "decision-matrix", "evidence-list", "risk-list"], groups: [group(["conclusion"], "statement"), group(["option"], "decision-matrix"), group(["evidence"], "evidence-list"), group(["risk"], "risk-list")] };
   if (narrativeType === "causal") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "narrative-chain", "evidence-list", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["cause"], "narrative-chain"), group(["evidence"], "evidence-list"), group(["risk", "constraint"], "risk-list"), group(["action", "unresolved"], "action-list")] };
   if (narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "status-board", "narrative-chain", "mini-roadmap"], groups: [group(["conclusion", "objective"], "statement"), group(["capability", "constraint"], "status-board"), group(["stage", "action"], "mini-roadmap")] };
-  if (narrativeType === "flow-driven") return { skeleton: "timeline", layout: "flow-canvas", components: ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output", "stage"], "flow-node")] };
+  if (narrativeType === "flow-driven") {
+    const actorCount = new Set(model.facts.map((fact) => fact.actor).filter(Boolean)).size;
+    return { skeleton: actorCount >= 2 ? "swimlane" : "timeline", layout: "flow-canvas", components: actorCount >= 2 ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output", "stage"], "flow-node")] };
+  }
   return { skeleton: "overview-detail", layout: "expression-canvas", components: ["statement", "evidence-list", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["cause", "evidence"], "evidence-list"), group(["risk"], "risk-list"), group(["action", "unresolved"], "action-list")] };
 }
 
@@ -61,14 +67,29 @@ function preferredNarratives(model, config) {
     if (count(model, "metric") >= 2 || count(model, "trend") >= 1 || count(model, "variance") >= 1) return ["result-driven", "causal", "temporal"];
     return ["causal", "temporal", "result-driven"];
   }
+  if (scenario === "project-plan") {
+    const actorCount = new Set(model.facts.map((fact) => fact.actor).filter(Boolean)).size;
+    if (actorCount >= 2) return ["flow-driven", "temporal", "hierarchical"];
+  }
+  if (scenario === "product-capability" && count(model, "option") >= 2) {
+    return ["comparison-driven", "hierarchical", "flow-driven"];
+  }
   return base;
 }
 
 export function planExpressions(model, config = defaultConfig) {
   const candidates = preferredNarratives(model, config).slice(0, 3).map((narrativeType, rank) => {
     const selected = recipe(model, narrativeType);
-    const regions = selected.groups.map((group, index) => ({ id: `region-${index + 1}`, purpose: group.types.join("-"), factIds: ids(model, group.types), preferredComponent: group.component, visualPriority: index === 0 ? "primary" : "secondary", widthIntent: index === 0 ? "full" : "adaptive" })).filter((region) => region.factIds.length);
-    const candidate = { planId: `${model.modelId}-${narrativeType}`, scenario: model.scenario.primary, narrativeType, pageSkeleton: selected.skeleton, layout: selected.layout, regions, componentMix: selected.components, fallbackLayout: "large-canvas" };
+    const regions = selected.groups.map((group, index) => {
+      const factIds = ids(model, group.types);
+      const preferredComponent = group.component === "decision-matrix" && factIds.length < 2 ? "evidence-list" : group.component;
+      return { id: `region-${index + 1}`, purpose: group.types.join("-"), factIds, preferredComponent, visualPriority: index === 0 ? "primary" : "secondary", widthIntent: index === 0 ? "full" : "adaptive" };
+    }).filter((region) => region.factIds.length);
+    const covered = new Set(regions.flatMap((region) => region.factIds));
+    const uncoveredImportant = model.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !covered.has(fact.id)).map((fact) => fact.id);
+    if (uncoveredImportant.length) regions.push({ id: `region-${regions.length + 1}`, purpose: "supporting-evidence", factIds: uncoveredImportant, preferredComponent: "evidence-list", visualPriority: "secondary", widthIntent: "adaptive" });
+    const componentMix = [...new Set([...selected.components, ...(uncoveredImportant.length ? ["evidence-list"] : [])])];
+    const candidate = { planId: `${model.modelId}-${narrativeType}`, scenario: model.scenario.primary, narrativeType, pageSkeleton: selected.skeleton, layout: selected.layout, regions, componentMix, fallbackLayout: "large-canvas" };
     candidate.scoreBreakdown = scoreCandidate(model, candidate, rank);
     return candidate;
   }).sort((a, b) => b.scoreBreakdown.total - a.scoreBreakdown.total);

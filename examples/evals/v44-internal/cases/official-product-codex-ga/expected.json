@@ -1,0 +1,24 @@
+{
+  "caseId": "official-product-codex-ga",
+  "source": {
+    "publisher": "OpenAI",
+    "title": "Codex is now generally available",
+    "url": "https://openai.com/index/codex-now-generally-available/",
+    "publishedAt": "2025-10-06"
+  },
+  "stress": false,
+  "expected": {
+    "scenario": "product-capability",
+    "requiredFactIds": [
+      "c1",
+      "h1",
+      "h2",
+      "h3"
+    ],
+    "structureSignals": [
+      "capabilities",
+      "channels",
+      "team-value"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "caseId": "official-research-agent-expertise",
+  "source": {
+    "publisher": "Anthropic",
+    "title": "Agentic coding and persistent returns to expertise",
+    "url": "https://www.anthropic.com/research/claude-code-expertise",
+    "publishedAt": "2026-06-16"
+  },
+  "stress": false,
+  "expected": {
+    "scenario": "research-decision",
+    "requiredFactIds": [
+      "q1",
+      "e1",
+      "e2",
+      "c1"
+    ],
+    "structureSignals": [
+      "evidence-chain",
+      "comparison",
+      "finding"
+    ]
+  }
+}

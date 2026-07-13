@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2068" viewBox="0 0 2200 2068" data-layout-engine="v4" data-expression-mode="narrative-map">
+<rect x="0" y="0" width="2200" height="2068" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<g>
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
+<text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Agent 成功率与专业经验关系研究决策</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">证据、方案差异与决策建议</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="150" data-column="full">
+<rect x="96" y="240" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="96" y="240" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="138" y="288" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="338" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">Agent 降低了执行门槛，但领域经验仍持续产生回报</tspan></text>
+</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="434" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="164" data-item-count="3" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="434" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="482" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
+
+<rect x="124" y="544" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="148" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">典型会话中人主要决定做什么，Claude 主要决定如</tspan><tspan x="148" dy="30">何执行</tspan></text>
+<text x="148" y="656" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">典型会话中人主要决定做什么，Claude 主要决定如何执行</tspan></text><text x="764" y="644" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
+<rect x="783" y="544" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="807" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="807" dy="0">专业经验越高，Claude 每条指令承担的工作越多</tspan></text>
+<text x="807" y="626" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="807" dy="0">专业经验越高，Claude 每条指令承担的工作越多</tspan></text><text x="1423" y="644" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1423" dy="0">→</tspan></text>
+<rect x="1442" y="544" width="633" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="1466" y="590" font-size="24" fill="#111827" font-weight="700"><tspan x="1466" dy="0">Agent 降低了执行门槛，但领域经验仍持续产生回报</tspan></text>
+<text x="1466" y="626" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1466" dy="0">Agent 降低了执行门槛，但领域经验仍持续产生回报</tspan></text>
+</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="800" data-width="2008" data-height="370" data-column="full" data-component-variant="evidence-tiles" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="162" data-item-count="2" data-item-layout="rows" data-layout-reason="long-explanatory-items">
+<rect x="96" y="800" width="2008" height="370" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="848" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+<text x="124" y="880" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">典型会话中人主要决定做什么，Claude 主要决定如何执行；专业经验越高，Claude 每条指令承…</tspan></text>
+<rect x="124" y="904" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="140" y="921" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="944" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
+<text x="196" y="935" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">典型会话中人主要决定做什么，Claude 主要决定如何执行</tspan></text>
+<text x="196" y="962" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">典型会话中人主要决定做什么，Claude 主要决定如何执行</tspan></text>
+<rect x="124" y="1020" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
+<rect x="140" y="1037" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1060" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">02</tspan></text>
+<text x="196" y="1051" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">专业经验越高，Claude 每条指令承担的工作越多</tspan></text>
+<text x="196" y="1078" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">专业经验越高，Claude 每条指令承担的工作越多</tspan></text>
+</g><g data-v43-block="risk-list-3" data-block-type="risk-list" data-x="96" data-y="1202" data-width="2008" data-height="254" data-column="full" data-component-variant="risk-cluster" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="77" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
+<rect x="96" y="1202" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="1250" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">风险与约束</tspan></text>
+<text x="124" y="1282" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">研究基于可验证会话结果但不能覆盖所有工作质量维度</tspan></text>
+<rect x="124" y="1306" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-risk-item="0"/>
+<circle cx="150" cy="1333" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="168" y="1338" font-size="17" fill="#111827" font-weight="700"><tspan x="168" dy="0">研究基于可验证会话结果但不能覆盖所有工作质量维度</tspan></text>
+<text x="168" y="1365" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="168" dy="0">研究基于可验证会话结果但不能覆盖所有工作质量维度</tspan></text>
+</g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="96" data-y="1488" data-width="2008" data-height="254" data-column="full" data-component-variant="action-checklist" data-row="3" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="95" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
+<rect x="96" y="1488" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="1536" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
+<text x="124" y="1568" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">领域经验是否仍会影响 Agent 编码任务的协作方式和成功率</tspan></text>
+<rect x="124" y="1592" width="1952" height="104" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
+<circle cx="151" cy="1619" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="147" y="1625" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="147" dy="0">1</tspan></text>
+<text x="176" y="1623" font-size="17" fill="#111827" font-weight="700"><tspan x="176" dy="0">领域经验是否仍会影响 Agent 编码任务的协作方式和成功率</tspan></text>
+<text x="176" y="1650" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="176" dy="0">领域经验是否仍会影响 Agent 编码任务的协作方式和成功率</tspan></text>
+</g><g data-v43-block="evidence-list-5" data-block-type="evidence-list" data-x="96" data-y="1774" data-width="2008" data-height="254" data-column="full" data-component-variant="evidence-tiles" data-row="4" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="73" data-item-count="1" data-item-layout="rows" data-layout-reason="long-explanatory-items">
+<rect x="96" y="1774" width="2008" height="254" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="1822" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
+<text x="124" y="1854" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">不同职业完成编码目标的平均成功率接近软件工程师</tspan></text>
+<rect x="124" y="1878" width="1952" height="104" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="140" y="1895" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="152" y="1918" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
+<text x="196" y="1909" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">不同职业完成编码目标的平均成功率接近软件工程师</tspan></text>
+<text x="196" y="1936" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="196" dy="0">不同职业完成编码目标的平均成功率接近软件工程师</tspan></text>
+</g>
+</g>
+</svg>

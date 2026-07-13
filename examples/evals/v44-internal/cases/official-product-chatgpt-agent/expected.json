@@ -1,0 +1,24 @@
+{
+  "caseId": "official-product-chatgpt-agent",
+  "source": {
+    "publisher": "OpenAI",
+    "title": "Introducing ChatGPT agent",
+    "url": "https://openai.com/index/introducing-chatgpt-agent/",
+    "publishedAt": "2025-07-17"
+  },
+  "stress": false,
+  "expected": {
+    "scenario": "product-capability",
+    "requiredFactIds": [
+      "c1",
+      "h1",
+      "h2",
+      "r1"
+    ],
+    "structureSignals": [
+      "capability-map",
+      "usage-path",
+      "boundary"
+    ]
+  }
+}

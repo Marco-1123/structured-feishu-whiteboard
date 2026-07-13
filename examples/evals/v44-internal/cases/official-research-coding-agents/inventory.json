@@ -1,0 +1,45 @@
+{
+  "inventoryId": "official-research-coding-agents",
+  "title": "编码 Agent 对社会科学研究影响调研",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "q1",
+      "type": "context",
+      "text": "编码 Agent 是否正在改变社会科学研究生产率与资源差异",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "81% 的受访者尝试过在研究中使用 AI 聊天工具",
+      "value": "81%",
+      "importance": "high"
+    },
+    {
+      "id": "m2",
+      "type": "metric",
+      "text": "20% 的受访者已采用编码 Agent",
+      "value": "20%",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "编码 Agent 用户发布更多工作论文和基金申请",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "观察结果不能排除早期采用者原本就更高产的解释",
+      "importance": "high"
+    },
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "需要随机实验才能判断编码 Agent 的因果影响",
+      "importance": "high"
+    }
+  ]
+}

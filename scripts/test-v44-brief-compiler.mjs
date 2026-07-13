@@ -22,6 +22,7 @@ function candidate(id, total, narrativeType = "result-driven") {
 }
 
 assert.equal(decideConfidence({ candidates: [candidate("a", 92), candidate("b", 76)], confidenceEvidence: { scoreMargin: 16, missingRequiredSignals: [], unsupportedInferenceCount: 0 } }).level, "high");
+assert.equal(decideConfidence({ candidates: [candidate("a", 92), candidate("b", 91)], confidenceEvidence: { scoreMargin: 1, missingRequiredSignals: [], unsupportedInferenceCount: 0 } }).level, "medium", "two strong expression plans are a deterministic medium-confidence choice, not a semantic failure");
 assert.equal(decideConfidence({ candidates: [candidate("a", 76), candidate("b", 70)], confidenceEvidence: { scoreMargin: 6, missingRequiredSignals: [], unsupportedInferenceCount: 0 } }).level, "medium");
 assert.equal(decideConfidence({ candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }).level, "low");
 
@@ -34,6 +35,24 @@ assert.deepEqual(compiled.brief.planning.selectedFactIds.sort(), semanticModel.f
 assert.ok(compiled.brief.expressionBlocks.some((block) => block.type === "metric-card"));
 assert.equal(compiled.brief.subtitle, "阶段结果、关键问题与下一阶段行动");
 assert.ok(!compiled.brief.subtitle.includes("review-update"), "internal routing ids must not leak into the board");
+
+const groupedMetricModel = {
+  ...semanticModel,
+  inventoryId: "review-grouped-metrics",
+  facts: [
+    semanticModel.facts[0],
+    { id: "metric-coverage", type: "metric", text: "研究覆盖约 40 万次交互会话和约 23.5 万名用户", value: "400K", importance: "high", sourceRef: "metric-coverage", confidence: "supported" },
+    { id: "metric-growth", type: "metric", text: "七个月内典型任务估算价值平均提高约 25%", value: "+25%", importance: "high", sourceRef: "metric-growth", confidence: "supported" },
+  ],
+};
+const groupedMetricCandidate = {
+  ...candidate("grouped", 94),
+  regions: [{ id: "statement-with-metrics", purpose: "conclusion-metric", factIds: ["conclusion-1", "metric-coverage", "metric-growth"], preferredComponent: "statement", visualPriority: "primary", widthIntent: "full" }],
+};
+const groupedMetricBrief = compileV44Brief({ semanticModel: groupedMetricModel, planningResult: { candidates: [groupedMetricCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
+const groupedMetricText = JSON.stringify(groupedMetricBrief.expressionBlocks);
+assert.match(groupedMetricText, /七个月内典型任务估算价值平均提高约 25%/, "high-importance metrics grouped with a statement must remain fully visible");
+assert.ok(groupedMetricBrief.expressionBlocks.filter((block) => block.type === "metric-card").length >= 2, "grouped metrics should become metric cards instead of being clipped into the statement");
 
 const low = compileV44Brief({ semanticModel, planningResult: { candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }, style: "linear-system", title: "混合材料" });
 assert.equal(low.decision.level, "low");
@@ -55,6 +74,8 @@ const flowCandidate = { planId: "flow-plan", scenario: "process-collaboration", 
 const flowCompiled = compileV44Brief({ semanticModel: flowModel, planningResult: { candidates: [flowCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } });
 assert.ok(flowCompiled.brief.planning.selectedFactIds.includes("risk-1"));
 assert.ok(flowCompiled.brief.flowNodes.some((node) => node.type === "risk"));
-assert.ok(flowCompiled.brief.flowEdges.some((edge) => edge.type === "fallback"));
+assert.ok(flowCompiled.brief.flowEdges.some((edge) => edge.label === "边界与保障"));
+assert.ok(!flowCompiled.brief.flowEdges.some((edge) => edge.type === "fallback"), "a risk fact must not become an inferred exception branch without an explicit relationship");
+assert.ok(flowCompiled.brief.flowNodes.findIndex((node) => node.type === "risk") < flowCompiled.brief.flowNodes.findIndex((node) => node.type === "result"));
 
 console.log("ok: V4.4 brief compiler tests passed");

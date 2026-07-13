@@ -1,0 +1,24 @@
+{
+  "caseId": "stress-conflicting-benchmarks",
+  "source": {
+    "publisher": "OpenAI",
+    "title": "GPT-5 System Card",
+    "url": "https://openai.com/index/gpt-5-system-card/",
+    "publishedAt": "2025-08-07"
+  },
+  "stress": true,
+  "expected": {
+    "scenario": "research-decision",
+    "requiredFactIds": [
+      "q1",
+      "e1",
+      "e2",
+      "r1"
+    ],
+    "structureSignals": [
+      "conflict",
+      "evidence",
+      "uncertainty"
+    ]
+  }
+}

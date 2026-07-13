@@ -1,0 +1,300 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 98,
+    "scoreMargin": 1,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-stress-conflicting-benchmarks-problem-driven",
+  "alternatives": [
+    {
+      "planId": "semantic-stress-conflicting-benchmarks-comparison-driven",
+      "scenario": "research-decision",
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-unresolved",
+          "factIds": [
+            "q1",
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "evidence",
+          "factIds": [
+            "e1",
+            "e2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "option",
+          "factIds": [
+            "o1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 97,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 1,
+        "semanticSignalBonus": 9,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-stress-conflicting-benchmarks-causal",
+      "scenario": "research-decision",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1",
+            "e2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "q1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "o1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 93,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 9,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "模型能力材料中的冲突证据与选型判断",
+    "subtitle": "证据、方案差异与决策建议",
+    "summaryLabel": "核心判断",
+    "summary": "应使用真实任务集验证后再确定模型与路由策略",
+    "expressionMode": "narrative-map",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "应使用真实任务集验证后再确定模型与路由策略"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "复杂推理和编码评测显示推理模型优势明显；高吞吐日常任务仍更重视速度与成本",
+        "items": [
+          {
+            "label": "复杂推理和编码评测显示推理模型优势明显",
+            "note": "复杂推理和编码评测显示推理模型优势明显",
+            "status": "good"
+          },
+          {
+            "label": "高吞吐日常任务仍更重视速度与成本",
+            "note": "高吞吐日常任务仍更重视速度与成本",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1",
+          "e2"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "单一公开基准不能代表企业真实任务质量",
+        "items": [
+          {
+            "label": "单一公开基准不能代表企业真实任务质量",
+            "note": "单一公开基准不能代表企业真实任务质量",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "多个评测指标方向不一致时如何选择适合真实工作的模型",
+        "items": [
+          {
+            "label": "多个评测指标方向不一致时如何选择适合真实工作的模型",
+            "note": "多个评测指标方向不一致时如何选择适合真实工作的模型",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "q1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "统一路由与固定模型各有可控性和效率取舍",
+        "items": [
+          {
+            "label": "统一路由与固定模型各有可控性和效率取舍",
+            "note": "统一路由与固定模型各有可控性和效率取舍",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "o1"
+        ]
+      },
+      {
+        "type": "narrative-chain",
+        "title": "判断链路",
+        "items": [
+          {
+            "label": "复杂推理和编码评测显示推理模型优势明显",
+            "note": "复杂推理和编码评测显示推理模型优势明显",
+            "status": "good"
+          },
+          {
+            "label": "高吞吐日常任务仍更重视速度与成本",
+            "note": "高吞吐日常任务仍更重视速度与成本",
+            "status": "good"
+          },
+          {
+            "label": "应使用真实任务集验证后再确定模型与路由策略",
+            "note": "应使用真实任务集验证后再确定模型与路由策略",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1",
+          "e2",
+          "c1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "stress-conflicting-benchmarks",
+      "selectedFactIds": [
+        "c1",
+        "e1",
+        "e2",
+        "r1",
+        "q1",
+        "o1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-stress-conflicting-benchmarks-problem-driven"
+    }
+  }
+}

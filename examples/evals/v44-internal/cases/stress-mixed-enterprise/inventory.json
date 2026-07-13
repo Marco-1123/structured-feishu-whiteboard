@@ -1,0 +1,38 @@
+{
+  "inventoryId": "stress-mixed-enterprise",
+  "title": "企业 AI 材料：现状数据、治理设想与后续动作",
+  "sourceType": "mixed",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "结构化工作流使用量年内增长 19 倍",
+      "value": "19x",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "技术、医疗和制造是增长最快的行业",
+      "importance": "medium"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "组织准备度与实施能力成为主要约束",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "建立用例优先级、权限治理和效果复盘机制",
+      "importance": "high"
+    }
+  ]
+}

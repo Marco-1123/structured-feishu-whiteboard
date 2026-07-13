@@ -103,18 +103,18 @@ const limits = {
   bridgeLabel: 14,
   bridgeValue: 12,
   bridgeNote: 28,
-  expressionTitle: 18,
-  expressionLine: 30,
+  expressionTitle: 32,
+  expressionLine: 80,
   expressionValue: 12,
   expressionLabel: 12,
-  expressionNote: 28,
-  expressionItemLabel: 16,
-  expressionItemNote: 24,
+  expressionNote: 50,
+  expressionItemLabel: 40,
+  expressionItemNote: 64,
   flowId: 18,
   flowLaneId: 16,
   flowLaneTitle: 12,
-  flowNodeTitle: 14,
-  flowNodeLine: 24,
+  flowNodeTitle: 28,
+  flowNodeLine: 48,
   flowEdgeLabel: 12,
   insight: 90,
 };
@@ -449,7 +449,7 @@ function validateExpressionCanvas(brief) {
   if (brief.expressionMode === "narrative-map") {
     if ((counts.get("narrative-chain") || 0) < 1) fail("narrative-map requires a narrative-chain block");
     if ((counts.get("evidence-list") || 0) < 1 && (counts.get("decision-matrix") || 0) < 1) fail("narrative-map requires an evidence-list or decision-matrix block");
-    if ((counts.get("action-list") || 0) < 1) fail("narrative-map requires an action-list block");
+    if ((counts.get("action-list") || 0) < 1 && (counts.get("risk-list") || 0) < 1) fail("narrative-map requires an action-list or risk-list closure block");
   }
   if (brief.expressionMode === "modular-canvas") {
     const hasSignal = ["metric-card", "progress-bar", "ranked-bar", "evidence-list", "status-board", "trend-sparkline", "variance-bridge-v2"].some((type) => (counts.get(type) || 0) > 0);

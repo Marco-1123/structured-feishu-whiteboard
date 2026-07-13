@@ -1,0 +1,198 @@
+{
+  "candidates": [
+    {
+      "planId": "semantic-stress-weak-conclusion-problem-driven",
+      "scenario": "research-decision",
+      "narrativeType": "problem-driven",
+      "pageSkeleton": "overview-detail",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-2",
+          "purpose": "cause-evidence",
+          "factIds": [
+            "e1",
+            "e2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "q1",
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 98,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 12,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-stress-weak-conclusion-comparison-driven",
+      "scenario": "research-decision",
+      "narrativeType": "comparison-driven",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-unresolved",
+          "factIds": [
+            "q1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "evidence",
+          "factIds": [
+            "e1",
+            "e2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "decision-matrix",
+        "risk-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 94,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 1,
+        "semanticSignalBonus": 6,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-stress-weak-conclusion-causal",
+      "scenario": "research-decision",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1",
+            "e2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "q1",
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 93,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 9,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "confidenceEvidence": {
+    "topScore": 98,
+    "secondScore": 94,
+    "scoreMargin": 4,
+    "missingRequiredSignals": [],
+    "unsupportedInferenceCount": 0
+  }
+}

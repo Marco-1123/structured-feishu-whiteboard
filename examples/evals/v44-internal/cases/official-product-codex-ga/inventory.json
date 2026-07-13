@@ -1,0 +1,43 @@
+{
+  "inventoryId": "official-product-codex-ga",
+  "title": "Codex 团队协作能力介绍",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "Codex 已成为覆盖编辑器、终端、云端与团队协作的编码 Agent",
+      "importance": "critical"
+    },
+    {
+      "id": "h1",
+      "type": "hierarchy",
+      "text": "Slack 集成让团队可直接从频道委派任务",
+      "importance": "high"
+    },
+    {
+      "id": "h2",
+      "type": "hierarchy",
+      "text": "Codex SDK 可将同一 Agent 嵌入工作流和应用",
+      "importance": "high"
+    },
+    {
+      "id": "h3",
+      "type": "hierarchy",
+      "text": "管理工具提供环境控制、监控和分析能力",
+      "importance": "high"
+    },
+    {
+      "id": "p1",
+      "type": "process",
+      "text": "同一账户连接编辑器、终端和云端任务",
+      "importance": "medium"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "团队规模化使用需要统一环境与管理员控制",
+      "importance": "high"
+    }
+  ]
+}

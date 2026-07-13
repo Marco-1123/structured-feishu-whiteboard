@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-stress-conflicting-benchmarks",
+  "inventoryId": "stress-conflicting-benchmarks",
+  "scenario": {
+    "primary": "research-decision"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "q1",
+      "type": "unresolved",
+      "text": "多个评测指标方向不一致时如何选择适合真实工作的模型",
+      "importance": "critical",
+      "sourceRef": "q1",
+      "confidence": "supported"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "复杂推理和编码评测显示推理模型优势明显",
+      "importance": "high",
+      "sourceRef": "e1",
+      "confidence": "supported"
+    },
+    {
+      "id": "e2",
+      "type": "evidence",
+      "text": "高吞吐日常任务仍更重视速度与成本",
+      "importance": "high",
+      "sourceRef": "e2",
+      "confidence": "supported"
+    },
+    {
+      "id": "o1",
+      "type": "option",
+      "text": "统一路由与固定模型各有可控性和效率取舍",
+      "importance": "high",
+      "sourceRef": "o1",
+      "confidence": "supported"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "单一公开基准不能代表企业真实任务质量",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported"
+    },
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "应使用真实任务集验证后再确定模型与路由策略",
+      "importance": "high",
+      "sourceRef": "c1",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [],
+  "readingLayers": {
+    "first": [
+      "q1"
+    ],
+    "second": [
+      "e1",
+      "e2",
+      "o1",
+      "r1",
+      "c1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "q1",
+      "e1",
+      "e2",
+      "o1",
+      "r1",
+      "c1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "research-decision",
+      "score": 7,
+      "evidence": {
+        "titleTerms": [
+          "选型"
+        ],
+        "factTypeHits": 4,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "product-capability",
+      "score": 4,
+      "evidence": {
+        "titleTerms": [
+          "能力"
+        ],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "process-collaboration",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

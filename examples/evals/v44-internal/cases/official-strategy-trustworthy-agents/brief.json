@@ -1,0 +1,87 @@
+{
+  "pipelineVersion": "4.4",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "title": "可信 Agent 治理策略方案",
+  "subtitle": "从核心判断到证据、约束与验证动作",
+  "summaryLabel": "核心判断",
+  "summary": "Agent 治理必须在提升自主性的同时保留可观察、可控制和可追责能力",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心判断",
+      "body": [
+        "Agent 治理必须在提升自主性的同时保留可观察、可控制和可追责能力"
+      ],
+      "sourceFactIds": [
+        "c1"
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "风险与约束",
+      "note": "Agent 可能误读用户意图并执行非预期操作；跨应用工具使用会扩大提示注入和权限滥用风险",
+      "items": [
+        {
+          "label": "Agent 可能误读用户意图并执行非预期操作",
+          "note": "Agent 可能误读用户意图并执行非预期操作",
+          "status": "good"
+        },
+        {
+          "label": "跨应用工具使用会扩大提示注入和权限滥用风险",
+          "note": "跨应用工具使用会扩大提示注入和权限滥用风险",
+          "status": "good"
+        }
+      ],
+      "sourceFactIds": [
+        "k1",
+        "k2"
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
+      "items": [
+        {
+          "label": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
+          "note": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
+          "status": "good"
+        }
+      ],
+      "sourceFactIds": [
+        "a1"
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "关键证据",
+      "note": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益",
+      "items": [
+        {
+          "label": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益",
+          "note": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益",
+          "status": "good"
+        }
+      ],
+      "sourceFactIds": [
+        "e1"
+      ]
+    }
+  ],
+  "planning": {
+    "inventoryId": "official-strategy-trustworthy-agents",
+    "selectedFactIds": [
+      "c1",
+      "k1",
+      "k2",
+      "a1",
+      "e1"
+    ],
+    "omittedFacts": [],
+    "routeDecisionId": "semantic-official-strategy-trustworthy-agents-hierarchical"
+  }
+}

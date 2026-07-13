@@ -1,0 +1,289 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 97,
+    "scoreMargin": 2,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-official-research-gpt5-system-comparison-driven",
+  "alternatives": [
+    {
+      "planId": "semantic-official-research-gpt5-system-problem-driven",
+      "scenario": "research-decision",
+      "narrativeType": "problem-driven",
+      "pageSkeleton": "overview-detail",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "cause-evidence",
+          "factIds": [
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "q1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "o1",
+            "o2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 95,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 9,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-official-research-gpt5-system-causal",
+      "scenario": "research-decision",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "q1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "o1",
+            "o2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 90,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 6,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "GPT-5 系统架构调研与模型选择决策",
+    "subtitle": "证据、方案差异与决策建议",
+    "summaryLabel": "核心判断",
+    "summary": "采用统一路由并为高风险任务保留显式模型与验证控制",
+    "expressionMode": "narrative-map",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "不同复杂度任务应如何选择快速模型、推理模型与路由系统；采用统一路由并为高风险任务保留显式模型与验证控制"
+        ],
+        "sourceFactIds": [
+          "q1",
+          "c1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+        "items": [
+          {
+            "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+            "note": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1"
+        ]
+      },
+      {
+        "type": "decision-matrix",
+        "title": "方案比较",
+        "note": "快速模型适合多数高吞吐日常问题；推理模型适合复杂问题、工具调用和更深分析",
+        "items": [
+          {
+            "label": "快速模型适合多数高吞吐日常问题",
+            "note": "快速模型适合多数高吞吐日常问题",
+            "status": "good"
+          },
+          {
+            "label": "推理模型适合复杂问题、工具调用和更深分析",
+            "note": "推理模型适合复杂问题、工具调用和更深分析",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "o1",
+          "o2"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "高风险任务仍需人工验证模型输出",
+        "items": [
+          {
+            "label": "高风险任务仍需人工验证模型输出",
+            "note": "高风险任务仍需人工验证模型输出",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "narrative-chain",
+        "title": "判断链路",
+        "items": [
+          {
+            "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+            "note": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+            "status": "good"
+          },
+          {
+            "label": "采用统一路由并为高风险任务保留显式模型与验证控制",
+            "note": "采用统一路由并为高风险任务保留显式模型与验证控制",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1",
+          "c1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "official-research-gpt5-system",
+      "selectedFactIds": [
+        "q1",
+        "c1",
+        "e1",
+        "o1",
+        "o2",
+        "r1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-official-research-gpt5-system-comparison-driven"
+    }
+  }
+}

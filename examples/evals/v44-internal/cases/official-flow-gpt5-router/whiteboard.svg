@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="724" viewBox="0 0 2200 724" data-layout-engine="v4" data-layout="flow-canvas" data-flow-mode="linear-flow">
+<rect x="0" y="0" width="2200" height="724" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<g>
+<g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
+<text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">GPT-5 实时路由决策流程</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">按输入、动作、判断和输出组织流程</tspan></text>
+</g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="240" data-width="2008" data-height="128" data-column="full">
+<rect x="96" y="240" width="2008" height="128" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<rect x="96" y="240" width="12" height="128" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="138" y="284" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">流程判断</tspan></text>
+<text x="138" y="328" font-size="27" fill="#111827" font-weight="700"><tspan x="138" dy="0">用户输入问题并可显式要求深度思考</tspan></text>
+</g><g data-v43-block="flow" data-block-type="linear-flow" data-x="96" data-y="424" data-width="2008" data-height="244" data-column="full">
+<line x1="465" y1="546" x2="505" y2="546" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="node-1-&gt;node-2" data-from="node-1" data-to="node-2" data-start="465,546" data-end="505,546" data-edge-label="进入下一步"/>
+<line x1="505" y1="546" x2="493" y2="537" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="505" y1="546" x2="493" y2="555" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="485" y="529" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="485" dy="0">进入下一步</tspan></text>
+<line x1="874" y1="546" x2="914" y2="546" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="node-2-&gt;node-3" data-from="node-2" data-to="node-3" data-start="874,546" data-end="914,546" data-edge-label="进入下一步"/>
+<line x1="914" y1="546" x2="902" y2="537" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="914" y1="546" x2="902" y2="555" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="894" y="529" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="894" dy="0">进入下一步</tspan></text>
+<line x1="1283" y1="546" x2="1323" y2="546" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="node-3-&gt;risk-1" data-from="node-3" data-to="risk-1" data-start="1283,546" data-end="1323,546" data-edge-label="边界与保障"/>
+<line x1="1323" y1="546" x2="1311" y2="537" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1323" y1="546" x2="1311" y2="555" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1303" y="529" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="边界与保障"><tspan x="1303" dy="0">边界与保障</tspan></text>
+<line x1="1692" y1="546" x2="1732" y2="546" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="risk-1-&gt;node-4" data-from="risk-1" data-to="node-4" data-start="1692,546" data-end="1732,546" data-edge-label="进入下一步"/>
+<line x1="1732" y1="546" x2="1720" y2="537" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="1732" y1="546" x2="1720" y2="555" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
+<text x="1712" y="529" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="进入下一步"><tspan x="1712" dy="0">进入下一步</tspan></text>
+<rect x="96" y="424" width="369" height="244" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-1" data-node-x="96" data-node-y="424" data-node-width="369" data-node-height="244" data-node-type="start"/>
+<rect x="118" y="446" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<rect x="142" y="446" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="160" y="467" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="160" dy="0">开始</tspan></text>
+<text x="142" y="508" font-size="24" fill="#111827" font-weight="700"><tspan x="142" dy="0">用户输入问题并可显式要求</tspan><tspan x="142" dy="30">深度思考</tspan></text>
+<text x="142" y="570" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="142" dy="0">用户输入问题并可显式要求深度思考</tspan></text>
+<rect x="505" y="424" width="369" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-2" data-node-x="505" data-node-y="424" data-node-width="369" data-node-height="244" data-node-type="decision"/>
+<rect x="527" y="446" width="8" height="200" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<rect x="551" y="446" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8DEE8" stroke-width="1"/>
+<text x="569" y="467" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="569" dy="0">判断</tspan></text>
+<text x="551" y="508" font-size="24" fill="#111827" font-weight="700"><tspan x="551" dy="0">路由器判断对话类型、复杂</tspan><tspan x="551" dy="30">度和工具需求</tspan></text>
+<text x="551" y="570" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="551" dy="0">路由器判断对话类型、复杂度和工具需</tspan><tspan x="551" dy="24">求</tspan></text>
+<rect x="914" y="424" width="369" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-3" data-node-x="914" data-node-y="424" data-node-width="369" data-node-height="244" data-node-type="action"/>
+<rect x="936" y="446" width="8" height="200" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<rect x="960" y="446" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="978" y="467" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="978" dy="0">动作</tspan></text>
+<text x="960" y="508" font-size="24" fill="#111827" font-weight="700"><tspan x="960" dy="0">日常任务进入快速模型，复</tspan><tspan x="960" dy="30">杂任务进入推理模型</tspan></text>
+<text x="960" y="570" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="960" dy="0">日常任务进入快速模型，复杂任务进入</tspan><tspan x="960" dy="24">推理模型</tspan></text>
+<rect x="1323" y="424" width="369" height="244" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="risk-1" data-node-x="1323" data-node-y="424" data-node-width="369" data-node-height="244" data-node-type="risk"/>
+<rect x="1345" y="446" width="8" height="200" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<rect x="1369" y="446" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1387" y="467" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1387" dy="0">风险</tspan></text>
+<text x="1369" y="508" font-size="24" fill="#111827" font-weight="700"><tspan x="1369" dy="0">额度达到上限后由对应 mi</tspan><tspan x="1369" dy="30">ni 模型承接剩余请求</tspan></text>
+<text x="1369" y="570" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1369" dy="0">额度达到上限后由对应 mini 模型承</tspan><tspan x="1369" dy="24">接剩余请求</tspan></text>
+<rect x="1732" y="424" width="369" height="244" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="node-4" data-node-x="1732" data-node-y="424" data-node-width="369" data-node-height="244" data-node-type="result"/>
+<rect x="1754" y="446" width="8" height="200" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
+<rect x="1778" y="446" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1796" y="467" font-size="15" fill="#16A085" font-weight="700"><tspan x="1796" dy="0">结果</tspan></text>
+<text x="1778" y="508" font-size="24" fill="#111827" font-weight="700"><tspan x="1778" dy="0">模型生成回答并收集切换、</tspan><tspan x="1778" dy="30">偏好和正确性信号</tspan></text>
+<text x="1778" y="570" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1778" dy="0">模型生成回答并收集切换、偏好和正确</tspan><tspan x="1778" dy="24">性信号</tspan></text>
+</g>
+</g>
+</svg>

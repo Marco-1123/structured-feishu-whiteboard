@@ -1,0 +1,44 @@
+{
+  "inventoryId": "stress-duplicate-codex-scaling",
+  "title": "Codex 采用信息散落且部分重复的阶段材料",
+  "sourceType": "mixed",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "Codex 企业采用从个人工具快速进入组织工作流",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
+      "value": "4M+",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "企业正在测试覆盖率、团队速度和技术债治理场景",
+      "importance": "high"
+    },
+    {
+      "id": "e2",
+      "type": "evidence",
+      "text": "企业正在软件开发生命周期中寻找高价值 Codex 用例",
+      "importance": "medium"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "试点成果尚未自动等于生产级规模化能力",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "将验证有效的用例沉淀成生产部署与治理方法",
+      "importance": "high"
+    }
+  ]
+}

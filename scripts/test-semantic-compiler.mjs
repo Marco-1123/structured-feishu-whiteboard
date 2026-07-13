@@ -54,4 +54,20 @@ const incompleteReview = compileSemanticModel({ inventory: inventory("review-2",
 assert.equal(incompleteReview.scenario.primary, "review-update");
 assert.ok(incompleteReview.facts.some((fact) => fact.type === "unresolved" && fact.confidence === "missing"), "incomplete review should mark missing next action instead of inventing it");
 
+const governanceStrategy = compileSemanticModel({ inventory: inventory("strategy-ambiguous", "Agent 治理方向材料", [
+  { id: "c1", type: "conclusion", text: "可信 Agent 需要自主性与控制能力共同设计。" },
+  { id: "k1", type: "constraint", text: "跨应用执行会扩大意图误读影响。" },
+  { id: "k2", type: "constraint", text: "提示注入会放大权限风险。" },
+  { id: "a1", type: "action", text: "先建立控制面再扩大自主范围。" },
+]) });
+assert.equal(governanceStrategy.scenario.primary, "strategy-proposal", "incidental product words in body text must not override the strategy fact structure");
+
+const openQuestionResearch = compileSemanticModel({ inventory: inventory("open-question-research", "关于模型福利的开放问题材料", [
+  { id: "q1", type: "context", text: "模型是否具有体验仍是开放问题。" },
+  { id: "e1", type: "evidence", text: "现有研究只提供有限证据。" },
+  { id: "r1", type: "risk", text: "目前缺少可靠测量方法。" },
+  { id: "a1", type: "action", text: "继续开展跨学科研究。" },
+]) });
+assert.equal(openQuestionResearch.scenario.primary, "research-decision", "an explicit open question with evidence must route to research-decision");
+
 console.log("ok: semantic compiler tests passed");

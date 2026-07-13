@@ -1,0 +1,47 @@
+{
+  "inventoryId": "official-flow-agent-governance",
+  "title": "可信 Agent 风险治理协作流程",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "p1",
+      "type": "process",
+      "text": "用户定义目标并授予最小必要权限",
+      "importance": "critical",
+      "lane": "用户",
+      "order": 1
+    },
+    {
+      "id": "p2",
+      "type": "process",
+      "text": "Agent 形成计划并识别高风险动作",
+      "importance": "high",
+      "lane": "Agent",
+      "order": 2
+    },
+    {
+      "id": "p3",
+      "type": "process",
+      "text": "高风险动作提交人工确认，低风险动作继续执行",
+      "importance": "high",
+      "lane": "审批人",
+      "order": 3
+    },
+    {
+      "id": "p4",
+      "type": "process",
+      "text": "平台记录工具调用、结果和异常回退",
+      "importance": "high",
+      "lane": "平台",
+      "order": 4
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "检测到提示注入或权限越界时停止并升级处理",
+      "importance": "high",
+      "lane": "平台",
+      "order": 5
+    }
+  ]
+}

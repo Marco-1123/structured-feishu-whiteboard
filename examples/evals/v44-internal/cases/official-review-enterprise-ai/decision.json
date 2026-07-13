@@ -1,0 +1,254 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 97,
+    "scoreMargin": 8,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-official-review-enterprise-ai-result-driven",
+  "alternatives": [
+    {
+      "planId": "semantic-official-review-enterprise-ai-causal",
+      "scenario": "review-update",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "m1",
+            "m2",
+            "m3"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 89,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 3,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-official-review-enterprise-ai-temporal",
+      "scenario": "review-update",
+      "narrativeType": "temporal",
+      "pageSkeleton": "past-future-split",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result-metric",
+          "factIds": [
+            "c1",
+            "m1",
+            "m2",
+            "m3"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "action",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "mini-roadmap",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 87,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 3,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "企业 AI 采用阶段复盘与下一步重点",
+    "subtitle": "阶段结果、关键问题与下一阶段行动",
+    "summaryLabel": "核心判断",
+    "summary": "企业 AI 使用正从零散问答进入可复用的深度工作流",
+    "expressionMode": "modular-canvas",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "企业 AI 使用正从零散问答进入可复用的深度工作流"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "企业用户每周消息量同比增长约 8 倍",
+        "value": "8x",
+        "label": "阶段结果",
+        "note": "企业用户每周消息量同比增长约 8 倍",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m1"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "Projects 与 Custom GPTs 等结构化工作流使…",
+        "value": "19x",
+        "label": "阶段结果",
+        "note": "Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m2"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "75% 的受访员工认为 AI 改善了工作速度或质量",
+        "value": "75%",
+        "label": "阶段结果",
+        "note": "75% 的受访员工认为 AI 改善了工作速度或质量",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m3"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "领先组织与中位组织之间的采用深度差距仍在扩大",
+        "items": [
+          {
+            "label": "领先组织与中位组织之间的采用深度差距仍在扩大",
+            "note": "领先组织与中位组织之间的采用深度差距仍在扩大",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "下一阶段把高价值用例沉淀为组织级可复用流程",
+        "items": [
+          {
+            "label": "下一阶段把高价值用例沉淀为组织级可复用流程",
+            "note": "下一阶段把高价值用例沉淀为组织级可复用流程",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "a1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "official-review-enterprise-ai",
+      "selectedFactIds": [
+        "c1",
+        "m1",
+        "m2",
+        "m3",
+        "r1",
+        "a1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-official-review-enterprise-ai-result-driven"
+    }
+  }
+}

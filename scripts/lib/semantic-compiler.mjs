@@ -11,7 +11,7 @@ function typeCount(facts, type) {
 }
 
 function scoreArchetypes(inventory, config) {
-  const title = `${inventory.title || ""} ${inventory.facts.map((fact) => fact.text).join(" ")}`;
+  const title = `${inventory.title || ""}`;
   const lanes = new Set(inventory.facts.map((fact) => fact.lane).filter(Boolean));
   return Object.entries(config.archetypes).map(([scenario, rule]) => {
     const titleHits = rule.titleTerms.filter((term) => title.toLowerCase().includes(term.toLowerCase()));

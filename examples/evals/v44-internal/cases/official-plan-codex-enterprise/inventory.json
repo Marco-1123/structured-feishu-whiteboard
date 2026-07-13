@@ -1,0 +1,49 @@
+{
+  "inventoryId": "official-plan-codex-enterprise",
+  "title": "Codex 企业规模化实施计划",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "企业 Codex 推广需要把高价值用例从试点转化为生产级部署",
+      "importance": "critical"
+    },
+    {
+      "id": "t1",
+      "type": "timeline",
+      "text": "阶段一识别软件生命周期中的高价值场景",
+      "importance": "high",
+      "lane": "业务团队",
+      "order": 1
+    },
+    {
+      "id": "t2",
+      "type": "timeline",
+      "text": "阶段二通过 Codex Labs 与合作伙伴验证用例",
+      "importance": "high",
+      "lane": "平台团队",
+      "order": 2
+    },
+    {
+      "id": "t3",
+      "type": "timeline",
+      "text": "阶段三形成生产级部署、治理和规模化推广",
+      "importance": "high",
+      "lane": "治理团队",
+      "order": 3
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "企业环境、权限和工程流程差异会影响复制速度",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "建立可复用实施方法与效果验证机制",
+      "importance": "high"
+    }
+  ]
+}

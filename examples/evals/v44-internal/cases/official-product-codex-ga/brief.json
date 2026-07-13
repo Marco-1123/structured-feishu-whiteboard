@@ -1,0 +1,99 @@
+{
+  "pipelineVersion": "4.4",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "title": "Codex 团队协作能力介绍",
+  "subtitle": "能力层级、应用场景与扩展方向",
+  "summaryLabel": "核心判断",
+  "summary": "Codex 已成为覆盖编辑器、终端、云端与团队协作的编码 Agent",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心判断",
+      "body": [
+        "Codex 已成为覆盖编辑器、终端、云端与团队协作的编码 Agent"
+      ],
+      "sourceFactIds": [
+        "c1"
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "核心能力",
+      "note": "Slack 集成让团队可直接从频道委派任务；Codex SDK 可将同一 Agent 嵌入工作流和…",
+      "items": [
+        {
+          "label": "Slack 集成让团队可直接从频道委派任务",
+          "note": "Slack 集成让团队可直接从频道委派任务",
+          "status": "good"
+        },
+        {
+          "label": "Codex SDK 可将同一 Agent 嵌入工作流和应用",
+          "note": "Codex SDK 可将同一 Agent 嵌入工作流和应用",
+          "status": "good"
+        },
+        {
+          "label": "管理工具提供环境控制、监控和分析能力",
+          "note": "管理工具提供环境控制、监控和分析能力",
+          "status": "good"
+        },
+        {
+          "label": "同一账户连接编辑器、终端和云端任务",
+          "note": "同一账户连接编辑器、终端和云端任务",
+          "status": "good"
+        }
+      ],
+      "sourceFactIds": [
+        "h1",
+        "h2",
+        "h3",
+        "p1"
+      ]
+    },
+    {
+      "type": "evidence-list",
+      "title": "关键证据",
+      "note": "团队规模化使用需要统一环境与管理员控制",
+      "items": [
+        {
+          "label": "团队规模化使用需要统一环境与管理员控制",
+          "note": "团队规模化使用需要统一环境与管理员控制",
+          "status": "risk"
+        }
+      ],
+      "sourceFactIds": [
+        "r1"
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "关键风险",
+      "items": [
+        {
+          "label": "团队规模化使用需要统一环境与管理员控制",
+          "note": "团队规模化使用需要统一环境与管理员控制",
+          "status": "risk"
+        }
+      ],
+      "sourceFactIds": [
+        "r1"
+      ]
+    }
+  ],
+  "planning": {
+    "inventoryId": "official-product-codex-ga",
+    "selectedFactIds": [
+      "c1",
+      "h1",
+      "h2",
+      "h3",
+      "p1",
+      "r1"
+    ],
+    "omittedFacts": [],
+    "routeDecisionId": "semantic-official-product-codex-ga-hierarchical"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "pipeline": "v4.4",
+  "status": "passed",
+  "startedAt": "2026-07-13T06:34:44.804Z",
+  "inputs": {
+    "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/inventory.json"
+  },
+  "checks": [
+    {
+      "name": "inventory-validation",
+      "status": "passed"
+    },
+    {
+      "name": "semantic-plan-render-layout",
+      "status": "passed"
+    },
+    {
+      "name": "preview-pixel-sanity",
+      "status": "passed"
+    }
+  ],
+  "outputs": {
+    "semanticModel": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/semantic-model.json",
+    "expressionPlans": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/expression-plans.json",
+    "decision": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/decision.json",
+    "brief": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/brief.json",
+    "whiteboard": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/whiteboard.svg",
+    "preview": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/stress-duplicate-codex-scaling/whiteboard.png"
+  },
+  "coverage": {
+    "importantFacts": 5,
+    "missingImportantFacts": []
+  },
+  "decision": {
+    "scenario": {
+      "primary": "review-update"
+    },
+    "confidence": {
+      "level": "medium",
+      "topScore": 97,
+      "scoreMargin": 8,
+      "missingRequiredSignals": 0,
+      "unsupportedInferenceCount": 0,
+      "thresholds": {
+        "highScore": 78,
+        "highMargin": 10,
+        "mediumScore": 58,
+        "mediumMargin": 4
+      }
+    },
+    "selectedPlanId": "semantic-stress-duplicate-codex-scaling-causal"
+  },
+  "finishedAt": "2026-07-13T06:34:54.723Z"
+}

@@ -1,0 +1,37 @@
+{
+  "inventoryId": "official-strategy-responsible-scaling",
+  "title": "前沿模型负责任扩展策略",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "模型能力提升必须与相匹配的安全和安全保障同步推进",
+      "importance": "critical"
+    },
+    {
+      "id": "k1",
+      "type": "constraint",
+      "text": "灾难性误用与非预期自主行为风险随能力提升而增加",
+      "importance": "high"
+    },
+    {
+      "id": "o1",
+      "type": "comparison",
+      "text": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "ASL-3 要求更强安全措施和高水平红队验证",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "能力触及阈值前先完成对应等级的安全证明与部署控制",
+      "importance": "high"
+    }
+  ]
+}

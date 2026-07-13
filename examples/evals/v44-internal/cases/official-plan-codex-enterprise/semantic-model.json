@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-official-plan-codex-enterprise",
+  "inventoryId": "official-plan-codex-enterprise",
+  "scenario": {
+    "primary": "project-plan"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "objective",
+      "text": "企业 Codex 推广需要把高价值用例从试点转化为生产级部署",
+      "importance": "critical",
+      "sourceRef": "c1",
+      "confidence": "supported"
+    },
+    {
+      "id": "t1",
+      "type": "stage",
+      "text": "阶段一识别软件生命周期中的高价值场景",
+      "importance": "high",
+      "sourceRef": "t1",
+      "confidence": "supported",
+      "actor": "业务团队",
+      "order": 1
+    },
+    {
+      "id": "t2",
+      "type": "stage",
+      "text": "阶段二通过 Codex Labs 与合作伙伴验证用例",
+      "importance": "high",
+      "sourceRef": "t2",
+      "confidence": "supported",
+      "actor": "平台团队",
+      "order": 2
+    },
+    {
+      "id": "t3",
+      "type": "stage",
+      "text": "阶段三形成生产级部署、治理和规模化推广",
+      "importance": "high",
+      "sourceRef": "t3",
+      "confidence": "supported",
+      "actor": "治理团队",
+      "order": 3
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "企业环境、权限和工程流程差异会影响复制速度",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "建立可复用实施方法与效果验证机制",
+      "importance": "high",
+      "sourceRef": "a1",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [],
+  "readingLayers": {
+    "first": [
+      "c1"
+    ],
+    "second": [
+      "t1",
+      "t2",
+      "t3",
+      "r1",
+      "a1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "c1",
+      "t1",
+      "t2",
+      "t3",
+      "r1",
+      "a1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "project-plan",
+      "score": 8,
+      "evidence": {
+        "titleTerms": [
+          "实施计划"
+        ],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 2
+      }
+    },
+    {
+      "scenario": "process-collaboration",
+      "score": 4,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 4,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "product-capability",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

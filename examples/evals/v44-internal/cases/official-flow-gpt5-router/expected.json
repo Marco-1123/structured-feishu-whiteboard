@@ -1,0 +1,24 @@
+{
+  "caseId": "official-flow-gpt5-router",
+  "source": {
+    "publisher": "OpenAI",
+    "title": "GPT-5 System Card",
+    "url": "https://openai.com/index/gpt-5-system-card/",
+    "publishedAt": "2025-08-07"
+  },
+  "stress": false,
+  "expected": {
+    "scenario": "process-collaboration",
+    "requiredFactIds": [
+      "p1",
+      "p2",
+      "p3",
+      "p4"
+    ],
+    "structureSignals": [
+      "decision-flow",
+      "routing",
+      "fallback"
+    ]
+  }
+}

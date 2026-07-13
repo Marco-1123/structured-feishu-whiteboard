@@ -1,0 +1,131 @@
+{
+  "decision": {
+    "level": "high",
+    "topScore": 100,
+    "scoreMargin": 11,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-official-plan-agent-research-temporal",
+  "alternatives": [],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "Agent 研究执行计划与阶段交付",
+    "subtitle": "目标、阶段、依赖与交付路径",
+    "summaryLabel": "核心判断",
+    "summary": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
+    "expressionMode": "modular-canvas",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "mini-roadmap",
+        "title": "阶段路径",
+        "note": "阶段一完成 1260 名社会科学家的基线调查；阶段二向研究者提供 Claude Code 并开展随…",
+        "items": [
+          {
+            "label": "阶段一完成 1260 名社会科学家的基线调查",
+            "note": "阶段一完成 1260 名社会科学家的基线调查",
+            "status": "good"
+          },
+          {
+            "label": "阶段二向研究者提供 Claude Code 并开展随机实验",
+            "note": "阶段二向研究者提供 Claude Code 并开展随机实验",
+            "status": "good"
+          },
+          {
+            "label": "阶段三发布生产率、采用差异和研究质量结果",
+            "note": "阶段三发布生产率、采用差异和研究质量结果",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "t1",
+          "t2",
+          "t3"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "当前相关性结果可能受到早期采用者差异影响",
+        "items": [
+          {
+            "label": "当前相关性结果可能受到早期采用者差异影响",
+            "note": "当前相关性结果可能受到早期采用者差异影响",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "用随机实验区分工具作用与用户自选择效应",
+        "items": [
+          {
+            "label": "用随机实验区分工具作用与用户自选择效应",
+            "note": "用随机实验区分工具作用与用户自选择效应",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "a1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
+        "items": [
+          {
+            "label": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
+            "note": "研究将从基线调查推进到随机实验以评估编码 Agent 的真实影响",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "official-plan-agent-research",
+      "selectedFactIds": [
+        "c1",
+        "t1",
+        "t2",
+        "t3",
+        "r1",
+        "a1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-official-plan-agent-research-temporal"
+    }
+  }
+}

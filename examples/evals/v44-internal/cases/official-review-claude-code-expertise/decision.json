@@ -1,0 +1,314 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 97,
+    "scoreMargin": 5,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-official-review-claude-code-expertise-temporal",
+  "alternatives": [
+    {
+      "planId": "semantic-official-review-claude-code-expertise-result-driven",
+      "scenario": "review-update",
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "metric-trend-variance",
+          "factIds": [
+            "m1",
+            "m2"
+          ],
+          "preferredComponent": "metric-card",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "t1",
+            "t2",
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list",
+        "evidence-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 92,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 6,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-official-review-claude-code-expertise-causal",
+      "scenario": "review-update",
+      "narrativeType": "causal",
+      "pageSkeleton": "left-right-argument",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "evidence",
+          "factIds": [
+            "e1"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk-constraint",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action-unresolved",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "supporting-evidence",
+          "factIds": [
+            "m1",
+            "m2",
+            "t1",
+            "t2"
+          ],
+          "preferredComponent": "evidence-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "narrative-chain",
+        "evidence-list",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 90,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 6,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "Claude Code 七个月使用变化复盘",
+    "subtitle": "阶段结果、关键问题与下一阶段行动",
+    "summaryLabel": "核心判断",
+    "summary": "Claude Code 使用正在从调试转向端到端的 Agent 工作",
+    "expressionMode": "modular-canvas",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "Claude Code 使用正在从调试转向端到端的 Agent 工作"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "研究覆盖约 40 万次交互会话和约 23.5 万名用户",
+        "value": "400K",
+        "label": "阶段结果",
+        "note": "研究覆盖约 40 万次交互会话和约 23.5 万名用户",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m1"
+        ]
+      },
+      {
+        "type": "metric-card",
+        "title": "七个月内典型任务估算价值平均提高约 25%",
+        "value": "+25%",
+        "label": "阶段结果",
+        "note": "七个月内典型任务估算价值平均提高约 25%",
+        "status": "neutral",
+        "sourceFactIds": [
+          "m2"
+        ]
+      },
+      {
+        "type": "mini-roadmap",
+        "title": "阶段路径",
+        "note": "早期使用更集中在调试、解释和局部代码修改；当前使用逐步扩展到设计、实现、测试和部署链路",
+        "items": [
+          {
+            "label": "早期使用更集中在调试、解释和局部代码修改",
+            "note": "早期使用更集中在调试、解释和局部代码修改",
+            "status": "good"
+          },
+          {
+            "label": "当前使用逐步扩展到设计、实现、测试和部署链路",
+            "note": "当前使用逐步扩展到设计、实现、测试和部署链路",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "t1",
+          "t2"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "专家与中级用户仍存在可测量但不极端的成功率差距",
+        "items": [
+          {
+            "label": "专家与中级用户仍存在可测量但不极端的成功率差距",
+            "note": "专家与中级用户仍存在可测量但不极端的成功率差距",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
+        "items": [
+          {
+            "label": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
+            "note": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "a1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
+        "items": [
+          {
+            "label": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
+            "note": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "official-review-claude-code-expertise",
+      "selectedFactIds": [
+        "c1",
+        "m1",
+        "m2",
+        "t1",
+        "t2",
+        "r1",
+        "a1",
+        "e1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-official-review-claude-code-expertise-temporal"
+    }
+  }
+}

@@ -179,7 +179,7 @@
           "title": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 18
+            "maxLength": 32
           },
           "summary": {
             "type": "string",
@@ -572,7 +572,7 @@
             "items": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 30
+              "maxLength": 80
             }
           },
           "value": {
@@ -585,7 +585,7 @@
           },
           "note": {
             "type": "string",
-            "maxLength": 28
+            "maxLength": 50
           },
           "status": {
             "type": "string",
@@ -602,7 +602,7 @@
                 "label": {
                   "type": "string",
                   "minLength": 1,
-                  "maxLength": 16
+                  "maxLength": 40
                 },
                 "value": {
                   "type": "string",
@@ -610,7 +610,7 @@
                 },
                 "note": {
                   "type": "string",
-                  "maxLength": 24
+                  "maxLength": 64
                 },
                 "status": {
                   "type": "string",
@@ -645,7 +645,7 @@
           "title": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 14
+            "maxLength": 28
           },
           "body": {
             "type": "array",
@@ -654,7 +654,7 @@
             "items": {
               "type": "string",
               "minLength": 1,
-              "maxLength": 24
+              "maxLength": 48
             }
           },
           "type": {

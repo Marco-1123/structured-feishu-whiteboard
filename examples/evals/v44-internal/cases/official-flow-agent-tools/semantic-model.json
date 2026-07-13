@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-official-flow-agent-tools",
+  "inventoryId": "official-flow-agent-tools",
+  "scenario": {
+    "primary": "process-collaboration"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "p1",
+      "type": "input",
+      "text": "应用接收用户目标并提交 Responses API",
+      "importance": "critical",
+      "sourceRef": "p1",
+      "confidence": "supported",
+      "actor": "业务应用",
+      "order": 1
+    },
+    {
+      "id": "p2",
+      "type": "action",
+      "text": "Agent 根据任务选择网页搜索、文件搜索或计算机工具",
+      "importance": "high",
+      "sourceRef": "p2",
+      "confidence": "supported",
+      "actor": "Agent",
+      "order": 2
+    },
+    {
+      "id": "p3",
+      "type": "action",
+      "text": "工具执行并将观察结果返回 Agent",
+      "importance": "high",
+      "sourceRef": "p3",
+      "confidence": "supported",
+      "actor": "工具",
+      "order": 3
+    },
+    {
+      "id": "p4",
+      "type": "action",
+      "text": "Agent 整合结果并向应用交付输出",
+      "importance": "high",
+      "sourceRef": "p4",
+      "confidence": "supported",
+      "actor": "Agent",
+      "order": 4
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "生产环境需要通过追踪和评估定位失败步骤",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported",
+      "actor": "平台",
+      "order": 5
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-1",
+      "type": "precedes",
+      "from": "p1",
+      "to": "p2"
+    },
+    {
+      "id": "rel-2",
+      "type": "precedes",
+      "from": "p2",
+      "to": "p3"
+    },
+    {
+      "id": "rel-3",
+      "type": "precedes",
+      "from": "p3",
+      "to": "p4"
+    },
+    {
+      "id": "rel-4",
+      "type": "precedes",
+      "from": "p4",
+      "to": "r1"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "p1"
+    ],
+    "second": [
+      "p2",
+      "p3",
+      "p4",
+      "r1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "r1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "process-collaboration",
+      "score": 20,
+      "evidence": {
+        "titleTerms": [
+          "流程",
+          "协作"
+        ],
+        "factTypeHits": 2,
+        "laneBonus": 12,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "product-capability",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

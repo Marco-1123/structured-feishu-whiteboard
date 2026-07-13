@@ -1,0 +1,24 @@
+{
+  "caseId": "stress-missing-metrics",
+  "source": {
+    "publisher": "Anthropic",
+    "title": "Trustworthy agents in practice",
+    "url": "https://www.anthropic.com/research/trustworthy-agents",
+    "publishedAt": "2026-04-09"
+  },
+  "stress": true,
+  "expected": {
+    "scenario": "strategy-proposal",
+    "requiredFactIds": [
+      "c1",
+      "k1",
+      "k2",
+      "a1"
+    ],
+    "structureSignals": [
+      "qualitative-strategy",
+      "risks",
+      "controls"
+    ]
+  }
+}

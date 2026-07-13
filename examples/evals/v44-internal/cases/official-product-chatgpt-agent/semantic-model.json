@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-official-product-chatgpt-agent",
+  "inventoryId": "official-product-chatgpt-agent",
+  "scenario": {
+    "primary": "product-capability"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验",
+      "importance": "critical",
+      "sourceRef": "c1",
+      "confidence": "supported"
+    },
+    {
+      "id": "h1",
+      "type": "capability",
+      "text": "理解目标并规划多步骤任务",
+      "importance": "high",
+      "sourceRef": "h1",
+      "confidence": "supported"
+    },
+    {
+      "id": "h2",
+      "type": "capability",
+      "text": "在计算机环境中浏览网站并使用工具",
+      "importance": "high",
+      "sourceRef": "h2",
+      "confidence": "supported"
+    },
+    {
+      "id": "h3",
+      "type": "capability",
+      "text": "整合研究结果并交付可用产物",
+      "importance": "high",
+      "sourceRef": "h3",
+      "confidence": "supported"
+    },
+    {
+      "id": "p1",
+      "type": "capability",
+      "text": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
+      "importance": "high",
+      "sourceRef": "p1",
+      "confidence": "supported"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "复杂网页操作和新型安全风险仍可能限制可靠性",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [],
+  "readingLayers": {
+    "first": [
+      "c1"
+    ],
+    "second": [
+      "h1",
+      "h2",
+      "h3",
+      "p1",
+      "r1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "c1",
+      "h1",
+      "h2",
+      "h3",
+      "p1",
+      "r1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "product-capability",
+      "score": 13,
+      "evidence": {
+        "titleTerms": [
+          "产品",
+          "能力",
+          "介绍"
+        ],
+        "factTypeHits": 4,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "process-collaboration",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

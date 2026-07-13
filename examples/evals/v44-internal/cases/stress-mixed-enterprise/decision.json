@@ -1,0 +1,274 @@
+{
+  "decision": {
+    "level": "medium",
+    "topScore": 94,
+    "scoreMargin": 5,
+    "missingRequiredSignals": 0,
+    "unsupportedInferenceCount": 0,
+    "thresholds": {
+      "highScore": 78,
+      "highMargin": 10,
+      "mediumScore": 58,
+      "mediumMargin": 4
+    }
+  },
+  "requiresUserChoice": false,
+  "selectedPlanId": "semantic-stress-mixed-enterprise-causal",
+  "alternatives": [
+    {
+      "planId": "semantic-stress-mixed-enterprise-temporal",
+      "scenario": "review-update",
+      "narrativeType": "temporal",
+      "pageSkeleton": "past-future-split",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result-metric",
+          "factIds": [
+            "c1",
+            "m1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-3",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "action",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "mini-roadmap",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 89,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.88,
+        "semanticSignalBonus": 3,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    },
+    {
+      "planId": "semantic-stress-mixed-enterprise-result-driven",
+      "scenario": "review-update",
+      "narrativeType": "result-driven",
+      "pageSkeleton": "overview-detail",
+      "layout": "expression-canvas",
+      "regions": [
+        {
+          "id": "region-1",
+          "purpose": "conclusion-result",
+          "factIds": [
+            "c1"
+          ],
+          "preferredComponent": "statement",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
+          "purpose": "metric-trend-variance",
+          "factIds": [
+            "m1"
+          ],
+          "preferredComponent": "metric-card",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-4",
+          "purpose": "risk",
+          "factIds": [
+            "r1"
+          ],
+          "preferredComponent": "risk-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        },
+        {
+          "id": "region-5",
+          "purpose": "action",
+          "factIds": [
+            "a1"
+          ],
+          "preferredComponent": "action-list",
+          "visualPriority": "secondary",
+          "widthIntent": "adaptive"
+        }
+      ],
+      "componentMix": [
+        "statement",
+        "metric-card",
+        "trend-sparkline",
+        "narrative-chain",
+        "risk-list",
+        "action-list"
+      ],
+      "fallbackLayout": "large-canvas",
+      "scoreBreakdown": {
+        "total": 87,
+        "criticalCoverage": 1,
+        "highCoverage": 1,
+        "semanticMatch": 1,
+        "coherence": 0.76,
+        "semanticSignalBonus": 3,
+        "repetitionPenalty": 0,
+        "unsupportedInferencePenalty": 0,
+        "rendererCompatibility": 1
+      }
+    }
+  ],
+  "fallback": {
+    "version": "4.3",
+    "reason": "on-failure"
+  },
+  "brief": {
+    "pipelineVersion": "4.4",
+    "engine": "v4",
+    "renderTarget": "svg",
+    "layout": "expression-canvas",
+    "style": "linear-system",
+    "title": "企业 AI 材料：现状数据、治理设想与后续动作",
+    "subtitle": "阶段结果、关键问题与下一阶段行动",
+    "summaryLabel": "核心判断",
+    "summary": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
+    "expressionMode": "narrative-map",
+    "expressionBlocks": [
+      {
+        "type": "statement",
+        "title": "核心判断",
+        "body": [
+          "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长"
+        ],
+        "sourceFactIds": [
+          "c1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "技术、医疗和制造是增长最快的行业",
+        "items": [
+          {
+            "label": "技术、医疗和制造是增长最快的行业",
+            "note": "技术、医疗和制造是增长最快的行业",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "e1"
+        ]
+      },
+      {
+        "type": "risk-list",
+        "title": "风险与约束",
+        "note": "组织准备度与实施能力成为主要约束",
+        "items": [
+          {
+            "label": "组织准备度与实施能力成为主要约束",
+            "note": "组织准备度与实施能力成为主要约束",
+            "status": "risk"
+          }
+        ],
+        "sourceFactIds": [
+          "r1"
+        ]
+      },
+      {
+        "type": "action-list",
+        "title": "下一步行动",
+        "note": "建立用例优先级、权限治理和效果复盘机制",
+        "items": [
+          {
+            "label": "建立用例优先级、权限治理和效果复盘机制",
+            "note": "建立用例优先级、权限治理和效果复盘机制",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "a1"
+        ]
+      },
+      {
+        "type": "evidence-list",
+        "title": "关键证据",
+        "note": "结构化工作流使用量年内增长 19 倍",
+        "items": [
+          {
+            "label": "结构化工作流使用量年内增长 19 倍",
+            "value": "19x",
+            "note": "结构化工作流使用量年内增长 19 倍",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "m1"
+        ]
+      },
+      {
+        "type": "narrative-chain",
+        "title": "判断链路",
+        "items": [
+          {
+            "label": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
+            "note": "组织已进入 AI 深度采用阶段，但规模化治理仍落后于使用增长",
+            "status": "good"
+          },
+          {
+            "label": "技术、医疗和制造是增长最快的行业",
+            "note": "技术、医疗和制造是增长最快的行业",
+            "status": "good"
+          },
+          {
+            "label": "建立用例优先级、权限治理和效果复盘机制",
+            "note": "建立用例优先级、权限治理和效果复盘机制",
+            "status": "good"
+          }
+        ],
+        "sourceFactIds": [
+          "c1",
+          "e1",
+          "a1"
+        ]
+      }
+    ],
+    "planning": {
+      "inventoryId": "stress-mixed-enterprise",
+      "selectedFactIds": [
+        "c1",
+        "e1",
+        "r1",
+        "a1",
+        "m1"
+      ],
+      "omittedFacts": [],
+      "routeDecisionId": "semantic-stress-mixed-enterprise-causal"
+    }
+  }
+}

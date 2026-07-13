@@ -1,0 +1,43 @@
+{
+  "inventoryId": "official-research-gpt5-system",
+  "title": "GPT-5 系统架构调研与模型选择决策",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "q1",
+      "type": "context",
+      "text": "不同复杂度任务应如何选择快速模型、推理模型与路由系统",
+      "importance": "critical"
+    },
+    {
+      "id": "o1",
+      "type": "comparison",
+      "text": "快速模型适合多数高吞吐日常问题",
+      "importance": "high"
+    },
+    {
+      "id": "o2",
+      "type": "comparison",
+      "text": "推理模型适合复杂问题、工具调用和更深分析",
+      "importance": "high"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "高风险任务仍需人工验证模型输出",
+      "importance": "medium"
+    },
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "采用统一路由并为高风险任务保留显式模型与验证控制",
+      "importance": "high"
+    }
+  ]
+}

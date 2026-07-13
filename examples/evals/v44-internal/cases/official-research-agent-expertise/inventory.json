@@ -1,0 +1,43 @@
+{
+  "inventoryId": "official-research-agent-expertise",
+  "title": "Agent 成功率与专业经验关系研究决策",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "q1",
+      "type": "context",
+      "text": "领域经验是否仍会影响 Agent 编码任务的协作方式和成功率",
+      "importance": "critical"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "典型会话中人主要决定做什么，Claude 主要决定如何执行",
+      "importance": "high"
+    },
+    {
+      "id": "e2",
+      "type": "evidence",
+      "text": "专业经验越高，Claude 每条指令承担的工作越多",
+      "importance": "high"
+    },
+    {
+      "id": "o1",
+      "type": "comparison",
+      "text": "不同职业完成编码目标的平均成功率接近软件工程师",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "研究基于可验证会话结果但不能覆盖所有工作质量维度",
+      "importance": "medium"
+    },
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "Agent 降低了执行门槛，但领域经验仍持续产生回报",
+      "importance": "high"
+    }
+  ]
+}

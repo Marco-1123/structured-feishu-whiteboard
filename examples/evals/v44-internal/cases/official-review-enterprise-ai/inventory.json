@@ -1,0 +1,46 @@
+{
+  "inventoryId": "official-review-enterprise-ai",
+  "title": "企业 AI 采用阶段复盘与下一步重点",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "企业 AI 使用正从零散问答进入可复用的深度工作流",
+      "importance": "critical"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "企业用户每周消息量同比增长约 8 倍",
+      "value": "8x",
+      "importance": "high"
+    },
+    {
+      "id": "m2",
+      "type": "metric",
+      "text": "Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍",
+      "value": "19x",
+      "importance": "high"
+    },
+    {
+      "id": "m3",
+      "type": "metric",
+      "text": "75% 的受访员工认为 AI 改善了工作速度或质量",
+      "value": "75%",
+      "importance": "high"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "领先组织与中位组织之间的采用深度差距仍在扩大",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "下一阶段把高价值用例沉淀为组织级可复用流程",
+      "importance": "high"
+    }
+  ]
+}

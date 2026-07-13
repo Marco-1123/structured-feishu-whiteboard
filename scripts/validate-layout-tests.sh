@@ -126,6 +126,10 @@ node scripts/test-expression-planner.mjs >/dev/null
 node scripts/test-v44-brief-compiler.mjs >/dev/null
 node scripts/test-run-whiteboard-v44.mjs >/dev/null
 node scripts/test-v44-evaluator.mjs >/dev/null
+node scripts/test-v44-source-catalog.mjs >/dev/null
+node scripts/validate-v44-source-catalog.mjs examples/evals/v44-internal/source-catalog.json >/dev/null
+node scripts/test-v44-benchmark-builder.mjs >/dev/null
+node scripts/test-v44-internal-evaluator.mjs >/dev/null
 node scripts/test-scenario-router.mjs >/dev/null
 node scripts/test-v4-layout-tree.mjs >/dev/null
 node scripts/test-v4-grid-quality.mjs >/dev/null

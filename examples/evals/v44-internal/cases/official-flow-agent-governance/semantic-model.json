@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-official-flow-agent-governance",
+  "inventoryId": "official-flow-agent-governance",
+  "scenario": {
+    "primary": "process-collaboration"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "p1",
+      "type": "input",
+      "text": "用户定义目标并授予最小必要权限",
+      "importance": "critical",
+      "sourceRef": "p1",
+      "confidence": "supported",
+      "actor": "用户",
+      "order": 1
+    },
+    {
+      "id": "p2",
+      "type": "action",
+      "text": "Agent 形成计划并识别高风险动作",
+      "importance": "high",
+      "sourceRef": "p2",
+      "confidence": "supported",
+      "actor": "Agent",
+      "order": 2
+    },
+    {
+      "id": "p3",
+      "type": "constraint",
+      "text": "高风险动作提交人工确认，低风险动作继续执行",
+      "importance": "high",
+      "sourceRef": "p3",
+      "confidence": "supported",
+      "actor": "审批人",
+      "order": 3
+    },
+    {
+      "id": "p4",
+      "type": "action",
+      "text": "平台记录工具调用、结果和异常回退",
+      "importance": "high",
+      "sourceRef": "p4",
+      "confidence": "supported",
+      "actor": "平台",
+      "order": 4
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "检测到提示注入或权限越界时停止并升级处理",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported",
+      "actor": "平台",
+      "order": 5
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-1",
+      "type": "precedes",
+      "from": "p1",
+      "to": "p2"
+    },
+    {
+      "id": "rel-2",
+      "type": "precedes",
+      "from": "p2",
+      "to": "p3"
+    },
+    {
+      "id": "rel-3",
+      "type": "precedes",
+      "from": "p3",
+      "to": "p4"
+    },
+    {
+      "id": "rel-4",
+      "type": "precedes",
+      "from": "p4",
+      "to": "r1"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "p1"
+    ],
+    "second": [
+      "p2",
+      "p3",
+      "p4",
+      "r1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "p1",
+      "p2",
+      "p3",
+      "p4",
+      "r1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "process-collaboration",
+      "score": 20,
+      "evidence": {
+        "titleTerms": [
+          "流程",
+          "协作"
+        ],
+        "factTypeHits": 2,
+        "laneBonus": 12,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "product-capability",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}

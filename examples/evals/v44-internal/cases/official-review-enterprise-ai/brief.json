@@ -1,0 +1,100 @@
+{
+  "pipelineVersion": "4.4",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "title": "企业 AI 采用阶段复盘与下一步重点",
+  "subtitle": "阶段结果、关键问题与下一阶段行动",
+  "summaryLabel": "核心判断",
+  "summary": "企业 AI 使用正从零散问答进入可复用的深度工作流",
+  "expressionMode": "modular-canvas",
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "核心判断",
+      "body": [
+        "企业 AI 使用正从零散问答进入可复用的深度工作流"
+      ],
+      "sourceFactIds": [
+        "c1"
+      ]
+    },
+    {
+      "type": "metric-card",
+      "title": "企业用户每周消息量同比增长约 8 倍",
+      "value": "8x",
+      "label": "阶段结果",
+      "note": "企业用户每周消息量同比增长约 8 倍",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m1"
+      ]
+    },
+    {
+      "type": "metric-card",
+      "title": "Projects 与 Custom GPTs 等结构化工作流使…",
+      "value": "19x",
+      "label": "阶段结果",
+      "note": "Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m2"
+      ]
+    },
+    {
+      "type": "metric-card",
+      "title": "75% 的受访员工认为 AI 改善了工作速度或质量",
+      "value": "75%",
+      "label": "阶段结果",
+      "note": "75% 的受访员工认为 AI 改善了工作速度或质量",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m3"
+      ]
+    },
+    {
+      "type": "risk-list",
+      "title": "风险与约束",
+      "note": "领先组织与中位组织之间的采用深度差距仍在扩大",
+      "items": [
+        {
+          "label": "领先组织与中位组织之间的采用深度差距仍在扩大",
+          "note": "领先组织与中位组织之间的采用深度差距仍在扩大",
+          "status": "risk"
+        }
+      ],
+      "sourceFactIds": [
+        "r1"
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "下一步行动",
+      "note": "下一阶段把高价值用例沉淀为组织级可复用流程",
+      "items": [
+        {
+          "label": "下一阶段把高价值用例沉淀为组织级可复用流程",
+          "note": "下一阶段把高价值用例沉淀为组织级可复用流程",
+          "status": "good"
+        }
+      ],
+      "sourceFactIds": [
+        "a1"
+      ]
+    }
+  ],
+  "planning": {
+    "inventoryId": "official-review-enterprise-ai",
+    "selectedFactIds": [
+      "c1",
+      "m1",
+      "m2",
+      "m3",
+      "r1",
+      "a1"
+    ],
+    "omittedFacts": [],
+    "routeDecisionId": "semantic-official-review-enterprise-ai-result-driven"
+  }
+}

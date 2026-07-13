@@ -1,0 +1,60 @@
+<title>structured-feishu-whiteboard V4.4 内部多样本验收</title>
+
+<p>本轮目标不是增加一批固定模板，而是验证同一套 Skill 能否根据材料语义，在稳定排版的前提下选择不同的信息结构。测试使用 24 组 OpenAI 与 Anthropic 官方材料，覆盖复盘汇报、策略方案、项目计划、调研决策、产品能力与流程协作六类场景。</p>
+
+<h2>测试结论</h2>
+<table>
+  <thead><tr><th background-color="light-gray">指标</th><th background-color="light-gray">结果</th><th background-color="light-gray">说明</th></tr></thead>
+  <tbody>
+    <tr><td>完整生成</td><td>24 / 24</td><td>语义、规划、SVG、布局和预览链路均完成</td></tr>
+    <tr><td>场景识别</td><td>100%</td><td>包含 6 个刻意构造的压力样本</td></tr>
+    <tr><td>最终可见关键事实</td><td>100%</td><td>按最终 SVG 可见文本核对，不只检查事实编号</td></tr>
+    <tr><td>V4.3 兜底</td><td>0%</td><td>24 个案例均由 V4.4 语义与表达链路完成</td></tr>
+    <tr><td>结构多样性</td><td>6 / 6 类</td><td>每类至少出现两种语义驱动结构</td></tr>
+  </tbody>
+</table>
+
+<h2>本轮重点修复</h2>
+<ol>
+  <li>区分语义不确定与两个优秀版式接近，避免错误降级。</li>
+  <li>关键事实不仅要被选中，还要在最终 SVG 中完整可见。</li>
+  <li>删除无来源的“待确认行动”等占位推断。</li>
+  <li>流程风险不再自动推断成异常分支；没有关系证据时按边界与保障节点处理。</li>
+  <li>修复追加省略号后未重新测量宽度导致的文字越界。</li>
+  <li>增加 PNG 黑块、空白图和尺寸异常检查。</li>
+</ol>
+
+<h2>一、复盘汇报：指标总览</h2>
+<p>材料有多项指标、风险和下一步行动时，优先形成总览与细节组合，而不是平均分配成相同卡片。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-review-enterprise-ai/whiteboard.svg"></whiteboard>
+
+<h2>二、复盘汇报：前后阶段</h2>
+<p>材料明确包含过去、当前与后续变化时，切换为阶段路径，而不是继续套指标看板。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-review-claude-code-expertise/whiteboard.svg"></whiteboard>
+
+<h2>三、策略方案：论证地图</h2>
+<p>策略材料按判断、证据、约束与行动组织，强调为什么这样选择。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-strategy-openai-frontier/whiteboard.svg"></whiteboard>
+
+<h2>四、项目计划：多角色泳道</h2>
+<p>出现明确责任主体时，项目阶段转换为角色泳道，展示业务、平台与治理团队的接力关系。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-plan-codex-enterprise/whiteboard.svg"></whiteboard>
+
+<h2>五、调研决策：方案比较</h2>
+<p>存在多个选择对象和判断依据时，优先使用比较结构，而不是普通信息清单。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-research-gpt5-system/whiteboard.svg"></whiteboard>
+
+<h2>六、产品能力：差异化比较</h2>
+<p>产品材料既可以使用能力层级，也可以在存在明确对象时转为比较结构。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-product-claude4/whiteboard.svg"></whiteboard>
+
+<h2>七、流程协作：多角色流程</h2>
+<p>涉及应用、Agent、工具与平台时使用泳道，边界与保障只有在材料明确提供时才进入流程。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-flow-agent-tools/whiteboard.svg"></whiteboard>
+
+<h2>八、流程协作：单线路由</h2>
+<p>责任主体不构成多角色协作时使用单线流程，避免为了“看起来复杂”强行拆泳道。</p>
+<whiteboard type="svg" path="@examples/evals/v44-internal/cases/official-flow-gpt5-router/whiteboard.svg"></whiteboard>
+
+<h2>下一步</h2>
+<p>本地测试证明语义与排版主链路具备继续测试的基础，但不能替代跨 Agent 校准。下一阶段将使用同一批盲测输入，比较不同 Agent 在信息提取、语义分类、brief 生成和飞书侧转换上的差异。</p>

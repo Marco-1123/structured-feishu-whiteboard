@@ -13,6 +13,7 @@ export function decideConfidence(planningResult, config = defaultConfig) {
   const inferred = planningResult.confidenceEvidence?.unsupportedInferenceCount || 0;
   let level = "low";
   if (topScore >= config.confidence.highScore && margin >= config.confidence.highMargin && missing === 0 && inferred <= 1) level = "high";
+  else if (topScore >= config.confidence.highScore && missing === 0 && inferred <= 1) level = "medium";
   else if (topScore >= config.confidence.mediumScore && margin >= config.confidence.mediumMargin && missing <= 1 && inferred <= 2) level = "medium";
   return { level, topScore, scoreMargin: margin, missingRequiredSignals: missing, unsupportedInferenceCount: inferred, thresholds: config.confidence };
 }
@@ -27,7 +28,7 @@ function factMap(model) {
 }
 
 function item(fact) {
-  return { label: clip(fact.text, 16), ...(fact.value !== undefined ? { value: clip(fact.value, 12) } : {}), note: clip(fact.text, 24), status: fact.type === "risk" ? "risk" : fact.confidence === "missing" ? "neutral" : "good" };
+  return { label: clip(fact.text, 40), ...(fact.value !== undefined ? { value: clip(fact.value, 12) } : {}), note: clip(fact.text, 64), status: fact.type === "risk" ? "risk" : fact.confidence === "missing" ? "neutral" : "good" };
 }
 
 function purposeTitle(purpose) {
@@ -43,31 +44,50 @@ function purposeTitle(purpose) {
 }
 
 function expressionMode(candidate, model) {
-  if (candidate.narrativeType === "result-driven" && model.facts.filter((fact) => fact.type === "metric").length >= 3) return "dashboard-onepage";
+  const percentageMetrics = model.facts.filter((fact) => fact.type === "metric" && /%/.test(String(fact.value || fact.text)));
+  if (candidate.narrativeType === "result-driven" && model.facts.filter((fact) => fact.type === "metric").length >= 3 && percentageMetrics.length >= 2) return "dashboard-onepage";
   if (["comparison-driven", "causal", "problem-driven"].includes(candidate.narrativeType)) return "narrative-map";
   return "modular-canvas";
 }
 
 function expressionBlock(region, facts) {
   const regionFacts = region.factIds.map((id) => facts.get(id)).filter(Boolean);
-  const type = region.preferredComponent;
-  if (type === "statement") return { type, title: "核心判断", body: [clip(regionFacts.map((fact) => fact.text).join("；"), 30)], sourceFactIds: region.factIds };
+  let type = region.preferredComponent;
+  if (["mini-roadmap", "narrative-chain", "trend-sparkline", "decision-matrix", "variance-bridge-v2"].includes(type) && regionFacts.length < 2) {
+    type = region.purpose.includes("action") ? "action-list" : "evidence-list";
+  }
+  if (type === "statement") {
+    const statementFacts = regionFacts.filter((fact) => fact.type !== "metric");
+    const metricFacts = regionFacts.filter((fact) => fact.type === "metric");
+    const primaryFacts = statementFacts.length ? statementFacts : regionFacts.slice(0, 1);
+    const statement = { type, title: "核心判断", body: [clip(primaryFacts.map((fact) => fact.text).join("；"), 80)], sourceFactIds: primaryFacts.map((fact) => fact.id) };
+    const metricCards = metricFacts.map((fact) => ({
+      type: "metric-card",
+      title: clip(fact.text, 32),
+      value: clip(fact.value || fact.text.match(/[-+]?\d+(?:\.\d+)?%?/)?.[0] || "待观察", 12),
+      label: "阶段结果",
+      note: clip(fact.text, 50),
+      status: "neutral",
+      sourceFactIds: [fact.id],
+    }));
+    return [statement, ...metricCards];
+  }
   if (type === "metric-card") {
-    return regionFacts.map((fact) => ({ type, title: clip(fact?.text || "核心指标", 18), value: clip(fact?.value || fact?.text.match(/[-+]?\d+(?:\.\d+)?%?/)?.[0] || "待观察", 12), label: "阶段结果", note: clip(fact?.text, 24), status: "neutral", sourceFactIds: [fact.id] }));
+    return regionFacts.map((fact) => ({ type, title: clip(fact?.text || "核心指标", 32), value: clip(fact?.value || fact?.text.match(/[-+]?\d+(?:\.\d+)?%?/)?.[0] || "待观察", 12), label: "阶段结果", note: clip(fact?.text, 48), status: "neutral", sourceFactIds: [fact.id] }));
   }
   const supported = new Set(["risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2", "progress-bar", "ranked-bar"]);
   const safeType = supported.has(type) ? type : "evidence-list";
   const items = regionFacts.slice(0, 5).map((fact) => {
     const result = item(fact);
-    if (safeType === "status-board") { result.label = clip(fact.text, 14); result.note = clip(fact.text, 24); }
+    if (safeType === "status-board") { result.label = clip(fact.text, 40); result.note = clip(fact.text, 64); }
     return result;
   });
-  return { type: safeType, title: purposeTitle(region.purpose), note: clip(regionFacts.map((fact) => fact.text).join("；"), 28), items, sourceFactIds: region.factIds };
+  return { type: safeType, title: purposeTitle(region.purpose), note: clip(regionFacts.map((fact) => fact.text).join("；"), 50), items, sourceFactIds: region.factIds };
 }
 
 function ensureExpressionRequirements(blocks, model) {
   const facts = factMap(model);
-  const statement = blocks.find((block) => block.type === "statement") || { type: "statement", title: "核心判断", body: [clip(model.facts[0]?.text, 30)], sourceFactIds: [model.facts[0]?.id].filter(Boolean) };
+  const statement = blocks.find((block) => block.type === "statement") || { type: "statement", title: "核心判断", body: [clip(model.facts[0]?.text, 80)], sourceFactIds: [model.facts[0]?.id].filter(Boolean) };
   const out = [statement, ...blocks.filter((block) => block !== statement)];
   const appendList = (type, factType, title) => {
     if (out.some((block) => block.type === type)) return;
@@ -108,13 +128,15 @@ export function compileV44Brief({ semanticModel, planningResult, style = "linear
   if (selected.layout === "flow-canvas") return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, fallback: { version: "4.3", reason: "on-failure" }, brief: compileFlowBrief(semanticModel, selected, style, title) };
   const blocks = ensureExpressionRequirements(selected.regions.flatMap((region) => expressionBlock(region, facts)), semanticModel);
   const mode = expressionMode(selected, semanticModel);
-  if (mode === "narrative-map" && !blocks.some((block) => block.type === "action-list")) blocks.push({ type: "action-list", title: "待确认行动", items: [{ label: "下一步待确认", note: "材料未提供", status: "neutral" }], sourceFactIds: [] });
-  const selectedFactIds = [...new Set(blocks.flatMap((block) => block.sourceFactIds || []))];
+  const visibleBlocks = ["causal", "comparison-driven", "problem-driven"].includes(selected.narrativeType)
+    ? blocks
+    : blocks.filter((block) => block.type !== "narrative-chain");
+  const selectedFactIds = [...new Set(visibleBlocks.flatMap((block) => block.sourceFactIds || []))];
   const omittedFacts = semanticModel.facts.filter((fact) => !selectedFactIds.includes(fact.id)).map((fact) => ({ id: fact.id, reason: fact.importance === "low" ? "low-value-context" : "deferred-to-detail" }));
   const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
   return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], fallback: { version: "4.3", reason: "on-failure" }, brief: {
     pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
-    title: clip(title || summaryFact.text, 32), subtitle: scenarioSubtitle(semanticModel.scenario.primary, selected.narrativeType), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, expressionBlocks: blocks,
+    title: clip(title || summaryFact.text, 32), subtitle: scenarioSubtitle(semanticModel.scenario.primary, selected.narrativeType), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, expressionBlocks: visibleBlocks,
     planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: selected.planId },
   } };
 }
@@ -145,16 +167,18 @@ function compileFlowBrief(model, candidate, style, title) {
   const actors = [...new Set(ordered.map((fact) => fact.actor).filter(Boolean))].slice(0, 4);
   const swimlane = actors.length >= 2;
   const laneIds = new Map(actors.map((actor, index) => [actor, `lane-${index + 1}`]));
-  const nodes = ordered.map((fact, index) => ({ id: `node-${index + 1}`, title: clip(fact.text, 14), body: [clip(fact.text, 24)], type: index === 0 ? "start" : index === ordered.length - 1 ? "result" : fact.type === "constraint" ? "decision" : "action", ...(swimlane ? { step: index + 1, lane: laneIds.get(fact.actor) || "lane-1" } : {}), status: fact.type === "constraint" ? "risk" : "neutral", sourceFactIds: [fact.id] }));
-  const riskNodes = riskFacts.map((fact, index) => ({ id: `risk-${index + 1}`, title: clip(fact.text, 14), body: [clip(fact.text, 24)], type: "risk", ...(swimlane ? { step: Math.min(8, Math.max(2, ordered.length - 1 + index)), lane: "lane-1" } : {}), status: "risk", sourceFactIds: [fact.id] }));
-  nodes.push(...riskNodes);
-  const primaryNodes = nodes.filter((node) => !node.id.startsWith("risk-"));
-  const edges = primaryNodes.slice(0, -1).map((node, index) => ({ from: node.id, to: primaryNodes[index + 1].id, label: "进入下一步", type: "primary" }));
-  const branchFrom = primaryNodes.find((node) => node.type === "decision") || primaryNodes[Math.max(0, primaryNodes.length - 2)];
-  for (const riskNode of riskNodes) {
-    edges.push({ from: branchFrom.id, to: riskNode.id, label: "异常处理", type: "fallback" });
-    edges.push({ from: riskNode.id, to: primaryNodes.at(-1).id, label: "处理后回归", type: "primary" });
-  }
-  const selectedFacts = [...ordered, ...riskFacts];
-  return { pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "flow-canvas", style, flowMode: swimlane ? "swimlane-flow" : "linear-flow", ...(swimlane ? { lanes: actors.map((actor) => ({ id: laneIds.get(actor), title: clip(actor, 12) })) } : {}), title: clip(title || model.facts[0].text, 32), subtitle: "按输入、动作、判断和输出组织流程", summaryLabel: "流程判断", summary: clip(model.facts[0].text, 90), flowNodes: nodes, flowEdges: edges, planning: { inventoryId: model.inventoryId, selectedFactIds: selectedFacts.map((fact) => fact.id), omittedFacts: model.facts.filter((fact) => !selectedFacts.includes(fact)).map((fact) => ({ id: fact.id, reason: "deferred-to-detail" })), routeDecisionId: candidate.planId } };
+  const primaryNodes = ordered.map((fact, index) => ({ id: `node-${index + 1}`, title: clip(fact.text, 28), body: [clip(fact.text, 48)], type: index === 0 ? "start" : index === ordered.length - 1 ? "result" : fact.type === "constraint" ? "decision" : "action", ...(swimlane ? { step: index + 1, lane: laneIds.get(fact.actor) || "lane-1" } : {}), status: fact.type === "constraint" ? "risk" : "neutral", sourceFactIds: [fact.id] }));
+  const resultNode = primaryNodes.at(-1);
+  const riskNodes = riskFacts.map((fact, index) => ({ id: `risk-${index + 1}`, title: clip(fact.text, 28), body: [clip(fact.text, 48)], type: "risk", ...(swimlane ? { step: Math.min(8, Math.max(2, ordered.length + index)), lane: "lane-1" } : {}), status: "risk", sourceFactIds: [fact.id] }));
+  if (swimlane && resultNode && riskNodes.length) resultNode.step = Math.min(8, resultNode.step + riskNodes.length);
+  const nodes = resultNode && riskNodes.length ? [...primaryNodes.slice(0, -1), ...riskNodes, resultNode] : primaryNodes;
+  const edges = nodes.slice(0, -1).map((node, index) => ({
+    from: node.id,
+    to: nodes[index + 1].id,
+    label: nodes[index + 1].type === "risk" ? "边界与保障" : "进入下一步",
+    type: "primary",
+  }));
+  const summaryFact = model.facts.find((fact) => ["conclusion", "objective", "result"].includes(fact.type)) || model.facts[0];
+  const selectedFacts = [...new Set([summaryFact, ...ordered, ...riskFacts].filter(Boolean))];
+  return { pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "flow-canvas", style, flowMode: swimlane ? "swimlane-flow" : "linear-flow", ...(swimlane ? { lanes: actors.map((actor) => ({ id: laneIds.get(actor), title: clip(actor, 12) })) } : {}), title: clip(title || summaryFact.text, 32), subtitle: "按输入、动作、判断和输出组织流程", summaryLabel: "流程判断", summary: clip(summaryFact.text, 90), flowNodes: nodes, flowEdges: edges, planning: { inventoryId: model.inventoryId, selectedFactIds: selectedFacts.map((fact) => fact.id), omittedFacts: model.facts.filter((fact) => !selectedFacts.includes(fact)).map((fact) => ({ id: fact.id, reason: "deferred-to-detail" })), routeDecisionId: candidate.planId } };
 }

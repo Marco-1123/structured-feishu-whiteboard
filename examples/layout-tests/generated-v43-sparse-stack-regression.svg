@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1825" viewBox="0 0 2200 1825" data-layout-engine="v4" data-expression-mode="modular-canvas">
-<rect x="0" y="0" width="2200" height="1825" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1851" viewBox="0 0 2200 1851" data-layout-engine="v4" data-expression-mode="modular-canvas">
+<rect x="0" y="0" width="2200" height="1851" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="200" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">审核智能助手阶段性汇报</tspan></text>
@@ -123,29 +123,29 @@
 <text x="1640" y="1254" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="1640" dy="0">4</tspan></text>
 <text x="1669" y="1252" font-size="17" fill="#111827" font-weight="700"><tspan x="1669" dy="0">扩展场景</tspan></text>
 <text x="1669" y="1279" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1669" dy="0">验证复用</tspan></text>
-</g><g data-v43-block="mini-roadmap-5" data-block-type="mini-roadmap" data-x="96" data-y="1369" data-width="2008" data-height="270" data-column="full" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="65" data-item-count="5" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="1369" width="2008" height="270" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="mini-roadmap-5" data-block-type="mini-roadmap" data-x="96" data-y="1369" data-width="2008" data-height="296" data-column="full" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="65" data-item-count="5" data-item-layout="rows" data-layout-reason="directional-reading">
+<rect x="96" y="1369" width="2008" height="296" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="1417" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">自动化闭环链路</tspan></text>
 <text x="124" y="1449" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">从任务触发到规则沉淀形成可复用闭环。</tspan></text>
-<rect x="124" y="1481" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="144" y="1517" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">任务触发</tspan></text>
-<text x="144" y="1545" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="144" dy="0">用户发起</tspan></text><text x="501" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="501" dy="0">→</tspan></text>
-<rect x="518" y="1481" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="538" y="1517" font-size="17" fill="#111827" font-weight="700"><tspan x="538" dy="0">检索定位</tspan></text>
-<text x="538" y="1545" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="538" dy="0">确认范围</tspan></text><text x="895" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="895" dy="0">→</tspan></text>
-<rect x="912" y="1481" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="932" y="1517" font-size="17" fill="#111827" font-weight="700"><tspan x="932" dy="0">量级归因</tspan></text>
-<text x="932" y="1545" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="932" dy="0">形成判断</tspan></text><text x="1289" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1289" dy="0">→</tspan></text>
-<rect x="1306" y="1481" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="1326" y="1517" font-size="17" fill="#111827" font-weight="700"><tspan x="1326" dy="0">智能总结</tspan></text>
-<text x="1326" y="1545" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1326" dy="0">输出结论</tspan></text><text x="1683" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1683" dy="0">→</tspan></text>
-<rect x="1700" y="1481" width="374" height="116" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="1720" y="1517" font-size="17" fill="#111827" font-weight="700"><tspan x="1720" dy="0">自动复用</tspan></text>
-<text x="1720" y="1545" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1720" dy="0">沉淀规则</tspan></text>
-</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1679" data-width="2008" data-height="74" data-column="full">
-<rect x="96" y="1679" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
-<rect x="96" y="1679" width="10" height="74" rx="5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="132" y="1725" font-size="20" fill="#111827" font-weight="700"><tspan x="132" dy="0">阶段结论：核心链路已跑通，下一阶段重点是治理与规模化复用。</tspan></text>
+<rect x="124" y="1481" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="144" y="1515" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">任务触发</tspan></text>
+<text x="144" y="1549" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="144" dy="0">用户发起</tspan></text><text x="501" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="501" dy="0">→</tspan></text>
+<rect x="518" y="1481" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="538" y="1515" font-size="17" fill="#111827" font-weight="700"><tspan x="538" dy="0">检索定位</tspan></text>
+<text x="538" y="1549" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="538" dy="0">确认范围</tspan></text><text x="895" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="895" dy="0">→</tspan></text>
+<rect x="912" y="1481" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="932" y="1515" font-size="17" fill="#111827" font-weight="700"><tspan x="932" dy="0">量级归因</tspan></text>
+<text x="932" y="1549" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="932" dy="0">形成判断</tspan></text><text x="1289" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1289" dy="0">→</tspan></text>
+<rect x="1306" y="1481" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="1326" y="1515" font-size="17" fill="#111827" font-weight="700"><tspan x="1326" dy="0">智能总结</tspan></text>
+<text x="1326" y="1549" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1326" dy="0">输出结论</tspan></text><text x="1683" y="1547" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1683" dy="0">→</tspan></text>
+<rect x="1700" y="1481" width="374" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="1720" y="1515" font-size="17" fill="#111827" font-weight="700"><tspan x="1720" dy="0">自动复用</tspan></text>
+<text x="1720" y="1549" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1720" dy="0">沉淀规则</tspan></text>
+</g><g data-v43-block="footer" data-block-type="footer" data-x="96" data-y="1705" data-width="2008" data-height="74" data-column="full">
+<rect x="96" y="1705" width="2008" height="74" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<rect x="96" y="1705" width="10" height="74" rx="5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="132" y="1751" font-size="20" fill="#111827" font-weight="700"><tspan x="132" dy="0">阶段结论：核心链路已跑通，下一阶段重点是治理与规模化复用。</tspan></text>
 </g>
 </g>
 </svg>

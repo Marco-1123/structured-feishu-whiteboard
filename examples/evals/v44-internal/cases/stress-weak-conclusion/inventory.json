@@ -1,0 +1,37 @@
+{
+  "inventoryId": "stress-weak-conclusion",
+  "title": "关于模型福利的开放问题材料",
+  "sourceType": "report",
+  "facts": [
+    {
+      "id": "q1",
+      "type": "context",
+      "text": "先进模型是否可能具有值得道德考虑的体验仍是开放问题",
+      "importance": "critical"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "模型已表现出沟通、规划、解决问题和追求目标等能力",
+      "importance": "high"
+    },
+    {
+      "id": "e2",
+      "type": "evidence",
+      "text": "部分专家认为近期模型意识与高能动性存在非零可能",
+      "importance": "medium"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "意识、体验与道德地位缺少可靠测量方法",
+      "importance": "high"
+    },
+    {
+      "id": "a1",
+      "type": "action",
+      "text": "建立跨学科研究计划并提前准备治理框架",
+      "importance": "high"
+    }
+  ]
+}

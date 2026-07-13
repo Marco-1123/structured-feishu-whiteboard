@@ -15,7 +15,33 @@ function fallbackBrief(inventory) {
   const moduleFacts = facts.filter((fact) => fact !== conclusion && fact.importance !== "low").slice(0, 6);
   const chunks = [moduleFacts.slice(0, 2), moduleFacts.slice(2, 4), moduleFacts.slice(4, 6)].filter((chunk) => chunk.length);
   while (chunks.length < 3) chunks.push([{ text: "材料信息不足，需补充关键事实" }]);
-  return { layout: "conclusion-first", style: "professional-blue", title: clip(inventory.title || "材料总览", 32), subtitle: "V4.4 置信度不足，使用 V4.3 稳定总览兜底。", summaryLabel: "核心判断", summary: clip(conclusion?.text || "材料暂未形成明确结论", 90), modules: chunks.map((chunk, index) => ({ title: ["关键信息", "风险与约束", "行动与待确认"][index], body: chunk.map((fact) => clip(fact.text, 28)), tag: ["稳定兜底", "需要核验", "继续补充"][index] })), footer: "该输出明确标记为 V4.3 fallback，不代表 V4.4 已高置信度完成语义选择。" };
+  const selectedFactIds = [...new Set([conclusion, ...moduleFacts].filter(Boolean).map((fact) => fact.id))];
+  return {
+    pipelineVersion: "4.3",
+    engine: "v3",
+    renderTarget: "svg",
+    layout: "conclusion-first",
+    style: "professional-blue",
+    title: clip(inventory.title || "材料总览", 32),
+    subtitle: "V4.4 置信度不足，使用 V4.3 稳定总览兜底。",
+    summaryLabel: "核心判断",
+    summary: clip(conclusion?.text || "材料暂未形成明确结论", 90),
+    modules: chunks.map((chunk, index) => ({
+      title: ["关键信息", "风险与约束", "行动与待确认"][index],
+      body: chunk.map((fact) => clip(fact.text, 16)),
+      tag: ["稳定兜底", "需要核验", "继续补充"][index],
+    })),
+    footer: "该输出明确标记为 V4.3 fallback，不代表 V4.4 已高置信度完成语义选择。",
+    planning: {
+      inventoryId: inventory.inventoryId || inventory.id || "fallback-inventory",
+      selectedFactIds,
+      omittedFacts: facts.filter((fact) => !selectedFactIds.includes(fact.id)).map((fact) => ({
+        id: fact.id,
+        reason: fact.importance === "low" ? "low-value-context" : "deferred-to-detail",
+      })),
+      routeDecisionId: "v43-stable-fallback",
+    },
+  };
 }
 
 export async function runWhiteboardV44({ root, inventoryPath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false }) {
@@ -50,7 +76,7 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     if (manifest.pipeline === "v4.4") run(process.execPath, [path.join(root, "scripts/check-v4-layout.mjs"), outputPath], root);
     manifest.checks.push({ name: "semantic-plan-render-layout", status: "passed" });
     manifest.outputs = { semanticModel: semanticPath, expressionPlans: plansPath, decision: decisionPath, brief: briefPath, whiteboard: outputPath };
-    if (!skipWhiteboardCli) { const pngPath = path.join(outputDir, "whiteboard.png"); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-o", pngPath, "-f", "svg"], root); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-f", "svg", "--check"], root); manifest.outputs.preview = pngPath; }
+    if (!skipWhiteboardCli) { const pngPath = path.join(outputDir, "whiteboard.png"); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-o", pngPath, "-f", "svg"], root); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-f", "svg", "--check"], root); run("python3", [path.join(root, "scripts/check-v44-preview.py"), pngPath], root); manifest.checks.push({ name: "preview-pixel-sanity", status: "passed" }); manifest.outputs.preview = pngPath; }
     manifest.status = "passed";
   } catch (error) { manifest.status = "failed"; manifest.error = { message: error.message }; }
   manifest.finishedAt = new Date().toISOString(); writeJson(manifestPath, manifest);

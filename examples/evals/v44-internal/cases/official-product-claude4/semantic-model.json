@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "semantic-official-product-claude4",
+  "inventoryId": "official-product-claude4",
+  "scenario": {
+    "primary": "product-capability"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "c1",
+      "type": "conclusion",
+      "text": "Claude 4 面向编码、复杂推理和长时间 Agent 工作流升级能力",
+      "importance": "critical",
+      "sourceRef": "c1",
+      "confidence": "supported"
+    },
+    {
+      "id": "h1",
+      "type": "option",
+      "text": "Opus 4 强调编码、复杂推理和长时间 Agent 任务",
+      "importance": "high",
+      "sourceRef": "h1",
+      "confidence": "supported"
+    },
+    {
+      "id": "h2",
+      "type": "option",
+      "text": "Sonnet 4 强调效率、可控成本和日常高频使用",
+      "importance": "high",
+      "sourceRef": "h2",
+      "confidence": "supported"
+    },
+    {
+      "id": "h3",
+      "type": "capability",
+      "text": "Claude Code 支持 IDE 集成、后台任务和 SDK",
+      "importance": "high",
+      "sourceRef": "h3",
+      "confidence": "supported"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "本地文件访问可帮助模型提取并保存关键事实以维持连续性",
+      "importance": "medium",
+      "sourceRef": "e1",
+      "confidence": "supported"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "长时间自主任务仍需测试、审查和权限约束",
+      "importance": "high",
+      "sourceRef": "r1",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [],
+  "readingLayers": {
+    "first": [
+      "c1"
+    ],
+    "second": [
+      "h1",
+      "h2",
+      "h3",
+      "e1",
+      "r1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "c1",
+      "h1",
+      "h2",
+      "h3",
+      "e1",
+      "r1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  },
+  "archetypeEvidence": [
+    {
+      "scenario": "product-capability",
+      "score": 8,
+      "evidence": {
+        "titleTerms": [
+          "能力",
+          "介绍"
+        ],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "research-decision",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "strategy-proposal",
+      "score": 3,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 3,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "review-update",
+      "score": 2,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 2,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "project-plan",
+      "score": 1,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 1,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    },
+    {
+      "scenario": "process-collaboration",
+      "score": 0,
+      "evidence": {
+        "titleTerms": [],
+        "factTypeHits": 0,
+        "laneBonus": 0,
+        "timeBonus": 0,
+        "futureBonus": 0
+      }
+    }
+  ]
+}
