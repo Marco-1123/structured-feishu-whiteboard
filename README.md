@@ -12,15 +12,17 @@
 - 使用统一 12 列网格和 OnePage 空间预算，阻止无限纵向拉长。
 - 生成可编辑飞书画板、预览图和可回放运行记录。
 
-## 安装 V4.4 beta.5
+## 安装 V4.4 beta.6
 
 ```bash
-npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/v4.4.0-beta.5 --skill structured-feishu-whiteboard -g -y
+npx skills add Marco-1123/structured-feishu-whiteboard@v4.4.0-beta.6 --skill structured-feishu-whiteboard -g -y --copy
 ```
 
 ## 更新
 
-再次执行同一条安装命令即可覆盖为 beta.5。固定版本标签可以避免不同 Agent 在同一分支上安装到不同提交。
+再次执行同一条安装命令即可覆盖为 beta.6。固定版本标签可以避免不同 Agent 在同一分支上安装到不同提交。
+
+beta.6 将完整 Skill 放在标准目录 `skills/structured-feishu-whiteboard/`。安装器会同时复制执行脚本、schema、配置和参考规则，不再只安装一份方法说明。
 
 ## 唯一生产入口
 
@@ -35,18 +37,19 @@ node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <outpu
 - 宽高比、主体层数、文本边界、底部平衡和颜色语义检查通过。
 - 飞书侧画板可打开、非空白、主要元素可编辑。
 
-详细使用规则见 [SKILL.md](SKILL.md)。
+详细使用规则见 [SKILL.md](skills/structured-feishu-whiteboard/SKILL.md)。
 
 ## 目录
 
 ```text
-SKILL.md                         当前唯一执行说明
-schemas/                         内容、语义和 brief schema
-config/                          场景与表达策略配置
-scripts/run-whiteboard-v44.mjs   唯一生产入口
-scripts/lib/                     语义、规划、布局和质量检查
-examples/evals/                  回归样例与真实坏案例
-references/                      当前设计与质量规则
+skills/structured-feishu-whiteboard/
+  SKILL.md                       当前唯一执行说明
+  schemas/                       内容、语义和 brief schema
+  config/                        场景与表达策略配置
+  scripts/run-whiteboard-v44.mjs 唯一生产入口
+  scripts/lib/                   语义、规划、布局和质量检查
+  examples/evals/                回归样例与真实坏案例
+  references/                    当前设计与质量规则
 wiki/                            迭代决策与经验记录
 ```
 

@@ -1,10 +1,10 @@
 {
-  "version": "4.4.0-beta.5",
+  "version": "4.4.0-beta.6",
   "channels": {
     "production": {
       "branch": "codex/v4.4-semantic-compiler",
-      "tag": "v4.4.0-beta.5",
-      "version": "4.4.0-beta.5",
+      "tag": "v4.4.0-beta.6",
+      "version": "4.4.0-beta.6",
       "entrypoint": "scripts/run-whiteboard-v44.mjs",
       "engine": "v4",
       "renderTarget": "svg"
