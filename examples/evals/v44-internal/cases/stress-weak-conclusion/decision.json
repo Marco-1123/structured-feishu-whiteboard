@@ -138,10 +138,6 @@
       }
     }
   ],
-  "fallback": {
-    "version": "4.3",
-    "reason": "on-failure"
-  },
   "brief": {
     "pipelineVersion": "4.4",
     "engine": "v4",
@@ -171,11 +167,11 @@
         "items": [
           {
             "label": "模型已表现出沟通、规划、解决问题和追求目标等能力",
-            "status": "good"
+            "status": "neutral"
           },
           {
             "label": "部分专家认为近期模型意识与高能动性存在非零可能",
-            "status": "good"
+            "status": "neutral"
           }
         ],
         "sourceFactIds": [
@@ -189,11 +185,11 @@
         "items": [
           {
             "label": "先进模型是否可能具有值得道德考虑的体验仍是开放问题",
-            "status": "good"
+            "status": "neutral"
           },
           {
             "label": "建立跨学科研究计划并提前准备治理框架",
-            "status": "good"
+            "status": "neutral"
           }
         ],
         "sourceFactIds": [

@@ -11,7 +11,15 @@ function count(model, type) {
 
 function ids(model, types) {
   const allowed = new Set(types);
-  return model.facts.filter((fact) => fact.visualType ? allowed.has(fact.visualType) : allowed.has(fact.type)).map((fact) => fact.id);
+  return model.facts.filter((fact) => allowed.has(fact.type) || allowed.has(fact.visualType)).map((fact) => fact.id);
+}
+
+function metricComponent(facts = []) {
+  if (facts.length < 3) return "metric-card";
+  if (facts.every((fact) => fact.type === "variance")) return "variance-bridge-v2";
+  if (facts.every((fact) => fact.type === "trend" || Number.isFinite(fact.order))) return "trend-sparkline";
+  if (facts.every((fact) => /%/.test(String(fact.value || fact.measure?.display || fact.text)))) return "progress-bar";
+  return "metric-card";
 }
 
 const SUPPORT_COMPONENTS = new Set(["evidence-list", "risk-list", "action-list"]);
@@ -86,7 +94,7 @@ function recipe(model, narrativeType) {
     return { skeleton: actorCount >= 2 ? "swimlane" : "timeline", layout: "flow-canvas", components: actorCount >= 2 ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
   }
   if (scenario === "research-decision" && narrativeType === "comparison-driven") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "evidence-list", "decision-matrix", "risk-list"], groups: [group(["conclusion", "unresolved"], "statement"), group(["evidence"], "evidence-list"), group(["option"], "decision-matrix"), group(["risk"], "risk-list")] };
-  if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "metric-card", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["metric"], "metric-card"), group(["process-chain"], "narrative-chain"), group(["capability"], "status-board"), group(["stage"], "narrative-chain"), group(["evidence"], "evidence-list")] };
+  if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "metric-card", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["metric"], "metric-card"), group(["process-chain"], "narrative-chain"), group(["capability"], "status-board"), group(["evidence"], "evidence-list")] };
   if (narrativeType === "temporal") return { skeleton: scenario === "review-update" ? "past-future-split" : "timeline", layout: "expression-canvas", components: ["statement", "metric-card", "mini-roadmap", "risk-list", "action-list"], groups: [group(["conclusion", "result", "metric"], "statement"), group(["stage"], "mini-roadmap"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
   if (narrativeType === "result-driven") return { skeleton: "overview-detail", layout: "expression-canvas", components: ["statement", "metric-card", "trend-sparkline", "narrative-chain", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["metric", "trend", "variance"], "metric-card"), group(["cause"], "narrative-chain"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
   if (narrativeType === "comparison-driven") return { skeleton: "multi-line-comparison", layout: "expression-canvas", components: ["statement", "decision-matrix", "evidence-list", "risk-list"], groups: [group(["conclusion"], "statement"), group(["option"], "decision-matrix"), group(["evidence"], "evidence-list"), group(["risk"], "risk-list")] };
@@ -150,7 +158,10 @@ export function planExpressions(model, config = defaultConfig) {
     const selected = recipe(model, narrativeType);
     const regions = selected.groups.map((group, index) => {
       const factIds = ids(model, group.types);
-      const preferredComponent = group.component === "decision-matrix" && factIds.length < 2 ? "evidence-list" : group.component;
+      const regionFacts = factIds.map((id) => model.facts.find((fact) => fact.id === id)).filter(Boolean);
+      const preferredComponent = group.component === "decision-matrix" && factIds.length < 2
+        ? "evidence-list"
+        : group.component === "metric-card" ? metricComponent(regionFacts) : group.component;
       return { id: `region-${index + 1}`, purpose: group.types.join("-"), factIds, preferredComponent, visualPriority: index === 0 ? "primary" : "secondary", widthIntent: index === 0 ? "full" : "adaptive" };
     }).filter((region) => region.factIds.length);
     const covered = new Set(regions.flatMap((region) => region.factIds));

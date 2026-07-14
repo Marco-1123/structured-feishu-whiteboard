@@ -40,6 +40,7 @@ const texts = [...svg.matchAll(/<text\b([^>]*)>([\s\S]*?)<\/text>/g)].map((match
     x: num(a.x),
     y: num(a.y),
     size: num(a["font-size"]),
+    anchor: a["text-anchor"] || "start",
     lines,
   };
 });
@@ -81,7 +82,12 @@ for (const text of texts) {
   const parent = findParentRect({ x: text.x, y: text.y - text.size, w: 1, h: text.size });
   if (!parent) continue;
   const longestLine = Math.max(...text.lines.map((line) => lineWidth(line, text.size)));
-  const estimatedRight = text.x + longestLine;
+  const estimatedLeft = text.anchor === "middle" ? text.x - longestLine / 2 : text.anchor === "end" ? text.x - longestLine : text.x;
+  const estimatedRight = text.anchor === "middle" ? text.x + longestLine / 2 : text.anchor === "end" ? text.x : text.x + longestLine;
+  if (estimatedLeft < parent.x + 8) {
+    issues.push(`text "${text.lines.join(" / ")}" likely exceeds parent rect ${parent.index}`);
+    continue;
+  }
   if (estimatedRight > parent.x + parent.w - 8) {
     issues.push(`text "${text.lines.join(" / ")}" likely exceeds parent rect ${parent.index}`);
   }

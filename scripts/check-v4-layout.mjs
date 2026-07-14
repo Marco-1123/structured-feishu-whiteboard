@@ -11,7 +11,7 @@ const issues = [];
 
 function attrs(source) {
   const out = {};
-  for (const [, key, value] of source.matchAll(/([a-zA-Z:-]+)="([^"]*)"/g)) {
+  for (const [, key, value] of source.matchAll(/([a-zA-Z0-9:-]+)="([^"]*)"/g)) {
     out[key] = value;
   }
   return out;
@@ -91,6 +91,7 @@ if (svg.includes('data-expression-mode=')) {
   const outerRows = new Map();
   for (const [, raw, body] of svg.matchAll(/<g\b([^>]*data-row="[^"]+"[^>]*)>([\s\S]*?)<\/g>/g)) {
     const group = attrs(raw);
+    if (group["data-block-type"] === "title") continue;
     const outer = body.match(/<rect\b([^>]*data-v4-block-card="true"[^>]*)\/>/);
     if (!outer) continue;
     const row = group["data-row"];
@@ -99,6 +100,28 @@ if (svg.includes('data-expression-mode=')) {
   }
   for (const [row, heights] of outerRows) {
     if (heights.length > 1 && new Set(heights).size !== 1) issues.push(`expression row ${row} renders uneven outer card heights`);
+  }
+
+  for (const [, raw, body] of svg.matchAll(/<g\b([^>]*data-v43-block="[^"]+"[^>]*)>([\s\S]*?)<\/g>/g)) {
+    const group = attrs(raw);
+    if (group["data-block-type"] === "title") continue;
+    const bounds = { x: num(group["data-x"]), y: num(group["data-y"]), w: num(group["data-width"]), h: num(group["data-height"]) };
+    for (const [, rawText, rawBody] of body.matchAll(/<text\b([^>]*)>([\s\S]*?)<\/text>/g)) {
+      const a = attrs(rawText);
+      const x = num(a.x);
+      const y = num(a.y);
+      const size = num(a["font-size"]);
+      const anchor = a["text-anchor"] || "start";
+      const spans = [...rawBody.matchAll(/<tspan\b([^>]*)>([\s\S]*?)<\/tspan>/g)];
+      const lines = spans.map(([, , value]) => value.replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">"));
+      const lineHeight = spans.length > 1 ? Math.max(size, ...spans.slice(1).map(([, spanAttrs]) => num(attrs(spanAttrs).dy))) : size;
+      const longest = Math.max(0, ...lines.map((line) => textWidth(line, size)));
+      const left = anchor === "middle" ? x - longest / 2 : anchor === "end" ? x - longest : x;
+      const right = anchor === "middle" ? x + longest / 2 : anchor === "end" ? x : x + longest;
+      const bottom = y + Math.max(0, spans.length - 1) * lineHeight + size * 0.22;
+      if (left < bounds.x + 8 || right > bounds.x + bounds.w - 8) issues.push(`expression text "${lines.join(" / ")}" exceeds block ${group["data-v43-block"]} horizontally`);
+      if (bottom > bounds.y + bounds.h - 8) issues.push(`expression text "${lines.join(" / ")}" exceeds block ${group["data-v43-block"]} bottom`);
+    }
   }
 }
 

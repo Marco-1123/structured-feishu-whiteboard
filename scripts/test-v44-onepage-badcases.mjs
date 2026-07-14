@@ -24,6 +24,14 @@ const fixtures = [
     embeddedFactId: "e1",
     expectClosingBand: false,
   },
+  {
+    id: "audit-assistant-knowledge-overview",
+    expectedSkeleton: "centered-system",
+    minimumMetrics: 3,
+    requiredBlocks: ["status-board", "narrative-chain", "evidence-list", "action-list"],
+    maximumBodyRows: 2,
+    expectClosingBand: false,
+  },
 ];
 
 for (const fixture of fixtures) {
@@ -46,7 +54,14 @@ for (const fixture of fixtures) {
   }
   const dimensions = svg.match(/<svg[^>]*width="([\d.]+)"[^>]*height="([\d.]+)"/);
   assert.ok(dimensions, `${fixture.id} must expose SVG dimensions`);
-  assert.ok(Number(dimensions[1]) / Number(dimensions[2]) >= 1.1, `${fixture.id} must remain a compact onepage`);
+  assert.ok(Number(dimensions[1]) / Number(dimensions[2]) >= 1.42, `${fixture.id} must remain a compact onepage`);
+  const layoutRows = [...svg.matchAll(/data-row="(\d+)"/g)].map((match) => Number(match[1]));
+  const bodyRows = new Set(layoutRows);
+  if (fixture.maximumBodyRows) assert.ok(bodyRows.size <= fixture.maximumBodyRows, `${fixture.id} must use no more than ${fixture.maximumBodyRows} body rows`);
+  const informationalStatuses = (brief.expressionBlocks || []).flatMap((block) => block.items || []).filter((item) => item.status && item.status !== "risk");
+  assert.ok(informationalStatuses.every((item) => item.status === "neutral"), `${fixture.id} must reserve success green for explicit positive states`);
+  const metricBlocks = (brief.expressionBlocks || []).filter((block) => block.type === "metric-card");
+  assert.ok(new Set(metricBlocks.map((block) => block.label)).size > 1 || metricBlocks.length < 2, `${fixture.id} must not label every metric as the same generic stage result`);
   if (fixture.expectClosingBand) assert.match(svg, /data-span="12"[^>]*data-item-layout="footer-band"/, `${fixture.id} must finish with a full-width closing band rather than a narrow floating card`);
   if (fixture.expectCompactSupportRow) {
     for (const type of ["status-board", "risk-list", "action-list"]) assert.match(svg, new RegExp(`data-block-type="${type}"[^>]*data-row="0"[^>]*data-span="4"`), `${fixture.id} must compose three compact support modules into one balanced row`);

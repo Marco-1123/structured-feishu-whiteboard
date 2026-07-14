@@ -1,112 +1,57 @@
 # structured-feishu-whiteboard
 
-结构化飞书画板 Skill：把用户提供的材料、报告、方案、网页信息、飞书文档内容或自由文本，提炼成清晰的信息结构，并生成可编辑、排版美观的飞书 / Lark 画板。
+把报告、方案、计划、研究材料和长文转成结构化、可编辑的飞书画板。
 
-## 适合什么场景
+当前版本统一使用 **V4.4 semantic compiler**：先生成事实清单，再由脚本完成场景判断、表达规划、页面构图、SVG 渲染和质量检查。外部 Agent 不再自行选择历史渲染链路，也不能自由手写 SVG。
 
-- 把方案或报告整理成咨询汇报风格画板。
-- 把网页、文档、研究材料转成结构化信息图。
-- 把产品规划、路线图、竞品分析、业务流程做成飞书画板。
-- 需要输出可编辑白板，而不是一张静态截图。
+## 能力
 
-## 当前能力
+- 识别阶段复盘、策略方案、项目计划、研究选型、产品能力、流程协作六类场景。
+- 根据材料选择指标、进度、趋势、状态、路线、证据、风险、行动、矩阵、差异桥和流程图等表达组件。
+- 保留关键事实并记录信息取舍。
+- 使用统一 12 列网格和 OnePage 空间预算，阻止无限纵向拉长。
+- 生成可编辑飞书画板、预览图和可回放运行记录。
 
-- 内容理解：提炼主题、主结论、关键模块、证据和行动项。
-- 版式选择：内置 6 个常规报告版式，并正式支持 7 个 V3.2 受控表达场景。
-- 视觉风格：主推专业蓝白、Apple Studio、Linear Command，并保留飞书克制风格组。
-- 飞书落地：默认新建飞书文档，写入可编辑画板，并返回链接和预览图。
-- V4.3 稳定能力：信息保全清单、可解释场景路由、引擎能力注册表、自适应密度布局、语义组件、流程图质量门禁和可回放运行记录。
-
-## 发布通道
-
-- **稳定版**：`main`，版本 V4.3，适合正式使用。
-- **测试版**：`codex/v4.4-semantic-compiler`，版本 V4.4 Beta 1，用于跨 Agent 验证语义编译和差异化表达。
-- **关键历史版本**：`v0.1.0`、`v3.2.0`，用于回看初版和受控表达阶段。
-
-V4.3 将信息保全、候选路由、自适应密度布局、行级协调、语义组件和流程图质量门禁整合为默认稳定链路。
-
-## 内置版式
-
-- 结论先行
-- 问题拆解
-- 对比矩阵
-- 路线图 / 阶段规划
-- 流程 / 价值链
-- 里程碑时间线（V3.2 DSL）
-- 漏斗 / 收敛（V3.2 DSL）
-- 金字塔 / 层级（V3.2 DSL）
-- 指标看板 / 进度分析（V3.2 DSL）
-- 目标进度墙（V3.2 DSL）
-- 排名贡献条（V3.2 DSL）
-- 差异桥 / 变化归因（V3.2 DSL）
-
-## 内置风格
-
-- 专业蓝白
-- Apple Studio
-- Linear Command
-- 飞书中性 / 状态 / 决策深色等克制工作风格
-
-## 安装
-
-稳定版：
+## 安装测试分支
 
 ```bash
-npx skills add Marco-1123/structured-feishu-whiteboard
+npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/codex/v4.4-semantic-compiler --skill structured-feishu-whiteboard -g -y
 ```
 
-V4.4 Beta（固定测试标签，推荐跨 Agent 安装）：
+## 更新
+
+再次执行同一条安装命令即可覆盖为该分支最新版本。
+
+## 唯一生产入口
 
 ```bash
-npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/v4.4.0-beta.2 --skill structured-feishu-whiteboard -g -y
+node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <output-dir>
 ```
 
-V4.4 Beta 会先将材料编译为语义模型，再从多个受控表达候选中选择结构。它覆盖复盘汇报、策略方案、项目计划、研究决策、产品能力和流程协作六类场景；低置信度时保留候选并明确回退 V4.3。
+正式结果必须具有：
 
-也可以手动复制本仓库到你的 Skills 目录。
+- `run-manifest.json` 中 `pipeline: "v4.4"`、`status: "passed"`。
+- `whiteboard.svg` 中 `data-layout-engine="v4"` 与 `data-pipeline-version="4.4"`。
+- 宽高比、主体层数、文本边界、底部平衡和颜色语义检查通过。
+- 飞书侧画板可打开、非空白、主要元素可编辑。
 
-## 依赖
+详细使用规则见 [SKILL.md](SKILL.md)。
 
-- Node.js 20 或更新版本。
-- `lark-cli`，并完成飞书 / Lark 用户授权。
-- `@larksuite/whiteboard-cli`，通过 `npx` 自动调用。
-
-运行自检：
-
-```bash
-bash scripts/preflight.sh
-```
-
-## 使用示例
-
-对 Agent 说：
-
-> 使用 `$structured-feishu-whiteboard`，把这份方案整理成结构清晰、可编辑的飞书画板。
-
-或：
-
-> 使用 `$structured-feishu-whiteboard`，把这个网页里的核心信息做成飞书画板，偏专业蓝白风格。
-
-## 目录结构
+## 目录
 
 ```text
-SKILL.md
-agents/openai.yaml
-references/
-  report-workflow.md
-  layout-library.md
-  style-library.md
-  feishu-svg-rules.md
-  quality-checklist.md
-scripts/
-  preflight.sh
-  route-whiteboard.mjs
-  run-whiteboard.mjs
-  render-whiteboard.mjs
-  render-whiteboard-dsl.mjs
-  render-whiteboard-v4.mjs
+SKILL.md                         当前唯一执行说明
+schemas/                         内容、语义和 brief schema
+config/                          场景与表达策略配置
+scripts/run-whiteboard-v44.mjs   唯一生产入口
+scripts/lib/                     语义、规划、布局和质量检查
+examples/evals/                  回归样例与真实坏案例
+references/                      当前设计与质量规则
+wiki/                            迭代决策与经验记录
 ```
 
-## 许可
+历史代码保留用于回归和迁移，不构成并行生产入口。
+
+## License
 
 MIT

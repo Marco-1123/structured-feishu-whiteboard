@@ -51,9 +51,13 @@ const groupedMetricCandidate = {
   regions: [{ id: "statement-with-metrics", purpose: "conclusion-metric", factIds: ["conclusion-1", "metric-coverage", "metric-growth"], preferredComponent: "statement", visualPriority: "primary", widthIntent: "full" }],
 };
 const groupedMetricBrief = compileV44Brief({ semanticModel: groupedMetricModel, planningResult: { candidates: [groupedMetricCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
-const groupedMetricText = JSON.stringify(groupedMetricBrief.expressionBlocks);
-assert.match(groupedMetricText, /七个月内典型任务估算价值平均提高约 25%/, "high-importance metrics grouped with a statement must remain fully visible");
-assert.ok(groupedMetricBrief.expressionBlocks.filter((block) => block.type === "metric-card").length >= 2, "grouped metrics should become metric cards instead of being clipped into the statement");
+const groupedMetricBlocks = groupedMetricBrief.expressionBlocks.filter((block) => block.type === "metric-card");
+const growthMetric = groupedMetricBlocks.find((block) => block.sourceFactIds?.includes("metric-growth"));
+assert.ok(growthMetric, "a grouped high-importance metric must become a visible metric card");
+assert.equal(growthMetric.title, "任务价值提升", "the metric card must retain the metric's business meaning without leaving a numeric-removal fragment");
+assert.equal(growthMetric.value, "+25%", "the metric card must retain the exact metric value");
+assert.ok(!growthMetric.note, "metric cards must not repeat the full source sentence as decorative body copy");
+assert.ok(groupedMetricBlocks.length >= 2, "grouped metrics should become metric cards instead of being clipped into the statement");
 
 const longConclusionModel = {
   ...semanticModel,
@@ -90,13 +94,14 @@ const embeddedChainCandidate = {
 };
 const embeddedChainBrief = compileV44Brief({ semanticModel: embeddedChainModel, planningResult: { candidates: [embeddedChainCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
 const embeddedEvidenceItem = embeddedChainBrief.expressionBlocks.find((block) => block.type === "narrative-chain").items.at(-1);
-assert.ok(embeddedEvidenceItem.note, "long evidence embedded in a directional component must split into a short label and visible secondary text");
-assert.equal(`${embeddedEvidenceItem.label}${embeddedEvidenceItem.note}`, embeddedChainModel.facts.at(-1).text);
+assert.equal(embeddedEvidenceItem.note, undefined, "directional text must not be cut at an arbitrary character boundary");
+assert.equal(embeddedEvidenceItem.label, embeddedChainModel.facts.at(-1).text, "the renderer, not the compiler, owns visual line wrapping");
 
 const low = compileV44Brief({ semanticModel, planningResult: { candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }, style: "linear-system", title: "混合材料" });
 assert.equal(low.decision.level, "low");
 assert.equal(low.requiresUserChoice, true);
-assert.equal(low.fallback.version, "4.3");
+assert.equal(low.reason, "low-confidence");
+assert.equal(low.brief, undefined, "low-confidence material must be rejected instead of silently using an old renderer");
 
 const flowModel = {
   ...semanticModel,

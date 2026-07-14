@@ -27,15 +27,15 @@
       "items": [
         {
           "label": "Agent 可能误读用户意图并执行非预期操作",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "跨应用工具使用会扩大提示注入和权限滥用风险",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "Agent 已在编码、文件管理和多应用任务中产生真实生产力收益",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -50,7 +50,7 @@
       "items": [
         {
           "label": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -62,14 +62,12 @@
       "title": "判断链路",
       "items": [
         {
-          "label": "Agent 治理必须在提升自主性的同时保",
-          "note": "留可观察、可控制和可追责能力",
-          "status": "good"
+          "label": "Agent 治理必须在提升自主性的同时保留可观察、可控制和可追责能力",
+          "status": "neutral"
         },
         {
-          "label": "建立权限边界、执行前确认、全程追踪和异常",
-          "note": "回退的治理组合",
-          "status": "good"
+          "label": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [

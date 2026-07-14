@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1080" viewBox="0 0 2200 1080" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
-<rect x="0" y="0" width="2200" height="1080" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1024" viewBox="0 0 2200 1024" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
+<rect x="0" y="0" width="2200" height="1024" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">GPT-5 系统架构调研与模型选择决策</tspan></text>
@@ -16,16 +16,16 @@
 <text x="144" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
 <text x="865.76" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="865.76" dy="0">判断依据</tspan></text>
 <text x="1966" y="529" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1966" dy="0">结论</tspan></text>
-<rect x="124" y="544" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
-<text x="144" y="573" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">快速模型适合多数高吞吐日常问题</tspan></text>
+<rect x="124" y="544" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="573" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">快速模型适合多数高吞吐日常问题</tspan></text>
 
 
-<rect x="124" y="626" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
-<text x="144" y="655" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">推理模型适合复杂问题、工具调用和更深分析</tspan></text>
+<rect x="124" y="626" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="655" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">推理模型适合复杂问题、工具调用和更深分析</tspan></text>
 
 
-<rect x="124" y="708" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
-<text x="144" y="737" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择</tspan></text>
+<rect x="124" y="708" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="737" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择</tspan></text>
 
 
 <rect x="124" y="790" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>

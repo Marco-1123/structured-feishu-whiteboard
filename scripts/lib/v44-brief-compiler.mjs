@@ -38,15 +38,14 @@ function splitFactText(value) {
 }
 
 function item(fact, component) {
-  let parts = splitFactText(fact.text);
-  if (["narrative-chain", "mini-roadmap"].includes(component) && !parts.note && parts.label.length > 20) {
-    parts = { label: parts.label.slice(0, 20), note: parts.label.slice(20) };
-  }
+  const parts = splitFactText(fact.text);
   return {
     label: clip(parts.label, 40),
     ...(fact.value !== undefined ? { value: clip(fact.value, 12) } : {}),
     ...(parts.note && parts.note !== parts.label ? { note: clip(parts.note, 72) } : {}),
-    status: fact.type === "risk" ? "risk" : fact.confidence === "missing" ? "neutral" : "good",
+    // Informational facts use the primary accent. Success color is reserved for
+    // facts that explicitly express a completed or positive state.
+    status: fact.type === "risk" ? "risk" : "neutral",
   };
 }
 
@@ -55,13 +54,45 @@ function metricValue(fact) {
 }
 
 function metricTitle(fact) {
+  const source = String(fact?.text || "");
+  const semanticTitle = [
+    [/每周消息|周消息/, "企业周消息规模"],
+    [/结构化工作流.*使用|工作流使用量/, "结构化工作流使用"],
+    [/受访员工.*(?:速度|质量)|(?:速度|质量).*受访员工/, "AI 效率改善认同"],
+    [/桌面应用.*周活跃|发布后周活跃/, "桌面端活跃增长"],
+    [/知识工作者.*占|占.*知识工作者/, "知识工作者占比"],
+    [/受访者.*尝试.*AI|尝试过.*AI.*工具/, "AI 工具尝试率"],
+    [/受访者.*采用.*编码 Agent|采用编码 Agent/, "编码 Agent 采用率"],
+    [/周活跃.*开发者|开发者.*周活跃/, "周活跃开发者"],
+    [/活跃.*(?:用户|人数)|(?:用户|人数).*活跃/, "活跃用户规模"],
+    [/交互会话|研究覆盖.*用户|样本.*用户/, "研究样本规模"],
+    [/估算价值|任务价值/, "任务价值提升"],
+    [/响应|时延|延时/, "问题响应时间"],
+    [/节省.*(?:人工|分析)|人工.*(?:耗时|时间)/, "人工分析时间"],
+    [/覆盖.*(?:能力|场景)|能力.*覆盖/, "核心能力覆盖"],
+    [/完成率|达成率/, "目标完成率"],
+    [/转化率|转化/, "转化表现"],
+    [/增长|提升/, "增长幅度"],
+    [/下降|降低/, "下降幅度"],
+    [/风险|异常/, "风险数量"],
+  ].find(([pattern]) => pattern.test(source))?.[1];
+  if (semanticTitle) return semanticTitle;
   const value = metricValue(fact);
-  const withoutValue = String(fact?.text || "")
+  const withoutValue = source
     .replace(value, "")
     .replace(/[<>≤≥+~-]?\d+(?:\.\d+)?(?:[-~至]\d+(?:\.\d+)?)?\s*(?:%|小时|分钟|秒|人|次|项|类|个|级|万|亿|h|min|s)?/i, "")
     .replace(/[，,：:]\s*$/, "")
     .trim();
   return clip(withoutValue || "核心指标", 24);
+}
+
+function metricLabel(fact) {
+  const value = `${fact?.text || ""}`;
+  if (/响应|耗时|时延|延时|分钟|小时|秒/.test(value)) return "效率指标";
+  if (/覆盖|场景|能力|数量|规模/.test(value)) return "覆盖指标";
+  if (/节省|提升|下降|降低|增长|转化/.test(value)) return "变化指标";
+  if (/风险|异常|问题/.test(value)) return "风险指标";
+  return "核心指标";
 }
 
 function visibleStatement(facts, max = 80) {
@@ -129,15 +160,14 @@ function expressionBlock(region, facts) {
       type: "metric-card",
       title: metricTitle(fact),
       value: metricValue(fact),
-      label: "阶段结果",
-      ...(metricTitle(fact) !== fact.text ? { note: clip(fact.text, 50) } : {}),
+      label: metricLabel(fact),
       status: "neutral",
       sourceFactIds: [fact.id],
     }));
     return [statement, ...metricCards];
   }
   if (type === "metric-card") {
-    return regionFacts.map((fact) => ({ type, title: metricTitle(fact), value: metricValue(fact), label: "阶段结果", ...(metricTitle(fact) !== fact.text ? { note: clip(fact?.text, 48) } : {}), status: "neutral", sourceFactIds: [fact.id] }));
+    return regionFacts.map((fact) => ({ type, title: metricTitle(fact), value: metricValue(fact), label: metricLabel(fact), status: "neutral", sourceFactIds: [fact.id] }));
   }
   const supported = new Set(["risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2", "progress-bar", "ranked-bar"]);
   const safeType = supported.has(type) ? type : "evidence-list";
@@ -173,16 +203,16 @@ function ensureExpressionRequirements(blocks, model, narrativeType) {
 export function compileV44Brief({ semanticModel, planningResult, style = "linear-system", title }) {
   const decision = decideConfidence(planningResult);
   const selected = planningResult.candidates?.[0];
-  if (!selected || decision.level === "low") return { decision, requiresUserChoice: true, alternatives: planningResult.candidates || [], fallback: { version: "4.3", reason: !selected ? "no-valid-candidate" : "low-confidence" } };
+  if (!selected || decision.level === "low") return { decision, requiresUserChoice: true, alternatives: planningResult.candidates || [], reason: !selected ? "no-valid-candidate" : "low-confidence" };
   const facts = factMap(semanticModel);
-  if (selected.layout === "flow-canvas") return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, fallback: { version: "4.3", reason: "on-failure" }, brief: compileFlowBrief(semanticModel, selected, style, title) };
+  if (selected.layout === "flow-canvas") return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, brief: compileFlowBrief(semanticModel, selected, style, title) };
   const blocks = ensureExpressionRequirements(selected.regions.flatMap((region) => expressionBlock(region, facts)), semanticModel, selected.narrativeType);
   const mode = expressionMode(selected, semanticModel);
   const visibleBlocks = blocks;
   const selectedFactIds = [...new Set(visibleBlocks.flatMap((block) => block.sourceFactIds || []))];
   const omittedFacts = semanticModel.facts.filter((fact) => !selectedFactIds.includes(fact.id)).map((fact) => ({ id: fact.id, reason: fact.importance === "low" ? "low-value-context" : "deferred-to-detail" }));
   const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
-  return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], fallback: { version: "4.3", reason: "on-failure" }, brief: {
+  return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], brief: {
     pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
     title: clip(title || summaryFact.text, 32), subtitle: semanticSubtitle(semanticModel.scenario.primary, selected.narrativeType, visibleBlocks), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, pageSkeleton: selected.pageSkeleton, expressionBlocks: visibleBlocks,
     planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: selected.planId },

@@ -102,11 +102,30 @@ const SKELETON_PRIORITY = {
 
 function skeletonProfile(block, pageSkeleton, profile) {
   const intent = profile(block);
-  if (pageSkeleton === "centered-system" && block.type === "status-board" && intent.itemCount >= 4) {
-    return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: intent.itemCount === 5 ? "grid-5" : intent.itemLayout, reason: "centered-system-anchor" };
+  if (pageSkeleton === "centered-system" && ["status-board", "narrative-chain"].includes(block.type)) {
+    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout: block.type === "status-board" ? "grid-2" : "vertical-chain", reason: `centered-system-${block.type === "status-board" ? "capability" : "path"}-column` };
+  }
+  if (pageSkeleton === "centered-system" && LIST_TYPES.has(block.type)) {
+    const itemLayout = intent.itemCount >= 3 ? "grid-3" : intent.itemCount === 2 ? "grid-2" : "rows";
+    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout, reason: "centered-system-support-row" };
   }
   if (pageSkeleton === "timeline" && ["mini-roadmap", "narrative-chain"].includes(block.type)) {
     return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, reason: "timeline-reading-axis" };
+  }
+  if (pageSkeleton === "past-future-split" && block.type === "mini-roadmap" && intent.itemCount <= 4 && intent.textUnits <= 220) {
+    return { ...intent, span: 8, minSpan: 8, preferredSpan: 8, maxSpan: 8, reason: "past-future-primary-roadmap" };
+  }
+  if (pageSkeleton === "past-future-split" && block.type === "status-board" && intent.itemCount <= 2 && intent.textUnits <= 160) {
+    return { ...intent, span: 4, minSpan: 4, preferredSpan: 4, maxSpan: 4, itemLayout: "rows", reason: "past-future-side-status" };
+  }
+  if (pageSkeleton === "left-right-argument" && block.type === "narrative-chain" && intent.itemCount <= 3 && intent.textUnits <= 180) {
+    return { ...intent, span: 8, minSpan: 8, preferredSpan: 8, maxSpan: 8, itemLayout: "vertical-chain", reason: "left-right-argument-primary-chain" };
+  }
+  if (pageSkeleton === "left-right-argument" && block.type === "metric-card") {
+    return { ...intent, span: 4, minSpan: 4, preferredSpan: 4, maxSpan: 4, reason: "left-right-argument-metric-callout" };
+  }
+  if (pageSkeleton === "left-right-argument" && block.type === "status-board" && intent.itemCount <= 2 && intent.textUnits <= 140) {
+    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout: "rows", reason: "left-right-argument-side-status" };
   }
   if (["past-future-split", "left-right-argument"].includes(pageSkeleton) && ["evidence-list", "risk-list", "action-list"].includes(block.type)) {
     return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, reason: `${pageSkeleton}-paired-region` };
@@ -149,6 +168,9 @@ export function buildAdaptiveExpressionLayout({
 }) {
   const workingBlocks = pageSkeleton ? arrangeExpressionBlocks(blocks, pageSkeleton, profile) : blocks;
   const intents = workingBlocks.map((block) => skeletonProfile(block, pageSkeleton, profile));
+  if (pageSkeleton === "centered-system" && workingBlocks.length === 1 && workingBlocks[0].type === "status-board") {
+    intents[0] = { ...intents[0], span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "grid-5", reason: "centered-system-single-anchor" };
+  }
   const allowed = (intent) => [4, 6, 8, 12].filter((span) => span >= intent.minSpan && span <= intent.maxSpan);
   const canUse = (index, span) => index < workingBlocks.length && allowed(intents[index]).includes(span);
   const pair = (index) => {
@@ -163,61 +185,61 @@ export function buildAdaptiveExpressionLayout({
     }
     return candidates.sort((a, b) => a.cost - b.cost || a.spans[0] - b.spans[0])[0]?.spans || null;
   };
-  const compactRunLength = (index) => {
-    let length = 0;
-    while (index + length < workingBlocks.length && canUse(index + length, 4)) length += 1;
-    return length;
-  };
-
-  const rowPlans = [];
-  for (let index = 0; index < workingBlocks.length;) {
-    const currentAllowed = allowed(intents[index]);
-    if (currentAllowed.length === 1 && currentAllowed[0] === 12) {
-      rowPlans.push({ indexes: [index], spans: [12], alignment: "filled", offsetSpan: 0 });
-      index += 1;
-      continue;
-    }
-
-    const runLength = compactRunLength(index);
-    if (runLength >= 3 && runLength % 3 !== 1) {
-      rowPlans.push({ indexes: [index, index + 1, index + 2], spans: [4, 4, 4], alignment: "filled", offsetSpan: 0 });
-      index += 3;
-      continue;
-    }
-
+  // Plan the whole page instead of greedily filling one row at a time. The
+  // previous greedy pass could make an early locally-valid pair and strand a
+  // sparse module in a later row, producing the visible "missing tile" holes.
+  const memo = new Map();
+  const solve = (index) => {
+    if (index >= workingBlocks.length) return { cost: 0, rows: [] };
+    if (memo.has(index)) return memo.get(index);
+    const options = [];
     const pairSpans = pair(index);
     if (pairSpans) {
-      rowPlans.push({ indexes: [index, index + 1], spans: pairSpans, alignment: "filled", offsetSpan: 0 });
-      index += 2;
-      continue;
+      const rest = solve(index + 2);
+      const deviation = pairSpans.reduce((sum, span, offset) => sum + Math.abs(span - intents[index + offset].preferredSpan), 0);
+      options.push({ cost: rest.cost + deviation, rows: [{ indexes: [index, index + 1], spans: pairSpans, alignment: "filled", offsetSpan: 0 }, ...rest.rows] });
     }
-
-    if (runLength >= 3) {
-      rowPlans.push({ indexes: [index, index + 1, index + 2], spans: [4, 4, 4], alignment: "filled", offsetSpan: 0 });
-      index += 3;
-      continue;
+    if (canUse(index, 4) && canUse(index + 1, 4) && canUse(index + 2, 4)) {
+      const rest = solve(index + 3);
+      const deviation = [0, 1, 2].reduce((sum, offset) => sum + Math.abs(4 - intents[index + offset].preferredSpan), 0);
+      options.push({ cost: rest.cost + deviation + 1, rows: [{ indexes: [index, index + 1, index + 2], spans: [4, 4, 4], alignment: "filled", offsetSpan: 0 }, ...rest.rows] });
     }
-
+    const currentAllowed = allowed(intents[index]);
     if (currentAllowed.includes(12)) {
-      rowPlans.push({ indexes: [index], spans: [12], alignment: "filled", offsetSpan: 0 });
-    } else {
+      const rest = solve(index + 1);
+      const isNaturallyWide = intents[index].minSpan === 12 || DIRECTIONAL_TYPES.has(workingBlocks[index].type) || workingBlocks[index].type === "decision-matrix";
+      options.push({ cost: rest.cost + (isNaturallyWide ? 1 : 18), rows: [{ indexes: [index], spans: [12], alignment: "filled", offsetSpan: 0 }, ...rest.rows] });
+    }
+    if (!options.length) {
       const span = currentAllowed.at(-1);
-      rowPlans.push({ indexes: [index], spans: [span], alignment: "centered", offsetSpan: (12 - span) / 2 });
+      const rest = solve(index + 1);
+      options.push({ cost: rest.cost + 80 + (12 - span), rows: [{ indexes: [index], spans: [span], alignment: "centered", offsetSpan: (12 - span) / 2 }, ...rest.rows] });
     }
-    index += 1;
-  }
+    const best = options.sort((a, b) => a.cost - b.cost || a.rows.length - b.rows.length)[0];
+    memo.set(index, best);
+    return best;
+  };
 
-  const finalRow = rowPlans.at(-1);
-  if (pageSkeleton && finalRow?.indexes.length === 1 && finalRow.alignment === "centered") {
-    const finalIndex = finalRow.indexes[0];
-    const intent = intents[finalIndex];
-    if (LIST_TYPES.has(workingBlocks[finalIndex].type) && !intent.reason.endsWith("-paired-region")) {
-      finalRow.spans = [12];
-      finalRow.alignment = "filled";
-      finalRow.offsetSpan = 0;
-      intents[finalIndex] = { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "footer-band", reason: "full-width-closing-band" };
-    }
-  }
+  const rowPlans = solve(0).rows;
+  rowPlans.forEach((rowPlan) => {
+    if (!pageSkeleton || rowPlan.indexes.length !== 1 || rowPlan.alignment !== "centered") return;
+    const sourceIndex = rowPlan.indexes[0];
+    const intent = intents[sourceIndex];
+    const blockType = workingBlocks[sourceIndex].type;
+    const itemLayout = LIST_TYPES.has(blockType)
+      ? "footer-band"
+      : blockType === "status-board" && intent.itemCount <= 3
+        ? "footer-band"
+        : blockType === "status-board" && intent.itemCount >= 4
+          ? "grid-2"
+        : blockType === "metric-card"
+          ? "metric-strip"
+          : intent.itemLayout;
+    rowPlan.spans = [12];
+    rowPlan.alignment = "filled";
+    rowPlan.offsetSpan = 0;
+    intents[sourceIndex] = { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout, reason: "global-orphan-prevention" };
+  });
 
   const nodes = [];
   const rows = [];

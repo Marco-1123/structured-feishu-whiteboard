@@ -28,15 +28,15 @@
       "items": [
         {
           "label": "快速模型适合多数高吞吐日常问题",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "推理模型适合复杂问题、工具调用和更深分析",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "实时路由器依据对话类型、复杂度、工具需求和显式意图进行选择",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "高风险任务仍需人工验证模型输出",

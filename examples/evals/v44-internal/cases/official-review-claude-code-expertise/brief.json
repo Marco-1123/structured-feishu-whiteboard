@@ -23,10 +23,9 @@
     },
     {
       "type": "metric-card",
-      "title": "研究覆盖约 次交互会话和约 23.5 万名用户",
+      "title": "研究样本规模",
       "value": "400K",
-      "label": "阶段结果",
-      "note": "研究覆盖约 40 万次交互会话和约 23.5 万名用户",
+      "label": "覆盖指标",
       "status": "neutral",
       "sourceFactIds": [
         "m1"
@@ -34,10 +33,9 @@
     },
     {
       "type": "metric-card",
-      "title": "七个月内典型任务估算价值平均提高约",
+      "title": "任务价值提升",
       "value": "+25%",
-      "label": "阶段结果",
-      "note": "七个月内典型任务估算价值平均提高约 25%",
+      "label": "核心指标",
       "status": "neutral",
       "sourceFactIds": [
         "m2"
@@ -49,17 +47,15 @@
       "items": [
         {
           "label": "早期使用更集中在调试、解释和局部代码修改",
-          "status": "good"
+          "status": "neutral"
         },
         {
-          "label": "当前使用逐步扩展到设计、实现、测试和部署",
-          "note": "链路",
-          "status": "good"
+          "label": "当前使用逐步扩展到设计、实现、测试和部署链路",
+          "status": "neutral"
         },
         {
-          "label": "后续持续跟踪端到端任务、非代码产物和部署",
-          "note": "工作的增长",
-          "status": "good"
+          "label": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -78,7 +74,7 @@
         },
         {
           "label": "领域经验越强，Agent 每条指令承担的工作越多且成功率更高",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [

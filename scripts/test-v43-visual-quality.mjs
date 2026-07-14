@@ -42,13 +42,13 @@ const wideOnepage = inspectV43VisualQuality(`<svg width="3500" height="1000" vie
   <g data-v43-block="a" data-block-type="statement" data-x="50" data-y="50" data-width="3400" data-height="850" data-column="full"></g>
 </svg>`);
 assert.equal(wideOnepage.ok, false, "V4.4 onepages must reject unreadably wide strips");
-assert.match(wideOnepage.issues.join(" "), /outside 1.1-2.4/i);
+assert.match(wideOnepage.issues.join(" "), /outside 1.42-2.15/i);
 
 const longFlow = inspectV43VisualQuality(`<svg width="1000" height="1600" viewBox="0 0 1000 1600" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="4.4">
   <g data-v43-block="flow" data-block-type="linear-flow" data-x="50" data-y="50" data-width="900" data-height="1450" data-column="full"></g>
 </svg>`);
 assert.equal(longFlow.ok, false, "V4.4 flow canvases must carry pipeline markers and reject accidental report strips");
-assert.match(longFlow.issues.join(" "), /flow canvas is too vertical/i);
+assert.match(longFlow.issues.join(" "), /flow canvas aspect ratio is outside/i);
 
 const imbalance = inspectV43VisualQuality(svg([
   { id: "a", x: 50, y: 50, w: 430, h: 500, column: "left" },

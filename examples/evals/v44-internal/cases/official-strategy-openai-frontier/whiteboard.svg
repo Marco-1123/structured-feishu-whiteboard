@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1378" viewBox="0 0 2200 1378" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
-<rect x="0" y="0" width="2200" height="1378" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1060" viewBox="0 0 2200 1060" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
+<rect x="0" y="0" width="2200" height="1060" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">企业 Agent 平台推广策略</tspan></text>
@@ -9,42 +9,46 @@
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">企业 Agent 规模化的瓶颈正从模型能力转向组织运行与治理能力</tspan></text>
-</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="404" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="61" data-item-count="2" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="404" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="404" data-width="2008" data-height="322" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="61" data-item-count="2" data-item-layout="vertical-chain" data-layout-reason="global-orphan-prevention">
+<rect x="96" y="404" width="2008" height="322" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
 
-<rect x="124" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="148" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">企业 Agent 规模化的瓶颈正从模型能</tspan></text>
-<text x="148" y="596" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">力转向组织运行与治理能力</tspan></text><text x="1094" y="614" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
-<rect x="1113" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="1137" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">优先建设共享上下文、明确权限、持续反馈和</tspan></text>
-<text x="1137" y="596" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1137" dy="0">可复用技能</tspan></text>
-</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="606" data-y="770" data-width="988" data-height="220" data-column="center" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="centered" data-offset-span="3" data-density="medium" data-preferred-width="988" data-text-units="63" data-item-count="2" data-item-layout="grid-2" data-layout-reason="left-right-argument-paired-region">
-<rect x="606" y="770" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="634" y="818" font-size="26" fill="#111827" font-weight="700"><tspan x="634" dy="0">关键证据</tspan></text>
+<rect x="124" y="504" width="1952" height="84" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="140" y="522" width="38" height="38" rx="10" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="159" y="547" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="159" dy="0">01</tspan></text>
+<text x="194" y="535" font-size="18" fill="#111827" font-weight="700"><tspan x="194" dy="0">企业 Agent 规模化的瓶颈正从模型能力转向组织运行与治理能力</tspan></text>
+<line x1="159" y1="588" x2="159" y2="606" stroke="#5E6AD2" stroke-width="2" stroke-linecap="round"/><text x="152" y="604" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">↓</tspan></text>
+<rect x="124" y="606" width="1952" height="84" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="140" y="624" width="38" height="38" rx="10" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="159" y="649" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="159" dy="0">02</tspan></text>
+<text x="194" y="637" font-size="18" fill="#111827" font-weight="700"><tspan x="194" dy="0">优先建设共享上下文、明确权限、持续反馈和可复用技能</tspan></text>
 
-<rect x="634" y="874" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
-<rect x="650" y="891" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="662" y="914" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="662" dy="0">01</tspan></text>
-<text x="706" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="706" dy="0">多家大型企业正在复杂业务中试点统一 Agent</tspan><tspan x="706" dy="22">平台</tspan></text>
+</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="758" data-width="988" data-height="262" data-column="left" data-component-variant="evidence-tiles" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="63" data-item-count="2" data-item-layout="grid-2" data-layout-reason="left-right-argument-paired-region">
+<rect x="96" y="758" width="988" height="262" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="806" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">关键证据</tspan></text>
 
-<rect x="1107" y="874" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
-<rect x="1123" y="891" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1135" y="914" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1135" dy="0">02</tspan></text>
-<text x="1179" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="1179" dy="0">部分企业案例显示 Agent 可显著缩短流程周期</tspan><tspan x="1179" dy="22">或释放客户服务时间</tspan></text>
+<rect x="124" y="883" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
+<rect x="140" y="900" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="161" y="923" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="161" dy="0">01</tspan></text>
+<text x="196" y="914" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">多家大型企业正在复杂业务中试点统一 Agent</tspan><tspan x="196" dy="22">平台</tspan></text>
 
-</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="776" data-y="1022" data-width="648" data-height="316" data-column="center" data-component-variant="status-grid" data-row="2" data-span="4" data-row-alignment="centered" data-offset-span="4" data-density="sparse" data-preferred-width="648" data-text-units="53" data-item-count="2" data-item-layout="rows" data-layout-reason="compact-status-items">
-<rect x="776" y="1022" width="648" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="804" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">重点关注</tspan></text>
+<rect x="597" y="883" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
+<rect x="613" y="900" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="634" y="923" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="634" dy="0">02</tspan></text>
+<text x="669" y="914" font-size="17" fill="#111827" font-weight="700"><tspan x="669" dy="0">部分企业案例显示 Agent 可显著缩短流程周期</tspan><tspan x="669" dy="22">或释放客户服务时间</tspan></text>
 
-<rect x="804" y="1128" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="818" y="1146" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="840" y="1159" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">孤立用例缺少共享上下文、上手训练、反馈和清晰权限</tspan></text>
+</g><g data-v43-block="status-board-3" data-block-type="status-board" data-x="1116" data-y="758" data-width="988" data-height="262" data-column="right" data-component-variant="status-grid" data-row="1" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="53" data-item-count="2" data-item-layout="rows" data-layout-reason="left-right-argument-side-status">
+<rect x="1116" y="758" width="988" height="262" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1144" y="806" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">重点关注</tspan></text>
+
+<rect x="1144" y="864" width="458" height="124" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1158" y="882" width="8" height="88" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1180" y="895" font-size="17" fill="#111827" font-weight="700"><tspan x="1180" dy="0">孤立用例缺少共享上下文、上手训练、反馈和清晰权</tspan><tspan x="1180" dy="22">限</tspan></text>
 
 
-<rect x="804" y="1224" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="818" y="1242" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="840" y="1255" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">优先建设共享上下文、明确权限、持续反馈和可复用技能</tspan></text>
+<rect x="1618" y="864" width="458" height="124" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1632" y="882" width="8" height="88" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1654" y="895" font-size="17" fill="#111827" font-weight="700"><tspan x="1654" dy="0">优先建设共享上下文、明确权限、持续反馈和可复用</tspan><tspan x="1654" dy="22">技能</tspan></text>
 
 
 </g>

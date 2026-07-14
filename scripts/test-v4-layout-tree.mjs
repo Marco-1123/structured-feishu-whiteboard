@@ -194,4 +194,38 @@ const splitTree = buildAdaptiveExpressionLayout({
 });
 assert.deepEqual(splitTree.nodes.map((node) => node.span), [6, 6], "past-future-split must enforce a visible left/right geometry");
 
-console.log("ok: V4.3 layout tree tests passed");
+const argumentTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "narrative-chain", id: "argument-chain", items: [{ label: "判断" }, { label: "行动" }] },
+    { type: "metric-card", id: "argument-metric", title: "周活跃开发者", value: "4M+" },
+    { type: "evidence-list", id: "argument-evidence", items: [{ label: "证据一" }, { label: "证据二" }] },
+    { type: "status-board", id: "argument-status", items: [{ label: "风险" }, { label: "关注" }] },
+  ],
+  mode: "narrative-map",
+  pageSkeleton: "left-right-argument",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 240 }),
+});
+assert.deepEqual(argumentTree.nodes.map((node) => node.span), [8, 4, 6, 6], "left-right arguments must compose a primary chain with a metric callout, then a balanced support row");
+assert.equal(argumentTree.rowCount, 2, "a short left-right argument must not grow into three or four stacked rows");
+
+const reviewTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "mini-roadmap", id: "review-roadmap", items: [{ label: "过去" }, { label: "现在" }, { label: "未来" }] },
+    { type: "status-board", id: "review-status", items: [{ label: "风险" }, { label: "关注" }] },
+  ],
+  mode: "modular-canvas",
+  pageSkeleton: "past-future-split",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 260 }),
+});
+assert.deepEqual(reviewTree.nodes.map((node) => node.span), [8, 4], "stage reviews must place the primary roadmap and side status in one row");
+assert.equal(reviewTree.rowCount, 1, "stage reviews must not stack two sparse full-width modules");
+
+console.log("ok: V4.4 layout tree tests passed");

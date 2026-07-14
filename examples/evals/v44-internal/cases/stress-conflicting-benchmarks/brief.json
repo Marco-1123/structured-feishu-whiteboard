@@ -27,11 +27,11 @@
       "items": [
         {
           "label": "复杂推理和编码评测显示推理模型优势明显",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "高吞吐日常任务仍更重视速度与成本",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -45,7 +45,7 @@
       "items": [
         {
           "label": "多个评测指标方向不一致时如何选择适合真实工作的模型",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -58,7 +58,7 @@
       "items": [
         {
           "label": "统一路由与固定模型各有可控性和效率取舍",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "单一公开基准不能代表企业真实任务质量",

@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T14:20:57.848Z",
+  "startedAt": "2026-07-14T01:49:01.562Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-responsible-scaling/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-strategy-responsible-scaling-causal"
   },
-  "finishedAt": "2026-07-13T14:20:58.417Z"
+  "finishedAt": "2026-07-14T01:49:02.035Z"
 }

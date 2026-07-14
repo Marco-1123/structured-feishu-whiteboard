@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T14:21:01.287Z",
+  "startedAt": "2026-07-14T01:49:05.025Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-product-chatgpt-agent/inventory.json"
   },
@@ -32,8 +32,8 @@
     },
     "confidence": {
       "level": "high",
-      "topScore": 100,
-      "scoreMargin": 14,
+      "topScore": 97,
+      "scoreMargin": 11,
       "missingRequiredSignals": 0,
       "unsupportedInferenceCount": 0,
       "thresholds": {
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-product-chatgpt-agent-hierarchical"
   },
-  "finishedAt": "2026-07-13T14:21:01.767Z"
+  "finishedAt": "2026-07-14T01:49:05.493Z"
 }

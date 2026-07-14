@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T14:21:02.727Z",
+  "startedAt": "2026-07-14T01:49:06.425Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-tools/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-flow-agent-tools-flow-driven"
   },
-  "finishedAt": "2026-07-13T14:21:03.201Z"
+  "finishedAt": "2026-07-14T01:49:07.006Z"
 }

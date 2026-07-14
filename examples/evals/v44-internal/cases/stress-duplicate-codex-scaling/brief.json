@@ -27,11 +27,11 @@
       "items": [
         {
           "label": "企业正在测试覆盖率、团队速度和技术债治理场景",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "企业正在软件开发生命周期中寻找高价值 Codex 用例",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -41,10 +41,9 @@
     },
     {
       "type": "metric-card",
-      "title": "Codex 周活跃开发者在两周内从 增至 40…",
+      "title": "周活跃开发者",
       "value": "4M+",
-      "label": "阶段结果",
-      "note": "Codex 周活跃开发者在两周内从 300 万增至 400 万以上",
+      "label": "核心指标",
       "status": "neutral",
       "sourceFactIds": [
         "m1"
@@ -60,7 +59,7 @@
         },
         {
           "label": "将验证有效的用例沉淀成生产部署与治理方法",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -73,13 +72,12 @@
       "title": "判断链路",
       "items": [
         {
-          "label": "Codex 企业采用从个人工具快速进入组",
-          "note": "织工作流",
-          "status": "good"
+          "label": "Codex 企业采用从个人工具快速进入组织工作流",
+          "status": "neutral"
         },
         {
           "label": "将验证有效的用例沉淀成生产部署与治理方法",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [

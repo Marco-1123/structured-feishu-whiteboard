@@ -8,41 +8,6 @@ import { compileV44Brief } from "./v44-brief-compiler.mjs";
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
 function run(command, args, cwd) { const result = spawnSync(command, args, { cwd, encoding: "utf8" }); if (result.status !== 0) throw new Error((result.stderr || result.stdout || "command failed").trim()); }
-function clip(value, max) { const text = String(value || "").trim(); return text.length <= max ? text : `${text.slice(0, max - 1)}…`; }
-function fallbackBrief(inventory) {
-  const facts = inventory.facts || [];
-  const conclusion = facts.find((fact) => fact.type === "conclusion") || facts[0];
-  const moduleFacts = facts.filter((fact) => fact !== conclusion && fact.importance !== "low").slice(0, 6);
-  const chunks = [moduleFacts.slice(0, 2), moduleFacts.slice(2, 4), moduleFacts.slice(4, 6)].filter((chunk) => chunk.length);
-  while (chunks.length < 3) chunks.push([{ text: "材料信息不足，需补充关键事实" }]);
-  const selectedFactIds = [...new Set([conclusion, ...moduleFacts].filter(Boolean).map((fact) => fact.id))];
-  return {
-    pipelineVersion: "4.3",
-    engine: "v3",
-    renderTarget: "svg",
-    layout: "conclusion-first",
-    style: "professional-blue",
-    title: clip(inventory.title || "材料总览", 32),
-    subtitle: "V4.4 置信度不足，使用 V4.3 稳定总览兜底。",
-    summaryLabel: "核心判断",
-    summary: clip(conclusion?.text || "材料暂未形成明确结论", 90),
-    modules: chunks.map((chunk, index) => ({
-      title: ["关键信息", "风险与约束", "行动与待确认"][index],
-      body: chunk.map((fact) => clip(fact.text, 16)),
-      tag: ["稳定兜底", "需要核验", "继续补充"][index],
-    })),
-    footer: "该输出明确标记为 V4.3 fallback，不代表 V4.4 已高置信度完成语义选择。",
-    planning: {
-      inventoryId: inventory.inventoryId || inventory.id || "fallback-inventory",
-      selectedFactIds,
-      omittedFacts: facts.filter((fact) => !selectedFactIds.includes(fact.id)).map((fact) => ({
-        id: fact.id,
-        reason: fact.importance === "low" ? "low-value-context" : "deferred-to-detail",
-      })),
-      routeDecisionId: "v43-stable-fallback",
-    },
-  };
-}
 
 export async function runWhiteboardV44({ root, inventoryPath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false }) {
   fs.mkdirSync(outputDir, { recursive: true });
@@ -59,24 +24,22 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     const plansPath = path.join(outputDir, "expression-plans.json"); writeJson(plansPath, plans);
     const decision = compileV44Brief({ semanticModel, planningResult: plans, style, title: inventory.title });
     const decisionPath = path.join(outputDir, "decision.json"); writeJson(decisionPath, decision);
-    let brief = decision.brief; let renderer = "scripts/render-whiteboard-v4.mjs";
-    if (!brief) { manifest.pipeline = "v4.3-fallback"; manifest.fallback = decision.fallback; brief = fallbackBrief(inventory); renderer = "scripts/render-whiteboard.mjs"; }
-    if (manifest.pipeline === "v4.4") {
-      const selected = new Set(brief.planning.selectedFactIds || []);
-      const missingImportant = semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !selected.has(fact.id));
-      if (missingImportant.length) throw new Error(`V4.4 critical coverage failed: ${missingImportant.map((fact) => fact.id).join(", ")}`);
-      manifest.coverage = { importantFacts: semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance)).length, missingImportantFacts: [] };
-      manifest.decision = { scenario: semanticModel.scenario, confidence: decision.decision, selectedPlanId: decision.selectedPlanId };
+    const brief = decision.brief;
+    if (!brief) {
+      throw new Error(`V4.4 semantic routing failed: ${decision.reason || "no high-confidence production plan"}`);
     }
+    const selected = new Set(brief.planning.selectedFactIds || []);
+    const missingImportant = semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !selected.has(fact.id));
+    if (missingImportant.length) throw new Error(`V4.4 critical coverage failed: ${missingImportant.map((fact) => fact.id).join(", ")}`);
+    manifest.coverage = { importantFacts: semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance)).length, missingImportantFacts: [] };
+    manifest.decision = { scenario: semanticModel.scenario, confidence: decision.decision, selectedPlanId: decision.selectedPlanId };
     const briefPath = path.join(outputDir, "brief.json"); writeJson(briefPath, brief);
     run(process.execPath, [path.join(root, "scripts/validate-brief.mjs"), briefPath], root);
     const outputPath = path.join(outputDir, "whiteboard.svg");
-    run(process.execPath, [path.join(root, renderer), "--input", briefPath, "--output", outputPath], root);
+    run(process.execPath, [path.join(root, "scripts/render-whiteboard-v4.mjs"), "--input", briefPath, "--output", outputPath], root);
     run(process.execPath, [path.join(root, "scripts/check-svg-layout.mjs"), outputPath], root);
-    if (manifest.pipeline === "v4.4") {
-      run(process.execPath, [path.join(root, "scripts/check-v4-layout.mjs"), outputPath], root);
-      run(process.execPath, [path.join(root, "scripts/check-v43-visual-quality.mjs"), outputPath], root);
-    }
+    run(process.execPath, [path.join(root, "scripts/check-v4-layout.mjs"), outputPath], root);
+    run(process.execPath, [path.join(root, "scripts/check-v43-visual-quality.mjs"), outputPath], root);
     manifest.checks.push({ name: "semantic-plan-render-layout", status: "passed" });
     manifest.outputs = { semanticModel: semanticPath, expressionPlans: plansPath, decision: decisionPath, brief: briefPath, whiteboard: outputPath };
     if (!skipWhiteboardCli) { const pngPath = path.join(outputDir, "whiteboard.png"); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-o", pngPath, "-f", "svg"], root); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-f", "svg", "--check"], root); run("python3", [path.join(root, "scripts/check-v44-preview.py"), pngPath], root); manifest.checks.push({ name: "preview-pixel-sanity", status: "passed" }); manifest.outputs.preview = pngPath; }

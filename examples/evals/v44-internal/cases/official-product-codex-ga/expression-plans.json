@@ -51,12 +51,12 @@
       ],
       "fallbackLayout": "large-canvas",
       "scoreBreakdown": {
-        "total": 100,
+        "total": 97,
         "criticalCoverage": 1,
         "highCoverage": 1,
         "semanticMatch": 1,
         "coherence": 1,
-        "semanticSignalBonus": 12,
+        "semanticSignalBonus": 9,
         "scenarioFitBonus": 0,
         "repetitionPenalty": 0,
         "unsupportedInferencePenalty": 0,
@@ -72,6 +72,16 @@
       "regions": [
         {
           "id": "region-1",
+          "purpose": "input-actor-action-constraint-output-stage",
+          "factIds": [
+            "p1"
+          ],
+          "preferredComponent": "flow-node",
+          "visualPriority": "primary",
+          "widthIntent": "full"
+        },
+        {
+          "id": "region-2",
           "purpose": "conclusion",
           "factIds": [
             "c1"
@@ -81,7 +91,7 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-2",
+          "id": "region-3",
           "purpose": "capability-capability-capability",
           "factIds": [
             "h1",
@@ -93,7 +103,7 @@
           "widthIntent": "adaptive"
         },
         {
-          "id": "region-3",
+          "id": "region-4",
           "purpose": "risk",
           "factIds": [
             "r1"
@@ -104,6 +114,7 @@
         }
       ],
       "componentMix": [
+        "flow-node",
         "statement",
         "status-board",
         "risk-list"
@@ -176,9 +187,9 @@
     }
   ],
   "confidenceEvidence": {
-    "topScore": 100,
+    "topScore": 97,
     "secondScore": 86,
-    "scoreMargin": 14,
+    "scoreMargin": 11,
     "missingRequiredSignals": [],
     "unsupportedInferenceCount": 0
   }

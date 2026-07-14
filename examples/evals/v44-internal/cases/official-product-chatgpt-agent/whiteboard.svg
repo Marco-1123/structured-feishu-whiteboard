@@ -1,45 +1,59 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1080" viewBox="0 0 2200 1080" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="centered-system">
-<rect x="0" y="0" width="2200" height="1080" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1024" viewBox="0 0 2200 1024" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="centered-system">
+<rect x="0" y="0" width="2200" height="1024" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">ChatGPT Agent 产品能力介绍</tspan></text>
-<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">重点信息、关键依据</tspan></text>
+<text x="96" y="144" font-size="21" fill="#5F6B7A" font-weight="500"><tspan x="96" dy="0">路径与机制、重点信息、关键依据</tspan></text>
 </g><g data-v43-block="statement" data-block-type="statement" data-x="96" data-y="210" data-width="2008" data-height="150" data-column="full">
 <rect x="96" y="210" width="2008" height="150" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验</tspan></text>
-</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="96" data-y="404" data-width="2008" data-height="316" data-column="full" data-component-variant="status-grid" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="2008" data-text-units="66" data-item-count="4" data-item-layout="grid-2" data-layout-reason="centered-system-anchor">
-<rect x="96" y="404" width="2008" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="96" data-y="404" data-width="988" data-height="322" data-column="left" data-component-variant="status-grid" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="988" data-text-units="66" data-item-count="4" data-item-layout="grid-2" data-layout-reason="centered-system-capability-column">
+<rect x="96" y="404" width="988" height="322" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">核心能力</tspan></text>
 
-<rect x="124" y="510" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="138" y="528" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="160" y="541" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">理解目标并规划多步骤任务</tspan></text>
+<rect x="124" y="513" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="138" y="531" width="8" height="46" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="160" y="544" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">理解目标并规划多步骤任务</tspan></text>
 
 
-<rect x="1108" y="510" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="1122" y="528" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="1144" y="541" font-size="17" fill="#111827" font-weight="700"><tspan x="1144" dy="0">在计算机环境中浏览网站并使用工具</tspan></text>
+<rect x="598" y="513" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="612" y="531" width="8" height="46" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="634" y="544" font-size="17" fill="#111827" font-weight="700"><tspan x="634" dy="0">在计算机环境中浏览网站并使用工具</tspan></text>
 
 
-<rect x="124" y="606" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="138" y="624" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="160" y="637" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">整合研究结果并交付可用产物</tspan></text>
+<rect x="124" y="609" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="138" y="627" width="8" height="46" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="160" y="640" font-size="17" fill="#111827" font-weight="700"><tspan x="160" dy="0">整合研究结果并交付可用产物</tspan></text>
 
 
-<rect x="1108" y="606" width="968" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="1122" y="624" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="1144" y="637" font-size="17" fill="#111827" font-weight="700"><tspan x="1144" dy="0">复杂网页操作和新型安全风险仍可能限制可靠性</tspan></text>
+<rect x="598" y="609" width="458" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="612" y="627" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="634" y="640" font-size="17" fill="#111827" font-weight="700"><tspan x="634" dy="0">复杂网页操作和新型安全风险仍可能限制可靠性</tspan></text>
 
 
-</g><g data-v43-block="evidence-list-2" data-block-type="evidence-list" data-x="96" data-y="752" data-width="2008" data-height="154" data-column="full" data-component-variant="evidence-tiles" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="32" data-item-count="1" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
-<rect x="96" y="752" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
-<text x="124" y="806" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">使用链路</tspan></text>
-<text x="124" y="840" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">支撑核心判断</tspan></text>
-<rect x="356" y="782" width="1720" height="94" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0" data-has-secondary="false" data-label-layout="centered"/>
-<rect x="372" y="800" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="394" y="835" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">用户提出目标后 Agent 选择工具、执行并请求必要确认</tspan></text>
+</g><g data-v43-block="narrative-chain-2" data-block-type="narrative-chain" data-x="1116" data-y="404" data-width="988" data-height="322" data-column="right" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="988" data-text-units="66" data-item-count="2" data-item-layout="vertical-chain" data-layout-reason="centered-system-path-column">
+<rect x="1116" y="404" width="988" height="322" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1144" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="1144" dy="0">判断链路</tspan></text>
+
+<rect x="1144" y="504" width="932" height="84" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1160" y="522" width="38" height="38" rx="10" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1179" y="547" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="1179" dy="0">01</tspan></text>
+<text x="1214" y="535" font-size="18" fill="#111827" font-weight="700"><tspan x="1214" dy="0">ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验</tspan></text>
+<line x1="1179" y1="588" x2="1179" y2="606" stroke="#5E6AD2" stroke-width="2" stroke-linecap="round"/><text x="1172" y="604" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="1172" dy="0">↓</tspan></text>
+<rect x="1144" y="606" width="932" height="84" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1160" y="624" width="38" height="38" rx="10" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1179" y="649" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="1179" dy="0">02</tspan></text>
+<text x="1214" y="637" font-size="18" fill="#111827" font-weight="700"><tspan x="1214" dy="0">用户提出目标后 Agent 选择工具、执行并请求必要确认</tspan></text>
+
+</g><g data-v43-block="evidence-list-3" data-block-type="evidence-list" data-x="96" data-y="758" data-width="2008" data-height="154" data-column="full" data-component-variant="evidence-tiles" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="32" data-item-count="1" data-item-layout="footer-band" data-layout-reason="global-orphan-prevention">
+<rect x="96" y="758" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="812" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">使用链路</tspan></text>
+<text x="124" y="846" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">支撑核心判断</tspan></text>
+<rect x="356" y="788" width="1720" height="94" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="372" y="806" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="394" y="841" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">用户提出目标后 Agent 选择工具、执行并请求必要确认</tspan></text>
 
 </g>
 </g>

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1327" viewBox="0 0 2200 1327" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="past-future-split">
-<rect x="0" y="0" width="2200" height="1327" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1024" viewBox="0 0 2200 1024" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="past-future-split">
+<rect x="0" y="0" width="2200" height="1024" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">Claude Code 七个月使用变化复盘</tspan></text>
@@ -9,43 +9,43 @@
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">Claude Code 使用正在从调试转向端到端的 Agent 工作</tspan></text>
-</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="404" data-width="2008" data-height="195" data-column="full">
-<rect x="96" y="404" width="992" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
-<text x="122" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="122" dy="0">研究覆盖约 次交互会话和约 23.5 万名用户</tspan></text>
+</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="404" data-width="2008" data-height="178" data-column="full">
+<rect x="96" y="404" width="992" height="178" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
+<text x="122" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="122" dy="0">研究样本规模</tspan></text>
 <text x="122" y="496" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="122" dy="0">400K</tspan></text>
-<text x="122" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="122" dy="0">研究覆盖约 40 万次交互会话和约 23.5 万名用户</tspan></text>
-<rect x="122" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="142" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="142" dy="0">阶段结果</tspan></text><rect x="1112" y="404" width="992" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
-<text x="1138" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="1138" dy="0">七个月内典型任务估算价值平均提高约</tspan></text>
+
+<rect x="122" y="534" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="142" y="555" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="142" dy="0">覆盖指标</tspan></text><rect x="1112" y="404" width="992" height="178" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
+<text x="1138" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="1138" dy="0">任务价值提升</tspan></text>
 <text x="1138" y="496" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="1138" dy="0">+25%</tspan></text>
-<text x="1138" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1138" dy="0">七个月内典型任务估算价值平均提高约 25%</tspan></text>
-<rect x="1138" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="1158" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1158" dy="0">阶段结果</tspan></text>
-</g><g data-v43-block="mini-roadmap-1" data-block-type="mini-roadmap" data-x="96" data-y="643" data-width="2008" data-height="296" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="71" data-item-count="3" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="643" width="2008" height="296" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">阶段路径</tspan></text>
 
-<rect x="124" y="755" width="637" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="144" y="789" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">早期使用更集中在调试、解释和局部代码修改</tspan></text>
-<text x="764" y="821" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="764" dy="0">→</tspan></text>
-<rect x="781" y="755" width="637" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="801" y="789" font-size="17" fill="#111827" font-weight="700"><tspan x="801" dy="0">当前使用逐步扩展到设计、实现、测试和部署</tspan></text>
-<text x="801" y="823" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="801" dy="0">链路</tspan></text><text x="1421" y="821" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="1421" dy="0">→</tspan></text>
-<rect x="1438" y="755" width="637" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
-<text x="1458" y="789" font-size="17" fill="#111827" font-weight="700"><tspan x="1458" dy="0">后续持续跟踪端到端任务、非代码产物和部署</tspan></text>
-<text x="1458" y="823" font-size="15" fill="#5F6B7A" font-weight="500"><tspan x="1458" dy="0">工作的增长</tspan></text>
-</g><g data-v43-block="status-board-2" data-block-type="status-board" data-x="776" data-y="971" data-width="648" data-height="316" data-column="center" data-component-variant="status-grid" data-row="1" data-span="4" data-row-alignment="centered" data-offset-span="4" data-density="sparse" data-preferred-width="648" data-text-units="57" data-item-count="2" data-item-layout="rows" data-layout-reason="compact-status-items">
-<rect x="776" y="971" width="648" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="804" y="1019" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">重点关注</tspan></text>
+<rect x="1138" y="534" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1158" y="555" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1158" dy="0">核心指标</tspan></text>
+</g><g data-v43-block="mini-roadmap-1" data-block-type="mini-roadmap" data-x="96" data-y="626" data-width="1328" data-height="316" data-column="left" data-row="0" data-span="8" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="1328" data-text-units="71" data-item-count="3" data-item-layout="rows" data-layout-reason="past-future-primary-roadmap">
+<rect x="96" y="626" width="1328" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="674" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">阶段路径</tspan></text>
 
-<rect x="804" y="1077" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="818" y="1095" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="840" y="1108" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">专家与中级用户仍存在可测量但不极端的成功率差距</tspan></text>
+<rect x="124" y="738" width="410" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="144" y="772" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">早期使用更集中在调试、解释和局部代码修改</tspan></text>
+<text x="537" y="804" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="537" dy="0">→</tspan></text>
+<rect x="554" y="738" width="410" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="574" y="772" font-size="17" fill="#111827" font-weight="700"><tspan x="574" dy="0">当前使用逐步扩展到设计、实现、测试和部署链</tspan><tspan x="574" dy="22">路</tspan></text>
+<text x="967" y="804" font-size="31" fill="#5E6AD2" font-weight="700"><tspan x="967" dy="0">→</tspan></text>
+<rect x="984" y="738" width="410" height="142" rx="12" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
+<text x="1004" y="772" font-size="17" fill="#111827" font-weight="700"><tspan x="1004" dy="0">后续持续跟踪端到端任务、非代码产物和部署工</tspan><tspan x="1004" dy="22">作的增长</tspan></text>
+
+</g><g data-v43-block="status-board-2" data-block-type="status-board" data-x="1456" data-y="626" data-width="648" data-height="316" data-column="right" data-component-variant="status-grid" data-row="0" data-span="4" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="57" data-item-count="2" data-item-layout="rows" data-layout-reason="past-future-side-status">
+<rect x="1456" y="626" width="648" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="1484" y="674" font-size="26" fill="#111827" font-weight="700"><tspan x="1484" dy="0">重点关注</tspan></text>
+
+<rect x="1484" y="732" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1498" y="750" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="1520" y="763" font-size="17" fill="#111827" font-weight="700"><tspan x="1520" dy="0">专家与中级用户仍存在可测量但不极端的成功率差距</tspan></text>
 
 
-<rect x="804" y="1173" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="818" y="1191" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="840" y="1204" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">领域经验越强，Agent 每条指令承担的工作越多且成功率更高</tspan></text>
+<rect x="1484" y="828" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="1498" y="846" width="8" height="46" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1520" y="859" font-size="17" fill="#111827" font-weight="700"><tspan x="1520" dy="0">领域经验越强，Agent 每条指令承担的工作越多且成功率更高</tspan></text>
 
 
 </g>

@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0-beta.2",
+  "version": "4.4.0-beta.4",
   "archetypes": {
     "review-update": { "titleTerms": ["复盘", "总结", "汇报", "季度", "半年", "阶段", "Q1", "Q2", "Q3", "Q4"], "factTypes": ["metric", "action", "risk", "evidence"] },
     "strategy-proposal": { "titleTerms": ["战略", "策略", "方案", "规划", "主线"], "factTypes": ["constraint", "comparison", "conclusion"] },

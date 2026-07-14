@@ -19,5 +19,5 @@ fs.writeFileSync(inventoryPath, JSON.stringify({ inventoryId: "pipeline-review",
 const manifest = await runWhiteboardV44({ root, inventoryPath, outputDir: path.join(temp, "run"), skipWhiteboardCli: true });
 assert.equal(manifest.status, "passed");
 for (const file of ["semantic-model.json", "expression-plans.json", "decision.json", "whiteboard.svg"]) assert.ok(fs.existsSync(path.join(temp, "run", file)));
-assert.ok(["v4.4", "v4.3-fallback"].includes(manifest.pipeline));
+assert.equal(manifest.pipeline, "v4.4");
 console.log("ok: V4.4 pipeline runner tests passed");

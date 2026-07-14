@@ -27,11 +27,11 @@
       "items": [
         {
           "label": "多家大型企业正在复杂业务中试点统一 Agent 平台",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "部分企业案例显示 Agent 可显著缩短流程周期或释放客户服务时间",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -45,11 +45,11 @@
       "items": [
         {
           "label": "孤立用例缺少共享上下文、上手训练、反馈和清晰权限",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "优先建设共享上下文、明确权限、持续反馈和可复用技能",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -62,14 +62,12 @@
       "title": "判断链路",
       "items": [
         {
-          "label": "企业 Agent 规模化的瓶颈正从模型能",
-          "note": "力转向组织运行与治理能力",
-          "status": "good"
+          "label": "企业 Agent 规模化的瓶颈正从模型能力转向组织运行与治理能力",
+          "status": "neutral"
         },
         {
-          "label": "优先建设共享上下文、明确权限、持续反馈和",
-          "note": "可复用技能",
-          "status": "good"
+          "label": "优先建设共享上下文、明确权限、持续反馈和可复用技能",
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [

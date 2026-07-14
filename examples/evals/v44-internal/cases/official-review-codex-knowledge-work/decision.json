@@ -15,10 +15,6 @@
   "requiresUserChoice": false,
   "selectedPlanId": "semantic-official-review-codex-knowledge-work-result-driven",
   "alternatives": [],
-  "fallback": {
-    "version": "4.3",
-    "reason": "on-failure"
-  },
   "brief": {
     "pipelineVersion": "4.4",
     "engine": "v4",
@@ -44,10 +40,9 @@
       },
       {
         "type": "metric-card",
-        "title": "Codex 周活跃用户超过",
+        "title": "活跃用户规模",
         "value": "5M+",
-        "label": "阶段结果",
-        "note": "Codex 周活跃用户超过 500 万",
+        "label": "核心指标",
         "status": "neutral",
         "sourceFactIds": [
           "m1"
@@ -55,10 +50,9 @@
       },
       {
         "type": "metric-card",
-        "title": "桌面应用发布后周活跃用户增长超过 倍",
+        "title": "桌面端活跃增长",
         "value": "6x+",
-        "label": "阶段结果",
-        "note": "桌面应用发布后周活跃用户增长超过 6 倍",
+        "label": "变化指标",
         "status": "neutral",
         "sourceFactIds": [
           "m2"
@@ -66,10 +60,9 @@
       },
       {
         "type": "metric-card",
-        "title": "知识工作者约占用户的",
+        "title": "知识工作者占比",
         "value": "20%",
-        "label": "阶段结果",
-        "note": "知识工作者约占用户的 20%",
+        "label": "核心指标",
         "status": "neutral",
         "sourceFactIds": [
           "m3"
@@ -81,11 +74,11 @@
         "items": [
           {
             "label": "继续扩展跨工具并行任务和审批协作场景",
-            "status": "good"
+            "status": "neutral"
           },
           {
             "label": "增长最快的任务包括数据分析、研究和知识产物创建",
-            "status": "good"
+            "status": "neutral"
           }
         ],
         "sourceFactIds": [

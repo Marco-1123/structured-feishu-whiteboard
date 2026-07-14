@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T14:21:03.688Z",
+  "startedAt": "2026-07-14T01:49:07.485Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-flow-agent-governance/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-flow-agent-governance-flow-driven"
   },
-  "finishedAt": "2026-07-13T14:21:04.169Z"
+  "finishedAt": "2026-07-14T01:49:07.970Z"
 }

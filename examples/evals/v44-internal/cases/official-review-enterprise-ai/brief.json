@@ -23,10 +23,9 @@
     },
     {
       "type": "metric-card",
-      "title": "企业用户每周消息量同比增长约 倍",
+      "title": "企业周消息规模",
       "value": "8x",
-      "label": "阶段结果",
-      "note": "企业用户每周消息量同比增长约 8 倍",
+      "label": "变化指标",
       "status": "neutral",
       "sourceFactIds": [
         "m1"
@@ -34,10 +33,9 @@
     },
     {
       "type": "metric-card",
-      "title": "Projects 与 Custom GPTs …",
+      "title": "结构化工作流使用",
       "value": "19x",
-      "label": "阶段结果",
-      "note": "Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍",
+      "label": "变化指标",
       "status": "neutral",
       "sourceFactIds": [
         "m2"
@@ -45,10 +43,9 @@
     },
     {
       "type": "metric-card",
-      "title": "的受访员工认为 AI 改善了工作速度或质量",
+      "title": "AI 效率改善认同",
       "value": "75%",
-      "label": "阶段结果",
-      "note": "75% 的受访员工认为 AI 改善了工作速度或质量",
+      "label": "核心指标",
       "status": "neutral",
       "sourceFactIds": [
         "m3"
@@ -64,7 +61,7 @@
         },
         {
           "label": "下一阶段把高价值用例沉淀为组织级可复用流程",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [

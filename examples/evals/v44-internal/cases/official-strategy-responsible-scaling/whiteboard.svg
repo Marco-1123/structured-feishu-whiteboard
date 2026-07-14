@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1490" viewBox="0 0 2200 1490" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
-<rect x="0" y="0" width="2200" height="1490" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1412" viewBox="0 0 2200 1412" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="left-right-argument">
+<rect x="0" y="0" width="2200" height="1412" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">前沿模型负责任扩展策略</tspan></text>
@@ -9,42 +9,45 @@
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text>
-</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="404" data-width="2008" data-height="334" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="52" data-item-count="2" data-item-layout="rows" data-layout-reason="directional-reading">
-<rect x="96" y="404" width="2008" height="334" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+</g><g data-v43-block="narrative-chain-1" data-block-type="narrative-chain" data-x="96" data-y="404" data-width="2008" data-height="322" data-column="full" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="52" data-item-count="2" data-item-layout="vertical-chain" data-layout-reason="global-orphan-prevention">
+<rect x="96" y="404" width="2008" height="322" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
 <text x="124" y="452" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">判断链路</tspan></text>
 
-<rect x="124" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="148" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="148" dy="0">模型能力提升必须与相匹配的安全和安全保障</tspan></text>
-<text x="148" y="596" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="148" dy="0">同步推进</tspan></text><text x="1094" y="614" font-size="38" fill="#5E6AD2" font-weight="700"><tspan x="1094" dy="0">→</tspan></text>
-<rect x="1113" y="514" width="963" height="180" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
-<text x="1137" y="560" font-size="24" fill="#111827" font-weight="700"><tspan x="1137" dy="0">能力触及阈值前先完成对应等级的安全证明与</tspan></text>
-<text x="1137" y="596" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1137" dy="0">部署控制</tspan></text>
-</g><g data-v43-block="action-list-2" data-block-type="action-list" data-x="606" data-y="770" data-width="988" data-height="220" data-column="center" data-component-variant="action-checklist" data-row="1" data-span="6" data-row-alignment="centered" data-offset-span="3" data-density="medium" data-preferred-width="988" data-text-units="29" data-item-count="1" data-item-layout="rows" data-layout-reason="left-right-argument-paired-region">
-<rect x="606" y="770" width="988" height="220" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="634" y="818" font-size="26" fill="#111827" font-weight="700"><tspan x="634" dy="0">下一步行动</tspan></text>
+<rect x="124" y="504" width="1952" height="84" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="140" y="522" width="38" height="38" rx="10" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="159" y="547" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="159" dy="0">01</tspan></text>
+<text x="194" y="535" font-size="18" fill="#111827" font-weight="700"><tspan x="194" dy="0">模型能力提升必须与相匹配的安全和安全保障同步推进</tspan></text>
+<line x1="159" y1="588" x2="159" y2="606" stroke="#5E6AD2" stroke-width="2" stroke-linecap="round"/><text x="152" y="604" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">↓</tspan></text>
+<rect x="124" y="606" width="1952" height="84" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
+<rect x="140" y="624" width="38" height="38" rx="10" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
+<text x="159" y="649" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="159" dy="0">02</tspan></text>
+<text x="194" y="637" font-size="18" fill="#111827" font-weight="700"><tspan x="194" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
 
-<rect x="634" y="874" width="932" height="70" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-v4-action-item="0"/>
-<circle cx="661" cy="901" r="13" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="657" y="907" font-size="13" fill="#5E6AD2" font-weight="700"><tspan x="657" dy="0">1</tspan></text>
-<text x="686" y="905" font-size="17" fill="#111827" font-weight="700"><tspan x="686" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
+</g><g data-v43-block="action-list-2" data-block-type="action-list" data-x="96" data-y="758" data-width="2008" data-height="154" data-column="full" data-component-variant="action-checklist" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="29" data-item-count="1" data-item-layout="footer-band" data-layout-reason="global-orphan-prevention">
+<rect x="96" y="758" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="812" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
+<text x="124" y="846" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">形成明确收口</tspan></text>
+<rect x="356" y="788" width="1720" height="94" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="372" y="806" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="394" y="841" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">能力触及阈值前先完成对应等级的安全证明与部署控制</tspan></text>
 
-</g><g data-v43-block="decision-matrix-3" data-block-type="decision-matrix" data-x="96" data-y="1022" data-width="2008" data-height="428" data-column="full" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="77" data-item-count="3" data-item-layout="rows" data-layout-reason="tabular-comparison">
-<rect x="96" y="1022" width="2008" height="428" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="124" y="1070" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">方案比较</tspan></text>
-<rect x="124" y="1120" width="1952" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="144" y="1147" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
-<text x="865.76" y="1147" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="865.76" dy="0">判断依据</tspan></text>
-<text x="1966" y="1147" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1966" dy="0">结论</tspan></text>
-<rect x="124" y="1162" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
-<text x="144" y="1191" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">ASL-2、ASL-3 与更高等级对应逐级增强的安全标准</tspan></text>
+</g><g data-v43-block="decision-matrix-3" data-block-type="decision-matrix" data-x="96" data-y="944" data-width="2008" data-height="428" data-column="full" data-row="2" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="dense" data-preferred-width="2008" data-text-units="77" data-item-count="3" data-item-layout="rows" data-layout-reason="tabular-comparison">
+<rect x="96" y="944" width="2008" height="428" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
+<text x="124" y="992" font-size="26" fill="#111827" font-weight="700"><tspan x="124" dy="0">方案比较</tspan></text>
+<rect x="124" y="1042" width="1952" height="42" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="144" y="1069" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="144" dy="0">选项</tspan></text>
+<text x="865.76" y="1069" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="865.76" dy="0">判断依据</tspan></text>
+<text x="1966" y="1069" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1966" dy="0">结论</tspan></text>
+<rect x="124" y="1084" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="1113" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">ASL-2、ASL-3 与更高等级对应逐级增强的安全标准</tspan></text>
 
 
-<rect x="124" y="1244" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
-<text x="144" y="1273" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
+<rect x="124" y="1166" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="1195" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">ASL-3 要求更强安全措施和高水平红队验证</tspan></text>
 
 
-<rect x="124" y="1326" width="1952" height="74" rx="8" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1.3"/>
-<text x="144" y="1355" font-size="17" fill="#5E6AD2" font-weight="700"><tspan x="144" dy="0">灾难性误用与非预期自主行为风险随能力提升而增加</tspan></text>
+<rect x="124" y="1248" width="1952" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3"/>
+<text x="144" y="1277" font-size="17" fill="#111827" font-weight="700"><tspan x="144" dy="0">灾难性误用与非预期自主行为风险随能力提升而增加</tspan></text>
 
 
 </g>

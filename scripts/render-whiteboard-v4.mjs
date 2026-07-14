@@ -249,20 +249,38 @@ ${text(x + 42, y + 98, 31, c.ink, body.lines, "800", 43)}`,
   };
 }
 
-function metricCard(block, x, y, w, targetHeight = 0, metricRow = 0) {
+function metricCard(block, x, y, w, targetHeight = 0, metricRow = 0, profile = {}) {
+  if (profile.itemLayout === "metric-strip") {
+    const h = Math.max(142, Math.min(targetHeight || 142, 190));
+    const titleLines = splitText(block.title, Math.max(240, w * 0.34), 18, 2);
+    const noteLines = splitText(block.note || "", Math.max(260, w * 0.34), 17, 2);
+    const chip = block.label ? `${rect(x + w - 190, y + 54, 142, 36, c.muted, c.border, 1, 8)}
+${text(x + w - 119, y + 78, 16, tone(block.status), [block.label], "800", 20, ' text-anchor="middle"')}` : "";
+    return {
+      h,
+      body: `${rect(x, y, w, h, c.surface, c.border, 1.5, 16, ' data-metric-card="true" data-metric-layout="strip"')}
+${text(x + 30, y + 44, 18, c.secondary, titleLines, "800", 22)}
+${text(x + Math.round(w * 0.43), y + 83, 42, c.accent, [block.value], "850")}
+${noteLines.length ? text(x + Math.round(w * 0.61), y + 55, 17, c.secondary, noteLines, "500", 24) : ""}
+${chip}`,
+    };
+  }
   const titleLines = splitText(block.title, w - 52, 18, 2);
   const titleExtra = Math.max(0, titleLines.length - 1) * 22;
   const note = measureLines(block.note || "", w - 52, 17, 2, 24);
   const hasChip = Boolean(block.label);
-  const h = Math.max(172, 124 + titleExtra + note.height + (hasChip ? 54 : 18), targetHeight);
-  const chip = hasChip ? `${rect(x + 26, y + h - 48, 118, 32, c.muted, c.border, 1, 8)}
-${text(x + 46, y + h - 27, 16, tone(block.status), [block.label], "800")}` : "";
+  const naturalH = Math.max(172, 124 + titleExtra + note.height + (hasChip ? 54 : 18));
+  const h = Math.max(naturalH, targetHeight);
+  const contentOffset = Math.max(0, Math.round((h - naturalH) / 2));
+  const chipY = y + contentOffset + naturalH - 48;
+  const chip = hasChip ? `${rect(x + 26, chipY, 118, 32, c.muted, c.border, 1, 8)}
+${text(x + 46, chipY + 21, 16, tone(block.status), [block.label], "800")}` : "";
   return {
     h,
     body: `${rect(x, y, w, h, c.surface, c.border, 1.5, 16, ` data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="${metricRow}"`)}
-${text(x + 26, y + 40, 18, c.secondary, titleLines, "800", 22)}
-${text(x + 26, y + 92 + titleExtra, 42, c.accent, [block.value], "850")}
-${note.lines.length ? text(x + 26, y + 124 + titleExtra, 17, c.secondary, note.lines, "500", 24) : ""}
+${text(x + 26, y + contentOffset + 40, 18, c.secondary, titleLines, "800", 22)}
+${text(x + 26, y + contentOffset + 92 + titleExtra, 42, c.accent, [block.value], "850")}
+${note.lines.length ? text(x + 26, y + contentOffset + 124 + titleExtra, 17, c.secondary, note.lines, "500", 24) : ""}
 ${chip}`,
   };
 }
@@ -335,14 +353,22 @@ ${text(point.x - 16, chartY + chartH + 34, 15, c.secondary, [point.label], "700"
 }
 
 function statusBoard(block, x, y, w, profile = {}) {
+  if (profile.itemLayout === "footer-band") return supportBand(block, x, y, w, "status", profile);
   const items = (block.items || []).slice(0, 6);
-  const hasLongItems = items.some((item) => `${item.label || ""}${item.note || ""}`.length > 30);
-  const cols = profile.itemLayout === "grid-5" && w >= 1200
+  let cols = profile.itemLayout === "grid-5" && w >= 1200
     ? 5
-    : profile.assignedSpan <= 4 || (profile.assignedSpan <= 6 && hasLongItems) ? 1 : items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
+    : profile.itemLayout === "grid-2"
+      ? 2
+    : profile.assignedSpan <= 4 ? 1 : items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
   const gap = 16;
-  const itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
-  const itemH = hasLongItems ? 124 : 82;
+  let itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
+  const needsMoreThanTwoLines = items.some((item) => estimateWidth(item.label || "", 17) > (itemW - 58) * 2 || estimateWidth(item.note || "", 16) > (itemW - 52) * 2);
+  if (needsMoreThanTwoLines && cols > 1) {
+    cols = 1;
+    itemW = w - 56;
+  }
+  const wraps = items.some((item) => estimateWidth(item.label || "", 17) > itemW - 58 || estimateWidth(item.note || "", 16) > itemW - 52);
+  const itemH = wraps ? 124 : 82;
   const rows = Math.ceil(items.length / cols);
   const naturalH = 112 + rows * itemH + Math.max(0, rows - 1) * 14 + 26;
   const h = Math.max(naturalH, profile.targetHeight || 0);
@@ -354,14 +380,14 @@ function statusBoard(block, x, y, w, profile = {}) {
     const ix = x + 28 + col * (itemW + gap);
     const iy = y + 106 + contentOffset + row * (itemH + 14);
     const t = tone(item.status);
-    const labelLines = splitText(item.label, itemW - 58, 17, hasLongItems ? 2 : 1);
+    const labelLines = splitText(item.label, itemW - 58, 17, wraps ? 2 : 1);
     const noteY = iy + 61 + Math.max(0, labelLines.length - 1) * 22;
     body += `
 ${rect(ix, iy, itemW, itemH, c.surface, c.border, 1.2, 12)}
 <rect x="${ix + 14}" y="${iy + 18}" width="8" height="${itemH - 36}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
 ${text(ix + 36, iy + 31, 17, c.ink, labelLines, "800", 22)}
 ${text(ix + itemW - 94, iy + 31, 16, t, [item.value || ""], "800")}
-${item.note ? text(ix + 36, noteY, cols >= 3 ? 15 : 16, c.secondary, splitText(item.note, itemW - 52, cols >= 3 ? 15 : 16, hasLongItems ? 2 : 1), "500", 21) : ""}`;
+${item.note ? text(ix + 36, noteY, cols >= 3 ? 15 : 16, c.secondary, splitText(item.note, itemW - 52, cols >= 3 ? 15 : 16, wraps ? 2 : 1), "500", 21) : ""}`;
   });
   return { h, body };
 }
@@ -393,10 +419,10 @@ function supportBand(block, x, y, w, kind, profile = {}) {
   const contentY = y + Math.floor((h - 94) / 2);
   let body = `${rect(x, y, w, h, c.surface, c.border, 1.5, 16)}
 ${text(x + 28, y + 54, 25, c.ink, [block.title], "800")}
-${text(x + 28, y + 88, 16, c.secondary, [kind === "action" ? "形成明确收口" : kind === "risk" ? "保留关键边界" : "支撑核心判断"], "500")}`;
+${text(x + 28, y + 88, 16, c.secondary, [kind === "action" ? "形成明确收口" : kind === "risk" ? "保留关键边界" : kind === "status" ? "集中呈现状态" : "支撑核心判断"], "500")}`;
   items.forEach((item, index) => {
     const ix = contentX + index * (itemW + gap);
-    const t = kind === "risk" ? tone(item.status || "risk") : kind === "action" ? c.accent : c.accent;
+    const t = kind === "risk" ? tone(item.status || "risk") : kind === "status" ? tone(item.status) : c.accent;
     const labelLines = splitText(item.label, itemW - 58, 17, item.note ? 1 : 2);
     const noteLines = item.note ? splitText(item.note, itemW - 58, 15, 1) : [];
     const labelY = noteLines.length
@@ -454,7 +480,7 @@ function evidenceTiles(block, x, y, w, profile = profileExpressionBlock(block)) 
     body += `
 ${rect(ix, iy, itemW, itemH - 12, c.surface, c.border, 1.2, 10, ` data-v4-evidence-item="${index}"`)}
 ${rect(ix + 16, iy + 17, 42, 34, c.soft, c.accent, 1, 9)}
-${text(ix + 28, iy + 40, 15, c.accent, [String(index + 1).padStart(2, "0")], "800")}
+${text(ix + 37, iy + 40, 15, c.accent, [String(index + 1).padStart(2, "0")], "800", 21, ' text-anchor="middle"')}
 ${text(ix + 72, iy + 31, 17, c.ink, labelLines, "800", 22)}
 ${item.note ? text(ix + 72, noteY, 16, c.secondary, splitText(item.note, itemW - 92, 16, hasLongItems ? 2 : 1), "500", 21) : ""}`;
   });
@@ -487,6 +513,30 @@ ${item.note ? text(ix + 52, noteY, 16, c.secondary, splitText(item.note, itemW -
 
 function narrativeChain(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 5);
+  if (profile.itemLayout === "vertical-chain" || profile.assignedSpan <= 6) {
+    const itemH = 84;
+    const gap = 18;
+    const naturalH = 108 + items.length * itemH + Math.max(0, items.length - 1) * gap + 28;
+    const h = Math.max(naturalH, profile.targetHeight || 0);
+    const contentOffset = Math.max(0, Math.floor((h - naturalH) / 2));
+    let body = blockCard(x, y, w, h, block.title, block.note);
+    items.forEach((item, index) => {
+      const ix = x + 28;
+      const iy = y + 100 + contentOffset + index * (itemH + gap);
+      const labelLines = splitText(item.label, w - 126, 18, item.note ? 1 : 2);
+      body += `
+${rect(ix, iy, w - 56, itemH, c.surface, c.border, 1.2, 12)}
+${rect(ix + 16, iy + 18, 38, 38, c.soft, c.accent, 1, 10)}
+${text(ix + 35, iy + 43, 15, c.accent, [String(index + 1).padStart(2, "0")], "800", 21, ' text-anchor="middle"')}
+${text(ix + 70, iy + 31, 18, c.ink, labelLines, "800", 23)}
+${item.note ? text(ix + 70, iy + 60, 15, c.secondary, splitText(item.note, w - 126, 15, 1), "500", 20) : ""}`;
+      if (index < items.length - 1) {
+        const ax = ix + 35;
+        body += `${line(ax, iy + itemH, ax, iy + itemH + gap, c.accent, 2)}${text(ax - 7, iy + itemH + gap - 2, 18, c.accent, ["↓"], "700")}`;
+      }
+    });
+    return { h, body };
+  }
   const gap = 26;
   const itemW = Math.floor((w - 56 - gap * (items.length - 1)) / items.length);
   const itemH = 180;
@@ -580,13 +630,14 @@ function varianceBridge(block, x, y, w, profile = {}) {
 ${rect(ix, stageY + (102 - cardH), stageW, cardH, isEnd ? c.soft : c.surface, t, 2, 10)}
 ${text(ix + 18, stageY + 34, 22, c.ink, [item.value], "850")}
 ${text(ix + 18, stageY + 68, 15, c.secondary, splitText(item.note || "", stageW - 36, 15, 1), "500")}
-${text(ix + 18, stageY + 124, 16, c.ink, splitText(item.label, stageW - 36, 16, 1), "800")}`;
+${text(ix + 18, stageY + 108, 16, c.ink, splitText(item.label, stageW - 36, 16, 1), "800")}`;
     if (index < items.length - 1) body += `${text(ix + stageW + 2, stageY + 50, 30, c.accent, ["→"], "700")}`;
   });
   return { h, body };
 }
 
 function blockRenderer(block, x, y, w, profile = profileExpressionBlock(block)) {
+  if (block.type === "metric-card") return metricCard(block, x, y, w, profile.targetHeight || 0, 0, profile);
   if (block.type === "progress-bar" || block.type === "ranked-bar") return progressGroup(block, x, y, w, profile);
   if (block.type === "trend-sparkline") return trendSparkline(block, x, y, w, profile);
   if (block.type === "status-board") return statusBoard(block, x, y, w, profile);
@@ -660,7 +711,8 @@ function renderCanvas() {
   const blocks = brief.expressionBlocks || [];
   const statement = blocks.find((block) => block.type === "statement");
   const metrics = blocks.filter((block) => block.type === "metric-card");
-  const rest = blocks.filter((block) => block.type !== "statement" && block.type !== "metric-card");
+  const groupedMetrics = metrics.length >= 2 ? metrics : [];
+  const rest = blocks.filter((block) => block.type !== "statement" && (groupedMetrics.length === 0 || block.type !== "metric-card"));
 
   const title = titleBlock();
   let y = 64 + title.h;
@@ -672,8 +724,8 @@ function renderCanvas() {
     y += rendered.h + 44;
   }
 
-  if (metrics.length) {
-    const rendered = metricsGroup(metrics, M, y, CONTENT);
+  if (groupedMetrics.length) {
+    const rendered = metricsGroup(groupedMetrics, M, y, CONTENT);
     body += markLayoutNode({ id: "metrics", type: "metric-group", x: M, y, width: CONTENT, height: rendered.h, column: "full" }, rendered.body);
     y += rendered.h + 44;
   }
@@ -718,8 +770,10 @@ ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
     y += h + 72;
   }
 
-  const height = Math.max(1080, y);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.3")}" data-expression-mode="${escapeXml(brief.expressionMode)}" data-page-skeleton="${escapeXml(brief.pageSkeleton || "overview-detail")}">
+  // Keep OnePage near a presentation-friendly landscape ratio without adding
+  // a large artificial footer void when the material is concise.
+  const height = Math.max(1024, y);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.4")}" data-expression-mode="${escapeXml(brief.expressionMode)}" data-page-skeleton="${escapeXml(brief.pageSkeleton || "overview-detail")}">
 ${rect(0, 0, WIDTH, height, c.canvas, c.canvas, 0, 0)}
 <g>
 ${body}
@@ -785,6 +839,16 @@ function flowConnector(edge, boxes, stroke = c.accent) {
   const from = boxes.get(edge.from);
   const to = boxes.get(edge.to);
   if (!from || !to) return "";
+  if (to.y >= from.y + from.h) {
+    const start = { x: from.x + from.w / 2, y: from.y + from.h };
+    const end = { x: to.x + to.w / 2, y: to.y };
+    const midY = Math.round((start.y + end.y) / 2);
+    const attrs = ` data-flow-edge="${escapeXml(`${edge.from}->${edge.to}`)}" data-from="${escapeXml(edge.from)}" data-to="${escapeXml(edge.to)}" data-start="${Math.round(start.x)},${Math.round(start.y)}" data-end="${Math.round(end.x)},${Math.round(end.y)}" data-edge-label="${escapeXml(edge.label || "")}"`;
+    const points = [start, { x: start.x, y: midY }, { x: end.x, y: midY }, end];
+    return `${polyline(points, stroke, 3, attrs)}
+${arrowHead(end.x, end.y, "down", stroke)}
+${edgeLabel(edge.label, Math.round((start.x + end.x) / 2), midY - 8, 150)}`;
+  }
   const start = { x: from.x + from.w, y: from.y + from.h / 2 };
   const end = { x: to.x, y: to.y + to.h / 2 };
   const attrs = ` data-flow-edge="${escapeXml(`${edge.from}->${edge.to}`)}" data-from="${escapeXml(edge.from)}" data-to="${escapeXml(edge.to)}" data-start="${Math.round(start.x)},${Math.round(start.y)}" data-end="${Math.round(end.x)},${Math.round(end.y)}" data-edge-label="${escapeXml(edge.label || "")}"`;
@@ -806,7 +870,10 @@ function renderLinearFlow(y) {
   const nodes = brief.flowNodes || [];
   const edges = brief.flowEdges || [];
   const averageDensity = nodes.reduce((sum, node) => sum + String(node.title || "").length + (node.body || []).join("").length, 0) / Math.max(1, nodes.length);
-  const cols = nodes.length <= 6 && averageDensity <= 48 ? nodes.length : Math.min(4, nodes.length);
+  // A single six-node row creates a banner-like canvas that is unreadable in
+  // Feishu's default fit view. Four columns keeps node text legible and lets
+  // the process wrap into a balanced second row when necessary.
+  const cols = [5, 6].includes(nodes.length) ? 3 : Math.min(4, nodes.length);
   const nodeGap = 40;
   const nodeW = Math.floor((CONTENT - nodeGap * (cols - 1)) / cols);
   const rowGap = 104;
@@ -893,7 +960,7 @@ ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
   }
 
   const height = Math.ceil(y);
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.3")}" data-flow-mode="${escapeXml(brief.flowMode)}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="flow-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.4")}" data-flow-mode="${escapeXml(brief.flowMode)}">
 ${rect(0, 0, WIDTH, height, c.canvas, c.canvas, 0, 0)}
 <g>
 ${body}

@@ -1,7 +1,7 @@
 {
   "pipeline": "v4.4",
   "status": "passed",
-  "startedAt": "2026-07-13T14:20:56.887Z",
+  "startedAt": "2026-07-14T01:49:00.583Z",
   "inputs": {
     "inventoryPath": "/Users/marco/Documents/Lark-whiteboard-v44/examples/evals/v44-internal/cases/official-strategy-trustworthy-agents/inventory.json"
   },
@@ -45,5 +45,5 @@
     },
     "selectedPlanId": "semantic-official-strategy-trustworthy-agents-hierarchical"
   },
-  "finishedAt": "2026-07-13T14:20:57.365Z"
+  "finishedAt": "2026-07-14T01:49:01.072Z"
 }

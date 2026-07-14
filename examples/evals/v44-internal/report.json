@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-13T14:21:07.124Z",
+  "generatedAt": "2026-07-14T01:49:10.956Z",
   "summary": {
     "cases": 24,
     "passedCases": 24,
@@ -325,7 +325,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "status-board"
+        "status-board",
+        "narrative-chain"
       ],
       "failureLayer": null,
       "error": null
@@ -347,7 +348,8 @@
       "componentMix": [
         "statement",
         "evidence-list",
-        "status-board"
+        "status-board",
+        "narrative-chain"
       ],
       "failureLayer": null,
       "error": null

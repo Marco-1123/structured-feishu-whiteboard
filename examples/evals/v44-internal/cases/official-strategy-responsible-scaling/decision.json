@@ -143,10 +143,6 @@
       }
     }
   ],
-  "fallback": {
-    "version": "4.3",
-    "reason": "on-failure"
-  },
   "brief": {
     "pipelineVersion": "4.4",
     "engine": "v4",
@@ -176,15 +172,15 @@
         "items": [
           {
             "label": "ASL-2、ASL-3 与更高等级对应逐级增强的安全标准",
-            "status": "good"
+            "status": "neutral"
           },
           {
             "label": "ASL-3 要求更强安全措施和高水平红队验证",
-            "status": "good"
+            "status": "neutral"
           },
           {
             "label": "灾难性误用与非预期自主行为风险随能力提升而增加",
-            "status": "good"
+            "status": "neutral"
           }
         ],
         "sourceFactIds": [
@@ -199,7 +195,7 @@
         "items": [
           {
             "label": "能力触及阈值前先完成对应等级的安全证明与部署控制",
-            "status": "good"
+            "status": "neutral"
           }
         ],
         "sourceFactIds": [
@@ -211,14 +207,12 @@
         "title": "判断链路",
         "items": [
           {
-            "label": "模型能力提升必须与相匹配的安全和安全保障",
-            "note": "同步推进",
-            "status": "good"
+            "label": "模型能力提升必须与相匹配的安全和安全保障同步推进",
+            "status": "neutral"
           },
           {
-            "label": "能力触及阈值前先完成对应等级的安全证明与",
-            "note": "部署控制",
-            "status": "good"
+            "label": "能力触及阈值前先完成对应等级的安全证明与部署控制",
+            "status": "neutral"
           }
         ],
         "sourceFactIds": [

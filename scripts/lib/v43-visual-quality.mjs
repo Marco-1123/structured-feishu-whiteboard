@@ -105,8 +105,25 @@ export function inspectV43VisualQuality(svg) {
 
   const aspectRatio = height ? width / height : 0;
   if (aspectRatio < 0.5 || aspectRatio > 4) issues.push(`Unsupported canvas aspect ratio: ${aspectRatio.toFixed(2)}`);
-  if (isV44Onepage && (aspectRatio < 1.1 || aspectRatio > 2.4)) issues.push(`V4.4 onepage aspect ratio is outside 1.1-2.4: ${aspectRatio.toFixed(2)}`);
-  if (isV44 && root["data-layout"] === "flow-canvas" && aspectRatio < 1) issues.push(`V4.4 flow canvas is too vertical: ${aspectRatio.toFixed(2)}`);
+  if (isV44Onepage && (aspectRatio < 1.42 || aspectRatio > 2.15)) issues.push(`V4.4 onepage aspect ratio is outside 1.42-2.15: ${aspectRatio.toFixed(2)}`);
+  if (isV44 && root["data-layout"] === "flow-canvas" && (aspectRatio < 1 || aspectRatio > 2.8)) issues.push(`V4.4 flow canvas aspect ratio is outside 1.00-2.80: ${aspectRatio.toFixed(2)}`);
+
+  const bodyRows = [...new Set(blocks.filter((block) => Number.isFinite(block.row) && block.row >= 0).map((block) => block.row))];
+  const skeleton = root["data-page-skeleton"] || "";
+  const bodyRowLimit = skeleton === "centered-system" ? 2 : 3;
+  if (isV44Onepage && bodyRows.length > bodyRowLimit) issues.push(`V4.4 ${skeleton || "onepage"} uses ${bodyRows.length} body rows; limit is ${bodyRowLimit}`);
+  const fullWidthBodyRows = bodyRows.filter((row) => {
+    const rowBlocks = blocks.filter((block) => block.row === row);
+    return rowBlocks.length === 1 && rowBlocks[0].span === 12 && rowBlocks[0].itemLayout !== "footer-band";
+  });
+  const orphanRows = bodyRows.filter((row) => {
+    const rowBlocks = blocks.filter((block) => block.row === row);
+    return rowBlocks.length === 1 && rowBlocks[0].span < 12;
+  });
+  if (isV44Onepage && orphanRows.length) issues.push(`V4.4 contains incomplete orphan rows: ${orphanRows.join(", ")}`);
+  for (let index = 1; index < fullWidthBodyRows.length; index += 1) {
+    if (fullWidthBodyRows[index] === fullWidthBodyRows[index - 1] + 1) issues.push(`V4.4 repeats full-width body rows ${fullWidthBodyRows[index - 1]} and ${fullWidthBodyRows[index]}`);
+  }
 
   const left = blocks.filter((block) => block.column === "left");
   const right = blocks.filter((block) => block.column === "right");
@@ -135,6 +152,8 @@ export function inspectV43VisualQuality(svg) {
       sparseFullWidthCount: blocks.filter(sparseFullWidth).length,
       blockCount: blocks.length,
       maxRowHeightDelta,
+      bodyRowCount: bodyRows.length,
+      fullWidthBodyRowCount: fullWidthBodyRows.length,
     },
   };
 }

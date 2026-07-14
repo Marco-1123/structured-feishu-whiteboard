@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2073" viewBox="0 0 2200 2073" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.3" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="2073" viewBox="0 0 2200 2073" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
 <rect x="0" y="0" width="2200" height="2073" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
@@ -81,22 +81,22 @@
 <text x="1144" y="975" font-size="18" fill="#5F6B7A" font-weight="500"><tspan x="1144" dy="0">上线、效率与可追溯性共同验证阶段成果。</tspan></text>
 <rect x="1144" y="999" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
 <rect x="1160" y="1016" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1172" y="1039" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1172" dy="0">01</tspan></text>
+<text x="1181" y="1039" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="1181" dy="0">01</tspan></text>
 <text x="1216" y="1030" font-size="17" fill="#111827" font-weight="700"><tspan x="1216" dy="0">核心场景上线</tspan></text>
 <text x="1216" y="1057" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1216" dy="0">五项能力</tspan></text>
 <rect x="1617" y="999" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
 <rect x="1633" y="1016" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1645" y="1039" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1645" dy="0">02</tspan></text>
+<text x="1654" y="1039" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="1654" dy="0">02</tspan></text>
 <text x="1689" y="1030" font-size="17" fill="#111827" font-weight="700"><tspan x="1689" dy="0">响应速度达标</tspan></text>
 <text x="1689" y="1057" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1689" dy="0">三十秒内</tspan></text>
 <rect x="1144" y="1095" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="2"/>
 <rect x="1160" y="1112" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1172" y="1135" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1172" dy="0">03</tspan></text>
+<text x="1181" y="1135" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="1181" dy="0">03</tspan></text>
 <text x="1216" y="1126" font-size="17" fill="#111827" font-weight="700"><tspan x="1216" dy="0">人工耗时下降</tspan></text>
 <text x="1216" y="1153" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1216" dy="0">每日节省</tspan></text>
 <rect x="1617" y="1095" width="459" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="3"/>
 <rect x="1633" y="1112" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1645" y="1135" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1645" dy="0">04</tspan></text>
+<text x="1654" y="1135" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="1654" dy="0">04</tspan></text>
 <text x="1689" y="1126" font-size="17" fill="#111827" font-weight="700"><tspan x="1689" dy="0">链路能够回放</tspan></text>
 <text x="1689" y="1153" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="1689" dy="0">结果可追溯</tspan></text>
 </g><g data-v43-block="action-list-4" data-block-type="action-list" data-x="436" data-y="1243" data-width="1328" data-height="316" data-column="center" data-component-variant="action-checklist" data-row="2" data-span="8" data-row-alignment="centered" data-offset-span="2" data-density="sparse" data-preferred-width="988" data-text-units="55" data-item-count="4" data-item-layout="grid-2" data-layout-reason="short-parallel-items">

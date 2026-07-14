@@ -41,7 +41,7 @@
     },
     {
       "id": "p1",
-      "type": "capability",
+      "type": "stage",
       "text": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
       "importance": "high",
       "sourceRef": "p1",

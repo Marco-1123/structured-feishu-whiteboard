@@ -27,7 +27,7 @@
       "items": [
         {
           "label": "编码 Agent 是否正在改变社会科学研究生产率与资源差异",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -36,10 +36,9 @@
     },
     {
       "type": "metric-card",
-      "title": "的受访者尝试过在研究中使用 AI 聊天工具",
+      "title": "AI 工具尝试率",
       "value": "81%",
-      "label": "阶段结果",
-      "note": "81% 的受访者尝试过在研究中使用 AI 聊天工具",
+      "label": "核心指标",
       "status": "neutral",
       "sourceFactIds": [
         "m1"
@@ -47,10 +46,9 @@
     },
     {
       "type": "metric-card",
-      "title": "的受访者已采用编码 Agent",
+      "title": "编码 Agent 采用率",
       "value": "20%",
-      "label": "阶段结果",
-      "note": "20% 的受访者已采用编码 Agent",
+      "label": "核心指标",
       "status": "neutral",
       "sourceFactIds": [
         "m2"
@@ -62,7 +60,7 @@
       "items": [
         {
           "label": "编码 Agent 用户发布更多工作论文和基金申请",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "观察结果不能排除早期采用者原本就更高产的解释",

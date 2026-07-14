@@ -1,5 +1,5 @@
 {
-  "version": "4.4.0-beta.2",
+  "version": "4.4.0-beta.4",
   "confidence": { "highScore": 78, "highMargin": 10, "mediumScore": 58, "mediumMargin": 4 },
   "archetypes": {
     "review-update": ["result-driven", "causal", "temporal"],

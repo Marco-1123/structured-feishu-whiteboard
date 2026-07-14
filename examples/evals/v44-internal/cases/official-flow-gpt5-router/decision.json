@@ -14,10 +14,6 @@
   },
   "requiresUserChoice": false,
   "selectedPlanId": "semantic-official-flow-gpt5-router-flow-driven",
-  "fallback": {
-    "version": "4.3",
-    "reason": "on-failure"
-  },
   "brief": {
     "pipelineVersion": "4.4",
     "engine": "v4",

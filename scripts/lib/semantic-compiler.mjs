@@ -29,7 +29,7 @@ function semanticType(fact, scenario, index, total) {
   if (fact.type === "conclusion") return scenario === "project-plan" ? "objective" : "conclusion";
   if (fact.type === "process") {
     if (scenario === "process-collaboration") return index === 0 ? "input" : index === total - 1 ? "output" : /判断|审核|确认|决策/.test(fact.text) ? "constraint" : "action";
-    return scenario === "product-capability" ? "capability" : "stage";
+    return "stage";
   }
   if (fact.type === "context") return scenario === "research-decision" ? "unresolved" : "conclusion";
   return "evidence";

@@ -27,20 +27,19 @@
       "items": [
         {
           "label": "阶段一完成模型能力阈值评估与风险排查",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "阶段二强化模型权重保护和内部安全控制",
-          "status": "good"
+          "status": "neutral"
         },
         {
-          "label": "阶段三上线面向 CBRN 风险的窄域部署",
-          "note": "防护",
-          "status": "good"
+          "label": "阶段三上线面向 CBRN 风险的窄域部署防护",
+          "status": "neutral"
         },
         {
           "label": "持续评估防护有效性并根据证据调整标准",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [

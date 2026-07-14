@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1080" viewBox="0 0 2200 1080" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="overview-detail">
-<rect x="0" y="0" width="2200" height="1080" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1024" viewBox="0 0 2200 1024" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="narrative-map" data-page-skeleton="overview-detail">
+<rect x="0" y="0" width="2200" height="1024" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">关于模型福利的开放问题材料</tspan></text>
@@ -15,12 +15,12 @@
 
 <rect x="124" y="508" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="0"/>
 <rect x="140" y="525" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="548" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">01</tspan></text>
+<text x="161" y="548" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="161" dy="0">01</tspan></text>
 <text x="196" y="539" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">模型已表现出沟通、规划、解决问题和追求目标等能力</tspan></text>
 
 <rect x="124" y="590" width="932" height="70" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2" data-v4-evidence-item="1"/>
 <rect x="140" y="607" width="42" height="34" rx="9" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="1"/>
-<text x="152" y="630" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="152" dy="0">02</tspan></text>
+<text x="161" y="630" font-size="15" fill="#5E6AD2" font-weight="700" text-anchor="middle"><tspan x="161" dy="0">02</tspan></text>
 <text x="196" y="621" font-size="17" fill="#111827" font-weight="700"><tspan x="196" dy="0">部分专家认为近期模型意识与高能动性存在非零可能</tspan></text>
 
 </g><g data-v43-block="risk-list-2" data-block-type="risk-list" data-x="1116" data-y="404" data-width="988" data-height="302" data-column="right" data-component-variant="risk-cluster" data-row="0" data-span="6" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="648" data-text-units="23" data-item-count="1" data-item-layout="rows" data-layout-reason="few-short-parallel-items">
@@ -31,7 +31,7 @@
 <circle cx="1170" cy="576" r="7" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <text x="1188" y="581" font-size="17" fill="#111827" font-weight="700"><tspan x="1188" dy="0">意识、体验与道德地位缺少可靠测量方法</tspan></text>
 
-</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="96" data-y="738" data-width="2008" data-height="154" data-column="full" data-component-variant="action-checklist" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="48" data-item-count="2" data-item-layout="footer-band" data-layout-reason="full-width-closing-band">
+</g><g data-v43-block="action-list-3" data-block-type="action-list" data-x="96" data-y="738" data-width="2008" data-height="154" data-column="full" data-component-variant="action-checklist" data-row="1" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="medium" data-preferred-width="2008" data-text-units="48" data-item-count="2" data-item-layout="footer-band" data-layout-reason="global-orphan-prevention">
 <rect x="96" y="738" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="124" y="792" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">下一步行动</tspan></text>
 <text x="124" y="826" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">形成明确收口</tspan></text>

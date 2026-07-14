@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1080" viewBox="0 0 2200 1080" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
-<rect x="0" y="0" width="2200" height="1080" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1024" viewBox="0 0 2200 1024" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="4.4" data-expression-mode="modular-canvas" data-page-skeleton="overview-detail">
+<rect x="0" y="0" width="2200" height="1024" rx="0" fill="#F7F8FA" stroke="#F7F8FA" stroke-width="0"/>
 <g>
 <g data-v43-block="title" data-block-type="title" data-x="96" data-y="40" data-width="2008" data-height="170" data-column="full">
 <text x="96" y="86" font-size="46" fill="#111827" font-weight="700"><tspan x="96" dy="0">企业 AI 采用阶段复盘与下一步重点</tspan></text>
@@ -9,36 +9,34 @@
 <rect x="96" y="210" width="12" height="150" rx="6" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="138" y="258" font-size="18" fill="#5E6AD2" font-weight="700"><tspan x="138" dy="0">核心判断</tspan></text>
 <text x="138" y="308" font-size="31" fill="#111827" font-weight="700"><tspan x="138" dy="0">企业 AI 使用正从零散问答进入可复用的深度工作流</tspan></text>
-</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="404" data-width="2008" data-height="195" data-column="full">
-<rect x="96" y="404" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
-<text x="122" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="122" dy="0">企业用户每周消息量同比增长约 倍</tspan></text>
+</g><g data-v43-block="metrics" data-block-type="metric-group" data-x="96" data-y="404" data-width="2008" data-height="178" data-column="full">
+<rect x="96" y="404" width="653" height="178" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
+<text x="122" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="122" dy="0">企业周消息规模</tspan></text>
 <text x="122" y="496" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="122" dy="0">8x</tspan></text>
-<text x="122" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="122" dy="0">企业用户每周消息量同比增长约 8 倍</tspan></text>
-<rect x="122" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="142" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="142" dy="0">阶段结果</tspan></text><rect x="773" y="404" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
-<text x="799" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="799" dy="0">Projects 与 Custom GPTs …</tspan></text>
+
+<rect x="122" y="534" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="142" y="555" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="142" dy="0">变化指标</tspan></text><rect x="773" y="404" width="653" height="178" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
+<text x="799" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="799" dy="0">结构化工作流使用</tspan></text>
 <text x="799" y="496" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="799" dy="0">19x</tspan></text>
-<text x="799" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="799" dy="0">Projects 与 Custom GPTs 等结构化工作流使用量年内增长 19 倍</tspan></text>
-<rect x="799" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="819" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="819" dy="0">阶段结果</tspan></text><rect x="1450" y="404" width="653" height="195" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
-<text x="1476" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="1476" dy="0">的受访员工认为 AI 改善了工作速度或质量</tspan></text>
+
+<rect x="799" y="534" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="819" y="555" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="819" dy="0">变化指标</tspan></text><rect x="1450" y="404" width="653" height="178" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-tone-group="parallel-metrics" data-metric-card="true" data-metric-row="0"/>
+<text x="1476" y="444" font-size="18" fill="#5F6B7A" font-weight="700"><tspan x="1476" dy="0">AI 效率改善认同</tspan></text>
 <text x="1476" y="496" font-size="42" fill="#5E6AD2" font-weight="700"><tspan x="1476" dy="0">75%</tspan></text>
-<text x="1476" y="528" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1476" dy="0">75% 的受访员工认为 AI 改善了工作速度或质量</tspan></text>
-<rect x="1476" y="551" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
-<text x="1496" y="572" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1496" dy="0">阶段结果</tspan></text>
-</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="776" data-y="643" data-width="648" data-height="316" data-column="center" data-component-variant="status-grid" data-row="0" data-span="4" data-row-alignment="centered" data-offset-span="4" data-density="sparse" data-preferred-width="648" data-text-units="47" data-item-count="2" data-item-layout="rows" data-layout-reason="compact-status-items">
-<rect x="776" y="643" width="648" height="316" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v4-block-card="true"/>
-<text x="804" y="691" font-size="26" fill="#111827" font-weight="700"><tspan x="804" dy="0">重点关注</tspan></text>
 
-<rect x="804" y="749" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="818" y="767" width="8" height="46" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
-<text x="840" y="780" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">领先组织与中位组织之间的采用深度差距仍在扩大</tspan></text>
+<rect x="1476" y="534" width="118" height="32" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
+<text x="1496" y="555" font-size="16" fill="#5E6AD2" font-weight="700"><tspan x="1496" dy="0">核心指标</tspan></text>
+</g><g data-v43-block="status-board-1" data-block-type="status-board" data-x="96" data-y="626" data-width="2008" data-height="154" data-column="full" data-component-variant="status-grid" data-row="0" data-span="12" data-row-alignment="filled" data-offset-span="0" data-density="sparse" data-preferred-width="2008" data-text-units="47" data-item-count="2" data-item-layout="footer-band" data-layout-reason="global-orphan-prevention">
+<rect x="96" y="626" width="2008" height="154" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
+<text x="124" y="680" font-size="25" fill="#111827" font-weight="700"><tspan x="124" dy="0">重点关注</tspan></text>
+<text x="124" y="714" font-size="16" fill="#5F6B7A" font-weight="500"><tspan x="124" dy="0">集中呈现状态</tspan></text>
+<rect x="356" y="656" width="852" height="94" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="0" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="372" y="674" width="7" height="58" rx="3.5" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
+<text x="394" y="709" font-size="17" fill="#111827" font-weight="700"><tspan x="394" dy="0">领先组织与中位组织之间的采用深度差距仍在扩大</tspan></text>
 
-
-<rect x="804" y="845" width="592" height="82" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
-<rect x="818" y="863" width="8" height="46" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
-<text x="840" y="876" font-size="17" fill="#111827" font-weight="700"><tspan x="840" dy="0">下一阶段把高价值用例沉淀为组织级可复用流程</tspan></text>
-
+<rect x="1224" y="656" width="852" height="94" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.1" data-v4-support-band-item="1" data-has-secondary="false" data-label-layout="centered"/>
+<rect x="1240" y="674" width="7" height="58" rx="3.5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<text x="1262" y="709" font-size="17" fill="#111827" font-weight="700"><tspan x="1262" dy="0">下一阶段把高价值用例沉淀为组织级可复用流程</tspan></text>
 
 </g>
 </g>

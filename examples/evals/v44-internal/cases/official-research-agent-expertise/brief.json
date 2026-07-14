@@ -27,11 +27,11 @@
       "items": [
         {
           "label": "典型会话中人主要决定做什么，Claude 主要决定如何执行",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "专业经验越高，Claude 每条指令承担的工作越多",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -45,7 +45,7 @@
       "items": [
         {
           "label": "领域经验是否仍会影响 Agent 编码任务的协作方式和成功率",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -58,7 +58,7 @@
       "items": [
         {
           "label": "不同职业完成编码目标的平均成功率接近软件工程师",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "研究基于可验证会话结果但不能覆盖所有工作质量维度",

@@ -5,7 +5,7 @@
   "layout": "expression-canvas",
   "style": "linear-system",
   "title": "ChatGPT Agent 产品能力介绍",
-  "subtitle": "重点信息、关键依据",
+  "subtitle": "路径与机制、重点信息、关键依据",
   "summaryLabel": "核心判断",
   "summary": "ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验",
   "expressionMode": "modular-canvas",
@@ -27,7 +27,7 @@
       "items": [
         {
           "label": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
-          "status": "good"
+          "status": "neutral"
         }
       ],
       "sourceFactIds": [
@@ -40,15 +40,15 @@
       "items": [
         {
           "label": "理解目标并规划多步骤任务",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "在计算机环境中浏览网站并使用工具",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "整合研究结果并交付可用产物",
-          "status": "good"
+          "status": "neutral"
         },
         {
           "label": "复杂网页操作和新型安全风险仍可能限制可靠性",
@@ -60,6 +60,24 @@
         "h2",
         "h3",
         "r1"
+      ]
+    },
+    {
+      "type": "narrative-chain",
+      "title": "判断链路",
+      "items": [
+        {
+          "label": "ChatGPT Agent 将研究、浏览和行动能力整合进统一任务体验",
+          "status": "neutral"
+        },
+        {
+          "label": "用户提出目标后 Agent 选择工具、执行并请求必要确认",
+          "status": "neutral"
+        }
+      ],
+      "sourceFactIds": [
+        "c1",
+        "p1"
       ]
     }
   ],

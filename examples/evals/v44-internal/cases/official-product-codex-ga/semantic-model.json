@@ -41,7 +41,7 @@
     },
     {
       "id": "p1",
-      "type": "capability",
+      "type": "stage",
       "text": "同一账户连接编辑器、终端和云端任务",
       "importance": "medium",
       "sourceRef": "p1",

@@ -18,7 +18,7 @@ try {
   const linear = render("v41-linear-flow-engine");
   const nodes = [...linear.matchAll(/data-flow-node="([^"]+)"[^>]*data-node-x="(\d+)"[^>]*data-node-y="(\d+)"/g)];
   assert.equal(nodes.length, 5);
-  assert.equal(new Set(nodes.map((match) => match[3])).size, 1, "five concise linear steps should stay on one reading line");
+  assert.equal(new Set(nodes.map((match) => match[3])).size, 2, "five linear steps should wrap into a balanced 4+1 flow instead of creating an unreadably wide strip");
   assert.ok(linear.indexOf("data-flow-edge=") < linear.indexOf("data-flow-node="), "connectors must render behind nodes");
   assert.doesNotMatch(linear, /data-edge-crosses-node="true"/, "connectors must not cross unrelated nodes");
   assert.match(linear, /data-edge-label="约束明确"/, "edge labels must remain visible");
