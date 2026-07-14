@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1160" viewBox="0 0 2200 1160" data-layout-engine="v5" data-pipeline-version="5.0-alpha.1" data-scene="layered-architecture" data-content-bottom="952">
+<rect x="0" y="0" width="2200" height="1160" fill="#F7F8FA"/>
+<text x="96" y="88" font-size="46" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">智能协作能力分层架构</tspan></text>
+<text x="96" y="146" font-size="20" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="96" dy="0">product-capability · layered-architecture</tspan></text>
+<rect x="96" y="190" width="2008" height="146" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v5-summary="true" data-source-fact-ids="conclusion"/>
+<rect x="96" y="190" width="12" height="146" rx="6" fill="#5E6AD2"/>
+<text x="138" y="238" font-size="17" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="288" font-size="29" fill="#111827" font-weight="750" text-anchor="start"><tspan x="138" dy="0">能力体系由入口层和执行层共同构成</tspan></text>
+<text x="96" y="390" font-size="25" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">分层结构</tspan></text>
+<rect x="96" y="428" width="2008" height="160" rx="14" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1.4" data-scene-layer="layer-1" data-source-fact-ids="layer1"/>
+<text x="124" y="470" font-size="19" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="124" dy="0">01</tspan></text>
+<text x="124" y="510" font-size="24" fill="#111827" font-weight="800" text-anchor="start"><tspan x="124" dy="0">业务入口层</tspan></text>
+<rect x="370" y="450" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="a1"/>
+<rect x="370" y="450" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="394" y="490" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="394" dy="0">统一入口</tspan></text>
+<text x="394" y="532" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="394" dy="0">一句话发起任务</tspan></text>
+<rect x="954" y="450" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="a2"/>
+<rect x="954" y="450" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="978" y="490" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="978" dy="0">身份上下文</tspan></text>
+<text x="978" y="532" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="978" dy="0">识别用户和项目</tspan></text>
+<rect x="1538" y="450" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="a3"/>
+<rect x="1538" y="450" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="1562" y="490" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1562" dy="0">场景路由</tspan></text>
+<text x="1562" y="532" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1562" dy="0">根据意图选择能力</tspan></text>
+<rect x="96" y="610" width="2008" height="160" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-layer="layer-2" data-source-fact-ids="layer2"/>
+<text x="124" y="652" font-size="19" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="124" dy="0">02</tspan></text>
+<text x="124" y="692" font-size="24" fill="#111827" font-weight="800" text-anchor="start"><tspan x="124" dy="0">智能执行层</tspan></text>
+<rect x="370" y="632" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="b1"/>
+<rect x="370" y="632" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="394" y="672" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="394" dy="0">任务编排</tspan></text>
+<text x="394" y="714" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="394" dy="0">拆解步骤并调度工具</tspan></text>
+<rect x="954" y="632" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="b2"/>
+<rect x="954" y="632" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="978" y="672" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="978" dy="0">结果校验</tspan></text>
+<text x="978" y="714" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="978" dy="0">检查证据和交付质量</tspan></text>
+<rect x="1538" y="632" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="b3"/>
+<rect x="1538" y="632" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="1562" y="672" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1562" dy="0">工具执行</tspan></text>
+<text x="1562" y="714" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1562" dy="0">调用稳定业务接口</tspan></text>
+<rect x="96" y="792" width="2008" height="160" rx="14" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1.4" data-scene-layer="layer-3" data-source-fact-ids="layer3"/>
+<text x="124" y="834" font-size="19" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="124" dy="0">03</tspan></text>
+<text x="124" y="874" font-size="24" fill="#111827" font-weight="800" text-anchor="start"><tspan x="124" dy="0">治理保障层</tspan></text>
+<rect x="370" y="814" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="c1"/>
+<rect x="370" y="814" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="394" y="854" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="394" dy="0">权限治理</tspan></text>
+<text x="394" y="896" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="394" dy="0">按身份控制读写范围</tspan></text>
+<rect x="954" y="814" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="c2"/>
+<rect x="954" y="814" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="978" y="854" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="978" dy="0">审计追踪</tspan></text>
+<text x="978" y="896" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="978" dy="0">保留关键操作证据</tspan></text>
+<rect x="1538" y="814" width="566" height="116" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="c3"/>
+<rect x="1538" y="814" width="7" height="116" rx="3.5" fill="#5E6AD2"/>
+
+<text x="1562" y="854" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1562" dy="0">经验沉淀</tspan></text>
+<text x="1562" y="896" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1562" dy="0">将稳定流程封装复用</tspan></text>
+<polyline points="653,566 653,599 653,599 653,623" fill="none" stroke="#9AA5B4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="653,630 658.2268722893066,621.474754779405 647.7731277106934,621.474754779405" fill="#9AA5B4" stroke="#9AA5B4" stroke-width="1"/>
+<polyline points="1237,566 1237,599 1237,599 1237,623" fill="none" stroke="#9AA5B4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1237,630 1242.2268722893066,621.474754779405 1231.7731277106934,621.474754779405" fill="#9AA5B4" stroke="#9AA5B4" stroke-width="1"/>
+<polyline points="1821,748 1821,781 1237,781 1237,805" fill="none" stroke="#9AA5B4" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1237,812 1242.2268722893066,803.474754779405 1231.7731277106934,803.474754779405" fill="#9AA5B4" stroke="#9AA5B4" stroke-width="1"/>
+</svg>

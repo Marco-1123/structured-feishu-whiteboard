@@ -1,0 +1,253 @@
+{
+  "selected": {
+    "schemaVersion": "5.0-alpha.1",
+    "engine": "v5",
+    "scene": "layered-architecture",
+    "style": "linear-system",
+    "title": "智能协作能力分层架构",
+    "subtitle": "product-capability · layered-architecture",
+    "summary": "能力体系由入口层和执行层共同构成",
+    "summarySourceFactIds": [
+      "conclusion"
+    ],
+    "confidence": {
+      "level": "high",
+      "score": 100,
+      "margin": 100,
+      "reasons": [
+        "场景适合分层结构",
+        "9 条归属关系",
+        "3 个可见层级"
+      ]
+    },
+    "sourceFactIds": [
+      "conclusion",
+      "a1",
+      "a2",
+      "a3",
+      "b1",
+      "b2",
+      "b3",
+      "c1",
+      "c2",
+      "c3",
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "layers": [
+      {
+        "id": "layer-1",
+        "title": "业务入口层",
+        "nodeIds": [
+          "a1",
+          "a2",
+          "a3"
+        ],
+        "sourceFactIds": [
+          "layer1"
+        ]
+      },
+      {
+        "id": "layer-2",
+        "title": "智能执行层",
+        "nodeIds": [
+          "b1",
+          "b2",
+          "b3"
+        ],
+        "sourceFactIds": [
+          "layer2"
+        ]
+      },
+      {
+        "id": "layer-3",
+        "title": "治理保障层",
+        "nodeIds": [
+          "c1",
+          "c2",
+          "c3"
+        ],
+        "sourceFactIds": [
+          "layer3"
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "a1",
+        "title": "统一入口",
+        "note": "一句话发起任务",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "a1"
+        ],
+        "layerId": "layer-1"
+      },
+      {
+        "id": "a2",
+        "title": "身份上下文",
+        "note": "识别用户和项目",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "a2"
+        ],
+        "layerId": "layer-1"
+      },
+      {
+        "id": "a3",
+        "title": "场景路由",
+        "note": "根据意图选择能力",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "a3"
+        ],
+        "layerId": "layer-1"
+      },
+      {
+        "id": "b1",
+        "title": "任务编排",
+        "note": "拆解步骤并调度工具",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "b1"
+        ],
+        "layerId": "layer-2"
+      },
+      {
+        "id": "b2",
+        "title": "结果校验",
+        "note": "检查证据和交付质量",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "b2"
+        ],
+        "layerId": "layer-2"
+      },
+      {
+        "id": "b3",
+        "title": "工具执行",
+        "note": "调用稳定业务接口",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "b3"
+        ],
+        "layerId": "layer-2"
+      },
+      {
+        "id": "c1",
+        "title": "权限治理",
+        "note": "按身份控制读写范围",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "c1"
+        ],
+        "layerId": "layer-3"
+      },
+      {
+        "id": "c2",
+        "title": "审计追踪",
+        "note": "保留关键操作证据",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "c2"
+        ],
+        "layerId": "layer-3"
+      },
+      {
+        "id": "c3",
+        "title": "经验沉淀",
+        "note": "将稳定流程封装复用",
+        "kind": "entity",
+        "status": "neutral",
+        "sourceFactIds": [
+          "c3"
+        ],
+        "layerId": "layer-3"
+      }
+    ],
+    "edges": [
+      {
+        "id": "r10",
+        "type": "supports",
+        "from": "a1",
+        "to": "b1"
+      },
+      {
+        "id": "r11",
+        "type": "supports",
+        "from": "a2",
+        "to": "b2"
+      },
+      {
+        "id": "r12",
+        "type": "supports",
+        "from": "b3",
+        "to": "c2"
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "scene": "layered-architecture",
+      "score": 100,
+      "reasons": [
+        "场景适合分层结构",
+        "9 条归属关系",
+        "3 个可见层级"
+      ]
+    },
+    {
+      "scene": "swimlane-process",
+      "score": 0,
+      "reasons": [
+        "未满足泳道硬资格：单一连通流程、4-10 步、至少 2 个角色和 1 次交接"
+      ]
+    },
+    {
+      "scene": "flywheel-loop",
+      "score": 0,
+      "reasons": [
+        "未检测到显式闭环",
+        "未满足飞轮硬资格：4-6 阶段且闭环中同时存在顺序与产出关系"
+      ]
+    }
+  ],
+  "confidence": {
+    "level": "high",
+    "score": 100,
+    "margin": 100,
+    "reasons": [
+      "场景适合分层结构",
+      "9 条归属关系",
+      "3 个可见层级"
+    ]
+  },
+  "coverage": {
+    "visibleFactIds": [
+      "conclusion",
+      "a1",
+      "a2",
+      "a3",
+      "b1",
+      "b2",
+      "b3",
+      "c1",
+      "c2",
+      "c3",
+      "layer1",
+      "layer2",
+      "layer3"
+    ],
+    "missingImportantFactIds": [],
+    "passed": true
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "capability-system",
+  "inventoryId": "capability-system-inventory",
+  "scenario": {
+    "primary": "product-capability"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "conclusion",
+      "type": "conclusion",
+      "text": "能力体系由入口层和执行层共同构成",
+      "importance": "critical",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "layer1",
+      "type": "actor",
+      "text": "业务入口层",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "layer2",
+      "type": "actor",
+      "text": "智能执行层",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "layer3",
+      "type": "actor",
+      "text": "治理保障层",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "a1",
+      "type": "capability",
+      "text": "统一入口：一句话发起任务",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "a2",
+      "type": "capability",
+      "text": "身份上下文：识别用户和项目",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "a3",
+      "type": "capability",
+      "text": "场景路由：根据意图选择能力",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "b1",
+      "type": "capability",
+      "text": "任务编排：拆解步骤并调度工具",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "b2",
+      "type": "capability",
+      "text": "结果校验：检查证据和交付质量",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "b3",
+      "type": "capability",
+      "text": "工具执行：调用稳定业务接口",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "c1",
+      "type": "constraint",
+      "text": "权限治理：按身份控制读写范围",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "c2",
+      "type": "constraint",
+      "text": "审计追踪：保留关键操作证据",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "c3",
+      "type": "capability",
+      "text": "经验沉淀：将稳定流程封装复用",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "r1",
+      "type": "belongs-to",
+      "from": "a1",
+      "to": "layer1"
+    },
+    {
+      "id": "r2",
+      "type": "belongs-to",
+      "from": "a2",
+      "to": "layer1"
+    },
+    {
+      "id": "r3",
+      "type": "belongs-to",
+      "from": "a3",
+      "to": "layer1"
+    },
+    {
+      "id": "r4",
+      "type": "belongs-to",
+      "from": "b1",
+      "to": "layer2"
+    },
+    {
+      "id": "r5",
+      "type": "belongs-to",
+      "from": "b2",
+      "to": "layer2"
+    },
+    {
+      "id": "r6",
+      "type": "belongs-to",
+      "from": "b3",
+      "to": "layer2"
+    },
+    {
+      "id": "r7",
+      "type": "belongs-to",
+      "from": "c1",
+      "to": "layer3"
+    },
+    {
+      "id": "r8",
+      "type": "belongs-to",
+      "from": "c2",
+      "to": "layer3"
+    },
+    {
+      "id": "r9",
+      "type": "belongs-to",
+      "from": "c3",
+      "to": "layer3"
+    },
+    {
+      "id": "r10",
+      "type": "supports",
+      "from": "a1",
+      "to": "b1"
+    },
+    {
+      "id": "r11",
+      "type": "supports",
+      "from": "a2",
+      "to": "b2"
+    },
+    {
+      "id": "r12",
+      "type": "supports",
+      "from": "b3",
+      "to": "c2"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "conclusion"
+    ],
+    "second": [
+      "layer1",
+      "layer2",
+      "layer3",
+      "a1",
+      "a2",
+      "a3",
+      "b1",
+      "b2",
+      "b3",
+      "c1",
+      "c2",
+      "c3"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "conclusion",
+      "layer1",
+      "layer2",
+      "layer3",
+      "a1",
+      "a2",
+      "a3",
+      "b1",
+      "b2",
+      "b3",
+      "c1",
+      "c2",
+      "c3"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "growth-loop",
+  "inventoryId": "growth-loop-inventory",
+  "scenario": {
+    "primary": "strategy-proposal"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "conclusion",
+      "type": "objective",
+      "text": "以用户反馈驱动能力持续复用",
+      "importance": "critical",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "f1",
+      "type": "stage",
+      "text": "场景接入：收集高频需求",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "f2",
+      "type": "stage",
+      "text": "能力沉淀：封装稳定流程",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "f3",
+      "type": "stage",
+      "text": "试点验证：确认效果与边界",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "f4",
+      "type": "stage",
+      "text": "规模复用：覆盖更多团队",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "f5",
+      "type": "stage",
+      "text": "反馈评估：识别下一轮优化",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "c1",
+      "type": "precedes",
+      "from": "f1",
+      "to": "f2"
+    },
+    {
+      "id": "c2",
+      "type": "precedes",
+      "from": "f2",
+      "to": "f3"
+    },
+    {
+      "id": "c3",
+      "type": "precedes",
+      "from": "f3",
+      "to": "f4"
+    },
+    {
+      "id": "c4",
+      "type": "produces",
+      "from": "f4",
+      "to": "f5"
+    },
+    {
+      "id": "c5",
+      "type": "supports",
+      "from": "f5",
+      "to": "f1"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "conclusion"
+    ],
+    "second": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "conclusion",
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  }
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1160" viewBox="0 0 2200 1160" data-layout-engine="v5" data-pipeline-version="5.0-alpha.1" data-scene="swimlane-process" data-content-bottom="946">
+<rect x="0" y="0" width="2200" height="1160" fill="#F7F8FA"/>
+<text x="96" y="88" font-size="46" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">分析需求跨角色协作流程</tspan></text>
+<text x="96" y="146" font-size="20" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="96" dy="0">process-collaboration · swimlane-process</tspan></text>
+<rect x="96" y="190" width="2008" height="146" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v5-summary="true" data-source-fact-ids="conclusion"/>
+<rect x="96" y="190" width="12" height="146" rx="6" fill="#5E6AD2"/>
+<text x="138" y="238" font-size="17" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="288" font-size="29" fill="#111827" font-weight="750" text-anchor="start"><tspan x="138" dy="0">从需求提交到复盘形成跨角色闭环</tspan></text>
+<text x="96" y="390" font-size="25" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">责任流转</tspan></text>
+<rect x="96" y="428" width="2008" height="166" rx="10" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1.3" data-scene-lane="lane-1" data-source-fact-ids="owner1"/>
+<text x="122" y="482" font-size="22" fill="#111827" font-weight="750" text-anchor="start"><tspan x="122" dy="0">业务负责人</tspan></text>
+<rect x="96" y="604" width="2008" height="166" rx="10" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.3" data-scene-lane="lane-2" data-source-fact-ids="owner2"/>
+<text x="122" y="658" font-size="22" fill="#111827" font-weight="750" text-anchor="start"><tspan x="122" dy="0">数据团队</tspan></text>
+<rect x="96" y="780" width="2008" height="166" rx="10" fill="#ECEEFE" stroke="#D8DEE8" stroke-width="1.3" data-scene-lane="lane-3" data-source-fact-ids="owner3"/>
+<text x="122" y="834" font-size="22" fill="#111827" font-weight="750" text-anchor="start"><tspan x="122" dy="0">治理与平台团队</tspan></text>
+<rect x="410" y="452" width="250" height="118" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="s1"/>
+<rect x="410" y="452" width="7" height="118" rx="3.5" fill="#5E6AD2"/>
+<text x="436" y="483" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="436" dy="0">01</tspan></text>
+<text x="434" y="513" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="434" dy="0">提交分析需求</tspan></text>
+<text x="434" y="555" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="434" dy="0">明确目标和口径</tspan></text>
+<rect x="678" y="628" width="250" height="118" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="s2"/>
+<rect x="678" y="628" width="7" height="118" rx="3.5" fill="#5E6AD2"/>
+<text x="704" y="659" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="704" dy="0">02</tspan></text>
+<text x="702" y="689" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="702" dy="0">确认数据范围</tspan></text>
+<text x="702" y="731" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="702" dy="0">校验来源和权限</tspan></text>
+<rect x="946" y="804" width="250" height="118" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="s3"/>
+<rect x="946" y="804" width="7" height="118" rx="3.5" fill="#5E6AD2"/>
+<text x="972" y="835" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="972" dy="0">03</tspan></text>
+<text x="970" y="865" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="970" dy="0">权限核验</tspan></text>
+<text x="970" y="907" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="970" dy="0">确认数据使用边界</tspan></text>
+<rect x="1214" y="628" width="250" height="118" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="s4"/>
+<rect x="1214" y="628" width="7" height="118" rx="3.5" fill="#5E6AD2"/>
+<text x="1240" y="659" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1240" dy="0">04</tspan></text>
+<text x="1238" y="689" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1238" dy="0">执行分析</tspan></text>
+<text x="1238" y="731" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1238" dy="0">输出结论和证据</tspan></text>
+<rect x="1482" y="452" width="250" height="118" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="s5"/>
+<rect x="1482" y="452" width="7" height="118" rx="3.5" fill="#5E6AD2"/>
+<text x="1508" y="483" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1508" dy="0">05</tspan></text>
+<text x="1506" y="513" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1506" dy="0">业务验收</tspan></text>
+<text x="1506" y="555" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1506" dy="0">确认结论和行动</tspan></text>
+<rect x="1750" y="804" width="250" height="118" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="s6"/>
+<rect x="1750" y="804" width="7" height="118" rx="3.5" fill="#5E6AD2"/>
+<text x="1776" y="835" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1776" dy="0">06</tspan></text>
+<text x="1774" y="865" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1774" dy="0">沉淀复盘</tspan></text>
+<text x="1774" y="907" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1774" dy="0">将有效方法转成规范</tspan></text>
+<polyline points="664,511 669,511 669,687 668,687" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="676,687 666.6222302573454,681.2504404817628 666.6222302573454,692.7495595182372" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<polyline points="932,687 937,687 937,863 936,863" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="944,863 934.6222302573454,857.2504404817628 934.6222302573454,868.7495595182372" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<polyline points="1200,863 1205,863 1205,687 1204,687" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1212,687 1202.6222302573453,681.2504404817628 1202.6222302573453,692.7495595182372" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<polyline points="1468,687 1473,687 1473,511 1472,511" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1480,511 1470.6222302573453,505.2504404817628 1470.6222302573453,516.7495595182372" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<polyline points="1736,511 1741,511 1741,863 1740,863" fill="none" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="1748,863 1738.6222302573453,857.2504404817628 1738.6222302573453,868.7495595182372" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+</svg>

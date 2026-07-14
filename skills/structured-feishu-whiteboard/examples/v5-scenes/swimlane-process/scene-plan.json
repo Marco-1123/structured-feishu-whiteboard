@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "5.0-alpha.1",
+  "engine": "v5",
+  "scene": "swimlane-process",
+  "style": "linear-system",
+  "title": "分析需求跨角色协作流程",
+  "subtitle": "process-collaboration · swimlane-process",
+  "summary": "从需求提交到复盘形成跨角色闭环",
+  "summarySourceFactIds": [
+    "conclusion"
+  ],
+  "confidence": {
+    "level": "high",
+    "score": 95,
+    "margin": 95,
+    "reasons": [
+      "场景适合责任流转",
+      "5 条顺序关系",
+      "3 个责任角色、5 次交接"
+    ]
+  },
+  "sourceFactIds": [
+    "conclusion",
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "owner1",
+    "owner2",
+    "owner3"
+  ],
+  "lanes": [
+    {
+      "id": "lane-1",
+      "title": "业务负责人",
+      "sourceFactIds": [
+        "owner1"
+      ]
+    },
+    {
+      "id": "lane-2",
+      "title": "数据团队",
+      "sourceFactIds": [
+        "owner2"
+      ]
+    },
+    {
+      "id": "lane-3",
+      "title": "治理与平台团队",
+      "sourceFactIds": [
+        "owner3"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "s1",
+      "title": "提交分析需求",
+      "note": "明确目标和口径",
+      "status": "neutral",
+      "sourceFactIds": [
+        "s1"
+      ],
+      "laneId": "lane-1",
+      "order": 1
+    },
+    {
+      "id": "s2",
+      "title": "确认数据范围",
+      "note": "校验来源和权限",
+      "status": "neutral",
+      "sourceFactIds": [
+        "s2"
+      ],
+      "laneId": "lane-2",
+      "order": 2
+    },
+    {
+      "id": "s3",
+      "title": "权限核验",
+      "note": "确认数据使用边界",
+      "status": "neutral",
+      "sourceFactIds": [
+        "s3"
+      ],
+      "laneId": "lane-3",
+      "order": 3
+    },
+    {
+      "id": "s4",
+      "title": "执行分析",
+      "note": "输出结论和证据",
+      "status": "neutral",
+      "sourceFactIds": [
+        "s4"
+      ],
+      "laneId": "lane-2",
+      "order": 4
+    },
+    {
+      "id": "s5",
+      "title": "业务验收",
+      "note": "确认结论和行动",
+      "status": "neutral",
+      "sourceFactIds": [
+        "s5"
+      ],
+      "laneId": "lane-1",
+      "order": 5
+    },
+    {
+      "id": "s6",
+      "title": "沉淀复盘",
+      "note": "将有效方法转成规范",
+      "status": "neutral",
+      "sourceFactIds": [
+        "s6"
+      ],
+      "laneId": "lane-3",
+      "order": 6
+    }
+  ],
+  "edges": [
+    {
+      "id": "p1",
+      "type": "precedes",
+      "from": "s1",
+      "to": "s2"
+    },
+    {
+      "id": "p2",
+      "type": "precedes",
+      "from": "s2",
+      "to": "s3"
+    },
+    {
+      "id": "p3",
+      "type": "precedes",
+      "from": "s3",
+      "to": "s4"
+    },
+    {
+      "id": "p4",
+      "type": "precedes",
+      "from": "s4",
+      "to": "s5"
+    },
+    {
+      "id": "p5",
+      "type": "precedes",
+      "from": "s5",
+      "to": "s6"
+    }
+  ]
+}

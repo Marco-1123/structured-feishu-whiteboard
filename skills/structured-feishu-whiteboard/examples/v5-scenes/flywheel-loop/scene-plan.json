@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "5.0-alpha.1",
+  "engine": "v5",
+  "scene": "flywheel-loop",
+  "style": "linear-system",
+  "title": "能力沉淀与规模复用闭环",
+  "subtitle": "strategy-proposal · flywheel-loop",
+  "summary": "以用户反馈驱动能力持续复用",
+  "summarySourceFactIds": [
+    "conclusion"
+  ],
+  "confidence": {
+    "level": "high",
+    "score": 93,
+    "margin": 93,
+    "reasons": [
+      "检测到 5 阶段闭环",
+      "2 条产出或支撑关系"
+    ]
+  },
+  "sourceFactIds": [
+    "conclusion",
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5"
+  ],
+  "centerTitle": "持续改进闭环",
+  "nodes": [
+    {
+      "id": "f1",
+      "title": "场景接入",
+      "note": "收集高频需求",
+      "kind": "stage",
+      "status": "neutral",
+      "sourceFactIds": [
+        "f1"
+      ],
+      "order": 1
+    },
+    {
+      "id": "f2",
+      "title": "能力沉淀",
+      "note": "封装稳定流程",
+      "kind": "stage",
+      "status": "neutral",
+      "sourceFactIds": [
+        "f2"
+      ],
+      "order": 2
+    },
+    {
+      "id": "f3",
+      "title": "试点验证",
+      "note": "确认效果与边界",
+      "kind": "stage",
+      "status": "neutral",
+      "sourceFactIds": [
+        "f3"
+      ],
+      "order": 3
+    },
+    {
+      "id": "f4",
+      "title": "规模复用",
+      "note": "覆盖更多团队",
+      "kind": "stage",
+      "status": "neutral",
+      "sourceFactIds": [
+        "f4"
+      ],
+      "order": 4
+    },
+    {
+      "id": "f5",
+      "title": "反馈评估",
+      "note": "识别下一轮优化",
+      "kind": "stage",
+      "status": "neutral",
+      "sourceFactIds": [
+        "f5"
+      ],
+      "order": 5
+    }
+  ],
+  "edges": [
+    {
+      "id": "c1",
+      "type": "precedes",
+      "from": "f1",
+      "to": "f2"
+    },
+    {
+      "id": "c2",
+      "type": "precedes",
+      "from": "f2",
+      "to": "f3"
+    },
+    {
+      "id": "c3",
+      "type": "precedes",
+      "from": "f3",
+      "to": "f4"
+    },
+    {
+      "id": "c4",
+      "type": "produces",
+      "from": "f4",
+      "to": "f5"
+    },
+    {
+      "id": "c5",
+      "type": "supports",
+      "from": "f5",
+      "to": "f1"
+    }
+  ]
+}

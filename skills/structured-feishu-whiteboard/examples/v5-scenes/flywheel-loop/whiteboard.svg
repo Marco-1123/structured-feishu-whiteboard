@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1408" viewBox="0 0 2200 1408" data-layout-engine="v5" data-pipeline-version="5.0-alpha.1" data-scene="flywheel-loop" data-content-bottom="1316">
+<rect x="0" y="0" width="2200" height="1408" fill="#F7F8FA"/>
+<text x="96" y="88" font-size="46" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">能力沉淀与规模复用闭环</tspan></text>
+<text x="96" y="146" font-size="20" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="96" dy="0">strategy-proposal · flywheel-loop</tspan></text>
+<rect x="96" y="190" width="2008" height="146" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v5-summary="true" data-source-fact-ids="conclusion"/>
+<rect x="96" y="190" width="12" height="146" rx="6" fill="#5E6AD2"/>
+<text x="138" y="238" font-size="17" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="288" font-size="29" fill="#111827" font-weight="750" text-anchor="start"><tspan x="138" dy="0">以用户反馈驱动能力持续复用</tspan></text>
+<text x="96" y="390" font-size="25" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">闭环机制</tspan></text>
+<line x1="1352.7476584857634" y1="472.1226924187726" x2="1508.954302006916" y2="952.8773075812273" stroke="#9AA5B4" stroke-width="4" stroke-linecap="round"/>
+<polygon points="1458.968176080147,799.0358307292419 1462.2394234948408,785.4233753904039 1448.3204808331957,789.9459140119089" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="1508.954302006916" y1="952.8773075812273" x2="1100" y2="1250" stroke="#9AA5B4" stroke-width="4" stroke-linecap="round"/>
+<polygon points="1230.865376642213,1154.9207384259928 1244.8224620389371,1153.8253995612802 1236.2200823865794,1141.9852397347458" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="1100" y1="1250" x2="691.045697993084" y2="952.8773075812275" stroke="#9AA5B4" stroke-width="4" stroke-linecap="round"/>
+<polygon points="821.9110746352972,1047.9565691552348 827.2657803796636,1060.8920678464817 835.8681600320213,1049.0519080199474" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="691.045697993084" y1="952.8773075812275" x2="847.2523415142365" y2="472.12269241877266" stroke="#9AA5B4" stroke-width="4" stroke-linecap="round"/>
+<polygon points="797.2662155874677,625.9641692707582 786.6185203405164,635.0540859880912 800.5374630021616,639.5766246095963" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="847.2523415142365" y1="472.12269241877266" x2="1352.7476584857634" y2="472.1226924187726" stroke="#9AA5B4" stroke-width="4" stroke-linecap="round"/>
+<polygon points="1190.9891570548748,472.1226924187726 1179.0538137460417,464.80507121374336 1179.0538137460417,479.44031362380184" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<rect x="1202.7476584857634" y="406.1226924187726" width="300" height="132" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="f1"/>
+<rect x="1202.7476584857634" y="406.1226924187726" width="7" height="132" rx="3.5" fill="#5E6AD2"/>
+<text x="1228.7476584857634" y="437.1226924187726" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1228.7476584857634" dy="0">01</tspan></text>
+<text x="1226.7476584857634" y="467.1226924187726" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1226.7476584857634" dy="0">场景接入</tspan></text>
+<text x="1226.7476584857634" y="509.1226924187726" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1226.7476584857634" dy="0">收集高频需求</tspan></text>
+<rect x="1358.954302006916" y="886.8773075812273" width="300" height="132" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="f2"/>
+<rect x="1358.954302006916" y="886.8773075812273" width="7" height="132" rx="3.5" fill="#5E6AD2"/>
+<text x="1384.954302006916" y="917.8773075812273" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1384.954302006916" dy="0">02</tspan></text>
+<text x="1382.954302006916" y="947.8773075812273" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1382.954302006916" dy="0">能力沉淀</tspan></text>
+<text x="1382.954302006916" y="989.8773075812273" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="1382.954302006916" dy="0">封装稳定流程</tspan></text>
+<rect x="950" y="1184" width="300" height="132" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="f3"/>
+<rect x="950" y="1184" width="7" height="132" rx="3.5" fill="#5E6AD2"/>
+<text x="976" y="1215" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="976" dy="0">03</tspan></text>
+<text x="974" y="1245" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="974" dy="0">试点验证</tspan></text>
+<text x="974" y="1287" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="974" dy="0">确认效果与边界</tspan></text>
+<rect x="541.045697993084" y="886.8773075812275" width="300" height="132" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="f4"/>
+<rect x="541.045697993084" y="886.8773075812275" width="7" height="132" rx="3.5" fill="#5E6AD2"/>
+<text x="567.045697993084" y="917.8773075812275" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="567.045697993084" dy="0">04</tspan></text>
+<text x="565.045697993084" y="947.8773075812275" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="565.045697993084" dy="0">规模复用</tspan></text>
+<text x="565.045697993084" y="989.8773075812275" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="565.045697993084" dy="0">覆盖更多团队</tspan></text>
+<rect x="697.2523415142365" y="406.12269241877266" width="300" height="132" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="f5"/>
+<rect x="697.2523415142365" y="406.12269241877266" width="7" height="132" rx="3.5" fill="#5E6AD2"/>
+<text x="723.2523415142365" y="437.12269241877266" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="723.2523415142365" dy="0">05</tspan></text>
+<text x="721.2523415142365" y="467.12269241877266" font-size="20" fill="#111827" font-weight="750" text-anchor="start"><tspan x="721.2523415142365" dy="0">反馈评估</tspan></text>
+<text x="721.2523415142365" y="509.12269241877266" font-size="16" fill="#5F6B7A" font-weight="450" text-anchor="start"><tspan x="721.2523415142365" dy="0">识别下一轮优化</tspan></text>
+<rect x="935" y="737" width="330" height="166" rx="18" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-scene-center="true"/>
+<text x="963" y="771.5" font-size="22" fill="#111827" font-weight="800" text-anchor="start"><tspan x="963" dy="0">持续改进</tspan><tspan x="963" dy="31">闭环</tspan></text>
+<text x="963" y="865" font-size="13" fill="#5F6B7A" font-weight="600" text-anchor="start"><tspan x="963" dy="0">输入 · 反馈</tspan><tspan x="963" dy="20">复用</tspan></text>
+</svg>

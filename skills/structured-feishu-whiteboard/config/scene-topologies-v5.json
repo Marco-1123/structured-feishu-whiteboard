@@ -1,0 +1,31 @@
+{
+  "version": "5.0.0-alpha.1",
+  "confidence": {
+    "highScore": 80,
+    "mediumScore": 62,
+    "minimumMargin": 8
+  },
+  "scenes": {
+    "layered-architecture": {
+      "requiredSignals": ["belongs-to"],
+      "preferredScenarios": ["product-capability", "strategy-proposal"],
+      "minNodes": 4,
+      "maxNodes": 18,
+      "layoutAlgorithm": "layered-bands"
+    },
+    "swimlane-process": {
+      "requiredSignals": ["precedes", "owned-by"],
+      "preferredScenarios": ["process-collaboration", "project-plan"],
+      "minNodes": 4,
+      "maxNodes": 10,
+      "layoutAlgorithm": "lane-topology"
+    },
+    "flywheel-loop": {
+      "requiredSignals": ["precedes", "produces"],
+      "preferredScenarios": ["review-update", "strategy-proposal", "product-capability"],
+      "minNodes": 4,
+      "maxNodes": 6,
+      "layoutAlgorithm": "radial-loop"
+    }
+  }
+}

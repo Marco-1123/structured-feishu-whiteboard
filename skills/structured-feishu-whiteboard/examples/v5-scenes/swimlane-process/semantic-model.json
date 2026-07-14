@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "approval-flow",
+  "inventoryId": "approval-flow-inventory",
+  "scenario": {
+    "primary": "process-collaboration"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "conclusion",
+      "type": "conclusion",
+      "text": "从需求提交到复盘形成跨角色闭环",
+      "importance": "critical",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "owner1",
+      "type": "actor",
+      "text": "业务负责人",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "owner2",
+      "type": "actor",
+      "text": "数据团队",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "owner3",
+      "type": "actor",
+      "text": "治理与平台团队",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "s1",
+      "type": "input",
+      "text": "提交分析需求：明确目标和口径",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "s2",
+      "type": "action",
+      "text": "确认数据范围：校验来源和权限",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "s3",
+      "type": "action",
+      "text": "权限核验：确认数据使用边界",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "s4",
+      "type": "action",
+      "text": "执行分析：输出结论和证据",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "s5",
+      "type": "output",
+      "text": "业务验收：确认结论和行动",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "s6",
+      "type": "action",
+      "text": "沉淀复盘：将有效方法转成规范",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "o1",
+      "type": "owned-by",
+      "from": "s1",
+      "to": "owner1"
+    },
+    {
+      "id": "o2",
+      "type": "owned-by",
+      "from": "s2",
+      "to": "owner2"
+    },
+    {
+      "id": "o3",
+      "type": "owned-by",
+      "from": "s3",
+      "to": "owner3"
+    },
+    {
+      "id": "o4",
+      "type": "owned-by",
+      "from": "s4",
+      "to": "owner2"
+    },
+    {
+      "id": "o5",
+      "type": "owned-by",
+      "from": "s5",
+      "to": "owner1"
+    },
+    {
+      "id": "o6",
+      "type": "owned-by",
+      "from": "s6",
+      "to": "owner3"
+    },
+    {
+      "id": "p1",
+      "type": "precedes",
+      "from": "s1",
+      "to": "s2"
+    },
+    {
+      "id": "p2",
+      "type": "precedes",
+      "from": "s2",
+      "to": "s3"
+    },
+    {
+      "id": "p3",
+      "type": "precedes",
+      "from": "s3",
+      "to": "s4"
+    },
+    {
+      "id": "p4",
+      "type": "precedes",
+      "from": "s4",
+      "to": "s5"
+    },
+    {
+      "id": "p5",
+      "type": "precedes",
+      "from": "s5",
+      "to": "s6"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "conclusion"
+    ],
+    "second": [
+      "owner1",
+      "owner2",
+      "owner3",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "conclusion",
+      "owner1",
+      "owner2",
+      "owner3",
+      "s1",
+      "s2",
+      "s3",
+      "s4",
+      "s5",
+      "s6"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  }
+}
