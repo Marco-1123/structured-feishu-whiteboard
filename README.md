@@ -15,7 +15,7 @@
 ## 安装 V4.4 beta.6
 
 ```bash
-npx skills add Marco-1123/structured-feishu-whiteboard@v4.4.0-beta.6 --skill structured-feishu-whiteboard -g -y --copy
+npx skills add 'Marco-1123/structured-feishu-whiteboard#v4.4.0-beta.6@structured-feishu-whiteboard' --skill structured-feishu-whiteboard -g -y --copy
 ```
 
 ## 更新
