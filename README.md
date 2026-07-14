@@ -2,58 +2,66 @@
 
 把报告、方案、计划、研究材料和长文转成结构化、可编辑的飞书画板。
 
-当前版本统一使用 **V4.4 semantic compiler**：先生成事实清单，再由脚本完成场景判断、表达规划、页面构图、SVG 渲染和质量检查。外部 Agent 不再自行选择历史渲染链路，也不能自由手写 SVG。
+当前唯一生产版本是 **V4.4 semantic compiler beta.6**。Agent 只负责提取可追溯事实；脚本负责场景判断、表达规划、页面构图、SVG 渲染和质量检查。
 
-## 能力
+## 唯一安装方式
 
-- 识别阶段复盘、策略方案、项目计划、研究选型、产品能力、流程协作六类场景。
-- 根据材料选择指标、进度、趋势、状态、路线、证据、风险、行动、矩阵、差异桥和流程图等表达组件。
-- 保留关键事实并记录信息取舍。
-- 使用统一 12 列网格和 OnePage 空间预算，阻止无限纵向拉长。
-- 生成可编辑飞书画板、预览图和可回放运行记录。
-
-## 安装 V4.4 beta.6
+安装固定、不可变的完整包：
 
 ```bash
 npx skills add 'Marco-1123/structured-feishu-whiteboard#v4.4.0-beta.6@structured-feishu-whiteboard' --skill structured-feishu-whiteboard -g -y --copy
 ```
 
-## 更新
+- 唯一安装来源：[v4.4.0-beta.6 中的完整 Skill 目录](https://github.com/Marco-1123/structured-feishu-whiteboard/tree/v4.4.0-beta.6/skills/structured-feishu-whiteboard)。
+- 正常安装约复制 579 个文件；数量明显偏少通常表示只拿到了 `SKILL.md`，生产渲染器和校验器并未安装完整。
+- 不要安装默认分支、开发分支、仓库根目录或单独的 raw `SKILL.md`。
+- 不要使用无版本命令 `npx skills add Marco-1123/structured-feishu-whiteboard`；它会随默认分支变化，无法保证跨 Agent 一致。
 
-再次执行同一条安装命令即可覆盖为 beta.6。固定版本标签可以避免不同 Agent 在同一分支上安装到不同提交。
-
-beta.6 将完整 Skill 放在标准目录 `skills/structured-feishu-whiteboard/`。安装器会同时复制执行脚本、schema、配置和参考规则，不再只安装一份方法说明。
+重新执行同一条命令即可覆盖更新为 beta.6。不可变标签没有被移动或重写。
 
 ## 唯一生产入口
+
+进入已安装的 Skill 目录后执行：
 
 ```bash
 node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <output-dir>
 ```
 
-正式结果必须具有：
+正式结果必须满足：
 
-- `run-manifest.json` 中 `pipeline: "v4.4"`、`status: "passed"`。
-- `whiteboard.svg` 中 `data-layout-engine="v4"` 与 `data-pipeline-version="4.4"`。
-- 宽高比、主体层数、文本边界、底部平衡和颜色语义检查通过。
+- `run-manifest.json` 为 `pipeline: "v4.4"`、`status: "passed"`。
+- `whiteboard.svg` 含 `data-layout-engine="v4"`、`data-pipeline-version="4.4"` 和 `data-page-skeleton`。
+- 几何、视觉和 PNG 像素检查全部通过。
 - 飞书侧画板可打开、非空白、主要元素可编辑。
 
-详细使用规则见 [SKILL.md](skills/structured-feishu-whiteboard/SKILL.md)。
+完整调用规则见 [`SKILL.md`](skills/structured-feishu-whiteboard/SKILL.md)，beta.6 发布说明见 [`docs/releases/v4.4.0-beta.6.md`](docs/releases/v4.4.0-beta.6.md)。
 
-## 目录
+## 目录边界
 
 ```text
-skills/structured-feishu-whiteboard/
-  SKILL.md                       当前唯一执行说明
-  schemas/                       内容、语义和 brief schema
-  config/                        场景与表达策略配置
-  scripts/run-whiteboard-v44.mjs 唯一生产入口
-  scripts/lib/                   语义、规划、布局和质量检查
-  examples/evals/                回归样例与真实坏案例
-  references/                    当前设计与质量规则
-wiki/                            迭代决策与经验记录
+skills/structured-feishu-whiteboard/  可安装的生产 Skill
+  SKILL.md                            唯一 Agent 执行说明
+  scripts/run-whiteboard-v44.mjs      唯一生产入口
+  scripts/legacy/                     仅供旧版回归，不是备选入口
+  examples/                           仅供自动测试，不是使用教程
+docs/releases/                        当前发布说明
+docs/history/                         历史设计、规则、样例和验收证据
 ```
 
-历史代码保留用于回归和迁移，不构成并行生产入口。
+历史标签和 Git 历史保留全部旧资产。当前树只把它们从生产入口旁边移开，不把历史规则继续暴露为并行说明。
+
+## 开发验证
+
+运行依赖：Node.js 20+、Python 3 + Pillow、`lark-cli`，以及可联网获取的 `@larksuite/whiteboard-cli@0.2.12`。
+
+```bash
+cd skills/structured-feishu-whiteboard
+bash scripts/preflight.sh
+bash scripts/validate-layout-tests.sh
+node scripts/run-v44-internal-benchmark.mjs
+```
+
+回归脚本会重新生成未跟踪的 SVG、PNG、manifest 和 benchmark 输出。不要提交这些可再生产物。
 
 ## License
 

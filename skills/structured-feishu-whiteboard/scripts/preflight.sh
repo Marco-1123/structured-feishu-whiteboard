@@ -16,7 +16,17 @@ check_cmd() {
 check_cmd node
 check_cmd npm
 check_cmd npx
+check_cmd python3
 check_cmd lark-cli
+
+if command -v python3 >/dev/null 2>&1; then
+  if python3 -c 'from PIL import Image' >/dev/null 2>&1; then
+    echo "ok: Pillow"
+  else
+    echo "missing: Python Pillow (required by scripts/check-v44-preview.py)"
+    fail=1
+  fi
+fi
 
 if command -v node >/dev/null 2>&1; then
   node_major="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0)"

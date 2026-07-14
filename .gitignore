@@ -6,3 +6,18 @@ dist/
 diagram.svg
 diagram.png
 test-output/
+
+# Reproducible regression and benchmark output
+skills/structured-feishu-whiteboard/examples/layout-tests/generated-*
+skills/structured-feishu-whiteboard/examples/evals/**/brief.json
+skills/structured-feishu-whiteboard/examples/evals/**/decision.json
+skills/structured-feishu-whiteboard/examples/evals/**/expression-plans.json
+skills/structured-feishu-whiteboard/examples/evals/**/semantic-model.json
+skills/structured-feishu-whiteboard/examples/evals/**/run-manifest.json
+skills/structured-feishu-whiteboard/examples/evals/**/whiteboard.svg
+skills/structured-feishu-whiteboard/examples/evals/**/whiteboard.png
+skills/structured-feishu-whiteboard/examples/evals/v44-internal/cases/
+skills/structured-feishu-whiteboard/examples/evals/v44-internal/cross-agent-pack.json
+skills/structured-feishu-whiteboard/examples/evals/v44-internal/report.json
+skills/structured-feishu-whiteboard/examples/evals/v44-internal/run-summary.json
+skills/structured-feishu-whiteboard/examples/evals/v44/report.json

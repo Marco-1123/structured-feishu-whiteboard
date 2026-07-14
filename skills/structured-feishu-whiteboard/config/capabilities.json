@@ -2,17 +2,16 @@
   "version": "4.4.0-beta.6",
   "channels": {
     "production": {
-      "branch": "codex/v4.4-semantic-compiler",
       "tag": "v4.4.0-beta.6",
       "version": "4.4.0-beta.6",
       "entrypoint": "scripts/run-whiteboard-v44.mjs",
       "engine": "v4",
       "renderTarget": "svg"
     },
-    "legacy": {
-      "branch": "main",
-      "version": "3.2.0",
-      "production": false
+    "regression": {
+      "production": false,
+      "location": "scripts/legacy",
+      "note": "Historical V3/V4.3 capabilities are retained only for repository regression tests."
     }
   },
   "styles": [
@@ -53,7 +52,7 @@
       "id": "v3-svg",
       "engine": "v3",
       "renderTarget": "svg",
-      "renderer": "scripts/render-whiteboard.mjs",
+      "renderer": "scripts/legacy/render-whiteboard.mjs",
       "experimental": true,
       "legacy": true,
       "layouts": [
@@ -86,7 +85,7 @@
       "id": "v3-dsl",
       "engine": "v3",
       "renderTarget": "dsl",
-      "renderer": "scripts/render-whiteboard-dsl.mjs",
+      "renderer": "scripts/legacy/render-whiteboard-dsl.mjs",
       "experimental": true,
       "legacy": true,
       "layouts": [

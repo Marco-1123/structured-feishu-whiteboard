@@ -26,7 +26,7 @@ for brief in examples/briefs/*.json; do
   elif [ "$target" = "dsl" ]; then
     dsl="examples/layout-tests/generated-$(basename "${brief%.json}").json"
     png="${dsl%.json}.png"
-    node scripts/render-whiteboard-dsl.mjs --input "$brief" --output "$dsl" >/dev/null
+    node scripts/legacy/render-whiteboard-dsl.mjs --input "$brief" --output "$dsl" >/dev/null
     if [ "$(basename "$brief")" = "v32-variance-bridge.json" ]; then
       node -e 'const fs=require("fs"); const p=process.argv[1]; const j=JSON.parse(fs.readFileSync(p,"utf8")); const bars=j.nodes.filter(n=>n.type==="rect" && ["#F59E0B","#16A085","#5E6AD2","#2563EB","#3370FF","#007AFF"].includes(n.fillColor) && n.height>=24 && n.height<=160); if (bars.length < 3 || new Set(bars.map(b=>Math.round(b.height))).size < 2) { console.error("variance bridge must encode relative magnitude with proportional bars"); process.exit(1); }' "$dsl"
     fi
@@ -35,7 +35,7 @@ for brief in examples/briefs/*.json; do
   else
     svg="examples/layout-tests/generated-$(basename "${brief%.json}").svg"
     png="${svg%.svg}.png"
-    node scripts/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
+    node scripts/legacy/render-whiteboard.mjs --input "$brief" --output "$svg" >/dev/null
     node -e 'const fs=require("fs"); const brief=JSON.parse(fs.readFileSync(process.argv[1],"utf8")); const svg=fs.readFileSync(process.argv[2],"utf8"); const expected={ "neo-grid-bold": "data-creative-renderer=\"neo-grid\"", "riptide-cobalt": "data-creative-renderer=\"riptide-cobalt\"" }[brief.style]; if (expected && !svg.includes(expected)) { console.error(`${brief.style} must use its dedicated creative renderer, not the generic expression renderer`); process.exit(1); }' "$brief" "$svg"
     node scripts/check-svg-layout.mjs "$svg" >/dev/null
     npx -y @larksuite/whiteboard-cli@^0.2.12 -i "$svg" -o "$png" -f svg >/dev/null
@@ -104,7 +104,7 @@ cat > "$tmp_summary_width_brief" <<'JSON'
   ]
 }
 JSON
-node scripts/render-whiteboard.mjs --input "$tmp_summary_width_brief" --output "$tmp_summary_width_svg" >/dev/null
+node scripts/legacy/render-whiteboard.mjs --input "$tmp_summary_width_brief" --output "$tmp_summary_width_svg" >/dev/null
 node -e 'const fs=require("fs"); const svg=fs.readFileSync(process.argv[1],"utf8"); const expected="李想讨论的重点不是简单说“会用AI的人更值钱”，而是人才标准正在从执行经验转向专业底座、AI使用深度、工作流重构和自我迭代能力。"; if (!svg.includes(`>${expected}</tspan>`)) { console.error("summary width regression: large-canvas summary was split despite available width"); process.exit(1); }' "$tmp_summary_width_svg"
 rm -f "$tmp_summary_width_brief" "$tmp_summary_width_svg"
 
