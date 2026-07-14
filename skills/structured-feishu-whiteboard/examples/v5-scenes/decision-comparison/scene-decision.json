@@ -1,0 +1,191 @@
+{
+  "selected": {
+    "schemaVersion": "5.0-alpha.2",
+    "engine": "v5",
+    "scene": "decision-comparison",
+    "style": "linear-system",
+    "title": "团队知识承载方案决策",
+    "subtitle": "research-decision · decision-comparison",
+    "summary": "方案 A 更适合作为长期知识底座",
+    "summarySourceFactIds": [
+      "conclusion"
+    ],
+    "confidence": {
+      "level": "high",
+      "score": 99,
+      "margin": 99,
+      "reasons": [
+        "2 个候选方案",
+        "3 项评价依据",
+        "3 条方案关系"
+      ]
+    },
+    "sourceFactIds": [
+      "conclusion",
+      "optionA",
+      "optionB",
+      "criterion1",
+      "criterion2",
+      "criterion3"
+    ],
+    "recommendation": "方案 A 更适合作为长期知识底座",
+    "recommendationSourceFactIds": [
+      "conclusion"
+    ],
+    "optionNodeIds": [
+      "optionA",
+      "optionB"
+    ],
+    "criterionNodeIds": [
+      "criterion1",
+      "criterion2",
+      "criterion3"
+    ],
+    "nodes": [
+      {
+        "id": "optionA",
+        "title": "方案 A",
+        "note": "结构化知识平台",
+        "kind": "option",
+        "status": "neutral",
+        "sourceFactIds": [
+          "optionA"
+        ],
+        "order": 1
+      },
+      {
+        "id": "optionB",
+        "title": "方案 B",
+        "note": "通用文档空间",
+        "kind": "option",
+        "status": "neutral",
+        "sourceFactIds": [
+          "optionB"
+        ],
+        "order": 2
+      },
+      {
+        "id": "criterion1",
+        "title": "长期可读",
+        "note": "Agent 可以稳定检索与引用",
+        "kind": "criterion",
+        "status": "neutral",
+        "sourceFactIds": [
+          "criterion1"
+        ],
+        "order": 1
+      },
+      {
+        "id": "criterion2",
+        "title": "维护成本",
+        "note": "需要控制多人协作复杂度",
+        "kind": "criterion",
+        "status": "neutral",
+        "sourceFactIds": [
+          "criterion2"
+        ],
+        "order": 2
+      },
+      {
+        "id": "criterion3",
+        "title": "执行衔接",
+        "note": "规则可以直接进入 Skill",
+        "kind": "criterion",
+        "status": "neutral",
+        "sourceFactIds": [
+          "criterion3"
+        ],
+        "order": 3
+      }
+    ],
+    "edges": [
+      {
+        "id": "d1",
+        "type": "supports",
+        "from": "criterion1",
+        "to": "optionA"
+      },
+      {
+        "id": "d2",
+        "type": "supports",
+        "from": "criterion3",
+        "to": "optionA"
+      },
+      {
+        "id": "d3",
+        "type": "conflicts-with",
+        "from": "criterion2",
+        "to": "optionB"
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "scene": "decision-comparison",
+      "score": 99,
+      "reasons": [
+        "2 个候选方案",
+        "3 项评价依据",
+        "3 条方案关系"
+      ]
+    },
+    {
+      "scene": "operating-dashboard",
+      "score": 0,
+      "reasons": [
+        "未满足经营仪表盘硬资格：至少 3 项结果、其中 2 项可量化，并控制在单页容量内"
+      ]
+    },
+    {
+      "scene": "evidence-argument",
+      "score": 0,
+      "reasons": [
+        "未满足证据论证硬资格：明确中心论点，以及至少 3 条与其直接关联的证据或归因"
+      ]
+    },
+    {
+      "scene": "layered-architecture",
+      "score": 0,
+      "reasons": [
+        "未满足分层架构硬资格：至少 2 个层级、4 个能力节点和显式归属关系"
+      ]
+    },
+    {
+      "scene": "swimlane-process",
+      "score": 0,
+      "reasons": [
+        "未满足泳道硬资格：单一连通流程、4-10 步、至少 2 个角色和 1 次交接"
+      ]
+    },
+    {
+      "scene": "flywheel-loop",
+      "score": 0,
+      "reasons": [
+        "未检测到显式闭环",
+        "未满足飞轮硬资格：4-6 阶段且闭环中同时存在顺序与产出关系"
+      ]
+    }
+  ],
+  "confidence": {
+    "level": "high",
+    "score": 99,
+    "margin": 99,
+    "reasons": [
+      "2 个候选方案",
+      "3 项评价依据",
+      "3 条方案关系"
+    ]
+  },
+  "coverage": {
+    "visibleFactIds": [
+      "conclusion",
+      "optionA",
+      "optionB",
+      "criterion1",
+      "criterion2",
+      "criterion3"
+    ],
+    "missingImportantFactIds": [],
+    "passed": true
+  }
+}

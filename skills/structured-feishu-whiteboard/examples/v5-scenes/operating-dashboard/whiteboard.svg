@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1160" viewBox="0 0 2200 1160" data-layout-engine="v5" data-pipeline-version="5.0-alpha.2" data-scene="operating-dashboard" data-content-bottom="934">
+<rect x="0" y="0" width="2200" height="1160" fill="#F7F8FA"/>
+<text x="96" y="88" font-size="46" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">季度经营复盘仪表盘</tspan></text>
+<text x="96" y="146" font-size="20" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="96" dy="0">review-update · operating-dashboard</tspan></text>
+<rect x="96" y="190" width="2008" height="146" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v5-summary="true" data-source-fact-ids="conclusion"/>
+<rect x="96" y="190" width="12" height="146" rx="6" fill="#5E6AD2"/>
+<text x="138" y="238" font-size="17" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="288" font-size="29" fill="#111827" font-weight="750" text-anchor="start"><tspan x="138" dy="0">季度主线整体达成，但转化和风险闭环仍需加强</tspan></text>
+<text x="96" y="390" font-size="25" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">经营概览</tspan></text>
+<rect x="96" y="434" width="654.6666666666666" height="172" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="m1"/>
+<text x="124" y="472" font-size="15" fill="#5F6B7A" font-weight="650" text-anchor="start"><tspan x="124" dy="0">目标完成率</tspan></text>
+<text x="124" y="530" font-size="36" fill="#168570" font-weight="800" text-anchor="start"><tspan x="124" dy="0">78%</tspan></text>
+<rect x="772.6666666666666" y="434" width="654.6666666666666" height="172" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="m2"/>
+<text x="800.6666666666666" y="472" font-size="15" fill="#5F6B7A" font-weight="650" text-anchor="start"><tspan x="800.6666666666666" dy="0">新增客户</tspan></text>
+<text x="800.6666666666666" y="530" font-size="36" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="800.6666666666666" dy="0">126个</tspan></text>
+<rect x="1449.3333333333333" y="434" width="654.6666666666666" height="172" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="m3"/>
+<text x="1477.3333333333333" y="472" font-size="15" fill="#5F6B7A" font-weight="650" text-anchor="start"><tspan x="1477.3333333333333" dy="0">成本变化</tspan></text>
+<text x="1477.3333333333333" y="530" font-size="36" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1477.3333333333333" dy="0">-12%</tspan></text>
+<rect x="96" y="634" width="1091.2" height="300" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="124" y="676" font-size="21" fill="#111827" font-weight="800" text-anchor="start"><tspan x="124" dy="0">指标进展</tspan></text>
+<text x="124" y="726" font-size="16" fill="#111827" font-weight="650" text-anchor="start"><tspan x="124" dy="0">重点项目覆盖率</tspan></text>
+<rect x="346" y="709" width="761.2" height="16" rx="8" fill="#F1F3F6" stroke="none" stroke-width="0" data-scene-node="m4"/>
+<rect x="346" y="709" width="487.168" height="16" rx="8" fill="#5E6AD2" stroke="none" stroke-width="0"/>
+<text x="1125.2" y="726" font-size="15" fill="#5F6B7A" font-weight="700" text-anchor="start"><tspan x="1125.2" dy="0">64%</tspan></text>
+<rect x="1211.2" y="634" width="892.8" height="300" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4"/>
+<text x="1239.2" y="676" font-size="21" fill="#111827" font-weight="800" text-anchor="start"><tspan x="1239.2" dy="0">风险与行动</tspan></text>
+<rect x="1239.2" y="702" width="836.8" height="48" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-scene-node="risk1"/>
+<circle cx="1259.2" cy="720" r="6" fill="#8A5A44"/>
+<text x="1277.2" y="725" font-size="15" fill="#111827" font-weight="650" text-anchor="start"><tspan x="1277.2" dy="0">数据口径</tspan></text>
+<text x="1277.2" y="743" font-size="12" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="1277.2" dy="0">跨团队指标定义仍不一致</tspan></text>
+<rect x="1239.2" y="758" width="836.8" height="48" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-scene-node="action1"/>
+<circle cx="1259.2" cy="776" r="6" fill="#168570"/>
+<text x="1277.2" y="781" font-size="15" fill="#111827" font-weight="650" text-anchor="start"><tspan x="1277.2" dy="0">下阶段行动</tspan></text>
+<text x="1277.2" y="799" font-size="12" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="1277.2" dy="0">建立统一指标字典</tspan></text>
+<rect x="1239.2" y="814" width="836.8" height="48" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1" data-scene-node="cause1"/>
+<circle cx="1259.2" cy="832" r="6" fill="#5E6AD2"/>
+<text x="1277.2" y="837" font-size="15" fill="#111827" font-weight="650" text-anchor="start"><tspan x="1277.2" dy="0">转化瓶颈</tspan></text>
+<text x="1277.2" y="855" font-size="12" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="1277.2" dy="0">试点到规模化缺少标准路径</tspan></text>
+</svg>

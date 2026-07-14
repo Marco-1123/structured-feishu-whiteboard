@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "platform-selection",
+  "inventoryId": "platform-selection-inventory",
+  "scenario": {
+    "primary": "research-decision"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "conclusion",
+      "type": "conclusion",
+      "text": "方案 A 更适合作为长期知识底座",
+      "importance": "critical",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "optionA",
+      "type": "option",
+      "text": "方案 A：结构化知识平台",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "optionB",
+      "type": "option",
+      "text": "方案 B：通用文档空间",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "criterion1",
+      "type": "evidence",
+      "text": "长期可读：Agent 可以稳定检索与引用",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "criterion2",
+      "type": "constraint",
+      "text": "维护成本：需要控制多人协作复杂度",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "criterion3",
+      "type": "evidence",
+      "text": "执行衔接：规则可以直接进入 Skill",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "d1",
+      "type": "supports",
+      "from": "criterion1",
+      "to": "optionA"
+    },
+    {
+      "id": "d2",
+      "type": "supports",
+      "from": "criterion3",
+      "to": "optionA"
+    },
+    {
+      "id": "d3",
+      "type": "conflicts-with",
+      "from": "criterion2",
+      "to": "optionB"
+    },
+    {
+      "id": "d4",
+      "type": "contrasts",
+      "from": "optionA",
+      "to": "optionB"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "conclusion"
+    ],
+    "second": [
+      "optionA",
+      "optionB",
+      "criterion1",
+      "criterion2",
+      "criterion3"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "conclusion",
+      "optionA",
+      "optionB",
+      "criterion1",
+      "criterion2",
+      "criterion3"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  }
+}

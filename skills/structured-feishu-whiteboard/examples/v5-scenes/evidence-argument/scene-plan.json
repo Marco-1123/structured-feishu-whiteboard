@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "5.0-alpha.2",
+  "engine": "v5",
+  "scene": "evidence-argument",
+  "style": "linear-system",
+  "title": "增长放缓原因论证地图",
+  "subtitle": "strategy-proposal · evidence-argument",
+  "summary": "增长放缓的核心原因是转化链路断点，而不是流量不足",
+  "summarySourceFactIds": [
+    "thesis"
+  ],
+  "confidence": {
+    "level": "high",
+    "score": 86,
+    "margin": 86,
+    "reasons": [
+      "1 个中心论点",
+      "4 条直接证据或归因",
+      "4 条论证关系"
+    ]
+  },
+  "sourceFactIds": [
+    "thesis",
+    "e1",
+    "e2",
+    "e3",
+    "e4"
+  ],
+  "thesisNodeId": "thesis",
+  "evidenceNodeIds": [
+    "e1",
+    "e2",
+    "e3",
+    "e4"
+  ],
+  "nodes": [
+    {
+      "id": "thesis",
+      "title": "增长放缓的核心原因是转化链路断点",
+      "note": "而不是流量不足",
+      "kind": "thesis",
+      "status": "neutral",
+      "sourceFactIds": [
+        "thesis"
+      ]
+    },
+    {
+      "id": "e1",
+      "title": "流量供给",
+      "note": "近三个月访问量保持稳定",
+      "kind": "evidence",
+      "status": "neutral",
+      "sourceFactIds": [
+        "e1"
+      ],
+      "order": 1
+    },
+    {
+      "id": "e2",
+      "title": "首轮激活",
+      "note": "新用户在配置环节流失",
+      "kind": "evidence",
+      "status": "neutral",
+      "sourceFactIds": [
+        "e2"
+      ],
+      "order": 2
+    },
+    {
+      "id": "e3",
+      "title": "用户访谈",
+      "note": "关键价值出现时间晚于预期",
+      "kind": "evidence",
+      "status": "neutral",
+      "sourceFactIds": [
+        "e3"
+      ],
+      "order": 3
+    },
+    {
+      "id": "e4",
+      "title": "试点结果",
+      "note": "缩短配置后转化率提升 18%",
+      "kind": "evidence",
+      "status": "neutral",
+      "sourceFactIds": [
+        "e4"
+      ],
+      "order": 4
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-r1",
+      "type": "supports",
+      "from": "e1",
+      "to": "thesis"
+    },
+    {
+      "id": "e-r2",
+      "type": "causes",
+      "from": "e2",
+      "to": "thesis"
+    },
+    {
+      "id": "e-r3",
+      "type": "supports",
+      "from": "e3",
+      "to": "thesis"
+    },
+    {
+      "id": "e-r4",
+      "type": "supports",
+      "from": "e4",
+      "to": "thesis"
+    }
+  ]
+}

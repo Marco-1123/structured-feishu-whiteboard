@@ -1,6 +1,6 @@
 {
   "selected": {
-    "schemaVersion": "5.0-alpha.1",
+    "schemaVersion": "5.0-alpha.2",
     "engine": "v5",
     "scene": "flywheel-loop",
     "style": "linear-system",
@@ -125,6 +125,27 @@
       "reasons": [
         "检测到 5 阶段闭环",
         "2 条产出或支撑关系"
+      ]
+    },
+    {
+      "scene": "operating-dashboard",
+      "score": 0,
+      "reasons": [
+        "未满足经营仪表盘硬资格：至少 3 项结果、其中 2 项可量化，并控制在单页容量内"
+      ]
+    },
+    {
+      "scene": "decision-comparison",
+      "score": 0,
+      "reasons": [
+        "未满足决策对比硬资格：2-4 个选项、至少 2 项依据和 2 条显式方案关系"
+      ]
+    },
+    {
+      "scene": "evidence-argument",
+      "score": 0,
+      "reasons": [
+        "未满足证据论证硬资格：明确中心论点，以及至少 3 条与其直接关联的证据或归因"
       ]
     },
     {

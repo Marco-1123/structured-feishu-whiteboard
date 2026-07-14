@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1160" viewBox="0 0 2200 1160" data-layout-engine="v5" data-pipeline-version="5.0-alpha.1" data-scene="swimlane-process" data-content-bottom="946">
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1160" viewBox="0 0 2200 1160" data-layout-engine="v5" data-pipeline-version="5.0-alpha.2" data-scene="swimlane-process" data-content-bottom="946">
 <rect x="0" y="0" width="2200" height="1160" fill="#F7F8FA"/>
 <text x="96" y="88" font-size="46" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">分析需求跨角色协作流程</tspan></text>
 <text x="96" y="146" font-size="20" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="96" dy="0">process-collaboration · swimlane-process</tspan></text>

@@ -236,11 +236,172 @@ function renderFlywheel(startY) {
   return { svg: parts.join("\n"), bottom: cy + cardR + cardH / 2 };
 }
 
+function renderDecisionComparison(startY) {
+  const nodeMap = new Map(plan.nodes.map((node) => [node.id, node]));
+  const options = (plan.optionNodeIds || []).map((id) => nodeMap.get(id)).filter(Boolean);
+  const criteria = (plan.criterionNodeIds || []).map((id) => nodeMap.get(id)).filter(Boolean);
+  const parts = [text(M, startY, 25, c.ink, ["方案评估"], 800)];
+  const top = startY + 42;
+  const labelW = 300;
+  const gridX = M + labelW;
+  const optionW = (CONTENT - labelW) / options.length;
+  const headerH = 126;
+  parts.push(rect(M, top, CONTENT, headerH, c.surface, c.border, 1.4, 12));
+  parts.push(text(M + 28, top + 52, 18, c.secondary, ["评价标准"], 750));
+  options.forEach((option, index) => {
+    const x = gridX + index * optionW;
+    if (index) parts.push(line(x, top + 18, x, top + headerH - 18, c.border, 1.2));
+    parts.push(text(x + 26, top + 42, 14, c.accent, [`方案 ${String.fromCharCode(65 + index)}`], 800));
+    parts.push(text(x + 26, top + 78, 21, c.ink, wrap(option.title, optionW - 52, 21, 2), 750, "start", 28, ` data-scene-node="${esc(option.id)}"`));
+  });
+  const edgeMap = new Map();
+  for (const edge of plan.edges || []) edgeMap.set(`${edge.from}->${edge.to}`, edge.type);
+  const rowH = 88;
+  criteria.forEach((criterion, row) => {
+    const y = top + headerH + row * rowH;
+    parts.push(rect(M, y, CONTENT, rowH, row % 2 ? c.surface : c.soft, c.border, 1, 0));
+    parts.push(text(M + 28, y + 36, 18, c.ink, wrap(criterion.title, labelW - 56, 18, 2), 700, "start", 24, ` data-scene-node="${esc(criterion.id)}"`));
+    options.forEach((option, col) => {
+      const x = gridX + col * optionW;
+      if (col) parts.push(line(x, y + 12, x, y + rowH - 12, c.border, 1));
+      const type = edgeMap.get(`${criterion.id}->${option.id}`) || edgeMap.get(`${option.id}->${criterion.id}`);
+      const symbol = type === "supports" ? "匹配" : type === "conflicts-with" ? "冲突" : type === "depends-on" ? "依赖" : type === "contrasts" ? "差异" : "待验证";
+      const color = type === "supports" ? c.success : type === "conflicts-with" ? c.risk : c.accent;
+      parts.push(`<circle cx="${x + 32}" cy="${y + 43}" r="7" fill="${color}"/>`);
+      parts.push(text(x + 52, y + 49, 16, color, [symbol], 700));
+    });
+  });
+  const matrixBottom = top + headerH + criteria.length * rowH;
+  const recY = matrixBottom + 28;
+  const recLines = wrap(plan.recommendation || plan.summary, CONTENT - 90, 23, 2);
+  parts.push(rect(M, recY, CONTENT, 118, c.soft, c.accent, 1.5, 12, ` data-v5-recommendation="true"`));
+  parts.push(text(M + 30, recY + 38, 15, c.accent, ["推荐结论"], 800));
+  parts.push(text(M + 30, recY + 76, 23, c.ink, recLines, 750, "start", 31));
+  return { svg: parts.join("\n"), bottom: recY + 118 };
+}
+
+function renderEvidenceArgument(startY) {
+  const nodeMap = new Map(plan.nodes.map((node) => [node.id, node]));
+  const thesis = nodeMap.get(plan.thesisNodeId);
+  const evidence = (plan.evidenceNodeIds || []).map((id) => nodeMap.get(id)).filter(Boolean);
+  const parts = [text(M, startY, 25, c.ink, ["论证结构"], 800)];
+  const thesisW = 600;
+  const thesisH = 180;
+  const thesisX = (WIDTH - thesisW) / 2;
+  const cardW = 460;
+  const cardH = 174;
+  const rowGap = 32;
+  const leftEvidence = evidence.filter((_, index) => index % 2 === 0);
+  const rightEvidence = evidence.filter((_, index) => index % 2 === 1);
+  const maxRows = Math.max(leftEvidence.length, rightEvidence.length);
+  const fieldY = startY + 54;
+  const fieldH = maxRows * cardH + Math.max(0, maxRows - 1) * rowGap;
+  const thesisY = fieldY + Math.max(0, (fieldH - thesisH) / 2);
+  parts.push(rect(thesisX, thesisY, thesisW, thesisH, c.soft, c.accent, 2, 16, ` data-scene-node="${esc(thesis.id)}"`));
+  parts.push(text(thesisX + 34, thesisY + 42, 15, c.accent, ["中心论点"], 800));
+  parts.push(text(thesisX + 34, thesisY + 88, 25, c.ink, wrap(thesis.title, thesisW - 68, 25, 2), 800, "start", 34));
+  const positions = [];
+  const placeSide = (nodes, side) => nodes.forEach((node, row) => {
+    const x = side === "left" ? M : WIDTH - M - cardW;
+    const y = fieldY + row * (cardH + rowGap);
+    const index = evidence.indexOf(node);
+    positions.push({ x, y, node, side, row, sideCount: nodes.length });
+    const color = node.status === "risk" ? c.risk : c.accent;
+    parts.push(rect(x, y, cardW, cardH, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"`));
+    parts.push(text(x + 24, y + 34, 14, color, [`证据 ${String(index + 1).padStart(2, "0")}`], 800));
+    parts.push(text(x + 24, y + 76, 19, c.ink, wrap(node.title, cardW - 48, 19, 2), 750, "start", 27));
+    if (node.note) parts.push(text(x + 24, y + 140, 13, c.secondary, wrap(node.note, cardW - 48, 13, 2), 500, "start", 19));
+  });
+  placeSide(leftEvidence, "left");
+  placeSide(rightEvidence, "right");
+  positions.forEach(({ x, y, side, row, sideCount }) => {
+    const fromX = side === "left" ? x + cardW : x;
+    const fromY = y + cardH / 2;
+    const targetX = side === "left" ? thesisX : thesisX + thesisW;
+    const anchorStep = thesisH / (sideCount + 1);
+    const targetY = thesisY + anchorStep * (row + 1);
+    const elbowX = side === "left" ? targetX - 34 : targetX + 34;
+    parts.unshift(line(fromX, fromY, elbowX, fromY, c.line, 2.2));
+    parts.unshift(line(elbowX, fromY, elbowX, targetY, c.line, 2.2));
+    parts.unshift(line(elbowX, targetY, targetX, targetY, c.line, 2.2));
+    parts.unshift(arrowHead(targetX, targetY, side === "left" ? 0 : Math.PI, c.accent, 10));
+  });
+  return { svg: parts.join("\n"), bottom: fieldY + fieldH };
+}
+
+function renderOperatingDashboard(startY) {
+  const nodeMap = new Map(plan.nodes.map((node) => [node.id, node]));
+  const metrics = (plan.metricNodeIds || []).map((id) => nodeMap.get(id)).filter(Boolean);
+  const support = (plan.supportNodeIds || []).map((id) => nodeMap.get(id)).filter(Boolean);
+  const parts = [text(M, startY, 25, c.ink, ["经营概览"], 800)];
+  const top = startY + 44;
+  const heroMetrics = metrics.slice(0, 3);
+  const cardGap = 22;
+  const cardW = (CONTENT - cardGap * 2) / 3;
+  const cardH = 172;
+  heroMetrics.forEach((node, index) => {
+    const x = M + index * (cardW + cardGap);
+    parts.push(rect(x, top, cardW, cardH, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"`));
+    parts.push(text(x + 28, top + 38, 15, c.secondary, wrap(node.title, cardW - 56, 15, 1), 650));
+    parts.push(text(x + 28, top + 96, 36, tone(node.status), [node.value || cleanTitle(node.title, 16)], 800));
+    if (node.note && node.note !== node.value) parts.push(text(x + 28, top + 140, 14, c.secondary, wrap(node.note, cardW - 56, 14, 1), 500));
+  });
+  const lowerY = top + cardH + 28;
+  const leftW = (CONTENT - 24) * 0.55;
+  const rightW = CONTENT - leftW - 24;
+  const panelH = 300;
+  parts.push(rect(M, lowerY, leftW, panelH, c.surface, c.border, 1.4, 12));
+  const isProgressMetric = (node) => node.unit === "%"
+    && node.numericValue >= 0
+    && node.numericValue <= 100
+    && /率|进度|占比|达成/.test(node.title);
+  const remainingPercentMetrics = metrics.slice(3).filter(isProgressMetric);
+  const progressMetrics = (remainingPercentMetrics.length ? remainingPercentMetrics : metrics.filter(isProgressMetric)).slice(0, 3);
+  parts.push(text(M + 28, lowerY + 42, 21, c.ink, [progressMetrics.length ? "指标进展" : "指标信号"], 800));
+  const indicatorRows = progressMetrics.length ? progressMetrics : metrics.slice(0, 3);
+  indicatorRows.forEach((node, index) => {
+    const y = lowerY + 92 + index * 62;
+    parts.push(text(M + 28, y, 16, c.ink, wrap(node.title, 190, 16, 1), 650));
+    const barX = M + 250;
+    const barW = leftW - 330;
+    if (progressMetrics.length) {
+      const value = Math.max(0, Math.min(100, node.numericValue));
+      parts.push(rect(barX, y - 17, barW, 16, c.muted, "none", 0, 8, ` data-scene-node="${esc(node.id)}"`));
+      parts.push(rect(barX, y - 17, barW * value / 100, 16, c.accent, "none", 0, 8));
+      parts.push(text(M + leftW - 62, y, 15, c.secondary, [node.value], 700));
+    } else {
+      parts.push(line(barX, y - 8, M + leftW - 88, y - 8, c.border, 1.5, ` data-scene-node="${esc(node.id)}"`));
+      parts.push(text(M + leftW - 62, y, 17, tone(node.status), [node.value || "定性"], 750));
+    }
+  });
+  const rightX = M + leftW + 24;
+  parts.push(rect(rightX, lowerY, rightW, panelH, c.surface, c.border, 1.4, 12));
+  parts.push(text(rightX + 28, lowerY + 42, 21, c.ink, ["风险与行动"], 800));
+  support.slice(0, 4).forEach((node, index) => {
+    const y = lowerY + 68 + index * 56;
+    const color = node.kind === "risk" ? c.risk : node.kind === "action" ? c.success : c.accent;
+    parts.push(rect(rightX + 28, y, rightW - 56, 48, c.muted, c.border, 1, 8, ` data-scene-node="${esc(node.id)}"`));
+    parts.push(`<circle cx="${rightX + 48}" cy="${y + 18}" r="6" fill="${color}"/>`);
+    parts.push(text(rightX + 66, y + 23, 15, c.ink, wrap(node.title, rightW - 110, 15, 1), 650));
+    if (node.note) parts.push(text(rightX + 66, y + 41, 12, c.secondary, wrap(node.note, rightW - 110, 12, 1), 500));
+  });
+  return { svg: parts.join("\n"), bottom: lowerY + panelH };
+}
+
 const head = header();
 const startY = head.bottom + 54;
-const scene = plan.scene === "layered-architecture" ? renderArchitecture(startY) : plan.scene === "swimlane-process" ? renderSwimlane(startY) : renderFlywheel(startY);
-const height = Math.max(1160, Math.ceil(scene.bottom + 92));
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v5" data-pipeline-version="5.0-alpha.1" data-scene="${esc(plan.scene)}" data-content-bottom="${Math.ceil(scene.bottom)}">
+const renderers = {
+  "layered-architecture": renderArchitecture,
+  "swimlane-process": renderSwimlane,
+  "flywheel-loop": renderFlywheel,
+  "decision-comparison": renderDecisionComparison,
+  "evidence-argument": renderEvidenceArgument,
+  "operating-dashboard": renderOperatingDashboard,
+};
+const scene = renderers[plan.scene](startY);
+const minimumHeight = plan.scene === "evidence-argument" ? Math.ceil(WIDTH / 2.15) : 1160;
+const height = Math.max(minimumHeight, Math.ceil(scene.bottom + 92));
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v5" data-pipeline-version="5.0-alpha.2" data-scene="${esc(plan.scene)}" data-content-bottom="${Math.ceil(scene.bottom)}">
 <rect x="0" y="0" width="${WIDTH}" height="${height}" fill="${c.canvas}"/>
 ${head.svg}
 ${scene.svg}

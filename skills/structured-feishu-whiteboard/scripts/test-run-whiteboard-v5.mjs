@@ -32,9 +32,33 @@ const lowOutput = path.join(temp, "low-output");
 fs.writeFileSync(lowInput, JSON.stringify(lowModel));
 const failed = spawnSync(process.execPath, [runner, "--input", lowInput, "--allow-semantic-fixture", "--output-dir", lowOutput, "--skip-whiteboard-cli"], { encoding: "utf8" });
 assert.notEqual(failed.status, 0);
-assert.match(failed.stderr, /use V4\.4 fallback/);
+assert.match(failed.stderr, /production would fall back to V4\.4/);
 const failedManifest = JSON.parse(fs.readFileSync(path.join(lowOutput, "run-manifest.json"), "utf8"));
 assert.equal(failedManifest.status, "failed");
-assert.match(failedManifest.error.message, /V5 scene rejected/);
+assert.match(failedManifest.error.message, /V5 fixture scene rejected/);
+
+const fallbackSource = path.join(temp, "fallback-source.md");
+const fallbackInventory = path.join(temp, "fallback-inventory.json");
+const fallbackOutput = path.join(temp, "fallback-output");
+fs.writeFileSync(fallbackSource, "建议从高价值场景切入。重点客户更关注效率和稳定性。资源投入与回报周期存在不确定性。下一阶段先完成小范围试点。预算和人力必须控制在现有范围。\n");
+fs.writeFileSync(fallbackInventory, JSON.stringify({
+  inventoryId: "v5-fallback",
+  title: "业务增长策略建议",
+  sourceType: "report",
+  sourceRef: "inline:test-v5-fallback",
+  facts: [
+    { id: "c1", type: "conclusion", importance: "critical", text: "建议从高价值场景切入", sourceQuote: "建议从高价值场景切入" },
+    { id: "e1", type: "evidence", importance: "high", text: "重点客户更关注效率和稳定性", sourceQuote: "重点客户更关注效率和稳定性" },
+    { id: "r1", type: "risk", importance: "high", text: "资源投入与回报周期存在不确定性", sourceQuote: "资源投入与回报周期存在不确定性" },
+    { id: "a1", type: "action", importance: "high", text: "下一阶段先完成小范围试点", sourceQuote: "下一阶段先完成小范围试点" },
+    { id: "x1", type: "constraint", importance: "medium", text: "预算和人力必须控制在现有范围", sourceQuote: "预算和人力必须控制在现有范围" },
+  ],
+}, null, 2));
+execFileSync(process.execPath, [runner, "--source", fallbackSource, "--inventory", fallbackInventory, "--output-dir", fallbackOutput, "--skip-whiteboard-cli"]);
+const fallbackManifest = JSON.parse(fs.readFileSync(path.join(fallbackOutput, "run-manifest.json"), "utf8"));
+assert.equal(fallbackManifest.status, "fallback-rendered-unverified");
+assert.equal(fallbackManifest.fallback.pipeline, "v4.4");
+assert.ok(fs.existsSync(path.join(fallbackOutput, "v44-fallback", "run-manifest.json")));
+assert.ok(fs.existsSync(fallbackManifest.outputs.whiteboard));
 
 console.log("ok: V5 runner tests passed");

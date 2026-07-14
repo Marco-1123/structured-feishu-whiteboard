@@ -1,5 +1,6 @@
 {
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
+  "fallbackVersion": "4.4.0-beta.7",
   "confidence": {
     "highScore": 80,
     "mediumScore": 62,
@@ -26,6 +27,27 @@
       "minNodes": 4,
       "maxNodes": 6,
       "layoutAlgorithm": "radial-loop"
+    },
+    "decision-comparison": {
+      "requiredSignals": ["option", "evidence"],
+      "preferredScenarios": ["research-decision", "strategy-proposal"],
+      "minNodes": 5,
+      "maxNodes": 12,
+      "layoutAlgorithm": "comparison-field"
+    },
+    "evidence-argument": {
+      "requiredSignals": ["supports", "causes"],
+      "preferredScenarios": ["research-decision", "strategy-proposal", "review-update"],
+      "minNodes": 4,
+      "maxNodes": 10,
+      "layoutAlgorithm": "argument-map"
+    },
+    "operating-dashboard": {
+      "requiredSignals": ["metric", "result", "trend"],
+      "preferredScenarios": ["review-update"],
+      "minNodes": 4,
+      "maxNodes": 14,
+      "layoutAlgorithm": "dashboard-grid"
     }
   }
 }

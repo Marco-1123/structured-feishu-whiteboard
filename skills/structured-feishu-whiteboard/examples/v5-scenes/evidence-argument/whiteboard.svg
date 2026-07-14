@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1024" viewBox="0 0 2200 1024" data-layout-engine="v5" data-pipeline-version="5.0-alpha.2" data-scene="evidence-argument" data-content-bottom="824">
+<rect x="0" y="0" width="2200" height="1024" fill="#F7F8FA"/>
+<text x="96" y="88" font-size="46" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">增长放缓原因论证地图</tspan></text>
+<text x="96" y="146" font-size="20" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="96" dy="0">strategy-proposal · evidence-argument</tspan></text>
+<rect x="96" y="190" width="2008" height="146" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-v5-summary="true" data-source-fact-ids="thesis"/>
+<rect x="96" y="190" width="12" height="146" rx="6" fill="#5E6AD2"/>
+<text x="138" y="238" font-size="17" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="138" dy="0">核心判断</tspan></text>
+<text x="138" y="288" font-size="29" fill="#111827" font-weight="750" text-anchor="start"><tspan x="138" dy="0">增长放缓的核心原因是转化链路断点，而不是流量不足</tspan></text>
+<polygon points="1400,664 1408.525245220595,669.2268722893066 1408.525245220595,658.7731277106934" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="1434" y1="664" x2="1400" y2="664" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="1434" y1="737" x2="1434" y2="664" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="1644" y1="737" x2="1434" y2="737" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<polygon points="1400,604 1408.525245220595,609.2268722893066 1408.525245220595,598.7731277106934" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="1434" y1="604" x2="1400" y2="604" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="1434" y1="531" x2="1434" y2="604" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="1644" y1="531" x2="1434" y2="531" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<polygon points="800,664 791.474754779405,658.7731277106934 791.474754779405,669.2268722893066" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="766" y1="664" x2="800" y2="664" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="766" y1="737" x2="766" y2="664" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="556" y1="737" x2="766" y2="737" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<polygon points="800,604 791.474754779405,598.7731277106934 791.474754779405,609.2268722893066" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
+<line x1="766" y1="604" x2="800" y2="604" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="766" y1="531" x2="766" y2="604" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<line x1="556" y1="531" x2="766" y2="531" stroke="#9AA5B4" stroke-width="2.2" stroke-linecap="round"/>
+<text x="96" y="390" font-size="25" fill="#111827" font-weight="800" text-anchor="start"><tspan x="96" dy="0">论证结构</tspan></text>
+<rect x="800" y="544" width="600" height="180" rx="16" fill="#ECEEFE" stroke="#5E6AD2" stroke-width="2" data-scene-node="thesis"/>
+<text x="834" y="586" font-size="15" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="834" dy="0">中心论点</tspan></text>
+<text x="834" y="632" font-size="25" fill="#111827" font-weight="800" text-anchor="start"><tspan x="834" dy="0">增长放缓的核心原因是转化链路断点</tspan></text>
+<rect x="96" y="444" width="460" height="174" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="e1"/>
+<text x="120" y="478" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="120" dy="0">证据 01</tspan></text>
+<text x="120" y="520" font-size="19" fill="#111827" font-weight="750" text-anchor="start"><tspan x="120" dy="0">流量供给</tspan></text>
+<text x="120" y="584" font-size="13" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="120" dy="0">近三个月访问量保持稳定</tspan></text>
+<rect x="96" y="650" width="460" height="174" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="e3"/>
+<text x="120" y="684" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="120" dy="0">证据 03</tspan></text>
+<text x="120" y="726" font-size="19" fill="#111827" font-weight="750" text-anchor="start"><tspan x="120" dy="0">用户访谈</tspan></text>
+<text x="120" y="790" font-size="13" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="120" dy="0">关键价值出现时间晚于预期</tspan></text>
+<rect x="1644" y="444" width="460" height="174" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="e2"/>
+<text x="1668" y="478" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1668" dy="0">证据 02</tspan></text>
+<text x="1668" y="520" font-size="19" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1668" dy="0">首轮激活</tspan></text>
+<text x="1668" y="584" font-size="13" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="1668" dy="0">新用户在配置环节流失</tspan></text>
+<rect x="1644" y="650" width="460" height="174" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.4" data-scene-node="e4"/>
+<text x="1668" y="684" font-size="14" fill="#5E6AD2" font-weight="800" text-anchor="start"><tspan x="1668" dy="0">证据 04</tspan></text>
+<text x="1668" y="726" font-size="19" fill="#111827" font-weight="750" text-anchor="start"><tspan x="1668" dy="0">试点结果</tspan></text>
+<text x="1668" y="790" font-size="13" fill="#5F6B7A" font-weight="500" text-anchor="start"><tspan x="1668" dy="0">缩短配置后转化率提升 18%</tspan></text>
+</svg>

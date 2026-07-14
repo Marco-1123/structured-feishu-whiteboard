@@ -11,13 +11,13 @@ const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
 function run(command, args, cwd) { const result = spawnSync(command, args, { cwd, encoding: "utf8" }); if (result.status !== 0) throw new Error((result.stderr || result.stdout || "command failed").trim()); return (result.stdout || "").trim(); }
 
-export async function runWhiteboardV44({ root, inventoryPath, sourcePath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false, allowFixtureSource = false }) {
+export async function runWhiteboardV44({ root, inventoryPath, sourcePath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false, allowFixtureSource = false, versionOverride }) {
   fs.mkdirSync(outputDir, { recursive: true });
   const inventory = readJson(inventoryPath);
   if (!String(inventory.sourceRef || "").trim()) {
     throw new Error("V4.4 production inventory requires sourceRef so cross-Agent output remains auditable");
   }
-  const version = fs.readFileSync(path.join(root, "VERSION"), "utf8").trim();
+  const version = versionOverride || fs.readFileSync(path.join(root, "VERSION"), "utf8").trim();
   if (!sourcePath && !allowFixtureSource) {
     throw new Error("V4.4 production run requires --source <raw-source.md>; inventory coverage alone cannot prove source extraction completeness");
   }

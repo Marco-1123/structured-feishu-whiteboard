@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const defaultConfig = JSON.parse(fs.readFileSync(path.join(root, "config/scene-topologies-v5.json"), "utf8"));
 
-const SCENE_ORDER = ["layered-architecture", "swimlane-process", "flywheel-loop"];
+const SCENE_ORDER = ["operating-dashboard", "decision-comparison", "evidence-argument", "layered-architecture", "swimlane-process", "flywheel-loop"];
 const importanceWeight = { critical: 4, high: 3, medium: 2, low: 1 };
 
 function byId(model) {
@@ -171,6 +171,73 @@ function flywheelCandidate(model, sceneConfig) {
   return { scene: "flywheel-loop", score, reasons, cycle, qualified };
 }
 
+function decisionCandidate(model, sceneConfig) {
+  const options = model.facts.filter((fact) => fact.type === "option");
+  const criteria = model.facts.filter((fact) => ["evidence", "constraint", "metric", "cause"].includes(fact.type));
+  const optionIds = new Set(options.map((fact) => fact.id));
+  const criterionIds = new Set(criteria.map((fact) => fact.id));
+  const comparisonEdges = model.relationships.filter((edge) =>
+    ["supports", "contrasts", "conflicts-with", "depends-on"].includes(edge.type)
+    && ((optionIds.has(edge.from) && criterionIds.has(edge.to)) || (optionIds.has(edge.to) && criterionIds.has(edge.from))));
+  const linkedOptionIds = new Set(comparisonEdges.flatMap((edge) => [edge.from, edge.to]).filter((id) => optionIds.has(id)));
+  const linkedCriterionIds = new Set(comparisonEdges.flatMap((edge) => [edge.from, edge.to]).filter((id) => criterionIds.has(id)));
+  const orderedCriteria = [
+    ...criteria.filter((fact) => linkedCriterionIds.has(fact.id)),
+    ...criteria.filter((fact) => !linkedCriterionIds.has(fact.id)),
+  ];
+  const scenarioBonus = model.scenario.primary === "research-decision" ? 32 : model.scenario.primary === "strategy-proposal" ? 18 : 0;
+  const qualified = options.length >= 2 && options.length <= 4 && criteria.length >= 2
+    && options.length + criteria.length <= sceneConfig.maxNodes
+    && linkedOptionIds.size >= 2 && linkedCriterionIds.size >= 2;
+  const score = qualified ? Math.min(100, 42 + scenarioBonus + options.length * 5 + Math.min(18, criteria.length * 3) + Math.min(10, comparisonEdges.length * 2)) : 0;
+  const reasons = qualified
+    ? [`${options.length} 个候选方案`, `${criteria.length} 项评价依据`, `${comparisonEdges.length} 条方案关系`]
+    : ["未满足决策对比硬资格：2-4 个选项、至少 2 项依据和 2 条显式方案关系"];
+  return { scene: "decision-comparison", score, reasons, options, criteria: orderedCriteria, comparisonEdges, qualified };
+}
+
+function evidenceCandidate(model, sceneConfig) {
+  const thesis = model.facts.find((fact) => fact.type === "conclusion") || model.facts.find((fact) => fact.type === "objective");
+  const evidence = model.facts.filter((fact) => ["evidence", "cause", "result"].includes(fact.type));
+  const evidenceIds = new Set(evidence.map((fact) => fact.id));
+  const supportEdges = model.relationships.filter((edge) =>
+    ["supports", "causes", "produces"].includes(edge.type)
+    && thesis
+    && evidenceIds.has(edge.from)
+    && edge.to === thesis.id);
+  const linkedEvidenceIds = new Set(supportEdges.flatMap((edge) => [edge.from, edge.to]).filter((id) => evidenceIds.has(id)));
+  const linkedEvidence = evidence.filter((fact) => linkedEvidenceIds.has(fact.id));
+  const scenarioBonus = ["research-decision", "strategy-proposal"].includes(model.scenario.primary) ? 20 : model.scenario.primary === "review-update" ? 10 : 0;
+  const nodeCount = linkedEvidence.length + (thesis ? 1 : 0);
+  const qualified = Boolean(thesis) && linkedEvidence.length >= 3 && nodeCount <= sceneConfig.maxNodes;
+  const score = qualified ? Math.min(92, 38 + scenarioBonus + Math.min(24, linkedEvidence.length * 5) + Math.min(10, supportEdges.length * 2)) : 0;
+  const reasons = qualified
+    ? [`1 个中心论点`, `${linkedEvidence.length} 条直接证据或归因`, `${supportEdges.length} 条论证关系`]
+    : ["未满足证据论证硬资格：明确中心论点，以及至少 3 条与其直接关联的证据或归因"];
+  return { scene: "evidence-argument", score, reasons, thesis, evidence: linkedEvidence, supportEdges, qualified };
+}
+
+function numericValue(textValue) {
+  const text = String(textValue || "").replace(/,/g, "");
+  const match = text.match(/([+-]?\d+(?:\.\d+)?)\s*(%|人|小时|天|秒|个|万|亿|h|s)?/i);
+  if (!match) return null;
+  return { raw: `${match[1]}${match[2] || ""}`, number: Number(match[1]), unit: match[2] || "" };
+}
+
+function dashboardCandidate(model, sceneConfig) {
+  const indicators = model.facts.filter((fact) => ["metric", "result", "trend", "variance"].includes(fact.type));
+  const numeric = indicators.filter((fact) => numericValue(fact.text));
+  const supporting = model.facts.filter((fact) => ["risk", "action", "cause", "evidence"].includes(fact.type));
+  const scenarioBonus = model.scenario.primary === "review-update" ? 34 : 0;
+  const total = indicators.length + supporting.length;
+  const qualified = indicators.length >= 3 && numeric.length >= 2 && total >= sceneConfig.minNodes && total <= sceneConfig.maxNodes;
+  const score = qualified ? Math.min(100, 42 + scenarioBonus + Math.min(18, indicators.length * 4) + Math.min(10, numeric.length * 3)) : 0;
+  const reasons = qualified
+    ? [`${indicators.length} 项经营结果`, `${numeric.length} 项可量化指标`, `${supporting.length} 项解释或行动`]
+    : ["未满足经营仪表盘硬资格：至少 3 项结果、其中 2 项可量化，并控制在单页容量内"];
+  return { scene: "operating-dashboard", score, reasons, indicators, numeric, supporting, qualified };
+}
+
 function confidence(candidates, config) {
   const top = candidates[0];
   const margin = Math.max(0, top.score - (candidates[1]?.score || 0));
@@ -259,8 +326,66 @@ function flywheelPlan(model, candidate, meta) {
   return { ...meta, centerTitle, nodes, edges };
 }
 
+function decisionPlan(model, candidate, meta) {
+  const options = candidate.options.map((fact, index) => nodeFromFact(fact, { kind: "option", order: index + 1 }));
+  const criteria = candidate.criteria.slice(0, 6).map((fact, index) => nodeFromFact(fact, { kind: "criterion", order: index + 1 }));
+  const visible = new Set([...options, ...criteria].map((node) => node.id));
+  const edges = candidate.comparisonEdges.filter((edge) => visible.has(edge.from) && visible.has(edge.to));
+  const recommendation = model.facts.find((fact) => fact.type === "conclusion");
+  return {
+    ...meta,
+    recommendation: recommendation ? cleanTitle(recommendation.text, 96) : "根据关键标准选择综合适配度最高的方案",
+    recommendationSourceFactIds: recommendation ? [recommendation.id] : [],
+    optionNodeIds: options.map((node) => node.id),
+    criterionNodeIds: criteria.map((node) => node.id),
+    nodes: [...options, ...criteria],
+    edges,
+  };
+}
+
+function evidencePlan(model, candidate, meta) {
+  const thesisNode = nodeFromFact(candidate.thesis, { kind: "thesis" });
+  const evidenceNodes = candidate.evidence.slice(0, 7).map((fact, index) => nodeFromFact(fact, { kind: "evidence", order: index + 1 }));
+  const visible = new Set([thesisNode, ...evidenceNodes].map((node) => node.id));
+  const edges = candidate.supportEdges.filter((edge) => visible.has(edge.from) && visible.has(edge.to));
+  return {
+    ...meta,
+    thesisNodeId: thesisNode.id,
+    evidenceNodeIds: evidenceNodes.map((node) => node.id),
+    nodes: [thesisNode, ...evidenceNodes],
+    edges,
+  };
+}
+
+function dashboardPlan(model, candidate, meta) {
+  const indicatorNodes = candidate.indicators.slice(0, 6).map((fact, index) => {
+    const numeric = numericValue(fact.text);
+    return nodeFromFact(fact, {
+      kind: fact.type === "trend" ? "trend" : "metric",
+      order: index + 1,
+      ...(numeric ? { value: numeric.raw, numericValue: numeric.number, unit: numeric.unit } : {}),
+    });
+  });
+  const supportNodes = candidate.supporting.slice(0, 4).map((fact, index) => nodeFromFact(fact, {
+    kind: fact.type === "risk" ? "risk" : fact.type === "action" ? "action" : "evidence",
+    order: index + 1,
+  }));
+  const visible = new Set([...indicatorNodes, ...supportNodes].map((node) => node.id));
+  const edges = model.relationships.filter((edge) => visible.has(edge.from) && visible.has(edge.to));
+  return {
+    ...meta,
+    metricNodeIds: indicatorNodes.map((node) => node.id),
+    supportNodeIds: supportNodes.map((node) => node.id),
+    nodes: [...indicatorNodes, ...supportNodes],
+    edges,
+  };
+}
+
 export function planSceneV5(model, { style = "linear-system", title, config = defaultConfig } = {}) {
   const candidates = [
+    dashboardCandidate(model, config.scenes["operating-dashboard"]),
+    decisionCandidate(model, config.scenes["decision-comparison"]),
+    evidenceCandidate(model, config.scenes["evidence-argument"]),
     architectureCandidate(model, config.scenes["layered-architecture"]),
     swimlaneCandidate(model, config.scenes["swimlane-process"]),
     flywheelCandidate(model, config.scenes["flywheel-loop"]),
@@ -271,7 +396,7 @@ export function planSceneV5(model, { style = "linear-system", title, config = de
   const selected = candidates[0];
   const summaryFact = model.facts.find((fact) => fact.type === "conclusion") || model.facts.find((fact) => fact.importance === "critical") || model.facts[0];
   const meta = {
-    schemaVersion: "5.0-alpha.1",
+    schemaVersion: "5.0-alpha.2",
     engine: "v5",
     scene: selected.scene,
     style,
@@ -282,16 +407,21 @@ export function planSceneV5(model, { style = "linear-system", title, config = de
     confidence: sceneConfidence,
     sourceFactIds: [],
   };
-  const plan = selected.scene === "layered-architecture"
-    ? layerPlan(model, selected, meta)
-    : selected.scene === "swimlane-process"
-      ? swimlanePlan(model, selected, meta)
-      : flywheelPlan(model, selected, meta);
+  const planners = {
+    "layered-architecture": layerPlan,
+    "swimlane-process": swimlanePlan,
+    "flywheel-loop": flywheelPlan,
+    "decision-comparison": decisionPlan,
+    "evidence-argument": evidencePlan,
+    "operating-dashboard": dashboardPlan,
+  };
+  const plan = planners[selected.scene](model, selected, meta);
   plan.sourceFactIds = [...new Set([
     ...plan.summarySourceFactIds,
     ...plan.nodes.flatMap((node) => node.sourceFactIds),
     ...(plan.layers || []).flatMap((layer) => layer.sourceFactIds || []),
     ...(plan.lanes || []).flatMap((lane) => lane.sourceFactIds || []),
+    ...(plan.recommendationSourceFactIds || []),
   ])];
   const covered = new Set(plan.sourceFactIds);
   const missingImportant = model.facts

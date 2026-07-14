@@ -1,12 +1,12 @@
-const allowedScenes = new Set(["layered-architecture", "swimlane-process", "flywheel-loop"]);
+const allowedScenes = new Set(["layered-architecture", "swimlane-process", "flywheel-loop", "decision-comparison", "evidence-argument", "operating-dashboard"]);
 const allowedStyles = new Set(["linear-system", "professional-blue", "apple-report", "stripe-data", "vercel-precision", "feishu-status"]);
 
 export function validateScenePlanV5(plan) {
   const issues = [];
   if (!plan || typeof plan !== "object") return ["scene plan must be an object"];
-  const allowedKeys = new Set(["schemaVersion", "engine", "scene", "style", "title", "subtitle", "summary", "summarySourceFactIds", "confidence", "centerTitle", "lanes", "layers", "nodes", "edges", "sourceFactIds"]);
+  const allowedKeys = new Set(["schemaVersion", "engine", "scene", "style", "title", "subtitle", "summary", "summarySourceFactIds", "confidence", "centerTitle", "lanes", "layers", "nodes", "edges", "sourceFactIds", "recommendation", "recommendationSourceFactIds", "optionNodeIds", "criterionNodeIds", "thesisNodeId", "evidenceNodeIds", "metricNodeIds", "supportNodeIds"]);
   for (const key of Object.keys(plan)) if (!allowedKeys.has(key)) issues.push(`unknown scene plan field: ${key}`);
-  if (plan.schemaVersion !== "5.0-alpha.1") issues.push("schemaVersion must be 5.0-alpha.1");
+  if (plan.schemaVersion !== "5.0-alpha.2") issues.push("schemaVersion must be 5.0-alpha.2");
   if (plan.engine !== "v5") issues.push("engine must be v5");
   if (!allowedScenes.has(plan.scene)) issues.push(`unsupported scene: ${plan.scene}`);
   if (!allowedStyles.has(plan.style)) issues.push(`unsupported style: ${plan.style}`);
@@ -49,11 +49,26 @@ export function validateScenePlanV5(plan) {
     if (plan.nodes.length < 4 || plan.nodes.length > 6) issues.push("flywheel-loop requires four to six stages");
     if ((plan.edges || []).length < plan.nodes.length) issues.push("flywheel-loop must contain an explicit closed edge chain");
   }
+  if (plan.scene === "decision-comparison") {
+    if ((plan.optionNodeIds || []).length < 2) issues.push("decision-comparison requires at least two options");
+    if ((plan.criterionNodeIds || []).length < 2) issues.push("decision-comparison requires at least two criteria");
+    for (const id of [...(plan.optionNodeIds || []), ...(plan.criterionNodeIds || [])]) if (!nodeIds.has(id)) issues.push(`decision-comparison references hidden node ${id}`);
+  }
+  if (plan.scene === "evidence-argument") {
+    if (!nodeIds.has(plan.thesisNodeId)) issues.push("evidence-argument requires a visible thesis node");
+    if ((plan.evidenceNodeIds || []).length < 3) issues.push("evidence-argument requires at least three evidence nodes");
+    for (const id of plan.evidenceNodeIds || []) if (!nodeIds.has(id)) issues.push(`evidence-argument references hidden node ${id}`);
+  }
+  if (plan.scene === "operating-dashboard") {
+    if ((plan.metricNodeIds || []).length < 3) issues.push("operating-dashboard requires at least three indicators");
+    for (const id of [...(plan.metricNodeIds || []), ...(plan.supportNodeIds || [])]) if (!nodeIds.has(id)) issues.push(`operating-dashboard references hidden node ${id}`);
+  }
   const carriers = new Set([
     ...(plan.summarySourceFactIds || []),
     ...(plan.nodes || []).flatMap((node) => node.sourceFactIds || []),
     ...(plan.layers || []).flatMap((layer) => layer.sourceFactIds || []),
     ...(plan.lanes || []).flatMap((lane) => lane.sourceFactIds || []),
+    ...(plan.recommendationSourceFactIds || []),
   ]);
   for (const id of plan.sourceFactIds || []) if (!carriers.has(id)) issues.push(`source fact ${id} has no visible carrier`);
   return issues;

@@ -3,7 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFileSync } from "node:child_process";
 import { planSceneV5 } from "./lib/v5-scene-planner.mjs";
-import { architectureModel, swimlaneModel, flywheelModel } from "./test-v5-scene-planner.mjs";
+import { architectureModel, swimlaneModel, flywheelModel, decisionModel, evidenceModel, dashboardModel } from "./test-v5-scene-planner.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const renderer = path.join(root, "scripts/render-whiteboard-v5.mjs");
@@ -12,7 +12,10 @@ const skipPreview = process.argv.includes("--skip-preview");
 const cases = [
   ["layered-architecture", "智能协作能力分层架构", architectureModel],
   ["swimlane-process", "分析需求跨角色协作流程", swimlaneModel],
-  ["flywheel-loop", "能力沉淀与规模复用闭环", flywheelModel]
+  ["flywheel-loop", "能力沉淀与规模复用闭环", flywheelModel],
+  ["decision-comparison", "团队知识承载方案决策", decisionModel],
+  ["evidence-argument", "增长放缓原因论证地图", evidenceModel],
+  ["operating-dashboard", "季度经营复盘仪表盘", dashboardModel]
 ];
 
 for (const [id, title, model] of cases) {

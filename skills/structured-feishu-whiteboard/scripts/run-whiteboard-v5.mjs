@@ -6,6 +6,7 @@ import { planSceneV5 } from "./lib/v5-scene-planner.mjs";
 import { validateSemanticModel } from "./lib/semantic-model.mjs";
 import { compileSemanticModel } from "./lib/semantic-compiler.mjs";
 import { auditSourceExtraction } from "./lib/source-audit.mjs";
+import { runWhiteboardV44 } from "./lib/v44-pipeline-runner.mjs";
 
 const args = process.argv.slice(2);
 const option = (name) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : undefined; };
@@ -39,7 +40,7 @@ const run = (command, commandArgs) => {
 const manifest = {
   schemaVersion: 1,
   pipeline: "v5-scene-alpha",
-  version: "5.0.0-alpha.1",
+  version: "5.0.0-alpha.2",
   status: "running",
   startedAt: new Date().toISOString(),
   inputs: {
@@ -83,31 +84,47 @@ try {
   writeJson(decisionPath, decision);
   manifest.outputs.sceneDecision = decisionPath;
   manifest.decision = { confidence: decision.confidence, candidates: decision.candidates, coverage: decision.coverage };
-  if (!decision.selected) throw new Error(`V5 scene rejected; use V4.4 fallback: ${decision.confidence.reasons.join("; ")}`);
-  manifest.checks.push({ name: "scene-confidence-and-coverage", status: "passed" });
-
-  const planPath = path.join(out, "scene-plan.json");
-  writeJson(planPath, decision.selected);
-  run(process.execPath, [path.join(root, "scripts/validate-scene-plan-v5.mjs"), planPath]);
-  manifest.checks.push({ name: "scene-plan", status: "passed" });
-
-  const svgPath = path.join(out, "whiteboard.svg");
-  run(process.execPath, [path.join(root, "scripts/render-whiteboard-v5.mjs"), "--input", planPath, "--output", svgPath]);
-  run(process.execPath, [path.join(root, "scripts/check-svg-layout.mjs"), svgPath]);
-  manifest.checks.push({ name: "svg-layout", status: "passed" });
-  manifest.outputs.scenePlan = planPath;
-  manifest.outputs.whiteboard = svgPath;
-
-  if (skipWhiteboardCli) {
-    manifest.checks.push({ name: "feishu-svg-import", status: "skipped" });
-    manifest.status = "rendered-unverified";
+  if (!decision.selected) {
+    if (input) throw new Error(`V5 fixture scene rejected; production would fall back to V4.4: ${decision.confidence.reasons.join("; ")}`);
+    manifest.checks.push({ name: "scene-confidence-and-coverage", status: "fallback", detail: decision.confidence.reasons });
+    const fallbackDir = path.join(out, "v44-fallback");
+    const fallbackManifest = await runWhiteboardV44({
+      root,
+      inventoryPath: path.resolve(inventoryPath),
+      sourcePath: path.resolve(sourcePath),
+      outputDir: fallbackDir,
+      style,
+      skipWhiteboardCli,
+      versionOverride: "4.4.0-beta.7",
+    });
+    manifest.fallback = { pipeline: "v4.4", reason: decision.confidence.reasons, status: fallbackManifest.status };
+    manifest.outputs.fallbackManifest = path.join(fallbackDir, "run-manifest.json");
+    manifest.outputs.whiteboard = fallbackManifest.outputs.whiteboard;
+    if (fallbackManifest.outputs.preview) manifest.outputs.preview = fallbackManifest.outputs.preview;
+    manifest.status = fallbackManifest.status === "passed" ? "fallback-passed" : "fallback-rendered-unverified";
   } else {
-    const pngPath = path.join(out, "whiteboard.png");
-    run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", svgPath, "-o", pngPath, "-f", "svg"]);
-    run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", svgPath, "-f", "svg", "--check"]);
-    manifest.checks.push({ name: "feishu-svg-import", status: "passed" });
-    manifest.outputs.preview = pngPath;
-    manifest.status = "passed";
+    manifest.checks.push({ name: "scene-confidence-and-coverage", status: "passed" });
+    const planPath = path.join(out, "scene-plan.json");
+    writeJson(planPath, decision.selected);
+    run(process.execPath, [path.join(root, "scripts/validate-scene-plan-v5.mjs"), planPath]);
+    manifest.checks.push({ name: "scene-plan", status: "passed" });
+    const svgPath = path.join(out, "whiteboard.svg");
+    run(process.execPath, [path.join(root, "scripts/render-whiteboard-v5.mjs"), "--input", planPath, "--output", svgPath]);
+    run(process.execPath, [path.join(root, "scripts/check-svg-layout.mjs"), svgPath]);
+    manifest.checks.push({ name: "svg-layout", status: "passed" });
+    manifest.outputs.scenePlan = planPath;
+    manifest.outputs.whiteboard = svgPath;
+    if (skipWhiteboardCli) {
+      manifest.checks.push({ name: "feishu-svg-import", status: "skipped" });
+      manifest.status = "rendered-unverified";
+    } else {
+      const pngPath = path.join(out, "whiteboard.png");
+      run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", svgPath, "-o", pngPath, "-f", "svg"]);
+      run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", svgPath, "-f", "svg", "--check"]);
+      manifest.checks.push({ name: "feishu-svg-import", status: "passed" });
+      manifest.outputs.preview = pngPath;
+      manifest.status = "passed";
+    }
   }
 } catch (error) {
   manifest.status = "failed";

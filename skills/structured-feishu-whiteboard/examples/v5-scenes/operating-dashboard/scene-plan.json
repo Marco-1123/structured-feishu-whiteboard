@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "5.0-alpha.2",
+  "engine": "v5",
+  "scene": "operating-dashboard",
+  "style": "linear-system",
+  "title": "季度经营复盘仪表盘",
+  "subtitle": "review-update · operating-dashboard",
+  "summary": "季度主线整体达成，但转化和风险闭环仍需加强",
+  "summarySourceFactIds": [
+    "conclusion"
+  ],
+  "confidence": {
+    "level": "high",
+    "score": 100,
+    "margin": 100,
+    "reasons": [
+      "4 项经营结果",
+      "4 项可量化指标",
+      "3 项解释或行动"
+    ]
+  },
+  "sourceFactIds": [
+    "conclusion",
+    "m1",
+    "m2",
+    "m3",
+    "m4",
+    "risk1",
+    "action1",
+    "cause1"
+  ],
+  "metricNodeIds": [
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+  ],
+  "supportNodeIds": [
+    "risk1",
+    "action1",
+    "cause1"
+  ],
+  "nodes": [
+    {
+      "id": "m1",
+      "title": "目标完成率",
+      "note": "78%",
+      "kind": "metric",
+      "status": "good",
+      "sourceFactIds": [
+        "m1"
+      ],
+      "order": 1,
+      "value": "78%",
+      "numericValue": 78,
+      "unit": "%"
+    },
+    {
+      "id": "m2",
+      "title": "新增客户",
+      "note": "126个",
+      "kind": "metric",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m2"
+      ],
+      "order": 2,
+      "value": "126个",
+      "numericValue": 126,
+      "unit": "个"
+    },
+    {
+      "id": "m3",
+      "title": "成本变化",
+      "note": "-12%",
+      "kind": "metric",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m3"
+      ],
+      "order": 3,
+      "value": "-12%",
+      "numericValue": -12,
+      "unit": "%"
+    },
+    {
+      "id": "m4",
+      "title": "重点项目覆盖率",
+      "note": "64%",
+      "kind": "metric",
+      "status": "neutral",
+      "sourceFactIds": [
+        "m4"
+      ],
+      "order": 4,
+      "value": "64%",
+      "numericValue": 64,
+      "unit": "%"
+    },
+    {
+      "id": "risk1",
+      "title": "数据口径",
+      "note": "跨团队指标定义仍不一致",
+      "kind": "risk",
+      "status": "risk",
+      "sourceFactIds": [
+        "risk1"
+      ],
+      "order": 1
+    },
+    {
+      "id": "action1",
+      "title": "下阶段行动",
+      "note": "建立统一指标字典",
+      "kind": "action",
+      "status": "neutral",
+      "sourceFactIds": [
+        "action1"
+      ],
+      "order": 2
+    },
+    {
+      "id": "cause1",
+      "title": "转化瓶颈",
+      "note": "试点到规模化缺少标准路径",
+      "kind": "evidence",
+      "status": "neutral",
+      "sourceFactIds": [
+        "cause1"
+      ],
+      "order": 3
+    }
+  ],
+  "edges": [
+    {
+      "id": "q1",
+      "type": "causes",
+      "from": "cause1",
+      "to": "m1"
+    },
+    {
+      "id": "q2",
+      "type": "mitigates",
+      "from": "action1",
+      "to": "risk1"
+    }
+  ]
+}

@@ -102,8 +102,64 @@ export const flywheelModel = model({
   ]
 });
 
+export const decisionModel = model({
+  id: "platform-selection",
+  scenario: "research-decision",
+  facts: [
+    fact("conclusion", "conclusion", "方案 A 更适合作为长期知识底座", { importance: "critical" }),
+    fact("optionA", "option", "方案 A：结构化知识平台"),
+    fact("optionB", "option", "方案 B：通用文档空间"),
+    fact("criterion1", "evidence", "长期可读：Agent 可以稳定检索与引用"),
+    fact("criterion2", "constraint", "维护成本：需要控制多人协作复杂度"),
+    fact("criterion3", "evidence", "执行衔接：规则可以直接进入 Skill")
+  ],
+  relationships: [
+    { id: "d1", type: "supports", from: "criterion1", to: "optionA" },
+    { id: "d2", type: "supports", from: "criterion3", to: "optionA" },
+    { id: "d3", type: "conflicts-with", from: "criterion2", to: "optionB" },
+    { id: "d4", type: "contrasts", from: "optionA", to: "optionB" }
+  ]
+});
+
+export const evidenceModel = model({
+  id: "growth-thesis",
+  scenario: "strategy-proposal",
+  facts: [
+    fact("thesis", "conclusion", "增长放缓的核心原因是转化链路断点，而不是流量不足", { importance: "critical" }),
+    fact("e1", "evidence", "流量供给：近三个月访问量保持稳定"),
+    fact("e2", "cause", "首轮激活：新用户在配置环节流失"),
+    fact("e3", "evidence", "用户访谈：关键价值出现时间晚于预期"),
+    fact("e4", "result", "试点结果：缩短配置后转化率提升 18%")
+  ],
+  relationships: [
+    { id: "e-r1", type: "supports", from: "e1", to: "thesis" },
+    { id: "e-r2", type: "causes", from: "e2", to: "thesis" },
+    { id: "e-r3", type: "supports", from: "e3", to: "thesis" },
+    { id: "e-r4", type: "supports", from: "e4", to: "thesis" }
+  ]
+});
+
+export const dashboardModel = model({
+  id: "quarterly-review",
+  scenario: "review-update",
+  facts: [
+    fact("conclusion", "conclusion", "季度主线整体达成，但转化和风险闭环仍需加强", { importance: "critical" }),
+    fact("m1", "metric", "目标完成率：78%"),
+    fact("m2", "result", "新增客户：126个"),
+    fact("m3", "variance", "成本变化：-12%"),
+    fact("m4", "metric", "重点项目覆盖率：64%"),
+    fact("risk1", "risk", "数据口径：跨团队指标定义仍不一致"),
+    fact("action1", "action", "下阶段行动：建立统一指标字典"),
+    fact("cause1", "cause", "转化瓶颈：试点到规模化缺少标准路径")
+  ],
+  relationships: [
+    { id: "q1", type: "causes", from: "cause1", to: "m1" },
+    { id: "q2", type: "mitigates", from: "action1", to: "risk1" }
+  ]
+});
+
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  for (const [semanticModel, expected] of [[architectureModel, "layered-architecture"], [swimlaneModel, "swimlane-process"], [flywheelModel, "flywheel-loop"]]) {
+  for (const [semanticModel, expected] of [[architectureModel, "layered-architecture"], [swimlaneModel, "swimlane-process"], [flywheelModel, "flywheel-loop"], [decisionModel, "decision-comparison"], [evidenceModel, "evidence-argument"], [dashboardModel, "operating-dashboard"]]) {
     const result = planSceneV5(semanticModel);
     assert.equal(result.selected?.scene, expected);
     assert.notEqual(result.confidence.level, "low");
@@ -115,6 +171,9 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   assert.equal(planSceneV5(architectureModel).selected.layers.length, 3);
   assert.equal(planSceneV5(swimlaneModel).selected.lanes.length, 3);
   assert.equal(planSceneV5(flywheelModel).selected.nodes.length, 5);
+  assert.equal(planSceneV5(decisionModel).selected.optionNodeIds.length, 2);
+  assert.equal(planSceneV5(evidenceModel).selected.evidenceNodeIds.length, 4);
+  assert.equal(planSceneV5(dashboardModel).selected.metricNodeIds.length, 4);
 
   console.log("ok: V5 scene planner tests passed");
 }

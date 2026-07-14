@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "quarterly-review",
+  "inventoryId": "quarterly-review-inventory",
+  "scenario": {
+    "primary": "review-update"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "conclusion",
+      "type": "conclusion",
+      "text": "季度主线整体达成，但转化和风险闭环仍需加强",
+      "importance": "critical",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "m1",
+      "type": "metric",
+      "text": "目标完成率：78%",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "m2",
+      "type": "result",
+      "text": "新增客户：126个",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "m3",
+      "type": "variance",
+      "text": "成本变化：-12%",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "m4",
+      "type": "metric",
+      "text": "重点项目覆盖率：64%",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "risk1",
+      "type": "risk",
+      "text": "数据口径：跨团队指标定义仍不一致",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "action1",
+      "type": "action",
+      "text": "下阶段行动：建立统一指标字典",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "cause1",
+      "type": "cause",
+      "text": "转化瓶颈：试点到规模化缺少标准路径",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "q1",
+      "type": "causes",
+      "from": "cause1",
+      "to": "m1"
+    },
+    {
+      "id": "q2",
+      "type": "mitigates",
+      "from": "action1",
+      "to": "risk1"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "conclusion"
+    ],
+    "second": [
+      "m1",
+      "m2",
+      "m3",
+      "m4",
+      "risk1",
+      "action1",
+      "cause1"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "conclusion",
+      "m1",
+      "m2",
+      "m3",
+      "m4",
+      "risk1",
+      "action1",
+      "cause1"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  }
+}

@@ -14,11 +14,14 @@ description: >
 
 V5 是独立 Alpha，不是正式生产入口。它在语义模型和视觉组件之间增加“场景拓扑”层，用材料中的归属、顺序、责任和闭环关系决定空间构图，而不是继续增加卡片模板。
 
-当前仅支持三种高置信场景：
+Alpha.2 支持六种高置信场景：
 
 - `layered-architecture`：分层架构。
 - `swimlane-process`：跨角色泳道流程。
 - `flywheel-loop`：显式反馈闭环。
+- `decision-comparison`：多方案、多标准的决策对比。
+- `evidence-argument`：中心论点与证据/归因关系。
+- `operating-dashboard`：包含量化指标、趋势和风险行动的经营概览。
 
 实验运行方式：
 
@@ -26,7 +29,7 @@ V5 是独立 Alpha，不是正式生产入口。它在语义模型和视觉组�
 node scripts/run-whiteboard-v5.mjs --source <raw-source.md> --inventory <inventory.json> --title <画板标题> --output-dir <output-dir>
 ```
 
-只有 `run-manifest.json` 的 `pipeline` 为 `v5-scene-alpha` 且 `status` 为 `passed`，才能称为 V5 Alpha 通过。正式实验同样必须经过原文快照、事实清单和抽取覆盖审计；直接输入 semantic model 仅允许测试夹具。场景置信度低、与第二候选差值不足、或关键与中重要度事实无法被当前空间语法承载时，V5 必须拒绝生成并回退 V4.4；不能为了使用新构图而删减内容。详见 `references/v5-scene-grammar.md`。
+只有 `run-manifest.json` 的 `pipeline` 为 `v5-scene-alpha` 且 `status` 为 `passed`，才能称为 V5 Alpha 通过。正式实验同样必须经过原文快照、事实清单和抽取覆盖审计；直接输入 semantic model 仅允许测试夹具。场景置信度低、与第二候选差值不足、或关键与中重要度事实无法被当前空间语法承载时，运行器会自动调用 V4.4 稳定链路，并将状态记录为 `fallback-passed` 或 `fallback-rendered-unverified`；不能为了使用新构图而删减内容。详见 `references/v5-scene-grammar.md`。
 
 ## 唯一生产入口
 

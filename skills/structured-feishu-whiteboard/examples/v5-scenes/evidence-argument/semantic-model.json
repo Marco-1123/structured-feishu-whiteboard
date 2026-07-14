@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "1.0",
+  "modelId": "growth-thesis",
+  "inventoryId": "growth-thesis-inventory",
+  "scenario": {
+    "primary": "strategy-proposal"
+  },
+  "audienceIntent": "quick-understanding",
+  "facts": [
+    {
+      "id": "thesis",
+      "type": "conclusion",
+      "text": "增长放缓的核心原因是转化链路断点，而不是流量不足",
+      "importance": "critical",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "e1",
+      "type": "evidence",
+      "text": "流量供给：近三个月访问量保持稳定",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "e2",
+      "type": "cause",
+      "text": "首轮激活：新用户在配置环节流失",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "e3",
+      "type": "evidence",
+      "text": "用户访谈：关键价值出现时间晚于预期",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    },
+    {
+      "id": "e4",
+      "type": "result",
+      "text": "试点结果：缩短配置后转化率提升 18%",
+      "importance": "high",
+      "sourceRef": "fixture",
+      "confidence": "supported"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "e-r1",
+      "type": "supports",
+      "from": "e1",
+      "to": "thesis"
+    },
+    {
+      "id": "e-r2",
+      "type": "causes",
+      "from": "e2",
+      "to": "thesis"
+    },
+    {
+      "id": "e-r3",
+      "type": "supports",
+      "from": "e3",
+      "to": "thesis"
+    },
+    {
+      "id": "e-r4",
+      "type": "supports",
+      "from": "e4",
+      "to": "thesis"
+    }
+  ],
+  "readingLayers": {
+    "first": [
+      "thesis"
+    ],
+    "second": [
+      "e1",
+      "e2",
+      "e3",
+      "e4"
+    ]
+  },
+  "completenessLedger": {
+    "selected": [
+      "thesis",
+      "e1",
+      "e2",
+      "e3",
+      "e4"
+    ],
+    "merged": [],
+    "downgraded": [],
+    "omitted": []
+  }
+}
