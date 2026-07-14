@@ -392,6 +392,88 @@ ${item.note ? text(ix + 36, noteY, cols >= 3 ? 15 : 16, c.secondary, splitText(i
   return { h, body };
 }
 
+function capabilityCopy(item) {
+  const raw = String(item.label || "").replace(/[。；;]$/, "").trim();
+  const explicit = raw.match(/^(.{2,18}?)(?:支持|用于|可实现|可完成|能够)(.{2,})$/);
+  if (explicit) return { title: explicit[1].trim(), note: explicit[2].replace(/^快速|^持续/, (value) => value).trim() };
+  const colon = raw.match(/^(.{2,18}?)[：:](.{2,})$/);
+  if (colon) return { title: colon[1].trim(), note: colon[2].trim() };
+  const parts = raw.split(/[，,]/).map((part) => part.trim()).filter(Boolean);
+  if (parts.length > 1) return { title: parts[0], note: parts.slice(1).join("，") };
+  return { title: raw, note: item.note || "" };
+}
+
+function capabilityMap(block, x, y, w, profile = {}) {
+  const allItems = (block.items || []).slice(0, 12);
+  const stages = allItems.filter((item) => item.role === "stage");
+  const capabilities = allItems.filter((item) => item.role !== "stage");
+  const journeyLayered = stages.length >= 3 && capabilities.length >= 3;
+  const gap = 18;
+  const headerNote = journeyLayered ? "上层呈现使用链路，下层呈现能力支撑" : "并列能力使用结构矩阵；没有顺序关系时不绘制连线";
+
+  if (journeyLayered) {
+    const stageW = Math.floor((w - 56 - gap * (stages.length - 1)) / stages.length);
+    const capabilityCols = Math.min(w >= 1600 ? 5 : 3, capabilities.length);
+    const capabilityRows = Math.ceil(capabilities.length / capabilityCols);
+    const capabilityW = Math.floor((w - 56 - gap * (capabilityCols - 1)) / capabilityCols);
+    const h = Math.max(354 + capabilityRows * 162 + Math.max(0, capabilityRows - 1) * gap + 28, profile.targetHeight || 0);
+    const stageY = y + 116;
+    const capabilityY = y + 306;
+    let body = blockCard(x, y, w, h, block.title, headerNote);
+    body += text(x + 28, stageY - 14, 15, c.secondary, ["使用链路"], "800");
+    stages.forEach((item, index) => {
+      const ix = x + 28 + index * (stageW + gap);
+      body += `
+${rect(ix, stageY, stageW, 116, c.muted, c.border, 1.2, 12, ` data-v4-capability-stage="${index}"`)}
+${rect(ix + 16, stageY + 16, 38, 30, c.soft, c.accent, 1, 8)}
+${text(ix + 35, stageY + 37, 14, c.accent, [String(index + 1).padStart(2, "0")], "800", 20, ' text-anchor="middle"')}
+${text(ix + 16, stageY + 78, 18, c.ink, splitText(item.label, stageW - 32, 18, 2), "850", 24)}`;
+      if (index < stages.length - 1) body += text(ix + stageW + 2, stageY + 70, 28, c.accent, ["→"], "800");
+    });
+    body += text(x + 28, capabilityY - 14, 15, c.secondary, ["能力支撑"], "800");
+    capabilities.forEach((item, index) => {
+      const col = index % capabilityCols;
+      const row = Math.floor(index / capabilityCols);
+      const ix = x + 28 + col * (capabilityW + gap);
+      const iy = capabilityY + row * (162 + gap);
+      const copy = capabilityCopy(item);
+      const titleLines = splitText(copy.title, capabilityW - 36, 18, 2);
+      const noteLines = splitText(copy.note || item.note || "", capabilityW - 36, 15, 2);
+      body += `
+${rect(ix, iy, capabilityW, 162, c.surface, c.border, 1.3, 12, ` data-v4-capability-item="${index}" data-capability-layout="journey-layered"`)}
+<rect x="${ix + 16}" y="${iy + 18}" width="7" height="126" rx="3.5" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
+${text(ix + 36, iy + 42, 18, c.ink, titleLines, "850", 24)}
+${noteLines.length ? text(ix + 36, iy + 94 + Math.max(0, titleLines.length - 1) * 22, 15, c.secondary, noteLines, "500", 21) : ""}`;
+    });
+    return { h, body };
+  }
+
+  const items = capabilities.length ? capabilities : allItems;
+  const maxCols = w >= 1600 ? 5 : 3;
+  const cols = Math.min(maxCols, Math.max(1, items.length));
+  const rows = Math.ceil(items.length / cols);
+  const itemW = Math.floor((w - 56 - gap * (cols - 1)) / cols);
+  const itemH = 154;
+  const h = Math.max(132 + rows * itemH + Math.max(0, rows - 1) * gap + 30, profile.targetHeight || 0);
+  let body = blockCard(x, y, w, h, block.title, headerNote);
+  items.forEach((item, index) => {
+    const col = index % cols;
+    const row = Math.floor(index / cols);
+    const ix = x + 28 + col * (itemW + gap);
+    const iy = y + 112 + row * (itemH + gap);
+    const copy = capabilityCopy(item);
+    const titleLines = splitText(copy.title, itemW - 74, 19, 2);
+    const noteLines = splitText(copy.note || item.note || "", itemW - 74, 15, 2);
+    body += `
+${rect(ix, iy, itemW, itemH, c.surface, c.border, 1.3, 12, ` data-v4-capability-item="${index}" data-capability-layout="peer-grid"`)}
+${rect(ix + 16, iy + 18, 40, 32, c.soft, c.accent, 1, 9)}
+${text(ix + 36, iy + 40, 14, c.accent, [String(index + 1).padStart(2, "0")], "800", 20, ' text-anchor="middle"')}
+${text(ix + 72, iy + 39, 19, c.ink, titleLines, "850", 25)}
+${noteLines.length ? text(ix + 72, iy + 92 + Math.max(0, titleLines.length - 1) * 22, 15, c.secondary, noteLines, "500", 21) : ""}`;
+  });
+  return { h, body };
+}
+
 function listGeometry(block, w, profile) {
   const items = (block.items || []).slice(0, 5);
   const withNotes = items.some((item) => item.note);
@@ -641,6 +723,7 @@ function blockRenderer(block, x, y, w, profile = profileExpressionBlock(block)) 
   if (block.type === "progress-bar" || block.type === "ranked-bar") return progressGroup(block, x, y, w, profile);
   if (block.type === "trend-sparkline") return trendSparkline(block, x, y, w, profile);
   if (block.type === "status-board") return statusBoard(block, x, y, w, profile);
+  if (block.type === "capability-map") return capabilityMap(block, x, y, w, profile);
   if (block.type === "risk-list") return riskCluster(block, x, y, w, profile);
   if (block.type === "action-list") return actionChecklist(block, x, y, w, profile);
   if (block.type === "evidence-list") return evidenceTiles(block, x, y, w, profile);
@@ -659,7 +742,7 @@ function blockTextDensity(block) {
 
 function shouldRenderWide(block) {
   const count = (block.items || []).length;
-  if (["mini-roadmap", "variance-bridge-v2", "narrative-chain"].includes(block.type)) return true;
+  if (["mini-roadmap", "variance-bridge-v2", "narrative-chain", "capability-map"].includes(block.type)) return true;
   if (block.type === "status-board" && (count >= 5 || blockTextDensity(block) > 130)) return true;
   if (["risk-list", "action-list", "evidence-list"].includes(block.type) && (count >= 4 || blockTextDensity(block) > 120)) return true;
   return false;
@@ -696,6 +779,7 @@ function markLayoutNode(node, body) {
   const profile = node.profile;
   const variants = {
     "status-board": "status-grid",
+    "capability-map": "capability-architecture",
     "risk-list": "risk-cluster",
     "evidence-list": "evidence-tiles",
     "action-list": "action-checklist",
@@ -738,7 +822,7 @@ function renderCanvas() {
   } else if (brief.expressionMode === "modular-canvas") {
     ordered = [...rest];
   } else {
-    const upperTypes = new Set(["progress-bar", "trend-sparkline", "status-board", "ranked-bar"]);
+    const upperTypes = new Set(["progress-bar", "trend-sparkline", "capability-map", "status-board", "ranked-bar"]);
     const upper = rest.filter((block) => upperTypes.has(block.type));
     const lower = rest.filter((block) => !upperTypes.has(block.type));
     ordered = [...upper, ...lower];

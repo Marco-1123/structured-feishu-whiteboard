@@ -3,7 +3,9 @@
 当前正式输出只有一条链路：
 
 ```text
-content inventory
+raw source snapshot
+  -> source extraction audit
+  -> content inventory
   -> semantic model
   -> expression candidates
   -> selected page skeleton
@@ -18,7 +20,7 @@ content inventory
 执行入口：
 
 ```bash
-node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <output-dir>
+node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>
 ```
 
 ## 职责边界
@@ -46,6 +48,7 @@ Agent 不得手写坐标、SVG 或 DSL，也不得从历史版本中另选一条
 正式结果必须同时存在：
 
 - `run-manifest.json`
+- `source-audit.json`
 - `semantic-model.json`
 - `expression-plans.json`
 - `decision.json`
@@ -93,6 +96,8 @@ data-page-skeleton="..."
 - 可加总的起点、增减项和终点：差异桥。
 - 三个以上明确顺序节点：链路或流程。
 - 四至六个无顺序并列能力：状态网格。
+- 产品能力同时包含三步以上明确链路与三项以上能力时：能力系统图，上层链路、下层能力支撑。
+- 只有并列能力时：能力矩阵，不画暗示顺序的连接线；超过一排自动换行，不截断。
 - 两个以上方案与两个以上维度：对比矩阵。
 - 风险必须有明确风险语义；普通信息不能使用风险色。
 - 绿色只表示明确成功或完成，不能作为普通装饰色。

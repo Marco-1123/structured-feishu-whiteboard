@@ -29,7 +29,7 @@ function fallbackComponent(fact) {
   if (["risk", "constraint"].includes(fact.type)) return "risk-list";
   if (["action", "unresolved"].includes(fact.type)) return "action-list";
   if (fact.type === "stage") return "mini-roadmap";
-  if (fact.type === "capability") return "status-board";
+  if (fact.type === "capability") return "capability-map";
   if (["cause", "process-chain"].includes(fact.type)) return "narrative-chain";
   if (fact.type === "option") return "decision-matrix";
   if (["conclusion", "result", "objective"].includes(fact.type)) return "statement";
@@ -72,7 +72,7 @@ function composeSupportRegions(regions, model) {
     const preferences = component === "action-list"
       ? ["mini-roadmap", "narrative-chain", "status-board"]
       : component === "evidence-list"
-        ? ["decision-matrix", "narrative-chain", "status-board"]
+        ? ["decision-matrix", "status-board"]
         : ["decision-matrix", "status-board"];
     return preferences.map((type) => independent.find((region) => region.preferredComponent === type)).find(Boolean);
   };
@@ -107,7 +107,7 @@ function recipe(model, narrativeType) {
     return { skeleton: swimlane ? "swimlane" : "timeline", layout: "flow-canvas", components: swimlane ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
   }
   if (scenario === "research-decision" && narrativeType === "comparison-driven") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "evidence-list", "decision-matrix", "risk-list"], groups: [group(["conclusion", "unresolved"], "statement"), group(["evidence"], "evidence-list"), group(["option"], "decision-matrix"), group(["risk"], "risk-list")] };
-  if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "metric-card", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["metric"], "metric-card"), group(["process-chain"], "narrative-chain"), group(["capability"], "status-board"), group(["evidence"], "evidence-list")] };
+  if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "metric-card", "capability-map", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["metric"], "metric-card"), group(["capability", "process-chain"], "capability-map"), group(["evidence"], "evidence-list")] };
   if (narrativeType === "temporal") return { skeleton: scenario === "review-update" ? "past-future-split" : "timeline", layout: "expression-canvas", components: ["statement", "metric-card", "mini-roadmap", "risk-list", "action-list"], groups: [group(["conclusion", "result", "metric"], "statement"), group(["stage"], "mini-roadmap"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
   if (narrativeType === "result-driven") return { skeleton: "overview-detail", layout: "expression-canvas", components: ["statement", "metric-card", "trend-sparkline", "narrative-chain", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["metric", "trend", "variance"], "metric-card"), group(["cause"], "narrative-chain"), group(["risk"], "risk-list"), group(["action"], "action-list")] };
   if (narrativeType === "comparison-driven") return { skeleton: "multi-line-comparison", layout: "expression-canvas", components: ["statement", "decision-matrix", "evidence-list", "risk-list"], groups: [group(["conclusion"], "statement"), group(["option"], "decision-matrix"), group(["evidence"], "evidence-list"), group(["risk"], "risk-list")] };
@@ -179,7 +179,10 @@ export function planExpressions(model, config = defaultConfig) {
       return { id: `region-${index + 1}`, purpose: group.types.join("-"), factIds, preferredComponent, visualPriority: index === 0 ? "primary" : "secondary", widthIntent: index === 0 ? "full" : "adaptive" };
     }).filter((region) => region.factIds.length);
     const covered = new Set(regions.flatMap((region) => region.factIds));
-    const uncoveredImportant = model.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !covered.has(fact.id));
+    // The inventory has already decided which facts belong in the onepage. Do
+    // not silently discard medium facts merely because the chosen narrative
+    // recipe did not name their semantic type.
+    const uncoveredImportant = model.facts.filter((fact) => fact.importance !== "low" && !covered.has(fact.id));
     const uncoveredGroups = new Map();
     for (const fact of uncoveredImportant) {
       const component = fallbackComponent(fact);

@@ -19,7 +19,7 @@ const fixtures = [
     id: "audit-assistant-capability",
     expectedSkeleton: "centered-system",
     minimumMetrics: 0,
-    requiredBlocks: ["status-board", "narrative-chain"],
+    requiredBlocks: ["capability-map"],
     forbiddenBlocks: ["evidence-list"],
     embeddedFactId: "e1",
     expectClosingBand: false,
@@ -28,7 +28,7 @@ const fixtures = [
     id: "audit-assistant-knowledge-overview",
     expectedSkeleton: "centered-system",
     minimumMetrics: 3,
-    requiredBlocks: ["status-board", "narrative-chain", "evidence-list", "action-list"],
+    requiredBlocks: ["capability-map", "evidence-list", "action-list"],
     maximumBodyRows: 2,
     expectClosingBand: false,
   },
@@ -37,7 +37,7 @@ const fixtures = [
 for (const fixture of fixtures) {
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), `v44-${fixture.id}-`));
   const inventoryPath = path.join(root, "examples/evals/v44-badcases", fixture.id, "inventory.json");
-  const manifest = await runWhiteboardV44({ root, inventoryPath, outputDir, skipWhiteboardCli: true });
+  const manifest = await runWhiteboardV44({ root, inventoryPath, outputDir, skipWhiteboardCli: true, allowFixtureSource: true });
   assert.equal(manifest.status, "rendered-unverified");
   const brief = JSON.parse(fs.readFileSync(path.join(outputDir, "brief.json"), "utf8"));
   const svg = fs.readFileSync(path.join(outputDir, "whiteboard.svg"), "utf8");
@@ -48,6 +48,13 @@ for (const fixture of fixtures) {
   for (const type of fixture.requiredBlocks) assert.ok(brief.expressionBlocks.some((block) => block.type === type), `${fixture.id} must render ${type}`);
   for (const type of fixture.forbiddenBlocks || []) assert.ok(!brief.expressionBlocks.some((block) => block.type === type), `${fixture.id} must embed a singleton ${type} instead of forcing an independent section`);
   if (fixture.embeddedFactId) assert.ok(brief.expressionBlocks.some((block) => (block.sourceFactIds || []).includes(fixture.embeddedFactId)), `${fixture.id} must keep embedded supporting facts visible`);
+  if (fixture.expectedSkeleton === "centered-system") {
+    const capability = brief.expressionBlocks.find((block) => block.type === "capability-map");
+    assert.ok(capability, `${fixture.id} must use the controlled capability architecture scene`);
+    const stageCount = (capability.items || []).filter((item) => item.role === "stage").length;
+    const capabilityCount = (capability.items || []).filter((item) => item.role === "capability").length;
+    if (stageCount >= 3 && capabilityCount >= 3) assert.match(svg, /data-capability-layout="journey-layered"/, `${fixture.id} must combine the usage journey and capability layer in one system map`);
+  }
   for (const block of brief.expressionBlocks || []) {
     for (const item of block.items || []) assert.notEqual(item.note, item.label, `${fixture.id} must not repeat the same sentence as label and note`);
     assert.ok(!String(block.note || "").endsWith("…"), `${fixture.id} must not use a clipped aggregate sentence as a decorative block note`);
@@ -64,7 +71,7 @@ for (const fixture of fixtures) {
   assert.ok(new Set(metricBlocks.map((block) => block.label)).size > 1 || metricBlocks.length < 2, `${fixture.id} must not label every metric as the same generic stage result`);
   if (fixture.expectClosingBand) assert.match(svg, /data-span="12"[^>]*data-item-layout="footer-band"/, `${fixture.id} must finish with a full-width closing band rather than a narrow floating card`);
   if (fixture.expectCompactSupportRow) {
-    for (const type of ["status-board", "risk-list", "action-list"]) assert.match(svg, new RegExp(`data-block-type="${type}"[^>]*data-row="0"[^>]*data-span="4"`), `${fixture.id} must compose three compact support modules into one balanced row`);
+    for (const type of ["evidence-list", "risk-list", "action-list"]) assert.match(svg, new RegExp(`data-block-type="${type}"[^>]*data-row="0"[^>]*data-span="4"`), `${fixture.id} must compose three compact support modules into one balanced row`);
   }
   assert.doesNotMatch(svg, /data-has-secondary="false"[^>]*data-label-layout="stacked"/, `${fixture.id} must vertically center a support item that has no secondary text`);
 }

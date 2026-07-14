@@ -30,8 +30,10 @@ assert.ok(!sparseComparison.candidates[0].regions.some((region) => region.prefer
 
 const product = planExpressions(model("product-capability", ["conclusion", "capability", "capability", "evidence", "stage"]));
 assert.equal(product.candidates[0].narrativeType, "hierarchical");
-assert.ok(product.candidates[0].componentMix.includes("status-board"));
-assert.ok(!product.candidates[0].componentMix.includes("evidence-list"), "a single supporting fact should be embedded into a compatible capability structure");
+assert.ok(product.candidates[0].componentMix.includes("capability-map"));
+assert.ok(product.candidates[0].componentMix.includes("evidence-list"), "supporting evidence must remain evidence instead of being relabeled as a capability or stage");
+const productCapabilityRegion = product.candidates[0].regions.find((region) => region.preferredComponent === "capability-map");
+assert.ok(productCapabilityRegion && !productCapabilityRegion.factIds.includes("evidence-4"), "evidence must not be inserted into the capability scene");
 
 const substantiveRisks = planExpressions(model("strategy-proposal", ["conclusion", "evidence", "risk", "risk", "action"]));
 assert.ok(substantiveRisks.candidates[0].componentMix.includes("risk-list"), "multiple material risks retain an independent risk region");

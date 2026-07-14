@@ -53,6 +53,11 @@
             "minLength": 1,
             "maxLength": 240
           },
+          "sourceQuote": {
+            "type": "string",
+            "minLength": 4,
+            "maxLength": 320
+          },
           "relation": {
             "type": "string",
             "enum": ["cause", "effect", "sequence", "dependency", "parallel", "contrast", "part-of", "supports", "owns"]

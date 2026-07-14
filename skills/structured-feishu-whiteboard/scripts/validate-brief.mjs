@@ -57,6 +57,7 @@ const supportedExpressionBlockTypes = new Set([
   "mini-roadmap",
   "comparison-summary",
   "status-board",
+  "capability-map",
   "trend-sparkline",
   "decision-matrix",
   "variance-bridge-v2",
@@ -422,17 +423,24 @@ function validateExpressionCanvas(brief) {
 
     if (block.items !== undefined) {
       if (!Array.isArray(block.items)) fail(`expressionBlocks[${index}].items must be an array`);
-      if (block.items.length > 5) fail(`expressionBlocks[${index}].items must contain at most 5 items`);
+      const maximumItems = block.type === "capability-map" ? 12 : 5;
+      if (block.items.length > maximumItems) fail(`expressionBlocks[${index}].items must contain at most ${maximumItems} items`);
       block.items.forEach((item, itemIndex) => {
         assertString(item.label, `expressionBlocks[${index}].items[${itemIndex}].label`, limits.expressionItemLabel, true);
         assertString(item.value, `expressionBlocks[${index}].items[${itemIndex}].value`, limits.expressionValue);
         assertString(item.note, `expressionBlocks[${index}].items[${itemIndex}].note`, limits.expressionItemNote);
         if (item.status !== undefined && !["good", "neutral", "risk"].includes(item.status)) fail(`expressionBlocks[${index}].items[${itemIndex}].status is unsupported`);
+        if (item.role !== undefined && !["capability", "stage", "support"].includes(item.role)) fail(`expressionBlocks[${index}].items[${itemIndex}].role is unsupported`);
+        assertString(item.sourceFactId, `expressionBlocks[${index}].items[${itemIndex}].sourceFactId`, 80);
       });
+      if (block.type === "capability-map") {
+        const stageCount = block.items.filter((item) => item.role === "stage").length;
+        if (stageCount > 6) fail(`expressionBlocks[${index}].capability-map supports at most 6 ordered stages; split additional stages into another semantic region`);
+      }
     }
 
     if (block.type === "metric-card" && !block.value) fail(`expressionBlocks[${index}].metric-card requires value`);
-    if (["progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2"].includes(block.type)) {
+    if (["progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary", "status-board", "capability-map", "trend-sparkline", "decision-matrix", "variance-bridge-v2"].includes(block.type)) {
       const v44SingleItemTypes = new Set(["risk-list", "action-list", "evidence-list", "status-board"]);
       const minimum = brief.pipelineVersion === "4.4" && v44SingleItemTypes.has(block.type) ? 1 : 2;
       if (!block.items || block.items.length < minimum) fail(`expressionBlocks[${index}].${block.type} requires at least ${minimum} item${minimum > 1 ? "s" : ""}`);

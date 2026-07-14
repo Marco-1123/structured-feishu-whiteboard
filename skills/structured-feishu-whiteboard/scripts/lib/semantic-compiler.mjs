@@ -91,6 +91,7 @@ export function compileSemanticModel({ inventory, hints = {}, config = defaultCo
       text: fact.text,
       importance: fact.importance,
       sourceRef: fact.id,
+      ...(fact.sourceQuote ? { sourceQuote: fact.sourceQuote } : {}),
       confidence: fact.value === "TBD" ? "draft" : "supported",
       ...(fact.value !== undefined ? { value: fact.value } : {}),
       ...(fact.type === "process" && primary === "product-capability"

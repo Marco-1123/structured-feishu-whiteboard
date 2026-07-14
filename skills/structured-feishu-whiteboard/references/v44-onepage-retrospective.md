@@ -35,3 +35,15 @@ The July 2026 cross-Agent samples exposed a system failure rather than an isolat
 ## Release conclusion
 
 V4.4 Beta.2 corrects the layout system rather than patching the screenshots. The remaining validation work should focus on cross-Agent material quality and style preference, not reintroducing free-form SVG generation or unlimited vertical growth.
+
+## Beta.7: cross-Agent content truncation
+
+The cross-Agent failure was not primarily a renderer defect. A sparse inventory could pass because the old coverage check only compared the inventory with the brief; it never proved that the inventory represented the raw source. A second gap allowed medium facts and component items to disappear after planning while the block still claimed coverage.
+
+Beta.7 therefore adds three independent gates:
+
+1. Raw source to inventory: every fact needs a source quote that exists in the source snapshot, with minimum fact diversity and numeric recall.
+2. Inventory to semantic plan: critical, high, and medium facts cannot be silently deferred.
+3. Brief to visible component: every item-based block must carry an explicit source fact ID for every fact it claims to render.
+
+For product and capability material, Beta.7 also introduces a controlled scene grammar inspired by the native Lark whiteboard workflow. Ordered usage stages and parallel capabilities are rendered as one layered system map. Evidence remains evidence, parallel capabilities have no false connectors, and no compatibility rule may invent a process step merely to complete a template.

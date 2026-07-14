@@ -566,7 +566,7 @@
         "properties": {
           "type": {
             "type": "string",
-            "enum": ["statement", "metric-card", "progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2"]
+            "enum": ["statement", "metric-card", "progress-bar", "ranked-bar", "risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "comparison-summary", "status-board", "capability-map", "trend-sparkline", "decision-matrix", "variance-bridge-v2"]
           },
           "title": {
             "type": "string",
@@ -600,7 +600,7 @@
           },
           "items": {
             "type": "array",
-            "maxItems": 5,
+            "maxItems": 12,
             "items": {
               "type": "object",
               "additionalProperties": false,
@@ -622,6 +622,14 @@
                 "status": {
                   "type": "string",
                   "enum": ["good", "neutral", "risk"]
+                },
+                "role": {
+                  "type": "string",
+                  "enum": ["capability", "stage", "support"]
+                },
+                "sourceFactId": {
+                  "type": "string",
+                  "minLength": 1
                 }
               }
             }

@@ -15,7 +15,7 @@ description: >
 生成正式画板时必须执行：
 
 ```bash
-node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <output-dir>
+node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>
 ```
 
 禁止：
@@ -31,8 +31,9 @@ node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <outpu
 ## 固定流程
 
 1. 获取用户材料。飞书文档、网页和本地文件由对应工具读取。
-2. 先读取 `references/inventory-extraction-contract.md`，再按 `schemas/content-inventory.schema.json` 生成事实清单。清单必须包含可追溯的 `sourceRef`；每条事实必须有 ID、类型、重要度和原始语义。
+2. 将完整原材料保存为不可删减的 source snapshot。先读取 `references/inventory-extraction-contract.md`，再按 `schemas/content-inventory.schema.json` 生成事实清单。清单必须包含可追溯的 `sourceRef`；每条正式事实必须有 ID、类型、重要度、原始语义和可在 source snapshot 中定位的 `sourceQuote`。
 3. 运行唯一生产入口。脚本会依次生成：
+   - `source-audit.json`
    - `semantic-model.json`
    - `expression-plans.json`
    - `decision.json`
@@ -53,6 +54,7 @@ node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <outpu
 - 指标必须保留业务含义、数值和单位；禁止标题删掉数字后留下残句。
 - 相同事实不得在标题、正文和标签中机械重复。
 - 长文通过构图和组件组合扩容，不通过无限向下拉长画布或缩小字号解决。
+- 原文覆盖与画面覆盖是两道独立门槛：事实清单过薄时直接失败，不能用“已画出清单中的全部事实”冒充原文完整。
 
 ## 场景语义
 
@@ -76,6 +78,7 @@ Agent 不选择坐标，只提交事实。语义规划器根据证据选择：
 - 进度或排名条
 - 趋势图
 - 状态板
+- 能力系统图（能力矩阵或“使用链路 + 能力支撑”复合场景）
 - 路线或链路
 - 证据块
 - 风险块
@@ -102,6 +105,7 @@ Agent 不选择坐标，只提交事实。语义规划器根据证据选择：
 - `references/inventory-extraction-contract.md`
 - `references/semantic-routing-v44.md`
 - `references/expression-grammar.md`
+- `references/scene-grammar.md`
 - `references/style-library.md`
 - `references/quality-checklist.md`
 
@@ -109,7 +113,7 @@ Agent 不选择坐标，只提交事实。语义规划器根据证据选择：
 
 正式交付必须同时满足：
 
-- 关键和高重要度事实已覆盖或明确记录省略原因。
+- 关键、高重要度和中重要度事实均有可见载体；不能以“延后到详情”静默省略。
 - SVG 包含 `data-layout-engine="v4"`、`data-pipeline-version="4.4"` 和 `data-page-skeleton`。
 - 文本无出框、压线、重叠、裁切和孤立标点。
 - 页面比例、主体层数、底部平衡和颜色语义通过自动检查。

@@ -17,7 +17,7 @@ const cases = buildBenchmarkCases(catalog, outputRoot);
 const results = [];
 for (const testCase of cases) {
   try {
-    const manifest = await runWhiteboardV44({ root, inventoryPath: path.join(testCase.caseDir, "inventory.json"), outputDir: testCase.caseDir, skipWhiteboardCli: args.includes("--skip-whiteboard-cli") });
+    const manifest = await runWhiteboardV44({ root, inventoryPath: path.join(testCase.caseDir, "inventory.json"), outputDir: testCase.caseDir, skipWhiteboardCli: args.includes("--skip-whiteboard-cli"), allowFixtureSource: true });
     results.push({ caseId: testCase.caseId, status: "passed", pipeline: manifest.pipeline });
     console.log(`ok: ${testCase.caseId}`);
   } catch (error) {

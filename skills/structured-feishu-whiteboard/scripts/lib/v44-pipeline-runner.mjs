@@ -5,18 +5,26 @@ import { compileSemanticModel } from "./semantic-compiler.mjs";
 import { planExpressions } from "./expression-planner.mjs";
 import { compileV44Brief } from "./v44-brief-compiler.mjs";
 import { currentCommit, hashFile } from "./run-manifest.mjs";
+import { auditSourceExtraction } from "./source-audit.mjs";
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
 function run(command, args, cwd) { const result = spawnSync(command, args, { cwd, encoding: "utf8" }); if (result.status !== 0) throw new Error((result.stderr || result.stdout || "command failed").trim()); return (result.stdout || "").trim(); }
 
-export async function runWhiteboardV44({ root, inventoryPath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false }) {
+export async function runWhiteboardV44({ root, inventoryPath, sourcePath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false, allowFixtureSource = false }) {
   fs.mkdirSync(outputDir, { recursive: true });
   const inventory = readJson(inventoryPath);
   if (!String(inventory.sourceRef || "").trim()) {
     throw new Error("V4.4 production inventory requires sourceRef so cross-Agent output remains auditable");
   }
   const version = fs.readFileSync(path.join(root, "VERSION"), "utf8").trim();
+  if (!sourcePath && !allowFixtureSource) {
+    throw new Error("V4.4 production run requires --source <raw-source.md>; inventory coverage alone cannot prove source extraction completeness");
+  }
+  if (allowFixtureSource && !String(inventory.sourceRef || "").startsWith("fixture:")) {
+    throw new Error("allowFixtureSource is test-only and requires a registered fixture: sourceRef");
+  }
+  if (sourcePath && !fs.existsSync(sourcePath)) throw new Error(`source snapshot not found: ${sourcePath}`);
   const rendererPath = path.join(root, "scripts/render-whiteboard-v4.mjs");
   const manifest = {
     schemaVersion: 2,
@@ -26,8 +34,8 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     status: "running",
     startedAt: new Date().toISOString(),
     runtime: { node: process.version, whiteboardCli: "0.2.12" },
-    inputs: { inventoryPath: path.resolve(inventoryPath), style, hints },
-    hashes: { inventory: hashFile(inventoryPath), renderer: hashFile(rendererPath) },
+    inputs: { inventoryPath: path.resolve(inventoryPath), ...(sourcePath ? { sourcePath: path.resolve(sourcePath) } : {}), style, hints },
+    hashes: { inventory: hashFile(inventoryPath), ...(sourcePath ? { source: hashFile(sourcePath) } : {}), renderer: hashFile(rendererPath) },
     checks: [],
     outputs: {},
   };
@@ -35,6 +43,20 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
   try {
     run(process.execPath, [path.join(root, "scripts/validate-content-inventory.mjs"), inventoryPath], root);
     manifest.checks.push({ name: "inventory-validation", status: "passed" });
+    if (sourcePath) {
+      const sourceAudit = auditSourceExtraction({ sourceText: fs.readFileSync(sourcePath, "utf8"), inventory });
+      const sourceAuditPath = path.join(outputDir, "source-audit.json");
+      writeJson(sourceAuditPath, sourceAudit);
+      manifest.outputs.sourceAudit = sourceAuditPath;
+      manifest.sourceCoverage = sourceAudit;
+      if (!sourceAudit.ok) throw new Error(`V4.4 source extraction coverage failed: ${sourceAudit.issues.join("; ")}`);
+      manifest.checks.push({ name: "source-extraction-coverage", status: "passed" });
+      manifest.hashes.sourceAudit = hashFile(sourceAuditPath);
+    } else if (allowFixtureSource) {
+      manifest.checks.push({ name: "source-extraction-coverage", status: "fixture-skipped" });
+    } else {
+      throw new Error("source extraction coverage cannot be skipped in production");
+    }
     const semanticModel = compileSemanticModel({ inventory, hints });
     const semanticPath = path.join(outputDir, "semantic-model.json"); writeJson(semanticPath, semanticModel);
     run(process.execPath, [path.join(root, "scripts/validate-semantic-model.mjs"), semanticPath], root);
@@ -49,7 +71,25 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     const selected = new Set(brief.planning.selectedFactIds || []);
     const missingImportant = semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance) && !selected.has(fact.id));
     if (missingImportant.length) throw new Error(`V4.4 critical coverage failed: ${missingImportant.map((fact) => fact.id).join(", ")}`);
-    manifest.coverage = { importantFacts: semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance)).length, missingImportantFacts: [] };
+    const silentlyDeferred = semanticModel.facts.filter((fact) => fact.importance === "medium" && !selected.has(fact.id));
+    if (silentlyDeferred.length) throw new Error(`V4.4 semantic completeness failed: medium facts were silently deferred: ${silentlyDeferred.map((fact) => fact.id).join(", ")}`);
+    const itemCarrierIssues = [];
+    for (const block of brief.expressionBlocks || []) {
+      if (!block.items?.length) continue;
+      const itemFactIds = new Set(block.items.map((entry) => entry.sourceFactId).filter(Boolean));
+      for (const factId of block.sourceFactIds || []) {
+        if (!itemFactIds.has(factId)) itemCarrierIssues.push(`${block.type}:${factId}`);
+      }
+    }
+    if (itemCarrierIssues.length) throw new Error(`V4.4 visible carrier check failed: ${itemCarrierIssues.join(", ")}`);
+    manifest.coverage = {
+      importantFacts: semanticModel.facts.filter((fact) => ["critical", "high"].includes(fact.importance)).length,
+      mediumFacts: semanticModel.facts.filter((fact) => fact.importance === "medium").length,
+      selectedFacts: selected.size,
+      missingImportantFacts: [],
+      silentlyDeferredFacts: [],
+      visibleCarrierIssues: [],
+    };
     manifest.decision = { scenario: semanticModel.scenario, confidence: decision.decision, selectedPlanId: decision.selectedPlanId };
     const briefPath = path.join(outputDir, "brief.json"); writeJson(briefPath, brief);
     run(process.execPath, [path.join(root, "scripts/validate-brief.mjs"), briefPath], root);

@@ -7,12 +7,14 @@
       "id": "c1",
       "type": "conclusion",
       "text": "把审核队列的数据分析、异常发现、配置查询和业务问答统一到对话入口。",
+      "sourceQuote": "把审核队列的数据分析、异常发现、配置查询和业务问答统一到对话入口",
       "importance": "critical"
     },
     {
       "id": "m1",
       "type": "metric",
       "text": "已稳定覆盖 5 个核心能力。",
+      "sourceQuote": "当前已稳定覆盖 5 个核心能力",
       "value": "5个",
       "importance": "high"
     },
@@ -20,6 +22,7 @@
       "id": "m2",
       "type": "metric",
       "text": "每日节省 3-4 小时人工分析时间。",
+      "sourceQuote": "每日节省 3-4 小时人工分析时间",
       "value": "3-4h",
       "importance": "high"
     },
@@ -27,6 +30,7 @@
       "id": "m3",
       "type": "metric",
       "text": "关键问题平均响应时间低于 30 秒。",
+      "sourceQuote": "关键问题平均响应时间低于 30 秒",
       "value": "<30s",
       "importance": "high"
     },
@@ -34,72 +38,84 @@
       "id": "h1",
       "type": "hierarchy",
       "text": "量级异常分析支持快速归因。",
+      "sourceQuote": "量级异常分析支持快速归因",
       "importance": "high"
     },
     {
       "id": "h2",
       "type": "hierarchy",
       "text": "延时分析支持分钟级定位。",
+      "sourceQuote": "延时分析支持分钟级定位",
       "importance": "high"
     },
     {
       "id": "h3",
       "type": "hierarchy",
       "text": "RR 调整分析支持空间回溯。",
+      "sourceQuote": "RR 调整分析支持空间回溯",
       "importance": "medium"
     },
     {
       "id": "h4",
       "type": "hierarchy",
       "text": "任务池查询支持链路回溯。",
+      "sourceQuote": "任务池查询支持链路回溯",
       "importance": "medium"
     },
     {
       "id": "h5",
       "type": "hierarchy",
       "text": "知识库问答支持持续补齐。",
+      "sourceQuote": "知识库问答支持持续补齐",
       "importance": "medium"
     },
     {
       "id": "e1",
       "type": "evidence",
       "text": "代码与配置规则已沉淀为稳定执行约束。",
+      "sourceQuote": "代码与配置规则已沉淀为稳定执行约束",
       "importance": "high"
     },
     {
       "id": "e2",
       "type": "evidence",
       "text": "Skill 与 Wiki 分层承载执行规则和长期知识。",
+      "sourceQuote": "Skill 与 Wiki 分层承载执行规则和长期知识",
       "importance": "high"
     },
     {
       "id": "e3",
       "type": "evidence",
       "text": "真实文档与业务问答样本用于持续回归。",
+      "sourceQuote": "真实文档与业务问答样本用于持续回归",
       "importance": "medium"
     },
     {
       "id": "a1",
       "type": "action",
       "text": "统一关键指标口径。",
+      "sourceQuote": "统一关键指标口径",
       "importance": "high"
     },
     {
       "id": "a2",
       "type": "action",
       "text": "固定双周复盘节奏。",
+      "sourceQuote": "固定双周复盘节奏",
       "importance": "high"
     },
     {
       "id": "a3",
       "type": "action",
       "text": "将高频能力沉淀为复用模块。",
+      "sourceQuote": "将高频能力沉淀为复用模块",
       "importance": "medium"
     },
     {
       "id": "p1",
       "type": "process",
       "text": "任务触发",
+      "sourceQuote": "任务触发",
       "order": 1,
       "importance": "medium"
     },
@@ -107,6 +123,7 @@
       "id": "p2",
       "type": "process",
       "text": "检索定位",
+      "sourceQuote": "检索定位",
       "order": 2,
       "importance": "medium"
     },
@@ -114,6 +131,7 @@
       "id": "p3",
       "type": "process",
       "text": "智能总结",
+      "sourceQuote": "智能总结",
       "order": 3,
       "importance": "medium"
     },
@@ -121,6 +139,7 @@
       "id": "p4",
       "type": "process",
       "text": "规则复用",
+      "sourceQuote": "规则复用",
       "order": 4,
       "importance": "medium"
     }

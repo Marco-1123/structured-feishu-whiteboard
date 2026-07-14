@@ -42,6 +42,19 @@ export function profileExpressionBlock(block = {}) {
     return { ...base, span: 12, minSpan: 8, preferredSpan: 12, maxSpan: 12, density: "dense", reason: "tabular-comparison" };
   }
 
+  if (block.type === "capability-map") {
+    return {
+      ...base,
+      span: 12,
+      minSpan: 12,
+      preferredSpan: 12,
+      maxSpan: 12,
+      density: demand.textUnits > 260 ? "dense" : "medium",
+      itemLayout: "architecture-strip",
+      reason: "capability-architecture-anchor",
+    };
+  }
+
   if (LIST_TYPES.has(block.type)) {
     const sparse = demand.maxItemUnits <= 18 && demand.textUnits <= 100;
     const dense = demand.maxItemUnits > 42 || demand.textUnits > 240 || (demand.itemCount >= 5 && demand.maxItemUnits > 36);
@@ -93,7 +106,7 @@ function spanWidth(totalWidth, span, gap) {
 
 const SKELETON_PRIORITY = {
   "overview-detail": ["progress-bar", "trend-sparkline", "ranked-bar", "status-board", "variance-bridge-v2", "evidence-list", "risk-list", "action-list", "narrative-chain", "mini-roadmap", "decision-matrix"],
-  "centered-system": ["status-board", "narrative-chain", "progress-bar", "evidence-list", "risk-list", "action-list", "mini-roadmap", "decision-matrix"],
+  "centered-system": ["capability-map", "narrative-chain", "status-board", "progress-bar", "evidence-list", "risk-list", "action-list", "mini-roadmap", "decision-matrix"],
   "past-future-split": ["evidence-list", "risk-list", "mini-roadmap", "action-list", "status-board", "narrative-chain"],
   "left-right-argument": ["narrative-chain", "evidence-list", "risk-list", "action-list", "decision-matrix", "status-board"],
   "multi-line-comparison": ["decision-matrix", "evidence-list", "risk-list", "action-list", "status-board"],
@@ -102,6 +115,9 @@ const SKELETON_PRIORITY = {
 
 function skeletonProfile(block, pageSkeleton, profile) {
   const intent = profile(block);
+  if (pageSkeleton === "centered-system" && block.type === "capability-map") {
+    return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "architecture-strip", reason: "centered-system-capability-anchor" };
+  }
   if (pageSkeleton === "centered-system" && ["status-board", "narrative-chain"].includes(block.type)) {
     return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout: block.type === "status-board" ? "grid-2" : "vertical-chain", reason: `centered-system-${block.type === "status-board" ? "capability" : "path"}-column` };
   }

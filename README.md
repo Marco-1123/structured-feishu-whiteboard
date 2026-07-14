@@ -12,22 +12,22 @@
 - 使用统一 12 列网格和 OnePage 空间预算，阻止无限纵向拉长。
 - 生成可编辑飞书画板、预览图和可回放运行记录。
 
-## 安装 V4.4 beta.6
+## 安装 V4.4 beta.7
 
 ```bash
-npx skills add 'Marco-1123/structured-feishu-whiteboard#v4.4.0-beta.6@structured-feishu-whiteboard' --skill structured-feishu-whiteboard -g -y --copy
+npx skills add 'Marco-1123/structured-feishu-whiteboard#v4.4.0-beta.7@structured-feishu-whiteboard' --skill structured-feishu-whiteboard -g -y --copy
 ```
 
 ## 更新
 
-再次执行同一条安装命令即可覆盖为 beta.6。固定版本标签可以避免不同 Agent 在同一分支上安装到不同提交。
+再次执行同一条安装命令即可覆盖为 beta.7。固定版本标签可以避免不同 Agent 在同一分支上安装到不同提交。
 
-beta.6 将完整 Skill 放在标准目录 `skills/structured-feishu-whiteboard/`。安装器会同时复制执行脚本、schema、配置和参考规则，不再只安装一份方法说明。
+beta.7 增加原文到事实清单的覆盖审计，并引入受控的飞书场景语法。跨 Agent 如果过度删减原文、缺少来源引用或在组件内静默丢失事实，生产链路会直接失败，不再生成一张看似通过但内容被阉割的画板。
 
 ## 唯一生产入口
 
 ```bash
-node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <output-dir>
+node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>
 ```
 
 正式结果必须具有：

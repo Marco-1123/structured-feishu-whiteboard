@@ -6,7 +6,7 @@ const omissionReasons = new Set(["duplicate", "low-value-context", "deferred-to-
 const idPattern = /^[A-Za-z][A-Za-z0-9._-]*$/;
 const inventoryIdPattern = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
 const inventoryKeys = new Set(["inventoryId", "title", "sourceType", "sourceRef", "facts"]);
-const factKeys = new Set(["id", "type", "importance", "text", "relation", "relatedFactIds", "lane", "order", "value"]);
+const factKeys = new Set(["id", "type", "importance", "text", "sourceQuote", "relation", "relatedFactIds", "lane", "order", "value"]);
 
 function unexpectedKeys(value, allowed, prefix) {
   return Object.keys(value || {})
@@ -40,6 +40,7 @@ export function validateInventory(inventory) {
     if (!factTypes.has(fact?.type)) issues.push(`${prefix}.type is unsupported`);
     if (!importanceLevels.has(fact?.importance)) issues.push(`${prefix}.importance is unsupported`);
     if (!fact?.text || typeof fact.text !== "string" || fact.text.length > 240) issues.push(`${prefix}.text must contain 1-240 characters`);
+    if (fact?.sourceQuote !== undefined && (typeof fact.sourceQuote !== "string" || fact.sourceQuote.length < 4 || fact.sourceQuote.length > 320)) issues.push(`${prefix}.sourceQuote must contain 4-320 characters`);
     if (fact?.relation !== undefined && !relations.has(fact.relation)) issues.push(`${prefix}.relation is unsupported`);
     if (fact?.relatedFactIds !== undefined && !Array.isArray(fact.relatedFactIds)) issues.push(`${prefix}.relatedFactIds must be an array`);
     if (Array.isArray(fact?.relatedFactIds)) {

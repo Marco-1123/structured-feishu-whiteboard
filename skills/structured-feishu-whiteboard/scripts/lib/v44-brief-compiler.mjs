@@ -64,6 +64,7 @@ function item(fact, component) {
   const parts = splitFactText(fact.text);
   return {
     label: clip(parts.label, 40),
+    sourceFactId: fact.id,
     ...(fact.value !== undefined ? { value: clip(fact.value, 12) } : {}),
     ...(parts.note && parts.note !== parts.label ? { note: clip(parts.note, 72) } : {}),
     // Informational facts use the primary accent. Success color is reserved for
@@ -153,6 +154,7 @@ function semanticSubtitle(scenario, narrativeType, blocks) {
   if ([...types].some((type) => ["mini-roadmap", "narrative-chain"].includes(type))) roles.push("路径与机制");
   if (types.has("decision-matrix")) roles.push("比较与选择");
   if (types.has("status-board")) roles.push("重点信息");
+  if (types.has("capability-map")) roles.push("能力架构");
   if (types.has("evidence-list")) roles.push("关键依据");
   if (types.has("risk-list")) roles.push("风险边界");
   if (types.has("action-list")) roles.push("后续行动");
@@ -192,10 +194,13 @@ function expressionBlock(region, facts) {
   if (type === "metric-card") {
     return regionFacts.map((fact) => ({ type, title: metricTitle(fact), value: metricValue(fact), label: metricLabel(fact), status: "neutral", sourceFactIds: [fact.id] }));
   }
-  const supported = new Set(["risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "status-board", "trend-sparkline", "decision-matrix", "variance-bridge-v2", "progress-bar", "ranked-bar"]);
+  const supported = new Set(["risk-list", "action-list", "evidence-list", "narrative-chain", "mini-roadmap", "status-board", "capability-map", "trend-sparkline", "decision-matrix", "variance-bridge-v2", "progress-bar", "ranked-bar"]);
   const safeType = supported.has(type) ? type : "evidence-list";
-  const renderedFacts = regionFacts.slice(0, 5);
-  const items = renderedFacts.map((fact) => item(fact, safeType));
+  const renderedFacts = regionFacts.slice(0, safeType === "capability-map" ? 12 : 5);
+  const items = renderedFacts.map((fact) => ({
+    ...item(fact, safeType),
+    ...(safeType === "capability-map" ? { role: fact.visualType === "process-chain" || fact.type === "stage" ? "stage" : "capability" } : {}),
+  }));
   const usableType = safeType === "decision-matrix" && items.filter((entry) => entry.note || entry.value).length < 2
     ? "evidence-list"
     : safeType;
@@ -211,7 +216,7 @@ function ensureExpressionRequirements(blocks, model, narrativeType) {
     ids.forEach((id) => seenFacts.add(id));
     return block === statement || unique;
   });
-  const signalTypes = new Set(["metric-card", "progress-bar", "ranked-bar", "evidence-list", "status-board", "trend-sparkline", "variance-bridge-v2"]);
+  const signalTypes = new Set(["metric-card", "progress-bar", "ranked-bar", "evidence-list", "status-board", "capability-map", "trend-sparkline", "variance-bridge-v2"]);
   if (!out.some((block) => signalTypes.has(block.type))) {
     const signalFacts = model.facts.filter((fact) => ["stage", "capability", "option", "metric"].includes(fact.type) && !seenFacts.has(fact.id)).slice(0, 4);
     if (signalFacts.length) {
@@ -219,7 +224,9 @@ function ensureExpressionRequirements(blocks, model, narrativeType) {
       out.push({ type: "status-board", title: "结构化信息", items, sourceFactIds: signalFacts.map((fact) => fact.id) });
     }
   }
-  if (["causal", "temporal", "hierarchical"].includes(narrativeType) && !out.some((block) => block.type === "narrative-chain" || block.type === "mini-roadmap")) {
+  const hasOrderedScene = out.some((block) => block.type === "narrative-chain" || block.type === "mini-roadmap" || (block.type === "capability-map" && block.items?.some((entry) => entry.role === "stage")));
+  const hasActionClosure = out.some((block) => block.type === "action-list");
+  if (["causal", "temporal", "hierarchical"].includes(narrativeType) && !hasOrderedScene && !hasActionClosure) {
     const chainFacts = model.facts.filter((fact) => ["conclusion", "stage", "action", "cause"].includes(fact.type)).slice(0, 4);
     if (chainFacts.length >= 2) out.push({ type: "narrative-chain", title: "判断链路", items: chainFacts.map((fact) => item(fact, "narrative-chain")), sourceFactIds: chainFacts.map((fact) => fact.id) });
   }
