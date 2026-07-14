@@ -31,7 +31,7 @@ node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <outpu
 ## 固定流程
 
 1. 获取用户材料。飞书文档、网页和本地文件由对应工具读取。
-2. 按 `schemas/content-inventory.schema.json` 生成事实清单。每条事实必须有 ID、类型、重要度和原始语义。
+2. 先读取 `references/inventory-extraction-contract.md`，再按 `schemas/content-inventory.schema.json` 生成事实清单。清单必须包含可追溯的 `sourceRef`；每条事实必须有 ID、类型、重要度和原始语义。
 3. 运行唯一生产入口。脚本会依次生成：
    - `semantic-model.json`
    - `expression-plans.json`
@@ -42,6 +42,8 @@ node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <outpu
    - `run-manifest.json`
 4. 只有 manifest 的 `pipeline` 为 `v4.4` 且 `status` 为 `passed`，才可以写入飞书并交付。
 5. 新建飞书文档，插入可编辑画板，返回文档链接和预览图。
+
+仓库中的现成 inventory 只用于回归测试。处理真实材料时，不能跳过原始材料到事实清单的提取与校验步骤。
 
 ## 内容原则
 
@@ -97,6 +99,7 @@ Agent 不选择坐标，只提交事实。语义规划器根据证据选择：
 详细规则见：
 
 - `references/deterministic-rendering.md`
+- `references/inventory-extraction-contract.md`
 - `references/semantic-routing-v44.md`
 - `references/expression-grammar.md`
 - `references/style-library.md`

@@ -6,6 +6,7 @@ export function buildBenchmarkInventory(testCase) {
     inventoryId: testCase.id,
     title: testCase.title,
     sourceType: String(testCase.sourceType || "").startsWith("mixed") ? "mixed" : "report",
+    sourceRef: testCase.source?.url || `benchmark:${testCase.id}`,
     facts: testCase.facts.map((fact) => ({ ...fact })),
   };
 }

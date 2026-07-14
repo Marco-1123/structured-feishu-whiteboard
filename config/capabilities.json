@@ -1,13 +1,18 @@
 {
-  "version": "4.4.0-beta.4",
+  "version": "4.4.0-beta.5",
   "channels": {
-    "stable": {
-      "branch": "main",
-      "version": "3.2.0"
-    },
-    "next": {
+    "production": {
       "branch": "codex/v4.4-semantic-compiler",
-      "version": "4.4.0-beta.4"
+      "tag": "v4.4.0-beta.5",
+      "version": "4.4.0-beta.5",
+      "entrypoint": "scripts/run-whiteboard-v44.mjs",
+      "engine": "v4",
+      "renderTarget": "svg"
+    },
+    "legacy": {
+      "branch": "main",
+      "version": "3.2.0",
+      "production": false
     }
   },
   "styles": [
@@ -49,7 +54,8 @@
       "engine": "v3",
       "renderTarget": "svg",
       "renderer": "scripts/render-whiteboard.mjs",
-      "experimental": false,
+      "experimental": true,
+      "legacy": true,
       "layouts": [
         "conclusion-first",
         "problem-breakdown",
@@ -81,7 +87,8 @@
       "engine": "v3",
       "renderTarget": "dsl",
       "renderer": "scripts/render-whiteboard-dsl.mjs",
-      "experimental": false,
+      "experimental": true,
+      "legacy": true,
       "layouts": [
         "milestone-timeline",
         "funnel",
@@ -107,7 +114,8 @@
       "engine": "v4",
       "renderTarget": "svg",
       "renderer": "scripts/render-whiteboard-v4.mjs",
-      "experimental": true,
+      "experimental": false,
+      "production": true,
       "layouts": [
         "expression-canvas",
         "flow-canvas"

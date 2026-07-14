@@ -33,5 +33,6 @@
       "text": "预算和人力必须控制在现有范围",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:strategy-1"
 }

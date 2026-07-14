@@ -39,5 +39,6 @@
       "text": "补充两周压力测试",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:research-1"
 }

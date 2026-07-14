@@ -4,15 +4,33 @@ import { spawnSync } from "node:child_process";
 import { compileSemanticModel } from "./semantic-compiler.mjs";
 import { planExpressions } from "./expression-planner.mjs";
 import { compileV44Brief } from "./v44-brief-compiler.mjs";
+import { currentCommit, hashFile } from "./run-manifest.mjs";
 
 const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
 const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
-function run(command, args, cwd) { const result = spawnSync(command, args, { cwd, encoding: "utf8" }); if (result.status !== 0) throw new Error((result.stderr || result.stdout || "command failed").trim()); }
+function run(command, args, cwd) { const result = spawnSync(command, args, { cwd, encoding: "utf8" }); if (result.status !== 0) throw new Error((result.stderr || result.stdout || "command failed").trim()); return (result.stdout || "").trim(); }
 
 export async function runWhiteboardV44({ root, inventoryPath, outputDir, style = "linear-system", hints = {}, skipWhiteboardCli = false }) {
   fs.mkdirSync(outputDir, { recursive: true });
   const inventory = readJson(inventoryPath);
-  const manifest = { pipeline: "v4.4", status: "running", startedAt: new Date().toISOString(), inputs: { inventoryPath }, checks: [], outputs: {} };
+  if (!String(inventory.sourceRef || "").trim()) {
+    throw new Error("V4.4 production inventory requires sourceRef so cross-Agent output remains auditable");
+  }
+  const version = fs.readFileSync(path.join(root, "VERSION"), "utf8").trim();
+  const rendererPath = path.join(root, "scripts/render-whiteboard-v4.mjs");
+  const manifest = {
+    schemaVersion: 2,
+    pipeline: "v4.4",
+    version,
+    gitCommit: currentCommit(root),
+    status: "running",
+    startedAt: new Date().toISOString(),
+    runtime: { node: process.version, whiteboardCli: "0.2.12" },
+    inputs: { inventoryPath: path.resolve(inventoryPath), style, hints },
+    hashes: { inventory: hashFile(inventoryPath), renderer: hashFile(rendererPath) },
+    checks: [],
+    outputs: {},
+  };
   const manifestPath = path.join(outputDir, "run-manifest.json"); writeJson(manifestPath, manifest);
   try {
     run(process.execPath, [path.join(root, "scripts/validate-content-inventory.mjs"), inventoryPath], root);
@@ -36,14 +54,27 @@ export async function runWhiteboardV44({ root, inventoryPath, outputDir, style =
     const briefPath = path.join(outputDir, "brief.json"); writeJson(briefPath, brief);
     run(process.execPath, [path.join(root, "scripts/validate-brief.mjs"), briefPath], root);
     const outputPath = path.join(outputDir, "whiteboard.svg");
-    run(process.execPath, [path.join(root, "scripts/render-whiteboard-v4.mjs"), "--input", briefPath, "--output", outputPath], root);
+    run(process.execPath, [rendererPath, "--input", briefPath, "--output", outputPath], root);
     run(process.execPath, [path.join(root, "scripts/check-svg-layout.mjs"), outputPath], root);
     run(process.execPath, [path.join(root, "scripts/check-v4-layout.mjs"), outputPath], root);
     run(process.execPath, [path.join(root, "scripts/check-v43-visual-quality.mjs"), outputPath], root);
     manifest.checks.push({ name: "semantic-plan-render-layout", status: "passed" });
     manifest.outputs = { semanticModel: semanticPath, expressionPlans: plansPath, decision: decisionPath, brief: briefPath, whiteboard: outputPath };
-    if (!skipWhiteboardCli) { const pngPath = path.join(outputDir, "whiteboard.png"); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-o", pngPath, "-f", "svg"], root); run("npx", ["-y", "@larksuite/whiteboard-cli@^0.2.12", "-i", outputPath, "-f", "svg", "--check"], root); run("python3", [path.join(root, "scripts/check-v44-preview.py"), pngPath], root); manifest.checks.push({ name: "preview-pixel-sanity", status: "passed" }); manifest.outputs.preview = pngPath; }
-    manifest.status = "passed";
+    manifest.hashes.brief = hashFile(briefPath);
+    manifest.hashes.whiteboard = hashFile(outputPath);
+    if (!skipWhiteboardCli) {
+      const pngPath = path.join(outputDir, "whiteboard.png");
+      run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", outputPath, "-o", pngPath, "-f", "svg"], root);
+      run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", outputPath, "-f", "svg", "--check"], root);
+      run("python3", [path.join(root, "scripts/check-v44-preview.py"), pngPath], root);
+      manifest.checks.push({ name: "preview-pixel-sanity", status: "passed" });
+      manifest.outputs.preview = pngPath;
+      manifest.hashes.preview = hashFile(pngPath);
+      manifest.status = "passed";
+    } else {
+      manifest.checks.push({ name: "preview-pixel-sanity", status: "skipped" });
+      manifest.status = "rendered-unverified";
+    }
   } catch (error) { manifest.status = "failed"; manifest.error = { message: error.message }; }
   manifest.finishedAt = new Date().toISOString(); writeJson(manifestPath, manifest);
   if (manifest.status === "failed") throw new Error(manifest.error.message);

@@ -40,5 +40,6 @@
       "text": "将验证有效的用例沉淀成生产部署与治理方法",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:stress-duplicate-codex-scaling"
 }

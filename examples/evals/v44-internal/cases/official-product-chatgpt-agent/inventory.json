@@ -39,5 +39,6 @@
       "text": "复杂网页操作和新型安全风险仍可能限制可靠性",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-product-chatgpt-agent"
 }

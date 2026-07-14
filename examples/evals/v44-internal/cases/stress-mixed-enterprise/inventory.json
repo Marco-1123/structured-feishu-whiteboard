@@ -34,5 +34,6 @@
       "text": "建立用例优先级、权限治理和效果复盘机制",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:stress-mixed-enterprise"
 }

@@ -33,5 +33,6 @@
       "text": "能力触及阈值前先完成对应等级的安全证明与部署控制",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-strategy-responsible-scaling"
 }

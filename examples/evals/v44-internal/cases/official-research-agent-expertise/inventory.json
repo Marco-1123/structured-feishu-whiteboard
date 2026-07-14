@@ -39,5 +39,6 @@
       "text": "Agent 降低了执行门槛，但领域经验仍持续产生回报",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-research-agent-expertise"
 }

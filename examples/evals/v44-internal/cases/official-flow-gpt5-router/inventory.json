@@ -38,5 +38,6 @@
       "importance": "medium",
       "order": 5
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-flow-gpt5-router"
 }

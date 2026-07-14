@@ -488,7 +488,7 @@ function validateFlowCanvas(brief) {
     nodeIds.add(node.id);
     assertString(node.title, `flowNodes[${index}].title`, limits.flowNodeTitle, true);
     if (!Array.isArray(node.body)) fail(`flowNodes[${index}].body must be an array`);
-    if (node.body.length < 1 || node.body.length > 2) fail(`flowNodes[${index}].body must contain 1 to 2 lines`);
+    if (node.body.length > 2) fail(`flowNodes[${index}].body must contain at most 2 lines`);
     node.body.forEach((line, lineIndex) => assertString(line, `flowNodes[${index}].body[${lineIndex}]`, limits.flowNodeLine, true));
     if (!supportedFlowNodeTypes.has(node.type)) fail(`flowNodes[${index}].type is unsupported`);
     if (node.status !== undefined && !supportedFlowStatuses.has(node.status)) fail(`flowNodes[${index}].status is unsupported`);

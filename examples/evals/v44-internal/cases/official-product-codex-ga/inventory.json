@@ -39,5 +39,6 @@
       "text": "团队规模化使用需要统一环境与管理员控制",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-product-codex-ga"
 }

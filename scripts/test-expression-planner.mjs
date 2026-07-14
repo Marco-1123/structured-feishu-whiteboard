@@ -51,10 +51,17 @@ assert.equal(comparativeProduct.candidates[0].pageSkeleton, "multi-line-comparis
 const collaborativePlanModel = model("project-plan", ["objective", "stage", "stage", "stage", "risk", "action"]);
 collaborativePlanModel.facts[1].actor = "业务团队";
 collaborativePlanModel.facts[2].actor = "平台团队";
-collaborativePlanModel.facts[3].actor = "治理团队";
+collaborativePlanModel.facts[3].actor = "业务团队";
+collaborativePlanModel.facts[5].actor = "平台团队";
 const collaborativePlan = planExpressions(collaborativePlanModel);
-assert.equal(collaborativePlan.candidates[0].narrativeType, "flow-driven");
-assert.equal(collaborativePlan.candidates[0].pageSkeleton, "swimlane");
+assert.equal(collaborativePlan.candidates.find((candidate) => candidate.narrativeType === "flow-driven")?.pageSkeleton, "swimlane");
+
+const decorativeActorsModel = model("project-plan", ["objective", "stage", "stage", "stage", "risk", "action"]);
+decorativeActorsModel.facts[1].actor = "业务团队";
+decorativeActorsModel.facts[2].actor = "平台团队";
+decorativeActorsModel.facts[3].actor = "治理团队";
+const decorativeActorsPlan = planExpressions(decorativeActorsModel);
+assert.equal(decorativeActorsPlan.candidates.find((candidate) => candidate.narrativeType === "flow-driven")?.pageSkeleton, "timeline", "actor labels alone do not justify tall swimlanes without repeated handoffs");
 
 const flow = planExpressions(model("process-collaboration", ["input", "actor", "action", "constraint", "output"], [{ id: "rel-1", type: "precedes", from: "input-1", to: "action-3" }]));
 assert.equal(flow.candidates[0].narrativeType, "flow-driven");

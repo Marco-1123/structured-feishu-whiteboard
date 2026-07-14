@@ -41,6 +41,19 @@ function appendFacts(region, factIds, purpose) {
   region.embeddedPurposes = [...new Set([...(region.embeddedPurposes || []), purpose])];
 }
 
+function hasMeaningfulSwimlanes(model) {
+  const sequence = model.facts
+    .filter((fact) => ["input", "action", "constraint", "output", "stage"].includes(fact.type))
+    .sort((a, b) => (a.order || 0) - (b.order || 0))
+    .map((fact) => fact.actor)
+    .filter(Boolean);
+  const actors = [...new Set(sequence)];
+  if (actors.length < 2) return false;
+  const counts = new Map(actors.map((actor) => [actor, sequence.filter((value) => value === actor).length]));
+  const handoffs = sequence.slice(1).filter((actor, index) => actor !== sequence[index]).length;
+  return handoffs >= 2 && [...counts.values()].some((count) => count >= 2);
+}
+
 function composeSupportRegions(regions, model) {
   const facts = new Map(model.facts.map((fact) => [fact.id, fact]));
   const independent = [];
@@ -90,8 +103,8 @@ function recipe(model, narrativeType) {
   const scenario = model.scenario.primary;
   const group = (types, component) => ({ types, component });
   if (scenario === "process-collaboration" && narrativeType === "flow-driven") {
-    const actorCount = new Set(model.facts.map((fact) => fact.actor).filter(Boolean)).size;
-    return { skeleton: actorCount >= 2 ? "swimlane" : "timeline", layout: "flow-canvas", components: actorCount >= 2 ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
+    const swimlane = hasMeaningfulSwimlanes(model);
+    return { skeleton: swimlane ? "swimlane" : "timeline", layout: "flow-canvas", components: swimlane ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output"], "flow-node")] };
   }
   if (scenario === "research-decision" && narrativeType === "comparison-driven") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "evidence-list", "decision-matrix", "risk-list"], groups: [group(["conclusion", "unresolved"], "statement"), group(["evidence"], "evidence-list"), group(["option"], "decision-matrix"), group(["risk"], "risk-list")] };
   if (scenario === "product-capability" && narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "metric-card", "status-board", "narrative-chain", "evidence-list"], groups: [group(["conclusion"], "statement"), group(["metric"], "metric-card"), group(["process-chain"], "narrative-chain"), group(["capability"], "status-board"), group(["evidence"], "evidence-list")] };
@@ -101,8 +114,8 @@ function recipe(model, narrativeType) {
   if (narrativeType === "causal") return { skeleton: "left-right-argument", layout: "expression-canvas", components: ["statement", "narrative-chain", "evidence-list", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["cause"], "narrative-chain"), group(["evidence"], "evidence-list"), group(["risk", "constraint"], "risk-list"), group(["action", "unresolved"], "action-list")] };
   if (narrativeType === "hierarchical") return { skeleton: "centered-system", layout: "expression-canvas", components: ["statement", "status-board", "narrative-chain", "mini-roadmap"], groups: [group(["conclusion", "objective"], "statement"), group(["capability", "constraint"], "status-board"), group(["stage", "action"], "mini-roadmap")] };
   if (narrativeType === "flow-driven") {
-    const actorCount = new Set(model.facts.map((fact) => fact.actor).filter(Boolean)).size;
-    return { skeleton: actorCount >= 2 ? "swimlane" : "timeline", layout: "flow-canvas", components: actorCount >= 2 ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output", "stage"], "flow-node")] };
+    const swimlane = hasMeaningfulSwimlanes(model);
+    return { skeleton: swimlane ? "swimlane" : "timeline", layout: "flow-canvas", components: swimlane ? ["flow-node", "flow-edge", "lane"] : ["flow-node", "flow-edge"], groups: [group(["input", "actor", "action", "constraint", "output", "stage"], "flow-node")] };
   }
   return { skeleton: "overview-detail", layout: "expression-canvas", components: ["statement", "evidence-list", "risk-list", "action-list"], groups: [group(["conclusion", "result"], "statement"), group(["cause", "evidence"], "evidence-list"), group(["risk"], "risk-list"), group(["action", "unresolved"], "action-list")] };
 }
@@ -114,7 +127,8 @@ function scoreCandidate(model, candidate, rank) {
   const criticalCoverage = critical.length ? critical.filter((fact) => covered.has(fact.id)).length / critical.length : 1;
   const highCoverage = high.length ? high.filter((fact) => covered.has(fact.id)).length / high.length : 1;
   const semanticMatch = candidate.regions.filter((region) => region.factIds.length).length / Math.max(1, candidate.regions.length);
-  const repetitionPenalty = Math.max(0, candidate.componentMix.length - new Set(candidate.componentMix).size) * 5;
+  const regionComponents = candidate.regions.map((region) => region.preferredComponent);
+  const repetitionPenalty = Math.max(0, regionComponents.length - new Set(regionComponents).size) * 5;
   const unsupportedInferencePenalty = model.facts.filter((fact) => fact.confidence === "inferred").length * 2;
   const coherence = Math.max(0.5, 1 - rank * 0.12);
   const signalCounts = {

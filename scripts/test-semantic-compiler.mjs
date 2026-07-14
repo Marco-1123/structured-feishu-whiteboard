@@ -3,7 +3,7 @@ import { compileSemanticModel } from "./lib/semantic-compiler.mjs";
 import { validateSemanticModel } from "./lib/semantic-model.mjs";
 
 function inventory(id, title, facts) {
-  return { inventoryId: id, title, sourceType: "report", facts: facts.map((fact, index) => ({ importance: index === 0 ? "critical" : "high", ...fact })) };
+  return { inventoryId: id, title, sourceType: "report", sourceRef: `inline:${id}`, facts: facts.map((fact, index) => ({ importance: index === 0 ? "critical" : "high", ...fact })) };
 }
 
 const cases = [

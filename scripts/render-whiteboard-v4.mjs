@@ -754,6 +754,19 @@ function renderCanvas() {
     measure: (block, width, profile) => ({ height: blockRenderer(block, 0, 0, width, profile).h }),
     pageSkeleton: brief.pageSkeleton,
   });
+  // A concise onepage may legitimately have a single supporting region. Keep
+  // it as a full-width closing band, but distribute it vertically instead of
+  // leaving one accidental empty footer below a top-heavy composition.
+  if (tree.nodes.length === 1) {
+    const node = tree.nodes[0];
+    const currentBottom = node.y + node.height;
+    const offset = Math.min(240, Math.max(0, 820 - currentBottom));
+    if (offset) {
+      node.y += offset;
+      tree.height += offset;
+      tree.contentBounds.height += offset;
+    }
+  }
   for (const node of tree.nodes) {
     const rendered = blockRenderer(node.block, node.x, node.y, node.width, node.profile);
     body += markLayoutNode(node, rendered.body);

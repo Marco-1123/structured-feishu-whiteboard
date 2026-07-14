@@ -41,5 +41,6 @@
       "text": "需要随机实验才能判断编码 Agent 的因果影响",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-research-coding-agents"
 }

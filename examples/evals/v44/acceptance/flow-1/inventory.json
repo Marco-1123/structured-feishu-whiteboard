@@ -41,5 +41,6 @@
       "text": "异常材料进入人工复核",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:flow-1"
 }

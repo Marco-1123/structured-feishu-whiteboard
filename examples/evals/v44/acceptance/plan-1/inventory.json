@@ -42,5 +42,6 @@
       "text": "本周确认里程碑责任人",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:plan-1"
 }

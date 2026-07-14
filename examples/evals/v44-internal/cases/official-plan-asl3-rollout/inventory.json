@@ -42,5 +42,6 @@
       "text": "持续评估防护有效性并根据证据调整标准",
       "importance": "medium"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-plan-asl3-rollout"
 }

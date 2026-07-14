@@ -121,5 +121,26 @@ assert.ok(flowCompiled.brief.flowNodes.some((node) => node.type === "risk"));
 assert.ok(flowCompiled.brief.flowEdges.some((edge) => edge.label === "边界与保障"));
 assert.ok(!flowCompiled.brief.flowEdges.some((edge) => edge.type === "fallback"), "a risk fact must not become an inferred exception branch without an explicit relationship");
 assert.ok(flowCompiled.brief.flowNodes.findIndex((node) => node.type === "risk") < flowCompiled.brief.flowNodes.findIndex((node) => node.type === "result"));
+assert.equal(flowCompiled.brief.flowMode, "linear-flow", "two actor labels with only one handoff must not create sparse swimlanes");
+assert.ok(flowCompiled.brief.flowNodes.every((node) => !node.body?.includes(node.title)), "flow titles must not be duplicated as body copy");
+
+const matrixModel = {
+  ...semanticModel,
+  inventoryId: "matrix-without-dimensions",
+  facts: [
+    semanticModel.facts[0],
+    { id: "option-a", type: "option", text: "方案 A", importance: "high", sourceRef: "option-a", confidence: "supported" },
+    { id: "option-b", type: "option", text: "方案 B", importance: "high", sourceRef: "option-b", confidence: "supported" },
+  ],
+};
+const matrixCandidate = {
+  ...candidate("matrix", 94, "comparison-driven"),
+  regions: [
+    { id: "statement", purpose: "conclusion", factIds: ["conclusion-1"], preferredComponent: "statement", visualPriority: "primary", widthIntent: "full" },
+    { id: "matrix", purpose: "option", factIds: ["option-a", "option-b"], preferredComponent: "decision-matrix", visualPriority: "secondary", widthIntent: "adaptive" },
+  ],
+};
+const matrixBrief = compileV44Brief({ semanticModel: matrixModel, planningResult: { candidates: [matrixCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
+assert.ok(!matrixBrief.expressionBlocks.some((block) => block.type === "decision-matrix"), "options without comparison dimensions must fall back instead of rendering empty matrix columns");
 
 console.log("ok: V4.4 brief compiler tests passed");

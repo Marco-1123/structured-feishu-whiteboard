@@ -33,5 +33,6 @@
       "text": "先建立可观察、可确认、可回退的控制面再扩大自主范围",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:stress-missing-metrics"
 }

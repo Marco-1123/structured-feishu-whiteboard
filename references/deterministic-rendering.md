@@ -13,6 +13,8 @@ content inventory
   -> Feishu whiteboard
 ```
 
+真实材料必须先按 `inventory-extraction-contract.md` 建立可追溯事实清单。仓库内预制 inventory 只用于回归测试，不能作为跨 Agent 稳定性的替代证明。
+
 执行入口：
 
 ```bash

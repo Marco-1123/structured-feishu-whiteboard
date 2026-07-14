@@ -32,5 +32,6 @@ const coverageAudit = evaluateInternalBenchmark({
   outputRoot,
 });
 assert.equal(coverageAudit.summary.visibleFactCoverage, 0.5, "all critical/high facts must count toward visible coverage");
+assert.deepEqual(coverageAudit.summary.diversityEligibleArchetypes, [], "one source structure must not force artificial layout variety");
 fs.rmSync(outputRoot, { recursive: true, force: true });
 console.log("ok: V4.4 internal evaluator tests passed");

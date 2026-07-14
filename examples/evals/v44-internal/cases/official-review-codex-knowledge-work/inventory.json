@@ -42,5 +42,6 @@
       "text": "继续扩展跨工具并行任务和审批协作场景",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-review-codex-knowledge-work"
 }

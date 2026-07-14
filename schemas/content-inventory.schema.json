@@ -3,7 +3,7 @@
   "title": "Structured Feishu Whiteboard Content Inventory",
   "type": "object",
   "additionalProperties": false,
-  "required": ["inventoryId", "title", "sourceType", "facts"],
+  "required": ["inventoryId", "title", "sourceType", "sourceRef", "facts"],
   "properties": {
     "inventoryId": {
       "type": "string",
@@ -22,6 +22,7 @@
     },
     "sourceRef": {
       "type": "string",
+      "minLength": 1,
       "maxLength": 240
     },
     "facts": {

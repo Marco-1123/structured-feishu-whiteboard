@@ -33,5 +33,6 @@
       "text": "优先建设共享上下文、明确权限、持续反馈和可复用技能",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-strategy-openai-frontier"
 }

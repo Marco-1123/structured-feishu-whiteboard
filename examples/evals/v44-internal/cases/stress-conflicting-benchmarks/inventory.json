@@ -39,5 +39,6 @@
       "text": "应使用真实任务集验证后再确定模型与路由策略",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:stress-conflicting-benchmarks"
 }

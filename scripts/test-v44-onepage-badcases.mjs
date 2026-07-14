@@ -38,7 +38,7 @@ for (const fixture of fixtures) {
   const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), `v44-${fixture.id}-`));
   const inventoryPath = path.join(root, "examples/evals/v44-badcases", fixture.id, "inventory.json");
   const manifest = await runWhiteboardV44({ root, inventoryPath, outputDir, skipWhiteboardCli: true });
-  assert.equal(manifest.status, "passed");
+  assert.equal(manifest.status, "rendered-unverified");
   const brief = JSON.parse(fs.readFileSync(path.join(outputDir, "brief.json"), "utf8"));
   const svg = fs.readFileSync(path.join(outputDir, "whiteboard.svg"), "utf8");
   assert.equal(brief.pageSkeleton, fixture.expectedSkeleton);

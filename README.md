@@ -12,15 +12,15 @@
 - 使用统一 12 列网格和 OnePage 空间预算，阻止无限纵向拉长。
 - 生成可编辑飞书画板、预览图和可回放运行记录。
 
-## 安装测试分支
+## 安装 V4.4 beta.5
 
 ```bash
-npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/codex/v4.4-semantic-compiler --skill structured-feishu-whiteboard -g -y
+npx skills add https://github.com/Marco-1123/structured-feishu-whiteboard/tree/v4.4.0-beta.5 --skill structured-feishu-whiteboard -g -y
 ```
 
 ## 更新
 
-再次执行同一条安装命令即可覆盖为该分支最新版本。
+再次执行同一条安装命令即可覆盖为 beta.5。固定版本标签可以避免不同 Agent 在同一分支上安装到不同提交。
 
 ## 唯一生产入口
 

@@ -39,5 +39,6 @@
       "text": "下一步扩展团队协作能力",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:product-1"
 }

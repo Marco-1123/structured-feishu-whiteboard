@@ -43,5 +43,6 @@
       "lane": "平台",
       "order": 5
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-flow-agent-tools"
 }

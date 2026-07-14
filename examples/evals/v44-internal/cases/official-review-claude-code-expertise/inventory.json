@@ -55,5 +55,6 @@
       "text": "后续持续跟踪端到端任务、非代码产物和部署工作的增长",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-review-claude-code-expertise"
 }

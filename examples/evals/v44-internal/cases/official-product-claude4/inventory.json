@@ -39,5 +39,6 @@
       "text": "长时间自主任务仍需测试、审查和权限约束",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-product-claude4"
 }

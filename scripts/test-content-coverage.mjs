@@ -5,6 +5,7 @@ const inventory = {
   inventoryId: "audit-001",
   title: "项目复盘",
   sourceType: "report",
+  sourceRef: "inline:test-content-coverage",
   facts: [
     { id: "conclusion-1", type: "conclusion", importance: "critical", text: "主线有效，但风险闭环不足。" },
     { id: "metric-1", type: "metric", importance: "high", text: "目标完成率为 82%。" },
@@ -14,6 +15,7 @@ const inventory = {
 };
 
 assert.deepEqual(validateInventory(inventory), []);
+assert.ok(validateInventory({ ...inventory, sourceRef: "" }).some((issue) => /sourceRef/.test(issue)));
 
 const valid = verifyCoverage(inventory, {
   inventoryId: "audit-001",

@@ -33,5 +33,6 @@
       "text": "迁移窗口有限",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:mixed-3"
 }

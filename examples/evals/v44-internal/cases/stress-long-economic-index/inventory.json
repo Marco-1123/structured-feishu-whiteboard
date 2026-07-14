@@ -46,5 +46,6 @@
       "text": "应按产品、产物和自动化程度分层解释 AI 的工作影响",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:stress-long-economic-index"
 }

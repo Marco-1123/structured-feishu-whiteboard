@@ -60,7 +60,7 @@
 
 这份草稿不要完整输出给用户，除非用户要求。它用于指导画板生成。
 
-V4.3 不再只把这份草稿留在对话上下文中。使用 V4.3 时，必须把材料中的结论、约束、风险、指标、证据、行动和关系写入 `content-inventory.json`，为每条事实分配稳定 ID 和重要程度。后续 brief 通过 `planning.selectedFactIds` 和 `planning.omittedFacts` 说明每条关键事实的去向。
+V4.4 不再只把这份草稿留在对话上下文中。使用 V4.4 时，必须先遵守 `inventory-extraction-contract.md`，把材料中的结论、约束、风险、指标、证据、行动和关系写入 `content-inventory.json`，记录 `sourceRef`，并为每条事实分配稳定 ID 和重要程度。后续 brief 通过 `planning.selectedFactIds` 和 `planning.omittedFacts` 说明每条关键事实的去向。
 
 如果任何模块的摘要超过 3 行，或关键模块超过 6 个，先回到信息筛选阶段继续压缩；不要进入渲染阶段。
 
@@ -90,4 +90,5 @@ V4.3 不再只把这份草稿留在对话上下文中。使用 V4.3 时，必须
 - 顶部总览只承载主结论、关键模块和推荐路径，不代表完整输出。
 - 用户要求“完整呈现”时，在同一画板内扩大版面并组织区域，而不是切成多个独立页面。
 - 回复中可以说明哪些信息被合并或降级；画板上不要写制作过程。
-- V4.3 长文必须通过 `scripts/run-whiteboard.mjs` 生成覆盖结果和运行清单；没有覆盖结果时，不得声称内容完整。
+- 所有生产输出必须通过 `node scripts/run-whiteboard-v44.mjs --input <inventory.json> --output-dir <output-dir>`；不得改用旧 runner、旧 renderer 或手写 SVG。
+- 运行清单状态必须为 `passed` 才能交付；`rendered-unverified` 只允许用于本地快速回归。

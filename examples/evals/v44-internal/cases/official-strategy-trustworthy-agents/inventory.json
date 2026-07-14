@@ -33,5 +33,6 @@
       "text": "建立权限边界、执行前确认、全程追踪和异常回退的治理组合",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-strategy-trustworthy-agents"
 }

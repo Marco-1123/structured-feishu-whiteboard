@@ -39,5 +39,6 @@
       "text": "采用统一路由并为高风险任务保留显式模型与验证控制",
       "importance": "high"
     }
-  ]
+  ],
+  "sourceRef": "fixture:official-research-gpt5-system"
 }

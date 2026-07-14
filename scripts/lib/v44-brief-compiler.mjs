@@ -37,6 +37,29 @@ function splitFactText(value) {
   return { label: text.slice(0, splitAt), note: text.slice(splitAt) };
 }
 
+function flowCopy(fact) {
+  const full = String(fact?.text || "").trim();
+  const parts = full.split(/[：:，,；;。]/).map((part) => part.trim()).filter(Boolean);
+  if (parts.length >= 2) {
+    return { title: clip(parts[0], 28), body: [clip(parts.slice(1).join("，"), 48)] };
+  }
+  if (full.length > 22) {
+    const breakpoints = [...full.matchAll(/\s+/g)].map((match) => match.index).filter((index) => index >= 10 && index <= 24);
+    const splitAt = breakpoints.sort((a, b) => Math.abs(a - 18) - Math.abs(b - 18))[0] || 18;
+    return { title: full.slice(0, splitAt).trim(), body: [clip(full.slice(splitAt).trim(), 48)] };
+  }
+  return { title: clip(full, 28), body: [] };
+}
+
+function shouldUseSwimlane(ordered) {
+  const sequence = ordered.map((fact) => fact.actor).filter(Boolean);
+  const actors = [...new Set(sequence)];
+  if (actors.length < 2) return false;
+  const counts = new Map(actors.map((actor) => [actor, sequence.filter((value) => value === actor).length]));
+  const handoffs = sequence.slice(1).filter((actor, index) => actor !== sequence[index]).length;
+  return handoffs >= 2 && [...counts.values()].some((count) => count >= 2);
+}
+
 function item(fact, component) {
   const parts = splitFactText(fact.text);
   return {
@@ -173,7 +196,10 @@ function expressionBlock(region, facts) {
   const safeType = supported.has(type) ? type : "evidence-list";
   const renderedFacts = regionFacts.slice(0, 5);
   const items = renderedFacts.map((fact) => item(fact, safeType));
-  return { type: safeType, title: purposeTitle(region.purpose), items, sourceFactIds: renderedFacts.map((fact) => fact.id) };
+  const usableType = safeType === "decision-matrix" && items.filter((entry) => entry.note || entry.value).length < 2
+    ? "evidence-list"
+    : safeType;
+  return { type: usableType, title: purposeTitle(region.purpose), items, sourceFactIds: renderedFacts.map((fact) => fact.id) };
 }
 
 function ensureExpressionRequirements(blocks, model, narrativeType) {
@@ -243,11 +269,11 @@ function compileFlowBrief(model, candidate, style, title) {
   const ordered = [...model.facts].filter((fact) => ["input", "action", "constraint", "output", "stage"].includes(fact.type)).sort((a, b) => (a.order || 0) - (b.order || 0)).slice(0, 8);
   const riskFacts = model.facts.filter((fact) => fact.type === "risk").slice(0, Math.max(0, 8 - ordered.length));
   const actors = [...new Set(ordered.map((fact) => fact.actor).filter(Boolean))].slice(0, 4);
-  const swimlane = actors.length >= 2;
+  const swimlane = shouldUseSwimlane(ordered);
   const laneIds = new Map(actors.map((actor, index) => [actor, `lane-${index + 1}`]));
-  const primaryNodes = ordered.map((fact, index) => ({ id: `node-${index + 1}`, title: clip(fact.text, 28), body: [clip(fact.text, 48)], type: index === 0 ? "start" : index === ordered.length - 1 ? "result" : fact.type === "constraint" ? "decision" : "action", ...(swimlane ? { step: index + 1, lane: laneIds.get(fact.actor) || "lane-1" } : {}), status: fact.type === "constraint" ? "risk" : "neutral", sourceFactIds: [fact.id] }));
+  const primaryNodes = ordered.map((fact, index) => ({ id: `node-${index + 1}`, ...flowCopy(fact), type: index === 0 ? "start" : index === ordered.length - 1 ? "result" : fact.type === "constraint" ? "decision" : "action", ...(swimlane ? { step: index + 1, lane: laneIds.get(fact.actor) || "lane-1" } : {}), status: fact.type === "constraint" ? "risk" : "neutral", sourceFactIds: [fact.id] }));
   const resultNode = primaryNodes.at(-1);
-  const riskNodes = riskFacts.map((fact, index) => ({ id: `risk-${index + 1}`, title: clip(fact.text, 28), body: [clip(fact.text, 48)], type: "risk", ...(swimlane ? { step: Math.min(8, Math.max(2, ordered.length + index)), lane: "lane-1" } : {}), status: "risk", sourceFactIds: [fact.id] }));
+  const riskNodes = riskFacts.map((fact, index) => ({ id: `risk-${index + 1}`, ...flowCopy(fact), type: "risk", ...(swimlane ? { step: Math.min(8, Math.max(2, ordered.length + index)), lane: "lane-1" } : {}), status: "risk", sourceFactIds: [fact.id] }));
   if (swimlane && resultNode && riskNodes.length) resultNode.step = Math.min(8, resultNode.step + riskNodes.length);
   const nodes = resultNode && riskNodes.length ? [...primaryNodes.slice(0, -1), ...riskNodes, resultNode] : primaryNodes;
   const edges = nodes.slice(0, -1).map((node, index) => ({
