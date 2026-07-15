@@ -1,0 +1,105 @@
+{
+  "pipelineVersion": "4.4",
+  "engine": "v4",
+  "renderTarget": "svg",
+  "layout": "expression-canvas",
+  "style": "linear-system",
+  "canvasWidth": 2200,
+  "title": "2026 H1 经营复盘与 H2 增长规划",
+  "subtitle": "结果、变化归因、机制与下一阶段",
+  "summaryLabel": "核心判断",
+  "summary": "增长已经被验证，但口径、闭环和跨团队执行还没有形成统一经营机制。",
+  "expressionMode": "dashboard-onepage",
+  "pageSkeleton": "overview-detail",
+  "planning": {
+    "inventoryId": "demo-complex-review-onepage",
+    "selectedFactIds": ["c1", "m1", "m2", "m4", "t1", "t2", "t3", "r1", "r4", "a1", "a2", "a4"],
+    "omittedFacts": [],
+    "routeDecisionId": "demo-target-composition"
+  },
+  "expressionBlocks": [
+    {
+      "type": "statement",
+      "title": "经营判断",
+      "body": ["上半年完成率 78%，效率提升 18%；下半年不再堆项目，而是围绕覆盖、效率和闭环建立统一机制。"]
+    },
+    {
+      "type": "metric-card",
+      "title": "目标完成",
+      "value": "78%",
+      "label": "阶段结果",
+      "note": "主线进度可控",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "效率提升",
+      "value": "+18%",
+      "label": "阶段结果",
+      "note": "收入效率改善",
+      "status": "good"
+    },
+    {
+      "type": "metric-card",
+      "title": "闭环率",
+      "value": "64%",
+      "label": "治理短板",
+      "note": "仍需统一责任边界",
+      "status": "risk"
+    },
+    {
+      "type": "progress-bar",
+      "title": "三条主线进度",
+      "note": "用同一套口径判断推进质量",
+      "items": [
+        {"label": "覆盖高价值场景", "value": "78%"},
+        {"label": "提升交付效率", "value": "68%"},
+        {"label": "建立复盘闭环", "value": "64%"}
+      ]
+    },
+    {
+      "type": "trend-sparkline",
+      "title": "闭环率趋势",
+      "note": "从 48% 提升到 64%，但仍未进入稳定区间",
+      "items": [
+        {"label": "W1", "value": "48%"},
+        {"label": "W2", "value": "52%"},
+        {"label": "W3", "value": "55%"},
+        {"label": "W4", "value": "61%"},
+        {"label": "W5", "value": "64%"}
+      ]
+    },
+    {
+      "type": "narrative-chain",
+      "title": "变化归因",
+      "note": "结果不是单点增长，而是三项机制共同作用",
+      "items": [
+        {"label": "统一入口", "note": "减少重复建设"},
+        {"label": "双周复盘", "note": "及时识别异常"},
+        {"label": "责任对齐", "note": "仍是当前缺口"}
+      ]
+    },
+    {
+      "type": "status-board",
+      "title": "风险与行动",
+      "note": "风险保留在页面中，但不抢占主叙事",
+      "items": [
+        {"label": "指标口径", "value": "待统一", "note": "两周内完成指标字典", "status": "risk"},
+        {"label": "高价值试点", "value": "验证中", "note": "四周内完成两个场景", "status": "neutral"},
+        {"label": "复盘节奏", "value": "已固定", "note": "每两周发布一次", "status": "good"},
+        {"label": "逾期升级", "value": "待建立", "note": "自动提醒并明确负责人", "status": "risk"}
+      ]
+    },
+    {
+      "type": "action-list",
+      "title": "H2 关键动作",
+      "note": "把判断落到少数可追踪动作",
+      "items": [
+        {"label": "统一指标字典与责任边界"},
+        {"label": "完成两个高价值场景验证"},
+        {"label": "沉淀可复用增长模板"}
+      ]
+    }
+  ],
+  "footer": "Onepage 读法：先看结论，再看三条主线与变化趋势，最后看风险和下一步。"
+}

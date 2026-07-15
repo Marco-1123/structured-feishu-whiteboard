@@ -1,0 +1,32 @@
+{
+  "inventoryId": "demo-complex-review-onepage",
+  "title": "2026 H1 经营复盘与 H2 增长规划",
+  "sourceType": "report",
+  "sourceRef": "demo:complex-review-onepage",
+  "facts": [
+    {"id":"c1","type":"conclusion","text":"上半年核心业务完成率为 78%，收入效率提升 18%，但增长质量仍不稳定。","sourceQuote":"上半年核心业务完成率为 78%，收入效率提升 18%，但增长质量仍不稳定","importance":"critical","relatedFactIds":["m1","m2","r1"]},
+    {"id":"c2","type":"conclusion","text":"下半年规划围绕覆盖、效率和闭环三项结果建立统一经营机制。","sourceQuote":"下半年规划不是继续增加项目数量，而是围绕覆盖、效率和闭环三项结果建立统一经营机制","importance":"high"},
+    {"id":"m1","type":"metric","text":"上半年核心业务完成率为 78%。","sourceQuote":"上半年核心业务完成率为 78%","value":"78%","importance":"high"},
+    {"id":"m2","type":"metric","text":"收入效率提升 18%。","sourceQuote":"收入效率提升 18%","value":"+18%","importance":"high"},
+    {"id":"m3","type":"metric","text":"重点客户转化率较年初提升 12%。","sourceQuote":"重点客户转化率较年初提升 12%","value":"+12%","importance":"high"},
+    {"id":"m4","type":"metric","text":"跨团队事项按期闭环率只有 64%。","sourceQuote":"跨团队事项按期闭环率只有 64%","value":"64%","importance":"high"},
+    {"id":"m5","type":"metric","text":"平均响应时间从 52 分钟下降到 31 分钟。","sourceQuote":"平均响应时间从 52 分钟下降到 31 分钟","value":"31分钟","importance":"low"},
+    {"id":"h1","type":"hierarchy","text":"统一核心场景入口，减少重复建设并把资源集中到高价值客户。","sourceQuote":"统一了核心场景入口，减少重复建设并把资源集中到高价值客户","importance":"low","relation":"cause","relatedFactIds":["m3"]},
+    {"id":"h2","type":"hierarchy","text":"建立双周复盘节奏，及时识别异常并调整策略。","sourceQuote":"建立了双周复盘节奏，能及时识别异常并调整策略","importance":"low","relation":"cause","relatedFactIds":["e2"]},
+    {"id":"h3","type":"constraint","text":"部分数据由不同团队维护，指标定义和责任边界没有完全统一。","sourceQuote":"部分数据仍由不同团队维护，指标定义和责任边界没有完全统一","importance":"high","relation":"cause","relatedFactIds":["r1","a1"]},
+    {"id":"cap1","type":"hierarchy","text":"目标完成率追踪已经可以稳定运行。","sourceQuote":"目标完成率追踪、重点客户转化分析、交付响应监控、风险事项登记和复盘行动回溯","importance":"low"},
+    {"id":"cap2","type":"hierarchy","text":"重点客户转化分析已经可以稳定运行。","sourceQuote":"目标完成率追踪、重点客户转化分析、交付响应监控、风险事项登记和复盘行动回溯","importance":"low"},
+    {"id":"cap3","type":"hierarchy","text":"交付响应监控进入常态使用。","sourceQuote":"目标追踪和交付监控进入常态使用","importance":"low"},
+    {"id":"cap4","type":"hierarchy","text":"风险登记与行动回溯仍处于试点阶段。","sourceQuote":"风险登记与行动回溯仍处于试点阶段","importance":"low"},
+    {"id":"e1","type":"evidence","text":"核心客户转化率连续三个周期改善。","sourceQuote":"核心客户转化率连续三个周期改善","importance":"low","relatedFactIds":["m3"]},
+    {"id":"e2","type":"evidence","text":"交付响应时间连续四周下降。","sourceQuote":"交付响应时间连续四周下降","importance":"low","relatedFactIds":["m5"]},
+    {"id":"e3","type":"evidence","text":"双周复盘后，重点事项按期闭环率由 48% 提升到 64%。","sourceQuote":"重点事项的按期闭环率由 48% 提升到 64%","value":"48%→64%","importance":"low","relatedFactIds":["m4"]},
+    {"id":"cmp1","type":"comparison","text":"继续增加项目数量只能扩大覆盖，优先统一指标、责任和复盘节奏更适合形成可复用的增长机制。","sourceQuote":"继续增加项目数量只能扩大覆盖，不能解决口径和闭环问题；优先统一指标、责任和复盘节奏","importance":"low","relatedFactIds":["c2","a1"]},
+    {"id":"tplan","type":"timeline","text":"阶段一统一口径，阶段二验证高价值场景，阶段三沉淀模板并扩展。","sourceQuote":"阶段一先统一指标字典和责任人，阶段二完成两个高价值场景的深度验证，阶段三将稳定做法沉淀为可复用模板并扩展到更多团队","importance":"low","order":1},
+    {"id":"r1","type":"risk","text":"跨团队指标口径不一致。","sourceQuote":"跨团队指标口径不一致","importance":"high","relatedFactIds":["a1"]},
+    {"id":"r4","type":"risk","text":"复盘行动缺少逾期升级机制。","sourceQuote":"复盘行动缺少逾期升级机制","importance":"high","relatedFactIds":["a4"]},
+    {"id":"a1","type":"action","text":"两周内完成指标字典和责任边界确认。","sourceQuote":"两周内完成指标字典和责任边界确认","importance":"low","order":1},
+    {"id":"a2","type":"action","text":"四周内完成两个高价值场景验证。","sourceQuote":"四周内完成两个高价值场景验证","importance":"low","order":2},
+    {"id":"a4","type":"action","text":"对逾期行动建立自动提醒和升级。","sourceQuote":"对逾期行动建立自动提醒和升级","importance":"low","order":3}
+  ]
+}
