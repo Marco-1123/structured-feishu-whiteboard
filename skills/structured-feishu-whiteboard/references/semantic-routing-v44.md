@@ -46,7 +46,7 @@
 所有六类场景统一执行：
 
 ```bash
-node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>
+node scripts/run-structured-whiteboard.mjs --source <raw-source.md> --inventory <inventory.json> --output-dir <output-dir>
 ```
 
 没有并行生产版本。旧代码只做回归与排障。

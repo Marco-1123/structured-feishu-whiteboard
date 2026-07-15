@@ -9,9 +9,14 @@ import {
 } from "./lib/capabilities.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const registry = loadCapabilities(root);
+const productionRegistry = loadCapabilities(root);
+assert.deepEqual(productionRegistry.capabilities, [], "production capability loading must not expose archived renderers");
+const registry = loadCapabilities(root, { includeArchived: true });
 
 assert.equal(registry.version, fs.readFileSync(path.join(root, "VERSION"), "utf8").trim());
+assert.equal(registry.productionCapability.entrypoint, "scripts/run-structured-whiteboard.mjs");
+assert.equal(registry.productionCapability.agentSelectable, false);
+assert.equal(registry.capabilities.every((capability) => capability.agentSelectable === false), true);
 
 const briefsDir = path.join(root, "examples", "briefs");
 for (const name of fs.readdirSync(briefsDir).filter((entry) => entry.endsWith(".json"))) {

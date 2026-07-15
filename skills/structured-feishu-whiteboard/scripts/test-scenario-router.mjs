@@ -6,7 +6,7 @@ import { loadCapabilities } from "./lib/capabilities.mjs";
 import { routeInventory } from "./lib/scenario-router.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const registry = loadCapabilities(root);
+const registry = loadCapabilities(root, { includeArchived: true });
 const cases = JSON.parse(fs.readFileSync(path.join(root, "examples/evals/v43/router-cases.json"), "utf8"));
 let topTwoHits = 0;
 

@@ -58,30 +58,30 @@
 <text x="804" y="912" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="804" dy="0">避免知识只被写下但不被使用</tspan></text>
 <rect x="804" y="930" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="804" y="930" width="6" height="51" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
-<text x="822" y="959" font-size="17" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">记录过多但没人读</tspan></text>
+<text x="822" y="950" font-size="15" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">记录过多但没人读</tspan></text>
 
 <rect x="804" y="993" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="804" y="993" width="6" height="51" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
-<text x="822" y="1022" font-size="17" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">规则没有进入 Skill</tspan></text>
+<text x="822" y="1013" font-size="15" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">规则没有进入 Skill</tspan></text>
 
 <rect x="804" y="1056" width="594" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="804" y="1056" width="6" height="51" rx="3" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
-<text x="822" y="1085" font-size="17" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">展示材料和执行规则混杂</tspan></text>
+<text x="822" y="1076" font-size="15" fill="#7D6258" font-weight="700"><tspan x="822" dy="0">展示材料和执行规则混杂</tspan></text>
 
 <rect x="1460" y="830" width="648" height="300" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="1488" y="878" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="1488" dy="0">推荐动作</tspan></text>
 <text x="1488" y="912" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="1488" dy="0">先分层，再维护</tspan></text>
 <rect x="1488" y="930" width="592" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1488" y="930" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1506" y="959" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">Wiki 记录长期判断</tspan></text>
+<text x="1506" y="950" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">Wiki 记录长期判断</tspan></text>
 
 <rect x="1488" y="993" width="592" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1488" y="993" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1506" y="1022" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">Skill 写执行规则</tspan></text>
+<text x="1506" y="1013" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">Skill 写执行规则</tspan></text>
 
 <rect x="1488" y="1056" width="592" height="51" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1488" y="1056" width="6" height="51" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1506" y="1085" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">飞书文档做案例展示</tspan></text>
+<text x="1506" y="1076" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1506" dy="0">飞书文档做案例展示</tspan></text>
 
 <text x="92" y="1216" font-size="22" fill="#6E6E73" font-weight="400"><tspan x="92" dy="0">适合方案选择、工具选型、知识治理和路径判断。</tspan></text>
 </svg>

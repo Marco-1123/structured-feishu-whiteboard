@@ -97,6 +97,19 @@ const embeddedEvidenceItem = embeddedChainBrief.expressionBlocks.find((block) =>
 assert.equal(embeddedEvidenceItem.note, undefined, "directional text must not be cut at an arbitrary character boundary");
 assert.equal(embeddedEvidenceItem.label, embeddedChainModel.facts.at(-1).text, "the renderer, not the compiler, owns visual line wrapping");
 
+const duplicateCarrierCandidate = {
+  ...candidate("duplicate-carrier", 94, "causal"),
+  regions: [
+    { id: "statement", purpose: "conclusion", factIds: ["conclusion-1"], preferredComponent: "statement", visualPriority: "primary", widthIntent: "full" },
+    { id: "chain", purpose: "conclusion-action", factIds: ["conclusion-1", "action-1"], preferredComponent: "narrative-chain", visualPriority: "secondary", widthIntent: "adaptive" },
+    { id: "risk", purpose: "risk", factIds: ["risk-1"], preferredComponent: "risk-list", visualPriority: "secondary", widthIntent: "adaptive" },
+  ],
+};
+const duplicateCarrierBrief = compileV44Brief({ semanticModel, planningResult: { candidates: [duplicateCarrierCandidate, candidate("b", 70)], confidenceEvidence: { scoreMargin: 24, missingRequiredSignals: [], unsupportedInferenceCount: 0 } } }).brief;
+const duplicateCarrierIds = duplicateCarrierBrief.expressionBlocks.flatMap((block) => block.items?.map((entry) => entry.sourceFactId) || block.sourceFactIds || []);
+assert.equal(duplicateCarrierIds.filter((id) => id === "conclusion-1").length, 1, "one fact must have one primary visible carrier");
+assert.deepEqual(duplicateCarrierBrief.expressionBlocks.find((block) => block.type === "narrative-chain").items.map((entry) => entry.sourceFactId), ["action-1"], "duplicate facts must be removed at item level without deleting the remaining chain content");
+
 const low = compileV44Brief({ semanticModel, planningResult: { candidates: [candidate("a", 54), candidate("b", 52)], confidenceEvidence: { scoreMargin: 2, missingRequiredSignals: ["action"], unsupportedInferenceCount: 1 } }, style: "linear-system", title: "混合材料" });
 assert.equal(low.decision.level, "low");
 assert.equal(low.requiresUserChoice, true);

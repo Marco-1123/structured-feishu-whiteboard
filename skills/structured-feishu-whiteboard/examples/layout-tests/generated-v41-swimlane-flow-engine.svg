@@ -37,37 +37,37 @@
 <polyline points="1642,630 1642,943 1948,943 1948,1256" fill="none" stroke="#3370FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-flow-edge="review-&gt;publish" data-from="review" data-to="publish" data-start="1642,630" data-end="1948,1256" data-edge-label="通过"/>
 <line x1="1948" y1="1256" x2="1939" y2="1244" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/><line x1="1948" y1="1256" x2="1957" y2="1244" stroke="#3370FF" stroke-width="3" stroke-linecap="round"/>
 <text x="1795" y="932" font-size="15" fill="#5C6B82" font-weight="700" data-flow-edge-label="通过"><tspan x="1795" dy="0">通过</tspan></text>
-<rect x="282" y="416" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="material" data-node-x="282" data-node-y="416" data-node-width="272" data-node-height="214" data-node-type="start"/>
+<rect x="282" y="416" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="material" data-node-x="282" data-node-y="416" data-node-width="272" data-node-height="214" data-node-type="start" data-source-fact-ids=""/>
 <rect x="304" y="438" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
 <rect x="328" y="438" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
 <text x="346" y="459" font-size="15" fill="#3370FF" font-weight="700"><tspan x="346" dy="0">开始</tspan></text>
 <text x="328" y="500" font-size="24" fill="#172033" font-weight="700"><tspan x="328" dy="0">提供材料</tspan></text>
 <text x="328" y="532" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="328" dy="0">粘贴文本或文档链接</tspan></text>
-<rect x="588" y="696" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="structure" data-node-x="588" data-node-y="696" data-node-width="272" data-node-height="214" data-node-type="decision"/>
+<rect x="588" y="696" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="structure" data-node-x="588" data-node-y="696" data-node-width="272" data-node-height="214" data-node-type="decision" data-source-fact-ids=""/>
 <rect x="610" y="718" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
 <rect x="634" y="718" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
 <text x="652" y="739" font-size="15" fill="#3370FF" font-weight="700"><tspan x="652" dy="0">判断</tspan></text>
 <text x="634" y="780" font-size="24" fill="#172033" font-weight="700"><tspan x="634" dy="0">结构判断</tspan></text>
 <text x="634" y="812" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="634" dy="0">识别流程和角色</tspan><tspan x="634" dy="24">选择流程模式</tspan></text>
-<rect x="894" y="696" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="brief" data-node-x="894" data-node-y="696" data-node-width="272" data-node-height="214" data-node-type="action"/>
+<rect x="894" y="696" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="brief" data-node-x="894" data-node-y="696" data-node-width="272" data-node-height="214" data-node-type="action" data-source-fact-ids=""/>
 <rect x="916" y="718" width="8" height="170" rx="4" fill="#3370FF" stroke="#3370FF" stroke-width="1"/>
 <rect x="940" y="718" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
 <text x="958" y="739" font-size="15" fill="#3370FF" font-weight="700"><tspan x="958" dy="0">动作</tspan></text>
 <text x="940" y="780" font-size="24" fill="#172033" font-weight="700"><tspan x="940" dy="0">生成 brief</tspan></text>
 <text x="940" y="812" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="940" dy="0">输出节点和边</tspan><tspan x="940" dy="24">禁止手写 SVG</tspan></text>
-<rect x="1200" y="976" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="layout" data-node-x="1200" data-node-y="976" data-node-width="272" data-node-height="214" data-node-type="system"/>
+<rect x="1200" y="976" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="layout" data-node-x="1200" data-node-y="976" data-node-width="272" data-node-height="214" data-node-type="system" data-source-fact-ids=""/>
 <rect x="1222" y="998" width="8" height="170" rx="4" fill="#5C6B82" stroke="#5C6B82" stroke-width="1"/>
 <rect x="1246" y="998" width="86" height="30" rx="8" fill="#EEF6FF" stroke="#D8E6F3" stroke-width="1"/>
 <text x="1264" y="1019" font-size="15" fill="#5C6B82" font-weight="700"><tspan x="1264" dy="0">系统</tspan></text>
 <text x="1246" y="1060" font-size="24" fill="#172033" font-weight="700"><tspan x="1246" dy="0">稳定排布</tspan></text>
 <text x="1246" y="1092" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1246" dy="0">泳道网格定位</tspan><tspan x="1246" dy="24">连接边界对齐</tspan></text>
-<rect x="1506" y="416" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="review" data-node-x="1506" data-node-y="416" data-node-width="272" data-node-height="214" data-node-type="decision"/>
+<rect x="1506" y="416" width="272" height="214" rx="14" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="review" data-node-x="1506" data-node-y="416" data-node-width="272" data-node-height="214" data-node-type="decision" data-source-fact-ids=""/>
 <rect x="1528" y="438" width="8" height="170" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <rect x="1552" y="438" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8E6F3" stroke-width="1"/>
 <text x="1570" y="459" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="1570" dy="0">判断</tspan></text>
 <text x="1552" y="500" font-size="24" fill="#172033" font-weight="700"><tspan x="1552" dy="0">预览复核</tspan></text>
 <text x="1552" y="532" font-size="17" fill="#5C6B82" font-weight="500"><tspan x="1552" dy="0">检查可读性</tspan><tspan x="1552" dy="24">反馈排版问题</tspan></text>
-<rect x="1812" y="1256" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="publish" data-node-x="1812" data-node-y="1256" data-node-width="272" data-node-height="214" data-node-type="result"/>
+<rect x="1812" y="1256" width="272" height="214" rx="24" fill="#FFFFFF" stroke="#D8E6F3" stroke-width="1.5" data-flow-node="publish" data-node-x="1812" data-node-y="1256" data-node-width="272" data-node-height="214" data-node-type="result" data-source-fact-ids=""/>
 <rect x="1834" y="1278" width="8" height="170" rx="4" fill="#0F766E" stroke="#0F766E" stroke-width="1"/>
 <rect x="1858" y="1278" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8E6F3" stroke-width="1"/>
 <text x="1876" y="1299" font-size="15" fill="#0F766E" font-weight="700"><tspan x="1876" dy="0">结果</tspan></text>

@@ -41,6 +41,7 @@ export function inspectV43VisualQuality(svg) {
       textUnits: number(a["data-text-units"]),
       itemCount: number(a["data-item-count"]),
       itemLayout: a["data-item-layout"] || "",
+      hasContentMetadata: a["data-text-units"] !== undefined || a["data-item-count"] !== undefined,
     };
   });
 
@@ -72,6 +73,7 @@ export function inspectV43VisualQuality(svg) {
   }
 
   const directionalTypes = new Set(["narrative-chain", "mini-roadmap", "variance-bridge-v2", "trend-sparkline", "flow"]);
+  const framingTypes = new Set(["title", "statement", "metric-group", "metric-card", "footer"]);
   const sparseFullWidth = (block) => block.density === "sparse"
     && block.span === 12
     && block.itemLayout !== "footer-band"
@@ -84,6 +86,17 @@ export function inspectV43VisualQuality(svg) {
       const textUnitsPerHundredPx = block.textUnits / Math.max(1, block.w / 100);
       if (textUnitsPerHundredPx < 2.2 && !directionalTypes.has(block.type)) {
         issues.push(`Sparse block ${block.id} has low content utilization: ${textUnitsPerHundredPx.toFixed(2)} text units per 100px`);
+      }
+    }
+    if (block.hasContentMetadata && !framingTypes.has(block.type) && block.itemLayout !== "footer-band") {
+      const areaUnits = Math.max(1, (block.w * block.h) / 10000);
+      const effectiveUnits = block.textUnits + block.itemCount * 10;
+      const effectiveDensity = effectiveUnits / areaUnits;
+      const minimumDensity = block.type === "decision-matrix" ? 0.9 : 1.1;
+      if (block.w * block.h > 90000 && effectiveUnits === 0) {
+        issues.push(`Visible content carrier ${block.id} is empty`);
+      } else if (block.w * block.h > 160000 && effectiveDensity < minimumDensity && !directionalTypes.has(block.type)) {
+        issues.push(`Block ${block.id} is visually underfilled: effective density ${effectiveDensity.toFixed(2)}`);
       }
     }
   }
@@ -101,7 +114,7 @@ export function inspectV43VisualQuality(svg) {
   const maxBottom = blocks.length ? Math.max(...blocks.map((block) => block.y + block.h)) : 0;
   const bottomMargin = height - maxBottom;
   if (blocks.length && bottomMargin < 40) issues.push(`Canvas bottom margin is too small: ${bottomMargin}`);
-  if (blocks.length && bottomMargin > Math.max(260, height * 0.18)) issues.push(`Canvas bottom margin is excessive: ${bottomMargin}`);
+  if (blocks.length && bottomMargin > Math.max(150, height * 0.22)) issues.push(`Canvas bottom margin is excessive: ${bottomMargin}`);
 
   const aspectRatio = height ? width / height : 0;
   if (aspectRatio < 0.5 || aspectRatio > 4) issues.push(`Unsupported canvas aspect ratio: ${aspectRatio.toFixed(2)}`);
@@ -138,6 +151,13 @@ export function inspectV43VisualQuality(svg) {
   const occupiedArea = blocks.reduce((sum, block) => sum + block.w * block.h, 0);
   const occupiedRatio = width && height ? occupiedArea / (width * height) : 0;
   if (blocks.length >= 3 && occupiedRatio < 0.24) issues.push(`Excessive empty canvas ratio: occupied ${occupiedRatio.toFixed(2)}`);
+  const bodyBlocks = blocks.filter((block) => block.hasContentMetadata && !framingTypes.has(block.type) && block.itemLayout !== "footer-band");
+  const bodyAreaUnits = bodyBlocks.reduce((sum, block) => sum + (block.w * block.h) / 10000, 0);
+  const effectiveContentUnits = bodyBlocks.reduce((sum, block) => sum + block.textUnits + block.itemCount * 10, 0);
+  const effectiveContentDensity = bodyAreaUnits ? effectiveContentUnits / bodyAreaUnits : 0;
+  if (bodyBlocks.length >= 2 && effectiveContentDensity < 1.15) {
+    issues.push(`Effective content density is too low: ${effectiveContentDensity.toFixed(2)}`);
+  }
 
   return {
     ok: issues.length === 0,
@@ -149,6 +169,7 @@ export function inspectV43VisualQuality(svg) {
       bottomMargin,
       columnImbalance,
       occupiedRatio,
+      effectiveContentDensity,
       sparseFullWidthCount: blocks.filter(sparseFullWidth).length,
       blockCount: blocks.length,
       maxRowHeightDelta,

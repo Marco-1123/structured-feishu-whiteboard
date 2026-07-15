@@ -124,20 +124,19 @@ node scripts/test-semantic-model.mjs >/dev/null
 node scripts/test-semantic-compiler.mjs >/dev/null
 node scripts/test-expression-planner.mjs >/dev/null
 node scripts/test-v44-brief-compiler.mjs >/dev/null
-node scripts/test-run-whiteboard-v44.mjs >/dev/null
 node scripts/test-v44-evaluator.mjs >/dev/null
 node scripts/test-v44-source-catalog.mjs >/dev/null
 node scripts/validate-v44-source-catalog.mjs examples/evals/v44-internal/source-catalog.json >/dev/null
 node scripts/test-v44-benchmark-builder.mjs >/dev/null
-node scripts/test-v44-internal-evaluator.mjs >/dev/null
-node scripts/test-v44-onepage-badcases.mjs >/dev/null
 node scripts/test-scenario-router.mjs >/dev/null
 node scripts/test-v4-layout-tree.mjs >/dev/null
 node scripts/test-v4-grid-quality.mjs >/dev/null
 node scripts/test-v43-adaptive-render.mjs >/dev/null
 node scripts/test-v43-visual-quality.mjs >/dev/null
+node scripts/test-svg-layout-containment.mjs >/dev/null
 node scripts/test-v43-flow-render.mjs >/dev/null
-node scripts/test-run-whiteboard.mjs >/dev/null
 node scripts/test-v43-evaluator.mjs >/dev/null
+node scripts/test-run-whiteboard-v5.mjs >/dev/null
+bash scripts/validate-production-pipeline.sh >/dev/null
 
 echo "ok: layout test fixtures rendered and checked"

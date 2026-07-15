@@ -1,13 +1,13 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export function loadCapabilities(root) {
+export function loadCapabilities(root, { includeArchived = false } = {}) {
   const file = path.join(root, "config", "capabilities.json");
   const registry = JSON.parse(fs.readFileSync(file, "utf8"));
-  if (!registry.version || !Array.isArray(registry.capabilities)) {
+  if (!registry.version || !Array.isArray(registry.archivedCapabilities) || !registry.productionCapability) {
     throw new Error(`Invalid capability registry: ${file}`);
   }
-  return registry;
+  return { ...registry, capabilities: includeArchived ? registry.archivedCapabilities : [] };
 }
 
 function defaults(request) {

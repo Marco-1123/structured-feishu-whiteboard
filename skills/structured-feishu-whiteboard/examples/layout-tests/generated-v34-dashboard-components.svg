@@ -74,43 +74,43 @@
 <text x="1522" y="788" font-size="19" fill="#111827" font-weight="700"><tspan x="1522" dy="0">目标口径</tspan></text>
 <rect x="1681" y="764" width="76" height="28" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1695" y="784" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="1695" dy="0">正常</tspan></text>
-<text x="1522" y="822" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1522" dy="0">主指标已统一</tspan></text>
+<text x="1522" y="814" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1522" dy="0">主指标已统一</tspan></text>
 <rect x="1787" y="746" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1803" y="764" width="10" height="44" rx="5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1829" y="788" font-size="19" fill="#111827" font-weight="700"><tspan x="1829" dy="0">数据质量</tspan></text>
 <rect x="1988" y="764" width="76" height="28" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="2002" y="784" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="2002" dy="0">关注</tspan></text>
-<text x="1829" y="822" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1829" dy="0">漏斗仍有缺口</tspan></text>
+<text x="1829" y="814" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1829" dy="0">漏斗仍有缺口</tspan></text>
 <rect x="1480" y="840" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1496" y="858" width="10" height="44" rx="5" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
 <text x="1522" y="882" font-size="19" fill="#111827" font-weight="700"><tspan x="1522" dy="0">风险闭环</tspan></text>
 <rect x="1681" y="858" width="76" height="28" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1695" y="878" font-size="15" fill="#7C6254" font-weight="700"><tspan x="1695" dy="0">待处理</tspan></text>
-<text x="1522" y="916" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1522" dy="0">复盘动作分散</tspan></text>
+<text x="1522" y="908" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1522" dy="0">复盘动作分散</tspan></text>
 <rect x="1787" y="840" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1803" y="858" width="10" height="44" rx="5" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <text x="1829" y="882" font-size="19" fill="#111827" font-weight="700"><tspan x="1829" dy="0">行动节奏</tspan></text>
 <rect x="1988" y="858" width="76" height="28" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="2002" y="878" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="2002" dy="0">正常</tspan></text>
-<text x="1829" y="916" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1829" dy="0">周会已固定</tspan></text>
+<text x="1829" y="908" font-size="16" fill="#5F6B7A" font-weight="400"><tspan x="1829" dy="0">周会已固定</tspan></text>
 <rect x="92" y="990" width="2016" height="170" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="120" y="1038" font-size="24" fill="#111827" font-weight="700"><tspan x="120" dy="0">下一步行动</tspan></text>
 <text x="120" y="1072" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="120" dy="0">两周内形成可复用运营节奏</tspan></text>
 <rect x="120" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="120" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="138" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="138" dy="0">补齐漏斗口径</tspan></text>
+<text x="138" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="138" dy="0">补齐漏斗口径</tspan></text>
 
 <rect x="613" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="613" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="631" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="631" dy="0">建立风险分层</tspan></text>
+<text x="631" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="631" dy="0">建立风险分层</tspan></text>
 
 <rect x="1106" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1106" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1124" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="1124" dy="0">固定周复盘模板</tspan></text>
+<text x="1124" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="1124" dy="0">固定周复盘模板</tspan></text>
 
 <rect x="1599" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1599" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1617" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="1617" dy="0">输出试点报告</tspan></text>
+<text x="1617" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="1617" dy="0">输出试点报告</tspan></text>
 
 <text x="92" y="1214" font-size="22" fill="#5F6B7A" font-weight="400"><tspan x="92" dy="0">适合经营复盘、增长项目同步和需要数据化表达的工作汇报。</tspan></text>
 </svg>

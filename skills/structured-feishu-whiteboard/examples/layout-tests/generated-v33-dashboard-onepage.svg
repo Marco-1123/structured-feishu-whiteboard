@@ -65,38 +65,38 @@
 <text x="1480" y="734" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="1480" dy="0">优先处理会拖慢闭环的问题</tspan></text>
 <rect x="1480" y="752" width="293" height="44" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1480" y="752" width="6" height="44" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
-<text x="1498" y="781" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1498" dy="0">指标口径不一</tspan></text>
+<text x="1498" y="772" font-size="15" fill="#7C6254" font-weight="700"><tspan x="1498" dy="0">指标口径不一</tspan></text>
 
 <rect x="1787" y="752" width="293" height="44" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1787" y="752" width="6" height="44" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
-<text x="1805" y="781" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1805" dy="0">风险漏斗过宽</tspan></text>
+<text x="1805" y="772" font-size="15" fill="#7C6254" font-weight="700"><tspan x="1805" dy="0">风险漏斗过宽</tspan></text>
 
 <rect x="1480" y="808" width="293" height="44" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1480" y="808" width="6" height="44" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
-<text x="1498" y="837" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1498" dy="0">复盘动作分散</tspan></text>
+<text x="1498" y="828" font-size="15" fill="#7C6254" font-weight="700"><tspan x="1498" dy="0">复盘动作分散</tspan></text>
 
 <rect x="1787" y="808" width="293" height="44" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1787" y="808" width="6" height="44" rx="3" fill="#7C6254" stroke="#7C6254" stroke-width="1"/>
-<text x="1805" y="837" font-size="17" fill="#7C6254" font-weight="700"><tspan x="1805" dy="0">责任边界模糊</tspan></text>
+<text x="1805" y="828" font-size="15" fill="#7C6254" font-weight="700"><tspan x="1805" dy="0">责任边界模糊</tspan></text>
 
 <rect x="92" y="990" width="2016" height="170" rx="16" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5"/>
 <text x="120" y="1038" font-size="24" fill="#111827" font-weight="700"><tspan x="120" dy="0">下一步行动</tspan></text>
 <text x="120" y="1072" font-size="17" fill="#5F6B7A" font-weight="400"><tspan x="120" dy="0">两周内形成可复用节奏</tspan></text>
 <rect x="120" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="120" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="138" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="138" dy="0">统一指标字典</tspan></text>
+<text x="138" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="138" dy="0">统一指标字典</tspan></text>
 
 <rect x="613" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="613" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="631" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="631" dy="0">建立风险分层</tspan></text>
+<text x="631" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="631" dy="0">建立风险分层</tspan></text>
 
 <rect x="1106" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1106" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1124" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="1124" dy="0">固定周复盘节奏</tspan></text>
+<text x="1124" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="1124" dy="0">固定周复盘节奏</tspan></text>
 
 <rect x="1599" y="1090" width="479" height="54" rx="10" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1.2"/>
 <rect x="1599" y="1090" width="6" height="54" rx="3" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
-<text x="1617" y="1119" font-size="17" fill="#111827" font-weight="700"><tspan x="1617" dy="0">沉淀复用模板</tspan></text>
+<text x="1617" y="1110" font-size="15" fill="#111827" font-weight="700"><tspan x="1617" dy="0">沉淀复用模板</tspan></text>
 
 <text x="92" y="1214" font-size="22" fill="#5F6B7A" font-weight="400"><tspan x="92" dy="0">适合经营复盘、项目状态同步和高频指标汇报。</tspan></text>
 </svg>

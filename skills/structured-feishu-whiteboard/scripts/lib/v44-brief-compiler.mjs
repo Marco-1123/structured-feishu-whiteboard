@@ -31,6 +31,8 @@ function splitFactText(value) {
   const text = String(value || "").trim();
   const match = text.match(/^(.{2,24}?)[：:]\s*(.{2,})$/);
   if (match) return { label: `${match[1].trim()}${text.includes("：") ? "：" : ":"}`, note: match[2].trim() };
+  const option = text.match(/^(方案\s*[A-Za-z一二三四五六\d]+)\s*[，,：:]?\s*(.{2,})$/);
+  if (option) return { label: option[1].trim(), note: option[2].trim() };
   if (text.length <= 40) return { label: text };
   const punctuation = [...text.matchAll(/[，；。]/g)].map((entry) => entry.index + 1).find((index) => index >= 18 && index <= 38);
   const splitAt = punctuation || 32;
@@ -230,26 +232,91 @@ function ensureExpressionRequirements(blocks, model, narrativeType) {
     const chainFacts = model.facts.filter((fact) => ["conclusion", "stage", "action", "cause"].includes(fact.type)).slice(0, 4);
     if (chainFacts.length >= 2) out.push({ type: "narrative-chain", title: "判断链路", items: chainFacts.map((fact) => item(fact, "narrative-chain")), sourceFactIds: chainFacts.map((fact) => fact.id) });
   }
-  return out.slice(0, 8);
+  const uniqueFacts = new Set();
+  const uniqueBlocks = [];
+  for (const block of out) {
+    const items = Array.isArray(block.items)
+      ? block.items.filter((entry) => {
+          const id = entry.sourceFactId;
+          if (!id) return true;
+          if (uniqueFacts.has(id)) return false;
+          uniqueFacts.add(id);
+          return true;
+        })
+      : undefined;
+    const blockIds = (block.sourceFactIds || []).filter((id) => {
+      if (uniqueFacts.has(id)) return false;
+      uniqueFacts.add(id);
+      return true;
+    });
+    if (items && !items.length) continue;
+    if (!items && block !== statement && !blockIds.length) continue;
+    uniqueBlocks.push({
+      ...block,
+      ...(items ? { items } : {}),
+      sourceFactIds: items
+        ? [...new Set(items.map((entry) => entry.sourceFactId).filter(Boolean))]
+        : block === statement ? (block.sourceFactIds || []) : blockIds,
+    });
+  }
+  const supportTypes = new Set(["evidence-list", "risk-list", "action-list"]);
+  const supportBlocks = uniqueBlocks.filter((block) => supportTypes.has(block.type));
+  if (uniqueBlocks.length > 6 && supportBlocks.length >= 2) {
+    const supportItems = supportBlocks.flatMap((block) => (block.items || []).map((entry) => ({
+      ...entry,
+      status: block.type === "risk-list" ? "risk" : entry.status || "neutral",
+    })));
+    const splitAt = supportItems.length > 5 ? Math.ceil(supportItems.length / 2) : supportItems.length;
+    const groups = [supportItems.slice(0, splitAt), supportItems.slice(splitAt)].filter((items) => items.length);
+    const merged = groups.map((items, index) => ({
+      type: "status-board",
+      title: groups.length === 1
+        ? (supportBlocks.some((block) => block.type === "risk-list") ? "治理与推进" : "依据与推进")
+        : index === 0 ? "依据与进展" : "推进与风险",
+      items,
+      sourceFactIds: [...new Set(items.map((entry) => entry.sourceFactId).filter(Boolean))],
+    }));
+    const firstSupportIndex = uniqueBlocks.findIndex((block) => supportTypes.has(block.type));
+    return [
+      ...uniqueBlocks.slice(0, firstSupportIndex).filter((block) => !supportTypes.has(block.type)),
+      ...merged,
+      ...uniqueBlocks.slice(firstSupportIndex).filter((block) => !supportTypes.has(block.type)),
+    ].slice(0, 8);
+  }
+  return uniqueBlocks.slice(0, 8);
+}
+
+export function compileCandidateBrief({ semanticModel, candidate, style = "linear-system", title }) {
+  if (!candidate) throw new Error("candidate is required");
+  const facts = factMap(semanticModel);
+  if (candidate.layout === "flow-canvas") return compileFlowBrief(semanticModel, candidate, style, title);
+  const blocks = ensureExpressionRequirements(candidate.regions.flatMap((region) => expressionBlock(region, facts)), semanticModel, candidate.narrativeType);
+  const mode = expressionMode(candidate, semanticModel);
+  const visibleBlocks = blocks;
+  const selectedFactIds = [...new Set(visibleBlocks.flatMap((block) => block.sourceFactIds || []))];
+  const omittedFacts = semanticModel.facts.filter((fact) => !selectedFactIds.includes(fact.id)).map((fact) => ({ id: fact.id, reason: fact.importance === "low" ? "low-value-context" : "deferred-to-detail" }));
+  const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
+  const visibleFactCount = semanticModel.facts.filter((fact) => fact.importance !== "low").length;
+  const canvasWidth = visibleFactCount <= 7 ? 1500 : visibleFactCount <= 11 ? 1800 : 2300;
+  return {
+    pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
+    canvasWidth,
+    title: clip(title || summaryFact.text, 32), subtitle: semanticSubtitle(semanticModel.scenario.primary, candidate.narrativeType, visibleBlocks), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, pageSkeleton: candidate.pageSkeleton, expressionBlocks: visibleBlocks,
+    planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: candidate.planId },
+  };
 }
 
 export function compileV44Brief({ semanticModel, planningResult, style = "linear-system", title }) {
   const decision = decideConfidence(planningResult);
   const selected = planningResult.candidates?.[0];
   if (!selected || decision.level === "low") return { decision, requiresUserChoice: true, alternatives: planningResult.candidates || [], reason: !selected ? "no-valid-candidate" : "low-confidence" };
-  const facts = factMap(semanticModel);
-  if (selected.layout === "flow-canvas") return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, brief: compileFlowBrief(semanticModel, selected, style, title) };
-  const blocks = ensureExpressionRequirements(selected.regions.flatMap((region) => expressionBlock(region, facts)), semanticModel, selected.narrativeType);
-  const mode = expressionMode(selected, semanticModel);
-  const visibleBlocks = blocks;
-  const selectedFactIds = [...new Set(visibleBlocks.flatMap((block) => block.sourceFactIds || []))];
-  const omittedFacts = semanticModel.facts.filter((fact) => !selectedFactIds.includes(fact.id)).map((fact) => ({ id: fact.id, reason: fact.importance === "low" ? "low-value-context" : "deferred-to-detail" }));
-  const summaryFact = semanticModel.facts.find((fact) => fact.type === "conclusion" || fact.type === "result") || semanticModel.facts[0];
-  return { decision, requiresUserChoice: false, selectedPlanId: selected.planId, alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [], brief: {
-    pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "expression-canvas", style,
-    title: clip(title || summaryFact.text, 32), subtitle: semanticSubtitle(semanticModel.scenario.primary, selected.narrativeType, visibleBlocks), summaryLabel: "核心判断", summary: clip(summaryFact.text, 90), expressionMode: mode, pageSkeleton: selected.pageSkeleton, expressionBlocks: visibleBlocks,
-    planning: { inventoryId: semanticModel.inventoryId, selectedFactIds, omittedFacts, routeDecisionId: selected.planId },
-  } };
+  return {
+    decision,
+    requiresUserChoice: false,
+    selectedPlanId: selected.planId,
+    alternatives: decision.level === "medium" ? planningResult.candidates.slice(1) : [],
+    brief: compileCandidateBrief({ semanticModel, candidate: selected, style, title }),
+  };
 }
 
 function scenarioSubtitle(scenario, narrativeType) {
@@ -291,5 +358,8 @@ function compileFlowBrief(model, candidate, style, title) {
   }));
   const summaryFact = model.facts.find((fact) => ["conclusion", "objective", "result"].includes(fact.type)) || model.facts[0];
   const selectedFacts = [...new Set([summaryFact, ...ordered, ...riskFacts].filter(Boolean))];
-  return { pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "flow-canvas", style, flowMode: swimlane ? "swimlane-flow" : "linear-flow", ...(swimlane ? { lanes: actors.map((actor) => ({ id: laneIds.get(actor), title: clip(actor, 12) })) } : {}), title: clip(title || summaryFact.text, 32), subtitle: "按输入、动作、判断和输出组织流程", summaryLabel: "流程判断", summary: clip(summaryFact.text, 90), flowNodes: nodes, flowEdges: edges, planning: { inventoryId: model.inventoryId, selectedFactIds: selectedFacts.map((fact) => fact.id), omittedFacts: model.facts.filter((fact) => !selectedFacts.includes(fact)).map((fact) => ({ id: fact.id, reason: "deferred-to-detail" })), routeDecisionId: candidate.planId } };
+  // Flow diagrams need horizontal room for connectors, branches and lanes.
+  // A narrow canvas makes a semantically correct flow look like a tall form.
+  const canvasWidth = 2200;
+  return { pipelineVersion: "4.4", engine: "v4", renderTarget: "svg", layout: "flow-canvas", style, canvasWidth, flowMode: swimlane ? "swimlane-flow" : "linear-flow", ...(swimlane ? { lanes: actors.map((actor) => ({ id: laneIds.get(actor), title: clip(actor, 12) })) } : {}), title: clip(title || summaryFact.text, 32), subtitle: "按输入、动作、判断和输出组织流程", summaryLabel: "流程判断", summary: clip(summaryFact.text, 90), flowNodes: nodes, flowEdges: edges, planning: { inventoryId: model.inventoryId, selectedFactIds: selectedFacts.map((fact) => fact.id), omittedFacts: model.facts.filter((fact) => !selectedFacts.includes(fact)).map((fact) => ({ id: fact.id, reason: "deferred-to-detail" })), routeDecisionId: candidate.planId } };
 }

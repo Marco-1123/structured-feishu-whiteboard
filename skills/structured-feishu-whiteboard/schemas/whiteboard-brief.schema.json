@@ -70,6 +70,11 @@
       "default": "svg",
       "description": "The V4.4 production target is SVG. DSL is a legacy regression target and is not selected by the production runner."
     },
+    "canvasWidth": {
+      "type": "integer",
+      "enum": [1500, 1800, 2100, 2200],
+      "description": "Automatically selected landscape canvas width based on information demand."
+    },
     "style": {
       "type": "string",
       "enum": ["professional-blue", "dark-emphasis", "warm-editorial", "feishu-neutral", "feishu-status", "feishu-decision-dark", "apple-studio", "linear-command", "apple-report", "linear-system", "stripe-data", "vercel-precision", "neo-grid-bold", "riptide-cobalt"]

@@ -18,7 +18,10 @@ for (const semanticModel of [architectureModel, swimlaneModel, flywheelModel, de
   assert.match(svg, /data-layout-engine="v5"/);
   assert.match(svg, new RegExp(`data-scene="${plan.scene}"`));
   assert.doesNotMatch(svg, /<(?:linearGradient|radialGradient|filter|clipPath|mask)\b/);
-  for (const node of plan.nodes) assert.match(svg, new RegExp(`data-scene-node="${node.id}"`));
+  for (const node of plan.nodes) {
+    assert.match(svg, new RegExp(`data-scene-node="${node.id}"`));
+    for (const factId of node.sourceFactIds || []) assert.match(svg, new RegExp(`data-source-fact-ids="[^"]*${factId}`));
+  }
   const dimensions = svg.match(/width="([\d.]+)" height="([\d.]+)"/);
   assert.ok(dimensions);
   const ratio = Number(dimensions[1]) / Number(dimensions[2]);

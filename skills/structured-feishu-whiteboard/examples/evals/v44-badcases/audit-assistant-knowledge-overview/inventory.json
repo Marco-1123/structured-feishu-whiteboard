@@ -142,6 +142,13 @@
       "sourceQuote": "规则复用",
       "order": 4,
       "importance": "medium"
+    },
+    {
+      "id": "r1",
+      "type": "risk",
+      "text": "权限边界仍需持续维护并纳入真实材料验证。",
+      "sourceQuote": "团队还需要维护指标字典、版本变更记录、回归样本和权限边界",
+      "importance": "high"
     }
   ],
   "sourceRef": "fixture:badcase-audit-assistant-knowledge-overview"

@@ -1,139 +1,34 @@
-import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
-import { planSceneV5 } from "./lib/v5-scene-planner.mjs";
-import { validateSemanticModel } from "./lib/semantic-model.mjs";
-import { compileSemanticModel } from "./lib/semantic-compiler.mjs";
-import { auditSourceExtraction } from "./lib/source-audit.mjs";
-import { runWhiteboardV44 } from "./lib/v44-pipeline-runner.mjs";
 
 const args = process.argv.slice(2);
-const option = (name) => { const index = args.indexOf(name); return index >= 0 ? args[index + 1] : undefined; };
-const input = option("--input");
-const inventoryPath = option("--inventory");
-const sourcePath = option("--source");
+const option = (name) => {
+  const index = args.indexOf(name);
+  return index >= 0 ? args[index + 1] : undefined;
+};
+
+if (option("--input") || args.includes("--allow-semantic-fixture")) {
+  console.error("archived V5 semantic-fixture runner is disabled; use dedicated renderer tests instead");
+  process.exit(2);
+}
+
+const source = option("--source");
+const inventory = option("--inventory");
 const outputDir = option("--output-dir");
-const title = option("--title");
-const style = option("--style") || "linear-system";
-const skipWhiteboardCli = args.includes("--skip-whiteboard-cli");
-const allowSemanticFixture = args.includes("--allow-semantic-fixture");
-if (!outputDir || (!input && !(inventoryPath && sourcePath))) {
-  console.error("usage: node scripts/run-whiteboard-v5.mjs --source raw-source.md --inventory inventory.json --output-dir run-dir [--title title] [--style style]\n       test only: --input semantic-model.json --allow-semantic-fixture");
-  process.exit(1);
-}
-if (input && !allowSemanticFixture) {
-  console.error("direct semantic-model input is test-only; add --allow-semantic-fixture or provide --source and --inventory");
-  process.exit(1);
+if (!source || !inventory || !outputDir) {
+  console.error("deprecated entry; use scripts/run-structured-whiteboard.mjs --source <file> --inventory <file> --output-dir <dir>");
+  process.exit(2);
 }
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const out = path.resolve(outputDir);
-fs.mkdirSync(out, { recursive: true });
-const readJson = (file) => JSON.parse(fs.readFileSync(file, "utf8"));
-const writeJson = (file, value) => fs.writeFileSync(file, `${JSON.stringify(value, null, 2)}\n`);
-const run = (command, commandArgs) => {
-  const result = spawnSync(command, commandArgs, { cwd: root, encoding: "utf8" });
-  if (result.status !== 0) throw new Error((result.stderr || result.stdout || "command failed").trim());
-};
-
-const manifest = {
-  schemaVersion: 1,
-  pipeline: "v5-scene-alpha",
-  version: "5.0.0-alpha.2",
-  status: "running",
-  startedAt: new Date().toISOString(),
-  inputs: {
-    ...(input ? { semanticModel: path.resolve(input) } : {}),
-    ...(inventoryPath ? { inventory: path.resolve(inventoryPath) } : {}),
-    ...(sourcePath ? { source: path.resolve(sourcePath) } : {}),
-    style,
-    ...(title ? { title } : {}),
-  },
-  checks: [],
-  outputs: {},
-};
-const manifestPath = path.join(out, "run-manifest.json");
-try {
-  let model;
-  let resolvedTitle = title;
-  if (input) {
-    model = readJson(input);
-    manifest.checks.push({ name: "source-extraction-coverage", status: "fixture-skipped" });
-  } else {
-    run(process.execPath, [path.join(root, "scripts/validate-content-inventory.mjs"), path.resolve(inventoryPath)]);
-    const inventory = readJson(inventoryPath);
-    const sourceAudit = auditSourceExtraction({ sourceText: fs.readFileSync(sourcePath, "utf8"), inventory });
-    const sourceAuditPath = path.join(out, "source-audit.json");
-    writeJson(sourceAuditPath, sourceAudit);
-    manifest.outputs.sourceAudit = sourceAuditPath;
-    if (!sourceAudit.ok) throw new Error(`V5 source extraction coverage failed: ${sourceAudit.issues.join("; ")}`);
-    manifest.checks.push({ name: "source-extraction-coverage", status: "passed" });
-    model = compileSemanticModel({ inventory });
-    resolvedTitle ||= inventory.title;
-    const semanticPath = path.join(out, "semantic-model.json");
-    writeJson(semanticPath, model);
-    manifest.outputs.semanticModel = semanticPath;
-  }
-  const semanticIssues = validateSemanticModel(model);
-  if (semanticIssues.length) throw new Error(`semantic model invalid: ${semanticIssues.join("; ")}`);
-  manifest.checks.push({ name: "semantic-model", status: "passed" });
-
-  const decision = planSceneV5(model, { style, title: resolvedTitle });
-  const decisionPath = path.join(out, "scene-decision.json");
-  writeJson(decisionPath, decision);
-  manifest.outputs.sceneDecision = decisionPath;
-  manifest.decision = { confidence: decision.confidence, candidates: decision.candidates, coverage: decision.coverage };
-  if (!decision.selected) {
-    if (input) throw new Error(`V5 fixture scene rejected; production would fall back to V4.4: ${decision.confidence.reasons.join("; ")}`);
-    manifest.checks.push({ name: "scene-confidence-and-coverage", status: "fallback", detail: decision.confidence.reasons });
-    const fallbackDir = path.join(out, "v44-fallback");
-    const fallbackManifest = await runWhiteboardV44({
-      root,
-      inventoryPath: path.resolve(inventoryPath),
-      sourcePath: path.resolve(sourcePath),
-      outputDir: fallbackDir,
-      style,
-      skipWhiteboardCli,
-      versionOverride: "4.4.0-beta.7",
-    });
-    manifest.fallback = { pipeline: "v4.4", reason: decision.confidence.reasons, status: fallbackManifest.status };
-    manifest.outputs.fallbackManifest = path.join(fallbackDir, "run-manifest.json");
-    manifest.outputs.whiteboard = fallbackManifest.outputs.whiteboard;
-    if (fallbackManifest.outputs.preview) manifest.outputs.preview = fallbackManifest.outputs.preview;
-    manifest.status = fallbackManifest.status === "passed" ? "fallback-passed" : "fallback-rendered-unverified";
-  } else {
-    manifest.checks.push({ name: "scene-confidence-and-coverage", status: "passed" });
-    const planPath = path.join(out, "scene-plan.json");
-    writeJson(planPath, decision.selected);
-    run(process.execPath, [path.join(root, "scripts/validate-scene-plan-v5.mjs"), planPath]);
-    manifest.checks.push({ name: "scene-plan", status: "passed" });
-    const svgPath = path.join(out, "whiteboard.svg");
-    run(process.execPath, [path.join(root, "scripts/render-whiteboard-v5.mjs"), "--input", planPath, "--output", svgPath]);
-    run(process.execPath, [path.join(root, "scripts/check-svg-layout.mjs"), svgPath]);
-    manifest.checks.push({ name: "svg-layout", status: "passed" });
-    manifest.outputs.scenePlan = planPath;
-    manifest.outputs.whiteboard = svgPath;
-    if (skipWhiteboardCli) {
-      manifest.checks.push({ name: "feishu-svg-import", status: "skipped" });
-      manifest.status = "rendered-unverified";
-    } else {
-      const pngPath = path.join(out, "whiteboard.png");
-      run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", svgPath, "-o", pngPath, "-f", "svg"]);
-      run("npx", ["-y", "@larksuite/whiteboard-cli@0.2.12", "-i", svgPath, "-f", "svg", "--check"]);
-      manifest.checks.push({ name: "feishu-svg-import", status: "passed" });
-      manifest.outputs.preview = pngPath;
-      manifest.status = "passed";
-    }
-  }
-} catch (error) {
-  manifest.status = "failed";
-  manifest.error = { message: error.message };
+const runner = path.join(path.dirname(fileURLToPath(import.meta.url)), "run-structured-whiteboard.mjs");
+const forwarded = ["--source", source, "--inventory", inventory, "--output-dir", outputDir];
+for (const name of ["--title", "--style"]) {
+  const value = option(name);
+  if (value) forwarded.push(name, value);
 }
-manifest.finishedAt = new Date().toISOString();
-writeJson(manifestPath, manifest);
-if (manifest.status === "failed") {
-  console.error(manifest.error.message);
-  process.exit(1);
-}
-console.log(`ok: ${manifest.pipeline} ${manifest.status} -> ${out}`);
+if (args.includes("--skip-whiteboard-cli")) forwarded.push("--skip-whiteboard-cli");
+
+console.error("deprecated entry redirected to scripts/run-structured-whiteboard.mjs");
+const result = spawnSync(process.execPath, [runner, ...forwarded], { stdio: "inherit" });
+process.exit(result.status ?? 1);

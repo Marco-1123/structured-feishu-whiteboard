@@ -50,15 +50,15 @@
 <text x="1460" y="580" font-size="17" fill="#5F5F59" font-weight="400"><tspan x="1460" dy="0">不适合日常周报</tspan></text>
 <rect x="1460" y="598" width="620" height="36" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1460" y="598" width="6" height="36" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1478" y="627" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1478" dy="0">信息密度过高</tspan></text>
+<text x="1478" y="618" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1478" dy="0">信息密度过高</tspan></text>
 
 <rect x="1460" y="646" width="620" height="36" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1460" y="646" width="6" height="36" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1478" y="675" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1478" dy="0">正式高管周报</tspan></text>
+<text x="1478" y="666" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1478" dy="0">正式高管周报</tspan></text>
 
 <rect x="1460" y="694" width="620" height="36" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1460" y="694" width="6" height="36" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1478" y="723" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1478" dy="0">低容错场景</tspan></text>
+<text x="1478" y="714" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1478" dy="0">低容错场景</tspan></text>
 
 <rect x="92" y="758" width="880" height="330" rx="0" fill="#F5F4EF" stroke="#0A0A0A" stroke-width="3"/>
 <text x="120" y="806" font-size="24" fill="#0A0A0A" font-weight="700"><tspan x="120" dy="0">能力跃迁</tspan></text>
@@ -80,30 +80,30 @@
 <text x="1042" y="840" font-size="17" fill="#5F5F59" font-weight="400"><tspan x="1042" dy="0">大胆但仍有秩序</tspan></text>
 <rect x="1042" y="858" width="454" height="54" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1042" y="858" width="6" height="54" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1060" y="887" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1060" dy="0">固定网格</tspan></text>
+<text x="1060" y="878" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1060" dy="0">固定网格</tspan></text>
 
 <rect x="1042" y="924" width="454" height="54" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1042" y="924" width="6" height="54" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1060" y="953" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1060" dy="0">单一强调色</tspan></text>
+<text x="1060" y="944" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1060" dy="0">单一强调色</tspan></text>
 
 <rect x="1042" y="990" width="454" height="54" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1042" y="990" width="6" height="54" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1060" y="1019" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1060" dy="0">短句卡片</tspan></text>
+<text x="1060" y="1010" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1060" dy="0">短句卡片</tspan></text>
 
 <rect x="1564" y="758" width="544" height="330" rx="0" fill="#F5F4EF" stroke="#0A0A0A" stroke-width="3"/>
 <text x="1592" y="806" font-size="24" fill="#0A0A0A" font-weight="700"><tspan x="1592" dy="0">适用场景</tspan></text>
 <text x="1592" y="840" font-size="17" fill="#5F5F59" font-weight="400"><tspan x="1592" dy="0">主动选择，不自动默认</tspan></text>
 <rect x="1592" y="858" width="488" height="54" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1592" y="858" width="6" height="54" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1610" y="887" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1610" dy="0">版本发布</tspan></text>
+<text x="1610" y="878" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1610" dy="0">版本发布</tspan></text>
 
 <rect x="1592" y="924" width="488" height="54" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1592" y="924" width="6" height="54" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1610" y="953" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1610" dy="0">方法论介绍</tspan></text>
+<text x="1610" y="944" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1610" dy="0">方法论介绍</tspan></text>
 
 <rect x="1592" y="990" width="488" height="54" rx="10" fill="#ECECE8" stroke="#0A0A0A" stroke-width="1.2"/>
 <rect x="1592" y="990" width="6" height="54" rx="3" fill="#0A0A0A" stroke="#0A0A0A" stroke-width="1"/>
-<text x="1610" y="1019" font-size="17" fill="#0A0A0A" font-weight="700"><tspan x="1610" dy="0">概念包装</tspan></text>
+<text x="1610" y="1010" font-size="15" fill="#0A0A0A" font-weight="700"><tspan x="1610" dy="0">概念包装</tspan></text>
 
 <text x="92" y="1272" font-size="24" fill="#5F5F59" font-weight="600"><tspan x="92" dy="0">适合发布、愿景、方法论和高记忆点概念包装。</tspan></text>
 </g>

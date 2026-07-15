@@ -114,8 +114,8 @@ const styles = {
 
 const c = styles[brief.style];
 if (!c) throw new Error(`unsupported V4 style: ${brief.style}`);
-const WIDTH = 2200;
-const M = 96;
+const WIDTH = Number(brief.canvasWidth || 2200);
+const M = Math.round(WIDTH * (96 / 2200));
 const GAP = 32;
 const CONTENT = WIDTH - M * 2;
 
@@ -357,6 +357,8 @@ function statusBoard(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 6);
   let cols = profile.itemLayout === "grid-5" && w >= 1200
     ? 5
+    : profile.itemLayout === "grid-3"
+      ? 3
     : profile.itemLayout === "grid-2"
       ? 2
     : profile.assignedSpan <= 4 ? 1 : items.length >= 5 && w >= 900 ? 3 : items.length > 3 ? 2 : Math.max(1, items.length);
@@ -368,9 +370,9 @@ function statusBoard(block, x, y, w, profile = {}) {
     itemW = w - 56;
   }
   const wraps = items.some((item) => estimateWidth(item.label || "", 17) > itemW - 58 || estimateWidth(item.note || "", 16) > itemW - 52);
-  const itemH = wraps ? 124 : 82;
+  const itemH = wraps ? 118 : 78;
   const rows = Math.ceil(items.length / cols);
-  const naturalH = 112 + rows * itemH + Math.max(0, rows - 1) * 14 + 26;
+  const naturalH = 102 + rows * itemH + Math.max(0, rows - 1) * 14 + 24;
   const h = Math.max(naturalH, profile.targetHeight || 0);
   const contentOffset = Math.max(0, Math.floor((h - naturalH) / 2));
   let body = blockCard(x, y, w, h, block.title, block.note);
@@ -378,7 +380,7 @@ function statusBoard(block, x, y, w, profile = {}) {
     const col = index % cols;
     const row = Math.floor(index / cols);
     const ix = x + 28 + col * (itemW + gap);
-    const iy = y + 106 + contentOffset + row * (itemH + 14);
+    const iy = y + 96 + contentOffset + row * (itemH + 14);
     const t = tone(item.status);
     const labelLines = splitText(item.label, itemW - 58, 17, wraps ? 2 : 1);
     const noteY = iy + 61 + Math.max(0, labelLines.length - 1) * 22;
@@ -416,34 +418,36 @@ function capabilityMap(block, x, y, w, profile = {}) {
     const capabilityCols = Math.min(w >= 1600 ? 5 : 3, capabilities.length);
     const capabilityRows = Math.ceil(capabilities.length / capabilityCols);
     const capabilityW = Math.floor((w - 56 - gap * (capabilityCols - 1)) / capabilityCols);
-    const h = Math.max(354 + capabilityRows * 162 + Math.max(0, capabilityRows - 1) * gap + 28, profile.targetHeight || 0);
-    const stageY = y + 116;
-    const capabilityY = y + 306;
+    const stageH = 92;
+    const capabilityH = 126;
+    const stageY = y + 104;
+    const capabilityY = y + 228;
+    const h = Math.max(228 + capabilityRows * capabilityH + Math.max(0, capabilityRows - 1) * gap + 30, profile.targetHeight || 0);
     let body = blockCard(x, y, w, h, block.title, headerNote);
     body += text(x + 28, stageY - 14, 15, c.secondary, ["使用链路"], "800");
     stages.forEach((item, index) => {
       const ix = x + 28 + index * (stageW + gap);
       body += `
-${rect(ix, stageY, stageW, 116, c.muted, c.border, 1.2, 12, ` data-v4-capability-stage="${index}"`)}
+${rect(ix, stageY, stageW, stageH, c.muted, c.border, 1.2, 12, ` data-v4-capability-stage="${index}"`)}
 ${rect(ix + 16, stageY + 16, 38, 30, c.soft, c.accent, 1, 8)}
 ${text(ix + 35, stageY + 37, 14, c.accent, [String(index + 1).padStart(2, "0")], "800", 20, ' text-anchor="middle"')}
-${text(ix + 16, stageY + 78, 18, c.ink, splitText(item.label, stageW - 32, 18, 2), "850", 24)}`;
-      if (index < stages.length - 1) body += text(ix + stageW + 2, stageY + 70, 28, c.accent, ["→"], "800");
+${text(ix + 68, stageY + 38, 18, c.ink, splitText(item.label, stageW - 84, 18, 2), "850", 24)}`;
+      if (index < stages.length - 1) body += text(ix + stageW + 2, stageY + 57, 28, c.accent, ["→"], "800");
     });
     body += text(x + 28, capabilityY - 14, 15, c.secondary, ["能力支撑"], "800");
     capabilities.forEach((item, index) => {
       const col = index % capabilityCols;
       const row = Math.floor(index / capabilityCols);
       const ix = x + 28 + col * (capabilityW + gap);
-      const iy = capabilityY + row * (162 + gap);
+      const iy = capabilityY + row * (capabilityH + gap);
       const copy = capabilityCopy(item);
       const titleLines = splitText(copy.title, capabilityW - 36, 18, 2);
       const noteLines = splitText(copy.note || item.note || "", capabilityW - 36, 15, 2);
       body += `
-${rect(ix, iy, capabilityW, 162, c.surface, c.border, 1.3, 12, ` data-v4-capability-item="${index}" data-capability-layout="journey-layered"`)}
-<rect x="${ix + 16}" y="${iy + 18}" width="7" height="126" rx="3.5" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
+${rect(ix, iy, capabilityW, capabilityH, c.surface, c.border, 1.3, 12, ` data-v4-capability-item="${index}" data-capability-layout="journey-layered"`)}
+<rect x="${ix + 16}" y="${iy + 18}" width="7" height="90" rx="3.5" fill="${c.accent}" stroke="${c.accent}" stroke-width="1"/>
 ${text(ix + 36, iy + 42, 18, c.ink, titleLines, "850", 24)}
-${noteLines.length ? text(ix + 36, iy + 94 + Math.max(0, titleLines.length - 1) * 22, 15, c.secondary, noteLines, "500", 21) : ""}`;
+${noteLines.length ? text(ix + 36, iy + 78 + Math.max(0, titleLines.length - 1) * 20, 15, c.secondary, noteLines.slice(0, 1), "500", 21) : ""}`;
     });
     return { h, body };
   }
@@ -464,11 +468,15 @@ ${noteLines.length ? text(ix + 36, iy + 94 + Math.max(0, titleLines.length - 1) 
     const copy = capabilityCopy(item);
     const titleLines = splitText(copy.title, itemW - 74, 19, 2);
     const noteLines = splitText(copy.note || item.note || "", itemW - 74, 15, 2);
+    const badgeY = noteLines.length ? iy + 18 : iy + Math.round((itemH - 32) / 2);
+    const titleY = noteLines.length
+      ? iy + 39
+      : iy + Math.round((itemH - titleLines.length * 25) / 2) + 19;
     body += `
 ${rect(ix, iy, itemW, itemH, c.surface, c.border, 1.3, 12, ` data-v4-capability-item="${index}" data-capability-layout="peer-grid"`)}
-${rect(ix + 16, iy + 18, 40, 32, c.soft, c.accent, 1, 9)}
-${text(ix + 36, iy + 40, 14, c.accent, [String(index + 1).padStart(2, "0")], "800", 20, ' text-anchor="middle"')}
-${text(ix + 72, iy + 39, 19, c.ink, titleLines, "850", 25)}
+${rect(ix + 16, badgeY, 40, 32, c.soft, c.accent, 1, 9)}
+${text(ix + 36, badgeY + 22, 14, c.accent, [String(index + 1).padStart(2, "0")], "800", 20, ' text-anchor="middle"')}
+${text(ix + 72, titleY, 19, c.ink, titleLines, "850", 25)}
 ${noteLines.length ? text(ix + 72, iy + 92 + Math.max(0, titleLines.length - 1) * 22, 15, c.secondary, noteLines, "500", 21) : ""}`;
   });
   return { h, body };
@@ -622,11 +630,13 @@ ${item.note ? text(ix + 70, iy + 60, 15, c.secondary, splitText(item.note, w - 1
   const gap = 26;
   const itemW = Math.floor((w - 56 - gap * (items.length - 1)) / items.length);
   const itemH = 180;
-  const h = Math.max(118 + itemH + 36, profile.targetHeight || 0);
+  const naturalH = 118 + itemH + 36;
+  const h = Math.max(naturalH, profile.targetHeight || 0);
+  const contentOffset = Math.max(0, Math.floor((h - naturalH) / 2));
   let body = blockCard(x, y, w, h, block.title, block.note);
   items.forEach((item, index) => {
     const ix = x + 28 + index * (itemW + gap);
-    const iy = y + 110;
+    const iy = y + 110 + contentOffset;
     const labelLines = splitText(item.label, itemW - 48, 24, 2);
     const noteY = iy + 82 + Math.max(0, labelLines.length - 1) * 30;
     body += `
@@ -644,6 +654,7 @@ ${item.note ? text(ix + 24, noteY, 17, c.secondary, splitText(item.note, itemW -
 
 function decisionMatrix(block, x, y, w, profile = {}) {
   const items = (block.items || []).slice(0, 4);
+  const showDecision = items.some((item) => item.value || ["good", "risk"].includes(item.status));
   const headerH = 42;
   const rowH = 82;
   const h = Math.max(112 + headerH + rowH * items.length + 28, profile.targetHeight || 0);
@@ -653,8 +664,8 @@ function decisionMatrix(block, x, y, w, profile = {}) {
   let body = blockCard(x, y, w, h, block.title, block.note);
   body += `${rect(tableX, tableY, tableW, headerH, c.muted, c.border, 1, 8)}
 ${text(tableX + 20, tableY + 27, 15, c.secondary, ["选项"], "800")}
-${text(tableX + tableW * 0.38, tableY + 27, 15, c.secondary, ["判断依据"], "800")}
-${text(tableX + tableW - 110, tableY + 27, 15, c.secondary, ["结论"], "800")}`;
+${text(tableX + tableW * (showDecision ? 0.38 : 0.46), tableY + 27, 15, c.secondary, ["判断依据"], "800")}
+${showDecision ? text(tableX + tableW - 110, tableY + 27, 15, c.secondary, ["结论"], "800") : ""}`;
   items.forEach((item, index) => {
     const iy = tableY + headerH + index * rowH;
     const t = tone(item.status);
@@ -663,8 +674,8 @@ ${text(tableX + tableW - 110, tableY + 27, 15, c.secondary, ["结论"], "800")}`
     body += `
 ${rect(tableX, iy, tableW, rowH - 8, item.status === "good" ? c.soft : c.surface, item.status === "good" ? c.accent : c.border, 1.3, 8)}
 ${text(tableX + 20, iy + 29, 17, item.status === "good" ? c.accent : c.ink, labelLines, "800", 22)}
-${text(tableX + tableW * 0.38, iy + 29, 15, c.secondary, noteLines, "500", 21)}
-${text(tableX + tableW - 110, iy + 29, 16, t, [item.value || ""], "800")}`;
+${text(tableX + tableW * (showDecision ? 0.38 : 0.46), iy + 29, 15, c.secondary, noteLines, "500", 21)}
+${showDecision ? text(tableX + tableW - 110, iy + 29, 16, t, [item.value || (item.status === "good" ? "推荐" : "关注")], "800") : ""}`;
   });
   return { h, body };
 }
@@ -712,7 +723,7 @@ function varianceBridge(block, x, y, w, profile = {}) {
 ${rect(ix, stageY + (102 - cardH), stageW, cardH, isEnd ? c.soft : c.surface, t, 2, 10)}
 ${text(ix + 18, stageY + 34, 22, c.ink, [item.value], "850")}
 ${text(ix + 18, stageY + 68, 15, c.secondary, splitText(item.note || "", stageW - 36, 15, 1), "500")}
-${text(ix + 18, stageY + 108, 16, c.ink, splitText(item.label, stageW - 36, 16, 1), "800")}`;
+${text(ix + 18, stageY + 108, 16, c.ink, splitText(item.label, stageW - 36, 16, 1), "800", 22, ' data-chart-external-label="true"')}`;
     if (index < items.length - 1) body += `${text(ix + stageW + 2, stageY + 50, 30, c.accent, ["→"], "700")}`;
   });
   return { h, body };
@@ -785,8 +796,14 @@ function markLayoutNode(node, body) {
     "action-list": "action-checklist",
   };
   const componentVariant = variants[node.type] ? ` data-component-variant="${variants[node.type]}"` : "";
+  const sourceFactIds = [...new Set([
+    ...(node.sourceFactIds || []),
+    ...(node.block?.sourceFactIds || []),
+    ...(node.block?.items || []).map((item) => item.sourceFactId).filter(Boolean),
+  ])];
+  const sourceAttributes = sourceFactIds.length ? ` data-source-fact-ids="${escapeXml(sourceFactIds.join(","))}"` : "";
   const densityAttributes = profile ? ` data-row="${node.row}" data-span="${node.span}" data-row-alignment="${node.rowAlignment || "filled"}" data-offset-span="${node.offsetSpan || 0}" data-density="${profile.density}" data-preferred-width="${node.preferredWidth}" data-text-units="${profile.textUnits}" data-item-count="${profile.itemCount}" data-item-layout="${profile.itemLayout}" data-layout-reason="${escapeXml(profile.reason)}"` : "";
-  return `<g data-v43-block="${escapeXml(node.id)}" data-block-type="${escapeXml(node.type)}" data-x="${node.x}" data-y="${node.y}" data-width="${node.width}" data-height="${node.height}" data-column="${node.column || "full"}"${componentVariant}${densityAttributes}>
+  return `<g data-v43-block="${escapeXml(node.id)}" data-block-type="${escapeXml(node.type)}" data-x="${node.x}" data-y="${node.y}" data-width="${node.width}" data-height="${node.height}" data-column="${node.column || "full"}"${componentVariant}${densityAttributes}${sourceAttributes}>
 ${body}
 </g>`;
 }
@@ -795,7 +812,8 @@ function renderCanvas() {
   const blocks = brief.expressionBlocks || [];
   const statement = blocks.find((block) => block.type === "statement");
   const metrics = blocks.filter((block) => block.type === "metric-card");
-  const groupedMetrics = metrics.length >= 2 ? metrics : [];
+  const splitMetricSkeletons = new Set(["left-right-argument"]);
+  const groupedMetrics = metrics.length >= 2 && !splitMetricSkeletons.has(brief.pageSkeleton) ? metrics : [];
   const rest = blocks.filter((block) => block.type !== "statement" && (groupedMetrics.length === 0 || block.type !== "metric-card"));
 
   const title = titleBlock();
@@ -804,13 +822,13 @@ function renderCanvas() {
 
   if (statement) {
     const rendered = statementBlock(statement, M, y, CONTENT);
-    body += markLayoutNode({ id: "statement", type: "statement", x: M, y, width: CONTENT, height: rendered.h, column: "full" }, rendered.body);
+    body += markLayoutNode({ id: "statement", type: "statement", x: M, y, width: CONTENT, height: rendered.h, column: "full", block: statement }, rendered.body);
     y += rendered.h + 44;
   }
 
   if (groupedMetrics.length) {
     const rendered = metricsGroup(groupedMetrics, M, y, CONTENT);
-    body += markLayoutNode({ id: "metrics", type: "metric-group", x: M, y, width: CONTENT, height: rendered.h, column: "full" }, rendered.body);
+    body += markLayoutNode({ id: "metrics", type: "metric-group", x: M, y, width: CONTENT, height: rendered.h, column: "full", sourceFactIds: groupedMetrics.flatMap((block) => block.sourceFactIds || []) }, rendered.body);
     y += rendered.h + 44;
   }
 
@@ -838,19 +856,6 @@ function renderCanvas() {
     measure: (block, width, profile) => ({ height: blockRenderer(block, 0, 0, width, profile).h }),
     pageSkeleton: brief.pageSkeleton,
   });
-  // A concise onepage may legitimately have a single supporting region. Keep
-  // it as a full-width closing band, but distribute it vertically instead of
-  // leaving one accidental empty footer below a top-heavy composition.
-  if (tree.nodes.length === 1) {
-    const node = tree.nodes[0];
-    const currentBottom = node.y + node.height;
-    const offset = Math.min(240, Math.max(0, 820 - currentBottom));
-    if (offset) {
-      node.y += offset;
-      tree.height += offset;
-      tree.contentBounds.height += offset;
-    }
-  }
   for (const node of tree.nodes) {
     const rendered = blockRenderer(node.block, node.x, node.y, node.width, node.profile);
     body += markLayoutNode(node, rendered.body);
@@ -869,7 +874,7 @@ ${text(M + 36, y + 46, 20, c.ink, footerLines, "800", 26)}`;
 
   // Keep OnePage near a presentation-friendly landscape ratio without adding
   // a large artificial footer void when the material is concise.
-  const height = Math.max(1024, y);
+  const height = Math.max(Math.ceil(WIDTH / 2.15), y);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v4" data-layout="expression-canvas" data-pipeline-version="${escapeXml(brief.pipelineVersion || "4.4")}" data-expression-mode="${escapeXml(brief.expressionMode)}" data-page-skeleton="${escapeXml(brief.pageSkeleton || "overview-detail")}">
 ${rect(0, 0, WIDTH, height, c.canvas, c.canvas, 0, 0)}
 <g>
@@ -894,7 +899,7 @@ function flowNode(node, x, y, w, h) {
   const t = flowTone(node);
   const measured = flowNodeSize(node, w);
   const chipFill = node.type === "result" ? "#ECFDF5" : node.type === "risk" || node.status === "risk" ? "#FFF7ED" : c.muted;
-  return `${rect(x, y, w, h, c.surface, c.border, 1.5, node.type === "start" || node.type === "result" ? 24 : 14, ` data-flow-node="${escapeXml(node.id)}" data-node-x="${Math.round(x)}" data-node-y="${Math.round(y)}" data-node-width="${Math.round(w)}" data-node-height="${Math.round(h)}" data-node-type="${escapeXml(node.type)}"`)}
+  return `${rect(x, y, w, h, c.surface, c.border, 1.5, node.type === "start" || node.type === "result" ? 24 : 14, ` data-flow-node="${escapeXml(node.id)}" data-node-x="${Math.round(x)}" data-node-y="${Math.round(y)}" data-node-width="${Math.round(w)}" data-node-height="${Math.round(h)}" data-node-type="${escapeXml(node.type)}" data-source-fact-ids="${escapeXml((node.sourceFactIds || []).join(","))}"`)}
 <rect x="${x + 22}" y="${y + 22}" width="8" height="${h - 44}" rx="4" fill="${t}" stroke="${t}" stroke-width="1"/>
 ${rect(x + 46, y + 22, 86, 30, chipFill, c.border, 1, 8)}
 ${text(x + 64, y + 43, 15, t, [flowTypeLabel(node.type)], "800")}

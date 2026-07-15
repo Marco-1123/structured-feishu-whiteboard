@@ -40,4 +40,24 @@ const richAudit = auditSourceExtraction({ sourceText: source, inventory: rich })
 assert.equal(richAudit.ok, true, richAudit.issues.join("; "));
 assert.ok(richAudit.recalledNumericSignals.length >= 2);
 
+const missingSemanticTypes = {
+  facts: rich.facts.filter((fact) => !["risk", "action", "process"].includes(fact.type)),
+};
+const semanticAudit = auditSourceExtraction({ sourceText: `${source}\n\n当前风险是权限边界仍未闭环，下一步行动是建立异常升级机制并按周复盘。`, inventory: missingSemanticTypes });
+assert.equal(semanticAudit.ok, false);
+assert.match(semanticAudit.issues.join(" "), /risk|action|process/i);
+
+const sectionSource = [
+  "第一部分给出总体判断与阶段结论，说明项目已经从试点进入稳定运行。",
+  "第二部分记录三项业务指标，目标完成率 82%，效率提升 16%，风险数量为 3。",
+  "第三部分展开关键证据，包括连续六周改善、真实用户复用和自动化覆盖扩大。",
+  "第四部分说明主要风险和下一步行动，需要统一口径并建立双周复盘机制。",
+].join("\n\n");
+const sectionSparseAudit = auditSourceExtraction({
+  sourceText: sectionSource,
+  inventory: { facts: [{ id: "c1", type: "conclusion", importance: "critical", text: "项目进入稳定运行。", sourceQuote: "项目已经从试点进入稳定运行" }] },
+});
+assert.equal(sectionSparseAudit.ok, false);
+assert.match(sectionSparseAudit.issues.join(" "), /section recall|numeric evidence recall/i);
+
 console.log("ok: source extraction audit tests passed");

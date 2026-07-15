@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { inspectV43VisualQuality } from "./lib/v43-visual-quality.mjs";
 
 function svg(blocks, width = 1000, height = 700) {
-  return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" data-layout-engine="v4">${blocks.map((block) => `<g data-v43-block="${block.id}" data-block-type="${block.type || "test"}" data-x="${block.x}" data-y="${block.y}" data-width="${block.w}" data-height="${block.h}" data-column="${block.column || "full"}"></g>`).join("")}</svg>`;
+  return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" data-layout-engine="v4">${blocks.map((block) => `<g data-v43-block="${block.id}" data-block-type="${block.type || "test"}" data-x="${block.x}" data-y="${block.y}" data-width="${block.w}" data-height="${block.h}" data-column="${block.column || "full"}" data-text-units="${block.textUnits ?? 80}" data-item-count="${block.itemCount ?? 4}"></g>`).join("")}</svg>`;
 }
 
 const valid = inspectV43VisualQuality(svg([

@@ -90,5 +90,5 @@ V4.4 不再只把这份草稿留在对话上下文中。使用 V4.4 时，必须
 - 顶部总览只承载主结论、关键模块和推荐路径，不代表完整输出。
 - 用户要求“完整呈现”时，在同一画板内扩大版面并组织区域，而不是切成多个独立页面。
 - 回复中可以说明哪些信息被合并或降级；画板上不要写制作过程。
-- 所有生产输出必须通过 `node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>`；不得改用旧 runner、旧 renderer 或手写 SVG。
+- 所有生产输出必须通过 `node scripts/run-structured-whiteboard.mjs --source <raw-source.md> --inventory <inventory.json> --output-dir <output-dir>`；不得改用旧 runner、旧 renderer 或手写 SVG。
 - 运行清单状态必须为 `passed` 才能交付；`rendered-unverified` 只允许用于本地快速回归。

@@ -67,7 +67,7 @@ export async function runWhiteboard({
     if (!coverage.ok) throw new Error(coverage.issues.join("; "));
     manifest.checks.push({ name: "content-coverage", status: "passed" });
 
-    const capability = assertCapability(loadCapabilities(root), brief);
+    const capability = assertCapability(loadCapabilities(root, { includeArchived: true }), brief);
     manifest.capability = capability;
     manifest.route = {
       decisionId: route.decisionId,

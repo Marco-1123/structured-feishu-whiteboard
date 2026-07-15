@@ -1277,11 +1277,16 @@ function renderListBlock(x, y, w, h, c, block, options = {}) {
     const ix = x + 28 + col * (itemW + gap);
     const iy = y + 100 + row * (itemH + rowGap);
     const tone = options.tone || statusTone(item.status, c);
+    const compact = itemH < 64;
+    const labelSize = compact ? 15 : 17;
+    const noteSize = compact ? 12 : 14;
+    const labelBaseline = compact ? 20 : 29;
+    const noteBaseline = compact ? 40 : 54;
     body += `
 <rect x="${ix}" y="${iy}" width="${itemW}" height="${itemH}" rx="10" fill="${c.muted}" stroke="${c.border}" stroke-width="1.2"/>
 <rect x="${ix}" y="${iy}" width="6" height="${itemH}" rx="3" fill="${tone}" stroke="${tone}" stroke-width="1"/>
-${text(ix + 18, iy + 29, 17, options.emphasis ? tone : c.ink, [item.label], "700")}
-${item.note && itemH >= 50 ? text(ix + 18, iy + 54, 14, c.secondary, splitByWidth(item.note, itemW - 36, 14, 1)) : ""}`;
+${text(ix + 18, iy + labelBaseline, labelSize, options.emphasis ? tone : c.ink, [item.label], "700")}
+${item.note && itemH >= 48 ? text(ix + 18, iy + noteBaseline, noteSize, c.secondary, splitByWidth(item.note, itemW - 36, noteSize, 1)) : ""}`;
   });
   return body;
 }
@@ -1328,7 +1333,7 @@ ${rect(ix, iy, itemW, itemH, c, { rx: 12, fill: c.surface, stroke: c.border, sw:
 ${text(ix + 42, iy + (compact ? 35 : 42), compact ? 18 : 19, c.ink, splitByWidth(item.label, itemW - 122, compact ? 18 : 19, 1), "700")}
 ${rect(ix + itemW - pillW - 16, iy + (compact ? 14 : 18), pillW, 28, c, { rx: 8, fill: c.muted, stroke: c.border, sw: 1 })}
 ${text(ix + itemW - pillW - 2, iy + (compact ? 34 : 38), 15, tone, [statusLabel], "700")}
-${text(ix + 42, iy + (compact ? 59 : 76), compact ? 14 : 16, c.secondary, splitByWidth(item.note || "", itemW - 68, compact ? 14 : 16, 1), "400", compact ? 18 : 22)}`;
+${text(ix + 42, iy + (compact ? 59 : 68), compact ? 14 : 16, c.secondary, splitByWidth(item.note || "", itemW - 68, compact ? 14 : 16, 1), "400", compact ? 18 : 22)}`;
   });
   return body;
 }

@@ -79,7 +79,7 @@ export function profileExpressionBlock(block = {}) {
 
   if (block.type === "status-board") {
     if (demand.maxItemUnits <= 34 && demand.textUnits <= 210) {
-      const span = demand.itemCount <= 3 ? 4 : demand.itemCount === 5 ? 12 : 8;
+      const span = demand.itemCount <= 2 ? 4 : demand.itemCount <= 4 ? 6 : 12;
       const itemLayout = demand.itemCount === 5 ? "grid-5" : demand.itemCount >= 4 ? "grid-2" : "rows";
       return { ...base, span, minSpan: span, preferredSpan: span, maxSpan: span, density: "sparse", itemLayout, reason: demand.itemCount === 5 ? "balanced-five-status-items" : "compact-status-items" };
     }
@@ -105,12 +105,12 @@ function spanWidth(totalWidth, span, gap) {
 }
 
 const SKELETON_PRIORITY = {
-  "overview-detail": ["progress-bar", "trend-sparkline", "ranked-bar", "status-board", "variance-bridge-v2", "evidence-list", "risk-list", "action-list", "narrative-chain", "mini-roadmap", "decision-matrix"],
-  "centered-system": ["capability-map", "narrative-chain", "status-board", "progress-bar", "evidence-list", "risk-list", "action-list", "mini-roadmap", "decision-matrix"],
-  "past-future-split": ["evidence-list", "risk-list", "mini-roadmap", "action-list", "status-board", "narrative-chain"],
-  "left-right-argument": ["narrative-chain", "evidence-list", "risk-list", "action-list", "decision-matrix", "status-board"],
-  "multi-line-comparison": ["decision-matrix", "evidence-list", "risk-list", "action-list", "status-board"],
-  timeline: ["mini-roadmap", "narrative-chain", "risk-list", "action-list", "evidence-list", "status-board"],
+  "overview-detail": ["metric-card", "progress-bar", "trend-sparkline", "ranked-bar", "status-board", "variance-bridge-v2", "evidence-list", "risk-list", "action-list", "narrative-chain", "mini-roadmap", "decision-matrix"],
+  "centered-system": ["metric-card", "capability-map", "narrative-chain", "status-board", "progress-bar", "evidence-list", "risk-list", "action-list", "mini-roadmap", "decision-matrix"],
+  "past-future-split": ["metric-card", "evidence-list", "risk-list", "mini-roadmap", "action-list", "status-board", "narrative-chain"],
+  "left-right-argument": ["narrative-chain", "metric-card", "evidence-list", "risk-list", "action-list", "decision-matrix", "status-board"],
+  "multi-line-comparison": ["metric-card", "decision-matrix", "evidence-list", "risk-list", "action-list", "status-board"],
+  timeline: ["metric-card", "mini-roadmap", "narrative-chain", "risk-list", "action-list", "evidence-list", "status-board"],
 };
 
 function skeletonProfile(block, pageSkeleton, profile) {
@@ -118,12 +118,18 @@ function skeletonProfile(block, pageSkeleton, profile) {
   if (pageSkeleton === "centered-system" && block.type === "capability-map") {
     return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, itemLayout: "architecture-strip", reason: "centered-system-capability-anchor" };
   }
-  if (pageSkeleton === "centered-system" && ["status-board", "narrative-chain"].includes(block.type)) {
-    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout: block.type === "status-board" ? "grid-2" : "vertical-chain", reason: `centered-system-${block.type === "status-board" ? "capability" : "path"}-column` };
+  if (pageSkeleton === "centered-system" && block.type === "status-board") {
+    const span = intent.itemCount === 1 ? 4 : intent.itemCount <= 4 ? 6 : intent.span;
+    const itemLayout = intent.itemCount === 3 ? "grid-3" : intent.itemCount === 4 ? "grid-2" : "rows";
+    return { ...intent, span, minSpan: span, preferredSpan: span, maxSpan: span, itemLayout, reason: "centered-system-content-weighted-status" };
+  }
+  if (pageSkeleton === "centered-system" && block.type === "narrative-chain") {
+    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout: "vertical-chain", reason: "centered-system-path-column" };
   }
   if (pageSkeleton === "centered-system" && LIST_TYPES.has(block.type)) {
     const itemLayout = intent.itemCount >= 3 ? "grid-3" : intent.itemCount === 2 ? "grid-2" : "rows";
-    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout, reason: "centered-system-support-row" };
+    const span = intent.itemCount === 1 ? 4 : intent.itemCount === 2 ? 8 : 6;
+    return { ...intent, span, minSpan: span, preferredSpan: span, maxSpan: span, itemLayout, reason: "centered-system-content-weighted-support" };
   }
   if (pageSkeleton === "timeline" && ["mini-roadmap", "narrative-chain"].includes(block.type)) {
     return { ...intent, span: 12, minSpan: 12, preferredSpan: 12, maxSpan: 12, reason: "timeline-reading-axis" };
@@ -140,11 +146,15 @@ function skeletonProfile(block, pageSkeleton, profile) {
   if (pageSkeleton === "left-right-argument" && block.type === "metric-card") {
     return { ...intent, span: 4, minSpan: 4, preferredSpan: 4, maxSpan: 4, reason: "left-right-argument-metric-callout" };
   }
-  if (pageSkeleton === "left-right-argument" && block.type === "status-board" && intent.itemCount <= 2 && intent.textUnits <= 140) {
-    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, itemLayout: "rows", reason: "left-right-argument-side-status" };
+  if (pageSkeleton === "left-right-argument" && block.type === "status-board" && intent.itemCount <= 3 && intent.textUnits <= 210) {
+    const span = intent.itemCount === 3 ? 8 : 6;
+    return { ...intent, span, minSpan: span, preferredSpan: span, maxSpan: span, itemLayout: intent.itemCount === 3 ? "grid-3" : "rows", reason: "left-right-argument-side-status" };
   }
   if (["past-future-split", "left-right-argument"].includes(pageSkeleton) && ["evidence-list", "risk-list", "action-list"].includes(block.type)) {
     return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, reason: `${pageSkeleton}-paired-region` };
+  }
+  if (pageSkeleton === "multi-line-comparison" && ["capability-map", "mini-roadmap"].includes(block.type)) {
+    return { ...intent, span: 6, minSpan: 6, preferredSpan: 6, maxSpan: 6, reason: "multi-line-comparison-balanced-anchor-row" };
   }
   return intent;
 }

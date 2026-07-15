@@ -70,10 +70,8 @@ function composeSupportRegions(regions, model) {
 
   const hostFor = (component) => {
     const preferences = component === "action-list"
-      ? ["mini-roadmap", "narrative-chain", "status-board"]
-      : component === "evidence-list"
-        ? ["decision-matrix", "status-board"]
-        : ["decision-matrix", "status-board"];
+      ? ["mini-roadmap", "narrative-chain"]
+      : [];
     return preferences.map((type) => independent.find((region) => region.preferredComponent === type)).find(Boolean);
   };
 
@@ -189,7 +187,8 @@ export function planExpressions(model, config = defaultConfig) {
       if (!uncoveredGroups.has(component)) uncoveredGroups.set(component, []);
       uncoveredGroups.get(component).push(fact);
     }
-    for (const [component, facts] of uncoveredGroups) {
+    for (const [rawComponent, facts] of uncoveredGroups) {
+      const component = rawComponent === "decision-matrix" && facts.length < 2 ? "evidence-list" : rawComponent;
       const existing = regions.find((region) => region.preferredComponent === component);
       if (existing) appendFacts(existing, facts.map((fact) => fact.id), `uncovered-${facts[0].type}`);
       else regions.push({ id: `region-${regions.length + 1}`, purpose: facts.map((fact) => fact.type).join("-"), factIds: facts.map((fact) => fact.id), preferredComponent: component, visualPriority: "secondary", widthIntent: "adaptive" });

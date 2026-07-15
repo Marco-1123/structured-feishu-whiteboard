@@ -12,6 +12,11 @@ export function currentCommit(root) {
   return result.status === 0 ? result.stdout.trim() : null;
 }
 
+export function gitDirty(root) {
+  const result = spawnSync("git", ["status", "--porcelain"], { cwd: root, encoding: "utf8" });
+  return result.status === 0 ? Boolean(result.stdout.trim()) : null;
+}
+
 export function createRunManifest({ root, version, inventoryPath, routePath, briefPath }) {
   return {
     schemaVersion: 1,

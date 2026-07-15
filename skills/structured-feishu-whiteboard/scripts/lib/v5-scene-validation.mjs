@@ -6,7 +6,7 @@ export function validateScenePlanV5(plan) {
   if (!plan || typeof plan !== "object") return ["scene plan must be an object"];
   const allowedKeys = new Set(["schemaVersion", "engine", "scene", "style", "title", "subtitle", "summary", "summarySourceFactIds", "confidence", "centerTitle", "lanes", "layers", "nodes", "edges", "sourceFactIds", "recommendation", "recommendationSourceFactIds", "optionNodeIds", "criterionNodeIds", "thesisNodeId", "evidenceNodeIds", "metricNodeIds", "supportNodeIds"]);
   for (const key of Object.keys(plan)) if (!allowedKeys.has(key)) issues.push(`unknown scene plan field: ${key}`);
-  if (plan.schemaVersion !== "5.0-alpha.2") issues.push("schemaVersion must be 5.0-alpha.2");
+  if (plan.schemaVersion !== "5.0-beta.1") issues.push("schemaVersion must be 5.0-beta.1");
   if (plan.engine !== "v5") issues.push("engine must be v5");
   if (!allowedScenes.has(plan.scene)) issues.push(`unsupported scene: ${plan.scene}`);
   if (!allowedStyles.has(plan.style)) issues.push(`unsupported style: ${plan.style}`);

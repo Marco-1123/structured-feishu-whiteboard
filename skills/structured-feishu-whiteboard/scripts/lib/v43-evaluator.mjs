@@ -16,7 +16,7 @@ function candidateKey(candidate) {
 export async function evaluateV43(root) {
   const base = path.join(root, "examples", "evals", "v43");
   const manifest = readJson(path.join(base, "cases.json"));
-  const registry = loadCapabilities(root);
+  const registry = loadCapabilities(root, { includeArchived: true });
   const routerCases = readJson(path.join(base, manifest.routerCases));
   const routeResults = [];
   for (const testCase of routerCases) {

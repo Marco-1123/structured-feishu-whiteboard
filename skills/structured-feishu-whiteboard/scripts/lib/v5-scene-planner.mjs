@@ -396,7 +396,7 @@ export function planSceneV5(model, { style = "linear-system", title, config = de
   const selected = candidates[0];
   const summaryFact = model.facts.find((fact) => fact.type === "conclusion") || model.facts.find((fact) => fact.importance === "critical") || model.facts[0];
   const meta = {
-    schemaVersion: "5.0-alpha.2",
+    schemaVersion: "5.0-beta.1",
     engine: "v5",
     scene: selected.scene,
     style,

@@ -20,7 +20,7 @@ raw source snapshot
 执行入口：
 
 ```bash
-node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>
+node scripts/run-structured-whiteboard.mjs --source <raw-source.md> --inventory <inventory.json> --output-dir <output-dir>
 ```
 
 ## 职责边界
@@ -60,7 +60,7 @@ manifest 必须满足：
 
 ```json
 {
-  "pipeline": "v4.4",
+  "pipeline": "structured-whiteboard",
   "status": "passed"
 }
 ```

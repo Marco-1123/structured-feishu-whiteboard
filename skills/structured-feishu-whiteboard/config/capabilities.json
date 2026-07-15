@@ -1,19 +1,15 @@
 {
-  "version": "4.4.0-beta.7",
+  "version": "5.0.0-beta.1",
   "channels": {
     "production": {
-      "branch": "codex/v4.4-semantic-compiler",
-      "tag": "v4.4.0-beta.7",
-      "version": "4.4.0-beta.7",
-      "entrypoint": "scripts/run-whiteboard-v44.mjs",
-      "engine": "v4",
+      "branch": "codex/v5-beta-refactor",
+      "tag": "v5.0.0-beta.1",
+      "version": "5.0.0-beta.1",
+      "entrypoint": "scripts/run-structured-whiteboard.mjs",
+      "engine": "auto",
       "renderTarget": "svg"
     },
-    "legacy": {
-      "branch": "main",
-      "version": "3.2.0",
-      "production": false
-    }
+    "archivePolicy": "Historical renderers are regression-only and must never be selected by an Agent."
   },
   "styles": [
     "professional-blue",
@@ -48,7 +44,14 @@
     "expression-canvas",
     "flow-canvas"
   ],
-  "capabilities": [
+  "productionCapability": {
+    "id": "structured-whiteboard-auto",
+    "entrypoint": "scripts/run-structured-whiteboard.mjs",
+    "engine": "auto",
+    "renderTarget": "svg",
+    "agentSelectable": false
+  },
+  "archivedCapabilities": [
     {
       "id": "v3-svg",
       "engine": "v3",
@@ -56,6 +59,7 @@
       "renderer": "scripts/render-whiteboard.mjs",
       "experimental": true,
       "legacy": true,
+      "agentSelectable": false,
       "layouts": [
         "conclusion-first",
         "problem-breakdown",
@@ -89,6 +93,7 @@
       "renderer": "scripts/render-whiteboard-dsl.mjs",
       "experimental": true,
       "legacy": true,
+      "agentSelectable": false,
       "layouts": [
         "milestone-timeline",
         "funnel",
@@ -115,7 +120,9 @@
       "renderTarget": "svg",
       "renderer": "scripts/render-whiteboard-v4.mjs",
       "experimental": false,
-      "production": true,
+      "production": false,
+      "legacy": true,
+      "agentSelectable": false,
       "layouts": [
         "expression-canvas",
         "flow-canvas"

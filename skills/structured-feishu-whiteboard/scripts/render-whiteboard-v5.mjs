@@ -61,6 +61,10 @@ const rect = (x, y, w, h, fill = c.surface, stroke = c.border, sw = 1.5, rx = 12
 const line = (x1, y1, x2, y2, stroke = c.line, sw = 3, attrs = "") => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${stroke}" stroke-width="${sw}" stroke-linecap="round"${attrs}/>`;
 const polyline = (points, stroke = c.line, sw = 3, attrs = "") => `<polyline points="${points.map((point) => `${point.x},${point.y}`).join(" ")}" fill="none" stroke="${stroke}" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round"${attrs}/>`;
 const tone = (status) => status === "risk" ? c.risk : status === "good" ? c.success : c.accent;
+const sourceAttrs = (value) => {
+  const ids = Array.isArray(value?.sourceFactIds) ? value.sourceFactIds : Array.isArray(value) ? value : [];
+  return ` data-source-fact-ids="${esc(ids.join(","))}"`;
+};
 
 function arrowHead(x, y, angle, color = c.accent, size = 12) {
   const back = angle + Math.PI;
@@ -92,7 +96,7 @@ function nodeCard(node, x, y, w, h, number = "") {
   const titleLines = wrap(node.title, w - 48, 20, 2);
   const noteLines = wrap(node.note || "", w - 48, 16, 2);
   const color = tone(node.status);
-  return `${rect(x, y, w, h, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"`)}
+  return `${rect(x, y, w, h, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"${sourceAttrs(node)}`)}
 <rect x="${x}" y="${y}" width="7" height="${h}" rx="3.5" fill="${color}"/>
 ${number ? text(x + 26, y + 31, 14, color, [number], 800) : ""}
 ${text(x + 24, y + (number ? 61 : 40), 20, c.ink, titleLines, 750, "start", 26)}
@@ -252,7 +256,7 @@ function renderDecisionComparison(startY) {
     const x = gridX + index * optionW;
     if (index) parts.push(line(x, top + 18, x, top + headerH - 18, c.border, 1.2));
     parts.push(text(x + 26, top + 42, 14, c.accent, [`方案 ${String.fromCharCode(65 + index)}`], 800));
-    parts.push(text(x + 26, top + 78, 21, c.ink, wrap(option.title, optionW - 52, 21, 2), 750, "start", 28, ` data-scene-node="${esc(option.id)}"`));
+    parts.push(text(x + 26, top + 78, 21, c.ink, wrap(option.title, optionW - 52, 21, 2), 750, "start", 28, ` data-scene-node="${esc(option.id)}"${sourceAttrs(option)}`));
   });
   const edgeMap = new Map();
   for (const edge of plan.edges || []) edgeMap.set(`${edge.from}->${edge.to}`, edge.type);
@@ -260,7 +264,7 @@ function renderDecisionComparison(startY) {
   criteria.forEach((criterion, row) => {
     const y = top + headerH + row * rowH;
     parts.push(rect(M, y, CONTENT, rowH, row % 2 ? c.surface : c.soft, c.border, 1, 0));
-    parts.push(text(M + 28, y + 36, 18, c.ink, wrap(criterion.title, labelW - 56, 18, 2), 700, "start", 24, ` data-scene-node="${esc(criterion.id)}"`));
+    parts.push(text(M + 28, y + 36, 18, c.ink, wrap(criterion.title, labelW - 56, 18, 2), 700, "start", 24, ` data-scene-node="${esc(criterion.id)}"${sourceAttrs(criterion)}`));
     options.forEach((option, col) => {
       const x = gridX + col * optionW;
       if (col) parts.push(line(x, y + 12, x, y + rowH - 12, c.border, 1));
@@ -274,7 +278,7 @@ function renderDecisionComparison(startY) {
   const matrixBottom = top + headerH + criteria.length * rowH;
   const recY = matrixBottom + 28;
   const recLines = wrap(plan.recommendation || plan.summary, CONTENT - 90, 23, 2);
-  parts.push(rect(M, recY, CONTENT, 118, c.soft, c.accent, 1.5, 12, ` data-v5-recommendation="true"`));
+  parts.push(rect(M, recY, CONTENT, 118, c.soft, c.accent, 1.5, 12, ` data-v5-recommendation="true"${sourceAttrs(plan.recommendationSourceFactIds || [])}`));
   parts.push(text(M + 30, recY + 38, 15, c.accent, ["推荐结论"], 800));
   parts.push(text(M + 30, recY + 76, 23, c.ink, recLines, 750, "start", 31));
   return { svg: parts.join("\n"), bottom: recY + 118 };
@@ -297,7 +301,7 @@ function renderEvidenceArgument(startY) {
   const fieldY = startY + 54;
   const fieldH = maxRows * cardH + Math.max(0, maxRows - 1) * rowGap;
   const thesisY = fieldY + Math.max(0, (fieldH - thesisH) / 2);
-  parts.push(rect(thesisX, thesisY, thesisW, thesisH, c.soft, c.accent, 2, 16, ` data-scene-node="${esc(thesis.id)}"`));
+  parts.push(rect(thesisX, thesisY, thesisW, thesisH, c.soft, c.accent, 2, 16, ` data-scene-node="${esc(thesis.id)}"${sourceAttrs(thesis)}`));
   parts.push(text(thesisX + 34, thesisY + 42, 15, c.accent, ["中心论点"], 800));
   parts.push(text(thesisX + 34, thesisY + 88, 25, c.ink, wrap(thesis.title, thesisW - 68, 25, 2), 800, "start", 34));
   const positions = [];
@@ -307,7 +311,7 @@ function renderEvidenceArgument(startY) {
     const index = evidence.indexOf(node);
     positions.push({ x, y, node, side, row, sideCount: nodes.length });
     const color = node.status === "risk" ? c.risk : c.accent;
-    parts.push(rect(x, y, cardW, cardH, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"`));
+    parts.push(rect(x, y, cardW, cardH, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"${sourceAttrs(node)}`));
     parts.push(text(x + 24, y + 34, 14, color, [`证据 ${String(index + 1).padStart(2, "0")}`], 800));
     parts.push(text(x + 24, y + 76, 19, c.ink, wrap(node.title, cardW - 48, 19, 2), 750, "start", 27));
     if (node.note) parts.push(text(x + 24, y + 140, 13, c.secondary, wrap(node.note, cardW - 48, 13, 2), 500, "start", 19));
@@ -341,7 +345,7 @@ function renderOperatingDashboard(startY) {
   const cardH = 172;
   heroMetrics.forEach((node, index) => {
     const x = M + index * (cardW + cardGap);
-    parts.push(rect(x, top, cardW, cardH, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"`));
+    parts.push(rect(x, top, cardW, cardH, c.surface, c.border, 1.4, 12, ` data-scene-node="${esc(node.id)}"${sourceAttrs(node)}`));
     parts.push(text(x + 28, top + 38, 15, c.secondary, wrap(node.title, cardW - 56, 15, 1), 650));
     parts.push(text(x + 28, top + 96, 36, tone(node.status), [node.value || cleanTitle(node.title, 16)], 800));
     if (node.note && node.note !== node.value) parts.push(text(x + 28, top + 140, 14, c.secondary, wrap(node.note, cardW - 56, 14, 1), 500));
@@ -366,11 +370,11 @@ function renderOperatingDashboard(startY) {
     const barW = leftW - 330;
     if (progressMetrics.length) {
       const value = Math.max(0, Math.min(100, node.numericValue));
-      parts.push(rect(barX, y - 17, barW, 16, c.muted, "none", 0, 8, ` data-scene-node="${esc(node.id)}"`));
+      parts.push(rect(barX, y - 17, barW, 16, c.muted, "none", 0, 8, ` data-scene-node="${esc(node.id)}"${sourceAttrs(node)}`));
       parts.push(rect(barX, y - 17, barW * value / 100, 16, c.accent, "none", 0, 8));
       parts.push(text(M + leftW - 62, y, 15, c.secondary, [node.value], 700));
     } else {
-      parts.push(line(barX, y - 8, M + leftW - 88, y - 8, c.border, 1.5, ` data-scene-node="${esc(node.id)}"`));
+      parts.push(line(barX, y - 8, M + leftW - 88, y - 8, c.border, 1.5, ` data-scene-node="${esc(node.id)}"${sourceAttrs(node)}`));
       parts.push(text(M + leftW - 62, y, 17, tone(node.status), [node.value || "定性"], 750));
     }
   });
@@ -380,7 +384,7 @@ function renderOperatingDashboard(startY) {
   support.slice(0, 4).forEach((node, index) => {
     const y = lowerY + 68 + index * 56;
     const color = node.kind === "risk" ? c.risk : node.kind === "action" ? c.success : c.accent;
-    parts.push(rect(rightX + 28, y, rightW - 56, 48, c.muted, c.border, 1, 8, ` data-scene-node="${esc(node.id)}"`));
+    parts.push(rect(rightX + 28, y, rightW - 56, 48, c.muted, c.border, 1, 8, ` data-scene-node="${esc(node.id)}"${sourceAttrs(node)}`));
     parts.push(`<circle cx="${rightX + 48}" cy="${y + 18}" r="6" fill="${color}"/>`);
     parts.push(text(rightX + 66, y + 23, 15, c.ink, wrap(node.title, rightW - 110, 15, 1), 650));
     if (node.note) parts.push(text(rightX + 66, y + 41, 12, c.secondary, wrap(node.note, rightW - 110, 12, 1), 500));
@@ -401,7 +405,7 @@ const renderers = {
 const scene = renderers[plan.scene](startY);
 const minimumHeight = plan.scene === "evidence-argument" ? Math.ceil(WIDTH / 2.15) : 1160;
 const height = Math.max(minimumHeight, Math.ceil(scene.bottom + 92));
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v5" data-pipeline-version="5.0-alpha.2" data-scene="${esc(plan.scene)}" data-content-bottom="${Math.ceil(scene.bottom)}">
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}" data-layout-engine="v5" data-pipeline-version="5.0-beta.1" data-scene="${esc(plan.scene)}" data-content-bottom="${Math.ceil(scene.bottom)}">
 <rect x="0" y="0" width="${WIDTH}" height="${height}" fill="${c.canvas}"/>
 ${head.svg}
 ${scene.svg}

@@ -2,151 +2,95 @@
 name: structured-feishu-whiteboard
 description: >
   Turn reports, plans, webpages, Feishu docs, meeting notes, or free text into a
-  structured, editable Feishu/Lark whiteboard for onepage reporting, decisions,
-  plans, capabilities, comparisons, dashboards, and workflows.
+  structured, editable Feishu/Lark onepage whiteboard with automatic information
+  analysis, composition, visual design, verification, and document delivery.
 ---
 
 # Structured Feishu Whiteboard
 
-把材料转成结构清晰、信息完整、可编辑的飞书画板。当前正式生产链路是 **V4.4 semantic compiler**：Agent 负责提取事实，脚本负责场景判断、表达规划、页面构图、SVG 渲染和质量检查。
+把用户材料转换为信息完整、排版清晰、具有设计感的可编辑飞书画板。
 
-## V5 实验链路
+用户只需要提供材料和目标。默认不要询问版本、渲染器、模板、画布比例或组件类型；这些属于 Skill 的内部专业判断。只有用户明确指定风格或表达方式时，才把它当作约束。
 
-V5 是独立 Alpha，不是正式生产入口。它在语义模型和视觉组件之间增加“场景拓扑”层，用材料中的归属、顺序、责任和闭环关系决定空间构图，而不是继续增加卡片模板。
+## 唯一生产流程
 
-Alpha.2 支持六种高置信场景：
-
-- `layered-architecture`：分层架构。
-- `swimlane-process`：跨角色泳道流程。
-- `flywheel-loop`：显式反馈闭环。
-- `decision-comparison`：多方案、多标准的决策对比。
-- `evidence-argument`：中心论点与证据/归因关系。
-- `operating-dashboard`：包含量化指标、趋势和风险行动的经营概览。
-
-实验运行方式：
+1. 获取完整材料。飞书文档、网页、本地文件分别使用对应读取能力。
+2. 保存原文快照，按 `references/inventory-extraction-contract.md` 和 `schemas/content-inventory.schema.json` 提取可追溯事实清单。
+3. 执行唯一入口：
 
 ```bash
-node scripts/run-whiteboard-v5.mjs --source <raw-source.md> --inventory <inventory.json> --title <画板标题> --output-dir <output-dir>
+node scripts/run-structured-whiteboard.mjs \
+  --source <raw-source.md> \
+  --inventory <inventory.json> \
+  --output-dir <output-dir>
 ```
 
-只有 `run-manifest.json` 的 `pipeline` 为 `v5-scene-alpha` 且 `status` 为 `passed`，才能称为 V5 Alpha 通过。正式实验同样必须经过原文快照、事实清单和抽取覆盖审计；直接输入 semantic model 仅允许测试夹具。场景置信度低、与第二候选差值不足、或关键与中重要度事实无法被当前空间语法承载时，运行器会自动调用 V4.4 稳定链路，并将状态记录为 `fallback-passed` 或 `fallback-rendered-unverified`；不能为了使用新构图而删减内容。详见 `references/v5-scene-grammar.md`。
+4. 入口会自动完成：
+   - 原文覆盖审计。
+   - 事实与关系模型编译。
+   - 场景和设计意图识别。
+   - 生成多个候选构图。
+   - 检查信息覆盖、页面比例、留白、密度、对齐和数据表达。
+   - 淘汰不合格方案，只保留评分最高的结果。
+5. 只有 `run-manifest.json` 的 `pipeline` 为 `structured-whiteboard` 且 `status` 为 `passed`，才允许写入飞书。
+6. 使用 `lark-doc` 新建文档，使用 `lark-whiteboard` 将最终 SVG 写入可编辑画板，导出飞书侧预览并返回文档链接。
 
-## 唯一生产入口
+## 内部设计原则
 
-生成正式画板时必须执行：
+- **先理解，再构图**：先识别结论、事实、指标、关系、风险和行动，再决定画面结构。
+- **完整但不机械**：关键、高和中重要度事实都必须有可见载体；不要求固定出现“证据、风险、行动”三件套。
+- **关系优先**：存在明确层级、顺序、责任、闭环、比较或论证关系时，优先使用空间拓扑，不退化成文字卡片堆叠。
+- **数据优先**：存在两个以上有业务含义的数字时，至少评估一种指标、进度、趋势、排名或差异表达。
+- **一页平衡**：通过横纵组合、分栏、网格和组件变化扩容，不通过无限向下拉长画布或缩小字号解决容量。
+- **候选竞争**：同一材料内部生成不同叙事与构图候选，以信息覆盖、构图平衡、视觉密度和表达多样性共同评分。
+- **失败关闭**：所有候选都不合格时直接失败并保留报告，不把技术上能打开但视觉失败的图交付。
 
-```bash
-node scripts/run-whiteboard-v44.mjs --source <raw-source.md> --input <inventory.json> --output-dir <output-dir>
-```
+## 自动判断范围
 
-禁止：
+Skill 自动识别以下语义，不向用户暴露选择过程：
 
-- 直接手写 SVG 或飞书 DSL。
-- 直接调用旧渲染器拼接正式产物。
-- 由 Agent 自由选择 V3、V4.3 或 V4.4。
-- 跳过 `run-manifest.json`、几何检查或预览检查后声称交付完成。
-- 将 fallback 结果标记为 V4.4 通过。
+- 阶段复盘与汇报。
+- 策略与方案。
+- 项目计划。
+- 研究与选型。
+- 产品与能力。
+- 流程与协作。
 
-旧版本代码只用于历史回归和内部排障，不再构成 Skill 的并行使用说明。
+可使用的表达包括指标卡、趋势、进度、差异桥、对比矩阵、路线、流程、泳道、分层架构、论证关系、闭环和混合 onepage。组件是表达工具，不是固定模板槽位。
 
-## 固定流程
+## 质量门槛
 
-1. 获取用户材料。飞书文档、网页和本地文件由对应工具读取。
-2. 将完整原材料保存为不可删减的 source snapshot。先读取 `references/inventory-extraction-contract.md`，再按 `schemas/content-inventory.schema.json` 生成事实清单。清单必须包含可追溯的 `sourceRef`；每条正式事实必须有 ID、类型、重要度、原始语义和可在 source snapshot 中定位的 `sourceQuote`。
-3. 运行唯一生产入口。脚本会依次生成：
-   - `source-audit.json`
-   - `semantic-model.json`
-   - `expression-plans.json`
-   - `decision.json`
-   - `brief.json`
-   - `whiteboard.svg`
-   - `whiteboard.png`
-   - `run-manifest.json`
-4. 只有 manifest 的 `pipeline` 为 `v4.4` 且 `status` 为 `passed`，才可以写入飞书并交付。
-5. 新建飞书文档，插入可编辑画板，返回文档链接和预览图。
+正式结果必须同时满足：
 
-仓库中的现成 inventory 只用于回归测试。处理真实材料时，不能跳过原始材料到事实清单的提取与校验步骤。
+- 原文事实可追溯，重要信息没有被静默删减。
+- 文本无出框、压线、重叠、裁切、孤立标点和无意义空白副行。
+- 同排元素对齐，页面无孤立窄块、空洞、头重脚轻和连续稀疏全宽模块。
+- Onepage 默认宽高比保持在适合整体阅读的范围，长文优先重新组合而不是纵向堆叠。
+- 有数字时使用合适的数据表达；颜色含义在同一组中一致。
+- 飞书侧画板非空白、可打开、主要元素可编辑。
+- 最终预览经过整体阅读检查，而不只是工具通过。
 
-## 内容原则
+详细规范：
 
-- 先保留关键结论、指标、证据、风险、约束和行动，再决定表达形式。
-- 不要求每张图固定出现“证据、风险、行动”。它们可以独立、合并、嵌入或不出现，取决于材料。
-- 不为凑齐模块虚构内容，不用同义句填充副信息。
-- 指标必须保留业务含义、数值和单位；禁止标题删掉数字后留下残句。
-- 相同事实不得在标题、正文和标签中机械重复。
-- 长文通过构图和组件组合扩容，不通过无限向下拉长画布或缩小字号解决。
-- 原文覆盖与画面覆盖是两道独立门槛：事实清单过薄时直接失败，不能用“已画出清单中的全部事实”冒充原文完整。
-
-## 场景语义
-
-V4.4 识别六类场景：
-
-- 阶段复盘与汇报
-- 策略与方案
-- 项目计划
-- 研究与选型
-- 产品与能力
-- 流程与协作
-
-复盘与阶段汇报优先投入，但其他场景必须使用同一生产链路和质量门槛。
-
-## 受控表达
-
-Agent 不选择坐标，只提交事实。语义规划器根据证据选择：
-
-- 核心判断
-- 指标卡
-- 进度或排名条
-- 趋势图
-- 状态板
-- 能力系统图（能力矩阵或“使用链路 + 能力支撑”复合场景）
-- 路线或链路
-- 证据块
-- 风险块
-- 行动块
-- 对比矩阵
-- 差异桥
-- 流程图
-
-组件必须满足语义资格条件。颜色只表达语义：主色用于普通信息，绿色只用于明确成功，棕红色只用于风险或警告。
-
-## OnePage 构图门槛
-
-- 默认宽度 2200；正式 onepage 宽高比必须在 `1.42–2.15`。
-- 核心判断之后优先保持 2 个主体信息层，复杂骨架最多 3 层。
-- 不允许连续两个稀疏全宽模块。
-- 不允许孤立窄卡、底部悬空、头重脚轻或无意义大留白。
-- 同排组件必须对齐；短组件不能被机械拉高制造空框。
-- 页面必须有明确主次，不能全部退化成浅色描边卡片和文字列表。
-- 有明确数字时必须优先评估数据组件，不得全部改写成普通正文。
-
-详细规则见：
-
-- `references/deterministic-rendering.md`
 - `references/inventory-extraction-contract.md`
-- `references/semantic-routing-v44.md`
+- `references/deterministic-rendering.md`
 - `references/expression-grammar.md`
 - `references/scene-grammar.md`
 - `references/style-library.md`
 - `references/quality-checklist.md`
 
-## 交付门槛
+## 禁止事项
 
-正式交付必须同时满足：
-
-- 关键、高重要度和中重要度事实均有可见载体；不能以“延后到详情”静默省略。
-- SVG 包含 `data-layout-engine="v4"`、`data-pipeline-version="4.4"` 和 `data-page-skeleton`。
-- 文本无出框、压线、重叠、裁切和孤立标点。
-- 页面比例、主体层数、底部平衡和颜色语义通过自动检查。
-- PNG 预览非空白，并经过人工整体阅读检查。
-- 飞书侧画板非空白、可打开、主要元素可编辑。
-
-如果任一条件失败，继续修复；不要把技术上能打开但视觉失败的图交给用户。
+- 不允许 Agent 手写正式 SVG 或自由拼接飞书 DSL。
+- 不允许 Agent 选择历史版本、旧 runner 或 fallback。
+- 不允许跳过原文审计、候选评估、SVG 检查和飞书侧预览。
+- 不允许为了凑齐模块虚构副信息或重复同一句话。
+- 不允许把旧示例、fixture 或历史测试产物当成生产输入。
 
 ## 输出
 
 - 飞书文档链接。
 - 文档内可编辑画板。
-- 预览图。
-- 简短说明采用的场景、页面骨架和主要信息取舍。
-- `run-manifest.json` 作为跨 Agent 复现依据。
+- 飞书侧预览图。
+- 一句说明本次识别出的信息组织方式。
+- `run-manifest.json`，用于跨 Agent 复现和失败排查。

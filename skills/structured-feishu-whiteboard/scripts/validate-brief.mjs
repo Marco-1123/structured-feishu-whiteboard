@@ -546,7 +546,7 @@ try {
 }
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const capabilityRegistry = loadCapabilities(root);
+const capabilityRegistry = loadCapabilities(root, { includeArchived: true });
 try {
   assertCapability(capabilityRegistry, brief);
 } catch (error) {

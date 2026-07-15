@@ -228,4 +228,38 @@ const reviewTree = buildAdaptiveExpressionLayout({
 assert.deepEqual(reviewTree.nodes.map((node) => node.span), [8, 4], "stage reviews must place the primary roadmap and side status in one row");
 assert.equal(reviewTree.rowCount, 1, "stage reviews must not stack two sparse full-width modules");
 
+const metricFirstTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "evidence-list", id: "support", items: [{ label: "真实试点验证" }, { label: "稳定运行" }] },
+    { type: "metric-card", id: "primary-metric", title: "效率提升", value: "+18%" },
+    { type: "risk-list", id: "risk", items: [{ label: "权限边界" }] },
+  ],
+  mode: "dashboard-onepage",
+  pageSkeleton: "overview-detail",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.equal(metricFirstTree.nodes[0].id, "primary-metric", "the primary metric must enter the first information band instead of becoming a trailing orphan");
+assert.equal(metricFirstTree.nodes[0].row, metricFirstTree.nodes[1].row, "a single metric must pair with compatible supporting content when available");
+assert.notEqual(metricFirstTree.nodes[0].profile.itemLayout, "metric-strip", "a metric with a valid row companion must not be stretched into an empty full-width strip");
+
+const metricStatusTree = buildAdaptiveExpressionLayout({
+  blocks: [
+    { type: "metric-card", id: "metric", title: "结构化工作流使用", value: "19x" },
+    { type: "status-board", id: "three-status", items: [{ label: "行业增长" }, { label: "治理约束" }, { label: "后续机制" }] },
+  ],
+  mode: "dashboard-onepage",
+  pageSkeleton: "left-right-argument",
+  x: 96,
+  startY: 300,
+  width: 2008,
+  gap: 32,
+  measure: () => ({ height: 180 }),
+});
+assert.deepEqual(metricStatusTree.nodes.map((node) => node.span), [4, 8], "one metric and three supporting facts must form a meaningful 4/8 information band");
+assert.equal(metricStatusTree.rowCount, 1, "metric context must stay beside the metric instead of creating two empty strips");
+
 console.log("ok: V4.4 layout tree tests passed");

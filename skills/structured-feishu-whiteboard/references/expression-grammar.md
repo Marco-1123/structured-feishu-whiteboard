@@ -66,4 +66,4 @@
 - 所有关系都退化成白色描边卡片和文字列表。
 - 指标标题因删数字形成残句，或标题、正文和标签重复同一句话。
 - 文字出框、压线、重叠、裁切或字号过小。
-- manifest 不是 `pipeline: v4.4` 且 `status: passed`。
+- manifest 不是 `pipeline: structured-whiteboard` 且 `status: passed`。

@@ -22,31 +22,31 @@
 <line x1="738" y1="819" x2="778" y2="819" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round" data-flow-edge="check-&gt;deliver" data-from="check" data-to="deliver" data-start="738,819" data-end="778,819" data-edge-label="通过"/>
 <line x1="778" y1="819" x2="766" y2="810" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/><line x1="778" y1="819" x2="766" y2="828" stroke="#5E6AD2" stroke-width="3" stroke-linecap="round"/>
 <text x="758" y="802" font-size="15" fill="#5F6B7A" font-weight="700" data-flow-edge-label="通过"><tspan x="758" dy="0">通过</tspan></text>
-<rect x="96" y="394" width="642" height="214" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="goal" data-node-x="96" data-node-y="394" data-node-width="642" data-node-height="214" data-node-type="start"/>
+<rect x="96" y="394" width="642" height="214" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="goal" data-node-x="96" data-node-y="394" data-node-width="642" data-node-height="214" data-node-type="start" data-source-fact-ids=""/>
 <rect x="118" y="416" width="8" height="170" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <rect x="142" y="416" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="160" y="437" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="160" dy="0">开始</tspan></text>
 <text x="142" y="478" font-size="24" fill="#111827" font-weight="700"><tspan x="142" dy="0">目标输入</tspan></text>
 <text x="142" y="510" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="142" dy="0">明确任务边界</tspan><tspan x="142" dy="24">补齐约束条件</tspan></text>
-<rect x="778" y="394" width="642" height="214" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="plan" data-node-x="778" data-node-y="394" data-node-width="642" data-node-height="214" data-node-type="action"/>
+<rect x="778" y="394" width="642" height="214" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="plan" data-node-x="778" data-node-y="394" data-node-width="642" data-node-height="214" data-node-type="action" data-source-fact-ids=""/>
 <rect x="800" y="416" width="8" height="170" rx="4" fill="#5E6AD2" stroke="#5E6AD2" stroke-width="1"/>
 <rect x="824" y="416" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="842" y="437" font-size="15" fill="#5E6AD2" font-weight="700"><tspan x="842" dy="0">动作</tspan></text>
 <text x="824" y="478" font-size="24" fill="#111827" font-weight="700"><tspan x="824" dy="0">计划拆解</tspan></text>
 <text x="824" y="510" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="824" dy="0">判断版式与容量</tspan><tspan x="824" dy="24">生成执行路径</tspan></text>
-<rect x="1460" y="394" width="642" height="214" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="render" data-node-x="1460" data-node-y="394" data-node-width="642" data-node-height="214" data-node-type="system"/>
+<rect x="1460" y="394" width="642" height="214" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="render" data-node-x="1460" data-node-y="394" data-node-width="642" data-node-height="214" data-node-type="system" data-source-fact-ids=""/>
 <rect x="1482" y="416" width="8" height="170" rx="4" fill="#5F6B7A" stroke="#5F6B7A" stroke-width="1"/>
 <rect x="1506" y="416" width="86" height="30" rx="8" fill="#F1F3F6" stroke="#D8DEE8" stroke-width="1"/>
 <text x="1524" y="437" font-size="15" fill="#5F6B7A" font-weight="700"><tspan x="1524" dy="0">系统</tspan></text>
 <text x="1506" y="478" font-size="24" fill="#111827" font-weight="700"><tspan x="1506" dy="0">确定渲染</tspan></text>
 <text x="1506" y="510" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="1506" dy="0">生成 JSON brief</tspan><tspan x="1506" dy="24">调用稳定渲染器</tspan></text>
-<rect x="96" y="712" width="642" height="214" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="check" data-node-x="96" data-node-y="712" data-node-width="642" data-node-height="214" data-node-type="decision"/>
+<rect x="96" y="712" width="642" height="214" rx="14" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="check" data-node-x="96" data-node-y="712" data-node-width="642" data-node-height="214" data-node-type="decision" data-source-fact-ids=""/>
 <rect x="118" y="734" width="8" height="170" rx="4" fill="#8A5A44" stroke="#8A5A44" stroke-width="1"/>
 <rect x="142" y="734" width="86" height="30" rx="8" fill="#FFF7ED" stroke="#D8DEE8" stroke-width="1"/>
 <text x="160" y="755" font-size="15" fill="#8A5A44" font-weight="700"><tspan x="160" dy="0">判断</tspan></text>
 <text x="142" y="796" font-size="24" fill="#111827" font-weight="700"><tspan x="142" dy="0">质量检查</tspan></text>
 <text x="142" y="828" font-size="17" fill="#5F6B7A" font-weight="500"><tspan x="142" dy="0">检查溢出重叠</tspan><tspan x="142" dy="24">确认箭头连接</tspan></text>
-<rect x="778" y="712" width="642" height="214" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="deliver" data-node-x="778" data-node-y="712" data-node-width="642" data-node-height="214" data-node-type="result"/>
+<rect x="778" y="712" width="642" height="214" rx="24" fill="#FFFFFF" stroke="#D8DEE8" stroke-width="1.5" data-flow-node="deliver" data-node-x="778" data-node-y="712" data-node-width="642" data-node-height="214" data-node-type="result" data-source-fact-ids=""/>
 <rect x="800" y="734" width="8" height="170" rx="4" fill="#16A085" stroke="#16A085" stroke-width="1"/>
 <rect x="824" y="734" width="86" height="30" rx="8" fill="#ECFDF5" stroke="#D8DEE8" stroke-width="1"/>
 <text x="842" y="755" font-size="15" fill="#16A085" font-weight="700"><tspan x="842" dy="0">结果</tspan></text>

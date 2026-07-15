@@ -42,6 +42,7 @@ export function analyzeSource(sourceText) {
     paragraphCount: paragraphs.length,
     sentenceCount: sentences.length,
     numericSignals: numericSignals(normalized),
+    sections: paragraphs.filter((part) => part.length >= 20),
   };
 }
 
@@ -64,6 +65,19 @@ export function auditSourceExtraction({ sourceText, inventory }) {
   const importantFacts = facts.filter((fact) => ["critical", "high"].includes(fact.importance));
   const requiredQuotedImportant = Math.min(requiredImportant, importantFacts.length);
   const quotedImportant = importantFacts.filter((fact) => String(fact.sourceQuote || "").trim() && normalizedSource.includes(normalizedText(fact.sourceQuote))).length;
+  const coveredSections = source.sections.filter((section) => validQuotedFacts.some((fact) => {
+    const quote = normalizedText(fact.sourceQuote);
+    return quote && (section.includes(quote) || quote.includes(section));
+  }));
+  const sectionRecall = source.sections.length ? coveredSections.length / source.sections.length : 1;
+  const cueRules = [
+    { id: "risk", pattern: /风险|约束|阻塞|问题|挑战|隐患|不确定/, factTypes: new Set(["risk", "constraint"]) },
+    { id: "action", pattern: /下一步|后续|行动|计划|建议|推进|落地|待办/, factTypes: new Set(["action", "timeline", "process"]) },
+    { id: "comparison", pattern: /对比|比较|方案[AB一二三]|选型|取舍|优劣/, factTypes: new Set(["comparison"]) },
+    { id: "process", pattern: /流程|链路|步骤|阶段|先.+再|输入.+输出/, factTypes: new Set(["process", "timeline"]) },
+  ];
+  const detectedCues = cueRules.filter((rule) => rule.pattern.test(normalizedSource));
+  const missingCueTypes = detectedCues.filter((rule) => !facts.some((fact) => rule.factTypes.has(fact.type))).map((rule) => rule.id);
   const issues = [];
 
   if (!source.characterCount) issues.push("source snapshot is empty");
@@ -73,6 +87,8 @@ export function auditSourceExtraction({ sourceText, inventory }) {
   if (validQuotedFacts.length < facts.length) issues.push(`source traceability is incomplete: ${validQuotedFacts.length}/${facts.length} facts have a sourceQuote found in the raw source`);
   if (quotedImportant < requiredQuotedImportant) issues.push(`important source traceability is incomplete: ${quotedImportant}/${importantFacts.length} critical/high facts have a valid sourceQuote; require at least ${requiredQuotedImportant}`);
   if (recalledNumbers.length < requiredNumericRecall) issues.push(`numeric evidence recall is too low: ${recalledNumbers.length}/${sourceNumbers.length} source signals captured; require at least ${requiredNumericRecall}`);
+  if (source.sections.length >= 4 && sectionRecall < 0.65) issues.push(`source section recall is too low: ${coveredSections.length}/${source.sections.length} meaningful sections represented`);
+  if (source.characterCount >= 280 && missingCueTypes.length) issues.push(`semantic cue recall is incomplete: missing ${missingCueTypes.join(", ")} facts`);
 
   return {
     ok: issues.length === 0,
@@ -86,6 +102,10 @@ export function auditSourceExtraction({ sourceText, inventory }) {
       validQuotedFactCount: validQuotedFacts.length,
       validQuotedImportantFactCount: quotedImportant,
       capturedNumericSignals: [...capturedNumbers],
+      coveredSectionCount: coveredSections.length,
+      sectionRecall,
+      detectedSemanticCues: detectedCues.map((rule) => rule.id),
+      missingSemanticCues: missingCueTypes,
     },
     thresholds: { requiredFacts, requiredTypes, requiredImportant, requiredQuotedImportant, requiredNumericRecall },
     recalledNumericSignals: recalledNumbers,

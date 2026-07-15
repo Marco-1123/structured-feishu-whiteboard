@@ -1,10 +1,10 @@
-# V4.4 Quality Checklist
+# Production Quality Checklist
 
 ## 生产链路
 
-- 只使用 `scripts/run-whiteboard-v44.mjs`。
-- manifest 必须为 `pipeline: v4.4`、`status: passed`。
-- SVG 必须包含 `data-layout-engine="v4"`、`data-pipeline-version="4.4"` 和 `data-page-skeleton`。
+- 只使用 `scripts/run-structured-whiteboard.mjs`。
+- manifest 必须为 `pipeline: structured-whiteboard`、`status: passed`。
+- SVG 必须包含布局引擎、页面骨架和实际可见事实标记。
 - 旧渲染器和旧版本说明只用于历史回归，不能作为外部 Agent 的备选生产入口。
 
 ## 内容

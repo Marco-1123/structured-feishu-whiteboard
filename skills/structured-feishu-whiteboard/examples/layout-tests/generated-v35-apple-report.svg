@@ -74,43 +74,43 @@
 <text x="1522" y="788" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1522" dy="0">身份权限</tspan></text>
 <rect x="1681" y="764" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
 <text x="1695" y="784" font-size="15" fill="#007AFF" font-weight="700"><tspan x="1695" dy="0">正常</tspan></text>
-<text x="1522" y="822" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1522" dy="0">边界清晰</tspan></text>
+<text x="1522" y="814" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1522" dy="0">边界清晰</tspan></text>
 <rect x="1787" y="746" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1803" y="764" width="10" height="44" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
 <text x="1829" y="788" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1829" dy="0">知识口径</tspan></text>
 <rect x="1988" y="764" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
 <text x="2002" y="784" font-size="15" fill="#007AFF" font-weight="700"><tspan x="2002" dy="0">关注</tspan></text>
-<text x="1829" y="822" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1829" dy="0">部分定义不一</tspan></text>
+<text x="1829" y="814" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1829" dy="0">部分定义不一</tspan></text>
 <rect x="1480" y="840" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1496" y="858" width="10" height="44" rx="5" fill="#7D6258" stroke="#7D6258" stroke-width="1"/>
 <text x="1522" y="882" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1522" dy="0">风险升级</tspan></text>
 <rect x="1681" y="858" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
 <text x="1695" y="878" font-size="15" fill="#7D6258" font-weight="700"><tspan x="1695" dy="0">待处理</tspan></text>
-<text x="1522" y="916" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1522" dy="0">审批链需补齐</tspan></text>
+<text x="1522" y="908" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1522" dy="0">审批链需补齐</tspan></text>
 <rect x="1787" y="840" width="293" height="80" rx="12" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1803" y="858" width="10" height="44" rx="5" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
 <text x="1829" y="882" font-size="19" fill="#1D1D1F" font-weight="700"><tspan x="1829" dy="0">复盘节奏</tspan></text>
 <rect x="1988" y="858" width="76" height="28" rx="8" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1"/>
 <text x="2002" y="878" font-size="15" fill="#007AFF" font-weight="700"><tspan x="2002" dy="0">正常</tspan></text>
-<text x="1829" y="916" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1829" dy="0">周会已固定</tspan></text>
+<text x="1829" y="908" font-size="16" fill="#6E6E73" font-weight="400"><tspan x="1829" dy="0">周会已固定</tspan></text>
 <rect x="92" y="990" width="2016" height="170" rx="24" fill="#FFFFFF" stroke="#D2D2D7" stroke-width="1.5"/>
 <text x="120" y="1038" font-size="24" fill="#1D1D1F" font-weight="700"><tspan x="120" dy="0">下一步行动</tspan></text>
 <text x="120" y="1072" font-size="17" fill="#6E6E73" font-weight="400"><tspan x="120" dy="0">两周内完成团队试点</tspan></text>
 <rect x="120" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="120" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="138" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="138" dy="0">补齐权限边界</tspan></text>
+<text x="138" y="1110" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="138" dy="0">补齐权限边界</tspan></text>
 
 <rect x="613" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="613" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="631" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="631" dy="0">固化上下文模板</tspan></text>
+<text x="631" y="1110" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="631" dy="0">固化上下文模板</tspan></text>
 
 <rect x="1106" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1106" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1124" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1124" dy="0">建立复盘节奏</tspan></text>
+<text x="1124" y="1110" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1124" dy="0">建立复盘节奏</tspan></text>
 
 <rect x="1599" y="1090" width="479" height="54" rx="10" fill="#F2F2F7" stroke="#D2D2D7" stroke-width="1.2"/>
 <rect x="1599" y="1090" width="6" height="54" rx="3" fill="#007AFF" stroke="#007AFF" stroke-width="1"/>
-<text x="1617" y="1119" font-size="17" fill="#1D1D1F" font-weight="700"><tspan x="1617" dy="0">输出试点报告</tspan></text>
+<text x="1617" y="1110" font-size="15" fill="#1D1D1F" font-weight="700"><tspan x="1617" dy="0">输出试点报告</tspan></text>
 
 <text x="92" y="1214" font-size="22" fill="#6E6E73" font-weight="400"><tspan x="92" dy="0">适合产品介绍、能力总览和高质量一页汇报。</tspan></text>
 </svg>
